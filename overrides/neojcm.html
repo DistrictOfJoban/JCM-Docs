@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block styles %}
+  {{ super() }}
+  <style>
+    .md-main .md-grid {
+      max-width: 1280px;
+    }
+
+    .background {
+      z-index: -1;
+      opacity: 0.2;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url(/assets/img/neojcm.png);
+      background-size: cover;
+      background-attachment: fixed;
+      filter: blur(6px);
+      overflow: hidden;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <div class="background"></div>
+  {{ super() }}
+{% endblock %}

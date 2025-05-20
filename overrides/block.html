@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block styles %}
+  {{ super() }}
+
+  <style>
+    .jcm-infobox {
+        border: 1px solid #aaa;
+        float: right;
+        margin: 0 0 1rem 1rem;
+        padding: .75rem;
+        border-radius: .3rem;
+        max-width: 14rem;
+    }
+    .jcm-infobox .title {
+        font-size: 1.15rem;
+        text-align: center;
+        margin: auto;
+        max-width: 16rem;
+    }
+    .jcm-infobox .image {
+        margin: auto;
+        text-align: center;
+    }
+    .jcm-infobox .imgdesc {
+        font-size: 0.6rem;
+        text-align: center;
+        color: gray;
+    }
+    .jcm-infobox .category {
+        text-align: center;
+        background-color: rgba(128, 128, 128, 0.25);
+        font-weight: 500;
+        border-radius: .15rem;
+        width: 100%;
+    }
+    .md-typeset .jcm-infobox table {
+        border: none;
+        display: table;
+        table-layout: fixed;
+    }
+    .jcm-infobox .md-typeset__scrollwrap {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .jcm-infobox th {
+        font-size: 14px;
+        text-align: left;
+        vertical-align: top;
+        width: 90px;
+    }
+    
+    .jcm-infobox td {
+        font-size: 14px;
+        vertical-align: top;
+        border: none !important;
+        padding: 0.2rem 0.3rem !important;
+    }
+
+    .jcm-infobox td:nth-child(1) {
+        font-weight: 500;
+        width: 35%;
+    }
+
+    .jcm-infobox table {
+        margin-top: 0px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .jcm-infobox {
+        float: none;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+      }
+    }
+  </style>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<div class="jcm-infobox">
+  <h2 class="title">{{ page.title }}</h2>
+  <div class="infobox image"><img src="../previews/{{ page.meta.image }}" width="200"></div>
+  {% if page.meta.image_desc is not none %}
+    <p class="imgdesc">{{ page.meta.image_desc }}</p>
+  {% endif %}
+
+  <div class="category">
+    General
+  </div>
+
+  <table>
+    <tr>
+      <td>Block ID</td>
+      <td>
+        {% for block in page.meta.block_ids %}
+          {{ block }}<br>
+        {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td>Item Group</td>
+      <td>
+        {{ page.meta.item_group }}
+      </td>
+    </tr>
+    <tr>
+      <td>Light Level</td>
+      <td>
+        {{ page.meta.light_level }}
+      </td>
+    </tr>
+  </table>
+  <div class="category">
+    Other Information
+  </div>
+
+  <table>
+    <tr>
+      <td>Added in</td>
+      <td>
+        {{ page.meta.since }}
+      </td>
+    </tr>
+    <tr>
+      <td>Created by</td>
+      <td>
+        {{ page.meta.creator }}
+      </td>
+    </tr>
+    {% if page.meta.assets_creator %}
+      <tr>
+        <td>Assets by</td>
+        <td>
+          {{ page.meta.assets_creator }}
+        </td>
+      </tr>
+    {% endif %}
+  </table>
+</div>
+
+{{ super() }}
+{% endblock %}

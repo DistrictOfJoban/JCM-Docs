@@ -1,0 +1,191 @@
+site_name: Joban Client Mod
+repo_name: Joban-Client-Mod
+repo_url: https://github.com/DistrictOfJoban/Joban-Client-Mod
+copyright: Built with ♥️ by LX86
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/favicon.png
+  custom_dir: overrides
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      primary: teal
+      toggle:
+        icon: octicons/moon-16
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      toggle:
+        icon: octicons/sun-16
+        name: Switch to light mode
+  features:
+    - navigation.top
+    - navigation.tabs
+    - navigation.indexes
+    - content.code.copy
+    - content.code.annotate
+extra:
+  social:
+    - icon: fontawesome/brands/discord
+      name: Join The District of Joban's Discord Server
+      link: https://joban.org/dc
+    - icon: fontawesome/brands/github
+      name: The District of Joban GitHub
+      link: https://github.com/DistrictOfJoban
+extra_css:
+  - stylesheets/custom-color.css
+  - stylesheets/custom-layout.css
+plugins:
+  - privacy
+  - search
+  - blog
+  - meta
+markdown_extensions:
+  - attr_list
+  - admonition
+  - footnotes
+  - toc:
+        permalink: '#'
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+nav:
+    - Home: index.md
+    - For Players:
+      - Introduction:
+        - players/index.md
+        - Download & Install: players/download.md
+      - Features:
+        - Tunnel Wall (Rail Model): players/features/tunnel.md
+        - JCM PIDS: players/features/jcm-pids.md
+      - Blocks:
+        - players/blocks/index.md
+        - Automatic Iron Door: players/blocks/auto_iron_door.md
+        - Buffer Stop: players/blocks/buffer_stop.md
+        - Butterfly Light: players/blocks/butterfly_light.md
+        - Ceiling (45°): players/blocks/ceiling_45.md
+        - Circle Walls: players/blocks/circle_walls.md
+        - Departure Pole: players/blocks/departure_pole.md
+        - Departure Timer: players/blocks/departure_timer.md
+        - Disneyland Resorts Line APG: players/blocks/drl_apg.md
+        - Emergency stop button (TCL): players/blocks/tcl_emg_stop_button.md
+        - Emergency stop button (TML): players/blocks/tml_emg_stop_button.md
+        - Emergency stop button (SIL): players/blocks/sil_emg_stop_button.md
+        - Enquiry Machine: players/blocks/mtr_enquiry_machine.md
+        - Railway Vision Enquiry Machine: players/blocks/rv_enquiry_machine.md
+        - Enquiry Machine (Wall-mounted): players/blocks/mtr_enquiry_machine_wall.md
+        - KCR Enquiry Machine (Wall-mounted): players/blocks/kcr_enquiry_machine.md
+        - Exit Signs: players/blocks/exit_signs.md
+        - Fare Saver: players/blocks/fare_saver.md
+        - Fire Alarm: players/block/fire_alarm.md
+        - Helpline (With Sticker): players/blocks/helpline_1.md
+        - Helpline: players/blocks/helpline_2.md
+        - Helpline (East Rail Line Type): players/blocks/helpline_standing_eal.md
+        - Helpline (Standing): players/blocks/helpline_standing.md
+        - LRT Inter-Car Barriers: players/blocks/lrt_inter_car_barriers.md
+        - KCR Station Name Signs: players/blocks/kcr_station_name_signs.md
+        - KCR Emergency Stop Sign: players/blocks/kcr_emg_stop_sign.md
+        - Light Lantern: players/blocks/light_lantern.md
+        - Spot Lamp: players/blocks/spot_lamp.md
+        - Light Source Block: players/blocks/light_source_block.md
+        - MTR Stairs: players/blocks/mtr_stairs.md
+        - Operator Button: players/blocks/operator_button.md
+        - PIDS 1A: players/blocks/pids_1a.md
+        - Old Tsueng Kwan O PIDS: players/blocks/lcd_pids.md
+        - Railway Vision PIDS: players/blocks/rv_pids.md
+        - Railway Vision PIDS (SIL 1): players/blocks/rv_pids_sil_1.md
+        - Railway Vision PIDS (SIL 2): players/blocks/rv_pids_sil_2.md
+        - Railway Vision PIDS Pole: players/blocks/rv_pids_pole.md
+        - PIDS Projector: players/blocks/pids_projector.md
+        - Station Ceilings (2009): players/blocks/station_ceilings_wrl.md
+        - Station Ceiling Poles: players/blocks/station_ceiling_wrl_poles.md
+        - Standing Station Name Sign (DEPRECATED): players/blocks/standing_station_name_sign.md
+        - Static Signal Lights: players/blocks/static_signal_lights.md
+        - Inverted Signal Lights: players/blocks/inverted_signal_lights.md
+        - Sound Looper: players/blocks/sound_looper.md
+        - Subsidy Machine: players/blocks/subsidy_machine.md
+        - E44 Train Model: players/blocks/train_model_e44.md
+        - Thales Ticket Barriers: players/blocks/thales_ticket_barriers.md
+        - Trespass Signage: players/blocks/mtr_trespass_sign.md
+        - Trespass Signage (KCR): players/blocks/kcr_trespass_sign.md
+        - LRT Trespass Signage: players/blocks/lrt_trespass_sign.md
+        - Water Machine: players/blocks/water_machine.md
+      - Version Archive:
+        - players/versions/index.md
+        - v1.2.2: players/versions/v1.2.2.md
+        - v1.2.1-hotfix-1: players/versions/v1.2.1-hotfix-1.md
+        - v1.2.1: players/versions/v1.2.1.md
+        - v1.2.0: players/versions/v1.2.0.md
+        - v1.1.9: players/versions/v1.1.9.md
+        - v1.1.8: players/versions/v1.1.8.md
+        - v1.1.7: players/versions/v1.1.7.md
+        - v1.1.6-hotfix-1: players/versions/v1.1.6-hotfix-1.md
+        - v1.1.6: players/versions/v1.1.6.md
+        - v1.1.5-hotfix-1: players/versions/v1.1.5-hotfix-1.md
+        - v1.1.5: players/versions/v1.1.5.md
+        - v1.1.4-hotfix-1: players/versions/v1.1.4-hotfix-1.md
+        - v1.1.4: players/versions/v1.1.4.md
+        - v1.1.3: players/versions/v1.1.3.md
+        - v1.1.2: players/versions/v1.1.2.md
+        - v1.1.1: players/versions/v1.1.1.md
+        - v1.1.0a: players/versions/v1.1.0a.md
+        - v1.1.0: players/versions/v1.1.0.md
+        - v1.0.9: players/versions/v1.0.9.md
+        - v1.0.8: players/versions/v1.0.8.md
+        - v1.0.7: players/versions/v1.0.7.md
+        - v1.0.6: players/versions/v1.0.6.md
+        - v1.0.5a: players/versions/v1.0.5a.md
+        - v1.0.5: players/versions/v1.0.5.md
+        - v1.0.4a: players/versions/v1.0.4a.md
+        - v1.0.4: players/versions/v1.0.4.md
+        - v1.0.3: players/versions/v1.0.3.md
+        - v1.0.2: players/versions/v1.0.2.md
+        - v1.0.1: players/versions/v1.0.1.md
+        - v1.0.0: players/versions/v1.0.0.md
+    - For Content Authors:
+      - PIDS Preset:
+        - dev/pids/index.md
+        - JSON PIDS Preset: dev/pids/json_preset.md
+        - Scripted PIDS Preset:
+          - dev/pids/scripted/index.md
+          - Building a Scripted PIDS Preset: dev/pids/scripted/tut/index.md
+      - Scripting:
+        - dev/scripting/index.md
+        - Resource Loading Method: dev/scripting/resources.md
+        - Utilities Method: dev/scripting/utilities.md
+        - Dynamic Textures: dev/scripting/dynamic_textures.md
+        - PIDS Scripting: dev/scripting/pids.md 
+        - Eyecandy Scripting: https://wiki.minecrafttransitrailway.com/mtr_addon:nte:js:eyecandy
+    - Contributing:
+      - contributing/index.md
+      - Translation: contributing/translation.md
+      - Documentation: contributing/documentation.md
+      - Making changes:
+        - contributing/project/index.md
+        - Project Structure: contributing/project/project_structure.md
+        - Code Guidelines: contributing/project/code_guidelines.md
+        - Introduction to Multiversion: contributing/project/multiversion_development.md
+    - For Nerds:
+      - NeoJCM: nerds/neojcm.md

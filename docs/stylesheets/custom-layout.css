@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,500&display=swap');
+
+.md-grid {
+  max-width: 1450px; 
+}
+
+.jcm-tag {
+  padding: .15rem .4rem;
+  border-radius: 0.125rem;
+  font-size: 0.75rem;
+  margin: 0 0.35rem;
+}
+
+.jcm-tag.unsupported {
+  background: #666;
+  color: white;
+}
+
+.jcm-tag.supported {
+  background: #0A0;
+  color: white;
+}
+
+.jcm-tag.amber {
+  background: #F1BC41;
+  color: black;
+}

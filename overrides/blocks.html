@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block styles %}
+  {{ super() }}
+
+  <style>
+    .cards > ul > li {
+      text-align: center;
+    }
+
+    li > .block-img {
+      height: 5rem;
+      text-align: center;
+      margin: auto;
+    }
+
+    li > .block-title {
+      text-align: center;
+    }
+
+    .md-typeset .grid {
+      grid-template-columns: repeat(auto-fit,minmax(min(100%,8rem),1fr));
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+
+{{ super() }}
+
+<div class="grid cards" markdown>
+  <ul>
+    {% for page in nav.pages %}
+        {% if page.meta.template == 'block.html' %}
+          <li>
+            <img class="block-img" src="./previews/{{ page.meta.image }}">
+            <div class="block-title">
+              <a href="{{ page.url|url }}">{{ page.title }}</a>
+            </div>
+          </li>
+        {% endif %}
+      {% endfor %}
+  </ul>
+</div>
+
+{% endblock %}

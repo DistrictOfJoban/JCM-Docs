@@ -1,0 +1,33 @@
+<!-- Original Material theme copyright start -->
+<div class="md-copyright">
+  {% if config.copyright %}
+    <div class="md-copyright__highlight">
+      {{ config.copyright }}
+    </div>
+  {% endif %}
+  {% if not config.extra.generator == false %}
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  {% endif %}
+</div>
+<!-- Original Material theme copyright end -->
+
+<style>
+    .promo-msg {
+        opacity: 0.5;
+        margin-left:-5rem;
+        font-size: 0.7rem
+    }
+    @media only screen and (max-width: 720px) {
+        .promo-msg {
+            margin-left: 0.7rem;
+        }
+    }
+</style>
+
+
+<div class="promo-msg" style="">
+  <p>Brought to you by <a href="https://joban.org">The District of Joban</a></p>
+</div>
