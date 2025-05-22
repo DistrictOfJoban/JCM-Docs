@@ -1,5 +1,5 @@
 # Welcome to Joban Client Mod!
-**Joban Client Mod** (Abbreviated as **JCM**) is an addon of the [Minecraft Transit Railway](https://modrinth.com/minecraft-transit-railway) mod, adding various railway facilities blocks seen in the **Hong Kong MTR Network**, as well as other blocks which may be helpful to your building.
+**Joban Client Mod** (Abbreviated as **JCM**) is an addon of the [Minecraft Transit Railway](https://minecrafttransitrailway.com) mod, adding various railway facilities blocks seen in the **Hong Kong MTR Network**, as well as other blocks which may be helpful to your building.
 
 ## :octicons-download-24: Download and install
 See [:octicons-download-24: Download & Install](./download.md)

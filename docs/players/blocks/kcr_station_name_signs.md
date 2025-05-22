@@ -23,6 +23,9 @@ For the **station-colored** variant, the color of the sign will also change to t
 {{Crafting 3x3|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Lapis lazuli.png|Minecraft Iron ingot.png|Minecraft Lapis lazuli.png|res=JCM Item Kcr name sign.png|Cres=3}}
 
 ### KCR Station Name Sign (Station Color)
+Note: The **blue dye** in this crafting grid refers to **any dye**
+
+{{Crafting 3x3|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Glowstone dust.png|Minecraft Blue dye.png|Minecraft Glowstone dust.png|res=JCM Item Kcr name sign station color.png|Cres=3}}
 
 ## Block states
 | facing | exit_on_left |
@@ -36,8 +39,9 @@ For the **station-colored** variant, the color of the sign will also change to t
 These blocks have a block entity, but does not store any data and are solely used for rendering.
 
 ## History
-|Version|Changes Made|
-|v1.0.4|Added KCR Station Name Sign|
-|v1.0.6|Raised the block model|
-|v1.1.5|The "font" property is added to the block entity|
-|v2.0.0|The "font" property in block entity has been removed|
+| Version | Changes Made                                         |
+|:--------|:-----------------------------------------------------|
+| v1.0.4  | Added KCR Station Name Sign                          |
+| v1.0.6  | Raised the block model                               |
+| v1.1.5  | The "font" property is added to the block entity     |
+| v2.0.0  | The "font" property in block entity has been removed |
