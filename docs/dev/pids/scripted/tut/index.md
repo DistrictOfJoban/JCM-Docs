@@ -600,17 +600,15 @@ Neat!
 ![A PIDS with a RV PIDS background, and 4 arrival destination](./img/JCM_JS_PIDS_Tutorial_v1.3.png)
 
 ### Estimated Arrival Time Text
-Most people view the PIDS to see when does the next train arrives, so let's add that as well, following the regular RV PIDS Layout, which aligns the text to the right-most screen.
+Showing the destination is cool, but wouldn't it be even better if players can see when does the next train arrives? Let's add that as well, following the regular RV PIDS Layout which aligns the text to the right-most screen.
 
-As we have learnt previously, we can get the width of the pids via `pids.width`, so what we could do is to set the text's x to the width, so it renders at the end of the screen.
+As we have learnt previously, we can get the width of the pids via `pids.width`, so what we could do is to set the text's `x` position to the width so that it renders at the end of the screen.
 
-```
+``` js title="pids_tut.js" linenums="7" hl_lines="15"
 function render(ctx, state, pids) {
-    // ...background
-    
+    // ... code for drawing background
     for(let i = 0; i < pids.rows; i++) {
         let rowY = HEADER_HEIGHT + (i*16.75);
-        
         let arrival = pids.arrivals().get(i);
         if(arrival != null) {
             Text.create("Arrival destination")
@@ -619,8 +617,8 @@ function render(ctx, state, pids) {
             .scale(1.25)
             .draw(ctx);
             
-            Text.create("Arrival ETA") // <----
-            .text("3 min") // Dummy ETA for now
+            Text.create("Arrival ETA")
+            .text("3 min") // Dummy ETA text for now
             .pos(pids.width, rowY)
             .scale(1.25)
             .draw(ctx);
@@ -629,54 +627,62 @@ function render(ctx, state, pids) {
 }
 ```
 
-[[File:JCM JS PIDS Tutorial v1.4.png|370x370px]]
-... well that's a bit more than the end of screen ^^;
+!!! note inline end
+    Here serves as another reminder that the contents we have rendered so far are drawn *physically* in the world.
 
-Here serves as (yet) another reminder that the Texts and Textures we have rendered so far are drawn physically in the world. JCM does not create a texture for you to render the screen on, as such your elements can go out of the screen entirely, even out of the PIDS block itself.
+    JCM does not create a texture for you to render the screen on, as such your elements can go out of the screen entirely, even out of the PIDS block itself.
 
-While this could be (ab)used as a projector, it is strongly recommended to stay within the boundary of PIDS screen.
+![A PIDS with arrivals and eta text, but the eta text overflowed to the right](./img/JCM_JS_PIDS_Tutorial_v1.4.png)  
+<small>... oh well that's a bit more than the end of screen ^^;</small>
 
-Anyway back to the issue.
+Now the code is indeed doing what we told it to do: **Render text at the end of the screen.**  
+However the issue is that under the default text configuration, the text is **left-aligned**, and thus the x we give it is just the *starting point* of the text.
 
-The code is indeed doing what we told it to do: Render text at the end of the screen. The only problem is that under the default text configuration, this serves as the *starting point* as the text is left-aligned.
-[[File:JCM JS PIDS Tutorial v1.5.png|none|thumb|462x462px|Analogy of different text alignment]]
-To fix the issue, we need to right-align the text, and we can simply do so by appending `.rightAlign()` to our text:
+![A visualization between left/middle/right aligned text](./img/JCM_JS_PIDS_Tutorial_v1.5.png)  
+<small>Illustration of the issue we are facing</small>
 
-```
-...
+To fix the issue, we need to **right-align** the text, to do that we can simply append `.rightAlign()` to our text:
 
+``` js title="pids_tut.js" hl_lines="6"
+// ... code before
 Text.create("Arrival ETA")
 .text("3 min")
 .pos(pids.width, rowY)
 .scale(1.25)
-.rightAlign() // <----
+.rightAlign()
 .draw(ctx);
-
-...
+// ... code after
 ```
 
-[[File:JCM JS PIDS Tutorial v1.6.png|336x336px]]
-The text margin is still not perfect, but that should be a easy fix we can do later. Let's move on to functionality:
+![A PIDS with arrivals and Estimated Arrival Time in the correct place](./img/JCM_JS_PIDS_Tutorial_v1.6.png)
 
+The text margin is still not perfect, but it's just a matter of doing some subtraction, which we can do later.
+
+Now let's move on to functionality:  
 As we have previously established, we can obtain the arrival's destination text with the `destination()` function.
 
-An arrival have way more functions than that. For a full list you can check [[JCM:Scripting:Documentation:PIDS#ArrivalWrapper|Documentation:ArrivalWrapper]]. For our purposes, we are going to stick with the `arrivalTime()` function. This returns the epoch time the train is arriving at (in Millisecond), or in other word, how many millisecond (1/1000th of a second) have passed since 1 January 1970.
+An arrival entry have more functions than that. For a full list you can check [ArrivalWrapper](../../../scripting/pids.md#arrivalswrapper).
 
-This in of itself is not that useful, however we can use JavaScript's Date API `Date.now()` to obtain the same thing, except referring to the time now, which means we can compare between now and the arrival time!
+For our purposes, we are going to use the `arrivalTime()` function. This returns the **epoch time** the train is arriving at (in millisecond), or in other word, how many millisecond (1/1000th of a second) have passed since 1 January 1970.
 
-```
-...
+This in of itself is not that useful, but we can use JavaScript's Date Object `Date.now()` to obtain the same thing, except referring to the time now. This also means we can use that to compare the time between now and the arrival time!
 
-let eta = arrival.arrivalTime() - Date.now(); // <----
+``` js title="pids_tut.js" hl_lines="2 4"
+// ... code before
+let eta = arrival.arrivalTime() - Date.now(); // Difference between our estimated arrival time (future) and now
 Text.create("Arrival ETA")
-.text(eta) // <----
+.text(eta) // Change the text to render our eta
 .pos(pids.width, rowY)
-
-...
+// ... code after
 ```
 
-Note that we subtract the arrival time from the time now, as arrival time is suppose to represent the future.
-Now you should see umm... big numbers rapidly counting down:[[File:JCM JS PIDS Tutorial v1.7.png|320x320px]]If you are lucky enough to have a train boarding during this, you'll see that it rolls to the negative, as the train has technically *already arrived*. So for example `-4721` here means that the train have already arrived for **4.721** second, while `43963` means that the train will arrive in **43.963** second, as the number is represented in millisecond (1/1000th of a second).
+Now you should see umm... big numbers rapidly counting down:
+
+![](./img/JCM_JS_PIDS_Tutorial_v1.7.png)
+
+If you are lucky enough to have a train stopping during this (As seen above), you'll see that the number rolls to the negative. This is because the train have *already arrived*.
+
+So for example `-4721` here means that the train have already arrived for **4.721** second, while `43963` means that the train will arrive in **43.963** second, since the number is represented in millisecond (1/1000th of a second).
 
 As such, we can obtain the second remaining by dividing it by 1000:
 

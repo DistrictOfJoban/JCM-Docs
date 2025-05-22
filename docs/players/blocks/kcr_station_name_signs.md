@@ -4,6 +4,7 @@ block_ids:
 - jsblock:kcr_name_sign_station_color
 since: 1.0.4
 image: JCM_kcr_station_name_signs.png
+image_desc: "Top: Normal variant<br>Bottom: Station-colored variant"
 item_group: JCM Blocks
 creator: LX86
 transparent: false

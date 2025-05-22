@@ -122,7 +122,7 @@ nav:
         - PIDS Projector: players/blocks/pids_projector.md
         - Station Ceilings (2009): players/blocks/station_ceilings_wrl.md
         - Station Ceiling Poles: players/blocks/station_ceiling_wrl_poles.md
-        - Standing Station Name Sign (DEPRECATED): players/blocks/standing_station_name_sign.md
+        - Standing Station Name Sign: players/blocks/station_name_standing.md
         - Static Signal Lights: players/blocks/static_signal_lights.md
         - Inverted Signal Lights: players/blocks/inverted_signal_lights.md
         - Sound Looper: players/blocks/sound_looper.md
