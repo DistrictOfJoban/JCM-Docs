@@ -36,9 +36,9 @@ By placing an MTR fence next to the Thales Ticket Barrier (Bare) variant, the ba
 | facing | open               |
 |:-------|:-------------------|
 | north  | closed             |
-| east   | open               |
-| south  | open_concessionary |
-| west   |                    |
+| east   | pending            |
+| south  | open               |
+| west   | open_concessionary |
 
 ### Thales Ticket Barrier (Bare)
 | facing | type | flipped |
