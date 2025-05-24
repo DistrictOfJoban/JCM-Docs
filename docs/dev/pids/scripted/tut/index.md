@@ -678,7 +678,7 @@ Text.create("Arrival ETA")
 
 Now you should see umm... big numbers rapidly counting down:
 
-![](./img/JCM_JS_PIDS_Tutorial_v1.7.png)
+![PIDS with 4 arrivals, the ETA text is showing the remaining millisecond until the train arrives](./img/JCM_JS_PIDS_Tutorial_v1.7.png)
 
 If you are lucky enough to have a train stopping during this (As seen above), you'll see that the number rolls to the negative. This is because the train have *already arrived*.
 
@@ -686,69 +686,81 @@ So for example `-4721` here means that the train have already arrived for **4.72
 
 As such, we can obtain the second remaining by dividing it by 1000:
 
-```
-...
+```js title="pids_tut.js" hl_lines="2"
+// ... code before
 let eta = (arrival.arrivalTime() - Date.now()) / 1000;
-...
+Text.create("Arrival ETA")
+.text(eta)
+// ... code after
 ```
 
-[[File:JCM JS PIDS Tutorial v1.8.png|407x407px]]  
+![PIDS with 4 arrivals, the ETA text is showing the remaining seconds with decimal until the train arrives](./img/JCM_JS_PIDS_Tutorial_v1.8.png)  
+
 Now we just need to round the number to get a full integer:
 
-```
-...
+```js title="pids_tut.js" hl_lines="2"
+// ... code before
 let eta = Math.round((arrival.arrivalTime() - Date.now()) / 1000);
-...
+Text.create("Arrival ETA")
+.text(eta)
+// ... code after
 ```
 
-We could continue implementing like this, but I'll just leave this as an exercise to the viewer after finish this tutorial :)
+We could continue implementing like this, however I'll leave this as an exercise to the viewer after finish this tutorial :)
 
-Instead for now let's go the lazy route: JCM have included a helper script by default, named PIDSUtil, which have a function to automatically format ETA text.
+Instead for now we can go the slightly lazy route: JCM have included a helper script by default, namely **PIDSUtil**, which have a function to automatically format ETA text.
 
-Here, we can use the `include()` function to essentially include the contents from other scripts:
+Here, we can use the `include()` function to import the PIDSUtil script:
 
-```
+```js title="pids_tut.js" linenums="1" hl_lines="1"
 include(Resources.id("jsblock:scripts/pids_util.js")); // Built-in script shipped with JCM
 // ... Rest of the script
 ```  
-Note that we can only include scripts when JCM is parsing the script (Outside of function), so it is not possible to put them in the `render` function for example, as by that time JCM has already finished parsing the script, and it won't alter the script again.
+
+!!! note
+    We can only include scripts while JCM is parsing the script (i.e. Outside of function). It is not possible to put them in the `render` function for example, as by that time JCM has already finished parsing the entire script, and it's only calling your function.
 
 Now that we have imported the script, we can now use it's function, `PIDSUtil.getETAText(time: number)`:
 
-```
+``` js title="pids_tut.js" hl_lines="3"
+// ... code before
 Text.create("Arrival ETA")
-.text(PIDSUtil.getETAText(arrival.arrivalTime())) // <----
+.text(PIDSUtil.getETAText(arrival.arrivalTime()))
 .pos(pids.width, rowY)
 .scale(1.25)
 .rightAlign()
 .draw(ctx);
+// ... code after
 ```
 
+After reloading, you should see that it returns a raw string without any language separation. However more importantly the unit is correct. (mins/sec)
 
-After reloading, you should see that it returns a multilingual string, but at least it is correctly formatted.[[File:JCM JS PIDS Tutorial v1.9.png|397x397px]]
+![PIDS with 4 arrivals, the ETA text is showing the remaining time, reported in both Chinese and English](./img/JCM_JS_PIDS_Tutorial_v1.9.png)
 
 And as we have learnt from handling the destination text, we can wrap it with `TextUtil.cycleString()`:
 
-```
+``` js title="pids_tut.js" hl_lines="3"
+// ... code before
 Text.create("Arrival ETA")
 .text(TextUtil.cycleString(PIDSUtil.getETAText(arrival.arrivalTime())))
-...
+// ... code after
 ```
 
-And finally to not start a war, we can apply some margin to both the destination and ETA text (8 unit):
+And finally to not start a war, let's apply some spacing to both the destination and ETA text so it doesn't lean along the edge:
 
-```
+```js title="pids_tut.js" hl_lines="4 9"
+// ... code before
 Text.create("Arrival destination")
-...
-.pos(8, rowY) // <----
-...
+// ... code
+.pos(8, rowY)
+// ... code
             
 Text.create("Arrival ETA")
-...
-.pos(pids.width - 8, rowY) // <----
-...
-```  
-[[File:JCM JS PIDS Tutorial v1.10.png|325x325px]]
+// ... code
+.pos(pids.width - 8, rowY)
+// ... code after
+```
+![A correctly looking PIDS with 4 arrivals, including the arrival time](./img/JCM_JS_PIDS_Tutorial_v1.10.png)
 
 ## v2: Light Rail, Light Rail Everywhere!
 Now it's time to add the light rail route symbol.
