@@ -765,53 +765,64 @@ Text.create("Arrival ETA")
 ## v2: Light Rail, Light Rail Everywhere!
 Now it's time to add the light rail route symbol.
 
-First, let's move our destination text to the right, 30 unit to be exact, so we can reserve some space for our symbol on the left:
+First, let's move our destination text to the right, 30 unit to be exact, so we can reserve some space for our light rail symbol on the left:
 
-```
+``` js title="pids_tut.js" hl_lines="4"
+// ... code before
 Text.create("Arrival destination")
-...
+// ...
 .pos(30, rowY)
-...
+// ... code after
 ```
 
 ### Drawing the Light Rail Symbol
-For the record, this is the symbol used for Hong Kong Light Rail Route:[[File:JCM JS PIDS Tutorial v2.1.png.png]](This is a replica drawing, but should hopefully look close-enough)
+For reference, this is the symbol used for Hong Kong Light Rail Route:
 
-It is consisted of a pill with white-background, followed by a thick route colored border, and a black border after that.
+![A pill-shaped symbol with red border, an inner black border and the route number](./img/JCM_JS_PIDS_Tutorial_v2.1.png)  
+<small>This is a replica render of the symbol, but should look close-enough</small>
+
+It is consisted of a pill with white-background, followed by a thick route colored border, and a black border inside that.
 
 To understand how we should approach this, let's take a look at the resource file provided in the tutorial resource pack, under `assets/jsblock/textures/lrr.png`:
 
-[[File:JCM JS PIDS Tutorial v2.2.png]]
+![A monochrome variant of the light rail symbol, with the middle part being transparent](./img/JCM_JS_PIDS_Tutorial_v2.2.png)  
+<small>The texture quality itself is... not the greatest, but let me be lazy while I can get away with it :P</small>
 
-Now the texture quality itself is... not the greatest, but that's besides the point. Let me be lazy while I can get away with it :P
+Essentially this is just the above version, but without the centered white part, and the route color being white.
 
-Essentially this is just the above version, but without the centered white part, and the route color colored as white.
-
-This is because what we will be doing is tinting the texture to our route color.
-
+The reason why it's white is because we will be tinting the texture color to follow our route color.  
 An easier way to think of it is "*how white the color is = how bright the color is*".
 
 This means that the white-part will be colored to our route's color, while the black border remains black, because it's brightness is essentially 0%. No matter how you tint black, it's still black.
 
-As for the centered pill-shaped part, we have to draw it separately, as that part shall not be tinted with our route color. So let's get started!```
-...
+As for the centered pill-shaped part, we have to draw it separately, as that part shall not be tinted with our route color. So let's get started!
+
+``` js title="pids_tut.js" hl_lines="2-7"
+// ... code before
 Texture.create("LRT Circle Colored")
 .texture("jsblock:textures/lrr.png")
-.color(arrival.routeColor())
+.color(arrival.routeColor()) // Note this part!
 .pos(5, rowY)
 .size(23, 10)
 .draw(ctx);
 
 Text.create("Arrival destination")
-...
-```Essentially this draws our texture `jsblock:textures/lrr.png`, with the color set (or tinted) to the arrival's route color. The rest is just stuff we have learnt in the past :D
+// ... code after
+```
 
-[[File:JCM JS PIDS Tutorial v2.3.png|370x370px]]
+Essentially this draws our texture `jsblock:textures/lrr.png`, with the color set (or tinted) to the arrival's route color. The rest is just stuff we have learnt in the past :D
+
+![A PIDS with 4 arrival, now with an empty pill-shaped symbol at the left of each arrival](./img/JCM_JS_PIDS_Tutorial_v2.3.png)
 
 Nice, we are already 60% there. Now we just need to fill the white pill-shaped background.
 
-There are multiple ways to achieve that, but the one we are going to use in the tutorial is to layer a white rectangle behind the pill-shaped border:[[File:JCM JS PIDS Tutorial v2.4.png.png|230x230px]](Where the green border represents the white rectangle, placed behind the decoration)```
-...
+There are multiple ways to achieve that, but the one we are going to use in the tutorial is to layer a white rectangle behind the pill-shaped symbol:
+
+![Visualization of a white rectangle placed behind the pill-shaped symbol](./img/JCM_JS_PIDS_Tutorial_v2.4.png)  
+<small>Imagine the green border as the border the white rectangle, which is placed behind our symbol</small>
+
+``` js title="pids_tut.js" hl_lines="2-6"
+// ... code before
 Texture.create("LRT Circle White")
 .texture("mtr:textures/block/white.png")
 .pos(7.5, rowY+1.5)
@@ -819,42 +830,66 @@ Texture.create("LRT Circle White")
 .draw(ctx);
         
 Texture.create("LRT Circle Colored")
-...
-```Again, remember first to draw, first to be covered. It needs to be drawn first before the colored pill, so that it can stay behind the colored pill.
+.texture("jsblock:textures/lrr.png")
+// ... code after
+```
+
+Again, remember first to draw, first to be covered. It needs to be drawn first before the colored pill, so that it can stay behind the colored pill.
+
+!!! note inline end "(Self Note)"
+    Maybe it does make sense to implement `Rectangle` alongside `Text` and `Texture` as well... but for now this will do!
 
 Also worth nothing is the texture `mtr:textures/block/white.png`. This is a built-in texture in MTR that's literally just a solid white color, which can coincidentally be used in this situation.
 
-*Dev note: Maybe it does make sense to implement `Rectangle` alongside `Text` and `Texture` as well... but for now this will do!*
+Nothing note-worthy other than that however. The position and size is already given for the sake of this tutorial, but in practice you may need some trial and error to get it right.
 
-Nothing special other than that however. The position and size is already given for the sake of this tutorial, but in practice you may need some trial and error to get it right.
+Now we just need to draw the route number, *do it after we draw the pill so it stays on top*:
 
-Now we just need to draw the route number, *do it after we draw the pill so it stays on top*:```
+``` js title="pids_tut.js" hl_lines="6-11"
+// ... code before
+Texture.create("LRT Circle Colored")
+// ...
+.draw(ctx);
+
 Text.create("LRT Number Text")
 .text(arrival.routeNumber())
 .scale(0.55)
 .centerAlign()
 .pos(16.5, rowY+3)
 .draw(ctx);
-```As for the platform number, here are the code as there's not a lot of things worth noting either:```
-Texture.create("Platform Circle")
+// .. code after
+```
+
+As for the platform number, here's the code as there's not a lot of things worth noting either:
+
+``` js title="pids_tut.js" hl_lines="6-11 13-19"
+// ... code before
+Text.create("Destination Text")
+// ...
+.draw(ctx);
+
+Texture.create("Platform Circle") // Draw our circle texture
 .texture("jsblock:textures/block/pids/plat_circle.png") // Built-in to JCM
 .pos(79, rowY - 1)
 .size(10.5, 10.5)
 .color(0xD2A808) // #D2A808 is color for HK LRT Network
 .draw(ctx);
             
-Text.create("Platform Circle Text")
+Text.create("Platform Circle Text") // Draw the text
 .text(arrival.platformName()) // We can use platformName() to obtain the platform no.
 .pos(84, rowY + 1)
 .scale(0.9)
 .centerAlign()
 .color(0xFFFFFF) // #FFFFFF is white text
 .draw(ctx);
-```Just to keep you *in the loop <small>(Pun intended)</small>*, what we are doing so far is ran for each arrival row, because we have setup a *for-loop* at the top.
+// ... code after
+```
+
+Just to keep you *in the loop <small>(Pun intended)</small>*, what we are doing so far is ran for each arrival row, because we have setup a *for-loop* at the top.
 
 So if you are going to render thing one-time on the screen, then you should place the logic *outside* this loop~
 
-[[File:JCM JS PIDS Tutorial v2.5.png|291x291px]]
+![An RV PIDS with 4 arrivals, and a Light Rail Route Number symbol on the left of each row](./img/JCM_JS_PIDS_Tutorial_v2.5.png)
 
 Not bad!
 
