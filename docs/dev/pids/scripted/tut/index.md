@@ -894,37 +894,48 @@ So if you are going to render thing one-time on the screen, then you should plac
 Not bad!
 
 ## v3: The PIDS called, they wanted their header bar back
-The header bar is the blue bar at the top. The built-in RV PIDS preset in JCM contains a weather texture on the left, and a 24-hour clock on the right.
+The **header bar** refers to the blue bar seen at the top.
+
+The built-in RV PIDS preset in JCM contains a weather texture on the left, and a 24-hour clock on the right.
 
 ### Weather Icon
 There are 3 distinct texture for weather icon used in the default RV PIDS preset:
-{| class="wikitable"
-|+
-!Texture ID
-!Used when
-|-
-|`jsblock:textures/block/pids/weather_sunny.png`
-|There are no rain nor thunderstorm in the current world.
-|-
-|`jsblock:textures/block/pids/weather_rainy.png`
-|There are rain, but not thunderstorm in the current world.
-|-
-|`jsblock:textures/block/pids/weather_thunder.png`
-|There are a thunderstorm in the current world.
-|}
+
+| Image Preview                  | Texture ID                                        | Used when                                                |
+|:-------------------------------|:--------------------------------------------------|:---------------------------------------------------------|
+| ![](./img/weather_sunny.png)   | `jsblock:textures/block/pids/weather_sunny.png`   | There's no rain nor thunderstorm in the current world.   |
+| ![](./img/weather_rainy.png)   | `jsblock:textures/block/pids/weather_rainy.png`   | There's rain, but not thunderstorm in the current world. |
+| ![](./img/weather_thunder.png) | `jsblock:textures/block/pids/weather_thunder.png` | There's a thunderstorm in the current world.             |
+
 As such, we need to use different texture depending on the situation.
 
-To check the weather for the current world, we can use the [[JCM:Scripting:Documentation:Utilities#MinecraftClient|MinecraftClient]] class, which provides a couple of functions, namely `MinecraftClient.worldIsRaining()` and `MinecraftClient.worldIsThundering()`.
+To check the weather for the current world, we can use the [MinecraftClient](../../../scripting/utilities.md#minecraftclient) class, which provides a couple of functions, namely `MinecraftClient.worldIsRaining()` and `MinecraftClient.worldIsThundering()`.
 
 We can then first declare a variable which represents the texture we are going to use, we are going to assign a value to it later:
 
+``` js title="pids_tut.js" hl_lines="2"
+// ... code for drawing background
+let weatherImg; // (1)!
+
+for(let i = 0; i < pids.rows; i++) {
+    // ... code for drawing arrival
+}
 ```
+
+1. Note how we placed this outside the arrival for-loop. This is because we only want to draw this 1 time instead of per arrival.<br>At the same time we need to draw this *after* the background, as we don't want the background to cover our image.
+
+Now we can start checking from the order **thunderstorm > raining > sunny**, and assign the appropriate texture ID:
+
+!!! note inline end "Checking Order"
+    The reason why we have to check in this order is because when a thunderstorm is active, it is also considered raining.  
+    As such we can't check if it's raining first, as otherwise it will always use the rainy texture.
+    
+    And finally if it's neither raining nor thundering, then the sky has to be clear.
+
+``` js title="pids_tut.js" hl_lines="4-10"
+// ... code for drawing background
 let weatherImg;
-```
 
-*Note: Remember to place this outside the arrival for-loop as this is only meant to be drawn 1 time, but also after we drawn the Background texture, as we don't want the background to cover our image.*
-
-Now we can start checking from the order thunderstorm > raining > sunny, and assign the appropriate texture ID:```
 if(MinecraftClient.worldIsThundering()) {
     weatherImg = "jsblock:textures/block/pids/weather_thunder.png";
 } else if(MinecraftClient.worldIsRaining()) {
@@ -932,9 +943,15 @@ if(MinecraftClient.worldIsThundering()) {
 } else {
     weatherImg = "jsblock:textures/block/pids/weather_sunny.png";
 }
-```(The reason why we have to check in this order is because when a thunderstorm is active, it is also considered raining. Therefore we can't check if it's raining first, as otherwise it will always use the rainy texture. And finally if it's neither raining nor thundering, then the sky has to be clear.)
+```  
 
-Now, let's draw the texture with our `weatherImg` variable:```
+Now, let's draw the texture with our `weatherImg` variable:
+
+``` js title="pids_tut.js" hl_lines="5-9"
+    // ... code for checking weather icon
+    weatherImg = "jsblock:textures/block/pids/weather_sunny.png";
+}
+
 Texture.create("Weather Icon")
 .texture(weatherImg)
 .pos(5, 0)
@@ -942,27 +959,37 @@ Texture.create("Weather Icon")
 .draw(ctx);
 ```
 
-### Clock
-PIDSUtil once again provides a utility function for us to call so we don't have to manually create it:```
+### Adding a clock
+A clock is still a text, as such let's create another text object.
+
+To keep this tutorial in a reasonable length, we will use `PIDSUtil` again, which provides a utility function for us to call so we don't have to manually format the clock:
+
+``` js title="pids_tut.js" hl_lines="4-10"
+// ... code for drawing weather icon
+.draw(ctx);
+
 Text.create("Clock")
-.text(PIDSUtil.formatTime(MinecraftClient.worldDayTime(), true))
+.text(PIDSUtil.formatTime(MinecraftClient.worldDayTime(), true)) // Note this here!
 .color(0xFFFFFF)
 .pos(pids.width - 5, 2)
 .scale(0.9)
 .rightAlign()
 .draw(ctx);
-```The function parameter is `PIDSUtil.formatTime(minecraftTime, shouldPadZero)`.
+```
 
-We can fill the `minecraftTime` parameter with `MinecraftClient.worldDayTime()`, which gets the [https://minecraft.fandom.com/wiki/Daylight_cycle#Minecraft_time_to_real_time Minecraft time in tick].
+The function parameter is `PIDSUtil.formatTime(minecraftTime, shouldPadZero)`.
 
-As for `shouldPadZero`, we set it to true so it returns something like `08:30` instead of `8:30`.
+We can fill the `minecraftTime` parameter with `MinecraftClient.worldDayTime()`, which obtains the [Minecraft time in tick](https://minecraft.fandom.com/wiki/Daylight_cycle#Minecraft_time_to_real_time).
 
-[[File:JCM JS PIDS Tutorial v3.1.png|313x313px]]
+As for `shouldPadZero`, we can set it to true so it returns something like `08:30` instead of `8:30`.
+
+![A PIDS equivalent to the default RV PIDS in JCM, with a lrt route number symbol](./img/JCM_JS_PIDS_Tutorial_v3.1.png)  
+<small>Looking good!</small>
 
 ## v4: Go ham!
 Right now things are looking very solid, but this is the MTR mod we are talking about, so things quickly falls apart when someone enter `Llanfair­pwllgwyngyll­gogery­chwyrn­drobwll­llan­tysilio­gogo­goch` as their station name.
 
-"*Of course I am not silly enough to do that*" Ok sure but now let's look at a real-world example, by renaming your destination station from `田景|Tin King` to `天水圍|Tin Shui Wai`
+"*Ok but no one would do that*" Ok well sure, however now let's look at a real-world example, by renaming your destination station from `田景|Tin King` to `天水圍|Tin Shui Wai`
 
 *(p.s. if you know the HK LRT network well enough and are nerdy-enough, you can set your route number to `705` and route color to `#71BE44` to match real-world situation)*
 
@@ -1044,14 +1071,14 @@ Text.create("ETA Text")
 .draw(ctx);
 ```
 
-== v5: It's coming together ==
+## v5: It's coming together
 At this point if you are developing this PIDS Preset for your own use, you should be ready to go by modifying the code to suit your need.
 
 However if you are planning to publish a PIDS Preset for others to use, you have to also account for the variety of different configuration people uses. Most notably, each PIDS Block has it's own config, such as **Custom Messages**, **Hide Arrivals**, **Hide Platform Number** etc.
 
 This section will go through how to take these configs into account as well.
 
-=== Custom Message ===
+### Custom Message
 We can obtain the custom message of the n<sup>th</sup> row by using the function `pids.getCustomMessage(n)`
 
 If a custom message exists, it will return the custom message.
@@ -1081,8 +1108,10 @@ if(customMsg != "") { // Have custom message
 ...
 ```
 
-=== Hide Platform Number ===
-We can use the `pids.isPlatformNumberHidden()` to determine whether platform number should be shown or not:```
+### Hide Platform Number
+We can use the `pids.isPlatformNumberHidden()` to determine whether platform number should be shown or not:
+
+```
 if(!pids.isPlatformNumberHidden()) { // If platform number is not hidden
     Texture.create("Platform Circle")
     .texture("jsblock:textures/block/pids/plat_circle.png")
@@ -1100,7 +1129,7 @@ if(arrival != null && !pids.isRowHidden(i)) { // have arrival & row not hidden
 }
 ```
 
-### Conclusion
+## Conclusion
 Congratulations! You have just built your custom PIDS preset from scratch!
 
 Here's the full code for your reference (May differ slightly, but logic should mostly be same):
