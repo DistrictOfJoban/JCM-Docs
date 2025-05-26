@@ -88,8 +88,9 @@ nav:
         - players/index.md
         - Download & Install: players/download.md
       - Features:
-        - Tunnel Wall (Rail Model): players/features/tunnel.md
         - JCM PIDS: players/features/jcm-pids.md
+        - Tunnel Wall (Rail Model): players/features/tunnel.md
+        - Mod Integrations: players/features/mod-integrations.md
       - Blocks:
         - players/blocks/index.md
         - Automatic Iron Door: players/blocks/auto_iron_door.md
