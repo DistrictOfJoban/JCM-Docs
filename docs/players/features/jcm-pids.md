@@ -1,4 +1,4 @@
-**PIDS (Passenger Information Display System)** blocks in the Joban Client Mod behaves mostly similarly to the PIDS in MTR Mod, however it has several extra features which are listed belows.
+**PIDS** blocks in the Joban Client Mod behaves mostly similarly to the PIDS in MTR mod, however it has several extra features which are listed belows.
 
 ## PIDS Preset
 A **PIDS Preset** (Or **PIDS Layout** if you prefer that) is a set of configuration which defines how a PIDS should look.

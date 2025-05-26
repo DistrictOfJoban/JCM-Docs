@@ -7,7 +7,7 @@ By the end of the tutorial, you would have built a Fictional LRT (Light Rail) ve
 *(Top: Default RV PIDS Preset, Bottom: Custom JS-based PIDS Preset)*
 
 ## Prerequisite
-Before beginning this tutorial, you should setup a MTR 4 world:
+Before beginning this tutorial, you should setup a world with MTR 4.x installed:
 
 !!! note inline end
     A fully operational route is not required. If your route jams, the tutorial can still continue, as long as there's any train on the route.
@@ -27,7 +27,7 @@ Before starting, please note that:
 * You don't have to finish the tutorial in one go :)
 
 ## Getting started
-To get started, [download the tutorial resource pack here](https://www.joban.org/archive/misc/JCM_PIDS_Tutorial_Scripting_Pack.zip), extract the zip and put it in Minecraft's Resource Pack folder.
+To get started, [download the tutorial resource pack here](../files/JCM_PIDS_Tutorial_Scripting_Pack.zip), extract the zip and put it in Minecraft's Resource Pack folder.
 
 This resource pack is specifically set-up for this tutorial, and therefore the JS scripts inside are (mostly) empty. However we can still take a look at how a Scripted PIDS Preset is set-up.
 
@@ -100,7 +100,7 @@ function dispose(ctx, state, pids) {
 }
 ```
 
-After that, we can press the keybind `F3+T` in Minecraft to reload our resource pack.
+After that, we can press the keybind ++f3+t++ in Minecraft to reload our resource pack.
 
 Now look at your game console log, you should the following message:
 
@@ -109,7 +109,7 @@ Now look at your game console log, you should the following message:
 [Scripting] Hello World ^^
 ```
 
-Notice how the message is printed 2 times? That's because PIDS in JCM (and MTR for that matter) are constructed in a way where each side is drawn separately.
+Notice how the message is printed 2 times? That's because PIDS in JCM (and MTR mod for that matter) are constructed in a way where each side is drawn separately.
 
 Therefore a normal PIDS would call the `create` function 2 times. This is normal behavior, you didn't do anything wrong!
 
@@ -155,7 +155,7 @@ Essentially this code:
 
 Note that even after splitting it line by line, it is still *valid code*! This is because a statement is only considered finish by ending it with a semicolon (`;`). In fact, it is recommended to split up the lines to maintain readability.
 
-Anyway now let's save the file, reload with F3+T and see what happens!
+Anyway now let's save the file, reload with ++f3+t++ and see what happens!
 
 ![PIDS with only a black screen](./img/JCM_JS_PIDS_Tutorial_v0.1.png)
 
@@ -386,7 +386,7 @@ Text.create("Arrival destination")
 
 ![A PIDS with 4 arrivals, text are now spaced correctly](./img/JCM_JS_PIDS_Tutorial_v0.8.png)
 
-Much better! The last thing we have to deal with is handling different languages. Currently it's just displayed with everything including the pipe character, which is used by MTR as a way to split languages apart.
+Much better! The last thing we have to deal with is handling different languages. Currently it's just displayed with everything including the pipe character, which is used by the MTR mod as a way to split languages apart.
 
 To cycle the string, we can wrap our destination string with the `TextUtil.cycleString(str)` function.
 
@@ -839,7 +839,7 @@ Again, remember first to draw, first to be covered. It needs to be drawn first b
 !!! note inline end "(Self Note)"
     Maybe it does make sense to implement `Rectangle` alongside `Text` and `Texture` as well... but for now this will do!
 
-Also worth nothing is the texture `mtr:textures/block/white.png`. This is a built-in texture in MTR that's literally just a solid white color, which can coincidentally be used in this situation.
+Also worth nothing is the texture `mtr:textures/block/white.png`. This is a built-in texture in the MTR mod that's literally just a solid white color, which can coincidentally be used in this situation.
 
 Nothing note-worthy other than that however. The position and size is already given for the sake of this tutorial, but in practice you may need some trial and error to get it right.
 
@@ -960,7 +960,7 @@ As for `shouldPadZero`, we set it to true so it returns something like `08:30` i
 [[File:JCM JS PIDS Tutorial v3.1.png|313x313px]]
 
 ## v4: Go ham!
-Right now things are looking very solid, but this is the MTR Mod we are talking about, so things quickly falls apart when someone enter `Llanfair­pwllgwyngyll­gogery­chwyrn­drobwll­llan­tysilio­gogo­goch` as their station name.
+Right now things are looking very solid, but this is the MTR mod we are talking about, so things quickly falls apart when someone enter `Llanfair­pwllgwyngyll­gogery­chwyrn­drobwll­llan­tysilio­gogo­goch` as their station name.
 
 "*Of course I am not silly enough to do that*" Ok sure but now let's look at a real-world example, by renaming your destination station from `田景|Tin King` to `天水圍|Tin Shui Wai`
 

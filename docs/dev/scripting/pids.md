@@ -100,7 +100,7 @@ This would return a string formatted like: `2.0.0-beta.5`
 |`Text.wrapText(): TextWrapper`|Text Overflow Mechanism:<br>When the text overflowed beyond it's size, split the text into the next line without any scaling.|
 |`Text.marquee(): TextWrapper`|Text Overflow Mechanism:<br>When the text overflowed beyond it's size, draw a portion of the text at a time with scrolling animation|
 |`Text.fontMC(): TextWrapper`|Use vanilla Minecraft's font|
-|`Text.font(id: string): TextWrapper`<br>`Text.font(id: Identifier): TextWrapper`|Set the font by it's ID. Defaults to `mtr:mtr`<br>The font should be loaded in Minecraft via the font json format.<br>This does not have any effect if **Use Custom MTR Font** is disabled in MTR Mod's Config.|
+|`Text.font(id: string): TextWrapper`<br>`Text.font(id: Identifier): TextWrapper`|Set the font by it's ID. Defaults to `mtr:mtr`<br>The font should be loaded in Minecraft via the font json format.<br>This does not have any effect if **Use Custom MTR Font** is disabled in MTR mod's Config.|
 |`Text.color(color: number): TextWrapper`|Set the text color, in RGB format.|
 |`Text.draw(ctx: PIDSScriptContext): void`|Mark the text as something that should be rendered to the PIDS.|
 

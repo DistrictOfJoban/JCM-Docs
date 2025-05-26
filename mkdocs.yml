@@ -32,6 +32,7 @@ theme:
     - navigation.indexes
     - content.code.copy
     - content.code.annotate
+    - content.tooltips
 extra:
   social:
     - icon: fontawesome/brands/discord
@@ -49,11 +50,14 @@ plugins:
   - blog
   - meta
 markdown_extensions:
+  - abbr
   - attr_list
   - admonition
   - footnotes
   - toc:
         permalink: '#'
+        permalink_title: Anchor link to this section for reference
+        toc_depth: 3
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.highlight:
@@ -67,11 +71,16 @@ markdown_extensions:
         kwds:
           case: lower
   - pymdownx.inlinehilite
-  - pymdownx.snippets
+  - pymdownx.snippets:
+      auto_append:
+        - includes/abbreviations.md
   - pymdownx.superfences
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.keys
+watch:
+  - includes
 nav:
     - Home: index.md
     - For Players:
@@ -180,7 +189,7 @@ nav:
         - PIDS Scripting: dev/scripting/pids.md 
         - Eyecandy Scripting: https://wiki.minecrafttransitrailway.com/mtr_addon:nte:js:eyecandy
     - Contributing:
-      - contributing/index.md
+      - Introduction: contributing/introduction.md
       - Translation: contributing/translation.md
       - Documentation: contributing/documentation.md
       - Making changes:

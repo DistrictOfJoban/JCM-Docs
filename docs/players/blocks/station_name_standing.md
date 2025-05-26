@@ -10,9 +10,9 @@ deprecated: true
 light_level: 0
 ---
 !!! warning "Block deprecated"
-    This block has been [merged to the main MTR Mod](https://github.com/Minecraft-Transit-Railway/Minecraft-Transit-Railway/pull/1106) since MTR 4.0.
+    This block has been [merged to the main MTR mod](https://github.com/Minecraft-Transit-Railway/Minecraft-Transit-Railway/pull/1106) since MTR 4.0.
 
-    Thus, this block is no longer obtainable as an item, and you should use the standing station name block from the MTR Mod.
+    Thus, this block is no longer obtainable as an item, and you should use the standing station name block from the MTR mod.
 
     For backward compatibility, existing blocks will continue to work for now.
 

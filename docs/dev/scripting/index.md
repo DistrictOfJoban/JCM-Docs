@@ -29,7 +29,7 @@ JavaScript does not have anything, or not much to do with Java at all, even thou
 ### But can I use Java in JavaScript?
 Under normal circumstances, no.
 
-*However* the JavaScript Engine that JCM/NTE uses, **Rhino**, *do* allow using classes from the standard Java library as `java.package.name`. Using classes from MTR is not available yet, most likely due to problems with the class loader.
+*However* the JavaScript Engine that JCM/NTE uses, **Rhino**, *do* allow using classes from the standard Java library as `java.package.name`. Using classes from the MTR mod is not available yet, most likely due to problems with the class loader.
 
 ### Script Flow
 
@@ -164,7 +164,7 @@ Instead, what you likely want is to "do a thing later on", in such case you will
 
 If you are trying to execute a long-running operation (e.g. Fetching data over the internet), you should submit it to another thread/executor.
 
-If blocks or infinite loops did occur, then the entire script execution will stall as scripts are executed one at a time [*in the same thread*]. In such situation, you can reset it with F3+T.
+If blocks or infinite loops did occur, then the entire script execution will stall as scripts are executed one at a time [*in the same thread*]. In such situation, you can reset it by pressing ++f3+t++ on your keyboard, which reloads the resource pack and resets the scripting thread.
 
 #### Interoperability between Java Classes/Methods
 For common function types such as strings, Java and JavaScript have different class implementations, which causes there to be JavaScript strings as well as Java strings.

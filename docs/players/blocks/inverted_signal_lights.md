@@ -15,7 +15,7 @@ light_level: 0
 When a section is clear, it will display red, otherwise green/blue.
 
 ## Usage
-Same as MTR Mod's Signal Lights.
+Same as MTR mod's Signal Lights.
 
 ## Block states
 | facing | is_22_5 | is_45 |

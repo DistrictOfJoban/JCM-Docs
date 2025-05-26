@@ -16,7 +16,7 @@ This is a rewritten version of Joban Client Mod, designed for **Minecraft Transi
 - Supports Minecraft **1.16.5 - 1.20.4**
 
 Currently we only support and continue releasing new versions for **v2**, and therefore only MTR 4 is supported.  
-If you are new to MTR/JCM, you are advised to start from **MTR 4** with **JCM v2**.
+If you are new to the MTR mod/JCM, you are advised to start from **MTR 4** and **JCM v2**.
 
 ## Before Installing
 Joban Client Mod requires other mods to function, please install such mods first before installing JCM.

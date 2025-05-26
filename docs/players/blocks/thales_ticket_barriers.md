@@ -13,7 +13,7 @@ light_level: 0
 ---
 
 **Thales Ticket Barriers** is a series of ticket barriers in Joban Client Mod, replicating a variant of Ticket Barriers manufactured by Thales in Hong Kong.  
-They function identically to the Ticket Barriers in the MTR Mod.
+They function identically to the Ticket Barriers in the MTR mod.
 
 ## Usage
 ### Thales Ticket Barrier (Bare)

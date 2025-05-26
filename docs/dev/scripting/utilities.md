@@ -14,7 +14,7 @@ Functions are provided where you can get the version number to ensure compatibil
 |`static Resources.getAddonVersion(modId: string): string`|Obtain the version of a mod that is hooked to the scripting functionality.<br>Out of the box in JCM, the possible value of `modId` are:<br>- mtr<br>- jcm|
 
 ## TextUtil
-MTR uses the station naming format `Name in one language|Name in another language||EXTRA`, so TextUtil is implemented to provide functions to separate these parts.
+The MTR mod uses the station naming format `Name in one language|Name in another language||EXTRA`, so TextUtil is implemented to provide functions to separate these parts.
 
 |Functions|Description|
 |:--------|:----------|
@@ -129,7 +129,7 @@ let dataResponse = HttpUtil.fetchString("https://api.modrinth.com/v2/project/min
 if(dataResponse.getResponseCode() == 200) {
     let mtrProjectStr = dataResponse.getData();
     let mtrProject = JSON.parse(mtrProjectStr);
-    print(`The MTR Mod is last updated on ${mtrProject.updated}`);
+    print(`The MTR mod is last updated on ${mtrProject.updated}`);
 }
 
 /* POST request */
