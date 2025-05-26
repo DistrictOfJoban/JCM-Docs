@@ -1,5 +1,20 @@
+**PIDS (Passenger Information Display System)** blocks in the Joban Client Mod behaves mostly similarly to the PIDS in MTR Mod, however it has several extra features which are listed belows.
+
+## PIDS Preset
+A **PIDS Preset** (Or **PIDS Layout** if you prefer that) is a set of configuration which defines how a PIDS should look.
+
+For instance, the [RV PIDS](../blocks/rv_pids.md) by default looks different from the [LCD PIDS](../blocks/lcd_pids.md). That's because they are both using different preset.  
+A PIDS Preset can be chosen by right clicking a PIDS block provided by Joban Client Mod with a **MTR Brush item**.
+
+Custom PIDS Preset can be created through the use of resource packs. Please head over to [Developer Documentation](../../dev/pids/index.md) if you want to learn more about creating your own.
+
+Alternatively you may explore the [various resource packs](https://modrinth.com/resourcepacks?q=pids) published online which adds extra PIDS preset to the game.
+
 ## PIDS Variable
-A variable is like a placeholder, you can put a text formatted in a specific way, and that text will be replaced with something else (e.g. a dynamic value).
+PIDS in Joban Client Mod also allows you to enter a dynamic variable in the PIDS's custom message section.
+
+A variable is essentially a text formatted in a specific way, in which it will be replaced with a dynamic value when displaying.  
+You can add any of the following variable by inserting the variable name into your custom message.
 
 |Variable Name|Description|Version Added
 |:------------|:----------|:----------:|
