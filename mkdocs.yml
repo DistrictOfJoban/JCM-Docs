@@ -184,11 +184,13 @@ nav:
           - Building a Scripted PIDS Preset: dev/pids/scripted/tut/index.md
       - Scripting:
         - dev/scripting/index.md
+        - Math Utilities: dev/scripting/math.md
         - Resource Loading Method: dev/scripting/resources.md
         - Utilities Method: dev/scripting/utilities.md
         - Dynamic Textures: dev/scripting/dynamic_textures.md
         - PIDS Scripting: dev/scripting/pids.md 
         - Eyecandy Scripting: https://wiki.minecrafttransitrailway.com/mtr_addon:nte:js:eyecandy
+        - Vehicle Scripting: dev/scripting/vehicle.md 
     - Contributing:
       - Introduction: contributing/introduction.md
       - Translation: contributing/translation.md
