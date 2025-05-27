@@ -2,7 +2,7 @@
 Just personal preference, you can always make changes after your initial PR ^^
 
 ## Naming Convention
-Use Java naming convention (TLDR: InterfaceName, ClassName, fieldName, methodName)
+Use Java naming convention (TLDR: InterfaceName, ClassName, fieldName, methodName, CONSTANT_VARIABLE)
 
 ## Exception and error handling/checking
 JCM employs some degree of [Offensive Programming](https://en.wikipedia.org/wiki/Offensive_programming).  

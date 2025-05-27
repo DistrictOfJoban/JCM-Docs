@@ -1,6 +1,6 @@
 ---
 block_ids:
-- jsblock:pids_1a
+- jsblock:lcd_pids
 since: 1.0.6
 image: JCM_lcd_pids.png
 item_group: JCM Blocks - PIDS
@@ -9,9 +9,7 @@ transparent: false
 light_level: 5
 ---
 
-The **Old Tsueng Kwan O Line PIDS** block is a Passenger Information Display System.
-
-It replicates the PIDS display seen along stations of the **MTR Tsueng Kwan O Line**, before being replaced with the Railway Vision PIDS display.
+A **Old Tsueng Kwan O Line PIDS** is a Passenger Information Display System. It replicates the PIDS display seen along stations of the **MTR Tsueng Kwan O Line**, before being replaced with the Railway Vision PIDS display.
 
 This block is a part of [JCM PIDS](../features/jcm-pids.md), which includes extra features such as PIDS Preset and more.
 
@@ -35,9 +33,10 @@ The PIDS can be configured by right clicking the block with a **MTR Brush item**
 | west   |
 
 ## History
-| Version | Changes Made                     |
-|:--------|:---------------------------------|
-| v1.0.6  | Added Old TKL PIDS               |
-| v1.1.2  | Support Variables                |
-| v1.1.4  | Support PIDS Preset              |
-| v1.1.8  | Support multi-platform selecting |
+| Version | Changes Made                                  |
+|:--------|:----------------------------------------------|
+| v1.0.6  | Added Old TKL PIDS                            |
+| v1.1.2  | Support Variables                             |
+| v1.1.4  | Support PIDS Preset                           |
+| v1.1.8  | Support multi-platform selecting              |
+| v2.0.0  | Rename `jsblock:pids_4` to `jsblock:lcd_pids` |

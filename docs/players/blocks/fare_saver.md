@@ -1,6 +1,6 @@
 ---
 block_ids:
-- jsblock:faresaver
+- jsblock:fare_saver
 since: 1.1.4
 image: JCM_fare_saver.png
 item_group: JCM Blocks

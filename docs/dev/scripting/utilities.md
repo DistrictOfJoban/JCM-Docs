@@ -18,8 +18,8 @@ The MTR mod uses the station naming format `Name in one language|Name in another
 
 |Functions|Description|
 |:--------|:----------|
-|`static TextUtil.cycleString(src: String): String`|Returns a text that cycles different languages. (Delimited by the pipe `<nowiki>|</nowiki>` character)|
-|`static TextUtil.cycleString(src: String, duration: int): String`|Returns a text that cycles different languages. (Delimited by the pipe `<nowiki>|</nowiki>` character)<br>The cycle frequency is decided by the `duration` parameter, in Minecraft Tick.|
+|`static TextUtil.cycleString(src: String): String`|Returns a text that cycles different languages. (Delimited by the pipe `|` character)|
+|`static TextUtil.cycleString(src: String, duration: int): String`|Returns a text that cycles different languages. (Delimited by the pipe `|` character)<br>The cycle frequency is decided by the `duration` parameter, in Minecraft Tick.|
 |`static TextUtil.getCjkParts(src: String): String`|Returns the CJK parts of the passed string.|
 |`static TextUtil.getNonCjkParts(src: String): String`|Returns the non-CJK parts of the passed string.|
 |`static TextUtil.getExtraParts(src: String): String`|Returns the extra part of the passed string.|

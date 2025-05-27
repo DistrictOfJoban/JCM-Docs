@@ -113,6 +113,7 @@ nav:
         - Fire Alarm: players/block/fire_alarm.md
         - Helpline (With Sticker): players/blocks/helpline_1.md
         - Helpline: players/blocks/helpline_2.md
+        - Helpline (HK West Kowloon Variant): players/blocks/helpline_hkwk.md
         - Helpline (East Rail Line Type): players/blocks/helpline_standing_eal.md
         - Helpline (Standing): players/blocks/helpline_standing.md
         - LRT Inter-Car Barriers: players/blocks/lrt_inter_car_barriers.md

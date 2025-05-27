@@ -4,7 +4,7 @@
     This page only applies to Joban Client Mod targeting MTR 4.0. Since the upcoming MTR 4.1, MTR mod no longer target multiple Minecraft versions, and the tooling mentioned in this page would likely be deprecated/no longer used.
 
 ## The Minecraft-Mappings Project
-**Minecraft Mappings** is a project made for the MTR mod that allows cross version (1.16.5+) and mod-loader compatibility with 1 single codebase.  
+**Minecraft Mappings** is a project made for the MTR mod that allows cross version (1.16.5-1.20.4) and mod-loader compatibility with 1 single codebase.  
 The basic idea is that *you don't use Minecraft's code*, instead use all the wrapper classes/method provided by **Minecraft Mappings**. (Which *usually* has the same name as Yarn mapping, under the `org.mtr.mapping` package)
 
 **Minecraft Mappings** are generated as a jar for each Minecraft version and mod-loader, where they all have the same classes/method, and only the underlying implementation is changed to adapt to different Minecraft versions, as such nothing needs to be changed when compiling to each Minecraft version.

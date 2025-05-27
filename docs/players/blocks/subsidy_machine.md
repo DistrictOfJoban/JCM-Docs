@@ -12,7 +12,7 @@ light_level: 0
 A **Subsidy Machine** is a functional block in Joban Client Mod.
 
 ## Usage
-The configured balance of this block will be added to scoreboard objective <code>mtr_balance</code> when right clicked.
+The configured balance of this block will be added to scoreboard objective `mtr_balance` when right clicked.
 
 ## Configuring
 
