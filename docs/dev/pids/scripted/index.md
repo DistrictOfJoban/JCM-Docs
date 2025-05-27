@@ -1,6 +1,6 @@
 # Scripted PIDS Preset
 
-**Scripted PIDS Preset** is a new experimental feature introduced in **JCM 2.0.0-beta.5**, it allows content developer to make new PIDS Preset using Javascript. The system is inspired by the **Nemo Transit Expansion** mod in MTR mod 3.x.
+**Scripted PIDS Preset** is a new experimental feature introduced in **JCM 2.0.0**. It allows content developer to make new PIDS Preset using Javascript. The system is inspired by the **Nemo Transit Expansion** mod in MTR mod 3.x.
 
 ## Motivation
 The most common questions I have received regarding PIDS Preset is *Can I replicate X PIDS from this Metro?*. Unfortunately the answer that had to be given is usually a **no**.

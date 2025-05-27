@@ -184,23 +184,22 @@ img.bg {
     .jcm-container {
         width: 100%;
     }
-
-    header .jcm-container {
-        width: 45rem;
-    }
-
 }
 
 @media only screen and (max-width: 800px) {
     main {
         max-width: 100%;
     }
+    
+    .super-container {
+        padding: 4rem 0;
+    }
 
-    header .jcm-container, .jcm-container {
+    .jcm-container {
         width: 100%;
         flex-direction: column;
         align-items: center;
-        text-align: center !important;
+        text-align: center;
     }
 
     .jcm-container .link-button {

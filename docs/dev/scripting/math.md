@@ -1,5 +1,5 @@
 
-This is not an introduction to the math functions of the standard JavaScript library. Instead, this is a set of useful classes provided by NTE to perform transformations for model rendering and other things.
+This is not an introduction to the math functions of the standard JavaScript library. Instead, this is a set of useful classes provided by NTE/JCM to perform transformations for model rendering and other things.
 
 ## Matrices
 When rendering, there is often a need to “restore the transformation state to the previous step”.

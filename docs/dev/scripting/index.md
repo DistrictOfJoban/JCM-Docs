@@ -3,7 +3,7 @@
 !!! info
      This page serves as a documentation for the whole scripting system implemented in JCM, which includes Eyecandy/Decoration Block Scripting and [PIDS Scripting](pids.md).
 
-JCM Scripting is a feature introduced in **JCM v2.0.0-beta.5**. It serves as a testbed for scripting in MTR 4, as well as using JavaScript to control PIDS.
+JCM Scripting is a feature introduced in **JCM v2.0.0**. It serves as a testbed for scripting in MTR 4, as well as using JavaScript to control PIDS.
 
 The system itself is heavily influenced by the Nemo Transit Expansion mod and shares much of the similarities. As such, most of the documentation include this page is also referenced from the [NTE JS documentation](https://wiki.minecrafttransitrailway.com/mtr_addon:nte:js:start).
 
