@@ -989,70 +989,68 @@ As for `shouldPadZero`, we can set it to true so it returns something like `08:3
 ## v4: Go ham!
 Right now things are looking very solid, but this is the MTR mod we are talking about, so things quickly falls apart when someone enter `Llanfair­pwllgwyngyll­gogery­chwyrn­drobwll­llan­tysilio­gogo­goch` as their station name.
 
-"*Ok but no one would do that*" Ok well sure, however now let's look at a real-world example, by renaming your destination station from `田景|Tin King` to `天水圍|Tin Shui Wai`
+"*Surely no one would do that, and it's their problem if they do*" Ok maybe you have a point, however now let's look at a real-world example, by renaming your destination station from `田景|Tin King` to `天水圍|Tin Shui Wai`
 
-*(p.s. if you know the HK LRT network well enough and are nerdy-enough, you can set your route number to `705` and route color to `#71BE44` to match real-world situation)*
-
-[[File:JCM JS PIDS Tutorial v4.1.png|362x362px]]*ummm send help.*
+![A PIDS with 4 arrivals, the destination name (Tin Shui Wai) overlapped with the text afterwards](./img/JCM_JS_PIDS_Tutorial_v4.1.png)  
+<small>*ummm send help.*</small>
 
 ### Limiting text size
-As we had learnt, we can set the size of a texture with `size(w, h)` function. What you might not know however is that the same can actually be done with text, try it:
+As we had learnt, we can set the size of a texture with `size(w, h)` function. What you might not know however is that the same can actually be done with Text, try it out:
 
-```
+``` js title="pids_tut.js" hl_lines="4"
 Text.create("Arrival destination")
 .text(TextUtil.cycleString(arrival.destination()))
 .pos(30, rowY)
-.size(36, 9) // <----
+.size(36, 9)
 .scale(1.25)
 .draw(ctx);
 ```
 
 After reloading, you'll notice that nothing has changed at all.
 
-This is intended, the text area did got defined. However by default JCM don't take any action if the text overflowed.
+This is intended. The text area actually did got defined, however by default JCM don't take any action if the text went beyond the area.
 
-To do so, we need to tell JCM what to do, either with the `stretchXY()`, `scaleXY()`, `wrapText()` and `marquee()` function.
+To do so, we need to tell JCM what to do, with the `stretchXY()`, `scaleXY()`, `wrapText()` and `marquee()` function:
 
-With `stretchXY()`, the text will be stretched according to which axis it overflowed. So if it overflowed horizontally, the text will only be stretched horizontally.
+|Function|Description|Preview|
+|:--|:--|:--|
+|`stretchXY()`|The text will be stretched according to which axis it overflowed. So if it overflowed horizontally, the text will only be stretched horizontally|![](./img/JCM_JS_PIDS_Tutorial_Text_stretchXY.png)|
+|`scaleXY()`|The text will be stretched on both-axis to ensure that it stays within the defined size. Or in other word, it maintains the aspect ratio of the text.|![](./img/JCM_JS_PIDS_Tutorial_Text_scaleXY.png)|
+|`wrapText()`|Any text that overflowed will be rendered in the next line, this might be useful when rendering paragraphs of text.|![](./img/JCM_JS_PIDS_Tutorial_Text_wrapText.png)|
+|`marquee()`|The text content is cropped to only show the visible section. The text will be continuously shifted to ensure that all portion of the text is shown.|![](./img/JCM_JS_PIDS_Tutorial_Text_marquee.png)
 
-With `scaleXY()`, the text will be stretched on both-axis to ensure that it stays within the defined size. Or in other word, it maintains the aspect ratio of the text.
+For now, we'll go with `scaleXY()` as I think it looks nicer, you are free to try any other options however!
 
-With `wrapText()`, any text that overflowed will be rendered in the next line, this might be useful when rendering paragraphs of text.
-
-With `marquee()`, the text content is cropped to only show the visible section. The text will be continuously shifted to ensure that all portion of the text is shown.
-
-For now, we'll go with `scaleXY()` as I think it looks nicer, feel free to try others however!
-
-```
+``` js title="pids_tut.js" hl_lines="5"
 Text.create("Arrival destination")
 .text(TextUtil.cycleString(arrival.destination()))
 .pos(30, rowY)
 .size(36, 9)
-.scaleXY() // <----
+.scaleXY()
 .scale(1.25)
 .draw(ctx);
 ```
 
-[[File:JCM JS PIDS Tutorial v4.2.png|417x417px]]
+![The destination text is now properly scaled](./img/JCM_JS_PIDS_Tutorial_v4.2.png)
 
-Nice. Now, we can also apply the same logic elsewhere:
+Nice. Now, we can also apply the same logic to other texts as well:
 
-```
+``` js title="pids_tut.js" hl_lines="5-6"
 Text.create("LRT Number Text")
 .text(arrival.routeNumber())
 .scale(0.55)
 .centerAlign()
-.size(26, 9) // <----
-.scaleXY() // <----
+.size(26, 9)
+.scaleXY()
 .pos(16.5, rowY+2.75)
 .draw(ctx);
 ```
 
-```
+``` js title="pids_tut.js" hl_lines="3-4"
 Text.create("Platform Circle Text")
 .text(arrival.platformName()) // We can use platformName() to obtain the platform no.
-.size(9, 9) // <----
-.scaleXY() // <----
+.size(9, 9)
+.scaleXY()
 .pos(84, rowY + 1)
 .scale(0.9)
 .centerAlign()
@@ -1060,12 +1058,12 @@ Text.create("Platform Circle Text")
 .draw(ctx);
 ```
 
-```
+``` js title="pids_tut.js" hl_lines="4-5"
 Text.create("ETA Text")
 .text(TextUtil.cycleString(PIDSUtil.getETAText(arrival.arrivalTime())))
 .scale(1.25)
-.size(30, 9) // <----
-.scaleXY() // <----
+.size(30, 9)
+.scaleXY()
 .rightAlign()
 .pos(pids.width - 8, rowY)
 .draw(ctx);
