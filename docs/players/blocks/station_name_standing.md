@@ -16,10 +16,10 @@ light_level: 0
 
     For backward compatibility, existing blocks will continue to work for now.
 
-A Standing Station Name Sign is a decoration block in Joban Client Mod, replicating standing station name sign seen in the **Tuen Ma Line (Tuen Mun <-> Kam Sheung Road)** section after the KCR and MTR merger.
+A **Standing Station Name Sign** is a decoration block in Joban Client Mod, replicating standing station name sign seen in the **Tuen Ma Line (Tuen Mun <-> Kam Sheung Road)** section after the KCR and MTR merger.
 
 ## Configuring
-You can right click the block with a **MTR Brush Item** to change the text color.
+You can right click the block with the **Brush** item provided by the MTR mod to change the text color.
 
 ## Block states
 | facing | metal | third  | color     |

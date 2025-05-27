@@ -9,7 +9,7 @@ creator: LX86
 transparent: false
 light_level: 5
 ---
-**Exit Sign (Odd)** and **Exit Sign (Even)**  is a decoration block in Joban Client Mod, representing a general Exit Signs seen in Hong Kong.
+**Exit Sign (Odd)** and **Exit Sign (Even)**  is a decoration block in Joban Client Mod, replicating an emergency exit sign seen in Hong Kong.
 
 It is designed to be hanging/attached to the bottom of a block.
 

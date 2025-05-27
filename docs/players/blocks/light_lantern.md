@@ -9,7 +9,7 @@ transparent: false
 light_level: 15
 ---
 
-A **Light Lantern** is a wall-attached block in Joban Client Mod, that mimic the light lamp seen in the Mockup photos of KCR East West Line stations.
+A **Light Lantern** is a wall-attached block in Joban Client Mod that mimics the light lamp seen in the Mockup photos of KCR East West Line stations.
 
 ## Block states
 | facing |

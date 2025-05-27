@@ -19,10 +19,10 @@ This block is a part of [JCM PIDS](../features/jcm-pids.md), which includes extr
 1. 2. If away from any platform, you may manually specify platform(s) to show if the PIDS is located inside a MTR station.
 
 ## Configuring
-The PIDS can be configured by right clicking the block with a **MTR Brush item**.
+The PIDS can be configured by right clicking the block with the **Brush** item provided by the MTR mod.
 
 ## Crafting Recipe
-{{Crafting 3x3|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Black concrete.png|Minecraft Glowstone dust.png|Minecraft Black concrete.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Cres=8|res=JCM Item Pids rv sil 2.png}}
+{{Crafting 3x3|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Glowstone dust.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|res=JCM Item Pids rv sil 1.png|Cres=8}}
 
 ## Block states
 | facing |

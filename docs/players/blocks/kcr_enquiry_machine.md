@@ -9,7 +9,7 @@ transparent: false
 light_level: 4
 ---
 
-A **KCR Enquiry Machine (Wall mounted)** is a block in Joban Client Mod, replicating enquiry machines that are mounted to the wall in the MTR Network.
+A **KCR Enquiry Machine (Wall mounted)** is a block in Joban Client Mod, replicating enquiry machines that are mounted to the wall in the MTR railway network.
 
 ## Usage
 Right clicking on the block will display your current MTR balance value at the bottom of your screen.

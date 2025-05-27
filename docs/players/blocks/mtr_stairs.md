@@ -13,9 +13,9 @@ light_level: 0
 !!! warning "To be done"
     Fill in crafting recipe
 
-A **MTR Stairs** is a decoration block in Joban Client Mod.
+A **MTR Stair** is a textured stair block, replicating a type of stairs seen in the Hong Kong MTR premises.
 
-This block is a retextured Minecraft Stairs, for more detail please visit the [Stairs article](https://minecraft.fandom.com/wiki/Stairs) in the Minecraft Wiki.
+This block is a retextured Minecraft Stair, for more detail please visit the [Stairs article](https://minecraft.fandom.com/wiki/Stairs) in the Minecraft Wiki.
 
 ## Known issues
 Since the stair model is not modified, texture may not wrap properly as intended by Minecraft stairs.

@@ -9,7 +9,7 @@ transparent: false
 light_level: 5
 ---
 
-A **Railway Vision PIDS** is a Passenger Information Display System. It replicates the Railway-Vision styled PIDS display seen along stations of the MTR Network.
+A **Railway Vision PIDS** is a Passenger Information Display System. It replicates the Railway Vision styled PIDS display seen along stations of the MTR Network.
 
 This block is a part of [JCM PIDS](../features/jcm-pids.md), which includes extra features such as PIDS Preset and more.
 
@@ -19,7 +19,7 @@ This block is a part of [JCM PIDS](../features/jcm-pids.md), which includes extr
 1. 2. If away from any platform, you may manually specify platform(s) to show if the PIDS is located inside a MTR station.
 
 ## Configuring
-The PIDS can be configured by right clicking the block with a **MTR Brush item**.
+The PIDS can be configured by right clicking the block with the **Brush** item provided by the MTR mod.
 
 ## Crafting Recipe
 {{Crafting 3x3|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Glowstone dust.png|Minecraft Glowstone dust.png|Minecraft Glowstone dust.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|res=JCM Item Pids rv.png|Cres=8}}

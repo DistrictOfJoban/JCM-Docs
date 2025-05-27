@@ -9,7 +9,7 @@ transparent: false
 light_level: 15
 ---
 
-An **Emergency Train Stop Button (Standing, TML)** is a decoration block in Joban Client Mod. The model is referenced from the new Tuen Ma Line platform of Hung Hom Station in Hong Kong.
+An **Emergency Train Stop Button (Standing, TML)** is a decoration block in Joban Client Mod, modelled after the emergency train stop facility in the new MTR Hung Hom platforms.
 
 ## Usage
 Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1 second).

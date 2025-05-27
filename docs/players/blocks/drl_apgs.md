@@ -4,7 +4,7 @@ block_ids:
 - jsblock:apg_glass_drl
 - jsblock:apg_glass_end_drl
 since: 1.1.6
-image: JCM_DRL_APG.png
+image: JCM_drl_apgs.png
 image_desc: A set of Disneyland Resorts Line Automatic Platform Gates placed together
 item_group: JCM Blocks
 creator: AozoraSky/LX86
@@ -13,7 +13,7 @@ transparent: true
 light_level: 0
 ---
 
-An **APG (Disneyland Resorts Line Variants)** is a block in Joban Client Mod that replicates the Automatic Platform Gates (APG) used in the Disneyland Resorts Line.
+An **APG (Disneyland Resorts Line Variants)** is a series of blocks in Joban Client Mod that replicates the Automatic Platform Gates (APG) used in the MTR Disneyland Resorts Line.
 
 They are slightly lower than the APG seen in other MTR Routes.
 

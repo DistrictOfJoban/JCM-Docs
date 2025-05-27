@@ -12,7 +12,7 @@ light_level: 8
 !!! warning "To be done"
     Fill in crafting recipe
 
-An **Operator Button** is a wall-attached block in Joban Client Mod, designed to only activate when players hold an authorized driver key.
+An **Operator Button** is a wall-attached block in Joban Client Mod, designed to only activate when players hold an authorized driver key. It is modelled after a authorization lock seen in stations of the MTR West Rail Line section.
 
 ## Usage
 If the player right clicks the operator button with an accepted train driver key (Configurable, see below) in the MTR mod, the button will emit a redstone signal lasting **40 ticks (2 seconds)**.
@@ -20,8 +20,7 @@ If the player right clicks the operator button with an accepted train driver key
 This block can be placed besides an iron door, in which only player with the appropriate train driver key may get in.
 
 ## Configuring
-Since MTR 4.0, multiple types of train driver key are offered.  
-You may right click the block with the **MTR Brush item** to configure which driver keys are allowed to activate the block. By default, all train driver keys are accepted.
+You may right click the block with the **Brush** item provided by the MTR mod to configure which driver keys are allowed to activate the block. By default, all train driver keys are accepted.
 
 ## Block states
 | facing | powered |

@@ -22,16 +22,11 @@ A total of 7 parts are available for selection in the inventory.
 ## Usage
 Follow the placement in the image.
 
-## Alternative
-A rail model of the tunnel wall is available, check [here](../features/tunnel.md) for usage.
+### Placement automation
+For Circle Wall (1, 2, 3, 4, 5), you may place the following piece (2, 3, 4, 5, 6) on top of them, and JCM will automatically try to shift the block placement to form a circular tunnel.
 
-## Place automation (Since v1.1.5)
-- If Circle Wall (2) is placed on top of Circle Wall (1):
-- - Shift the block to 1 block forward
-- If Circle Wall (5) is placed on top of Circle Wall (4):
-- - Shift the block to 1 block backwards
-- If Circle Wall (6) is placed on top of Circle Wall (5):
-- - Shift the block to 1 block backwards
+## Alternative
+A rail model of the tunnel wall is available which works against curve, check [here](../features/tunnel.md) for usage.
 
 ## Crafting Recipes
 

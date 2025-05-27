@@ -4,7 +4,7 @@
 A **PIDS Preset** (Or **PIDS Layout** if you prefer that) is a set of configuration which defines how a PIDS should look.
 
 For instance, the [RV PIDS](../blocks/rv_pids.md) by default looks different from the [LCD PIDS](../blocks/lcd_pids.md). That's because they are both using different preset.  
-A PIDS Preset can be chosen by right clicking a PIDS block provided by Joban Client Mod with a **MTR Brush item**.
+A PIDS Preset can be chosen by right clicking a PIDS block provided by Joban Client Mod with the **Brush** item provided by the MTR mod.
 
 Custom PIDS Preset can be created through the use of resource packs. Please head over to [Developer Documentation](../../dev/pids/index.md) if you want to learn more about creating your own.
 

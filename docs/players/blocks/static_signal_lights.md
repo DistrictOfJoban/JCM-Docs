@@ -15,7 +15,9 @@ light_level: 0
 !!! warning "To be done"
     Fill in crafting recipe
 
-**Static Signal Light** refers to a series of Signal Light Block in Joban Client Mod where it's always lit.
+**Static Signal Light** refers to a series of Signal Light Block in Joban Client Mod where it's always lit in 1 color.
+
+Its purpose is to provide a dummy decoration-only signal light.
 
 ## Block states
 | facing | is_22_5 | is_45 |
@@ -33,4 +35,4 @@ These blocks have a block entity, but does not store any data and are solely use
 |:--------|:------------------------------------------------------------------|
 | v1.0.0  | Added Static Signal Light                                         |
 | v1.1.5  | Fix Blue Signal Light being located at the bottom rather than top |
-| v2.0.0  | Adapt to diagonal signal light.                                   |
+| v2.0.0  | Allow signal lights to be placed in 22.5/45 degree increment.     |

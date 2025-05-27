@@ -9,8 +9,7 @@ transparent: false
 light_level: 0
 ---
 
-An **Emergency Stop Button** is a decoration block, replicating the Emergency Stop Button seen in Tung Chung Line stations.  
-This block is meant to be attached to a wall.
+An **Emergency Stop Button** is a wall-attached block, replicating the Emergency Stop Button seen in Tung Chung Line stations.
 
 ## Usage
 Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1 second).

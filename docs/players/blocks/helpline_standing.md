@@ -11,6 +11,8 @@ light_level: 15
 
 A **Helpline (Standing)** is a block in Joban Client Mod acting as a machine to request assistance from station staff.
 
+This variant is seen in MTR stations.
+
 ## Usage
 Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1 second).
 

@@ -9,7 +9,7 @@ transparent: true
 light_level: 0
 ---
 
-A **Railway Vision Enquiry Machine** is a block in Joban Client Mod, replicating the new enquiry machines installed by MTR as part of their Railway-Vision initiative.
+A **Railway Vision Enquiry Machine** is a block in Joban Client Mod, replicating the new enquiry machines installed by MTR as part of their Railway Vision initiative.
 
 ## Usage
 Right clicking on the block will display your current MTR balance value at the bottom of your screen.

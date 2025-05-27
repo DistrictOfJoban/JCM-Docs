@@ -11,14 +11,14 @@ light_level: 0
 
 # Door Closing Indicator (Butterfly Light)
 
-A Door Closing Indicator (Also known as Butterfly Light) is a block in Joban Client Mod. This replicates a device in the **MTR East Rail Line** reminding the train driver to close the door and depart.
+A **Door Closing Indicator** (Also known as Butterfly Light) is a block in Joban Client Mod that replicates a device in the **MTR East Rail Line** which reminds the train driver to close the train door and depart.
 
 ## Usage
 1. Place the block near a platform. (A configuration replicating real-life would be to place it at the end of the platform rail node)
 2. Some time before the train departs, the light will start flashing. (Default to 10 seconds, configurable).
 
 ## Configuring
-You may configure the time when it starts flashing before departure by right clicking with the **MTR Brush item**.
+You may configure the time when it starts flashing before departure by right clicking with the **Brush** item provided by the MTR mod.
 
 ## Crafting Recipe
 {{Crafting 3x3|Minecraft Black concrete.png|Minecraft Redstone.png|Minecraft Black concrete.png|Minecraft Black concrete.png|Minecraft Lapis lazuli.png|Minecraft Black concrete.png|res=JCM Item Butterfly light.png|Cres=4}}

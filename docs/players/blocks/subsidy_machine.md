@@ -9,15 +9,16 @@ transparent: false
 light_level: 0
 ---
 
-A **Subsidy Machine** is a functional block in Joban Client Mod.
+A **Subsidy Machine** is a functional block in Joban Client Mod, modelled after the *Subsidy Collection Point* seen in MTR premises.
 
 ## Usage
-The configured balance of this block will be added to scoreboard objective `mtr_balance` when right clicked.
+The balance amount set for this block will be added to your MTR balance when right clicked.
+
+Depending on how the block is configured, there may be a cooldown period before you can continue filling your balance.
 
 ## Configuring
 
-Right Click with brush
-A GUI will be displayed, allowing configuration for the subsidy balance and timeout
+You may configure the balance amount provided by the machine and cooldown period by right clicking with the **Brush** item provided by the MTR mod.
 
 ## Crafting Recipe
 {{Crafting 3x3|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Blue dye.png|Minecraft emerald.png|Minecraft Blue dye.png|Minecraft Redstone.png|Minecraft Redstone.png|Minecraft Redstone.png|Cres=2|res=JCM Item Subsidy machine 1.png}}

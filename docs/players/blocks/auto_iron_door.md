@@ -9,9 +9,9 @@ transparent: true
 light_level: 0
 ---
 
-An Automatic Iron Door is a copy of Minecraft's Iron Door, but will automatically open when player gets in a 3 block range.
+An **Automatic Iron Door** is a copy of Minecraft's Iron Door that will automatically open when player gets in a 3 block range.
 
-All Block states and properties follows [Minecraft Iron Doors](https://minecraft.wiki/w/Iron_Door).
+All Block states and properties follows [Minecraft Iron Door](https://minecraft.wiki/w/Iron_Door).
 
 ## Crafting Recipe
 {{Crafting 3x3|Minecraft Redstone.png|Minecraft Redstone.png|Minecraft Redstone.png|Minecraft Redstone.png|Minecraft Iron door.png|Minecraft Redstone.png|Minecraft Redstone.png|Minecraft Redstone.png|Minecraft Redstone.png|res=Minecraft Iron door.png|Cres=2}}

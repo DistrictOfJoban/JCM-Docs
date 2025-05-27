@@ -11,13 +11,13 @@ transparent: false
 light_level: 10
 ---
 
-**KCR Station Name Signs** is a series of decoration block in Joban Client Mod, replicating the hanging signs seen in KCR East Rail Network before the merger between **Kowloon-Canton Railway** (KCR) and **Mass Transit Railway** (MTR) in the real world.
+**KCR Station Name Signs** is a series of decoration block in Joban Client Mod, replicating the hanging signs seen in KCR East Rail before the merger between KCR and MTR (Mass Transit Railway) in the real world.
 
-Both the **normal** variant and **station-colored** variant is available.
+Both the **normal** variant and **station-color** variant is available.
 
 ## Usage
 Place the sign below a block, the station name will be shown if the placed position is within a station area.  
-For the **station-colored** variant, the color of the sign will also change to the color of the station, if one exists.
+For the **station-color** variant, the color of the sign will also change to the color of the station, if one exists.
 
 ## Crafting Recipes
 ### KCR Station Name Sign

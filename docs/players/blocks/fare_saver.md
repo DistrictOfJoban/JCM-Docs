@@ -9,7 +9,7 @@ transparent: false
 light_level: 15
 ---
 
-A **Fare Saver** is a functional block in Joban Client Mod. This replicates the older variants of MTR Fare Saver in real life.
+A **Fare Saver** is a block in Joban Client Mod, replicating an older variants of a MTR Fare Saver machine.
 
 ## Usage
 1. Right click the machine

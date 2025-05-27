@@ -9,14 +9,10 @@ transparent: true
 light_level: 0
 ---
 
-A **LRT Trespass Signage** is a decoration block in Joban Client Mod.
-
-## Trivia
-The Item texture for this block is a beta texture, and is slightly different from the actual block in terms of coloring.
+A **LRT Trespass Signage** is a decoration block in Joban Client Mod, replicating a vertical sign placed on the track at the end of platform reminding passengers to not trespass between tracks.
 
 ## Crafting Recipe
 {{Crafting 3x3|2=Minecraft Red dye.png|5=Minecraft Iron ingot.png|8=Minecraft Stick.png|Cres=6|res=JCM Item Trespass sign 3.png}}
-
 
 ## Block states
 | facing | half  |

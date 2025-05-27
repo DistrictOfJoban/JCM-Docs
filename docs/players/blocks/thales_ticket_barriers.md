@@ -12,10 +12,14 @@ transparent: true
 light_level: 0
 ---
 
-**Thales Ticket Barriers** is a series of ticket barriers in Joban Client Mod, replicating a variant of Ticket Barriers manufactured by Thales in Hong Kong.  
-They function identically to the Ticket Barriers in the MTR mod.
+**Thales Ticket Barriers** is a series of ticket barriers in Joban Client Mod, modelled after a variant of Ticket Barriers manufactured by the Thales Group.
 
 ## Usage
+### Thales Ticket Barrier (Entrance/Exit)
+You can walk through the ticket barrier in a defined station area to pass through the gates.
+
+They function identically to the Ticket Barriers in the MTR mod.
+
 ### Thales Ticket Barrier (Bare)
 By placing an MTR fence next to the Thales Ticket Barrier (Bare) variant, the barrier will automatically connect to the fence with a shorter variants.
 

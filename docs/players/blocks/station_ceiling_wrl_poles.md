@@ -14,7 +14,7 @@ light_level: 0
 !!! warning "To be done"
     Fill in crafting recipe
 
-**Station Ceiling Poles** refers to a series of poles in Joban Client Mod that extends [Station Ceilings (2009)](./station_ceilings_wrl.md) blocks.
+**Station Ceiling Poles** refers to a series of poles in Joban Client Mod that extends the [Station Ceilings (2009)](./station_ceilings_wrl.md) blocks.
 
 ## Block states
 ### Double Pane variant

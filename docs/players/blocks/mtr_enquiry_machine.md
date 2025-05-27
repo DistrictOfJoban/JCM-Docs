@@ -9,9 +9,7 @@ transparent: true
 light_level: 0
 ---
 
-An **Enquiry Machine** is a functional block in Joban Client Mod.
-
-The model resembles the older MTR enquiry machine.
+An **Enquiry Machine** is a block in Joban Client Mod that replicates the older-generation enquiry machine seen in the MTR railway network.
 
 ## Usage
 

@@ -9,12 +9,10 @@ transparent: false
 light_level: 0
 ---
 
-A **Water Machine** is a functional block in Joban Client Mod.
+A **Water Machine** is a block in Joban Client Mod, modelled after water supply machines in MTR stations.
 
 ## Usage
-
-Hold an empty bottle
-Right click on the water machine to fill the empty bottle
+You may refill a water bottle/bucket by right clicking on the water machine with the corresponding item (Empty Bottle/Empty Bucket).
 
 ## Crafting Recipe
 {{Crafting 3x3|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Redstone.png|Minecraft Water bucket.png|Minecraft Redstone.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|res=JCM Item Water machine 1.png|Cres=3}}

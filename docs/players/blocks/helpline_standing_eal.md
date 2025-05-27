@@ -11,7 +11,7 @@ light_level: 0
 
 A **Helpline (East Rail Line Type)** is a block in Joban Client Mod acting as a machine to request assistance from station staff. 
 
-This replicates the help line seen in stations in the MTR East Rail Line.
+This replicates the Help Line seen in stations along the MTR East Rail Line.
 
 ## Usage
 Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1 second).

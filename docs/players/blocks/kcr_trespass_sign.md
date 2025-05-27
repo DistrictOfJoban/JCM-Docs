@@ -9,7 +9,7 @@ transparent: true
 light_level: 0
 ---
 
-A **KCR Trespass Signage** is a decoration block in Joban Client Mod, replicating the trespass signage seen in KCR East Rail's platform before the merger of Mass Transit Railway (MTR) and Kowloon-Canton Railway (KCR). 
+A **KCR Trespass Signage** is a block in Joban Client Mod, replicating the trespass signage seen in KCR East Rail stations before the merger of KCR and MTR (Mass Transit Railway). 
 
 ## Crafting Recipe
 {{Crafting 3x3|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Red dye.png|Minecraft Iron ingot.png|Cres=6|res=JCM Item Trespass sign 2.png}}
