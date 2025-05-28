@@ -7,7 +7,7 @@ By the end of the tutorial, you would have built a Fictional LRT (Light Rail) ve
 *(Top: Default RV PIDS Preset, Bottom: Custom JS-based PIDS Preset)*
 
 ## Prerequisite
-Before beginning this tutorial, you should setup a world with MTR 4.x installed:
+Before beginning this tutorial, you should setup a world with MTR 4 installed:
 
 !!! note inline end
     A fully operational route is not required. If your route jams, the tutorial can still continue, as long as there's any train on the route.
@@ -17,14 +17,16 @@ Before beginning this tutorial, you should setup a world with MTR 4.x installed:
     2. 2nd station named `田景|Tin King`
 2. Name the route `輕鐵|Light Rail` with Route Number `507` and color code `00A650`
 3. Place a single PIDS within your view distance, which can display the arrivals of the routes
+4. Create a siding, a depot, assign the route to the depot and configure the schedule so your vehicle departs.
+    1. Setting your siding to allow unlimited vehicles is benefical for this tutorial as you would mostly be viewing upcoming schedules. Unlimited vehicles prevents situations where you would run out of vehicles for the PIDS to display.
 
 ## Note
 Before starting, please note that:
 
-* Repeated/Irrelevant code may be abbreviated with the `...` notation. You should locate and updating only the affected line.
-*Sometimes surrounding codes are shown to ensure the readers don't get lost. The changed line is marked with `<---` at the end of the line, indicating such line is affected.
-* This article is best read with basic level of programming knowledge (Doesn't have to be JavaScript). You may still finish the tutorial without such knowledge, but may find some difficulty grasping some concept as this article is not meant to be a programming 101.
-* You don't have to finish the tutorial in one go :)
+- Repeated/Irrelevant code may be abbreviated with the `// ...` comment notation.
+- - Sometimes surrounding codes are shown to ensure the readers don't get lost. The changed lines are highlighted in this documentation, indicating such lines are affected and need updating.
+- This article is best read with basic level of programming knowledge (Doesn't have to be JavaScript). You may still finish the tutorial without such knowledge, but may find some difficulty grasping some concept as this article is not meant to be a programming 101.
+- You don't have to finish the tutorial in one go :)
 
 ## Getting started
 To get started, [download the tutorial resource pack here](../files/JCM_PIDS_Tutorial_Scripting_Pack.zip), extract the zip and put it in Minecraft's Resource Pack folder.
@@ -1070,7 +1072,7 @@ Text.create("ETA Text")
 ```
 
 ## v5: It's coming together
-At this point if you are developing this PIDS Preset for your own use, you should be ready to go by modifying the code to suit your need.
+At this point if you are developing this PIDS Preset for your own use, you should have learned most of the basics, and you may start to modify the code to suit your need.
 
 However if you are planning to publish a PIDS Preset for others to use, you have to also account for the variety of different configuration people uses. Most notably, each PIDS Block has it's own config, such as **Custom Messages**, **Hide Arrivals**, **Hide Platform Number** etc.
 
@@ -1081,13 +1083,13 @@ We can obtain the custom message of the n<sup>th</sup> row by using the function
 
 If a custom message exists, it will return the custom message.
 
-Otherwise, it will return an empty string ("")
+Otherwise, it will return an empty string (" ")
 
 Therefore, we can check whether that row have custom messages, and draw them differently depending on the situation:
 
-```
-...
-
+``` js title="pids_tut.js" hl_lines="3-12"
+// ... code before
+let rowY = HEADER_HEIGHT + (i*16.75);
 let customMsg = pids.getCustomMessage(i);
 if(customMsg != "") { // Have custom message
     Text.create("Custom Text")
@@ -1100,31 +1102,33 @@ if(customMsg != "") { // Have custom message
 } else { // No custom message, continue the rest of arrival row logic
     let arrival = pids.arrivals().get(i);
     if(arrival != null) {
-    ...
-}
-
-...
+        Texture.create("LRT Circle White")
+        // ... code after
 ```
 
 ### Hide Platform Number
-We can use the `pids.isPlatformNumberHidden()` to determine whether platform number should be shown or not:
+The `isPlatformNumberHidden()` function in the `pids` parameter returns whether platform number should be shown or not.  
+Therefore, we can wrap it inside an if statement, and only draw the platform number if it is not hidden.
 
-```
+``` js title="pids_tut.js" hl_lines="2"
+// ... code before
 if(!pids.isPlatformNumberHidden()) { // If platform number is not hidden
     Texture.create("Platform Circle")
     .texture("jsblock:textures/block/pids/plat_circle.png")
-    ...
+    // ... code for drawing platform circle & platform number text
 }
+// ... code after
 ```
 
 ### Hide Arrival
-We can use the `pids.isRowHidden(n)` function to determine whether arrival is set to hidden on that row:
+Finally, we can use the `pids.isRowHidden(n)` function to determine whether arrival is set to hidden for that row.  
+Once again, we can wrap it in an `if` statement, and let's put it together with the arrival null check as well!
 
-```
+``` js title="pids_tut.js" hl_lines="3"
+// ... code before
 let arrival = pids.arrivals().get(i);
 if(arrival != null && !pids.isRowHidden(i)) { // have arrival & row not hidden
-    ... // Our arrival rendering logic
-}
+    // ... Our arrival rendering logic
 ```
 
 ## Conclusion
