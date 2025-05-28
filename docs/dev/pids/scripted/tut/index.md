@@ -1132,7 +1132,7 @@ Congratulations! You have just built your custom PIDS preset from scratch!
 
 Here's the full code for your reference (May differ slightly, but logic should mostly be same):
 
-```
+``` js title="pids_tut.js" linenums="1"
 include(Resources.id("jsblock:scripts/pids_util.js")); // Built-in script shipped with JCM
 const HEADER_HEIGHT = 13;
 
@@ -1254,41 +1254,37 @@ function dispose(ctx, state, pids) {
 ```
 
 ## What to do next
-Now you can check out the [[JCM:Scripting:Documentation|scripting documentation]] to see what other functions and information you can obtain.
+Now you can check out the [Scripting Documentation](../../../scripting/index.md) to see what other functions and information you can obtain.
 
 ### Additional Challenges
 Some things are intentionally left-out in this tutorial, which can mostly be attributed to my laziness, but nevertheless they also serve as a great opportunity for a bonus challenge:
 
-#### Re-implementing functions in PIDSUtil
 On multiple occasions we have used **PIDSUtil** to obtain for example ETA Text, formatting clock etc.
 
 Now can you create your own function to replace the use of PIDSUtil?
 
-##### PIDSUtil.getETAText(arrivalMs)
-Tips:
+#### PIDSUtil.getETAText(arrivalMs)
+??? tips
+    - Check if arrival second is <= 0, if so return an empty string.
+    - If arrival second less than 60, return `<etaSec> 秒|<etaSec> sec`.
+    - If arrival second less than 120, return `<etaMin> 分鐘|<etaMin> min`.
+    - Otherwise, return `<etaMin> 分鐘|<etaMin> mins`.
+    - Use `Math.floor` and `Math.ceil` to round down/up numbers.
 
-* Check if arrival second is <= 0, if so return an empty string
-* If arrival second less than 60, return `<etaSec> 秒|<etaSec> sec`
-* If arrival second less than 120, return `<etaMin> 分鐘|<etaMin> min`
-* Otherwise, return `<etaMin> 分鐘|<etaMin> mins`
-* Use `Math.floor` and `Math.ceil` to round down/up numbers
-
-##### PIDSUtil.formatTime(mcTime)
-Tips:
-
-* Every in-game hour is `50` second in real life, or exactly `1000` ticks.
-* Minecraft Time is `0` at `06:00`, add `6000` ticks to the Minecraft time before doing calculations.
-* Convert a number to string with `.toString()` function.
-* Pad zero digits on a string with `.padStart(2, '0')`
+#### PIDSUtil.formatTime(mcTime)
+??? tips
+    - Every in-game hour is `50` second in real life, or exactly `1000` ticks.
+    - Minecraft Time is `0` at `06:00`, add `6000` ticks to the Minecraft time before doing calculations.
+    - Convert a number to string with `.toString()` function.
+    - Pad zero digits on a string with `.padStart(2, '0')`.
 
 #### Show car length if arrivals have mixed car length
-Tips:
-
-* Read the [[JCM:Scripting:Documentation:PIDS#PIDS Object Related|documentation]] to see whether there's a function to determine if arrivals have mixed car length
-* Use `PIDSUtil.getCarText(carLength)` function to obtain the car text.
-* Append the car text to the ETA string with a `|` so that it cycles through both car-text and ETA-text!
+??? tips
+    - Read the [PIDS Scripting Documentation](../../../scripting/pids.md#pids-object-related) to see whether there's a function to determine if arrivals have mixed car length.
+    - Use `PIDSUtil.getCarText(carLength)` function to obtain the car text.
+    - Append the car text to the ETA string with a `|` so that it cycles through both car-text and ETA-text!
 
 ## Ending
-This concludes the PIDS tutorial. If you have any question or feedback, please don't hesitate to send it either in the District of Joban server, or the JCM thread in the Minecraft Transit Railway server! See you by then~ ^-^
+This concludes the PIDS tutorial. If you have any question or feedback, please don't hesitate to send it either in the **District of Joban** discord server, in the JCM thread in the **Minecraft Transit Railway** server, or submit a github issue! See you by then~ ^-^
 
-- LX
+\- LX

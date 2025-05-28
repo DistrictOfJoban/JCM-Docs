@@ -20,12 +20,12 @@ Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1
 {{Crafting 3x3|Minecraft Yellow dye.png|Minecraft Yellow dye.png|4=Minecraft Purple dye.png|5=Minecraft Purple dye.png|7=Minecraft Iron ingot.png|8=Minecraft Iron ingot.png|res=JCM Item Helpline 3.png|Cres=4}}
 
 ## Block states
-| facing | half  |
-|:-------|:------|
-| north  | lower |
-| east   | upper |
-| south  |       |
-| west   |       |
+| facing | half  | unpowered |
+|:-------|:------|:----------|
+| north  | lower | true      |
+| east   | upper | false     |
+| south  |       |           |
+| west   |       |           |
 
 ## History
 | Version | Changes Made                                                                                                 |

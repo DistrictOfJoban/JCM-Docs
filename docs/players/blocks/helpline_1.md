@@ -22,12 +22,12 @@ Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1
 
 
 ## Block states
-| facing |
-|:-------|
-| north  |
-| east   |
-| south  |
-| west   |
+| facing | unpowered |
+|:-------|:----------|
+| north  | true      |
+| east   | false     |
+| south  |           |
+| west   |           |
 
 ## Trivia
 This block is the first ever block added into JCM, and is released along with other block in v1.0.0.

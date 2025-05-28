@@ -20,12 +20,12 @@ Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1
 {{Crafting 3x3|Minecraft Iron ingot.png|Minecraft Iron ingot.png|4=Minecraft Iron ingot.png|5=JCM Item Helpline 1.png|7=Minecraft Iron ingot.png|8=Minecraft Iron ingot.png|res=JCM Item Helpline 4.png|Cres=4}}
 
 ## Block states
-| facing | third  |
-|:-------|:-------|
-| north  | lower  |
-| east   | middle |
-| south  | upper  |
-| west   |        |
+| facing | third  | unpowered |
+|:-------|:-------|:----------|
+| north  | lower  | true      |
+| east   | middle | false     |
+| south  | upper  |           |
+| west   |        |           |
 
 ## History
 | Version | Changes Made                                                                                             |
