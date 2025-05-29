@@ -24,7 +24,8 @@ Before beginning this tutorial, you should setup a world with MTR 4 installed:
 Before starting, please note that:
 
 - Repeated/Irrelevant code may be abbreviated with the `// ...` comment notation.
-- - Sometimes surrounding codes are shown to ensure the readers don't get lost. The changed lines are highlighted in this documentation, indicating such lines are affected and need updating.
+- - Surrounding codes may be shown to ensure the readers don't get lost.
+- Over the course of this tutorial, we may insert or change codes in our script. The affected lines are highlighted in this documentation, indicating such lines needs updating.
 - This article is best read with basic level of programming knowledge (Doesn't have to be JavaScript). You may still finish the tutorial without such knowledge, but may find some difficulty grasping some concept as this article is not meant to be a programming 101.
 - You don't have to finish the tutorial in one go :)
 

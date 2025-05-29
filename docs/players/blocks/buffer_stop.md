@@ -7,6 +7,8 @@ item_group: JCM Blocks
 creator: AozoraSky
 transparent: true
 light_level: 15
+recipes:
+- jsblock:buffer_stop
 ---
 
 A **Buffer Stop** is a decoration block in Joban Client Mod, mimicking the [Buffer Stop](https://en.wikipedia.org/wiki/Buffer_stop) seen in East Rail Line. This device is used to prevent train from overrunning in the real world.
@@ -15,7 +17,26 @@ A **Buffer Stop** is a decoration block in Joban Client Mod, mimicking the [Buff
 Place the block at least **2 blocks** in front of the final rail node.
 
 ## Crafting Recipe
-{{Crafting 3x3|Minecraft Redstone torch.png|3=Minecraft Redstone torch.png|4=Minecraft Yellow concrete.png|5=Minecraft Yellow concrete.png|6=Minecraft Yellow concrete.png|7=Minecraft Yellow concrete.png|9=Minecraft Yellow concrete.png|res=JCM Item Bufferstop 1.png|Cres=8}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Redstone_torch.png"></div>
+        <div></div>
+        <div><img src="../crafting/Minecraft_Redstone_torch.png"></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Yellow_concrete.png"></div>
+        <div><img src="../crafting/Minecraft_Yellow_concrete.png"></div>
+        <div><img src="../crafting/Minecraft_Yellow_concrete.png"></div>
+        <!-- row 3 -->
+        <div><img src="../crafting/Minecraft_Yellow_concrete.png"></div>
+        <div></div>
+        <div><img src="../crafting/Minecraft_Yellow_concrete.png"></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="8">
+        <img src="../crafting/JCM_Item_buffer_stop.png">
+    </div>
+</div>
 
 ## Block states
 | facing |

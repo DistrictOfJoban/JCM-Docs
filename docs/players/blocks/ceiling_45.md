@@ -7,12 +7,33 @@ item_group: JCM Blocks
 creator: LX86
 transparent: true
 light_level: 0
+recipes:
+- jsblock:ceiling_slanted
 ---
 
 A **Ceiling (Slanted)** is a decoration block in Joban Client Mod.
 
 ## Crafting Recipe
-{{Crafting 3x3|3=Minecraft Black concrete.png|5=Minecraft Black concrete.png|7=Minecraft Black concrete.png|res=JCM ceiling 1.png|Cres=16}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div></div>
+        <div></div>
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <!-- row 2 -->
+        <div></div>
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div></div>
+        <!-- row 3 -->
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="16">
+        <img src="../previews/JCM_ceiling_slanted.png">
+    </div>
+</div>
 
 ## Block states
 | facing |

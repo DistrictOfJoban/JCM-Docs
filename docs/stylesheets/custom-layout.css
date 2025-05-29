@@ -25,3 +25,46 @@
   background: #F1BC41;
   color: black;
 }
+
+.crafting {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.crafting-arrow {
+  content: "";
+  display: inline-block;
+  height: 36px;
+  width: 60px;
+  background-image: url("/players/blocks/crafting/arrow.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+
+.crafting-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.crafting-table > div, .crafting-result {
+  position: relative;
+  background-color: #8b8b8b;
+  border-top: 2px solid #353535;
+  border-left: 2px solid #353535;
+  border-right: 2px solid #FFFFFF;
+  border-bottom: 2px solid #FFFFFF;
+  width: 36px;
+  height: 36px;
+}
+
+.crafting-table > div::before, .crafting-result::before {
+  position: absolute;
+  color: white;
+  text-shadow: #111 1px 1px 2px;
+  bottom: 0;
+  right: 0;
+  line-height: 1;
+  content: attr(data-count);
+}

@@ -7,6 +7,8 @@ item_group: JCM Blocks
 creator: LX86
 transparent: false
 light_level: 0
+recipes:
+- jsblock:butterfly_light
 ---
 
 # Door Closing Indicator (Butterfly Light)
@@ -21,7 +23,26 @@ A **Door Closing Indicator** (Also known as Butterfly Light) is a block in Joban
 You may configure the time when it starts flashing before departure by right clicking with the **Brush** item provided by the MTR mod.
 
 ## Crafting Recipe
-{{Crafting 3x3|Minecraft Black concrete.png|Minecraft Redstone.png|Minecraft Black concrete.png|Minecraft Black concrete.png|Minecraft Lapis lazuli.png|Minecraft Black concrete.png|res=JCM Item Butterfly light.png|Cres=4}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="../crafting/Minecraft_Redstone.png"></div>
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="../crafting/Minecraft_Lapis_lazuli.png"></div>
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <!-- row 3 -->
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="4">
+        <img src="../crafting/JCM_Item_butterfly_light.png">
+    </div>
+</div>
 
 ## Block states
 | facing |
