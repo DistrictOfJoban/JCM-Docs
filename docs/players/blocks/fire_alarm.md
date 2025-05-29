@@ -5,6 +5,7 @@ since: 2.0.0
 image: JCM_fire_alarm.png
 item_group: JCM Blocks
 creator: LX86
+assets_creator: 1081MTR
 transparent: true
 light_level: 0
 ---
