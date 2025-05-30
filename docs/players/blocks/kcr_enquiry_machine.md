@@ -7,6 +7,8 @@ item_group: JCM Blocks
 creator: AozoraSky
 transparent: false
 light_level: 4
+recipes:
+- jsblock:kcr_enquiry_machine
 ---
 
 A **KCR Enquiry Machine (Wall mounted)** is a block in Joban Client Mod, replicating enquiry machines that are mounted to the wall in the MTR railway network.
@@ -15,7 +17,26 @@ A **KCR Enquiry Machine (Wall mounted)** is a block in Joban Client Mod, replica
 Right clicking on the block will display your current MTR balance value at the bottom of your screen.
 
 ## Crafting Recipe
-{{Crafting 3x3|4=Minecraft Iron ingot.png|5=Minecraft Redstone.png|6=Minecraft Iron ingot.png|7=Minecraft Iron ingot.png|8=Minecraft Iron ingot.png|9=Minecraft Iron ingot.png|Cres=4|res=JCM Item Enquiry machine 4.png}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div></div>
+        <div></div>
+        <div></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Redstone.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <!-- row 3 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="4">
+        <img src="../crafting/JCM_Item_Kcr_enquiry_machine.png">
+    </div>
+</div>
 
 ## Block states
 | facing |

@@ -7,6 +7,8 @@ item_group: JCM Blocks
 creator: LX86
 transparent: false
 light_level: 0
+recipes:
+- jsblock:tcl_emg_stop_button
 ---
 
 An **Emergency Stop Button** is a wall-attached block, replicating the Emergency Stop Button seen in Tung Chung Line stations.
@@ -15,7 +17,26 @@ An **Emergency Stop Button** is a wall-attached block, replicating the Emergency
 Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1 second).
 
 ## Crafting Recipe
-{{Crafting 3x3|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Redstone.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Cres=4|res=JCM Item Emg stop 1.png}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Redstone.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <!-- row 3 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="4">
+        <img src="../crafting/JCM_Item_Tcl_emg_stop_button.png">
+    </div>
+</div>
 
 ## Block states
 | facing | unpowered |

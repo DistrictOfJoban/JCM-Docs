@@ -7,6 +7,8 @@ item_group: JCM Blocks
 creator: LX86
 transparent: false
 light_level: 0
+recipes:
+- jsblock:helpline_2
 ---
 
 A **Help Line** is a wall-attached block in Joban Client Mod acting as a machine to request assistance from station staff.
@@ -17,7 +19,26 @@ This variant is seen in newer MTR Stations where the helpline sticker is separat
 Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1 second).
 
 ## Crafting Recipe
-{{Crafting 3x3|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|6=Minecraft Iron ingot.png|8=Minecraft Iron ingot.png|res=JCM Item Helpline 2.png|Cres=4}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <!-- row 3 -->
+        <div></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="4">
+        <img src="../crafting/JCM_Item_Helpline_2.png">
+    </div>
+</div>
 
 
 ## Block states

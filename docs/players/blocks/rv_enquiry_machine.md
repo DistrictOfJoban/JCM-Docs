@@ -7,6 +7,8 @@ item_group: JCM Blocks
 creator: AozoraSky
 transparent: true
 light_level: 0
+recipes:
+- jsblock:rv_enquiry_machine
 ---
 
 A **Railway Vision Enquiry Machine** is a block in Joban Client Mod, replicating the new enquiry machines installed by MTR as part of their Railway Vision initiative.
@@ -15,7 +17,26 @@ A **Railway Vision Enquiry Machine** is a block in Joban Client Mod, replicating
 Right clicking on the block will display your current MTR balance value at the bottom of your screen.
 
 ## Crafting Recipe
-{{Crafting 3x3|Minecraft Iron ingot.png|Minecraft Iron ingot.png|4=Minecraft Iron ingot.png|5=JCM Item Enquiry machine 1.png|6=Minecraft Iron ingot.png|7=Minecraft Iron ingot.png|8=Minecraft Redstone.png|res=JCM Item Enquiry machine 2.png|Cres=4}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/JCM_Item_Mtr_enquiry_machine.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <!-- row 3 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Redstone.png"></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="4">
+        <img src="../crafting/JCM_Item_Rv_enquiry_machine.png">
+    </div>
+</div>
 
 ## Block states
 | facing | half  |

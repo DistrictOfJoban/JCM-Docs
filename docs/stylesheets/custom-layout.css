@@ -30,6 +30,7 @@
   display: flex;
   align-items: center;
   gap: .5rem;
+  padding: 0.25rem;
 }
 
 .crafting-arrow {
@@ -55,8 +56,8 @@
   border-left: 2px solid #353535;
   border-right: 2px solid #FFFFFF;
   border-bottom: 2px solid #FFFFFF;
-  width: 36px;
-  height: 36px;
+  width: 1.85rem;
+  height: 1.85rem;
 }
 
 .crafting-table > div::before, .crafting-result::before {

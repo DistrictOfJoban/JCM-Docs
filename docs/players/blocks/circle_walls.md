@@ -13,6 +13,14 @@ item_group: JCM Blocks
 creator: LX86
 transparent: false
 light_level: 0
+recipes:
+- jsblock:circle_wall_1
+- jsblock:circle_wall_2
+- jsblock:circle_wall_3
+- jsblock:circle_wall_4
+- jsblock:circle_wall_5
+- jsblock:circle_wall_6
+- jsblock:circle_wall_7
 ---
 
 **Circle Walls** is a series of decoration block in Joban Client Mod, meant to be used for tunnels.
@@ -31,25 +39,158 @@ A rail model of the tunnel wall is available which works against curve, check [h
 ## Crafting Recipes
 
 ### Circle Wall (1)
-{{Crafting 3x3|4=Minecraft_Black_concrete.png|5=Minecraft_Black_concrete.png|7=Minecraft_Black_concrete.png|8=Minecraft_Black_concrete.png|9=Minecraft_Black_concrete.png|res=JCM Item Circle wall.png|Cres=16}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div></div>
+        <div></div>
+        <div></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div></div>
+        <!-- row 3 -->
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="16">
+        <img src="../crafting/JCM_Item_Circle_wall.png">
+    </div>
+</div>
 
 ### Circle Wall (2)
-{{Crafting 3x3|Minecraft_Black_concrete.png|4=Minecraft_Black_concrete.png|5=Minecraft_Black_concrete.png|7=Minecraft_Black_concrete.png|8=Minecraft_Black_concrete.png|9=Minecraft_Black_concrete.png|res=JCM Item Circle wall.png|Cres=16}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div></div>
+        <div></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div></div>
+        <!-- row 3 -->
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="16">
+        <img src="../crafting/JCM_Item_Circle_wall.png">
+    </div>
+</div>
 
 ### Circle Wall (3)
-{{Crafting 3x3|Minecraft_Black_concrete.png|4=Minecraft_Black_concrete.png|5=|7=Minecraft_Black_concrete.png|8=|9=|res=JCM Item Circle wall.png|Cres=16}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div></div>
+        <div></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div></div>
+        <div></div>
+        <!-- row 3 -->
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="16">
+        <img src="../crafting/JCM_Item_Circle_wall.png">
+    </div>
+</div>
 
 ### Circle Wall (4)
-{{Crafting 3x3|Minecraft_Black_concrete.png|Minecraft_Black_concrete.png|4=Minecraft_Black_concrete.png|7=Minecraft_Black_concrete.png|res=JCM Item Circle wall.png|Cres=16}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div></div>
+        <div></div>
+        <!-- row 3 -->
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="16">
+        <img src="../crafting/JCM_Item_Circle_wall.png">
+    </div>
+</div>
 
 ### Circle Wall (5)
-{{Crafting 3x3|Minecraft_Black_concrete.png|Minecraft_Black_concrete.png|Minecraft_Black_concrete.png|Minecraft_Black_concrete.png|Minecraft_Black_concrete.png|7=Minecraft_Black_concrete.png|res=JCM Item Circle wall.png|Cres=16}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div></div>
+        <!-- row 3 -->
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="16">
+        <img src="../crafting/JCM_Item_Circle_wall.png">
+    </div>
+</div>
 
 ### Circle Wall (6)
-{{Crafting 3x3|Minecraft_Black_concrete.png|Minecraft_Black_concrete.png|Minecraft_Black_concrete.png|Minecraft_Black_concrete.png|res=JCM Item Circle wall.png|Cres=16}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div></div>
+        <div></div>
+        <!-- row 3 -->
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="16">
+        <img src="../crafting/JCM_Item_Circle_wall.png">
+    </div>
+</div>
 
 ### Circle Wall (7)
-{{Crafting 3x3|Minecraft_Black_concrete.png|Minecraft_Black_concrete.png|Minecraft_Black_concrete.png|res=JCM Item Circle wall.png|Cres=16}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <!-- row 2 -->
+        <div></div>
+        <div></div>
+        <div></div>
+        <!-- row 3 -->
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="16">
+        <img src="../crafting/JCM_Item_Circle_wall.png">
+    </div>
+</div>
 
 ## Block states
 | facing |

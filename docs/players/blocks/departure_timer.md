@@ -8,6 +8,8 @@ item_group: JCM Blocks
 creator: LX86
 transparent: false
 light_level: 0
+recipes:
+- jsblock:departure_timer
 ---
 
 A **Departure Timer** is a block that displays the remaining time until the train departs. This block is modelled after the departure timer seen in the MTR East Rail Line.
@@ -17,7 +19,26 @@ A **Departure Timer** is a block that displays the remaining time until the trai
 2. After the train arrives, the block will start showing the time remaining until the train's departure.
 
 ## Crafting Recipe
-{{Crafting 3x3|Minecraft Iron_ingot.png|Minecraft Iron_ingot.png|Minecraft Iron_ingot.png|Minecraft Redstone.png|Minecraft Clock.png|Minecraft Redstone.png|Minecraft Iron_ingot.png|Minecraft Iron_ingot.png|Minecraft Iron_ingot.png|res=JCM Item Departure timer.png}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Redstone.png"></div>
+        <div><img src="../crafting/Minecraft_Clock.png"></div>
+        <div><img src="../crafting/Minecraft_Redstone.png"></div>
+        <!-- row 3 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result">
+        <img src="../crafting/JCM_Item_Departure_timer.png">
+    </div>
+</div>
 
 ## Block states
 | facing |

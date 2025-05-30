@@ -26,7 +26,8 @@ The PIDS can be configured by right clicking the block with the **Brush** item p
 Additional options such as position offset, scale & rotation can be configured as well.
 
 ## Crafting Recipe
-This block is a creative-only block and does not have a crafting recipe.
+!!! info
+    This block is a creative-only block and does not have a crafting recipe.
 
 ## Block states
 | facing |

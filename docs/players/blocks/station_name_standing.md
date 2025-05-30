@@ -21,6 +21,31 @@ A **Standing Station Name Sign** is a decoration block in Joban Client Mod, repl
 ## Configuring
 You can right click the block with the **Brush** item provided by the MTR mod to change the text color.
 
+## Crafting Recipe
+!!! warning "Deprecated in v2"
+    This block has been deprecated and the corresponding item is removed, along with the following recipe.
+
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div></div>
+        <div><img src="../crafting/MTR_Station_name_tall_wall.png"></div>
+        <div></div>
+        <!-- row 2 -->
+        <div></div>
+        <div><img src="../crafting/Minecraft_Stick.png"></div>
+        <div></div>
+        <!-- row 3 -->
+        <div></div>
+        <div><img src="../crafting/Minecraft_Stick.png"></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="4">
+        <img src="../crafting/JCM_Item_Station_name_standing.png">
+    </div>
+</div>
+
 ## Block states
 | facing | metal | third  | color     |
 |:-------|:------|:-------|:----------|

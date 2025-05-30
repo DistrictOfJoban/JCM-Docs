@@ -7,6 +7,8 @@ item_group: JCM Blocks
 creator: LX86
 transparent: false
 light_level: 0
+recipes:
+- jsblock:water_machine
 ---
 
 A **Water Machine** is a block in Joban Client Mod, modelled after water supply machines in MTR stations.
@@ -15,7 +17,26 @@ A **Water Machine** is a block in Joban Client Mod, modelled after water supply 
 You may refill a water bottle/bucket by right clicking on the water machine with the corresponding item (Empty Bottle/Empty Bucket).
 
 ## Crafting Recipe
-{{Crafting 3x3|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Redstone.png|Minecraft Water bucket.png|Minecraft Redstone.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|res=JCM Item Water machine 1.png|Cres=3}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Redstone.png"></div>
+        <div><img src="../crafting/Minecraft_Water_bucket.png"></div>
+        <div><img src="../crafting/Minecraft_Redstone.png"></div>
+        <!-- row 3 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="3">
+        <img src="../crafting/JCM_Item_Water_machine.png">
+    </div>
+</div>
 
 ## Block states
 | facing | half  |

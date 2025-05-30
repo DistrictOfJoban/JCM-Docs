@@ -7,6 +7,8 @@ item_group: JCM Blocks
 creator: LX86
 transparent: false
 light_level: 15
+recipes:
+- jsblock:fare_saver
 ---
 
 A **Fare Saver** is a block in Joban Client Mod, replicating an older variants of a MTR Fare Saver machine.
@@ -19,7 +21,26 @@ A **Fare Saver** is a block in Joban Client Mod, replicating an older variants o
 The fare save amount and the displayed currency unit can be configured by **right clicking with an MTR brush item**.
 
 ## Crafting Recipe
-{{Crafting 3x3|Minecraft Redstone.png|Minecraft Iron_ingot.png|4=Minecraft Redstone_lamp.png|5=Minecraft Iron_ingot.png|7=Minecraft emerald.png|8=Minecraft Iron_ingot.png|res=JCM Item Faresaver 1.png}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Redstone.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Redstone_lamp.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div></div>
+        <!-- row 3 -->
+        <div><img src="../crafting/Minecraft_Emerald.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result">
+        <img src="../crafting/JCM_Item_Fare_saver.png">
+    </div>
+</div>
 
 ## Block states
 | facing | third  |

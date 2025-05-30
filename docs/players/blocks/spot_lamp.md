@@ -7,14 +7,35 @@ item_group: JCM Blocks
 creator: LX86
 transparent: false
 light_level: 15
+recipes:
+- jsblock:spot_lamp
 ---
-
-!!! warning "To be done"
-    Fill in crafting recipe
 
 <blockquote>This is like the block you use when you don't know how to light it up - LX86</blockquote>
 
 A **Spot Lamp** is a decoration block in Joban Client Mod.
+
+## Crafting Recipe
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/JCM_Item_Light_lantern.png"></div>
+        <div></div>
+        <div></div>
+        <!-- row 2 -->
+        <div></div>
+        <div></div>
+        <div></div>
+        <!-- row 3 -->
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="16">
+        <img src="../crafting/JCM_Item_Spot_lamp.png">
+    </div>
+</div>
 
 ## Block states
 | ceiling | powered |

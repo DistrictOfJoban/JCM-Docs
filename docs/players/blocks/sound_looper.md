@@ -7,6 +7,8 @@ item_group: JCM Blocks
 creator: LX86
 transparent: false
 light_level: 0
+recipes:
+- jsblock:sound_looper
 ---
 
 A **Sound Looper** is a block that plays in-game sound repeatedly at a configurable interval, either for all player or for those in a certain block range.
@@ -15,7 +17,26 @@ A **Sound Looper** is a block that plays in-game sound repeatedly at a configura
 Configuration such as **Repeating Interval**, **Sound ID**, **Limited Block Range** can be configured by right clicking with the **Brush** item provided by the MTR mod.
 
 ## Crafting Recipe
-{{Crafting 3x3|Minecraft Smooth stone.png|Minecraft Redstone.png|C2=2|res=JCM Sound Looper.png}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Smooth_stone.png"></div>
+        <div data-count="2"><img src="../crafting/Minecraft_Redstone.png"></div>
+        <div></div>
+        <!-- row 2 -->
+        <div></div>
+        <div></div>
+        <div></div>
+        <!-- row 3 -->
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result">
+        <img src="../previews/JCM_sound_looper.png">
+    </div>
+</div>
 
 ## Block entity
 This block has a block entity, and stores the following data:

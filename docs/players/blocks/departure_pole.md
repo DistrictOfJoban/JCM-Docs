@@ -8,6 +8,8 @@ item_group: JCM Blocks
 creator: LX86
 transparent: true
 light_level: 0
+recipes:
+- jsblock:departure_pole
 ---
 
 A **Departure Pole** is a block in Joban Client Mod, used in conjunction with [Butterfly Light](./butterfly_light.md) and [Departure Timer](./departure_timer.md).
@@ -17,7 +19,26 @@ Placing the pole would result in it aligning to the edge of the block facing tow
 Then, you can place both the [Butterfly Light](./butterfly_light.md) and [Departure Timer](./departure_timer.md) in front of the pole, with the pole acting as a support.
 
 ## Crafting Recipe
-{{Crafting 3x3|2=|5=JCM Item Departure timer.png|8=|res=JCM Item Departure pole.png|Cres=16}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div></div>
+        <div></div>
+        <div></div>
+        <!-- row 2 -->
+        <div></div>
+        <div><img src="../crafting/JCM_Item_Departure_timer.png"></div>
+        <div></div>
+        <!-- row 3 -->
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="16">
+        <img src="../crafting/JCM_Item_Departure_pole.png">
+    </div>
+</div>
 
 ## Block states
 | facing |

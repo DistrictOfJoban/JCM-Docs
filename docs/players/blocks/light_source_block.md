@@ -25,7 +25,8 @@ This behavior is almost the same as the light block introduced in Minecraft 1.17
 You may right click the block while holding the block item to cycle the light level from 0 - 15
 
 ## Crafting Recipe
-This is a creative-only block, and are otherwise unobtainable in survival mode.
+!!! info
+    This block is a creative-only block and does not have a crafting recipe.
 
 ## Block states
 | level |

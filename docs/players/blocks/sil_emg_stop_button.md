@@ -7,6 +7,8 @@ item_group: JCM Blocks
 creator: LX86
 transparent: false
 light_level: 8
+recipes:
+- jsblock:sil_emg_stop_button
 ---
 
 An **Emergency Train Stop Button (SIL)** is a decoration block in Joban Client Mod, replicating the emergency stop button seen in stations along the MTR South Island Line.
@@ -15,7 +17,26 @@ An **Emergency Train Stop Button (SIL)** is a decoration block in Joban Client M
 Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1 second).
 
 ## Crafting Recipe
-{{Crafting 3x3|Minecraft Iron_ingot.png|Minecraft Redstone.png||Minecraft Iron_ingot.png|JCM Item Emg stop 1.png||Minecraft Iron_ingot.png|Minecraft Green_dye.png||C1=|res=JCM Item Helpline 6.png|Cres=4}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Redstone.png"></div>
+        <div></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/JCM_Item_Tcl_emg_stop_button.png"></div>
+        <div></div>
+        <!-- row 3 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Green_dye.png"></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="4">
+        <img src="../crafting/JCM_Item_Sil_emg_stop_button.png">
+    </div>
+</div>
 
 ## Block states
 | facing | third  | unpowered |

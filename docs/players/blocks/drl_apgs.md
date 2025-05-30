@@ -11,6 +11,11 @@ creator: AozoraSky/LX86
 assets_creator: 1081MTR
 transparent: true
 light_level: 0
+recipes:
+- jsblock:apg_door_drl_1
+- jsblock:apg_door_drl_2
+- jsblock:apg_glass_drl
+- jsblock:apg_glass_end_drl
 ---
 
 An **APG (Disneyland Resorts Line Variants)** is a series of blocks in Joban Client Mod that replicates the Automatic Platform Gates (APG) used in the MTR Disneyland Resorts Line.
@@ -20,13 +25,91 @@ They are slightly lower than the APG seen in other MTR Routes.
 ## Crafting Recipes
 
 ### DRL APG Door
-{{Crafting 3x3|Minecraft Redstone block.png|Minecraft Iron ingot.png|Minecraft Glowstone dust.png|Minecraft Glass pane.png|C2=5|res=JCM Item Apg door drl.png|Cres=8}}{{Crafting 3x3|JCM Item Apg glass end drl.png|res=JCM Item Apg door drl.png}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Redstone_block.png"></div>
+        <div data-count="5"><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Glowstone_dust.png"></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Glass_pane.png"></div>
+        <div></div>
+        <div></div>
+        <!-- row 3 -->
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="8">
+        <img src="../crafting/JCM_Item_Apg_door_drl.png">
+    </div>
+</div>
+
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/JCM_Item_Apg_glass_end_drl.png"></div>
+        <div></div>
+        <div></div>
+        <!-- row 2 -->
+        <div></div>
+        <div></div>
+        <div></div>
+        <!-- row 3 -->
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result">
+        <img src="../crafting/JCM_Item_Apg_door_drl.png">
+    </div>
+</div>
 
 ### DRL APG Glass
-{{Crafting 3x3|JCM Item Apg door drl.png|res=JCM Item Apg glass drl.png}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/JCM_Item_Apg_door_drl.png"></div>
+        <div></div>
+        <div></div>
+        <!-- row 2 -->
+        <div></div>
+        <div></div>
+        <div></div>
+        <!-- row 3 -->
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result">
+        <img src="../crafting/JCM_Item_Apg_glass_drl.png">
+    </div>
+</div>
 
 ### DRL APG Glass End
-{{Crafting 3x3|JCM Item Apg glass drl.png|res=JCM Item Apg glass end drl.png}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/JCM_Item_Apg_glass_drl.png"></div>
+        <div></div>
+        <div></div>
+        <!-- row 2 -->
+        <div></div>
+        <div></div>
+        <div></div>
+        <!-- row 3 -->
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result">
+        <img src="../crafting/JCM_Item_Apg_glass_end_drl.png">
+    </div>
+</div>
 
 ## Block states
 

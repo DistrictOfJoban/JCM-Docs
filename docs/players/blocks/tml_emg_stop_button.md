@@ -7,6 +7,8 @@ item_group: JCM Blocks
 creator: LX86
 transparent: false
 light_level: 15
+recipes:
+- jsblock:tml_emg_stop_button
 ---
 
 An **Emergency Train Stop Button (Standing, TML)** is a decoration block in Joban Client Mod, modelled after the emergency train stop facility in the new MTR Hung Hom platforms.
@@ -15,7 +17,26 @@ An **Emergency Train Stop Button (Standing, TML)** is a decoration block in Joba
 Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1 second).
 
 ## Crafting Recipe
-{{Crafting 3x3|Minecraft Iron_ingot.png|Minecraft Iron_ingot.png|4=Minecraft Iron_ingot.png|5=Minecraft Redstone.png|7=JCM Item Emg stop 1.png|8=Minecraft Redstone.png|res=JCM Item Helpline 5.png|Cres=4}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Redstone.png"></div>
+        <div></div>
+        <!-- row 3 -->
+        <div><img src="../crafting/JCM_Item_Tcl_emg_stop_button.png"></div>
+        <div><img src="../crafting/Minecraft_Redstone.png"></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="2">
+        <img src="../crafting/JCM_Item_Tml_emg_stop_button.png">
+    </div>
+</div>
 
 ## Block states
 | facing | third  | unpowered |

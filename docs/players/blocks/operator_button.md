@@ -7,10 +7,9 @@ item_group: JCM Blocks
 creator: LX86
 transparent: true
 light_level: 8
+recipes:
+- jsblock:operator_button
 ---
-
-!!! warning "To be done"
-    Fill in crafting recipe
 
 An **Operator Button** is a wall-attached block in Joban Client Mod, designed to only activate when players hold an authorized driver key. It is modelled after a authorization lock seen in stations of the MTR West Rail Line section.
 
@@ -21,6 +20,31 @@ This block can be placed besides an iron door, in which only player with the app
 
 ## Configuring
 You may right click the block with the **Brush** item provided by the MTR mod to configure which driver keys are allowed to activate the block. By default, all train driver keys are accepted.
+
+## Crafting Recipe
+!!! note
+    The **black concrete** in this crafting grid refers to **any concrete**
+
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Redstone.png"></div>
+        <div><img src="../crafting/Minecraft_Redstone.png"></div>
+        <div></div>
+        <!-- row 3 -->
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="6">
+        <img src="../crafting/JCM_Item_Operator_button.png">
+    </div>
+</div>
 
 ## Block states
 | facing | powered |

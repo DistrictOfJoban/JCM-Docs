@@ -7,12 +7,33 @@ item_group: JCM Blocks
 creator: AozoraSky
 transparent: true
 light_level: 0
+recipes:
+- jsblock:lrt_trespass_sign
 ---
 
 A **LRT Trespass Signage** is a decoration block in Joban Client Mod, replicating a vertical sign placed on the track at the end of platform reminding passengers to not trespass between tracks.
 
 ## Crafting Recipe
-{{Crafting 3x3|2=Minecraft Red dye.png|5=Minecraft Iron ingot.png|8=Minecraft Stick.png|Cres=6|res=JCM Item Trespass sign 3.png}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div></div>
+        <!-- row 2 -->
+        <div></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div></div>
+        <!-- row 3 -->
+        <div></div>
+        <div><img src="../crafting/Minecraft_Stick.png"></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="6">
+        <img src="../crafting/JCM_Item_Lrt_trespass_sign.png">
+    </div>
+</div>
 
 ## Block states
 | facing | half  |

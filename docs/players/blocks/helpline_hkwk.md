@@ -17,7 +17,8 @@ This block replicates the Help Line seen in the **Hong Kong West Kowloon station
 Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1 second).
 
 ## Crafting Recipe
-TBD.
+!!! info
+    This block is a creative-only block and does not have a crafting recipe.
 
 ## Block states
 | facing | unpowered |

@@ -7,12 +7,33 @@ item_group: JCM Blocks
 creator: LX86
 transparent: true
 light_level: 0
+recipes:
+- jsblock:mtr_trespass_sign
 ---
 
 A **MTR Trespass Signage** is a decoration block in Joban Client Mod.
 
 ## Crafting Recipe
-{{Crafting 3x3|Minecraft Iron ingot.png|Minecraft Red dye.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Red dye.png|Minecraft Iron ingot.png|Cres=6|res=JCM Item Trespass sign 1.png}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Red_dye.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Red_dye.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <!-- row 3 -->
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="6">
+        <img src="../crafting/JCM_Item_Mtr_trespass_sign.png">
+    </div>
+</div>
 
 ## Block states
 | facing | left  |

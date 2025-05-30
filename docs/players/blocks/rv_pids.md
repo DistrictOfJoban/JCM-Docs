@@ -7,6 +7,8 @@ item_group: JCM Blocks - PIDS
 creator: LX86
 transparent: true
 light_level: 5
+recipes:
+- jsblock:rv_pids
 ---
 
 A **Railway Vision PIDS** is a Passenger Information Display System. It replicates the Railway Vision styled PIDS display seen along stations of the MTR Network.
@@ -22,7 +24,26 @@ This block is a part of [JCM PIDS](../features/jcm-pids.md), which includes extr
 The PIDS can be configured by right clicking the block with the **Brush** item provided by the MTR mod.
 
 ## Crafting Recipe
-{{Crafting 3x3|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Glowstone dust.png|Minecraft Glowstone dust.png|Minecraft Glowstone dust.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|res=JCM Item Pids rv.png|Cres=8}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Glowstone_dust.png"></div>
+        <div><img src="../crafting/Minecraft_Glowstone_dust.png"></div>
+        <div><img src="../crafting/Minecraft_Glowstone_dust.png"></div>
+        <!-- row 3 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="8">
+        <img src="../crafting/JCM_Item_Rv_pids.png">
+    </div>
+</div>
 
 ## Block states
 | facing |

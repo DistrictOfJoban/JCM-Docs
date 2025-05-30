@@ -9,6 +9,10 @@ item_group: JCM Blocks
 creator: AozoraSky
 transparent: false
 light_level: 0
+recipes:
+- jsblock:lrt_inter_car_barrier_left
+- jsblock:lrt_inter_car_barrier_middle
+- jsblock:lrt_inter_car_barrier_right
 ---
 
 **LRT Inter-Car Barriers** is a series of decoration block in Joban Client Mod that are designed to be placed on the platform block between vehicle cars to stop people from boarding between car connectors.
@@ -26,13 +30,70 @@ It is divided into 3 parts: **Left**, **Middle** and **Right**.
 ## Crafting Recipes
 
 ### LRT Inter Car Barrier (Left)
-{{Crafting 3x3|Minecraft Yellow dye.png|4=Minecraft Yellow dye.png|7=Minecraft Stick.png|res=JCM Item Inter car barrier 1 left.png|Cres=6}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Yellow_dye.png"></div>
+        <div></div>
+        <div></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Yellow_dye.png"></div>
+        <div></div>
+        <div></div>
+        <!-- row 3 -->
+        <div><img src="../crafting/Minecraft_Stick.png"></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="6">
+        <img src="../crafting/JCM_Item_Lrt_inter_car_barrier_left.png">
+    </div>
+</div>
 
 ### LRT Inter Car Barrier (Middle)
-{{Crafting 3x3|2=Minecraft Yellow dye.png|5=Minecraft Yellow dye.png|8=Minecraft Stick.png|res=JCM Item Inter car barrier 1 middle.png|Cres=6}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div></div>
+        <div><img src="../crafting/Minecraft_Yellow_dye.png"></div>
+        <div></div>
+        <!-- row 2 -->
+        <div></div>
+        <div><img src="../crafting/Minecraft_Yellow_dye.png"></div>
+        <div></div>
+        <!-- row 3 -->
+        <div></div>
+        <div><img src="../crafting/Minecraft_Stick.png"></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="6">
+        <img src="../crafting/JCM_Item_Lrt_inter_car_barrier_middle.png">
+    </div>
+</div>
 
 ### LRT Inter Car Barrier (Right)
-{{Crafting 3x3|3=Minecraft Yellow dye.png|6=Minecraft Yellow dye.png|9=Minecraft Stick.png|res=JCM Item Inter car barrier 1 right.png|Cres=6}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div></div>
+        <div></div>
+        <div><img src="../crafting/Minecraft_Yellow_dye.png"></div>
+        <!-- row 2 -->
+        <div></div>
+        <div></div>
+        <div><img src="../crafting/Minecraft_Yellow_dye.png"></div>
+        <!-- row 3 -->
+        <div></div>
+        <div></div>
+        <div><img src="../crafting/Minecraft_Stick.png"></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="6">
+        <img src="../crafting/JCM_Item_Lrt_inter_car_barrier_right.png">
+    </div>
+</div>
 
 ## History
 | Version | Changes Made                 |

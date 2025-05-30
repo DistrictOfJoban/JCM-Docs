@@ -9,6 +9,9 @@ item_group: JCM Blocks
 creator: LX86
 transparent: false
 light_level: 10
+recipes:
+- jsblock:kcr_name_sign
+- jsblock:kcr_name_sign_station_color
 ---
 
 **KCR Station Name Signs** is a series of decoration block in Joban Client Mod, replicating the hanging signs seen in KCR East Rail before the merger between KCR and MTR (Mass Transit Railway) in the real world.
@@ -21,12 +24,51 @@ For the **station-color** variant, the color of the sign will also change to the
 
 ## Crafting Recipes
 ### KCR Station Name Sign
-{{Crafting 3x3|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Lapis lazuli.png|Minecraft Iron ingot.png|Minecraft Lapis lazuli.png|res=JCM Item Kcr name sign.png|Cres=3}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Lapis_lazuli.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Lapis_lazuli.png"></div>
+        <!-- row 3 -->
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="3">
+        <img src="../crafting/JCM_Item_Kcr_name_sign.png">
+    </div>
+</div>
 
 ### KCR Station Name Sign (Station Color)
-Note: The **blue dye** in this crafting grid refers to **any dye**
+!!! note 
+    The **blue dye** in this crafting grid refers to **any dye**
 
-{{Crafting 3x3|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Glowstone dust.png|Minecraft Blue dye.png|Minecraft Glowstone dust.png|res=JCM Item Kcr name sign station color.png|Cres=3}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Glowstone_dust.png"></div>
+        <div><img src="../crafting/Minecraft_Blue_dye.png"></div>
+        <div><img src="../crafting/Minecraft_Glowstone_dust.png"></div>
+        <!-- row 3 -->
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="3">
+        <img src="../crafting/JCM_Item_Kcr_name_sign_station_color.png">
+    </div>
+</div>
 
 ## Block states
 | facing | exit_on_left |

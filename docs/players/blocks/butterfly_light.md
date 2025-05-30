@@ -40,7 +40,7 @@ You may configure the time when it starts flashing before departure by right cli
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="4">
-        <img src="../crafting/JCM_Item_butterfly_light.png">
+        <img src="../crafting/JCM_Item_Butterfly_light.png">
     </div>
 </div>
 

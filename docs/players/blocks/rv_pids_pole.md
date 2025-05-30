@@ -8,6 +8,8 @@ item_group: JCM Blocks
 creator: LX86
 transparent: true
 light_level: 0
+recipes:
+- jsblock:rv_pids_pole
 ---
 
 A **Railway Vision PIDS Pole** is a block in Joban Client Mod, used in conjunction with all PIDS block provided by Joban Client Mod (Except [PIDS 1A](./pids_1a.md)).
@@ -16,7 +18,26 @@ A **Railway Vision PIDS Pole** is a block in Joban Client Mod, used in conjuncti
 Place the pole on top of any PIDS block provided by Joban Client Mod (Except [PIDS 1A](./pids_1a.md)) to extend the pole support.
 
 ## Crafting Recipe
-{{Crafting 3x3|3=Minecraft Iron ingot.png|5=Minecraft Iron ingot.png|7=Minecraft Iron ingot.png|Cres=8|res=JCM Item Pids pole.png}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div></div>
+        <div></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <!-- row 2 -->
+        <div></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div></div>
+        <!-- row 3 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="8">
+        <img src="../crafting/JCM_Item_Rv_pids_pole.png">
+    </div>
+</div>
 
 ## Block states
 | facing | is_slab |

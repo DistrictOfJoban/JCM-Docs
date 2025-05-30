@@ -7,6 +7,8 @@ item_group: JCM Blocks
 creator: AozoraSky
 transparent: false
 light_level: 0
+recipes:
+- jsblock:subsidy_machine
 ---
 
 A **Subsidy Machine** is a functional block in Joban Client Mod, modelled after the *Subsidy Collection Point* seen in MTR premises.
@@ -21,7 +23,26 @@ Depending on how the block is configured, there may be a cooldown period before 
 You may configure the balance amount provided by the machine and cooldown period by right clicking with the **Brush** item provided by the MTR mod.
 
 ## Crafting Recipe
-{{Crafting 3x3|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Iron ingot.png|Minecraft Blue dye.png|Minecraft emerald.png|Minecraft Blue dye.png|Minecraft Redstone.png|Minecraft Redstone.png|Minecraft Redstone.png|Cres=2|res=JCM Item Subsidy machine 1.png}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Blue_dye.png"></div>
+        <div><img src="../crafting/Minecraft_Emerald.png"></div>
+        <div><img src="../crafting/Minecraft_Blue_dye.png"></div>
+        <!-- row 3 -->
+        <div><img src="../crafting/Minecraft_Redstone.png"></div>
+        <div><img src="../crafting/Minecraft_Redstone.png"></div>
+        <div><img src="../crafting/Minecraft_Redstone.png"></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="2">
+        <img src="../crafting/JCM_Item_Subsidy_machine.png">
+    </div>
+</div>
 
 ## Block states
 | facing |

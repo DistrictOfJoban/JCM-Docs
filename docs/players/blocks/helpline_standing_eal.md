@@ -7,6 +7,8 @@ item_group: JCM Blocks
 creator: LX86
 transparent: true
 light_level: 0
+recipes:
+- jsblock:helpline_standing_eal
 ---
 
 A **Helpline (East Rail Line Type)** is a block in Joban Client Mod acting as a machine to request assistance from station staff. 
@@ -17,7 +19,26 @@ This replicates the Help Line seen in stations along the MTR East Rail Line.
 Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1 second).
 
 ## Crafting Recipe
-{{Crafting 3x3|Minecraft Yellow dye.png|Minecraft Yellow dye.png|4=Minecraft Purple dye.png|5=Minecraft Purple dye.png|7=Minecraft Iron ingot.png|8=Minecraft Iron ingot.png|res=JCM Item Helpline 3.png|Cres=4}}
+<div class="crafting">
+    <div class="crafting-table">
+        <!-- row 1 -->
+        <div><img src="../crafting/Minecraft_Yellow_dye.png"></div>
+        <div><img src="../crafting/Minecraft_Yellow_dye.png"></div>
+        <div></div>
+        <!-- row 2 -->
+        <div><img src="../crafting/Minecraft_Purple_dye.png"></div>
+        <div><img src="../crafting/Minecraft_Purple_dye.png"></div>
+        <div></div>
+        <!-- row 3 -->
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div></div>
+    </div>
+    <div class="crafting-arrow"></div>
+    <div class="crafting-result" data-count="4">
+        <img src="../crafting/JCM_Item_Helpline_standing_eal.png">
+    </div>
+</div>
 
 ## Block states
 | facing | half  | unpowered |

@@ -34,7 +34,7 @@ Place the block at least **2 blocks** in front of the final rail node.
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="8">
-        <img src="../crafting/JCM_Item_buffer_stop.png">
+        <img src="../crafting/JCM_Item_Buffer_stop.png">
     </div>
 </div>
 
