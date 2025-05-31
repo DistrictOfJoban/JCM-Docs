@@ -50,13 +50,7 @@ A **Departure Timer** is a block that displays the remaining time until the trai
 
 
 ## Block entity
-This block has a block entity, and stores the following data in JCM v1:
-
-| Name | Type   | Description                                        | Default Value    |
-|:-----|:-------|:---------------------------------------------------|:-----------------|
-| font | String | The font ID used for rendering the countdown text. | jsblock:deptimer |
-
-In JCM v2, this block entity stores no data.
+This block has a block entity, but does not store any persistent data.
 
 ## History
 | Version | Changes Made                                                                                                 |

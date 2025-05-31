@@ -14,11 +14,6 @@ recipes:
 A **Enquiry Machine (Wall Mounted)** is a block in Joban Client Mod, replicating enquiry machines that are mounted to the wall in the MTR Network.
 
 ## Usage
-
-### JCM v1
-Right clicking on the block will display your current MTR balance value at the bottom of your screen.
-
-### JCM v2+
 Right clicking on the block will show a screen depicting the historic record of your journey.  
 These journey records are saved in-game whenever you exit a station through the Exit Barrier block or the ticket processor.
 

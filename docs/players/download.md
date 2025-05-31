@@ -24,11 +24,11 @@ Joban Client Mod requires other mods to function, please install such mods first
 === "For Fabric users"
 
     - [Fabric API](https://modrinth.com/mod/fabric-api)
-    - [Minecraft Transit Railway](https://modrinth.com/mod/minecraft-transit-railway) (3.x for **JCM v1** / 4.x for **JCM v2**)
+    - [Minecraft Transit Railway 4.x](https://modrinth.com/mod/minecraft-transit-railway)
 
 === "For Forge users"
 
-    - [Minecraft Transit Railway](https://modrinth.com/mod/minecraft-transit-railway) (3.x for **JCM v1** / 4.x for **JCM v2**)
+    - [Minecraft Transit Railway 4.x](https://modrinth.com/mod/minecraft-transit-railway)
 
 ## Download
 [:simple-modrinth: Download on Modrinth!](https://modrinth.com/mod/jcm){ .md-button .md-button--primary .modrinth }
