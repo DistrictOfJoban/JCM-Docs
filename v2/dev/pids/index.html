@@ -3781,9 +3781,6 @@ You should create any folder in between if it doesn't exists. (So create <code>a
 <p>All PIDS Preset are treated as a <strong>JSON PIDS Preset</strong> by default. For example, you can insert keys (<code>showWeather</code> and <code>showClock</code> in above) to configure the look of JSON PIDS Preset.</p>
 <p>As for <strong>Scripted PIDS Preset</strong>, all we need to do is to pass a <code>scriptFiles</code> string array, pointing to the script files. To learn more, please check out the <a href="scripted/">Scripted PIDS Preset</a> page.</p>
 <p>For the convenience, the chart below lists all available property within a PIDS Preset JSON object:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="joban-client-mod-v2" name="__tabbed_1" type="radio" /><input id="joban-client-mod-v1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="joban-client-mod-v2">Joban Client Mod v2</label><label for="joban-client-mod-v1">Joban Client Mod v1</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
 <table>
 <thead>
 <tr>
@@ -3910,97 +3907,6 @@ You should create any folder in between if it doesn't exists. (So create <code>a
 </tr>
 </tbody>
 </table>
-</div>
-<div class="tabbed-block">
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Property Name</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Possible values</th>
-<th style="text-align: left;">Default</th>
-<th style="text-align: left;">Version Added</th>
-<th style="text-align: left;">Preset Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>id</code></td>
-<td style="text-align: left;">The unique ID for the preset</td>
-<td style="text-align: left;">Any string</td>
-<td style="text-align: left;">No default, <strong>must be filled</strong></td>
-<td style="text-align: left;">v1.1.4+</td>
-<td style="text-align: left;">JSON</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>background</code></td>
-<td style="text-align: left;">The background image of the preset</td>
-<td style="text-align: left;">Any string pointing to the texture</td>
-<td style="text-align: left;">No default, <strong>must be filled for JSON PIDS Preset</strong></td>
-<td style="text-align: left;">v1.1.4+</td>
-<td style="text-align: left;">JSON</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>color</code></td>
-<td style="text-align: left;">The color of the text</td>
-<td style="text-align: left;">Color hex code string, i.e.<br><code>"FFFFFF"</code></td>
-<td style="text-align: left;"><code>"000000"</code></td>
-<td style="text-align: left;">v1.1.4+</td>
-<td style="text-align: left;">JSON</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>fonts</code></td>
-<td style="text-align: left;">The font used for text</td>
-<td style="text-align: left;">Any string pointing to the font</td>
-<td style="text-align: left;"><code>"mtr:mtr"</code></td>
-<td style="text-align: left;">v1.1.4+</td>
-<td style="text-align: left;">JSON</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>showWeather</code></td>
-<td style="text-align: left;">Whether to show the weather icon</td>
-<td style="text-align: left;"><code>true</code> / <code>false</code></td>
-<td style="text-align: left;"><code>false</code></td>
-<td style="text-align: left;">v1.1.4+</td>
-<td style="text-align: left;">JSON</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>showClock</code></td>
-<td style="text-align: left;">Whether to show clock text</td>
-<td style="text-align: left;"><code>true</code> / <code>false</code></td>
-<td style="text-align: left;"><code>false</code></td>
-<td style="text-align: left;">v1.1.4+</td>
-<td style="text-align: left;">JSON</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>hidePlatform</code></td>
-<td style="text-align: left;">Whether platform number should be hidden (Override Hide Platform in per-block PIDS Config)</td>
-<td style="text-align: left;"><code>true</code> / <code>false</code></td>
-<td style="text-align: left;"><code>false</code></td>
-<td style="text-align: left;">v1.1.4+</td>
-<td style="text-align: left;">JSON</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>hideRow</code></td>
-<td style="text-align: left;">Which row should be hidden (Override Hide Arrivals in per-block PIDS Config)</td>
-<td style="text-align: left;">Boolean JSON Array(Length: 4)</td>
-<td style="text-align: left;"><code>[false, false, false, false]</code></td>
-<td style="text-align: left;">v1.1.5+</td>
-<td style="text-align: left;">JSON</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>carLengthColor</code></td>
-<td style="text-align: left;">The text color when the car number is shown in the PIDS. (Per car length)</td>
-<td style="text-align: left;">String JSON Array containing the hex code string, i.e.<code>["FF0000", "00FFFF"]</code></td>
-<td style="text-align: left;"><code>[]</code></td>
-<td style="text-align: left;"><strong>v1.2.2 only</strong></td>
-<td style="text-align: left;">JSON</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
 <!-- *[JCM]: Joban Client Mod -->
 <!-- *[PIDS]: Passenger Information Display System -->
 
