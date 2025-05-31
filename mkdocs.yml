@@ -1,7 +1,7 @@
 site_name: Joban Client Mod
 repo_name: Joban-Client-Mod
 repo_url: https://github.com/DistrictOfJoban/Joban-Client-Mod
-site_url: https://jcm.joban.org
+site_url: https://jcm.joban.org/
 copyright: Built with ♥️ by LX86
 theme:
   name: material
@@ -34,6 +34,9 @@ theme:
     - content.code.annotate
     - content.tooltips
 extra:
+  version:
+    provider: mike
+    alias: true
   social:
     - icon: fontawesome/brands/discord
       name: Join The District of Joban's Discord Server
