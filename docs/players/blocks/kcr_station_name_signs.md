@@ -79,7 +79,11 @@ For the **station-color** variant, the color of the sign will also change to the
 | west   |              |
 
 ## Block entities
-These blocks have a block entity, but does not store any data and are solely used for rendering.
+This block has a block entity, and stores the following data:
+### All variants
+| Name | Type   | Description                                           | Default Value    |
+|:-----|:-------|:------------------------------------------------------|:-----------------|
+| font | String | The font ID used for rendering the station name text. | jsblock:kcr_sign |
 
 ## History
 | Version | Changes Made                                         |
@@ -87,4 +91,3 @@ These blocks have a block entity, but does not store any data and are solely use
 | v1.0.4  | Added KCR Station Name Sign                          |
 | v1.0.6  | Raised the block model                               |
 | v1.1.5  | The "font" property is added to the block entity     |
-| v2.0.0  | The "font" property in block entity has been removed |

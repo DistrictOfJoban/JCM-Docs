@@ -1,6 +1,6 @@
 ---
 block_ids:
-- jsblock:helpline_standing_eal
+- jsblock:helpline_3
 since: 1.0.0
 image: JCM_helpline_standing_eal.png
 item_group: JCM Blocks
@@ -14,9 +14,6 @@ recipes:
 A **Helpline (East Rail Line Type)** is a block in Joban Client Mod acting as a machine to request assistance from station staff. 
 
 This replicates the Help Line seen in stations along the MTR East Rail Line.
-
-## Usage
-Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1 second).
 
 ## Crafting Recipe
 <div class="crafting">
@@ -53,4 +50,3 @@ Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1
 |:--------|:-------------------------------------------------------------------------------------------------------------|
 | v1.0.0  | Added Helpline (East Rail Type)                                                                              |
 | v1.1.5  | Hardness changed from 2.0 -> 5.0                                                                             |
-| v2.0.0  | Right clicking now emits a redstone signal<br>Rename `jsblock:helpline_3` to `jsblock:helpline_standing_eal` |

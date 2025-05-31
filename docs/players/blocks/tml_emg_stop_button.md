@@ -1,6 +1,6 @@
 ---
 block_ids:
-- jsblock:tml_emg_stop_button
+- jsblock:helpline_5
 since: 1.1.0
 image: JCM_tml_emg_stop_button.png
 item_group: JCM Blocks
@@ -12,9 +12,6 @@ recipes:
 ---
 
 An **Emergency Train Stop Button (Standing, TML)** is a block in Joban Client Mod, modelled after the emergency train stop facility in the new MTR Hung Hom platforms.
-
-## Usage
-Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1 second).
 
 ## Crafting Recipe
 <div class="crafting">
@@ -51,4 +48,3 @@ Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1
 |:--------|:-----------------------------------------------------------------------------------------------------------|
 | v1.1.0  | Added Emergency Stop Button (Standing, TML)                                                                |
 | v1.1.5  | Now extends ThirdBlockBase, no longer replaces the block on top.                                           |
-| v2.0.0  | Right clicking now emits a redstone signal<br>Rename `jsblock:helpline_5` to `jsblock:tml_emg_stop_button` |

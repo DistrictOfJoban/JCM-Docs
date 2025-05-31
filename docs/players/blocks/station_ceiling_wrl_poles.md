@@ -1,7 +1,6 @@
 ---
 block_ids:
-- jsblock:station_ceiling_wrl_pole
-- jsblock:station_ceiling_wrl_single_pole
+- jsblock:station_ceiling_pole
 since: 1.1.2
 image: JCM_station_ceiling_wrl_poles.png
 item_group: JCM Blocks
@@ -62,4 +61,3 @@ No crafting recipe available for Single Pane variant yet!
 | Version | Changes Made                                          |
 |:--------|:------------------------------------------------------|
 | v1.1.2  | Added Station Ceiling                                 |
-| v2.0.0  | Added **Single Pane** variant<br>Rename `jsblock:station_ceiling_1` to `jsblock:station_ceiling_wrl` |

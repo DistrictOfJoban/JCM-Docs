@@ -13,9 +13,6 @@ recipes:
 
 A **Help Line (With Sticker)** is a wall-attached block in Joban Client Mod, acting as a machine to request assistance from station staff.
 
-## Usage
-Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1 second).
-
 ## Crafting Recipe
 !!! note
     The **blue dye** in this crafting grid refers to **any dye**
@@ -57,4 +54,3 @@ This block is the first ever block added into JCM, and is released along with ot
 |:--------|:-------------------------------------------|
 | v1.0.0  | Added Helpline                             |
 | v1.1.5  | Hardness changed from 2.0 -> 1.0           |
-| v2.0.0  | Right clicking now emits a redstone signal |

@@ -1,6 +1,6 @@
 ---
 block_ids:
-- jsblock:fare_saver
+- jsblock:faresaver_1
 since: 1.1.4
 image: JCM_fare_saver.png
 item_group: JCM Blocks
@@ -63,4 +63,3 @@ This block has a block entity, the data is as follows:
 |:--------|:------------------------------------------------------|
 | v1.1.4  | Added Fare Saver                                      |
 | v1.1.5  | Improvement to Fare Saver Model                       |
-| v2.0.0  | Rename `jsblock:fare_saver_1` to `jsblock:fare_saver` |

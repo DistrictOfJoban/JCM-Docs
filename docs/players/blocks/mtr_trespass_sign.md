@@ -1,6 +1,6 @@
 ---
 block_ids:
-- jsblock:mtr_trespass_sign
+- jsblock:trespass_sign_1
 since: 1.0.0
 image: JCM_mtr_trespass_sign.png
 item_group: JCM Blocks
@@ -47,4 +47,3 @@ A **MTR Trespass Signage** is a block in Joban Client Mod, reminding passengers 
 | Version | Changes Made                                                     |
 |:--------|:-----------------------------------------------------------------|
 | v1.0.0  | Added MTR Trespass Signage                                       |
-| v2.0.0  | Renamed `jsblock:trespass_sign_1` to `jsblock:mtr_trespass_sign` |

@@ -1,6 +1,6 @@
 ---
 block_ids:
-- jsblock:mtr_enquiry_machine
+- jsblock:enquiry_machine_1
 since: 1.0.0
 image: JCM_mtr_enquiry_machine.png
 item_group: JCM Blocks
@@ -14,13 +14,7 @@ recipes:
 An **Enquiry Machine** is a block in Joban Client Mod that replicates the older-generation enquiry machine seen in the MTR railway network.
 
 ## Usage
-
-### JCM v1
 Right clicking on the block will display your current MTR balance value at the bottom of your screen.
-
-### JCM v2+
-Right clicking on the block will show a screen depicting the historic record of your journey.  
-These journey records are saved in-game whenever you exit a station through the Exit Barrier block or the ticket processor.
 
 ## Crafting Recipe
 <div class="crafting">
@@ -56,4 +50,3 @@ These journey records are saved in-game whenever you exit a station through the 
 | Version | Changes Made                                                                                                 |
 |:--------|:-------------------------------------------------------------------------------------------------------------|
 | v1.0.0  | Added Enquiry Machine                                                                                        |
-| v2.0.0  | Add GUI to display journey entry logs<br>Rename `jsblock:enquiry_machine_1` to `jsblock:mtr_enquiry_machine` |

@@ -91,12 +91,12 @@ Same as MTR mod's Signal Lights.
 </div>
 
 ## Block states
-| facing | is_22_5 | is_45 |
-|:-------|:--------|:------|
-| north  | true    | true  |
-| east   | false   | false |
-| south  |         |       |
-| west   |         |       |
+| facing |
+|:-------|
+| north  |
+| east   |
+| south  |
+| west   |
 
 ## Block entities
 These blocks have a block entity, but does not store any data and are solely used for rendering.

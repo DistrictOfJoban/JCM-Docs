@@ -1,8 +1,8 @@
 ---
 block_ids:
-- jsblock:thales_ticket_barrier_entrance
-- jsblock:thales_ticket_barrier_exit
-- jsblock:thales_ticket_barrier_bare
+- jsblock:ticket_barrier_1_entrance
+- jsblock:ticket_barrier_1_exit
+- jsblock:ticket_barrier_1_bare
 since: 1.0.6
 image: JCM_thales_ticket_barriers.png
 item_group: JCM Blocks
@@ -127,4 +127,3 @@ By placing an MTR fence next to the Thales Ticket Barrier (Bare) variant, the ba
 | v1.1.5  | Improved Thales Ticket Barrier Block Model                    |
 | v1.1.6  | Make Thales Ticket Barrier (Bare) attachable to MTR Fence     |
 | v1.2.2  | Make fence stay as is if a block is next to the barrier fence |
-| v2.0.0  | Rename `jsblock:ticket_barrier_1_entrance` to `jsblock:thales_ticket_barrier_entrance`<br>Rename `jsblock:ticket_barrier_1_exit` to `jsblock:thales_ticket_barrier_exit`<br>Rename `jsblock:ticket_barrier_1_bare` to `jsblock:thales_ticket_barrier_bare` |

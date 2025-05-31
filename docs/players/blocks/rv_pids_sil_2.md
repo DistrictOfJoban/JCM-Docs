@@ -1,6 +1,6 @@
 ---
 block_ids:
-- jsblock:rv_pids_sil_2
+- jsblock:pids_rv_sil_2
 since: 1.1.0
 image: JCM_rv_pids_sil_2.png
 item_group: JCM Blocks - PIDS
@@ -59,4 +59,3 @@ The PIDS can be configured by right clicking the block with the **Brush** item p
 |v1.1.2|Added Railway Vision PIDS (SIL 2)|
 |v1.1.4|Added [PIDS Preset](../features/jcm-pids.md#pids-preset) Support|
 |v1.1.8|Added Platform Selection Support|
-|v2.0.0|Rename `jsblock:pids_rv_sil_2` to `jsblock:rv_pids_sil_2`|

@@ -1,6 +1,6 @@
 ---
 block_ids:
-- jsblock:lcd_pids
+- jsblock:pids_4
 since: 1.0.6
 image: JCM_lcd_pids.png
 item_group: JCM Blocks - PIDS
@@ -60,4 +60,3 @@ The PIDS can be configured by right clicking the block with the **Brush** item p
 | v1.1.2  | Support Variables                             |
 | v1.1.4  | Support PIDS Preset                           |
 | v1.1.8  | Support multi-platform selecting              |
-| v2.0.0  | Rename `jsblock:pids_4` to `jsblock:lcd_pids` |

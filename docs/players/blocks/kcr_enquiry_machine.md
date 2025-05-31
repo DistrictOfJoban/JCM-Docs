@@ -1,6 +1,6 @@
 ---
 block_ids:
-- jsblock:kcr_enquiry_machine
+- jsblock:enquiry_machine_4
 since: 1.1.2
 image: JCM_kcr_enquiry_machine.png
 item_group: JCM Blocks
@@ -50,4 +50,3 @@ Right clicking on the block will display your current MTR balance value at the b
 |:--------|:-------------------------------------------------------------------------------------------------------------|
 | v1.1.2  | Added KCR Enquiry Machine (Wall mounted)                                                                     |
 | v1.1.5  | Change Light Level to 4, blocks model always fullbright                                                      |
-| v2.0.0  | Add GUI to display journey entry logs<br>Rename `jsblock:enquiry_machine_4` to `jsblock:kcr_enquiry_machine` |

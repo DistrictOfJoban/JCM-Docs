@@ -1,6 +1,6 @@
 ---
 block_ids:
-- jsblock:rv_enquiry_machine
+- jsblock:enquiry_machine_2
 since: 1.1.1
 image: JCM_rv_enquiry_machine.png
 item_group: JCM Blocks
@@ -50,4 +50,3 @@ Right clicking on the block will display your current MTR balance value at the b
 | Version | Changes Made                                                                                                |
 |:--------|:------------------------------------------------------------------------------------------------------------|
 | v1.1.1  | Added Enquiry Machine                                                                                       |
-| v2.0.0  | Add GUI to display journey entry logs<br>Rename `jsblock:enquiry_machine_2` to `jsblock:rv_enquiry_machine` |

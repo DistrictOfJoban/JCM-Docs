@@ -1,6 +1,6 @@
 ---
 block_ids:
-- jsblock:helpline_standing
+- jsblock:helpline_4
 since: 1.0.6
 image: JCM_helpline_standing.png
 item_group: JCM Blocks
@@ -14,9 +14,6 @@ recipes:
 A **Helpline (Standing)** is a block in Joban Client Mod acting as a machine to request assistance from station staff.
 
 This variant is seen in MTR stations.
-
-## Usage
-Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1 second).
 
 ## Crafting Recipe
 <div class="crafting">
@@ -53,4 +50,3 @@ Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1
 |:--------|:---------------------------------------------------------------------------------------------------------|
 | v1.0.6  | Added Helpline (Standing)                                                                                |
 | v1.1.4  | Improved Helpline (Standing) texture                                                                     |
-| v2.0.0  | Right clicking now emits a redstone signal<br>Rename `jsblock:helpline_4` to `jsblock:helpline_standing` |

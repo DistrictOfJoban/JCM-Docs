@@ -1,6 +1,6 @@
 ---
 block_ids:
-- jsblock:ceiling_slanted
+- jsblock:ceiling_1
 since: 1.0.0
 image: JCM_ceiling_slanted.png
 item_group: JCM Blocks
@@ -48,4 +48,3 @@ A **Ceiling (Slanted)** is a decorative block in Joban Client Mod.
 |:--------|:--------------------------------------------------------|
 | v1.0.0  | Added Ceiling                                           |
 | v1.1.4  | Visual Hitbox is now larger to ease building            |
-| v2.0.0  | Rename `jsblock:ceiling_1` to `jsblock:ceiling_slanted` |

@@ -18,17 +18,20 @@ This is a rewritten version of Joban Client Mod, designed for **Minecraft Transi
 Currently we only support and continue releasing new versions for **v2**, and therefore only MTR 4 is supported.  
 If you are new to the MTR mod/JCM, you are advised to start from **MTR 4** and **JCM v2**.
 
+[Click me to head to the v2 page!](/v2)
+
 ## Before Installing
 Joban Client Mod requires other mods to function, please install such mods first before installing JCM.
 
 === "For Fabric users"
 
     - [Fabric API](https://modrinth.com/mod/fabric-api)
-    - [Minecraft Transit Railway](https://modrinth.com/mod/minecraft-transit-railway) (3.x for **JCM v1** / 4.x for **JCM v2**)
+    - [Minecraft Transit Railway 3.2.2](https://modrinth.com/mod/minecraft-transit-railway)
 
 === "For Forge users"
 
-    - [Minecraft Transit Railway](https://modrinth.com/mod/minecraft-transit-railway) (3.x for **JCM v1** / 4.x for **JCM v2**)
+    - [Architectury API](https://modrinth.com/mod/architectury-api)
+    - [Minecraft Transit Railway 3.2.2](https://modrinth.com/mod/minecraft-transit-railway)
 
 ## Download
 [:simple-modrinth: Download on Modrinth!](https://modrinth.com/mod/jcm){ .md-button .md-button--primary .modrinth }
@@ -36,4 +39,3 @@ Joban Client Mod requires other mods to function, please install such mods first
 Alternatively if you are unable to download this mod from Modrinth, you may also download from:
 
 - [Version Archive](./versions/index.md)  
-- [:octicons-link-external-16: GitHub (For JCM v2 only!)](https://github.com/DistrictOfJoban/Joban-Client-Mod/releases)

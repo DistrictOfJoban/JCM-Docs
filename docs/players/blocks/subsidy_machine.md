@@ -1,6 +1,6 @@
 ---
 block_ids:
-- jsblock:subsidy_machine
+- jsblock:subsidy_machine_1
 since: 1.0.0
 image: JCM_subsidy_machine.png
 item_group: JCM Blocks
@@ -65,4 +65,3 @@ This block has a block entity, and stores the following data:
 |:--------|:-----------------------------------------------------------------------|
 | v1.0.0  | Added Subsidy Machine                                                  |
 | v1.1.4  | Subsidy Machine is now configurable, with timeout and price per click. |
-| v2.0.0  | Rename `jsblock:subsidy_machine_1` to `jsblock:subsidy_machine`        |

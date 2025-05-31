@@ -1,6 +1,6 @@
 ---
 block_ids:
-- jsblock:light_lantern
+- jsblock:light_1
 since: 1.0.0
 image: JCM_light_lantern.png
 item_group: JCM Blocks
@@ -50,4 +50,3 @@ A **Light Lantern** is a wall-attached block in Joban Client Mod that mimics the
 | Version | Changes Made                                        |
 |:--------|:----------------------------------------------------|
 | v1.0.0  | Added Light Lantern                                 |
-| v2.0.0  | Rename `jsblock:light_1` to `jsblock:light_lantern` |

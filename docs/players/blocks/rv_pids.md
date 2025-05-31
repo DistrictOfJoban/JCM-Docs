@@ -1,6 +1,6 @@
 ---
 block_ids:
-- jsblock:rv_pids
+- jsblock:pids_rv
 since: 1.0.4
 image: JCM_rv_pids.png
 item_group: JCM Blocks - PIDS
@@ -62,4 +62,3 @@ The PIDS can be configured by right clicking the block with the **Brush** item p
 |v1.1.2|Added [PIDS Variables](../features/jcm-pids.md#pids-variable) Support|
 |v1.1.4|Added [PIDS Preset](../features/jcm-pids.md#pids-preset) Support|
 |v1.1.8|Added Platform Selection Support|
-|v2.0.0|Rename `jsblock:pids_rv` to `jsblock:rv_pids`|

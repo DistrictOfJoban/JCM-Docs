@@ -1,6 +1,6 @@
 ---
 block_ids:
-- jsblock:mtr_stairs
+- jsblock:mtr_stairs_1
 since: 1.1.4
 image: JCM_mtr_stairs.png
 item_group: JCM Blocks
@@ -47,4 +47,3 @@ The texture may look glitched when viewed from the side/making an "L" shape stai
 | Version | Changes Made                                          |
 |:--------|:------------------------------------------------------|
 | v1.1.4  | Added MTR Stairs                                      |
-| v2.0.0  | Rename `jsblock:mtr_stairs_1` to `jsblock:mtr_stairs` |

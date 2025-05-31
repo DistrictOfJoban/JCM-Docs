@@ -14,7 +14,7 @@ recipes:
 A **Water Machine** is a block in Joban Client Mod, modelled after water supply machines in MTR stations.
 
 ## Usage
-You may refill a water bottle/bucket by right clicking on the water machine with the corresponding item (Empty Bottle/Empty Bucket).
+You may refill a water bottle by right clicking on the water machine with an empty glass bottle.
 
 ## Crafting Recipe
 <div class="crafting">
@@ -50,4 +50,3 @@ You may refill a water bottle/bucket by right clicking on the water machine with
 | Version | Changes Made                                                                                    |
 |:--------|:------------------------------------------------------------------------------------------------|
 | v1.0.0  | Added Water Machines                                                                            |
-| v2.0.0  | Allow water bucket to be filled<br>Renamed `jsblock:water_machine_1` to `jsblock:water_machine` |

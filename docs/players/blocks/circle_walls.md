@@ -33,9 +33,6 @@ Follow the placement in the image.
 ### Placement automation
 For Circle Wall (1, 2, 3, 4, 5), you may place the following piece (2, 3, 4, 5, 6) on top of them, and JCM will automatically try to shift the block placement to form a circular tunnel.
 
-## Alternative
-A rail model of the tunnel wall is available which works against curve, check [here](../features/tunnel.md) for usage.
-
 ## Crafting Recipes
 
 ### Circle Wall (1)

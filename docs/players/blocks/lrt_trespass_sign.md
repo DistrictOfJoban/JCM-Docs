@@ -1,6 +1,6 @@
 ---
 block_ids:
-- jsblock:lrt_trespass_sign
+- jsblock:trespass_sign_3
 since: 1.1.5
 image: JCM_lrt_trespass_sign.png
 item_group: JCM Blocks
@@ -47,4 +47,3 @@ A **LRT Trespass Signage** is a decorative block in Joban Client Mod, replicatin
 | Version | Changes Made                                                     |
 |:--------|:-----------------------------------------------------------------|
 | v1.1.5  | Added LRT Trespass Signage                                       |
-| v2.0.0  | Renamed `jsblock:trespass_sign_3` to `jsblock:lrt_trespass_sign` |

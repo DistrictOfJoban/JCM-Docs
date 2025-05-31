@@ -1,6 +1,6 @@
 ---
 block_ids:
-- jsblock:buffer_stop
+- jsblock:bufferstop_1
 since: 1.0.5
 image: JCM_buffer_stop.png
 item_group: JCM Blocks
@@ -51,4 +51,3 @@ Place the block at least **2 blocks** in front of the final rail node.
 |:--------|:-------------------------------------------------------|
 | v1.0.5  | Added Buffer Stop                                      |
 | v1.1.3  | Buffer Stop now uses animated textures                 |
-| v2.0.0  | Rename `jsblock:bufferstop_1` to `jsblock:buffer_stop` |

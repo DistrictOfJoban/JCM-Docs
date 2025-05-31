@@ -15,9 +15,6 @@ A **Help Line** is a wall-attached block in Joban Client Mod acting as a machine
 
 This variant is seen in newer MTR Stations where the helpline sticker is separated from the helpline machine itself. For the variant with sticker attached, please see [Helpline (With Sticker)](./helpline_1.md)
 
-## Usage
-Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1 second).
-
 ## Crafting Recipe
 <div class="crafting">
     <div class="crafting-table">
@@ -53,4 +50,3 @@ Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1
 | Version | Changes Made                               |
 |:--------|:-------------------------------------------|
 | v1.0.0  | Added Helpline (No Sticker)                |
-| v2.0.0  | Right clicking now emits a redstone signal |

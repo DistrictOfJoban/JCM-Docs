@@ -1,7 +1,7 @@
 ---
 block_ids:
-- jsblock:exit_sign_odd
-- jsblock:exit_sign_even
+- jsblock:exit_sign_1
+- jsblock:exit_sign_1e
 since: 1.0.1
 image: JCM_exit_signs.png
 item_group: JCM Blocks
@@ -107,4 +107,3 @@ It is designed to be hanging/attached to the bottom of a block.
 | v1.0.1  | Added Exit Signs                                                                                                     |
 | v1.0.8  | Added Exit Signs (Even)                                                                                              |
 | v1.1.5  | Light Level changed from 10 -> 5                                                                                     |
-| v2.0.0  | Rename `jsblock:exit_sign_1` to `jsblock:exit_sign_odd`<br>Rename `jsblock:exit_sign_1e` to `jsblock:exit_sign_even` |

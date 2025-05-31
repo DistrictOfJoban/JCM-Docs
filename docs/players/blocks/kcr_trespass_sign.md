@@ -1,6 +1,6 @@
 ---
 block_ids:
-- jsblock:kcr_trespass_sign
+- jsblock:tresspass_sign_2
 since: 1.0.0
 image: JCM_kcr_trespass_sign.png
 item_group: JCM Blocks
@@ -47,4 +47,3 @@ A **KCR Trespass Signage** is a block in Joban Client Mod, replicating the tresp
 | Version | Changes Made                                                      |
 |:--------|:------------------------------------------------------------------|
 | v1.0.0  | Added Trespass Signage (KCR)                                      |
-| v2.0.0  | Renamed `jsblock:tresspass_sign_2` to `jsblock:kcr_trespass_sign` |

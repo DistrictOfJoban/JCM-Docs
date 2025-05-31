@@ -1,8 +1,8 @@
 ---
 block_ids:
-- jsblock:lrt_inter_car_barrier_left
-- jsblock:lrt_inter_car_barrier_middle
-- jsblock:lrt_inter_car_barrier_right
+- jsblock:inter_car_barrier_1_left
+- jsblock:inter_car_barrier_1_middle
+- jsblock:inter_car_barrier_1_right
 since: 1.1.5
 image: JCM_lrt_inter_car_barriers.png
 item_group: JCM Blocks
@@ -99,4 +99,3 @@ It is divided into 3 parts: **Left**, **Middle** and **Right**.
 | Version | Changes Made                 |
 |:--------|:-----------------------------|
 | v1.1.5  | Added LRT Inter-Car Barriers |
-| v2.0.0  | Rename `jsblock:inter_car_barrier_1_left` to `jsblock:lrt_inter_car_barrier_left`<br>Rename `jsblock:inter_car_barrier_1_middle` to `jsblock:lrt_inter_car_barrier_middle`<br>Rename `jsblock:inter_car_barrier_1_right` to `jsblock:lrt_inter_car_barrier_right`|

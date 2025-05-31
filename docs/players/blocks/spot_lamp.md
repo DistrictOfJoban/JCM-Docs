@@ -1,6 +1,6 @@
 ---
 block_ids:
-- jsblock:spot_lamp
+- jsblock:light_2
 since: 1.0.0
 image: JCM_spot_lamp.png
 item_group: JCM Blocks
@@ -48,4 +48,3 @@ A **Spot Lamp** is a decorative block in Joban Client Mod that acts as a light s
 |:--------|:------------------------------------------------|
 | v1.0.0  | Added Spot Light                                |
 | v1.0.6  | Spot Light can now be placed on the ground      |
-| v2.0.0  | Rename `jsblock:light_2` to `jsblock:spot_lamp` |

@@ -13,7 +13,7 @@ recipes:
 
 The **PIDS 1A** is a block in Joban Client Mod which is based on the `pids_1` PIDS block in MTR Mod, with 3 arrival rows and enlarged text.
 
-This block is a part of [JCM PIDS](../features/jcm-pids.md), which includes extra features such as PIDS Preset and more.
+This block is **NOT** a part of [JCM PIDS](../features/jcm-pids.md), therefore its behaviour is identical to the PIDS in the MTR mod.
 
 ## Usage
 1. Place this block down
