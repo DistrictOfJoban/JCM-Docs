@@ -102,6 +102,7 @@ Same as MTR mod's Signal Lights.
 These blocks have a block entity, but does not store any data and are solely used for rendering.
 
 ## History
-|Version|Changes Made|
-|:------|:-----------|
-|v1.0.0|Added Inverted Signal Lights|
+| Version | Changes Made                                                  |
+|:--------|:--------------------------------------------------------------|
+| v1.0.0  | Added Inverted Signal Lights                                  |
+| v2.0.0  | Allow signal lights to be placed in 22.5/45 degree increment. |

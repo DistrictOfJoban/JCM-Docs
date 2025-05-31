@@ -62,4 +62,4 @@ No crafting recipe available for Single Pane variant yet!
 | Version | Changes Made                                          |
 |:--------|:------------------------------------------------------|
 | v1.1.2  | Added Station Ceiling                                 |
-| v2.0.0  | Added **Single Pane** variant<br>Rename `jsblock:station_ceiling_1` to `jsblock:station_ceiling_wrl` |
+| v2.0.0  | Added **Single Pane** variant<br>Rename `jsblock:station_ceiling_pole` to `jsblock:station_ceiling_wrl_pole` |
