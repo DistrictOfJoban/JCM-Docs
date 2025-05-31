@@ -38,7 +38,7 @@
   display: inline-block;
   height: 36px;
   width: 60px;
-  background-image: url("/players/blocks/crafting/arrow.png");
+  background-image: url("../players/blocks/crafting/arrow.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
