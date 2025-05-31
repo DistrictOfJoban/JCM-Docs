@@ -28,4 +28,4 @@ jobs:
             mkdocs-material-
       - run: pip install mkdocs-material 
       - run: pip install mike
-      - run: mike deploy --push 2.x
+      - run: mike deploy --push v2
