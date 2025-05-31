@@ -12,7 +12,7 @@ recipes:
 - jsblock:departure_timer
 ---
 
-A **Departure Timer** is a block that displays the remaining time until the train departs. This block is modelled after the departure timer seen in the MTR East Rail Line.
+A **Departure Timer** is a block that displays the remaining time until the train departs, it is modelled after the departure timer seen in the MTR East Rail Line.
 
 ## Usage
 1. Place the block near a platform. (A configuration replicating real-life would be to place it at the end of the platform rail node)

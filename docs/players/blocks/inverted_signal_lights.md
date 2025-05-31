@@ -24,7 +24,7 @@ Same as MTR mod's Signal Lights.
 ## Crafting Recipes
 ### Blue variant
 !!! note
-    The **red signal light** in this crafting grid refers to **any Signal Light from the MTR mod**
+    The **red signal light** in this crafting grid refers to **any Signal Lights from the MTR mod**
 
 <div class="crafting">
     <div class="crafting-table">

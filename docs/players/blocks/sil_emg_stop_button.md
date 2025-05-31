@@ -11,7 +11,7 @@ recipes:
 - jsblock:sil_emg_stop_button
 ---
 
-An **Emergency Train Stop Button (SIL)** is a decoration block in Joban Client Mod, replicating the emergency stop button seen in stations along the MTR South Island Line.
+An **Emergency Train Stop Button (SIL)** is a block in Joban Client Mod that replicates the emergency stop button seen in stations along the MTR South Island Line.
 
 ## Usage
 Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1 second).

@@ -13,7 +13,7 @@ recipes:
 
 <blockquote>The dream train model every rail fan would want to obtain at any cost - AozoraSky</blockquote>
 
-An **E44 Train Model** is a decoration block in Joban Client Mod, representing a 1:87 HO scale E44 train model
+An **E44 Train Model** is a decorative block in Joban Client Mod, representing a 1:87 HO scale E44 train model
 
 ## Crafting Recipe
 !!! note

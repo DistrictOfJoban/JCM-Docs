@@ -13,7 +13,7 @@ recipes:
 
 # Door Closing Indicator (Butterfly Light)
 
-A **Door Closing Indicator** (Also known as Butterfly Light) is a block in Joban Client Mod that replicates a device in the **MTR East Rail Line** which reminds the train driver to close the train door and depart.
+A **Door Closing Indicator** (Also known as **Butterfly Light**) is a block in Joban Client Mod that replicates a device in the **MTR East Rail Line** which reminds the train driver to close the train door and depart.
 
 ## Usage
 1. Place the block near a platform. (A configuration replicating real-life would be to place it at the end of the platform rail node)

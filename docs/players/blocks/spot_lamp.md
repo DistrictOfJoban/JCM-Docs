@@ -13,7 +13,7 @@ recipes:
 
 <blockquote>This is like the block you use when you don't know how to light it up - LX86</blockquote>
 
-A **Spot Lamp** is a decoration block in Joban Client Mod.
+A **Spot Lamp** is a decorative block in Joban Client Mod that acts as a light source in-game.
 
 ## Crafting Recipe
 <div class="crafting">

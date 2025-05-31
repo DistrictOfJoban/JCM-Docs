@@ -11,7 +11,7 @@ recipes:
 - jsblock:rv_pids
 ---
 
-A **Railway Vision PIDS** is a Passenger Information Display System. It replicates the Railway Vision styled PIDS display seen along stations of the MTR Network.
+A **Railway Vision PIDS** is a block in Joban Client Mod which replicates the Railway Vision styled PIDS display seen along stations of the MTR Network.
 
 This block is a part of [JCM PIDS](../features/jcm-pids.md), which includes extra features such as PIDS Preset and more.
 

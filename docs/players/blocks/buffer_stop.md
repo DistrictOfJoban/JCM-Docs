@@ -11,7 +11,7 @@ recipes:
 - jsblock:buffer_stop
 ---
 
-A **Buffer Stop** is a decoration block in Joban Client Mod, mimicking the [Buffer Stop](https://en.wikipedia.org/wiki/Buffer_stop) seen in East Rail Line. This device is used to prevent train from overrunning in the real world.
+A **Buffer Stop** is a decorative block in Joban Client Mod that mimicks the [Buffer Stop](https://en.wikipedia.org/wiki/Buffer_stop) seen in East Rail Line. This device is used to prevent trains from overrunning in the real world.
 
 ## Usage
 Place the block at least **2 blocks** in front of the final rail node.

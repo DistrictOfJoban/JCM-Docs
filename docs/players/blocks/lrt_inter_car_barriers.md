@@ -15,7 +15,7 @@ recipes:
 - jsblock:lrt_inter_car_barrier_right
 ---
 
-**LRT Inter-Car Barriers** is a series of decoration block in Joban Client Mod that are designed to be placed on the platform block between vehicle cars to stop people from boarding between car connectors.
+**LRT Inter-Car Barriers** is a series of blocks in Joban Client Mod that are designed to be placed on the platform block between vehicle cars to stop people from boarding between car connectors.
 
 It is divided into 3 parts: **Left**, **Middle** and **Right**.
 

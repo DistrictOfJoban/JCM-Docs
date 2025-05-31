@@ -11,7 +11,7 @@ recipes:
 - jsblock:sound_looper
 ---
 
-A **Sound Looper** is a block that plays in-game sound repeatedly at a configurable interval, either for all player or for those in a certain block range.
+A **Sound Looper** is a block in a Joban Client Mod that plays in-game sound repeatedly at a configurable interval, either for all player or for those in a certain block range.
 
 ## Configuring
 Configuration such as **Repeating Interval**, **Sound ID**, **Limited Block Range** can be configured by right clicking with the **Brush** item provided by the MTR mod.

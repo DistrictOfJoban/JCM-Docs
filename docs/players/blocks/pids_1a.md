@@ -11,7 +11,7 @@ recipes:
 - jsblock:pids_1a
 ---
 
-The **PIDS 1A** block is a Passenger Information Display System based on the `pids_1` PIDS block in MTR Mod, with 3 arrival rows and enlarged text.
+The **PIDS 1A** is a block in Joban Client Mod which is based on the `pids_1` PIDS block in MTR Mod, with 3 arrival rows and enlarged text.
 
 This block is a part of [JCM PIDS](../features/jcm-pids.md), which includes extra features such as PIDS Preset and more.
 

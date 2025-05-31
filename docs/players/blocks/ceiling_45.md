@@ -11,7 +11,7 @@ recipes:
 - jsblock:ceiling_slanted
 ---
 
-A **Ceiling (Slanted)** is a decoration block in Joban Client Mod.
+A **Ceiling (Slanted)** is a decorative block in Joban Client Mod.
 
 ## Crafting Recipe
 <div class="crafting">

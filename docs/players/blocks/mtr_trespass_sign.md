@@ -11,7 +11,7 @@ recipes:
 - jsblock:mtr_trespass_sign
 ---
 
-A **MTR Trespass Signage** is a decoration block in Joban Client Mod.
+A **MTR Trespass Signage** is a block in Joban Client Mod, reminding passengers to not trespass between tracks.
 
 ## Crafting Recipe
 <div class="crafting">

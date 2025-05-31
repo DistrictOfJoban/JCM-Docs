@@ -11,7 +11,7 @@ recipes:
 - jsblock:lrt_trespass_sign
 ---
 
-A **LRT Trespass Signage** is a decoration block in Joban Client Mod, replicating a vertical sign placed on the track at the end of platform reminding passengers to not trespass between tracks.
+A **LRT Trespass Signage** is a decorative block in Joban Client Mod, replicating a vertical sign placed on the track at the end of platform reminding passengers to not trespass between tracks.
 
 ## Crafting Recipe
 <div class="crafting">

@@ -16,7 +16,7 @@ recipes:
 - jsblock:station_ceiling_wrl_station_color
 ---
 
-**Station Ceilings (2009)** refers to a series of decoration block, resembling the ceilings seen in stations of the **Kowloon Southern Line extension** for the MTR West Rail Line, which opened in the year 2009.
+**Station Ceilings (2009)** refers to a series of blocks resembling the ceilings seen in stations of the **Kowloon Southern Line extension** for the MTR West Rail Line, which opened in the year 2009.
 
 A **Double Pane**, **Single Pane** and **Station Colored** variants are offered by this block.
 

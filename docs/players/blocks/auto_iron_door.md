@@ -11,9 +11,9 @@ recipes:
 - jsblock:auto_iron_door
 ---
 
-An **Automatic Iron Door** is a copy of Minecraft's Iron Door that will automatically open when player gets in a 3 block range.
+An **Automatic Iron Door** is a copy of Minecraft's Iron Door that will automatically open when player gets in a 3 block range with the door.
 
-All Block states and properties follows [Minecraft Iron Door](https://minecraft.wiki/w/Iron_Door).
+All block states and properties follows [Minecraft Iron Door](https://minecraft.wiki/w/Iron_Door).
 
 ## Crafting Recipe
 <div class="crafting">

@@ -11,7 +11,7 @@ recipes:
 - jsblock:lcd_pids
 ---
 
-A **Old Tsueng Kwan O Line PIDS** is a Passenger Information Display System. It replicates the PIDS display seen along stations of the **MTR Tsueng Kwan O Line**, before being replaced with the Railway Vision PIDS display.
+A **Old Tsueng Kwan O Line PIDS** is a block in Joban Client Mod which replicates the PIDS display seen along stations of the **MTR Tsueng Kwan O Line**, before being replaced with the Railway Vision PIDS display.
 
 This block is a part of [JCM PIDS](../features/jcm-pids.md), which includes extra features such as PIDS Preset and more.
 

@@ -17,7 +17,7 @@ recipes:
 - jsblock:signal_light_blue
 ---
 
-**Static Signal Light** refers to a series of Signal Light Block in Joban Client Mod where it's always lit in 1 color.
+**Static Signal Light** refers to a series of Signal Lights in Joban Client Mod where it's always lit in 1 color.
 
 Its purpose is to provide a dummy decoration-only signal light.
 

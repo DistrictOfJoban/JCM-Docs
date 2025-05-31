@@ -13,7 +13,7 @@ recipes:
 - jsblock:exit_sign_even
 - jsblock:exit_sign_odd_by_even
 ---
-**Exit Sign (Odd)** and **Exit Sign (Even)**  is a decoration block in Joban Client Mod, replicating an emergency exit sign seen in Hong Kong.
+**Exit Sign (Odd)** and **Exit Sign (Even)**  is a decorative block in Joban Client Mod, replicating an emergency exit sign seen in Hong Kong.
 
 It is designed to be hanging/attached to the bottom of a block.
 

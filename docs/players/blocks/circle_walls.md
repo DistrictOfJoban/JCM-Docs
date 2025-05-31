@@ -23,7 +23,7 @@ recipes:
 - jsblock:circle_wall_7
 ---
 
-**Circle Walls** is a series of decoration block in Joban Client Mod, meant to be used for tunnels.
+**Circle Walls** is a series of blocks in Joban Client Mod that are meant to be used for tunnels.
 
 A total of 7 parts are available for selection in the inventory.
 

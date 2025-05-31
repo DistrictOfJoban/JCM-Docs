@@ -11,7 +11,7 @@ recipes:
 - jsblock:tcl_emg_stop_button
 ---
 
-An **Emergency Stop Button** is a wall-attached block, replicating the Emergency Stop Button seen in Tung Chung Line stations.
+An **Emergency Stop Button** is a wall-attached block in Joban Client Mod which replicates the Emergency Stop Button seen in Tung Chung Line stations.
 
 ## Usage
 Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1 second).

@@ -16,7 +16,7 @@ recipes:
 - jsblock:thales_ticket_barrier_bare
 ---
 
-**Thales Ticket Barriers** is a series of ticket barriers in Joban Client Mod, modelled after a variant of Ticket Barriers manufactured by the Thales Group.
+**Thales Ticket Barriers** is a series of ticket barriers in Joban Client Mod, modelled after a variant of Ticket Barriers manufactured by the **Thales Group**.
 
 ## Usage
 ### Thales Ticket Barrier (Entrance/Exit)

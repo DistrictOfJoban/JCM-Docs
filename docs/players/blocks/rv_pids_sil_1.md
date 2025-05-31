@@ -11,7 +11,7 @@ recipes:
 - jsblock:rv_pids_sil_1
 ---
 
-A **Railway Vision PIDS (SIL, Ocean Park & Wong Chuk Hang Station Variant)** is a Passenger Information Display System, replicating the PIDS display seen in **Ocean Park** and **Wong Chuk Hang** station in the MTR South Island Line.
+A **Railway Vision PIDS (SIL, Ocean Park & Wong Chuk Hang Station Variant)** is a block in Joban Client Mod which replicates the PIDS display seen in **Ocean Park** and **Wong Chuk Hang** station in the MTR South Island Line.
 
 This block is a part of [JCM PIDS](../features/jcm-pids.md), which includes extra features such as PIDS Preset and more.
 
