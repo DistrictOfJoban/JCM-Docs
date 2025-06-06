@@ -159,7 +159,7 @@ Represent a single arrival entry.
 |`ArrivalWrapper.platformId(): number`|Returns the id of the platform that the train is approaching towards.|
 |`ArrivalWrapper.platformName(): string`|Returns the name of the platform that the train is approaching towards.|
 |`ArrivalWrapper.carCount(): number`|The car length of the train in that arrival entry.|
-|`ArrivalWrapper.forEachCar(consumer: Consumer<CarDetails>): void`|Allows you to loop through each car of the train in that arrival entry.|
+|`ArrivalWrapper.cars(): List<CarDetails>`|Returns a List containing [CarDetails](#cardetails) for each car.|
 
 #### Transport Simulation Core Related
 Transport Simulation Core (TSC) is the backend serving MTR 4. Below are some of the classes in TSC, which may be returned by JCM above.
@@ -183,6 +183,12 @@ Transport Simulation Core (TSC) is the backend serving MTR 4. Below are some of 
 |`Route.getHidden(): boolean`|Returns whether the route is hidden.|
 |`Route.getDestination(index: number): string`|Returns name of index of the following order:<br>- Custom Destination<br>- Station Area Name<br>- Platform Name|
 |`Route.getRouteType(): RouteType`|Returns the type of route:<br>- NORMAL<br>- LIGHT_RAIL<br>- HIGH_SPEED|
+
+##### CarDetails
+|Functions And Objects|Description|
+|:--------------------|:----------|
+|`CarDetails.getVehicleId(): string`|Returns the id of the vehicle car (As defined in Resource Packs)|
+|`CarDetails.getOccupancy(): number`|Returns the occupancy level. <br><b>Only returns 0 at the moment.</b>|
 
 ### Using AWT Graphics/Dynamic Textures
 While not a regular tested use case for PIDS, you can create a [Dynamic Textures](dynamic_textures.md) and draw it onto a PIDS:
