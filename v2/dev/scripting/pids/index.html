@@ -4292,8 +4292,8 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 <td style="text-align: left;">The car length of the train in that arrival entry.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ArrivalWrapper.forEachCar(consumer: Consumer&lt;CarDetails&gt;): void</code></td>
-<td style="text-align: left;">Allows you to loop through each car of the train in that arrival entry.</td>
+<td style="text-align: left;"><code>ArrivalWrapper.cars(): List&lt;CarDetails&gt;</code></td>
+<td style="text-align: left;">Returns a List containing <a href="#cardetails">CarDetails</a> for each car.</td>
 </tr>
 </tbody>
 </table>
@@ -4366,6 +4366,25 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 <tr>
 <td style="text-align: left;"><code>Route.getRouteType(): RouteType</code></td>
 <td style="text-align: left;">Returns the type of route:<br>- NORMAL<br>- LIGHT_RAIL<br>- HIGH_SPEED</td>
+</tr>
+</tbody>
+</table>
+<h5 id="cardetails">CarDetails<a class="headerlink" href="#cardetails" title="Anchor link to this section for reference">#</a></h5>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>CarDetails.getVehicleId(): string</code></td>
+<td style="text-align: left;">Returns the id of the vehicle car (As defined in Resource Packs)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>CarDetails.getOccupancy(): number</code></td>
+<td style="text-align: left;">Returns the occupancy level. <br><b>Only returns 0 at the moment.</b></td>
 </tr>
 </tbody>
 </table>
