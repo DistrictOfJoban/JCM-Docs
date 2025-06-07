@@ -1,6 +1,6 @@
 site_name: Joban Client Mod
-repo_name: Joban-Client-Mod
-repo_url: https://github.com/DistrictOfJoban/Joban-Client-Mod
+repo_name: NeoJCM
+repo_url: https://github.com/Kenny-Hui/NeoJCM
 site_url: https://jcm.joban.org/
 copyright: Built with ♥️ by LX86
 theme:
@@ -193,8 +193,6 @@ nav:
         - Utilities Method: dev/scripting/utilities.md
         - Dynamic Textures: dev/scripting/dynamic_textures.md
         - PIDS Scripting: dev/scripting/pids.md 
-        - Eyecandy Scripting: https://wiki.minecrafttransitrailway.com/mtr_addon:nte:js:eyecandy
-        - Vehicle Scripting: dev/scripting/vehicle.md 
     - Contributing:
       - Introduction: contributing/introduction.md
       - Translation: contributing/translation.md
@@ -203,6 +201,3 @@ nav:
         - contributing/project/index.md
         - Project Structure: contributing/project/project_structure.md
         - Code Guidelines: contributing/project/code_guidelines.md
-        - Introduction to Multiversion: contributing/project/multiversion_development.md
-    - For Nerds:
-      - NeoJCM: nerds/neojcm.md

@@ -30,16 +30,11 @@ Joban Client Mod requires other mods to function, please install such mods first
 === "For Fabric users"
 
     - [Fabric API](https://modrinth.com/mod/fabric-api)
-    - [Minecraft Transit Railway 4.x](https://modrinth.com/mod/minecraft-transit-railway)
+    - [NeoMTR](https://modrinth.com/mod/neomtr)
 
 === "For Forge users"
-
-    - [Minecraft Transit Railway 4.x](https://modrinth.com/mod/minecraft-transit-railway)
+    - [Architectury API](https://modrinth.com/mod/architectury-api)
+    - [NeoMTR](https://modrinth.com/mod/neomtr)
 
 ## Download
-[:simple-modrinth: Download on Modrinth!](https://modrinth.com/mod/jcm){ .md-button .md-button--primary .modrinth }
-
-Alternatively if you are unable to download this mod from Modrinth, you may also download from:
-
-- [Version Archive](./versions/index.md)  
-- [:octicons-link-external-16: GitHub (For JCM v2 only!)](https://github.com/DistrictOfJoban/Joban-Client-Mod/releases)
+[:simple-github: Download on GitHub!](https://github.com/Kenny-Hui/NeoJCM/releases){ .md-button .md-button--primary }

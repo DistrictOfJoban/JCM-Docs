@@ -91,12 +91,11 @@ Same as MTR mod's Signal Lights.
 </div>
 
 ## Block states
-| facing | is_22_5 | is_45 |
-|:-------|:--------|:------|
-| north  | true    | true  |
-| east   | false   | false |
-| south  |         |       |
-| west   |         |       |
+| facing | 
+| north  |
+| east   |
+| south  |
+| west   |
 
 ## Block entities
 These blocks have a block entity, but does not store any data and are solely used for rendering.
@@ -105,4 +104,3 @@ These blocks have a block entity, but does not store any data and are solely use
 | Version | Changes Made                                                  |
 |:--------|:--------------------------------------------------------------|
 | v1.0.0  | Added Inverted Signal Lights                                  |
-| v2.0.0  | Allow signal lights to be placed in 22.5/45 degree increment. |

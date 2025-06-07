@@ -2,26 +2,25 @@
 !!! info
     This document is a work in progress!
 
-If you would like to make changes directly in the JCM repository, this is the right page! You'll find step by step instructions below.
+If you would like to make changes directly in the NeoJCM repository, this is the right page! You'll find step by step instructions below.
 
 ## Making a fork
-For (well obvious) reasons, you would not be able to make changes directly to the JCM Repository.  
-Instead, you can make a fork of this JCM Repository, which will create a new clone in your account that you can freely manipulate with.
+For (well obvious) reasons, you would not be able to make changes directly to the NeoJCM Repository.  
+Instead, you can make a fork of this NeoJCM Repository, which will create a new clone in your account that you can freely manipulate with.
 
 *To be done =w=*
 
 ## Where to start
-- [Introduction to JCM Project Structure](project_structure.md)
+- [Introduction to NeoJCM Project Structure](project_structure.md)
 
 ### Code
-- [Multiversion Development](multiversion_development.md)
 - [Code Guidelines](code_guidelines.md)
 #### External References
 - [Fabric Documentation - Introduction to Fabric and Modding](https://docs.fabricmc.net/develop/getting-started/introduction-to-fabric-and-modding)
 
 ## Submitting your change
 Ok you've done the work, now what?  
-Now, you can submit a **Pull Request**, which is essentially a request for your changes to be in the main JCM Repository.
+Now, you can submit a **Pull Request**, which is essentially a request for your changes to be in the NeoJCM Repository.
 
 Usually after you have pushed your change, you can go into your forked repository and GitHub will prompt you to submit a Pull Request.
 ![bug-fix has recently pushed 4 minutes ago](img/pr_1.png)
