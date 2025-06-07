@@ -202,9 +202,19 @@ img.bg {
         text-align: center;
     }
 
+    .link-group {
+        width: 100%;
+    }
+
     .jcm-container .link-button {
         display: block;
         margin: 0.5rem 0;
+    }
+
+    .jcm-container .link-group .hidden {
+        position: relative;
+        visibility: visible;
+        opacity: 1;
     }
 
     .scroll-inner {
