@@ -1,0 +1,8 @@
+:root > * {
+  --md-primary-fg-color: rgb(182, 52, 143);
+}
+
+.modrinth {
+  border-color: #009900 !important;
+  background-color: #009900 !important;
+}
