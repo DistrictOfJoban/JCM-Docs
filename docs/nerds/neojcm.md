@@ -3,9 +3,11 @@ template: 'neojcm.html'
 ---
 
 # NeoJCM
-NeoJCM is a derived version of Joban Client Mod v2 that integrates to a fork of NeoMTR's codebase, which in turn derives from Minecraft Transit Railway 3.0.
+NeoJCM is a derived version of **Joban Client Mod v2** that is designed to target NeoMTR, a derived version of MTR 3.0.
 
-It is a part of [NeoMTR Pro Max](https://github.com/DistrictOfJoban/NeoMTR) project *(Terrible naming but you get it!)*, which aims to port NeoMTR into a usable state for deployment in servers such as [The District of Joban](https://joban.org), as well as just a playground for me :)
+The GitHub repository can be found at [https://github.com/Kenny-Hui/NeoJCM](https://github.com/Kenny-Hui/NeoJCM).
+
+Support for using this version is limited, and there is no guarentee on when a new version will release/when will a bug be fixed. It is also not widely tested, as such you should exercise regular risk management such as backing up your world regularly shall you wish to use this.
 
 While not the initial goal, the source code also serves as a pointer to a port of JCM to MTR 4.1, where the Minecraft-Mappings framework will no longer be used.
 
