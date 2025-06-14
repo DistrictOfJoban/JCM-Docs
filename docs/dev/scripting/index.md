@@ -139,11 +139,15 @@ Matrices.rotateX(radian: float): void
 To prevent misuse of scripts, script may only access java classes from the following packages:
 
 - `com.lx862.jcm.mod.scripting.*`
-- `org.mtr.*`
-- `java.awt.*`
-- `java.lang.*`
+- `java.lang`
+- `java.awt`
+- `java.util`
+- `java.time`
+- `java.math`
+- `javax.imageio`
 - `sun.java2d.*`
-- `java.util.*`
+- `sun.font`
+- `org.mtr`
 
 ### Tips & Notes
 
