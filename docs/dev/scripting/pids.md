@@ -81,6 +81,11 @@ This would return a string formatted like: `2.0.0-beta.5`
 
 #### Rendering Related
 
+##### PIDSScriptContext
+|Functions And Objects|Description|
+|:--------------------|:----------|
+|`PIDSScriptContext.setDebugInfo(key: string, value: object)`|Output debugging information in the upper left corner of the screen. You need to enable **Debug mode** in JCM Settings to display it.<br>`key` is the name of the value<br>`value` is the content (`value` will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).|
+
 ##### Text (aka TextWrapper)
 |Functions And Objects|Description|
 |:--------------------|:----------|
