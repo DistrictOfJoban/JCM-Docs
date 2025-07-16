@@ -136,7 +136,7 @@ Matrices.rotateX(radian: float): void
 - `: void` means that the function has no return value.
 
 ### Access of Java class
-To prevent misuse of scripts, script may only access java classes from the following packages:
+To prevent misuse of scripts, script may only access java classes from the following packages by default:
 
 - `com.lx862.jcm.mod.scripting.*`
 - `java.lang`
@@ -148,6 +148,8 @@ To prevent misuse of scripts, script may only access java classes from the follo
 - `sun.java2d.*`
 - `sun.font`
 - `org.mtr`
+
+This restriction may be disabled by going into JCM's settings
 
 ### Tips & Notes
 
