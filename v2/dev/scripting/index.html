@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
@@ -3281,12 +3281,12 @@
   
   
     <li class="md-nav__item">
-      <a href="https://wiki.minecrafttransitrailway.com/mtr_addon:nte:js:eyecandy" class="md-nav__link">
+      <a href="eyecandy/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Eyecandy Scripting
+    Decoration Object Scripting
     
   </span>
   
@@ -3838,7 +3838,7 @@
 <h1 id="scripting-documentation">Scripting Documentation<a class="headerlink" href="#scripting-documentation" title="Anchor link to this section for reference">#</a></h1>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>This page serves as a documentation for the whole scripting system implemented in JCM, which includes Eyecandy/Decoration Block Scripting and <a href="pids/">PIDS Scripting</a>.</p>
+<p>This page serves as a documentation for the whole scripting system implemented in JCM, which includes <a href="eyecandy/">Decoration Block Scripting</a> and <a href="pids/">PIDS Scripting</a>.</p>
 </div>
 <p>JCM Scripting is a feature introduced in <strong><abbr title="Joban Client Mod v2">JCM v2</abbr>.0.0</strong>. It serves as a testbed for scripting in <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>, as well as using JavaScript to control PIDS.</p>
 <p>The system itself is heavily influenced by the Nemo Transit Expansion mod and shares much of the similarities. As such, most of the documentation include this page is also referenced from the <a href="https://wiki.minecrafttransitrailway.com/mtr_addon:nte:js:start">NTE <abbr title="JavaScript">JS</abbr> documentation</a>.</p>
@@ -3938,7 +3938,7 @@ An example output would be:
 <li><code>: void</code> means that the function has no return value.</li>
 </ul>
 <h3 id="access-of-java-class">Access of Java class<a class="headerlink" href="#access-of-java-class" title="Anchor link to this section for reference">#</a></h3>
-<p>To prevent misuse of scripts, script may only access java classes from the following packages:</p>
+<p>To prevent misuse of scripts, script may only access java classes from the following packages by default:</p>
 <ul>
 <li><code>com.lx862.jcm.mod.scripting.*</code></li>
 <li><code>java.lang</code></li>
@@ -3951,6 +3951,7 @@ An example output would be:
 <li><code>sun.font</code></li>
 <li><code>org.mtr</code></li>
 </ul>
+<p>This restriction may be disabled by going into JCM's settings</p>
 <h3 id="tips-notes">Tips &amp; Notes<a class="headerlink" href="#tips-notes" title="Anchor link to this section for reference">#</a></h3>
 <h4 id="declaring-variables-using-let-or-var">Declaring variables using let or var<a class="headerlink" href="#declaring-variables-using-let-or-var" title="Anchor link to this section for reference">#</a></h4>
 <p>Both JCM/NTE uses JavaScript's <strong>strict mode</strong>, which does not allow variables to be assigned without first declaring them.</p>
@@ -4104,7 +4105,7 @@ Similarly, there is a <code>List&lt;T&gt;</code> type in Java. It does the same 
       <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes", "content.code.copy", "content.code.annotate", "content.tooltips"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
     
   </body>
