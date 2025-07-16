@@ -1,7 +1,7 @@
 # Scripting Documentation
 
 !!! info
-     This page serves as a documentation for the whole scripting system implemented in JCM, which includes Eyecandy/Decoration Block Scripting and [PIDS Scripting](pids.md).
+     This page serves as a documentation for the whole scripting system implemented in JCM, which includes [Decoration Block Scripting](eyecandy.md) and [PIDS Scripting](pids.md).
 
 JCM Scripting is a feature introduced in **JCM v2.0.0**. It serves as a testbed for scripting in MTR 4, as well as using JavaScript to control PIDS.
 

@@ -193,7 +193,7 @@ nav:
         - Utilities Method: dev/scripting/utilities.md
         - Dynamic Textures: dev/scripting/dynamic_textures.md
         - PIDS Scripting: dev/scripting/pids.md 
-        - Eyecandy Scripting: https://wiki.minecrafttransitrailway.com/mtr_addon:nte:js:eyecandy
+        - Decoration Object Scripting: dev/scripting/eyecandy.md
         - Vehicle Scripting: dev/scripting/vehicle.md 
     - Contributing:
       - Introduction: contributing/introduction.md
