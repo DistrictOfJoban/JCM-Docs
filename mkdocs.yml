@@ -90,6 +90,7 @@ nav:
       - Introduction:
         - players/index.md
         - Download & Install: players/download.md
+        - JCM v2 Changes: players/jcmv2.md
       - Features:
         - JCM PIDS: players/features/jcm-pids.md
         - Tunnel Wall (Rail Model): players/features/tunnel.md
