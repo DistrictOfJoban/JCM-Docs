@@ -37,9 +37,11 @@ Joban Client Mod requires other mods to function, please install such mods first
     - [Minecraft Transit Railway 4.x](https://modrinth.com/mod/minecraft-transit-railway)
 
 ## Download
-[:simple-modrinth: Download on Modrinth!](https://modrinth.com/mod/jcm){ .md-button .md-button--primary .modrinth }
+[:simple-modrinth: Download on Modrinth](https://modrinth.com/mod/jcm){ .md-button .md-button--primary .modrinth }
 
-Alternatively if you are unable to download this mod from Modrinth, you may also download from:
+[:simple-curseforge: Download on CurseForge](https://www.curseforge.com/minecraft/mc-mods/jcm){ .md-button .md-button--primary .curseforge }
+
+Alternatively if you are unable to download this mod from the above platform, you may also download from:
 
 - [Version Archive](./versions/index.md)  
 - [:octicons-link-external-16: GitHub (For JCM v2 only!)](https://github.com/DistrictOfJoban/Joban-Client-Mod/releases)
