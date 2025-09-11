@@ -138,7 +138,7 @@ This would return a string formatted like: `2.0.0-beta.5`
 ##### ArrivalsWrapper
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`ArrivalsWrapper.get(i: number): ArrivalWrapper?`|Returns the i<sup>th</sup> arrival entry.<br>`null` if there's no i<sup>th</sup> arrival entry or no arrival information.|
+|`ArrivalsWrapper.get(i: number): ArrivalWrapper?`|Returns the i<sup>th</sup> arrival entry.<br>`null` if there's no i<sup>th</sup> arrival entry or no arrival information.<br>**Note that only up to 10 arrivals is fetched per platform, see this [issue](https://github.com/DistrictOfJoban/Joban-Client-Mod/issues/40) for details.**|
 |`ArrivalsWrapper.mixedCarLength(): boolean`|Returns whether the list of arrivals have arrival entry with different cars.|
 |`ArrivalsWrapper.platforms(): ObjectArrayList<Platform>`|Returns the platforms that all arrival entry is stopping at.|
 
