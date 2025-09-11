@@ -105,6 +105,7 @@ This would return a string formatted like: `2.0.0-beta.5`
 |`Text.wrapText(): TextWrapper`|Text Overflow Mechanism:<br>When the text overflowed beyond it's size, split the text into the next line without any scaling.|
 |`Text.marquee(): TextWrapper`|Text Overflow Mechanism:<br>When the text overflowed beyond it's size, draw a portion of the text at a time with scrolling animation|
 |`Text.fontMC(): TextWrapper`|Use vanilla Minecraft's font|
+|`Text.matrices(matrices: Matrices): TextWrapper`|Apply a [matrices](../scripting/math.md#matrices) to the current text object|
 |`Text.font(id: string): TextWrapper`<br>`Text.font(id: Identifier): TextWrapper`|Set the font by it's ID. Defaults to `mtr:mtr`<br>The font should be loaded in Minecraft via the font json format.<br>This does not have any effect if **Use Custom MTR Font** is disabled in MTR mod's Config.|
 |`Text.color(color: number): TextWrapper`|Set the text color, in RGB format.|
 |`Text.draw(ctx: PIDSScriptContext): void`|Mark the text as something that should be rendered to the PIDS.|
@@ -118,6 +119,7 @@ This would return a string formatted like: `2.0.0-beta.5`
 |`Texture.texture(id: string): TextureWrapper`<br>`Texture.texture(id: Identifier): TextureWrapper`|Set the texture ID to draw.<br>Note that the texture ID should point to a PNG file or an .mcmeta file.|
 |`Texture.color(color: number): TextureWrapper`|Set the text color, in RGB format.|
 |`Texture.uv(u2: number, v2: number): TextureWrapper`<br>`Texture.uv(u1: number, v1: number, u2: number, v2: number): TextureWrapper`|Set the UV coordinates|
+|`Texture.matrices(matrices: Matrices): TextureWrapper`|Apply a [matrices](../scripting/math.md#matrices) to the current texture object|
 |`Texture.draw(ctx: PIDSScriptContext): void`|Mark the texture as something that should be rendered to the PIDS.|
 
 #### PIDS Object Related
