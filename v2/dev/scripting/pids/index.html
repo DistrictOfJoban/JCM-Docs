@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
     
     
       
@@ -4130,6 +4130,10 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 <td style="text-align: left;">Use vanilla Minecraft's font</td>
 </tr>
 <tr>
+<td style="text-align: left;"><code>Text.matrices(matrices: Matrices): TextWrapper</code></td>
+<td style="text-align: left;">Apply a <a href="../math/#matrices">matrices</a> to the current text object</td>
+</tr>
+<tr>
 <td style="text-align: left;"><code>Text.font(id: string): TextWrapper</code><br><code>Text.font(id: Identifier): TextWrapper</code></td>
 <td style="text-align: left;">Set the font by it's ID. Defaults to <code>mtr:mtr</code><br>The font should be loaded in Minecraft via the font json format.<br>This does not have any effect if <strong>Use Custom MTR Font</strong> is disabled in <abbr title="Minecraft Transit Railway">MTR mod</abbr>'s Config.</td>
 </tr>
@@ -4175,6 +4179,10 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 <tr>
 <td style="text-align: left;"><code>Texture.uv(u2: number, v2: number): TextureWrapper</code><br><code>Texture.uv(u1: number, v1: number, u2: number, v2: number): TextureWrapper</code></td>
 <td style="text-align: left;">Set the UV coordinates</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Texture.matrices(matrices: Matrices): TextureWrapper</code></td>
+<td style="text-align: left;">Apply a <a href="../math/#matrices">matrices</a> to the current texture object</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>Texture.draw(ctx: PIDSScriptContext): void</code></td>
@@ -4241,7 +4249,7 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>ArrivalsWrapper.get(i: number): ArrivalWrapper?</code></td>
-<td style="text-align: left;">Returns the i<sup>th</sup> arrival entry.<br><code>null</code> if there's no i<sup>th</sup> arrival entry or no arrival information.</td>
+<td style="text-align: left;">Returns the i<sup>th</sup> arrival entry.<br><code>null</code> if there's no i<sup>th</sup> arrival entry or no arrival information.<br><strong>Note that only up to 10 arrivals is fetched per platform, see this <a href="https://github.com/DistrictOfJoban/Joban-Client-Mod/issues/40">issue</a> for details.</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalsWrapper.mixedCarLength(): boolean</code></td>
