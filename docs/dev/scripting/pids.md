@@ -156,7 +156,7 @@ Represent a single arrival entry.
 |`ArrivalWrapper.realtime(): boolean`|Returns whether the arrival entry is scheduled (i.e. Train not departed), or a real-time estimation (i.e. Train running)|
 |`ArrivalWrapper.departureIndex(): number`|Returns the departure index[?]|
 |`ArrivalWrapper.terminating(): boolean`|Returns whether the arrival entry is terminating its service at the current platform.|
-|`ArrivalWrapper.route(): Route`|Returns the route object of the route that the train is running on.<br>**Might be null if the route cannot be found (e.g. Deleted)**|
+|`ArrivalWrapper.route(): SimplifiedRoute`|Returns the SimplifiedRoute object that the train is running on.<br>**Might be null if the route cannot be found (e.g. Deleted)**|
 |`ArrivalWrapper.routeId(): number`|Returns the id of the route that the train is running on.|
 |`ArrivalWrapper.routeName(): string`|Returns the name of the route that the train is running on.|
 |`ArrivalWrapper.routeNumber(): string`|Returns the route number string (Previously called LRT Route Number), empty string if route number is not set.|
@@ -180,16 +180,22 @@ Transport Simulation Core (TSC) is the backend serving MTR 4. Below are some of 
 |`Platform.getId(): number`|Returns the platform ID.|
 |`Platform.getDwellTime(): number`|The dwell time duration of the platform in millisecond.|
 
-##### Route
+##### SimplifiedRoute
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`Route.depots: ObjectArrayList<Depot>`|A list of depot associated with this route[?]|
-|`Route.getName(): string`|Returns the platform name.|
-|`Route.getId(): number`|Returns the route ID.|
-|`Route.getColor(): number`|Returns the color of the route.|
-|`Route.getHidden(): boolean`|Returns whether the route is hidden.|
-|`Route.getDestination(index: number): string`|Returns name of index of the following order:<br>- Custom Destination<br>- Station Area Name<br>- Platform Name|
-|`Route.getRouteType(): RouteType`|Returns the type of route:<br>- NORMAL<br>- LIGHT_RAIL<br>- HIGH_SPEED|
+|`SimplifiedRoute.getName(): string`|Returns the platform name.|
+|`SimplifiedRoute.getId(): number`|Returns the route ID.|
+|`SimplifiedRoute.getColor(): number`|Returns the color of the route.|
+|`SimplifiedRoute.getCircularState(): Route.CircularState`|Returns the circular state of the route|
+|`SimplifiedRoute.getPlatforms(): ObjectArrayList<SimplifiedRoutePlatform>`|Returns a SimplifiedRoutePlatform object, see below|
+
+##### SimplifiedRoutePlatform
+|Functions And Objects|Description|
+|:--------------------|:----------|
+|`SimplifiedRoutePlatform.getPlatformId(): number`|Returns the id of the platform.|
+|`SimplifiedRoutePlatform.getStationId(): number`|Returns the id of the belonging station area.|
+|`SimplifiedRoutePlatform.getStationName(): string`|Returns the name of the belonging station area.|
+|`SimplifiedRoutePlatform.getDestination(): string`|Returns the destination string of this platform in the route|
 
 ##### CarDetails
 |Functions And Objects|Description|
