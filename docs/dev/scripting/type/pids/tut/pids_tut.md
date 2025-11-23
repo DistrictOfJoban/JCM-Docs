@@ -30,7 +30,7 @@ Before starting, please note that:
 - You don't have to finish the tutorial in one go :)
 
 ## Getting started
-To get started, [download the tutorial resource pack here](../files/JCM_PIDS_Tutorial_Scripting_Pack.zip), extract the zip and put it in Minecraft's Resource Pack folder.
+To get started, [download the tutorial resource pack here](./files/JCM_PIDS_Tutorial_Scripting_Pack.zip), extract the zip and put it in Minecraft's Resource Pack folder.
 
 This resource pack is specifically set-up for this tutorial, and therefore the JS scripts inside are (mostly) empty. However we can still take a look at how a Scripted PIDS Preset is set-up.
 
@@ -249,7 +249,7 @@ Remember, JavaScript is 0-based index. The first number starts from 0, then 1, a
 
 Now that we have obtained our first arrival entry, we can obtain a variety of information with it, includeing it's route/LRT number, arrival and departure time, the route it's running and much more!
 
-You may refer to the [PIDS Scripting Documentation](../../../scripting/pids.md) for more information, but we will also cover some of it in this tutorial.
+You may refer to the [PIDS Scripting Documentation](../../pids/index.md) for more information, but we will also cover some of it in this tutorial.
 
 At the moment we are only interested in getting the destination (Where the train is going). We can do that by calling the `destination()` function in our arrival entry:
 
@@ -323,7 +323,7 @@ Great! However while this might be fine for rendering 1 line of arrival, in prac
 While we could just copy and paste these codes, they are error-prune and a mess to modify.
 
 Making matters more complicated, different PIDS Block have it's own number of arrival entry it supports.  
-For example, [RV PIDS](../../../../players/blocks/rv_pids.md) supports 4 rows, while [PIDS 1A](../../../../players/blocks/pids_1a.md) only supports 3 rows.
+For example, [RV PIDS](../../../../../players/blocks/rv_pids.md) supports 4 rows, while [PIDS 1A](../../../../../players/blocks/pids_1a.md) only supports 3 rows.
 
 One solution is to change this to a for-loop. We can use `pids.rows` to obtain how many rows the current PIDS block supports:
 
@@ -393,7 +393,7 @@ Much better! The last thing we have to deal with is handling different languages
 
 To cycle the string, we can wrap our destination string with the `TextUtil.cycleString(str)` function.
 
-`TextUtil` is a utility method provided our of the box for us, you can check the [Utilities](../../../scripting/utilities.md) page for more helper functions like these.
+`TextUtil` is a utility method provided our of the box for us, you can check the [Utilities](../../../utilities.md) page for more helper functions like these.
 
 ``` js title="pids_tut.js" linenums="8" hl_lines="3"
 /// ... code before
@@ -664,7 +664,7 @@ The text margin is still not perfect, but it's just a matter of doing some subtr
 Now let's move on to functionality:  
 As we have previously established, we can obtain the arrival's destination text with the `destination()` function.
 
-An arrival entry have more functions than that. For a full list you can check [ArrivalWrapper](../../../scripting/pids.md#arrivalswrapper).
+An arrival entry have more functions than that. For a full list you can check [ArrivalEntries](../../pids/index.md#arrivalentries).
 
 For our purposes, we are going to use the `arrivalTime()` function. This returns the **epoch time** the train is arriving at (in millisecond), or in other word, how many millisecond (1/1000th of a second) have passed since 1 January 1970.
 
@@ -912,7 +912,7 @@ There are 3 distinct texture for weather icon used in the default RV PIDS preset
 
 As such, we need to use different texture depending on the situation.
 
-To check the weather for the current world, we can use the [MinecraftClient](../../../scripting/utilities.md#minecraftclient) class, which provides a couple of functions, namely `MinecraftClient.worldIsRaining()` and `MinecraftClient.worldIsThundering()`.
+To check the weather for the current world, we can use the [MinecraftClient](../../../mc.md#minecraftclient) class, which provides a couple of functions, namely `MinecraftClient.worldIsRaining()` and `MinecraftClient.worldIsThundering()`.
 
 We can then first declare a variable which represents the texture we are going to use, we are going to assign a value to it later:
 
@@ -1259,7 +1259,7 @@ function dispose(ctx, state, pids) {
 ```
 
 ## What to do next
-Now you can check out the [Scripting Documentation](../../../scripting/index.md) to see what other functions and information you can obtain.
+Now you can check out the [Scripting Documentation](../../pids/index.md) to see what other functions and information you can obtain.
 
 ### Additional Challenges
 Some things are intentionally left-out in this tutorial, which can mostly be attributed to my laziness, but nevertheless they also serve as a great opportunity for a bonus challenge:
@@ -1285,7 +1285,7 @@ Now can you create your own function to replace the use of PIDSUtil?
 
 #### Show car length if arrivals have mixed car length
 ??? tips
-    - Read the [PIDS Scripting Documentation](../../../scripting/pids.md#pids-object-related) to see whether there's a function to determine if arrivals have mixed car length.
+    - Read the [PIDS Scripting Documentation](../../pids/index.md#pids-object-related) to see whether there's a function to determine if arrivals have mixed car length.
     - Use `PIDSUtil.getCarText(carLength)` function to obtain the car text.
     - Append the car text to the ETA string with a `|` so that it cycles through both car-text and ETA-text!
 

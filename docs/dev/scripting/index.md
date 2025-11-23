@@ -1,35 +1,106 @@
 # Scripting Documentation
+JCM Scripting is a feature introduced in **JCM v2.0.0**, it serves as a testbed for scripting in MTR 4.  
+One may consider this as an unofficial continuation of the scripting feature in [Nemo Transit Expansion](https://modrinth.com/mod/mtr-nte).
 
-!!! info
-     This page serves as a documentation for the whole scripting system implemented in JCM, which includes [Decoration Block Scripting](eyecandy.md) and [PIDS Scripting](pids.md).
-
-JCM Scripting is a feature introduced in **JCM v2.0.0**. It serves as a testbed for scripting in MTR 4, as well as using JavaScript to control PIDS.
-
-The system itself is heavily influenced by the Nemo Transit Expansion mod and shares much of the similarities. As such, most of the documentation include this page is also referenced from the [NTE JS documentation](https://wiki.minecrafttransitrailway.com/mtr_addon:nte:js:start).
+!!! warning "Work In Progress"
+    Please note that feature parity with NTE is still not complete.
 
 ## Introduction
+### What is Scripting in JCM?
+Essentially it allows you to use JavaScript to insert custom logic into the game, which will be executed and widens the possibilities of the MTR Mod.
+
+To understand scripting in JCM, we should understand **Script Type** first.
+
+### Script Type
+#### Understand Script Type by Analogy
+To better understand **Script Type**, let's imagine the following:
+
+- Script Type = **Booth**
+- Scripting Engine = **Venue**
+- JCM Scripting = **Exhibiton Event**
+- JCM = **Exhibiton Organizer**
+
+Within the exhibition **(JCM Scripting)**, there are multiple booths **(Script Type)**. There are no "one way" to interact with a booth **(Script Type)** as each booth is setup different. However each booth still have a predefined plot size and a specific entrance direction that the visitor expects **(Common function calls)**.
+
+All booths **(Script Type)** may take advantage of the common facilities provided by the venue **(Scripting Engine)** such as air-con & lighting **(Base JavaScript API)**, and anything that an exhibition organizer provides **(Some shared script APIs/Utilities provided by JCM)**.
+
+#### Understand Script Type by example
+As an example, here's a snippet of 2 types of script: **Eyecandy Scripting** and **PIDS Scripting**:
+
+=== "Eyecandy Scripting"
+    ```js
+    const poleModel = ModelManager.loadModel(Resources.id("mtr:example/pole.obj"), true);
+
+    function render(ctx, state, eyecandyBlockEntity) {
+        // Define draw call to submit
+        let modelDrawCall = ModelDrawCall.create()
+            .modelObject(poleModel)
+
+        // Render pole model
+        ctx.renderManager().queue(modelDrawCall);
+    }
+    ```
+
+=== "PIDS Scripting"
+    ```js
+    function render(ctx, state, pidsBlockEntity) {
+        // Render Hello World text to PIDS
+        Text.create()
+        .text("Hello World!")
+        .color(0xFFFFFF)
+        .draw(ctx);
+    }
+    ```
+
+    !!! note
+        The **Text** in this instance is only made available for PIDS Scripting, this does not exist in Eyecandy Scripting!
+
+You'll notice that function name (and number of parameters) are the same across script types (The `render` function), however the parameter values passed to them are different (`pidsBlockEntity` vs `eyecandyBlockEntity`).
+
+Different types of script can also expose different classes/objects to them (e.g. PIDS Scripting's **Text** class), and they may impose their own design paradigm.
+
+??? info "TLDR (Too long to read :D)"
+    JCM Scripting is a foundation to serve different types of scripting. The use case and possibilities of scripts is defined by the different type of scripting available.
+
+### Available Script Types
+JCM currently provides 2 (functional) script types out of the box.
+
+If you are looking to *get started* on scripting, check out the script types below to see more details.  
+*Otherwise if you would like to learn more about how scripting in JCM works, keep on reading!*
+
+|Type|Description|Source|
+|-|-|-|
+|[Eyecandy Scripting](./type/eyecandy/index.md)|This allows scripts to render 3d models/quads, as well as playing sounds on an MTR Decoration Object|MTR (via JCM)|
+|[PIDS Scripting](./type/pids/index.md)|This allows scripts to draw custom text/texture, as well as playing sounds for a JCM PIDS in the form of a PIDS Preset|JCM|
+
+??? info "Third party Script Types"
+    Note that additional script types can be registered by 3rd party mod developers. In that case, they should be responsible for documenting how their specific type of scripting works, and how developers may make use of them. Those won't be covered in this documentation.
+
 ### What is JavaScript?
 JavaScript is a programming language that... in very simple terms, instructs computer to do stuff :D
 
 It can describe logic, an example would be:  
 <u>If</u> there's pineapple on top of the pizza, <u>then</u> remove the pineapple and eat the pizza, <u>otherwise</u> eat the pizza.
 
-This rest of this article assumes that you have a basic understanding of JavaScript and JavaScript types, so it won't delve into the basic syntax and other aspects of it here. You can learn JavaScript from resources on the web, such as [here](https://javascript.info/).
+This rest of this article assumes that you have a basic understanding of JavaScript and JavaScript types, so it won't delve into the basic syntax and other aspects of it here.
+
+You can learn JavaScript from resources on the web, such as [here](https://javascript.info/).
 
 ### The Nature of Scripting in JCM
-While JavaScript is commonly associated with webpages or even server applications (via Node.js), JCM's implementation of JavaScript only utilize the language itself.
+While JavaScript is commonly associated with webpages or even server applications (via Node.js), JCM's implementation of JavaScript only utilize the base language itself.
 
 As such, this means that you only really need to care about the syntax (e.g. Variable & Function Declaration, conditional logic) as well as base object such as [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date). Other stuff such as HTML/CSS/DOM manipulation <u>does not apply</u> to JCM Scripting.
 
 Keep that in mind, as IDE (Such as Visual Studio Code) may assume you are developing for a webpage and provides suggestions that are not applicable to JCM/NTE scripting!
 
-### Do I have to learn Java to write JavaScript?
-JavaScript does not have anything, or not much to do with Java at all, even though they share "Java" in the name.
+#### FAQs
+??? question "Do I have to learn Java to write JavaScript?"
+    JavaScript does not have anything, or not much to do with Java at all, even though they share "Java" in the name.
 
-### But can I use Java in JavaScript?
-Under normal circumstances, no.
+??? question "But can I use Java in JavaScript?"
+    Under normal circumstances, no.
 
-*However* the JavaScript Engine that JCM/NTE uses, **Rhino**, *do* allow using classes from the standard Java library as `java.package.name`. Using classes from the MTR mod is not available yet, most likely due to problems with the class loader.
+    *However* the JavaScript Engine that JCM/NTE uses, **Rhino**, *do* allow using classes from the standard Java library as `java.package.name`.
 
 ### Script Flow
 
@@ -50,23 +121,25 @@ function create(ctx, state, train) {
 }
 
 function render(ctx, state, train) {
-     state.displaySpeed++;
-     console.log("dp: " + state.displaySpeed);
+     state.displaySpeed += 1; // Increment 1
+     print("dp: " + state.displaySpeed);
 }
 
 function dispose(ctx, state, train) {
 }
 
-console.log(displaySpeed);
+print(displaySpeed);
 ```
 An example output would be:
 ```
-1 // The console.log at the bottom of the script, as the entire script is executed once during resource reload
+1 // The print(displaySpeed) located at the bottom of the script, as the entire script is executed once during resource reload
+
+/* Join games, Train A enters into view */
 
 dp: 1.75 // Train A rendering
 dp: 2.75 // Train A rendering
 
-// Assume Train B now enters the view
+// Assume Train B now enters the view, alongside Train A
 
 dp: 3.75 // Train A rendering
 dp: 1.75 // Train B rendering
@@ -113,7 +186,7 @@ The error message will indicate which line of code in which script file the erro
 
 The script execution engine will then pause the entire script for 4 seconds before trying to execute the function again.
 
-### Documentation Format
+### How to read this document
 As you know, values ​​in JS have different types. When calling a function, you must pass parameters of the appropriate type, and the result it returns will also have a type. In this article, all of the functions have their parameter and return types stated.
 
 This scripting documentation will follow the following example:
@@ -131,64 +204,13 @@ And here's another example:
 Matrices.rotateX(radian: float): void
 ```
 
-- The lack of `static` means that an object is required to execute the function. For example, if `a` is an object of Matrices type, then the function can be called as `a.rotateX(Math.PI)`.
+- The lack of `static` means that an object instance is required to execute the function. For example, if `a` is an object of Matrices type, then the function can be called as `a.rotateX(Math.PI)`.
 - `radian: float` means that the parameter takes a numeric argument. Although JS does not distinguish between integers and fractional numbers, this article will specify a specific type - `int`, `long`, `float` or `double` - to make it clear whether a parameter can accept decimal parts and to what precision.
 - `: void` means that the function has no return value.
 
-### Access of Java class
-To prevent misuse of scripts, script may only access java classes from the following packages by default:
-
-- `com.lx862.jcm.mod.scripting.*`
-- `java.lang`
-- `java.awt`
-- `java.util`
-- `java.time`
-- `java.math`
-- `javax.imageio`
-- `sun.java2d.*`
-- `sun.font`
-- `org.mtr`
-
-This restriction may be disabled by going into JCM's settings
-
 ### Tips & Notes
 
-#### Declaring variables using let or var
-Both JCM/NTE uses JavaScript's **strict mode**, which does not allow variables to be assigned without first declaring them.
-
-This means you can't do `local = 1` and expect `local` to be automatically defined.
-
-Instead, you have use syntax like `var glb;` or outside a function `var glb = 1;`. For local variables inside a function, use `let local;` or `let local = 1;`.
-
-!!! note "Translator Note"
-     In general, it is better to always try to use `let` and resort to using `var` as a last resort.
-
-#### Don't Block Or Infinitely Loop
-The function you wrote are called once per frame by JCM, where  your function is expected to finish processing and return a value *as soon/fast as possible*. As such, there's no such concept as “*wait for a while before continue executing*”.
-
-Instead, what you likely want is to "do a thing later on", in such case you will need to time it and then execute the appropriate action on a call made at the right time.
-
-If you are trying to execute a long-running operation (e.g. Fetching data over the internet), you should submit it to another thread/executor.
-
-If blocks or infinite loops did occur, then the entire script execution will stall as scripts are executed one at a time [*in the same thread*]. In such situation, you can reset it by pressing ++f3+t++ on your keyboard, which reloads the resource pack and resets the scripting thread.
-
-#### Interoperability between Java Classes/Methods
-For common function types such as strings, Java and JavaScript have different class implementations, which causes there to be JavaScript strings as well as Java strings.
-
-NTE/MTR functions and fields return Java string classes rather than JavaScript strings, but Rhino does some conversions automatically, so in most cases you can mix and match, but sometimes this can cause problems.
-
-For example, here's an example of a problem caused by using `str.length()` from a Java string class and `str.length` from a JavaScript string class to get the length of a string:
-
-``` js
-var stationName = train.getThisRoutePlatforms().get(0).station.name;
-print(stationName.length); // Error: stationName is a Java string, not a JavaScript string
-print(stationName.length()); // Java strings get their length from the length() function, not the JavaScript length field
-print((""+stationName).length) // Use ""+ to turn it into a JavaScript string.
-```
-Similarly, there is a `List<T>` type in Java. It does the same thing as arrays in JavaScript, but has a different type. Trying to call JavaScript array functions on it won't work, but Rhino adapts it so that you can take values with `list[0]` or loop through them with `for (a of list)`.
-
-#### What JavaScript features are supported?
-The Rhino JavaScript Engine **does not support** all of the latest JavaScript features. See [Mozilla's documentation](https://mozilla.github.io/rhino/compat/engines.html) for details on what is supported. JCM uses Rhino 1.7.15 with the `VERSION_ES6` flag enabled.
+See [Tips & Notes](./articles/tips.md)
 
 ### Including Other Scripts
 By calling the function below, you can include and execute other JavaScript files.
@@ -197,6 +219,3 @@ By calling the function below, you can include and execute other JavaScript file
 |:--------|:----------|
 |`static include(relPath: String): void`|Loads and runs another JS file relative to the current JS file.|
 |`static include(path: Identifier): void`|Loads and runs the JS file by location in the resource pack.<br>For example: `include(Resources.id(“mtr:path/absolute.js”))`.|
-
-### Referenced sources
-- [https://wiki.minecrafttransitrailway.com/mtr_addon:nte:js:start](https://wiki.minecrafttransitrailway.com/mtr_addon:nte:js:start)

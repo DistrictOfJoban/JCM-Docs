@@ -1,4 +1,6 @@
-Decoration Object Scripting allows you to use [JavaScript](index.md) to control the rendering of a MTR Decoration Object.
+# Eyecandy Scripting
+
+Eyecandy Scripting allows you to use [JavaScript](../../index.md) to control the rendering of a MTR Decoration Object.
 
 ## Concept
 Your script will be associated as part of a Decoration Object model entry in the resource pack. When the model is assigned to a Decoration Object block, your script will start to execute.
@@ -15,30 +17,68 @@ Code written in top-level space outside of functions will run when a resource pa
 ## Implementation
 
 ### Registering scripts to Decoration Object
-!!! note
-    It is not possible to add scripting to a decoration object with the MTR 4 resource format at the moment.
 
-You can add a model that uses JavaScript to control rendering by appending the following lines to your `decor_obj.json` file (Where `decor_obj.json` is the json file that contains the NTE decoration object):
+=== "MTR 4 Custom Resources"
+    ??? info "Mixing static object model & scripts"
+        If the `modelResource` field is specified, the script-driven elements will be overlaid on top of the existing model. Otherwise, the appearance will be controlled solely by scripting.
 
-``` json hl_lines="7"
-{
-  "nte_lcd": {
-      "name": "NTE LCD Test",
-      "translation": [ 0, 0, 0 ],
-      "rotation": [ 0, 0, 0 ],
-      "scale": [ 1, 1, 1 ],
-      "scriptFiles": ["mtrsteamloco:eyecandies/js/nte_lcd_test/main.js"],
-      "mirror": [ false, false, false ]
-  }
-}
-```
+    You can add the `scripting` block to your eyecandy object entry:
 
-In general, the parameters are the same as those required for regular decoration object json for NTE, except for the `scriptFiles` parameter.
+    ``` json linenums="1" hl_lines="6-12" title="mtr_custom_resources.json"
+    {
+        "objects": [
+            {
+                "id": "nte_lcd",
+                "name": "NTE LCD Test",
+                "scripting": {
+                    "prependExpressions": ["print('Hello world')"],
+                    "scriptLocations": ["mtrsteamloco:eyecandies/js/nte_lcd_test/main.js"],
+                    "input": {
+                        "ksDay": "514"
+                    }
+                }
+            }
+        ]
+    }
+    ```
 
-If the `model` field is specified, the JavaScript-driven elements will be overlaid on top of the existing model. Otherwise, the appearance will be controlled solely by JavaScript.
+    Field description within the `scripting` block are listed as follows:
 
-`scriptFiles` is an array containing the locations of .js scripts. Multiple scripts can be specified.
-`scriptTexts` allows you to directly write JS inside, but should only be used for simple variable declaration.
+    |Field name|Description|Equivalence in MTR 3/NTE format|
+    |----------|-------|--------------------|
+    |scriptLocations|An array containing the locations of .js scripts, multiple scripts can be specified.|scriptFiles|
+    |prependExpressions|Allows you to directly write JS inside, which will be executed before the scripts in **scriptLocations**|scriptTexts|
+    |input|Allows you to specify arbitary JSON object. which is then made accessible to the **.js** scripts via the variable `SCRIPT_INPUT`|scriptInput|
+
+    All fields are optional and could be emitted (Including the entire `scripting` object). However in order for script to load, either the `scriptLocation` or `prependExpressions` should be filled.
+
+=== "MTR 3 / MTR-NTE Format"
+    ??? info "Mixing static object model & scripts"
+        If the `model` field is specified, the script-driven elements will be overlaid on top of the existing model. Otherwise, the appearance will be controlled solely by scripting.
+
+    You can append the following lines to your `eyecandy.json` file (Where `eyecandy.json` is the json file containing the NTE eyecandy definition):
+
+    ``` json linenums="1" hl_lines="4-8" title="eyecandy.json"
+    {
+        "nte_lcd": {
+            "name": "NTE LCD Test",
+            "scriptTexts": ["print('Hello World!')"],
+            "scriptFiles": ["mtrsteamloco:eyecandies/js/nte_lcd_test/main.js"],
+            "scriptInput": {
+                "ksDay": "514"
+            },
+            "mirror": [ false, false, false ]
+        }
+    }
+    ```
+
+    - `scriptFiles` is an array containing the locations of .js scripts. Multiple scripts can be specified.
+    - `scriptTexts` allows you to directly write JS inside, and are executed before the scripts in **scriptFiles**.
+    - `scriptInput` allows you to specify arbitary JSON object. This is then made accessible to the **.js** scripts via the variable `SCRIPT_INPUT`.
+
+    All script fields are optional and could be emitted. However in order for script to load, either the `scriptFiles` or `scriptTexts` should be filled.
+
+
 
 ### Called Functions
 Your script should include the following functions that JCM will call as needed:
@@ -73,8 +113,10 @@ The following functions are called to **control rendering**. The functions for r
 
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`EyeCandyScriptContext.drawModel(model: ScriptedModel, matrices: Matrices)`| Requests JCM to render a model loaded via [ModelManager](resources.md#model-loading).<br>`matrices` is the transformation of model placement. If passed null, the model will be placed in the center of the block without transformation.|
+|`EyeCandyScriptContext.drawModel(model: ScriptedModel, matrices: Matrices)`| Requests JCM to render a model loaded via [ModelManager](../../resources.md#model-loading).<br>`matrices` is the transformation of model placement. If passed null, the model will be placed in the center of the block without transformation.|
 |`EyeCandyScriptContext.setDebugInfo(key: string, value: object)`|Output debugging information in the upper left corner of the screen. You need to enable **Debug mode** in JCM Settings to display it.<br>`key` is the name of the value<br>`value` is the content (`value` will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).|
+|`EyeCandyScriptContext.renderManager(): RenderManager`|Obtain a [RenderManager](../../rendering.md#rendermanager) instance, which can be used to render stuff onto the Minecraft World.|
+|`EyeCandyScriptContext.soundManager(): SoundManager`|Obtain a [SoundManager](../../sounds.md) instance, which can be used to play sound onto the Minecraft World.|
 
 #### Block Entity Related
 

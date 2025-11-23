@@ -31,8 +31,8 @@ Learning the syntax of the JavaScript Language is usually enough to get by. As J
 If you are unsure, you can also check out the following tutorial.
 
 ## Getting started
-For a practical tutorial, see [Building a Scripted PIDS Preset](./tut/index.md).
+For a practical tutorial, see [Building a Scripted PIDS Preset](../../scripting/type/pids/tut/pids_tut.md).
 
-For documentation, please read the [Documentation](../../scripting/pids.md).
+For documentation, please read the [Documentation](../../scripting/type/pids/index.md).
 
 If instead you would like to learn by example, you can download the [Example Scripted Preset Resource Pack](./files/JCM_JS_PIDS_RP.zip) and inspect the scripts.

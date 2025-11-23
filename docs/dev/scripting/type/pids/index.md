@@ -1,4 +1,5 @@
-PIDS Scripting allows you to use [JavaScript](index.md) to control [Scripted PIDS Preset](../pids/scripted/index.md) contents.
+# JCM PIDS Scripting
+PIDS Scripting allows you to use [JavaScript](../../index.md) to control [Scripted PIDS Preset](../../../pids/scripted/index.md) contents.
 
 ## Concept
 
@@ -12,7 +13,7 @@ If you absolutely require sophisticated image processing/clipping, you may [foll
 #### Draw Layer/Order
 The draw order/z-index is depicted by the order the image is drawn in. Whichever elements gets drawn later, whichever element goes in-front. See the image below: (z-differences is exaggerated for demonstration purposes)
 
-![JCM PIDS Scripting Draw Order](img/PIDS_Scripting_Draw_Order.png){ width="500" }
+![JCM PIDS Scripting Draw Order](./img/PIDS_Scripting_Draw_Order.png){ width="500" }
 
 The number in the circle depicts the order in which the element is drawn in. 1 gets drawn first, then 2, 3, 4, 5 and finally 6.
 
@@ -69,7 +70,7 @@ JCM calls these functions with three parameters, each of which is described belo
 |:--------|:----------|
 |First (`ctx`)|Used to pass rendering actions to JCM. Type — PIDSScriptContext.|
 |Second (`state`)|A JavaScript object associated with a single PIDS Block.<br>The initial value is {}, and its content can be set arbitrarily to store what should be different for each PIDS Block.|
-|Third (`pids`)|Used to get the status of pids and arrivals. Type — [PIDSWrapper](#pidswrapper)|
+|Third (`pids`)|Used to get the status of pids and arrivals. Type — [PIDSBlockEntity](#pidsblockentity)|
 
 The following lists all the rendering control operations that can be performed and all the information that can be obtained about PIDS.
 
@@ -85,88 +86,92 @@ This would return a string formatted like: `2.0.0-beta.5`
 |Functions And Objects|Description|
 |:--------------------|:----------|
 |`PIDSScriptContext.setDebugInfo(key: string, value: object)`|Output debugging information in the upper left corner of the screen. You need to enable **Debug mode** in JCM Settings to display it.<br>`key` is the name of the value<br>`value` is the content (`value` will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).|
+|`PIDSScriptContext.renderManager(): RenderManager`|Obtain a [RenderManager](../../rendering.md#rendermanager) instance, which can be used to render stuff onto the Minecraft World.|
+|`PIDSScriptContext.soundManager(): SoundManager`|Obtain a [SoundManager](../../sounds.md) instance, which can be used to play sound onto the Minecraft World.|
 
-##### Text (aka TextWrapper)
+##### Text
 |Functions And Objects|Description|
 |:--------------------|:----------|
 |`Text.create()`<br>`Text.create(comment: string)`|Create a new text object|
-|`Text.pos(x: number, y: number): TextWrapper`|Set the X and Y position of the element|
-|`Text.size(w: number, h: number): TextWrapper`|Set the width and height of the element<br>(Used in conjunction with `Text.stretchXY()` and `Text.scaleXY()`)|
-|`Text.text(str: string): TextWrapper`|Set the text content to str|
-|`Text.scale(i: double): TextWrapper`|Set the text's scale to i. Defaults to `1`|
-|`Text.leftAlign(): TextWrapper`|Align the text to the left (Default)|
-|`Text.centerAlign(): TextWrapper`|Align the text to the center|
-|`Text.rightAlign(): TextWrapper`|Align the text to the right|
-|`Text.shadowed(): TextWrapper`|Add shadow to the drawn text|
-|`Text.italic(): TextWrapper`|Set the text style to Italic|
-|`Text.bold(): TextWrapper`|Set the text style to Bold|
-|`Text.stretchXY(): TextWrapper`|Text Overflow Mechanism:<br>When text overflowed beyond it's size, stretch the text on the overflowing axis to fit|
-|`Text.scaleXY(): TextWrapper`|Text Overflow Mechanism:<br>When the text overflowed beyond it's size, stretch the text on both axis to fit<br>(Keep aspect ratio)|
-|`Text.wrapText(): TextWrapper`|Text Overflow Mechanism:<br>When the text overflowed beyond it's size, split the text into the next line without any scaling.|
-|`Text.marquee(): TextWrapper`|Text Overflow Mechanism:<br>When the text overflowed beyond it's size, draw a portion of the text at a time with scrolling animation|
-|`Text.fontMC(): TextWrapper`|Use vanilla Minecraft's font|
-|`Text.matrices(matrices: Matrices): TextWrapper`|Apply a [matrices](../scripting/math.md#matrices) to the current text object|
-|`Text.font(id: string): TextWrapper`<br>`Text.font(id: Identifier): TextWrapper`|Set the font by it's ID. Defaults to `mtr:mtr`<br>The font should be loaded in Minecraft via the font json format.<br>This does not have any effect if **Use Custom MTR Font** is disabled in MTR mod's Config.|
-|`Text.color(color: number): TextWrapper`|Set the text color, in RGB format.|
+|`Text.pos(x: number, y: number): Text`|Set the X and Y position of the element|
+|`Text.size(w: number, h: number): Text`|Set the width and height of the element<br>(Used in conjunction with `Text.stretchXY()` and `Text.scaleXY()`)|
+|`Text.text(str: string): Text`|Set the text content to str|
+|`Text.scale(i: double): Text`|Set the text's scale to i. Defaults to `1`|
+|`Text.leftAlign(): Text`|Align the text to the left (Default)|
+|`Text.centerAlign(): Text`|Align the text to the center|
+|`Text.rightAlign(): Text`|Align the text to the right|
+|`Text.shadowed(): Text`|Add shadow to the drawn text|
+|`Text.italic(): Text`|Set the text style to Italic|
+|`Text.bold(): Text`|Set the text style to Bold|
+|`Text.stretchXY(): Text`|Text Overflow Mechanism:<br>When text overflowed beyond it's size, stretch the text on the overflowing axis to fit|
+|`Text.scaleXY(): Text`|Text Overflow Mechanism:<br>When the text overflowed beyond it's size, stretch the text on both axis to fit<br>(Keep aspect ratio)|
+|`Text.wrapText(): Text`|Text Overflow Mechanism:<br>When the text overflowed beyond it's size, split the text into the next line without any scaling.|
+|`Text.marquee(): Text`|Text Overflow Mechanism:<br>When the text overflowed beyond it's size, draw a portion of the text at a time with scrolling animation|
+|`Text.fontMC(): Text`|Use vanilla Minecraft's font|
+|`Text.matrices(matrices: Matrices): Text`|Apply a [matrices](../../math.md#matrices) to the current text object|
+|`Text.font(id: string): Text`<br>`Text.font(id: Identifier): Text`|Set the font by it's ID. Defaults to `mtr:mtr`<br>The font should be loaded in Minecraft via the font json format.<br>This does not have any effect if **Use Custom MTR Font** is disabled in MTR mod's Config.|
+|`Text.color(color: number): Text`|Set the text color, in RGB format.|
 |`Text.draw(ctx: PIDSScriptContext): void`|Mark the text as something that should be rendered to the PIDS.|
 
-##### Texture (aka TextureWrapper)
+##### Texture
 |Functions And Objects|Description|
 |:--------------------|:----------|
 |`Texture.create()`<br>`Texture.create(comment: string)`|Create a new texture object|
-|`Texture.pos(x: number, y: number): TextureWrapper`|Set the X and Y position of the element|
-|`Texture.size(w: number, h: number): TextureWrapper`|Set the width and height of the element|
-|`Texture.texture(id: string): TextureWrapper`<br>`Texture.texture(id: Identifier): TextureWrapper`|Set the texture ID to draw.<br>Note that the texture ID should point to a PNG file or an .mcmeta file.|
-|`Texture.color(color: number): TextureWrapper`|Set the text color, in RGB format.|
-|`Texture.uv(u2: number, v2: number): TextureWrapper`<br>`Texture.uv(u1: number, v1: number, u2: number, v2: number): TextureWrapper`|Set the UV coordinates|
-|`Texture.matrices(matrices: Matrices): TextureWrapper`|Apply a [matrices](../scripting/math.md#matrices) to the current texture object|
+|`Texture.pos(x: number, y: number): Texture`|Set the X and Y position of the element|
+|`Texture.size(w: number, h: number): Texture`|Set the width and height of the element|
+|`Texture.texture(id: string): Texture`<br>`Texture.texture(id: Identifier): Texture`|Set the texture ID to draw.<br>Note that the texture ID should point to a PNG file or an .mcmeta file.|
+|`Texture.color(color: number): Texture`|Set the text color, in RGB format.|
+|`Texture.uv(u2: number, v2: number): Texture`<br>`Texture.uv(u1: number, v1: number, u2: number, v2: number): Texture`|Set the UV coordinates|
+|`Texture.matrices(matrices: Matrices): Texture`|Apply a [matrices](../../math.md#matrices) to the current texture object|
 |`Texture.draw(ctx: PIDSScriptContext): void`|Mark the texture as something that should be rendered to the PIDS.|
 
 #### PIDS Object Related
 
-##### PIDSWrapper
+##### PIDSBlockEntity
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`PIDSWrapper.type: string`|Return the type of PIDS used, possible value are:<br>- rv_pids<br>- rv_pids_sil_1<br>- rv_pids_sil_2<br>- lcd_pids<br>- pids_projector<br>- pids_1a|
-|`PIDSWrapper.width: number`|The full width of the available PIDS screen area.|
-|`PIDSWrapper.height: number`|The full height of the available PIDS screen area.|
-|`PIDSWrapper.rows: number`|The number of arrival rows supported by the PIDS Block|
-|`PIDSWrapper.isRowHidden(i: number): boolean`|Returns whether the arrival for that row is hidden. (via PIDS Config)|
-|`PIDSWrapper.getCustomMessage(i: number): string`|Returns the custom message configured for that row via PIDS Config.<br>Empty string (`""`) if not set.|
-|`PIDSWrapper.isPlatformNumberHidden(): boolean`|Returns whether the platform number is set to hidden. (via PIDS Config)|
-|`PIDSWrapper.station(): Station`|Returns the station area that this PIDS is in.<br>`null` if not in any station.|
-|`PIDSWrapper.arrivals(): ArrivalsWrapper`|Returns the arrivals obtained for the PIDS.|
+|`PIDSBlockEntity.type: string`|Return the type of PIDS used, possible value are:<br>- rv_pids<br>- rv_pids_sil_1<br>- rv_pids_sil_2<br>- lcd_pids<br>- pids_projector<br>- pids_1a|
+|`PIDSBlockEntity.width: number`|The full width of the available PIDS screen area.|
+|`PIDSBlockEntity.height: number`|The full height of the available PIDS screen area.|
+|`PIDSBlockEntity.rows: number`|The number of arrival rows supported by the PIDS Block|
+|`PIDSBlockEntity.isRowHidden(i: number): boolean`|Returns whether the arrival for that row is hidden. (via PIDS Config)|
+|`PIDSBlockEntity.getCustomMessage(i: number): string`|Returns the custom message configured for that row via PIDS Config.<br>Empty string (`""`) if not set.|
+|`PIDSBlockEntity.isPlatformNumberHidden(): boolean`|Returns whether the platform number is set to hidden. (via PIDS Config)|
+|`PIDSBlockEntity.blockPos(): Vector3f`|Returns the coordinate of which the PIDS block is located.|
+|`PIDSBlockEntity.isKeyBlock(): boolean`|Returns whether the current block is a unique block within a PIDS pair<br>(e.g. Identify 1 side of a dual-sided PIDS)|
+|`PIDSBlockEntity.station(): Station`|Returns the station area that this PIDS is in.<br>`null` if not in any station.|
+|`PIDSBlockEntity.arrivals(): ArrivalEntries`|Returns the arrivals obtained for the PIDS.|
 
-##### ArrivalsWrapper
+##### ArrivalEntries
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`ArrivalsWrapper.get(i: number): ArrivalWrapper?`|Returns the i<sup>th</sup> arrival entry.<br>`null` if there's no i<sup>th</sup> arrival entry or no arrival information.<br>**Note that only up to 10 arrivals is fetched per platform, see this [issue](https://github.com/DistrictOfJoban/Joban-Client-Mod/issues/40) for details.**|
-|`ArrivalsWrapper.mixedCarLength(): boolean`|Returns whether the list of arrivals have arrival entry with different cars.|
-|`ArrivalsWrapper.platforms(): ObjectArrayList<Platform>`|Returns the platforms that all arrival entry is stopping at.|
+|`ArrivalEntries.get(i: number): ArrivalEntry?`|Returns the i<sup>th</sup> arrival entry.<br>`null` if there's no i<sup>th</sup> arrival entry or no arrival information.<br>**Note that only up to 10 arrivals is fetched per platform, see this [issue](https://github.com/DistrictOfJoban/Joban-Client-Mod/issues/40) for details.**|
+|`ArrivalEntries.mixedCarLength(): boolean`|Returns whether the list of arrivals have arrival entry with different cars.|
+|`ArrivalEntries.platforms(): ObjectArrayList<Platform>`|Returns the platforms that all arrival entry is stopping at.|
 
-##### ArrivalWrapper
+##### ArrivalEntry
 Represent a single arrival entry.
 
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`ArrivalWrapper.destination(): string`|Returns the destination name of the arrival entry.<br>(Usually the destination's station, or a custom destination string)|
-|`ArrivalWrapper.arrivalTime(): number`|Returns the epoch time (in Millisecond) the train is arriving at.<br>Use `new Date(value: number)`to obtain a JS Date object of the arrival time.|
-|`ArrivalWrapper.departureTime(): number`|Returns the epoch time (in Millisecond) the train is departing at.<br>Use `new Date(value: number)`to obtain a JS Date object of the departure time.|
-|`ArrivalWrapper.deviation(): number`|Returns the deviation[?]|
-|`ArrivalWrapper.realtime(): boolean`|Returns whether the arrival entry is scheduled (i.e. Train not departed), or a real-time estimation (i.e. Train running)|
-|`ArrivalWrapper.departureIndex(): number`|Returns the departure index[?]|
-|`ArrivalWrapper.terminating(): boolean`|Returns whether the arrival entry is terminating its service at the current platform.|
-|`ArrivalWrapper.route(): SimplifiedRoute`|Returns the SimplifiedRoute object that the train is running on.<br>**Might be null if the route cannot be found (e.g. Deleted)**|
-|`ArrivalWrapper.routeId(): number`|Returns the id of the route that the train is running on.|
-|`ArrivalWrapper.routeName(): string`|Returns the name of the route that the train is running on.|
-|`ArrivalWrapper.routeNumber(): string`|Returns the route number string (Previously called LRT Route Number), empty string if route number is not set.|
-|`ArrivalWrapper.routeColor(): number`|Returns the color of the route that the train is running on.|
-|`ArrivalWrapper.circularState(): Route.CircularState`|Returns the circular state of the route that the train is running on.|
-|`ArrivalWrapper.platform(): Platform`|Returns the platform object that the train is approaching towards.|
-|`ArrivalWrapper.platformId(): number`|Returns the id of the platform that the train is approaching towards.|
-|`ArrivalWrapper.platformName(): string`|Returns the name of the platform that the train is approaching towards.|
-|`ArrivalWrapper.carCount(): number`|The car length of the train in that arrival entry.|
-|`ArrivalWrapper.cars(): List<CarDetails>`|Returns a List containing [CarDetails](#cardetails) for each car.|
+|`ArrivalEntry.destination(): string`|Returns the destination name of the arrival entry.<br>(Usually the destination's station, or a custom destination string)|
+|`ArrivalEntry.arrivalTime(): number`|Returns the epoch time (in Millisecond) the train is arriving at.<br>Use `new Date(value: number)`to obtain a JS Date object of the arrival time.|
+|`ArrivalEntry.departureTime(): number`|Returns the epoch time (in Millisecond) the train is departing at.<br>Use `new Date(value: number)`to obtain a JS Date object of the departure time.|
+|`ArrivalEntry.deviation(): number`|Returns the deviation[?]|
+|`ArrivalEntry.realtime(): boolean`|Returns whether the arrival entry is scheduled (i.e. Train not departed), or a real-time estimation (i.e. Train running)|
+|`ArrivalEntry.departureIndex(): number`|Returns the departure index[?]|
+|`ArrivalEntry.terminating(): boolean`|Returns whether the arrival entry is terminating its service at the current platform.|
+|`ArrivalEntry.route(): SimplifiedRoute`|Returns the SimplifiedRoute object that the train is running on.<br>**Might be null if the route cannot be found (e.g. Deleted)**|
+|`ArrivalEntry.routeId(): number`|Returns the id of the route that the train is running on.|
+|`ArrivalEntry.routeName(): string`|Returns the name of the route that the train is running on.|
+|`ArrivalEntry.routeNumber(): string`|Returns the route number string (Previously called LRT Route Number), empty string if route number is not set.|
+|`ArrivalEntry.routeColor(): number`|Returns the color of the route that the train is running on.|
+|`ArrivalEntry.circularState(): Route.CircularState`|Returns the circular state of the route that the train is running on.|
+|`ArrivalEntry.platform(): Platform`|Returns the platform object that the train is approaching towards.|
+|`ArrivalEntry.platformId(): number`|Returns the id of the platform that the train is approaching towards.|
+|`ArrivalEntry.platformName(): string`|Returns the name of the platform that the train is approaching towards.|
+|`ArrivalEntry.carCount(): number`|The car length of the train in that arrival entry.|
+|`ArrivalEntry.cars(): List<CarDetails>`|Returns a List containing [CarDetails](#cardetails) for each car.|
 
 #### Transport Simulation Core Related
 Transport Simulation Core (TSC) is the backend serving MTR 4. Below are some of the classes in TSC, which may be returned by JCM above.
@@ -204,7 +209,7 @@ Transport Simulation Core (TSC) is the backend serving MTR 4. Below are some of 
 |`CarDetails.getOccupancy(): number`|Returns the occupancy level. <br><b>Only returns 0 at the moment.</b>|
 
 ### Using AWT Graphics/Dynamic Textures
-While not a regular tested use case for PIDS, you can create a [Dynamic Textures](dynamic_textures.md) and draw it onto a PIDS:
+While not a regular tested use case for PIDS, you can create a [Dynamic Textures](../../dynamic_textures.md) and draw it onto a PIDS:
 
 ``` js
 importPackage(java.awt);

@@ -184,19 +184,33 @@ nav:
       - PIDS Preset:
         - dev/pids/index.md
         - JSON PIDS Preset: dev/pids/json_preset.md
-        - Scripted PIDS Preset:
-          - dev/pids/scripted/index.md
-          - Building a Scripted PIDS Preset: dev/pids/scripted/tut/index.md
+        - Scripted PIDS Preset: dev/pids/scripted/index.md
       - Scripting:
         - dev/scripting/index.md
-        - Scripting Guidelines: dev/scripting/guidelines.md
-        - Math Utilities: dev/scripting/math.md
-        - Resource Loading Method: dev/scripting/resources.md
-        - Utilities Method: dev/scripting/utilities.md
-        - Dynamic Textures: dev/scripting/dynamic_textures.md
-        - PIDS Scripting: dev/scripting/pids.md 
-        - Decoration Object Scripting: dev/scripting/eyecandy.md
-        - Vehicle Scripting: dev/scripting/vehicle.md 
+        - Script Types:
+          - Eyecandy Scripting:
+            - dev/scripting/type/eyecandy/index.md
+          - JCM PIDS Scripting:
+            - dev/scripting/type/pids/index.md 
+            - Scripted PIDS Preset Tutorial: dev/scripting/type/pids/tut/pids_tut.md
+        - Articles:
+          - Scripting Guidelines: dev/scripting/articles/script_guidelines.md
+          - Migration from NTE: dev/scripting/articles/nte_migration.md
+          - Scripting Restrictions: dev/scripting/articles/scripting_restrictions.md
+          - Tips & Notes: dev/scripting/articles/tips.md
+        - API Reference:
+          - Resource Loading/Model Related: dev/scripting/resources.md
+          - Math Related: dev/scripting/math.md
+          - Texture Related: dev/scripting/dynamic_textures.md
+          - Rendering Related: dev/scripting/rendering.md
+          - Sounds Related: dev/scripting/sounds.md
+          - Advanced:
+            - Minecraft Related: dev/scripting/mc.md
+            - File IO Related: dev/scripting/files.md
+            - Networking Related: dev/scripting/networking.md
+          - Utilities Method: dev/scripting/utilities.md
+        - Builtin Scripts:
+          - Display Helper: dev/scripting/builtin/display_helper.md
     - Contributing:
       - Introduction: contributing/introduction.md
       - Translation: contributing/translation.md

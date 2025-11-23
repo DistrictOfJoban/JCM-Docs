@@ -13,7 +13,8 @@ This is the original Joban Client Mod, designed for **Minecraft Transit Railway 
 
 This is a rewritten version of Joban Client Mod, designed for **Minecraft Transit Railway 4** (MTR 4)
 
-- Supports Minecraft Fabric/Forge **1.16.5 - 1.20.4**
+- Supports Minecraft Fabric/Forge **1.17.1 - 1.20.4**
+- Build/Release for Minecraft Fabric/Forge **1.16.5** are provided, but will no longer get first-class support like other versions.
 
 ### neo **Semi-supported**{: .jcm-tag .amber }
 

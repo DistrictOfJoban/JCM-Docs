@@ -1,4 +1,4 @@
-Vehicle Scripting allows you to use [JavaScript](index.md) to control train rendering.
+Vehicle Scripting allows you to use [JavaScript](../index.md) to control train rendering.
 
 While JCM supports **vehicle scripting**, it is nowhere near a state for something useful to be made(1), and thus no implementation documentation is provided at the moment.
 { .annotate }
