@@ -1,13 +1,13 @@
-# Scripting Documentation
+# JCM Scripting
+!!! warning "Work In Progress"
+    Please note that full feature parity with scripting from NTE is still not complete. You may explore around the documentation and see if scripting at the current stage meets your need.
+
 JCM Scripting is a feature introduced in **JCM v2.0.0**, it serves as a testbed for scripting in MTR 4.  
 One may consider this as an unofficial continuation of the scripting feature in [Nemo Transit Expansion](https://modrinth.com/mod/mtr-nte).
 
-!!! warning "Work In Progress"
-    Please note that feature parity with NTE is still not complete.
-
 ## Introduction
 ### What is Scripting in JCM?
-Essentially it allows you to use JavaScript to insert custom logic into the game, which will be executed and widens the possibilities of the MTR Mod.
+Essentially it allows you to use **JavaScript** to insert custom logic into the game, which will be executed and widens the possibilities of the MTR Mod.
 
 To understand scripting in JCM, we should understand **Script Type** first.
 

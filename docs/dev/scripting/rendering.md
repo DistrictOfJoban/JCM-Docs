@@ -5,6 +5,16 @@ To meet this goal, rendering in JCM utilize the concept of **DrawCall**. To put 
 
 Note that the old draw calls (from previous script execution) are cleared/discarded after the execution of your script, as such you should keep submitting these calls within the `render()` function if you wish to keep rendering your element. However in the case where a script is too slow to be executed every frame, then the old draw calls will be retained until your script gets invoked again. (Which means your content will continue to render even if your script is not actively invoking it)
 
+## RenderManager
+**RenderManager** is a class responsible for storing and following the **draw calls** you constructed, and render them onto the Minecraft world. It can usually be accessed by the script's context (e.g. `ctx.renderManager()`), however specific implementation may differ between different types of scripting. For details, please check the script type you're trying to code against (e.g. [Eyecandy Scripting](./type/eyecandy/index.md)) and check how to obtain an instance of RenderManager.
+
+### Base Position
+A RenderManager are usually already initialized with a "base" position, in which all calls you submit to RenderManager will be rendered **relative** to the base position. For example, the RenderManager provided by [Eyecandy Scripting](./type/eyecandy/index.md) has the base position set as `(Eyecandy Block Position + Eyecandy XYZ Translation)`. Therefore when rendering for example a model, you do not need to do any translation by yourself.
+
+|Functions|Description|
+|:--------|:----------|
+|`RenderManager.queue(call: DrawCall): void`|Submit a draw call to RenderManager.|
+
 ## Available Draw Calls
 
 ### QuadDrawCall
@@ -38,12 +48,16 @@ This creates a draw call which renders a 3d model onto the world.
 |`ModelDrawCall.modelObject(model: Model): ModelDrawCall`|Specify the model to render. See [Model Loading](./resources.md#model-loading) on obtaining a Model.|
 |`ModelDrawCall.matrices(matrices: Matrices): ModelDrawCall`|Supply a [Matrices](./math.md#matrices) to transform the model.|
 
-## RenderManager
-**RenderManager** is a class responsible for rendering draw calls onto the Minecraft world. It can usually be accessed by the script's context (e.g. `ctx.renderManager()`), however specific implementation may differ between different types of scripting. For details, please check the script type you're trying to code against (e.g. [Eyecandy Scripting](./type/eyecandy/index.md)) and check how to obtain an instance of RenderManager.
+#### Example
+```js linenums="1"
+function render(ctx, state, train) {
+    let screenDrawCall = QuadDrawCall.create()
+        .corner1(new Vector3f(-1, 3, 0))
+        .corner2(new Vector3f(-1, 2, 0))
+        .corner3(new Vector3f(1, 2, 0))
+        .corner4(new Vector3f(1, 3, 0))
+        .texture(Resources.id("mtr:your_texture_path_here.png"));
 
-### Base Position
-A RenderManager are usually already initialized with a "base" position, in which all calls you submit to RenderManager will be rendered **relative** to the base position. For example, the RenderManager provided by [Eyecandy Scripting](./type/eyecandy/index.md) has the base position set as `(Eyecandy Block Position + Eyecandy XYZ Translation)`. Therefore when rendering for example a model, you do not need to do any translation by yourself.
-
-|Functions|Description|
-|:--------|:----------|
-|`RenderManager.queue(call: DrawCall): void`|Submit a draw call to RenderManager.|
+    ctx.renderManager().queue(screenDrawCall);
+}
+```
