@@ -2,490 +2,490 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://jcm.joban.org/v2.1/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/blog/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/contributing/documentation/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/contributing/introduction/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/contributing/translation/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/contributing/project/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/contributing/project/code_guidelines/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/contributing/project/multiversion_development/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/contributing/project/project_structure/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/dev/pids/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/dev/pids/json_preset/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/dev/pids/scripted/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/dev/scripting/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/dev/scripting/dynamic_textures/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/dev/scripting/files/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/dev/scripting/math/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/dev/scripting/mc/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/dev/scripting/networking/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/dev/scripting/rendering/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/dev/scripting/resources/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/dev/scripting/sounds/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/dev/scripting/utilities/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/dev/scripting/articles/nte_migration/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/dev/scripting/articles/script_debug_overlay/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/dev/scripting/articles/script_guidelines/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/dev/scripting/articles/scripting_restrictions/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/dev/scripting/articles/tips/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/dev/scripting/builtin/display_helper/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/dev/scripting/type/vehicle/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/dev/scripting/type/eyecandy/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/dev/scripting/type/pids/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/dev/scripting/type/pids/tut/pids_tut/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/nerds/neojcm/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/download/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/jcmv2/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/auto_iron_door/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/buffer_stop/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/butterfly_light/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/ceiling_45/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/circle_walls/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/departure_pole/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/departure_timer/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/drl_apgs/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/exit_signs/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/fare_saver/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/fire_alarm/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/helpline_1/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/helpline_2/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/helpline_hkwk/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/helpline_standing/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/helpline_standing_eal/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/inverted_signal_lights/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/kcr_emg_stop_sign/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/kcr_enquiry_machine/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/kcr_station_name_signs/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/kcr_trespass_sign/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/lcd_pids/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/light_lantern/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/light_source_block/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/lrt_inter_car_barriers/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/lrt_trespass_sign/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/mtr_enquiry_machine/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/mtr_enquiry_machine_wall/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/mtr_stairs/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/mtr_trespass_sign/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/operator_button/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/pids_1a/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/pids_projector/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/rv_enquiry_machine/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/rv_pids/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/rv_pids_pole/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/rv_pids_sil_1/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/rv_pids_sil_2/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/sil_emg_stop_button/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/sound_looper/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/spot_lamp/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/static_signal_lights/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/station_ceiling_wrl_poles/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/station_ceilings_wrl/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/station_name_standing/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/subsidy_machine/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/tcl_emg_stop_button/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/thales_ticket_barriers/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/tml_emg_stop_button/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/train_model_e44/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/blocks/water_machine/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/features/jcm-pids/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/features/mod-integrations/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/features/tunnel/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.0.0/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.0.1/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.0.2/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.0.3/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.0.4/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.0.4a/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.0.5/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.0.5a/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.0.6/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.0.7/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.0.8/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.0.9/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.1.0/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.1.0a/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.1.1/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.1.2/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.1.3/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.1.4-hotfix-1/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.1.4/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.1.5-hotfix-1/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.1.5/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.1.6-hotfix-1/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.1.6/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.1.7/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.1.8/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.1.9/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.2.0/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.2.1-hotfix-1/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.2.1/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.1/players/versions/v1.2.2/</loc>
-         <lastmod>2025-11-24</lastmod>
+         <lastmod>2025-11-25</lastmod>
     </url>
 </urlset>

@@ -4302,6 +4302,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rendermanager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RenderManager
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RenderManager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#base-position" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Base Position
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#available-draw-calls" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4329,34 +4357,6 @@
     <span class="md-ellipsis">
       
         ModelDrawCall
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rendermanager" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        RenderManager
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="RenderManager">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#base-position" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Base Position
       
     </span>
   </a>
@@ -5135,6 +5135,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rendermanager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RenderManager
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RenderManager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#base-position" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Base Position
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#available-draw-calls" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5173,34 +5201,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#rendermanager" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        RenderManager
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="RenderManager">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#base-position" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Base Position
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -5227,6 +5227,24 @@
 <p>As mentioned in the <a href="../">Main Scripting Page</a>, for performance reasons scripting are executed on a background thread dedicated for scripting, rather than on the main Minecraft's render thread.</p>
 <p>To meet this goal, rendering in JCM utilize the concept of <strong>DrawCall</strong>. To put it very simply, this is a set of instructions (Sort of a like a recipe) telling JCM how you want to render the element. You submit/hand over these instructions to JCM by invoking the <code>queue()</code> function in <a href="#rendermanager">RenderManager</a>. Afterwards, JCM will memorize your calls, and render the element for you when the next rendering frame comes around.</p>
 <p>Note that the old draw calls (from previous script execution) are cleared/discarded after the execution of your script, as such you should keep submitting these calls within the <code>render()</code> function if you wish to keep rendering your element. However in the case where a script is too slow to be executed every frame, then the old draw calls will be retained until your script gets invoked again. (Which means your content will continue to render even if your script is not actively invoking it)</p>
+<h2 id="rendermanager">RenderManager<a class="headerlink" href="#rendermanager" title="Anchor link to this section for reference">#</a></h2>
+<p><strong>RenderManager</strong> is a class responsible for storing and following the <strong>draw calls</strong> you constructed, and render them onto the Minecraft world. It can usually be accessed by the script's context (e.g. <code>ctx.renderManager()</code>), however specific implementation may differ between different types of scripting. For details, please check the script type you're trying to code against (e.g. <a href="../type/eyecandy/">Eyecandy Scripting</a>) and check how to obtain an instance of RenderManager.</p>
+<h3 id="base-position">Base Position<a class="headerlink" href="#base-position" title="Anchor link to this section for reference">#</a></h3>
+<p>A RenderManager are usually already initialized with a "base" position, in which all calls you submit to RenderManager will be rendered <strong>relative</strong> to the base position. For example, the RenderManager provided by <a href="../type/eyecandy/">Eyecandy Scripting</a> has the base position set as <code>(Eyecandy Block Position + Eyecandy XYZ Translation)</code>. Therefore when rendering for example a model, you do not need to do any translation by yourself.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>RenderManager.queue(call: DrawCall): void</code></td>
+<td style="text-align: left;">Submit a draw call to RenderManager.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="available-draw-calls">Available Draw Calls<a class="headerlink" href="#available-draw-calls" title="Anchor link to this section for reference">#</a></h2>
 <h3 id="quaddrawcall">QuadDrawCall<a class="headerlink" href="#quaddrawcall" title="Anchor link to this section for reference">#</a></h3>
 <p>This creates a draw call which renders a single quad (A polygon with 4 vertices). You may optionally customize the color, lighting, UV or assign a texture to the quad.</p>
@@ -5321,24 +5339,27 @@
 </tr>
 </tbody>
 </table>
-<h2 id="rendermanager">RenderManager<a class="headerlink" href="#rendermanager" title="Anchor link to this section for reference">#</a></h2>
-<p><strong>RenderManager</strong> is a class responsible for rendering draw calls onto the Minecraft world. It can usually be accessed by the script's context (e.g. <code>ctx.renderManager()</code>), however specific implementation may differ between different types of scripting. For details, please check the script type you're trying to code against (e.g. <a href="../type/eyecandy/">Eyecandy Scripting</a>) and check how to obtain an instance of RenderManager.</p>
-<h3 id="base-position">Base Position<a class="headerlink" href="#base-position" title="Anchor link to this section for reference">#</a></h3>
-<p>A RenderManager are usually already initialized with a "base" position, in which all calls you submit to RenderManager will be rendered <strong>relative</strong> to the base position. For example, the RenderManager provided by <a href="../type/eyecandy/">Eyecandy Scripting</a> has the base position set as <code>(Eyecandy Block Position + Eyecandy XYZ Translation)</code>. Therefore when rendering for example a model, you do not need to do any translation by yourself.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Functions</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>RenderManager.queue(call: DrawCall): void</code></td>
-<td style="text-align: left;">Submit a draw call to RenderManager.</td>
-</tr>
-</tbody>
-</table>
+<h4 id="example">Example<a class="headerlink" href="#example" title="Anchor link to this section for reference">#</a></h4>
+<div class="language-js highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">render</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">train</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">screenDrawCall</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">QuadDrawCall</span><span class="p">.</span><span class="nx">create</span><span class="p">()</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">        </span><span class="p">.</span><span class="nx">corner1</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">Vector3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">))</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">        </span><span class="p">.</span><span class="nx">corner2</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">Vector3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">))</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">        </span><span class="p">.</span><span class="nx">corner3</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">Vector3f</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">))</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">        </span><span class="p">.</span><span class="nx">corner4</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">Vector3f</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">))</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">        </span><span class="p">.</span><span class="nx">texture</span><span class="p">(</span><span class="nx">Resources</span><span class="p">.</span><span class="nx">id</span><span class="p">(</span><span class="s2">&quot;mtr:your_texture_path_here.png&quot;</span><span class="p">));</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">renderManager</span><span class="p">().</span><span class="nx">queue</span><span class="p">(</span><span class="nx">screenDrawCall</span><span class="p">);</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
 <!-- *[JCM]: Joban Client Mod -->
 <!-- *[PIDS]: Passenger Information Display System -->
 
