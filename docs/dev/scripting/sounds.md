@@ -5,4 +5,4 @@
 |Functions|Description|
 |:--------|:----------|
 |`SoundManager.playLocalSound(id: Identifier, volume: number, pitch: number): void`|This plays a sound by it's id, in which the sound are *not* localized to a specific position in the world and are always played at a constant volume. This can be used in, for example train announcements.|
-|`SoundManager.playSound(id: Identifier, pos: Vector3f, volume: number, pitch: number): void`|This plays a sound by it's id in the current Minecraft world at a specified [Vector3f](./math.md#vector3f) position|
+|`SoundManager.playSound(id: Identifier, pos: Vector3f, volume: number, pitch: number): void`|This plays a sound by it's id in the current Minecraft world at a [Vector3f](./math.md#vector3f) position relative to the current base position.|
