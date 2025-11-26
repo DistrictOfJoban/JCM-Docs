@@ -38,16 +38,6 @@ This may be used to simulate digital screens/displays by assigning a dynamic tex
 |`QuadDrawCall.uv(u2: float, v2: float): QuadDrawCall`|Specify the second pair of UV coordinates (0-1)|
 |`QuadDrawCall.matrices(matrices: Matrices): QuadDrawCall`|Supply a [Matrices](./math.md#matrices) to transform the quad.|
 
-### ModelDrawCall
-This creates a draw call which renders a 3d model onto the world.
-
-|Functions|Description|
-|:--------|:----------|
-|`static ModelDrawCall.create(): ModelDrawCall`|Creates a ModelDrawCall|
-|`static ModelDrawCall.create(comment: string): ModelDrawCall`|Creates a ModelDrawCall with a comment. The comment are not used and are purely for annotations/readability purpose in your code.|
-|`ModelDrawCall.modelObject(model: Model): ModelDrawCall`|Specify the model to render. See [Model Loading](./resources.md#model-loading) on obtaining a Model.|
-|`ModelDrawCall.matrices(matrices: Matrices): ModelDrawCall`|Supply a [Matrices](./math.md#matrices) to transform the model.|
-
 #### Example
 ```js linenums="1"
 function render(ctx, state, train) {
@@ -61,3 +51,13 @@ function render(ctx, state, train) {
     ctx.renderManager().queue(screenDrawCall);
 }
 ```
+
+### ModelDrawCall
+This creates a draw call which renders a 3d model onto the world.
+
+|Functions|Description|
+|:--------|:----------|
+|`static ModelDrawCall.create(): ModelDrawCall`|Creates a ModelDrawCall|
+|`static ModelDrawCall.create(comment: string): ModelDrawCall`|Creates a ModelDrawCall with a comment. The comment are not used and are purely for annotations/readability purpose in your code.|
+|`ModelDrawCall.modelObject(model: Model): ModelDrawCall`|Specify the model to render. See [Model Loading](./resources.md#model-loading) on obtaining a Model.|
+|`ModelDrawCall.matrices(matrices: Matrices): ModelDrawCall`|Supply a [Matrices](./math.md#matrices) to transform the model.|
