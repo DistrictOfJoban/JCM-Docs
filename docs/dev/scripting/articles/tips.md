@@ -34,7 +34,7 @@ Similarly, there is a `List<T>` type in Java. It does the same thing as arrays i
 
 ## Calling Java Class Methods
 ### Introducing overloading in Java
-In Java, a class can have several methods with different parameter types sharing the same identifier/name; this is known as overloading. Usually, they were designed to achieve the same result. The method to call is determined by the types of the arguments passed..
+In Java, a class can have several methods with different parameter types sharing the same identifier/name; this is known as overloading. Usually, they were designed to achieve the same result. The method to call is determined by the types of the arguments passed.
 
 Upon calling a Java class method in JavaScript, Rhino will convert the arguments from JavaScript types into Java types according to the declaration of the preferred methods.
 
@@ -95,7 +95,7 @@ let colorFromConstructor5 = new Color(0x7FFFFFFF, true); // Type signature (numb
 let colorAutoConverted = new Color("0x80B846"); // String is converted to integer for constructor 4, as it has 1 parameter, matched the no. of arguments given
 let colorFromConstructor2 = new Color(1, 1, 1); // Number is converted to float, as float has higher order of perference than intger, regardless of whether a decimal place is not provided.
 
-let colorFromNoConstructor = Color(); // It does not pair with any constructor
+let colorFromNoConstructor = new Color(); // It does not pair with any constructor
 // Error! com.lx862.mtrscripting.lib.org.mozilla.javascript.EvaluatorException: Java constructor for "java.awt.Color" with arguments "" not found.
 ```
 
