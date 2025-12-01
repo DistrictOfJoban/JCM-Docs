@@ -5282,24 +5282,25 @@ Similarly, there is a <code>List&lt;T&gt;</code> type in Java. It does the same 
 <h3 id="introducing-overloading-in-java">Introducing overloading in Java<a class="headerlink" href="#introducing-overloading-in-java" title="Anchor link to this section for reference">#</a></h3>
 <p>In Java, a class can have several methods with different parameter types sharing the same identifier/name; this is known as overloading. Usually, they were designed to achieve the same result. The method to call is determined by the types of the arguments passed.</p>
 <p>Upon calling a Java class method in JavaScript, Rhino will convert the arguments from JavaScript types into Java types according to the declaration of the preferred methods.</p>
-<p>To be a preferred method, it must...
-1.  Have the same number of parameters as the number of arguments given
-2.  Have all the parameters type convertible from the arguments given
-3.  Have a higher order of preference for its parameters compared to other methods</p>
+<p>To be a preferred method, it must...</p>
+<ol>
+<li>Have the same number of parameters as the number of arguments given</li>
+<li>Have all the parameters type convertible from the arguments given</li>
+<li>Have a higher order of preference for its parameters compared to other methods</li>
+</ol>
 <details class="warning">
 <summary>Order of preference may become ambiguous</summary>
-</details>
 <p>The order of preference of two or more methods may level out. For example, 
-   <div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/*1.*/</span><span class="w"> </span><span class="n">g</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/*1.*/</span><span class="w"> </span><span class="n">g</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cm">/*2.*/</span><span class="w"> </span><span class="n">g</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
 </span></code></pre></div>
-   <div class="language-js highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nx">g</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span><span class="w">  </span><span class="c1">// Type signature (number, number)</span>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nx">g</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span><span class="w">  </span><span class="c1">// Type signature (number, number)</span>
 </span></code></pre></div>
-   Since neither method is closer to the argument types than the other, Rhino will throw an error.</p>
+Since neither method is closer to the argument types than the other, Rhino will throw an error.</p>
+</details>
 <p>The order of preference is specified. Since numbers are often causing problems, an order of preference of number is attached here.</p>
 <details class="info">
 <summary>Java argument type in decreasing order of preference</summary>
-</details>
 <ol>
 <li>double</li>
 <li>java.lang.Double</li>
@@ -5312,10 +5313,13 @@ Similarly, there is a <code>List&lt;T&gt;</code> type in Java. It does the same 
 <li>java.lang.String</li>
 <li>java.lang.Object</li>
 </ol>
+</details>
 <p>Sometimes, arguments may not be converted as expected. For example, a number <code>11</code> is converted into double regardless of whether a decimal place is not provided. End up referring to a different method, which may raise an error. Developers should take extra care with argument conversion.</p>
-<p>You may refer to...
-- <a href="https://rhino.github.io/tutorials/scripting_java/#calling-overloaded-methods">Rhino's Tutorials #Calling Overloaded Methods</a> for the details of Rhino's runtime overload resolution.
-- <a href="https://web.archive.org/web/20110623074154/http://www.mozilla.org/js/liveconnect/lc3_method_overloading.html">Java Method Overloading and LiveConnect 3</a> for a more precise definition of overloading semantics.</p>
+<p>You may refer to...</p>
+<ul>
+<li><a href="https://rhino.github.io/tutorials/scripting_java/#calling-overloaded-methods">Rhino's Tutorials #Calling Overloaded Methods</a> for the details of Rhino's runtime overload resolution.</li>
+<li><a href="https://web.archive.org/web/20110623074154/http://www.mozilla.org/js/liveconnect/lc3_method_overloading.html">Java Method Overloading and LiveConnect 3</a> for a more precise definition of overloading semantics.</li>
+</ul>
 <h3 id="example">Example<a class="headerlink" href="#example" title="Anchor link to this section for reference">#</a></h3>
 <p>The Java AWT class <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/Color.html"><code>Color</code></a> has the following constructors.</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/*1.*/</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="n">ColorSpace</span><span class="w"> </span><span class="n">cspace</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="o">[]</span><span class="w"> </span><span class="n">components</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">alpha</span><span class="p">)</span>
@@ -5335,7 +5339,10 @@ Similarly, there is a <code>List&lt;T&gt;</code> type in Java. It does the same 
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="kd">let</span><span class="w"> </span><span class="nx">colorFromNoConstructor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Color</span><span class="p">();</span><span class="w"> </span><span class="c1">// It does not pair with any constructor</span>
 </span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1">// Error! com.lx862.mtrscripting.lib.org.mozilla.javascript.EvaluatorException: Java constructor for &quot;java.awt.Color&quot; with arguments &quot;&quot; not found.</span>
 </span></code></pre></div>
-<p>!!! warning "Possible misunderstanding while reading error messages" Developers <strong>should</strong> also consider of <strong>wrong arguments type</strong> when encountering any method not found errors. As instead of directly indicating that the argument types are incorrect, Rhino report that the required method with the specific type signature is not found. (...with arguments XXX <strong>not found</strong>.) </p>
+<div class="admonition warning">
+<p class="admonition-title">Possible misunderstanding while reading error messages</p>
+<p>Developers <strong>should</strong> also consider of <strong>wrong arguments type</strong> when encountering any method not found errors. As instead of directly indicating that the argument types are incorrect, Rhino report that the required method with the specific type signature is not found. (...with arguments XXX <strong>not found</strong>.) </p>
+</div>
 <h3 id="explicit-method-specification">Explicit Method Specification<a class="headerlink" href="#explicit-method-specification" title="Anchor link to this section for reference">#</a></h3>
 <p>From the example of calling the constructor 2 above, you may already see that, JavaScript number may not be converted to a Java type as expected. So, alternatively, Rhino/LiveConnect3 provided a way to specific the method to use, bypassing the resolution process.</p>
 <p>To specify the method, call it as a key of an object, with the type signature suffixed.</p>
@@ -5344,12 +5351,12 @@ Similarly, there is a <code>List&lt;T&gt;</code> type in Java. It does the same 
 </span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-</div>
 <ol>
 <li>Methods/Constructors identifier are case-sensitive</li>
 <li>Leave the identifier blank for a constructor</li>
 <li>Only fully qualified name (<code>java.lang.String</code>) is accepted, simple name (String) is not accepted</li>
 </ol>
+</div>
 <p>At least, good luck on avoiding "method not found" error! ^_^</p>
 <h2 id="what-javascript-features-are-supported">What JavaScript features are supported?<a class="headerlink" href="#what-javascript-features-are-supported" title="Anchor link to this section for reference">#</a></h2>
 <p>The Rhino JavaScript Engine <strong>does not support</strong> all of the latest JavaScript features. See <a href="https://mozilla.github.io/rhino/compat/engines.html">Mozilla's documentation</a> for details on what is supported.</p>
