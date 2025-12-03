@@ -106,9 +106,7 @@ The following lists all the rendering control operations that can be performed a
 
 ### API Reference
 
-#### Rendering Related
-
-##### EyeCandyScriptContext
+#### EyeCandyScriptContext
 The following functions are called to **control rendering**. The functions for rendering models should be called each time render is called.
 
 |Functions And Objects|Description|
@@ -117,17 +115,31 @@ The following functions are called to **control rendering**. The functions for r
 |`EyeCandyScriptContext.setDebugInfo(key: string, value: object)`|Output debugging information in the upper left corner of the screen. You need to enable **[Script Debug Overlay](../../articles/script_debug_overlay.md)** in JCM Settings to display it.<br>`key` is the name of the value<br>`value` is the content (`value` will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).|
 |`EyeCandyScriptContext.renderManager(): RenderManager`|Obtain a [RenderManager](../../rendering.md#rendermanager) instance, which can be used to render stuff onto the Minecraft World.<br>The base position are set to the block's position + translated position.|
 |`EyeCandyScriptContext.soundManager(): SoundManager`|Obtain a [SoundManager](../../sounds.md) instance, which can be used to play sound onto the Minecraft World.<br>The base position are set to the block's position.|
+|`EyecandyScriptContext.events(): EyecandyEvents`|Returns [EyecandyEvents](#eyecandyevents) for checking events.|
+|`EyeCandyScriptContext.setOutlineShape(shape: VoxelShape)`|Set the outline shape (The visual hitbox) of the eyecandy to a corresponding [VoxelShape](../../mc.md#voxelshape)<br>No effect if player is holding a brush.|
+|`EyeCandyScriptContext.setCollisionShape(shape: VoxelShape)`|Set the collision shape (The physical hitbox) of the eyecandy to a corresponding [VoxelShape](../../mc.md#voxelshape).<br>No effect if player is holding a brush.|
 
-#### Block Entity Related
-
-##### EyecandyBlockEntity
+#### EyecandyBlockEntity
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`EyecandyBlockEntity getModelId(): string`|Return the model/prefab that is currently assigned to this block.<br>`null` if no model is selected.|
-|`EyecandyBlockEntity getTranslateX(): number`|The value in **meters** on how much the Decoration Object is translated on the X-axis, configured via GUI.|
-|`EyecandyBlockEntity getTranslateY(): number`|The value in **meters** on how much the Decoration Object is translated on the Y-axis, configured via GUI.|
-|`EyecandyBlockEntity getTranslateZ(): number`|The value in **meters** on how much the Decoration Object is translated on the Z-axis, configured via GUI.|
-|`EyecandyBlockEntity getRotateX(): number`|The value in **radians** on how much the Decoration Object is rotated on the X-axis, configured via GUI.|
-|`EyecandyBlockEntity getRotateY(): number`|The value in **radians** on how much the Decoration Object is rotated on the Y-axis, configured via GUI.|
-|`EyecandyBlockEntity getRotateZ(): number`|The value in **radians** on how much the Decoration Object is rotated on the Z-axis, configured via GUI.|
+|`EyecandyBlockEntity.getModelId(): string`|Return the model/prefab that is currently assigned to this block.<br>`null` if no model is selected.|
+|`EyecandyBlockEntity.getTranslateX(): number`|The value in **meters** on how much the Decoration Object is translated on the X-axis, configured via GUI.|
+|`EyecandyBlockEntity.getTranslateY(): number`|The value in **meters** on how much the Decoration Object is translated on the Y-axis, configured via GUI.|
+|`EyecandyBlockEntity.getTranslateZ(): number`|The value in **meters** on how much the Decoration Object is translated on the Z-axis, configured via GUI.|
+|`EyecandyBlockEntity.getRotateX(): number`|The value in **radians** on how much the Decoration Object is rotated on the X-axis, configured via GUI.|
+|`EyecandyBlockEntity.getRotateY(): number`|The value in **radians** on how much the Decoration Object is rotated on the Y-axis, configured via GUI.|
+|`EyecandyBlockEntity.getRotateZ(): number`|The value in **radians** on how much the Decoration Object is rotated on the Z-axis, configured via GUI.|
 |`blockEntity.getFullBrightness(): boolean`|Return whether the Decoration Object is marked as "Full Light", configured via GUI.|
+
+#### EyecandyEvents
+|Functions And Objects|Description|
+|:--------------------|:----------|
+|`EyecandyEvents.onBlockUse: BlockUseEvent`|Event triggered when the block is right-clicked on. (Excluding brush)|
+|`EyecandyEvents.handled()`|Reset the event. Should be called after you have checked the `onBlockUse` event in your code.|
+
+#### BlockUseEvent
+|Functions And Objects|Description|
+|:--------------------|:----------|
+|`BlockUseEvent.occurred(): boolean`|Whether the event has been triggered/initiated.|
+|`BlockUseEvent.detail().player(): PlayerEntity`|Returns the [PlayerEntity](../../mc.md#playerentity) who used the block.|
+|`BlockUseEvent.detail().item(): ItemStack`|Returns the [ItemStack](../../mc.md#itemstack) the player used when right clicked the block.|

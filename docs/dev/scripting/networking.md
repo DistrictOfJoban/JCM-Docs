@@ -26,7 +26,10 @@ This is a **JavaScript Object** that specifies connection-related details.
 |Functions|Description|
 |:--------|:----------|
 |`NetworkResponse.getResponseCode(): int`|Get the HTTP Response Code, a list can be found [here](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes).|
-|`NetworkResponse.getData(): ?`|Obtain the fetched data. This could be either a string, or an AWT BufferedImage depending on what function you invoke in HttpUtil.|
+|<code>NetworkResponse.getData(): string \| BufferedImage \| null</code>|Obtain the fetched data. This could be either a string, or an AWT BufferedImage depending on what function you invoke in HttpUtil.<br>Null if the request failed.|
+|`NetworkResponse.success(): boolean`|Whether the request succeeded.<br>**Note: This only returns whether a response is given back from the server, use `NetworkResponse.ok()` to check if the response code from server is in the OK range!**|
+|`NetworkResponse.ok(): boolean`|Whether the response code is within 200 - 299 range.<br>Same as checking if `NetworkResponse.getResponseCode()` >= 200 and <= 299|
+|<code>NetworkResponse.exception(): Exception \| null</code>|Returns the relevant java exception if the request failed.<br>Null if the request succeeded (`NetworkResponse.success()`)|
 |`NetworkResponse.getHeaders(): Map<String, List<String>>`|Obtain the headers in the HTTP response|
 
 ### Example
@@ -34,10 +37,16 @@ This is a **JavaScript Object** that specifies connection-related details.
 /* GET request */
 let dataResponse = HttpUtil.fetchString("https://api.modrinth.com/v2/project/minecraft-transit-railway");
 
-if(dataResponse.getResponseCode() == 200) {
-    let mtrProjectStr = dataResponse.getData();
-    let mtrProject = JSON.parse(mtrProjectStr);
-    print(`The MTR mod is last updated on ${mtrProject.updated}`);
+if(dataResponse.success()) {
+    if(dataResponse.ok()) {
+        let mtrProjectStr = dataResponse.getData();
+        let mtrProject = JSON.parse(mtrProjectStr);
+        print(`The MTR mod is last updated on ${mtrProject.updated}`);
+    } else {
+        print(`Error: Server returned ${dataResponse.getResponseCode()}`);
+    }
+} else {
+    print(`Failed to connect to server: ${dataResponse.exception().getMessage()}`);
 }
 
 /* POST request */
@@ -60,7 +69,9 @@ let onlineImageResp = Networking.fetchImage("https://wiki.minecrafttransitrailwa
 let onlineImage = onlineImageResp.getData();
 
 ... (AWT code)
-g.drawImage(onlineImage, 0, 0, null);
+if(onlineImage != null) {
+    g.drawImage(onlineImage, 0, 0, null);
+}
 ```
 ### Further Note
 JCM always supplies a default **User-Agent** header with the value `Joban Client Mod (https://joban.org/jcm)`.
