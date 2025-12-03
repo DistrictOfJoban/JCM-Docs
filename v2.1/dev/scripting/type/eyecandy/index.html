@@ -5272,8 +5272,7 @@
 </table>
 <p>The following lists all the rendering control operations that can be performed and all the information that can be obtained about <code>blockEntity</code>.</p>
 <h3 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Anchor link to this section for reference">#</a></h3>
-<h4 id="rendering-related">Rendering Related<a class="headerlink" href="#rendering-related" title="Anchor link to this section for reference">#</a></h4>
-<h5 id="eyecandyscriptcontext">EyeCandyScriptContext<a class="headerlink" href="#eyecandyscriptcontext" title="Anchor link to this section for reference">#</a></h5>
+<h4 id="eyecandyscriptcontext">EyeCandyScriptContext<a class="headerlink" href="#eyecandyscriptcontext" title="Anchor link to this section for reference">#</a></h4>
 <p>The following functions are called to <strong>control rendering</strong>. The functions for rendering models should be called each time render is called.</p>
 <table>
 <thead>
@@ -5299,10 +5298,21 @@
 <td style="text-align: left;"><code>EyeCandyScriptContext.soundManager(): SoundManager</code></td>
 <td style="text-align: left;">Obtain a <a href="../../sounds/">SoundManager</a> instance, which can be used to play sound onto the Minecraft World.<br>The base position are set to the block's position.</td>
 </tr>
+<tr>
+<td style="text-align: left;"><code>EyecandyScriptContext.events(): EyecandyEvents</code></td>
+<td style="text-align: left;">Returns <a href="#eyecandyevents">EyecandyEvents</a> for checking events.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>EyeCandyScriptContext.setOutlineShape(shape: VoxelShape)</code></td>
+<td style="text-align: left;">Set the outline shape (The visual hitbox) of the eyecandy to a corresponding <a href="../../mc/#voxelshape">VoxelShape</a><br>No effect if player is holding a brush.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>EyeCandyScriptContext.setCollisionShape(shape: VoxelShape)</code></td>
+<td style="text-align: left;">Set the collision shape (The physical hitbox) of the eyecandy to a corresponding <a href="../../mc/#voxelshape">VoxelShape</a>.<br>No effect if player is holding a brush.</td>
+</tr>
 </tbody>
 </table>
-<h4 id="block-entity-related">Block Entity Related<a class="headerlink" href="#block-entity-related" title="Anchor link to this section for reference">#</a></h4>
-<h5 id="eyecandyblockentity">EyecandyBlockEntity<a class="headerlink" href="#eyecandyblockentity" title="Anchor link to this section for reference">#</a></h5>
+<h4 id="eyecandyblockentity">EyecandyBlockEntity<a class="headerlink" href="#eyecandyblockentity" title="Anchor link to this section for reference">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -5312,36 +5322,78 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>EyecandyBlockEntity getModelId(): string</code></td>
+<td style="text-align: left;"><code>EyecandyBlockEntity.getModelId(): string</code></td>
 <td style="text-align: left;">Return the model/prefab that is currently assigned to this block.<br><code>null</code> if no model is selected.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>EyecandyBlockEntity getTranslateX(): number</code></td>
+<td style="text-align: left;"><code>EyecandyBlockEntity.getTranslateX(): number</code></td>
 <td style="text-align: left;">The value in <strong>meters</strong> on how much the Decoration Object is translated on the X-axis, configured via GUI.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>EyecandyBlockEntity getTranslateY(): number</code></td>
+<td style="text-align: left;"><code>EyecandyBlockEntity.getTranslateY(): number</code></td>
 <td style="text-align: left;">The value in <strong>meters</strong> on how much the Decoration Object is translated on the Y-axis, configured via GUI.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>EyecandyBlockEntity getTranslateZ(): number</code></td>
+<td style="text-align: left;"><code>EyecandyBlockEntity.getTranslateZ(): number</code></td>
 <td style="text-align: left;">The value in <strong>meters</strong> on how much the Decoration Object is translated on the Z-axis, configured via GUI.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>EyecandyBlockEntity getRotateX(): number</code></td>
+<td style="text-align: left;"><code>EyecandyBlockEntity.getRotateX(): number</code></td>
 <td style="text-align: left;">The value in <strong>radians</strong> on how much the Decoration Object is rotated on the X-axis, configured via GUI.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>EyecandyBlockEntity getRotateY(): number</code></td>
+<td style="text-align: left;"><code>EyecandyBlockEntity.getRotateY(): number</code></td>
 <td style="text-align: left;">The value in <strong>radians</strong> on how much the Decoration Object is rotated on the Y-axis, configured via GUI.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>EyecandyBlockEntity getRotateZ(): number</code></td>
+<td style="text-align: left;"><code>EyecandyBlockEntity.getRotateZ(): number</code></td>
 <td style="text-align: left;">The value in <strong>radians</strong> on how much the Decoration Object is rotated on the Z-axis, configured via GUI.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>blockEntity.getFullBrightness(): boolean</code></td>
 <td style="text-align: left;">Return whether the Decoration Object is marked as "Full Light", configured via GUI.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="eyecandyevents">EyecandyEvents<a class="headerlink" href="#eyecandyevents" title="Anchor link to this section for reference">#</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>EyecandyEvents.onBlockUse: BlockUseEvent</code></td>
+<td style="text-align: left;">Event triggered when the block is right-clicked on. (Excluding brush)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>EyecandyEvents.handled()</code></td>
+<td style="text-align: left;">Reset the event. Should be called after you have checked the <code>onBlockUse</code> event in your code.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="blockuseevent">BlockUseEvent<a class="headerlink" href="#blockuseevent" title="Anchor link to this section for reference">#</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>BlockUseEvent.occurred(): boolean</code></td>
+<td style="text-align: left;">Whether the event has been triggered/initiated.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>BlockUseEvent.detail().player(): PlayerEntity</code></td>
+<td style="text-align: left;">Returns the <a href="../../mc/#playerentity">PlayerEntity</a> who used the block.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>BlockUseEvent.detail().item(): ItemStack</code></td>
+<td style="text-align: left;">Returns the <a href="../../mc/#itemstack">ItemStack</a> the player used when right clicked the block.</td>
 </tr>
 </tbody>
 </table>
