@@ -5203,6 +5203,17 @@
 
 <h1 id="scripted-pids-preset">Scripted PIDS Preset<a class="headerlink" href="#scripted-pids-preset" title="Anchor link to this section for reference">#</a></h1>
 <p><strong>Scripted PIDS Preset</strong> is a new experimental feature introduced in <strong>JCM 2.0.0</strong>. It allows content developer to make new PIDS Preset using Javascript. The system is inspired by the <strong>Nemo Transit Expansion</strong> mod in <abbr title="Minecraft Transit Railway">MTR mod</abbr> 3.x.</p>
+<div class="admonition note">
+<p class="admonition-title">Important note!</p>
+<p>There have been multiple attempts regarding PIDS Customization with the MTR Mod.<br />
+This system is <strong>not compatible</strong> with any of the following:</p>
+<ul>
+<li>PIDS Layout Editor / PIDS Modularization / PIDS JSON by EpicPuppy</li>
+<li>PIDS text customization seen in early betas of <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>.</li>
+</ul>
+<p>You are <strong>not able</strong> to import any data from the above to this system, and the way it works is fundamentally different.<br />
+Therefore, this can be seen as a replacement to the above systems which supports the latest/official <abbr title="Minecraft Transit Railway">MTR mod</abbr> releases, but not a drop-in replacement. The barrier to entry is higher, though it also means that more complex PIDS displays can benefit from this.</p>
+</div>
 <h2 id="motivation">Motivation<a class="headerlink" href="#motivation" title="Anchor link to this section for reference">#</a></h2>
 <p>The most common questions I have received regarding PIDS Preset is <em>Can I replicate X PIDS from this Metro?</em>. Unfortunately the answer that had to be given is usually a <strong>no</strong>.</p>
 <p>This is due to the <strong>JSON PIDS Preset</strong> always following a fixed-layout consisted of a Header Bar (Weather &amp; Time), and 4 rows of arrivals.<br />
