@@ -2,6 +2,16 @@
 
 **Scripted PIDS Preset** is a new experimental feature introduced in **JCM 2.0.0**. It allows content developer to make new PIDS Preset using Javascript. The system is inspired by the **Nemo Transit Expansion** mod in MTR mod 3.x.
 
+!!! note "Important note!"
+    There have been multiple attempts regarding PIDS Customization with the MTR Mod.  
+    This system is **not compatible** with any of the following:
+
+    - PIDS Layout Editor / PIDS Modularization / PIDS JSON by EpicPuppy
+    - PIDS text customization seen in early betas of MTR 4.
+
+    You are **not able** to import any data from the above to this system, and the way it works is fundamentally different.  
+    Therefore, this can be seen as a replacement to the above systems which supports the latest/official MTR mod releases, but not a drop-in replacement. The barrier to entry is higher, though it also means that more complex PIDS displays can benefit from this.
+
 ## Motivation
 The most common questions I have received regarding PIDS Preset is *Can I replicate X PIDS from this Metro?*. Unfortunately the answer that had to be given is usually a **no**.
 

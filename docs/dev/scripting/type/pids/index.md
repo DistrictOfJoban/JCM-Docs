@@ -1,6 +1,16 @@
 # JCM PIDS Scripting
 PIDS Scripting allows you to use [JavaScript](../../index.md) to control [Scripted PIDS Preset](../../../pids/scripted/index.md) contents.
 
+!!! note "Important note!"
+    There have been multiple attempts regarding PIDS Customization with the MTR Mod.  
+    This system is **not compatible** with any of the following:
+
+    - PIDS Layout Editor / PIDS Modularization / PIDS JSON by EpicPuppy
+    - PIDS text customization seen in early betas of MTR 4.
+
+    You are **not able** to import any data from the above to this system, and the way it works is fundamentally different.  
+    Therefore, this can be seen as a replacement to the above systems which supports the latest/official MTR mod releases, but not a drop-in replacement. The barrier to entry is higher, though it also means that more complex PIDS displays can benefit from this.
+
 ## Concept
 
 ### Draw/Rendering
