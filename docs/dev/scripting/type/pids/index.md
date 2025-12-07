@@ -106,7 +106,7 @@ This would return a string formatted like: `2.0.0-beta.5`
 |`Text.pos(x: number, y: number): Text`|Set the X and Y position of the element|
 |`Text.size(w: number, h: number): Text`|Set the width and height of the element<br>(Used in conjunction with `Text.stretchXY()` and `Text.scaleXY()`)|
 |`Text.text(str: string): Text`|Set the text content to str|
-|`Text.scale(i: double): Text`|Set the text's scale to i. Defaults to `1`|
+|`Text.scale(i: double): Text`|Set the text's scale to i. Defaults to `1`<br>Note: This scales the whole text component, you should divide your scale when specifying `.size()` for instance.|
 |`Text.leftAlign(): Text`|Align the text to the left (Default)|
 |`Text.centerAlign(): Text`|Align the text to the center|
 |`Text.rightAlign(): Text`|Align the text to the right|
