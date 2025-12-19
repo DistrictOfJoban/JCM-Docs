@@ -27,9 +27,11 @@ theme:
         icon: octicons/sun-16
         name: Switch to light mode
   features:
+    - navigation.path
     - navigation.top
     - navigation.tabs
     - navigation.indexes
+    - content.code.select
     - content.code.copy
     - content.code.annotate
     - content.tooltips
