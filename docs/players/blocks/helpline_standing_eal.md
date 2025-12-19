@@ -51,6 +51,6 @@ Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1
 ## History
 | Version | Changes Made                                                                                                 |
 |:--------|:-------------------------------------------------------------------------------------------------------------|
-| v1.0.0  | Added Helpline (East Rail Type)                                                                              |
+| v1.0.0  | Added Helpline (East Rail Line Type)                                                                         |
 | v1.1.5  | Hardness changed from 2.0 -> 5.0                                                                             |
 | v2.0.0  | Right clicking now emits a redstone signal<br>Rename `jsblock:helpline_3` to `jsblock:helpline_standing_eal` |

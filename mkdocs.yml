@@ -121,6 +121,7 @@ nav:
         - Help Line: players/blocks/helpline_2.md
         - Help Line (West Kowloon Station Type): players/blocks/helpline_hkwk.md
         - Help Line (East Rail Line Type): players/blocks/helpline_standing_eal.md
+        - Help Line (Tseung Kwan O Line Type): players/blocks/helpline_standing_tkl.md
         - Help Line (Standing): players/blocks/helpline_standing.md
         - LRT Inter-Car Barriers: players/blocks/lrt_inter_car_barriers.md
         - KCR Station Name Signs: players/blocks/kcr_station_name_signs.md
