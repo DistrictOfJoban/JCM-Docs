@@ -5,7 +5,7 @@ since: 1.0.5
 image: JCM_rv_pids_pole.png
 image_desc: A <a href="../rv_pids/">Railway Vision PIDS</a> with RV PIDS Pole attached on top
 item_group: JCM Blocks
-creator: LX86
+creator: AmberFrost
 transparent: true
 light_level: 0
 recipes:

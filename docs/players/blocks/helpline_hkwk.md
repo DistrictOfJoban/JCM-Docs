@@ -4,7 +4,7 @@ block_ids:
 since: 2.0.0
 image: JCM_helpline_hkwk.png
 item_group: JCM Blocks
-creator: LX86
+creator: AmberFrost
 transparent: false
 light_level: 0
 ---

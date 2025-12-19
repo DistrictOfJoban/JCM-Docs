@@ -4,7 +4,7 @@ block_ids:
 since: 1.0.6
 image: JCM_helpline_standing.png
 item_group: JCM Blocks
-creator: LX86
+creator: AmberFrost
 transparent: false
 light_level: 15
 recipes:

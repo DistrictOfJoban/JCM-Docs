@@ -5,7 +5,7 @@ block_ids:
 since: 1.1.2
 image: JCM_station_ceiling_wrl_poles.png
 item_group: JCM Blocks
-creator: LX86
+creator: AmberFrost
 assets_creator: 1081MTR
 transparent: true
 light_level: 0

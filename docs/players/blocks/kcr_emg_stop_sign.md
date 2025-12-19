@@ -4,7 +4,7 @@ block_ids:
 since: 1.1.0
 image: JCM_kcr_emg_stop_sign.png
 item_group: JCM Blocks
-creator: LX86
+creator: AmberFrost
 transparent: true
 light_level: 0
 recipes:

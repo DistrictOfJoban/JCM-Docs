@@ -5,7 +5,7 @@ since: 2.0.0
 image: JCM_pids_projector.png
 image_desc: A PIDS Projector with their hitbox displayed, projecting out a PIDS display, with red outline for visualization.
 item_group: JCM Blocks - PIDS
-creator: LX86
+creator: AmberFrost
 transparent: true
 light_level: 0
 ---

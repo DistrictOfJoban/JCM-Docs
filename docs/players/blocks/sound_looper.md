@@ -4,7 +4,7 @@ block_ids:
 since: 1.0.8
 image: JCM_sound_looper.png
 item_group: JCM Blocks
-creator: LX86
+creator: AmberFrost
 transparent: false
 light_level: 0
 recipes:

@@ -6,7 +6,7 @@ since: 1.0.4
 image: JCM_kcr_station_name_signs.png
 image_desc: "Top: Normal variant<br>Bottom: Station-colored variant"
 item_group: JCM Blocks
-creator: LX86
+creator: AmberFrost
 transparent: false
 light_level: 10
 recipes:

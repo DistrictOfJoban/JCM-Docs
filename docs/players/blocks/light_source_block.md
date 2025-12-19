@@ -5,7 +5,7 @@ since: 1.0.0
 image: JCM_light_block.png
 image_desc: A Light Source Block, with icon displayed when holding the item
 item_group: JCM Blocks
-creator: LX86
+creator: AmberFrost
 transparent: true
 light_level: 0 - 15
 ---

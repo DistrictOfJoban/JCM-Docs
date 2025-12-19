@@ -5,7 +5,7 @@ block_ids:
 since: 1.0.1
 image: JCM_exit_signs.png
 item_group: JCM Blocks
-creator: LX86
+creator: AmberFrost
 transparent: false
 light_level: 5
 recipes:

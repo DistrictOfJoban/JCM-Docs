@@ -4,7 +4,7 @@ block_ids:
 since: 1.0.0
 image: JCM_Water_Machine.png
 item_group: JCM Blocks
-creator: LX86
+creator: AmberFrost
 transparent: false
 light_level: 0
 recipes:

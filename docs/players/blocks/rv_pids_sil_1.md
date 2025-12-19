@@ -4,7 +4,7 @@ block_ids:
 since: 1.1.0
 image: JCM_rv_pids_sil_1.png
 item_group: JCM Blocks - PIDS
-creator: LX86
+creator: AmberFrost
 transparent: true
 light_level: 5
 recipes:

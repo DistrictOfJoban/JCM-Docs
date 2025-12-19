@@ -5,7 +5,7 @@ since: 1.0.0
 image: JCM_departure_timer.png
 image_desc: Departure Timer with Butterfly Light on top, paired with Departure Pole behind
 item_group: JCM Blocks
-creator: LX86
+creator: AmberFrost
 transparent: false
 light_level: 0
 recipes:

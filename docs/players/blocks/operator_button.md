@@ -4,7 +4,7 @@ block_ids:
 since: 1.0.4
 image: JCM_operator_button.png
 item_group: JCM Blocks
-creator: LX86
+creator: AmberFrost
 transparent: true
 light_level: 8
 recipes:

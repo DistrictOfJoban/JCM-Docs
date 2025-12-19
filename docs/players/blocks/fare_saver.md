@@ -4,7 +4,7 @@ block_ids:
 since: 1.1.4
 image: JCM_fare_saver.png
 item_group: JCM Blocks
-creator: LX86
+creator: AmberFrost
 transparent: false
 light_level: 15
 recipes:

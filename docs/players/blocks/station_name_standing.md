@@ -4,7 +4,7 @@ block_ids:
 since: 1.0.0
 image: JCM_station_name_standing.png
 item_group: JCM Blocks
-creator: LX86
+creator: AmberFrost
 transparent: true
 deprecated: true
 light_level: 0

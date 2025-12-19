@@ -4,7 +4,7 @@ block_ids:
 since: 1.1.4
 image: JCM_mtr_stairs.png
 item_group: JCM Blocks
-creator: LX86
+creator: AmberFrost
 assets_creator: 1081MTR
 transparent: false
 light_level: 0
