@@ -7,6 +7,7 @@ To prevent misuse of scripts, script may only access java classes from the follo
 - `com.lx862.mtrscripting.wrapper`
 - `java.lang`
 - `java.awt`
+- `java.text`
 - `java.lang`
 - `java.math`
 - `java.util`
