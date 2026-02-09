@@ -19,7 +19,7 @@ To create an `Identifier`, you can use the following functions:
 |:--------|:----------|
 |`static ModelManager.loadModel(id: Identifier, flipV: boolean): Model`|Load an OBJ/bbmodel model from a path and upload to the GPU.<br>Set `flipV` to true if your texture is rendered incorrectly.|
 
-## Loading AWT Resources
+## AWT Resources & Fonts
 These functions load the resources used to draw dynamic textures via the Java AWT.
 
 |Functions|Description|
@@ -28,6 +28,7 @@ These functions load the resources used to draw dynamic textures via the Java AW
 |`static Resources.readFont(path: Identifier): Font`|Load a custom TTF or OTF font file as an AWT Font.<br> *Note: Due to the way Java and Minecraft Resource Pack works, new temporary font files are generated on your disk every time you call this function.<br>If you find yourself running out of disk space during the development, you can free up disk space by deleting files starting with `+~JF` on your system temp directory, or restart your Minecraft/Computer.*|
 |`static Resources.readBufferedImage(path: Identifier): BufferedImage`|Loads an image file as an AWT BufferedImage.|
 |`static Resources.getFontRenderContext(): FontRenderContext`|Get an AWT FontRenderContext.|
+|`static Resources.ensureStrFonts(text: string, primaryFont: Font): AttributedString`|Get an instance of AttributedString with the corresponding text and font set.<br>`primaryFont` is the default font used. If the primary font cannot render a certain character, it will iterate over the fonts available in the user's computer until a suitable one can be found.<br><br>This is useful to prevent Tofu/Square when rendering versatile scripts (Such as Arabic on a Latin font).|
 
 ## Reading resource files
 |Functions|Description|
