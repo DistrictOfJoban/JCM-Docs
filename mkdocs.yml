@@ -200,6 +200,7 @@ nav:
           - Scripting Guidelines: dev/scripting/articles/script_guidelines.md
           - Migration from NTE: dev/scripting/articles/nte_migration.md
           - Scripting Restrictions: dev/scripting/articles/scripting_restrictions.md
+          - Quick Reload: dev/scripting/articles/script_quick_reload.md
           - Scripting Debug Overlay: dev/scripting/articles/script_debug_overlay.md
           - Tips & Notes: dev/scripting/articles/tips.md
         - API Reference:
