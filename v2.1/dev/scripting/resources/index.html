@@ -4289,10 +4289,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#loading-awt-resources" class="md-nav__link">
+  <a href="#awt-resources-fonts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Loading AWT Resources
+        AWT Resources &amp; Fonts
       
     </span>
   </a>
@@ -5172,10 +5172,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#loading-awt-resources" class="md-nav__link">
+  <a href="#awt-resources-fonts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Loading AWT Resources
+        AWT Resources &amp; Fonts
       
     </span>
   </a>
@@ -5349,7 +5349,7 @@ To create an <code>Identifier</code>, you can use the following functions:</p>
 </tr>
 </tbody>
 </table>
-<h2 id="loading-awt-resources">Loading AWT Resources<a class="headerlink" href="#loading-awt-resources" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="awt-resources-fonts">AWT Resources &amp; Fonts<a class="headerlink" href="#awt-resources-fonts" title="Anchor link to this section for reference">#</a></h2>
 <p>These functions load the resources used to draw dynamic textures via the Java AWT.</p>
 <table>
 <thead>
@@ -5374,6 +5374,10 @@ To create an <code>Identifier</code>, you can use the following functions:</p>
 <tr>
 <td style="text-align: left;"><code>static Resources.getFontRenderContext(): FontRenderContext</code></td>
 <td style="text-align: left;">Get an AWT FontRenderContext.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Resources.ensureStrFonts(text: string, primaryFont: Font): AttributedString</code></td>
+<td style="text-align: left;">Get an instance of AttributedString with the corresponding text and font set.<br><code>primaryFont</code> is the default font used. If the primary font cannot render a certain character, it will iterate over the fonts available in the user's computer until a suitable one can be found.<br><br>This is useful to prevent Tofu/Square when rendering versatile scripts (Such as Arabic on a Latin font).</td>
 </tr>
 </tbody>
 </table>
