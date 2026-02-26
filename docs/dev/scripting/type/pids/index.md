@@ -165,22 +165,22 @@ Represent a single arrival entry.
 |Functions And Objects|Description|
 |:--------------------|:----------|
 |`ArrivalEntry.destination(): string`|Returns the destination name of the arrival entry.<br>(Usually the destination's station, or a custom destination string)|
-|`ArrivalEntry.arrivalTime(): number`|Returns the epoch time (in Millisecond) the train is arriving at.<br>Use `new Date(value: number)`to obtain a JS Date object of the arrival time.|
-|`ArrivalEntry.departureTime(): number`|Returns the epoch time (in Millisecond) the train is departing at.<br>Use `new Date(value: number)`to obtain a JS Date object of the departure time.|
+|`ArrivalEntry.arrivalTime(): number`|Returns the epoch time (in Millisecond) the vehicle will arrive at.<br>Use `new Date(value: number)`to obtain a JS Date object of the arrival time.|
+|`ArrivalEntry.departureTime(): number`|Returns the epoch time (in Millisecond) the vehicle will depart at.<br>Use `new Date(value: number)`to obtain a JS Date object of the departure time.|
 |`ArrivalEntry.deviation(): number`|Returns the deviation[?]|
-|`ArrivalEntry.realtime(): boolean`|Returns whether the arrival entry is scheduled (i.e. Train not departed), or a real-time estimation (i.e. Train running)|
+|`ArrivalEntry.realtime(): boolean`|Returns whether the arrival entry is scheduled (i.e. Vehicle not departed), or a real-time estimation (i.e. Vehicle running)|
 |`ArrivalEntry.departureIndex(): number`|Returns the departure index[?]|
-|`ArrivalEntry.terminating(): boolean`|Returns whether the arrival entry is terminating its service at the current platform.|
-|`ArrivalEntry.route(): SimplifiedRoute`|Returns the SimplifiedRoute object that the train is running on.<br>**Might be null if the route cannot be found (e.g. Deleted)**|
-|`ArrivalEntry.routeId(): number`|Returns the id of the route that the train is running on.|
-|`ArrivalEntry.routeName(): string`|Returns the name of the route that the train is running on.|
+|`ArrivalEntry.terminating(): boolean`|Returns whether the arrival entry will terminate its service at the current platform.|
+|`ArrivalEntry.route(): SimplifiedRoute`|Returns the SimplifiedRoute object that the vehicle is running on.<br>**Might be null if the route cannot be found (e.g. Hidden/Deleted)**|
+|`ArrivalEntry.routeId(): number`|Returns the id of the route that the vehicle is running on when arrived.|
+|`ArrivalEntry.routeName(): string`|Returns the name of the route that the vehicle is running on when arrived.|
 |`ArrivalEntry.routeNumber(): string`|Returns the route number string (Previously called LRT Route Number), empty string if route number is not set.|
-|`ArrivalEntry.routeColor(): number`|Returns the color of the route that the train is running on.|
-|`ArrivalEntry.circularState(): Route.CircularState`|Returns the circular state of the route that the train is running on.|
-|`ArrivalEntry.platform(): Platform`|Returns the platform object that the train is approaching towards.|
-|`ArrivalEntry.platformId(): number`|Returns the id of the platform that the train is approaching towards.|
-|`ArrivalEntry.platformName(): string`|Returns the name of the platform that the train is approaching towards.|
-|`ArrivalEntry.carCount(): number`|The car length of the train in that arrival entry.|
+|`ArrivalEntry.routeColor(): number`|Returns the color of the route that the vehicle is running on when arrived.|
+|`ArrivalEntry.circularState(): Route.CircularState`|Returns the circular state of the route that the vehicle is running on.|
+|`ArrivalEntry.platform(): Platform`|Returns the platform object that the vehicle will approach at.|
+|`ArrivalEntry.platformId(): number`|Returns the id of the platform that the vehicle will approach at.|
+|`ArrivalEntry.platformName(): string`|Returns the name of the platform that the vehicle will approach at.|
+|`ArrivalEntry.carCount(): number`|Returns the number of cars the vehicle has.|
 |`ArrivalEntry.cars(): List<CarDetails>`|Returns a List containing [CarDetails](#cardetails) for each car.|
 
 #### Transport Simulation Core Related
