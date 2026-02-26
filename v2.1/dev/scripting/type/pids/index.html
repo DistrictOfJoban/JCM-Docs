@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
     
     
       
@@ -5657,11 +5657,11 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalEntry.arrivalTime(): number</code></td>
-<td style="text-align: left;">Returns the epoch time (in Millisecond) the train is arriving at.<br>Use <code>new Date(value: number)</code>to obtain a <abbr title="JavaScript">JS</abbr> Date object of the arrival time.</td>
+<td style="text-align: left;">Returns the epoch time (in Millisecond) the vehicle will arrive at.<br>Use <code>new Date(value: number)</code>to obtain a <abbr title="JavaScript">JS</abbr> Date object of the arrival time.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalEntry.departureTime(): number</code></td>
-<td style="text-align: left;">Returns the epoch time (in Millisecond) the train is departing at.<br>Use <code>new Date(value: number)</code>to obtain a <abbr title="JavaScript">JS</abbr> Date object of the departure time.</td>
+<td style="text-align: left;">Returns the epoch time (in Millisecond) the vehicle will depart at.<br>Use <code>new Date(value: number)</code>to obtain a <abbr title="JavaScript">JS</abbr> Date object of the departure time.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalEntry.deviation(): number</code></td>
@@ -5669,7 +5669,7 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalEntry.realtime(): boolean</code></td>
-<td style="text-align: left;">Returns whether the arrival entry is scheduled (i.e. Train not departed), or a real-time estimation (i.e. Train running)</td>
+<td style="text-align: left;">Returns whether the arrival entry is scheduled (i.e. Vehicle not departed), or a real-time estimation (i.e. Vehicle running)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalEntry.departureIndex(): number</code></td>
@@ -5677,19 +5677,19 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalEntry.terminating(): boolean</code></td>
-<td style="text-align: left;">Returns whether the arrival entry is terminating its service at the current platform.</td>
+<td style="text-align: left;">Returns whether the arrival entry will terminate its service at the current platform.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalEntry.route(): SimplifiedRoute</code></td>
-<td style="text-align: left;">Returns the SimplifiedRoute object that the train is running on.<br><strong>Might be null if the route cannot be found (e.g. Deleted)</strong></td>
+<td style="text-align: left;">Returns the SimplifiedRoute object that the vehicle is running on.<br><strong>Might be null if the route cannot be found (e.g. Hidden/Deleted)</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalEntry.routeId(): number</code></td>
-<td style="text-align: left;">Returns the id of the route that the train is running on.</td>
+<td style="text-align: left;">Returns the id of the route that the vehicle is running on when arrived.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalEntry.routeName(): string</code></td>
-<td style="text-align: left;">Returns the name of the route that the train is running on.</td>
+<td style="text-align: left;">Returns the name of the route that the vehicle is running on when arrived.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalEntry.routeNumber(): string</code></td>
@@ -5697,27 +5697,27 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalEntry.routeColor(): number</code></td>
-<td style="text-align: left;">Returns the color of the route that the train is running on.</td>
+<td style="text-align: left;">Returns the color of the route that the vehicle is running on when arrived.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalEntry.circularState(): Route.CircularState</code></td>
-<td style="text-align: left;">Returns the circular state of the route that the train is running on.</td>
+<td style="text-align: left;">Returns the circular state of the route that the vehicle is running on.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalEntry.platform(): Platform</code></td>
-<td style="text-align: left;">Returns the platform object that the train is approaching towards.</td>
+<td style="text-align: left;">Returns the platform object that the vehicle will approach at.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalEntry.platformId(): number</code></td>
-<td style="text-align: left;">Returns the id of the platform that the train is approaching towards.</td>
+<td style="text-align: left;">Returns the id of the platform that the vehicle will approach at.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalEntry.platformName(): string</code></td>
-<td style="text-align: left;">Returns the name of the platform that the train is approaching towards.</td>
+<td style="text-align: left;">Returns the name of the platform that the vehicle will approach at.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalEntry.carCount(): number</code></td>
-<td style="text-align: left;">The car length of the train in that arrival entry.</td>
+<td style="text-align: left;">Returns the number of cars the vehicle has.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalEntry.cars(): List&lt;CarDetails&gt;</code></td>
