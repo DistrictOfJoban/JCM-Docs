@@ -27,10 +27,10 @@ A three-dimensional vector, that is, the coordinates (x, y, z).
 |`Vector3f.distance(other: Vector3f): float`|Returns the distance to the coordinates represented by the other vector. |
 |`Vector3f.distanceSq(other: Vector3f): float`| Returns the square of the distance to the coordinates represented by the other vector. The calculation is somewhat faster than in the previous case. |
 |`Vector3f.rawBlockPos(): BlockPos(MC)`| Returns BlockPos from Minecraft with rounded vector values. |
-|`static Vector3f.ZERO: Vector3f`|Zero vector. You should not use functions on it. |
-|`static Vector3f.XP: Vector3f`|Vector with value (1, 0, 0)|
-|`static Vector3f.YP: Vector3f`|Vector with value (0, 1, 0)|
-|`static Vector3f.ZP: Vector3f`|Vector with value (0, 0, 1)|
+|`static Vector3f.ZERO: Vector3f`|Zero vector. **Do not operate/manipulate this object.** |
+|`static Vector3f.XP: Vector3f`|Vector with value (1, 0, 0). **Do not operate/manipulate this object.**|
+|`static Vector3f.YP: Vector3f`|Vector with value (0, 1, 0). **Do not operate/manipulate this object.**|
+|`static Vector3f.ZP: Vector3f`|Vector with value (0, 0, 1). **Do not operate/manipulate this object.**|
 
 ## Matrices
 When rendering, there is often a need to “restore the transformation state to the previous step”.
