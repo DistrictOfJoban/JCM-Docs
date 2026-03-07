@@ -5447,11 +5447,11 @@
 </tr>
 <tr>
 <td style="text-align: left;"><code>static TextUtil.getNonExtraParts(src: String): String</code></td>
-<td style="text-align: left;">Returns everything except the extra part.</td>
+<td style="text-align: left;">Returns everything except the extra part.<br><strong>Note: When an extra part does not exist, it returns an empty string, instead of returning the original string.</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>static TextUtil.getNonCjkAndExtraParts(src: String): String</code></td>
-<td style="text-align: left;">Returns everything except the CJK parts.</td>
+<td style="text-align: left;">Returns everything except the CJK parts.<br><strong>Note: This function is broken currently, and returns the Non-CJK Part + Non-extra part, rather than Non-CJK + Extra part</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>static TextUtil.isCjk(src: String): boolean</code></td>
