@@ -23,8 +23,8 @@ The MTR mod uses the station naming format `Name in one language|Name in another
 |`static TextUtil.getCjkParts(src: String): String`|Returns the CJK parts of the passed string.|
 |`static TextUtil.getNonCjkParts(src: String): String`|Returns the non-CJK parts of the passed string.|
 |`static TextUtil.getExtraParts(src: String): String`|Returns the extra part of the passed string.|
-|`static TextUtil.getNonExtraParts(src: String): String`|Returns everything except the extra part.|
-|`static TextUtil.getNonCjkAndExtraParts(src: String): String`|Returns everything except the CJK parts.|
+|`static TextUtil.getNonExtraParts(src: String): String`|Returns everything except the extra part.<br>**Note: When an extra part does not exist, it returns an empty string, instead of returning the original string.**|
+|`static TextUtil.getNonCjkAndExtraParts(src: String): String`|Returns everything except the CJK parts.<br>**Note: This function is broken currently, and returns the Non-CJK Part + Non-extra part, rather than Non-CJK + Extra part**|
 |`static TextUtil.isCjk(src: String): boolean`|Checks whether the string contains CJK characters.|
 
 ## Timing
