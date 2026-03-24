@@ -109,7 +109,7 @@ Note that the additional features within ANTE is not considered (at least for no
 ### Scripting Engine
 ANTE currently uses [GraalJS](https://www.graalvm.org/latest/reference-manual/js/) in place of the [Rhino](https://github.com/mozilla/rhino) JavaScript Engine, which provides support for more modern JS syntax, at the cost of some incompatibilities introduced. For compatibility reasons (And the need to support 1.16), JCM will currently stay on the **Rhino** engine. If you make heavy use of modern JS syntax, unfortunately you may have to try your luck.
 
-Newer version of Rhino (Namely 1.8 and above, employed for MC 1.17+) makes a more marginal leap to modern JS features, though still arguably outdated in the rapidly changing environment of the web. See the [Rhino compatibility table](https://mozilla.github.io/rhino/compat/engines.html) for details.
+Rhino 1.9 (The current version used by JCM) makes a more marginal leap to modern JS features, though still arguably outdated in the rapidly changing environment of the web. See the [Rhino compatibility table](https://mozilla.github.io/rhino/compat/engines.html) for details.
 
 ### Registry Access (CONFIG_INFO)
 ANTE exposes the corresponding registry entry (i.e. The JSON object within a Train/Eyecandy entry) to scripts via the `CONFIG_INFO` variable.
