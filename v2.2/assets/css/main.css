@@ -1,0 +1,241 @@
+@import url("effect.css"); /* Scroll animation effect */
+@import url("buttons.css");
+
+:root > * {
+    --scroll: 1000;
+}
+
+.jcm-custom-wrapper {
+    font-size: .9rem;
+}
+
+.super-container {
+    position: relative;
+    padding: 9rem 0;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -100;
+}
+
+.inner-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/bg-light.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: scale(1.1);
+    filter: blur(4px);
+}
+
+[data-md-color-scheme="slate"] .inner-background {
+    background-image: url("../img/bg-dark.jpg");
+}
+
+.jcm-custom-wrapper h1 {
+    font-size: 2.25rem;
+    font-weight: 500;
+}
+
+.jcm-custom-wrapper h2 {
+    font-size: 1.75rem;
+    font-weight: 500;
+}
+
+.scroll {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent 0%, black 25%, black 75%, transparent);
+}
+
+.scroll-inner {
+    background-image: url("../img/scroll.png");
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    height: 10rem;
+}
+
+section {
+    padding: 2rem 0;
+    text-align: center;
+}
+
+section .title {
+    padding: 1rem 0;
+}
+
+section .description {
+    width: 46rem;
+    max-width: 100%;
+    margin: auto;
+}
+
+section .jcm-container {
+    max-width: 100%;
+}
+
+.jcm-container {
+    text-align: left;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.35);
+    margin: 1.75rem auto;
+    width: 75%;
+    background-color: var(--md-default-bg-color);
+    padding: .4rem;
+    border-radius: 1.25rem;
+    display: flex;
+    font-size: .85rem;
+    max-width: 42rem;
+}
+
+.jcm-container h1 {
+    margin: 0;
+}
+
+.jcm-container h2 {
+    margin: 0;
+}
+
+.jcm-container p {
+    margin: 0;
+}
+
+.jcm-container-logo {
+    flex-shrink: 0;
+}
+
+.jcm-container-logo > img {
+    width: 160px;
+    height: auto;
+    border-radius: .7rem;
+}
+
+.jcm-container > * {
+    margin: 1rem;
+}
+
+.button {
+    display: inline-block;
+    line-height: 1;
+    padding: 0.6rem;
+    border-radius: 0.4rem;
+    margin: 0 0.25rem;
+    text-decoration: none;
+    transition: filter 0.2s;
+}
+
+.button.github {
+    background-color: #000;
+    color: white;
+}
+
+.button.discord {
+    background-color: #545FF2;
+    color: white;
+}
+
+.pids-demo {
+    position: relative;
+    width: 60%;
+    margin: 2rem auto;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+img.bg {
+    width: 100%;
+}
+
+.pids-model {
+    position: absolute;
+    width: 23%;
+    top: 0;
+    left: 40%;
+    transform-origin: top;
+}
+
+.pids-model > .model {
+    width: 100%;
+}
+
+.pids-model > .content {
+    position: absolute;
+    top: 55.25%;
+    left: 0;
+    width: 97%;
+    transform: perspective(50vw) translateX(-3.25%) rotateX(7deg) rotateY(-22deg);
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.pids-model > .content.active {
+    opacity: 1;
+}
+
+@media only screen and (max-width: 1024px) {
+    .jcm-container {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    main {
+        max-width: 100%;
+    }
+    
+    .super-container {
+        padding: 4rem 0;
+    }
+
+    .jcm-container {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .link-group {
+        width: 100%;
+    }
+
+    .jcm-container .link-button {
+        display: block;
+        margin: 0.5rem 0;
+    }
+
+    .jcm-container .link-group .hidden {
+        position: relative;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .scroll-inner {
+        height: 12rem;
+    }
+    
+    .pids-demo {
+        width: 100%;
+    }
+    
+    .pids-model > .content {
+        transform: perspective(75vw) translateX(-3.25%) rotateX(7deg) rotateY(-22deg);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .scroll-inner {
+        height: 10rem;
+    }
+}
+
+.footer {
+    padding: 3rem;
+}
