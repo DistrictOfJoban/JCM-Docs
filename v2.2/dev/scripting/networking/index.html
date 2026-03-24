@@ -4545,6 +4545,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#async-variants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Async variants
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#example" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5174,6 +5185,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#async-variants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Async variants
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#example" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5429,6 +5451,8 @@
 </tr>
 </tbody>
 </table>
+<h3 id="async-variants">Async variants<a class="headerlink" href="#async-variants" title="Anchor link to this section for reference">#</a></h3>
+<p>For the above functions, a non-blocking async variant is available in the form of <code>fetchStringAsync</code> and <code>fetchImageAsync</code>, with an extra callback parameter at the end, see below for example.</p>
 <h3 id="example">Example<a class="headerlink" href="#example" title="Anchor link to this section for reference">#</a></h3>
 <div class="language-js highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/* GET request */</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">dataResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">HttpUtil</span><span class="p">.</span><span class="nx">fetchString</span><span class="p">(</span><span class="s2">&quot;https://api.modrinth.com/v2/project/minecraft-transit-railway&quot;</span><span class="p">);</span>
@@ -5460,14 +5484,17 @@
 </span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">   </span><span class="p">)</span>
 </span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="p">});</span>
 </span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>
-</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="cm">/* GET request (image) */</span>
-</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="kd">let</span><span class="w"> </span><span class="nx">onlineImageResp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Networking</span><span class="p">.</span><span class="nx">fetchImage</span><span class="p">(</span><span class="s2">&quot;https://wiki.minecrafttransitrailway.com/_media/wiki:logo.png&quot;</span><span class="p">);</span>
-</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="kd">let</span><span class="w"> </span><span class="nx">onlineImage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">onlineImageResp</span><span class="p">.</span><span class="nx">getData</span><span class="p">();</span>
-</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>
-</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="p">...</span><span class="w"> </span><span class="p">(</span><span class="nx">AWT</span><span class="w"> </span><span class="nx">code</span><span class="p">)</span>
-</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="k">if</span><span class="p">(</span><span class="nx">onlineImage</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">    </span><span class="nx">g</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">onlineImage</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
-</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="p">}</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="cm">/* GET request (image w/ async) */</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="kd">let</span><span class="w"> </span><span class="nx">onlineImage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="kd">let</span><span class="w"> </span><span class="nx">onlineImageResp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Networking</span><span class="p">.</span><span class="nx">fetchImageAsync</span><span class="p">(</span><span class="s2">&quot;https://wiki.minecrafttransitrailway.com/_media/wiki:logo.png&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">onlineImageResp</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">    </span><span class="c1">// Note: Invoked in the background network thread.</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">    </span><span class="nx">onlineImage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">onlineImageResp</span><span class="p">.</span><span class="nx">getData</span><span class="p">();</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="p">});</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="p">...</span><span class="w"> </span><span class="p">(</span><span class="nx">AWT</span><span class="w"> </span><span class="nx">code</span><span class="p">)</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="k">if</span><span class="p">(</span><span class="nx">onlineImage</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">    </span><span class="nx">g</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">onlineImage</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="p">}</span>
 </span></code></pre></div>
 <h3 id="further-note">Further Note<a class="headerlink" href="#further-note" title="Anchor link to this section for reference">#</a></h3>
 <p>JCM always supplies a default <strong>User-Agent</strong> header with the value <code>Joban Client Mod (https://joban.org/jcm)</code>.</p>
