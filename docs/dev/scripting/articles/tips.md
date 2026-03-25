@@ -124,7 +124,4 @@ At least, good luck on avoiding "method not found" error! ^_^
 ## What JavaScript features are supported?
 The Rhino JavaScript Engine **does not support** all of the latest JavaScript features. See [Mozilla's documentation](https://mozilla.github.io/rhino/compat/engines.html) for details on what is supported.
 
-- **For Minecraft 1.17+**, JCM uses Rhino **1.8.0** with the `VERSION_ES6` flag enabled.
-- **For Minecraft 1.16.5**, JCM uses Rhino **1.7.15** with the `VERSION_ES6` flag enabled.
-
-Note that Rhino 1.8 brings many improved JS capabilities. Unless you have a specific requirement to run your script on Minecraft 1.16.5, you shouldn't feel restrained/put off in making use of these new features in the name of compatibility.
+JCM uses Rhino version **1.9.0**. (NTE uses Rhino **1.7.15** with the `VERSION_ES6` flag enabled.)

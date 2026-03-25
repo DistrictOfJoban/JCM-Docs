@@ -32,6 +32,9 @@ This is a **JavaScript Object** that specifies connection-related details.
 |<code>NetworkResponse.exception(): Exception \| null</code>|Returns the relevant java exception if the request failed.<br>Null if the request succeeded (`NetworkResponse.success()`)|
 |`NetworkResponse.getHeaders(): Map<String, List<String>>`|Obtain the headers in the HTTP response|
 
+### Async variants
+For the above functions, a non-blocking async variant is available in the form of `fetchStringAsync` and `fetchImageAsync`, with an extra callback parameter at the end, see below for example.
+
 ### Example
 ``` js
 /* GET request */
@@ -64,9 +67,12 @@ let dataResponse = Networking.fetchString("https://localhost:7171", {
    )
 });
 
-/* GET request (image) */
-let onlineImageResp = Networking.fetchImage("https://wiki.minecrafttransitrailway.com/_media/wiki:logo.png");
-let onlineImage = onlineImageResp.getData();
+/* GET request (image w/ async) */
+let onlineImage = null;
+let onlineImageResp = Networking.fetchImageAsync("https://wiki.minecrafttransitrailway.com/_media/wiki:logo.png", (onlineImageResp) => {
+    // Note: Invoked in the background network thread.
+    onlineImage = onlineImageResp.getData();
+});
 
 ... (AWT code)
 if(onlineImage != null) {
