@@ -98,6 +98,8 @@ This would return a string formatted like: `2.0.0-beta.5`
 |`PIDSScriptContext.setDebugInfo(key: string, value: object)`|Output debugging information in the upper left corner of the screen. You need to enable **[Script Debug Overlay](../../articles/script_debug_overlay.md)** in JCM Settings to display it.<br>`key` is the name of the value<br>`value` is the content (`value` will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).|
 |`PIDSScriptContext.getRenderManager(): RenderManager`|Obtain a [RenderManager](../../rendering.md#rendermanager) instance, which can be used to render stuff onto the Minecraft World.<br>The base position are set to the block's position.|
 |`PIDSScriptContext.getSoundManager(): SoundManager`|Obtain a [SoundManager](../../sounds.md) instance, which can be used to play sound onto the Minecraft World.<br>The base position are set to the block's position.|
+|`PIDSScriptContext.setAutoZOrdering(autoZOrdering: boolean): void`|To ensure z-fighting don't occur, by default JCM will translate a small amount (step) in the z-direction everytime you draw a text/texture. You can turn this behaviour off by setting autoZOrdering to false, then you can use `Text/Texture#zOrder(order: number)` to control the z-order manually|
+|`PIDSScriptContext.setZOrderStep(distanceMeter: number): void`|To ensure z-fighting don't occur, by default JCM will translate a small amount (step) in the z-direction everytime you draw a text/texture. Here you can pass in a custom step value. By default this is `0.0002`|
 
 ##### Text
 |Functions And Objects|Description|
@@ -122,6 +124,7 @@ This would return a string formatted like: `2.0.0-beta.5`
 |`Text.font(id: string): Text`<br>`Text.font(id: Identifier): Text`|Set the font by it's ID. Defaults to `mtr:mtr`<br>The font should be loaded in Minecraft via the font json format.<br>This does not have any effect if **Use Custom MTR Font** is disabled in MTR mod's Config.|
 |`Text.color(color: number): Text`|Set the text color, in RGB format.|
 |`Text.draw(ctx: PIDSScriptContext): void`|Mark the text as something that should be rendered to the PIDS.|
+|`Text.zOrder(order: number): Text`|Specify the z-order manually.|
 
 ##### Texture
 |Functions And Objects|Description|
@@ -134,6 +137,7 @@ This would return a string formatted like: `2.0.0-beta.5`
 |`Texture.uv(u2: number, v2: number): Texture`<br>`Texture.uv(u1: number, v1: number, u2: number, v2: number): Texture`|Set the UV coordinates|
 |`Texture.matrices(matrices: Matrices): Texture`|Apply a [matrices](../../math.md#matrices) to the current texture object|
 |`Texture.draw(ctx: PIDSScriptContext): void`|Mark the texture as something that should be rendered to the PIDS.|
+|`Texture.zOrder(order: number): Texture`|Specify the z-order manually.|
 
 #### PIDS Object Related
 
