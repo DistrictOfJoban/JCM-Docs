@@ -225,5 +225,3 @@ nav:
         - Project Structure: contributing/project/project_structure.md
         - Code Guidelines: contributing/project/code_guidelines.md
         - Introduction to Multiversion: contributing/project/multiversion_development.md
-    - For Nerds:
-      - NeoJCM: nerds/neojcm.md
