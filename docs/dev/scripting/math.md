@@ -10,6 +10,7 @@ A three-dimensional vector, that is, the coordinates (x, y, z).
 |Functions|Description|
 |:--------|:----------|
 |`new Vector3f(x: float, y: float, z: float)`|Creates an instance of the Vector3f class. |
+|`new Vector3f(tscVec: Vector)`|Creates an instance of the Vector3f class from a `Vector` (From MTR's Transport Simulation Core). |
 |`Vector3f.x(): float`|Returns the X coordinate|
 |`Vector3f.y(): float`|Returns the Y coordinate|
 |`Vector3f.z(): float`|Returns the Z coordinate|

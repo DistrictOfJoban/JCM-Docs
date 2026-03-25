@@ -6,9 +6,9 @@ If the HTTP request fails, an error will be thrown. Consider using `try/catch` b
 
 |Functions|Description|
 |:--------|:----------|
-|`static Networking.fetchString(url: string): NetworkResponse<String>`|Fetch plain text content from the corresponding URL|
+|`static Networking.fetchString(url: string): NetworkResponse<String>`|Fetch plain text content from the corresponding URL.|
 |`static Networking.fetchString(url: string, requestOption: RequestOption): NetworkResponse<String>`|Fetch plain text content from the corresponding URL, with the request option applied. (See below for RequestOption)|
-|`static Networking.fetchImage(url: string): NetworkResponse<BufferedImage>`|Fetch image from the corresponding URL|
+|`static Networking.fetchImage(url: string): NetworkResponse<BufferedImage>`|Fetch image from the corresponding URL.|
 |`static Networking.fetchImage(url: string, requestOption: RequestOption): NetworkResponse<BufferedImage>`|Fetch image from the corresponding URL, with the request option applied. (See below for RequestOption)|
 
 ### RequestOption
