@@ -4141,6 +4141,8 @@
       
         
       
+        
+      
     
     
     
@@ -4183,6 +4185,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../console/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Console API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -4350,10 +4380,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4_7" >
         
           
-          <label class="md-nav__link" for="__nav_3_2_4_6" id="__nav_3_2_4_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_2_4_7" id="__nav_3_2_4_7_label" tabindex="0">
             
   
   
@@ -4371,8 +4401,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_4_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2_4_6">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_4_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -5308,12 +5338,20 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 <td style="text-align: left;">Output debugging information in the upper left corner of the screen. You need to enable <strong><a href="../../articles/script_debug_overlay/">Script Debug Overlay</a></strong> in JCM Settings to display it.<br><code>key</code> is the name of the value<br><code>value</code> is the content (<code>value</code> will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>PIDSScriptContext.renderManager(): RenderManager</code></td>
+<td style="text-align: left;"><code>PIDSScriptContext.getRenderManager(): RenderManager</code></td>
 <td style="text-align: left;">Obtain a <a href="../../rendering/#rendermanager">RenderManager</a> instance, which can be used to render stuff onto the Minecraft World.<br>The base position are set to the block's position.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>PIDSScriptContext.soundManager(): SoundManager</code></td>
+<td style="text-align: left;"><code>PIDSScriptContext.getSoundManager(): SoundManager</code></td>
 <td style="text-align: left;">Obtain a <a href="../../sounds/">SoundManager</a> instance, which can be used to play sound onto the Minecraft World.<br>The base position are set to the block's position.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PIDSScriptContext.setAutoZOrdering(autoZOrdering: boolean): void</code></td>
+<td style="text-align: left;">To ensure z-fighting don't occur, by default JCM will translate a small amount (step) in the z-direction everytime you draw a text/texture. You can turn this behaviour off by setting autoZOrdering to false, then you can use <code>Text/Texture#zOrder(order: number)</code> to control the z-order manually</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PIDSScriptContext.setZOrderStep(distanceMeter: number): void</code></td>
+<td style="text-align: left;">To ensure z-fighting don't occur, by default JCM will translate a small amount (step) in the z-direction everytime you draw a text/texture. Here you can pass in a custom step value. By default this is <code>0.0002</code></td>
 </tr>
 </tbody>
 </table>
@@ -5406,6 +5444,10 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 <td style="text-align: left;"><code>Text.draw(ctx: PIDSScriptContext): void</code></td>
 <td style="text-align: left;">Mark the text as something that should be rendered to the PIDS.</td>
 </tr>
+<tr>
+<td style="text-align: left;"><code>Text.zOrder(order: number): Text</code></td>
+<td style="text-align: left;">Specify the z-order manually.</td>
+</tr>
 </tbody>
 </table>
 <h5 id="texture">Texture<a class="headerlink" href="#texture" title="Anchor link to this section for reference">#</a></h5>
@@ -5448,6 +5490,10 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 <tr>
 <td style="text-align: left;"><code>Texture.draw(ctx: PIDSScriptContext): void</code></td>
 <td style="text-align: left;">Mark the texture as something that should be rendered to the PIDS.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Texture.zOrder(order: number): Texture</code></td>
+<td style="text-align: left;">Specify the z-order manually.</td>
 </tr>
 </tbody>
 </table>

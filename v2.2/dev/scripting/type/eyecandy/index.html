@@ -4141,6 +4141,8 @@
       
         
       
+        
+      
     
     
     
@@ -4183,6 +4185,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../console/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Console API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -4350,10 +4380,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4_7" >
         
           
-          <label class="md-nav__link" for="__nav_3_2_4_6" id="__nav_3_2_4_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_2_4_7" id="__nav_3_2_4_7_label" tabindex="0">
             
   
   
@@ -4371,8 +4401,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_4_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2_4_6">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_4_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -5189,7 +5219,7 @@
 <summary>Mixing static object model &amp; scripts</summary>
 <p>Currently it is not possible to mix static object model and scripts. Once a script entry is specified, the rendering of the object block will be solely driven by scripts.</p>
 </details>
-<p>You can add the <code>scripting</code> block to your eyecandy object entry:</p>
+<p>You can define your script entry in the <code>objectScripts</code> array, and reference it with <code>scriptId</code> within your object:</p>
 <div class="language-json highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">mtr_custom_resources.json</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
@@ -5214,19 +5244,19 @@
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nte_lcd&quot;</span><span class="p">,</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NTE LCD Test&quot;</span><span class="p">,</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="hll"><span class="w">            </span><span class="nt">&quot;scriptId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my_script_entry_1&quot;</span>
-</span></span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="hll"><span class="w">        </span><span class="p">}</span>
-</span></span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="hll"><span class="w">    </span><span class="p">],</span>
-</span></span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="hll"><span class="w">    </span><span class="nt">&quot;objectScripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span></span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">    </span><span class="p">],</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="hll"><span class="w">    </span><span class="nt">&quot;objectScripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 </span></span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="hll"><span class="w">        </span><span class="p">{</span>
 </span></span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="hll"><span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my_script_entry_1&quot;</span><span class="p">,</span>
 </span></span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="hll"><span class="w">            </span><span class="nt">&quot;prependExpressions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;print(&#39;Hello world&#39;)&quot;</span><span class="p">],</span>
-</span></span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">            </span><span class="nt">&quot;scriptLocations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;mtrsteamloco:eyecandies/js/nte_lcd_test/main.js&quot;</span><span class="p">],</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">            </span><span class="nt">&quot;input&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">                </span><span class="nt">&quot;ksDay&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;514&quot;</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">            </span><span class="p">}</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">    </span><span class="p">]</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="p">}</span>
+</span></span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="hll"><span class="w">            </span><span class="nt">&quot;scriptLocations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;mtrsteamloco:eyecandies/js/nte_lcd_test/main.js&quot;</span><span class="p">],</span>
+</span></span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="hll"><span class="w">            </span><span class="nt">&quot;input&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span></span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="hll"><span class="w">                </span><span class="nt">&quot;ksDay&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;514&quot;</span>
+</span></span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="hll"><span class="w">            </span><span class="p">}</span>
+</span></span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="hll"><span class="w">        </span><span class="p">}</span>
+</span></span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="hll"><span class="w">    </span><span class="p">]</span>
+</span></span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Field description within the <code>scripting</code> block are listed as follows:</p>
 <table>
@@ -5366,11 +5396,11 @@
 <td style="text-align: left;">Output debugging information in the upper left corner of the screen. You need to enable <strong><a href="../../articles/script_debug_overlay/">Script Debug Overlay</a></strong> in JCM Settings to display it.<br><code>key</code> is the name of the value<br><code>value</code> is the content (<code>value</code> will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>EyeCandyScriptContext.renderManager(): RenderManager</code></td>
+<td style="text-align: left;"><code>EyeCandyScriptContext.getRenderManager(): RenderManager</code></td>
 <td style="text-align: left;">Obtain a <a href="../../rendering/#rendermanager">RenderManager</a> instance, which can be used to render stuff onto the Minecraft World.<br>The base position are set to the block's position + translated position.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>EyeCandyScriptContext.soundManager(): SoundManager</code></td>
+<td style="text-align: left;"><code>EyeCandyScriptContext.getSoundManager(): SoundManager</code></td>
 <td style="text-align: left;">Obtain a <a href="../../sounds/">SoundManager</a> instance, which can be used to play sound onto the Minecraft World.<br>The base position are set to the block's position.</td>
 </tr>
 <tr>

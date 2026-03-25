@@ -4137,6 +4137,8 @@
       
         
       
+        
+      
     
     
     
@@ -4179,6 +4181,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="console/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Console API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -4346,10 +4376,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4_7" >
         
           
-          <label class="md-nav__link" for="__nav_3_2_4_6" id="__nav_3_2_4_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_2_4_7" id="__nav_3_2_4_7_label" tabindex="0">
             
   
   
@@ -4367,8 +4397,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_4_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2_4_6">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_4_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -5199,16 +5229,17 @@ One may consider this as an unofficial continuation of the scripting feature in 
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="eyecandy-scripting" name="__tabbed_1" type="radio" /><input id="pids-scripting" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="eyecandy-scripting">Eyecandy Scripting</label><label for="pids-scripting">PIDS Scripting</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-js highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">poleModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ModelManager</span><span class="p">.</span><span class="nx">loadModel</span><span class="p">(</span><span class="nx">Resources</span><span class="p">.</span><span class="nx">id</span><span class="p">(</span><span class="s2">&quot;mtr:example/pole.obj&quot;</span><span class="p">),</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kd">function</span><span class="w"> </span><span class="nx">render</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">eyecandyBlockEntity</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="c1">// Define draw call to submit</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">modelDrawCall</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ModelDrawCall</span><span class="p">.</span><span class="nx">create</span><span class="p">()</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="p">.</span><span class="nx">modelObject</span><span class="p">(</span><span class="nx">poleModel</span><span class="p">)</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="c1">// Render pole model</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">renderManager</span><span class="p">().</span><span class="nx">queue</span><span class="p">(</span><span class="nx">modelDrawCall</span><span class="p">);</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">}</span>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">poleModelData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ModelManager</span><span class="p">.</span><span class="nx">loadRawModel</span><span class="p">(</span><span class="nx">Resources</span><span class="p">.</span><span class="nx">id</span><span class="p">(</span><span class="s2">&quot;mtr:example/pole.obj&quot;</span><span class="p">),</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">poleModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ModelManager</span><span class="p">.</span><span class="nx">upload</span><span class="p">(</span><span class="nx">poleModelData</span><span class="p">);</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kd">function</span><span class="w"> </span><span class="nx">render</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">eyecandyBlockEntity</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="c1">// Define draw call to submit</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">modelDrawCall</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ModelDrawCall</span><span class="p">.</span><span class="nx">create</span><span class="p">()</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="p">.</span><span class="nx">modelObject</span><span class="p">(</span><span class="nx">poleModel</span><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="c1">// Render pole model</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">getRenderManager</span><span class="p">().</span><span class="nx">queue</span><span class="p">(</span><span class="nx">modelDrawCall</span><span class="p">);</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -5234,7 +5265,7 @@ One may consider this as an unofficial continuation of the scripting feature in 
 <p>JCM Scripting is a foundation to serve different types of scripting. The use case and possibilities of scripts is defined by the different type of scripting available.</p>
 </details>
 <h3 id="available-script-types">Available Script Types<a class="headerlink" href="#available-script-types" title="Anchor link to this section for reference">#</a></h3>
-<p>JCM currently provides 2 (functional) script types out of the box.</p>
+<p>JCM currently provides 3 (functional) script types out of the box.</p>
 <p>If you are looking to <em>get started</em> on scripting, check out the script types below to see more details.<br />
 <em>Otherwise if you would like to learn more about how scripting in JCM works, keep on reading!</em></p>
 <table>
@@ -5242,10 +5273,15 @@ One may consider this as an unofficial continuation of the scripting feature in 
 <tr>
 <th>Type</th>
 <th>Description</th>
-<th>Source</th>
+<th>Provider</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="./type/vehicle/index.md">Vehicle Scripting</a></td>
+<td>This allows scripts to render 3d models/quads, as well as playing sounds for an MTR vehicle.</td>
+<td>MTR (via JCM)</td>
+</tr>
 <tr>
 <td><a href="type/eyecandy/">Eyecandy Scripting</a></td>
 <td>This allows scripts to render 3d models/quads, as well as playing sounds on an MTR Decoration Object</td>
@@ -5269,8 +5305,9 @@ One may consider this as an unofficial continuation of the scripting feature in 
 <p>This rest of this article assumes that you have a basic understanding of JavaScript and JavaScript types, so it won't delve into the basic syntax and other aspects of it here.</p>
 <p>You can learn JavaScript from resources on the web, such as <a href="https://javascript.info/">here</a>.</p>
 <h3 id="the-nature-of-scripting-in-jcm">The Nature of Scripting in JCM<a class="headerlink" href="#the-nature-of-scripting-in-jcm" title="Anchor link to this section for reference">#</a></h3>
-<p>While JavaScript is commonly associated with webpages or even server applications (via Node.js), JCM's implementation of JavaScript only utilize the base language itself.</p>
-<p>As such, this means that you only really need to care about the syntax (e.g. Variable &amp; Function Declaration, conditional logic) as well as base object such as <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>. Other stuff such as <abbr title="Hyper Text Markup Language">HTML</abbr>/CSS/DOM manipulation <u>does not apply</u> to JCM Scripting.</p>
+<p>While <abbr title="JavaScript">JS</abbr> is commonly associated with web development or even server applications (e.g. Node.js), JCM's implementation usage of <abbr title="JavaScript">JS</abbr> only utilize the base language itself.</p>
+<p>As such, this means that you only really need to care about the syntax (e.g. Variable &amp; Function Declaration, conditional logic) as well as some base object such as <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>.</p>
+<p>Other stuff such as <abbr title="Hyper Text Markup Language">HTML</abbr>/CSS/DOM manipulation <u>is not applicable</u> to JCM Scripting.</p>
 <p>Keep that in mind, as IDE (Such as Visual Studio Code) may assume you are developing for a webpage and provides suggestions that are not applicable to JCM/NTE scripting!</p>
 <h4 id="faqs">FAQs<a class="headerlink" href="#faqs" title="Anchor link to this section for reference">#</a></h4>
 <details class="question">
@@ -5279,48 +5316,71 @@ One may consider this as an unofficial continuation of the scripting feature in 
 </details>
 <details class="question">
 <summary>But can I use Java in JavaScript?</summary>
-<p>Under normal circumstances, no.</p>
-<p><em>However</em> the JavaScript Engine that JCM/NTE uses, <strong>Rhino</strong>, <em>do</em> allow using classes from the standard Java library as <code>java.package.name</code>.</p>
+<p>This would not be the case under normal circumstances, as these 2 are different languages.</p>
+<p><em>However</em> the JavaScript Engine that JCM/NTE uses, <strong>Rhino</strong>, is based on Java, and it <em>does</em> contain interoperability with java classes/packages via a feature called LiveConnect. In practice it means you can invoke methods like they are <abbr title="JavaScript">JS</abbr> functions.</p>
 </details>
 <h3 id="script-flow">Script Flow<a class="headerlink" href="#script-flow" title="Anchor link to this section for reference">#</a></h3>
-<h4 id="initial-parsing">Initial Parsing<a class="headerlink" href="#initial-parsing" title="Anchor link to this section for reference">#</a></h4>
-<p>Instead of each train or block having it's own script instance, your <abbr title="JavaScript">JS</abbr> scripts are parsed (Or rather, executed) <strong>once</strong> during the resource pack loading.</p>
-<p>Your script are expected to have functions with specific name (e.g. <code>create()</code>, <code>render()</code>, <code>dispose()</code>).</p>
-<p>These functions will be invoked by JCM/NTE with the parameter corresponding to a specific train/eyecandy/object, including a parameter (<strong>state</strong>) where you can store variables to that specific train.</p>
-<p>Consider the following example of scripting applied to a train:</p>
-<p><div class="language-js highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">displaySpeed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kd">function</span><span class="w"> </span><span class="nx">create</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">train</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">     </span><span class="nx">state</span><span class="p">.</span><span class="nx">displaySpeed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.75</span><span class="p">;</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="kd">function</span><span class="w"> </span><span class="nx">render</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">train</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">     </span><span class="nx">state</span><span class="p">.</span><span class="nx">displaySpeed</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Increment 1</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">     </span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;dp: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">state</span><span class="p">.</span><span class="nx">displaySpeed</span><span class="p">);</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">}</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="kd">function</span><span class="w"> </span><span class="nx">dispose</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">train</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">}</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="nx">print</span><span class="p">(</span><span class="nx">displaySpeed</span><span class="p">);</span>
-</span></code></pre></div>
-An example output would be:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>1 // The print(displaySpeed) located at the bottom of the script, as the entire script is executed once during resource reload
+<h4 id="parsingloading-phase">Parsing/Loading Phase<a class="headerlink" href="#parsingloading-phase" title="Anchor link to this section for reference">#</a></h4>
+<p>When the game begins to reload it's resource pack (Usually when the game is starting for the first time, or an F3+T instantiation/change of resource pack), JCM will start parsing/executing your <abbr title="JavaScript">JS</abbr> script once.</p>
+<p>Your script are expected to have functions with specific name (i.e. <code>create()</code>, <code>render()</code>, <code>dispose()</code>).</p>
+<p>After your script has been executed once, JCM will capture the above functions internally (if found) to save them for later invocation in the Runtime Phase.</p>
+<h4 id="runtime-phase">Runtime Phase<a class="headerlink" href="#runtime-phase" title="Anchor link to this section for reference">#</a></h4>
+<p>In runtime, JCM will try to invoke the above 3 functions (create, render, dispose) as deemed appropriate. (Usually every frame for <code>render</code>, <code>create</code> on first render, and <code>dispose</code> when script should no longer be executed)</p>
+<p>When calling the 3 functions above, 3 parameters will be provided: <code>ctx, state, wrapper</code>.</p>
+<ul>
+<li>The <code>ctx</code> variable is the Context object, and is used primarily for action (Such as performing rendering). (Different for each script types)</li>
+<li>The <code>state</code> variable is a standard <abbr title="JavaScript">JS</abbr> object which you can put any variable in, and they will be "remembered" for each instance. (e.g. For each vehicle)</li>
+<li>The <code>wrapper</code> variable is a read-only object to give you information. For example in <strong>Vehicle Scripting</strong>, the <code>wrapper</code> object is a <code>Vehicle</code>, which you may query various things such as the current vehicle speed, doors value etc. (Different for each script types)</li>
+</ul>
+<p>This means that when you have, say 2 vehicles in view, your <code>render()</code> function will be called twice, and the <code>ctx, state, wrapper</code> all pertains to different vehicles.</p>
+<p>An example demonstrating loading and runtime phase is as follows:</p>
+<p><div class="language-js highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">displaySpeed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Loading Phase</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="kd">function</span><span class="w"> </span><span class="nx">create</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">train</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">     </span><span class="nx">state</span><span class="p">.</span><span class="nx">displaySpeed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.75</span><span class="p">;</span><span class="w"> </span><span class="c1">// Runtime Phase</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="p">}</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="kd">function</span><span class="w"> </span><span class="nx">render</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">train</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">     </span><span class="nx">state</span><span class="p">.</span><span class="nx">displaySpeed</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Runtime Phase</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">     </span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;dp: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">state</span><span class="p">.</span><span class="nx">displaySpeed</span><span class="p">);</span><span class="w"> </span><span class="c1">// Runtime Phase</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="p">}</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11"></a>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="kd">function</span><span class="w"> </span><span class="nx">dispose</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">train</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="p">}</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14"></a>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="nx">print</span><span class="p">(</span><span class="nx">displaySpeed</span><span class="p">);</span><span class="w"> </span><span class="c1">// Loading Phase</span>
+</span></code></pre></div></td></tr></table></div>
+An example console output of the above code:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>1 // Executed in loading phase (Line 15)
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>/* Join games, Train A enters into view */
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>/* Join games, vehicle A enters into view */
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>dp: 1.75 // Train A rendering
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>dp: 2.75 // Train A rendering
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>dp: 1.75 // vehicle A rendering (Line 9)
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>dp: 2.75 // vehicle A rendering (Line 9)
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>// Assume Train B now enters the view, alongside Train A
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>// Assume vehicle B now enters the view, alongside vehicle A
 </span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>dp: 3.75 // Train A rendering
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>dp: 1.75 // Train B rendering
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>dp: 3.75 // vehicle A rendering (Line 9)
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>dp: 1.75 // vehicle B rendering (Line 9)
 </span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>dp: 4.75 // Train A rendering
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>dp: 2.75 // Train B rendering
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>dp: 4.75 // vehicle A rendering (Line 9)
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>dp: 2.75 // vehicle B rendering (Line 9)
 </span></code></pre></div></p>
-<h4 id="execution">Execution<a class="headerlink" href="#execution" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="runtime-phase-flowd">Runtime Phase (Flow)d<a class="headerlink" href="#runtime-phase-flowd" title="Anchor link to this section for reference">#</a></h4>
 <p>An example flow is available below. This chart assumes the player is running Minecraft at 13fps (For simplicity sake), which means 13 frames in 1 second.</p>
 <p><img alt="JCM Script Execution Example" src="img/JCM_Script_Execution_Example.png" /></p>
 <p>Immediately you may have noticed the following thing:</p>
@@ -5341,7 +5401,7 @@ An example output would be:
 <h3 id="errors">Errors<a class="headerlink" href="#errors" title="Anchor link to this section for reference">#</a></h3>
 <div class="admonition note inline end">
 <p class="admonition-title">Note</p>
-<p>Script errors are currently not displayed within the game (Like NTE had with debug mode), you need to check for errors in the game log, usually accessible by your launcher</p>
+<p>Script errors in the Loading Phase are not currently displayed within the game (Like NTE had with debug mode), you need to check for errors in the game log, usually accessible by your launcher</p>
 </div>
 <p>If the script is executed incorrectly, an error will be reported in the Minecraft log (Starting with <code>[Scripting] Error executing script!</code>).</p>
 <p>The error message will indicate which line of code in which script file the error occurred. Most launchers have the ability to display logs in a separate window in real time.</p>

@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://jcm.joban.org/v2.2/players/blocks/tml_emg_stop_button/">
+        <link rel="canonical" href="https://jcm.joban.org/v2.2/dev/scripting/console/">
       
       
-        <link rel="prev" href="../tcl_emg_stop_button/">
+        <link rel="prev" href="../articles/tips/">
       
       
-        <link rel="next" href="../sil_emg_stop_button/">
+        <link rel="next" href="../resources/">
       
       
         
@@ -25,11 +25,10 @@
     
     
       
-        <title>Emergency stop button (TML) - Joban Client Mod</title>
+        <title>Console API - Joban Client Mod</title>
       
     
     
-  
       <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
@@ -39,80 +38,6 @@
 
 
     
-
-  <style>
-    .jcm-infobox {
-        border: 1px solid #aaa;
-        float: right;
-        margin: 0 0 1rem 1rem;
-        padding: .75rem;
-        border-radius: .3rem;
-        max-width: 14rem;
-    }
-    .jcm-infobox .title {
-        font-size: 1.15rem;
-        text-align: center;
-        margin: auto;
-        max-width: 16rem;
-    }
-    .jcm-infobox .image {
-        margin: auto;
-        text-align: center;
-    }
-    .jcm-infobox .imgdesc {
-        font-size: 0.6rem;
-        text-align: center;
-        color: gray;
-    }
-    .jcm-infobox .category {
-        text-align: center;
-        background-color: rgba(128, 128, 128, 0.25);
-        font-weight: 500;
-        border-radius: .15rem;
-        width: 100%;
-    }
-    .md-typeset .jcm-infobox table {
-        border: none;
-        display: table;
-        table-layout: fixed;
-    }
-    .jcm-infobox .md-typeset__scrollwrap {
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-    .jcm-infobox th {
-        font-size: 14px;
-        text-align: left;
-        vertical-align: top;
-        width: 90px;
-    }
-    
-    .jcm-infobox td {
-        font-size: 14px;
-        vertical-align: top;
-        border: none !important;
-        padding: 0.2rem 0.3rem !important;
-    }
-
-    .jcm-infobox td:nth-child(1) {
-        font-weight: 500;
-        width: 35%;
-    }
-
-    .jcm-infobox table {
-        margin-top: 0px;
-    }
-
-    @media screen and (max-width: 600px) {
-      .jcm-infobox {
-        float: none;
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-      }
-    }
-  </style>
-
     
       
     
@@ -155,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#usage" class="md-skip">
+        <a href="#unsupported-features" class="md-skip">
           Skip to content
         </a>
       
@@ -204,7 +129,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Emergency stop button (TML)
+              Console API
             
           </span>
         </div>
@@ -332,8 +257,6 @@
   
   
   
-    
-  
   
     
     
@@ -341,13 +264,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../players/" class="md-tabs__link">
           
   
   
@@ -368,6 +289,8 @@
   
   
   
+    
+  
   
     
     
@@ -375,11 +298,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../dev/pids/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../pids/" class="md-tabs__link">
           
   
   
@@ -493,10 +418,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -512,20 +435,17 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   
@@ -543,7 +463,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -586,7 +506,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../../players/" class="md-nav__link ">
               
   
   
@@ -630,7 +550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../download/" class="md-nav__link">
+      <a href="../../../players/download/" class="md-nav__link">
         
   
   
@@ -658,7 +578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../jcmv2/" class="md-nav__link">
+      <a href="../../../players/jcmv2/" class="md-nav__link">
         
   
   
@@ -752,7 +672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/jcm-pids/" class="md-nav__link">
+      <a href="../../../players/features/jcm-pids/" class="md-nav__link">
         
   
   
@@ -780,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/tunnel/" class="md-nav__link">
+      <a href="../../../players/features/tunnel/" class="md-nav__link">
         
   
   
@@ -808,7 +728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/mod-integrations/" class="md-nav__link">
+      <a href="../../../players/features/mod-integrations/" class="md-nav__link">
         
   
   
@@ -841,8 +761,6 @@
                 
   
   
-    
-  
   
   
     
@@ -963,15 +881,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../../players/blocks/" class="md-nav__link ">
               
   
   
@@ -995,7 +913,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1015,7 +933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../auto_iron_door/" class="md-nav__link">
+      <a href="../../../players/blocks/auto_iron_door/" class="md-nav__link">
         
   
   
@@ -1043,7 +961,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../buffer_stop/" class="md-nav__link">
+      <a href="../../../players/blocks/buffer_stop/" class="md-nav__link">
         
   
   
@@ -1071,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../butterfly_light/" class="md-nav__link">
+      <a href="../../../players/blocks/butterfly_light/" class="md-nav__link">
         
   
   
@@ -1099,7 +1017,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ceiling_45/" class="md-nav__link">
+      <a href="../../../players/blocks/ceiling_45/" class="md-nav__link">
         
   
   
@@ -1127,7 +1045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../circle_walls/" class="md-nav__link">
+      <a href="../../../players/blocks/circle_walls/" class="md-nav__link">
         
   
   
@@ -1155,7 +1073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../departure_pole/" class="md-nav__link">
+      <a href="../../../players/blocks/departure_pole/" class="md-nav__link">
         
   
   
@@ -1183,7 +1101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../departure_timer/" class="md-nav__link">
+      <a href="../../../players/blocks/departure_timer/" class="md-nav__link">
         
   
   
@@ -1211,7 +1129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../drl_apgs/" class="md-nav__link">
+      <a href="../../../players/blocks/drl_apgs/" class="md-nav__link">
         
   
   
@@ -1239,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tcl_emg_stop_button/" class="md-nav__link">
+      <a href="../../../players/blocks/tcl_emg_stop_button/" class="md-nav__link">
         
   
   
@@ -1264,35 +1182,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Emergency stop button (TML)
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/tml_emg_stop_button/" class="md-nav__link">
         
   
   
@@ -1308,68 +1201,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Usage
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#crafting-recipe" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Crafting Recipe
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#block-states" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Block states
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#history" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        History
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1382,7 +1213,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sil_emg_stop_button/" class="md-nav__link">
+      <a href="../../../players/blocks/sil_emg_stop_button/" class="md-nav__link">
         
   
   
@@ -1410,7 +1241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mtr_enquiry_machine/" class="md-nav__link">
+      <a href="../../../players/blocks/mtr_enquiry_machine/" class="md-nav__link">
         
   
   
@@ -1438,7 +1269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rv_enquiry_machine/" class="md-nav__link">
+      <a href="../../../players/blocks/rv_enquiry_machine/" class="md-nav__link">
         
   
   
@@ -1466,7 +1297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mtr_enquiry_machine_wall/" class="md-nav__link">
+      <a href="../../../players/blocks/mtr_enquiry_machine_wall/" class="md-nav__link">
         
   
   
@@ -1494,7 +1325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kcr_enquiry_machine/" class="md-nav__link">
+      <a href="../../../players/blocks/kcr_enquiry_machine/" class="md-nav__link">
         
   
   
@@ -1522,7 +1353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../exit_signs/" class="md-nav__link">
+      <a href="../../../players/blocks/exit_signs/" class="md-nav__link">
         
   
   
@@ -1550,7 +1381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fare_saver/" class="md-nav__link">
+      <a href="../../../players/blocks/fare_saver/" class="md-nav__link">
         
   
   
@@ -1578,7 +1409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fire_alarm/" class="md-nav__link">
+      <a href="../../../players/blocks/fire_alarm/" class="md-nav__link">
         
   
   
@@ -1606,7 +1437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../helpline_1/" class="md-nav__link">
+      <a href="../../../players/blocks/helpline_1/" class="md-nav__link">
         
   
   
@@ -1634,7 +1465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../helpline_2/" class="md-nav__link">
+      <a href="../../../players/blocks/helpline_2/" class="md-nav__link">
         
   
   
@@ -1662,7 +1493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../helpline_hkwk/" class="md-nav__link">
+      <a href="../../../players/blocks/helpline_hkwk/" class="md-nav__link">
         
   
   
@@ -1690,7 +1521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../helpline_standing_eal/" class="md-nav__link">
+      <a href="../../../players/blocks/helpline_standing_eal/" class="md-nav__link">
         
   
   
@@ -1718,7 +1549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../helpline_standing_tkl/" class="md-nav__link">
+      <a href="../../../players/blocks/helpline_standing_tkl/" class="md-nav__link">
         
   
   
@@ -1746,7 +1577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../helpline_standing/" class="md-nav__link">
+      <a href="../../../players/blocks/helpline_standing/" class="md-nav__link">
         
   
   
@@ -1774,7 +1605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lrt_inter_car_barriers/" class="md-nav__link">
+      <a href="../../../players/blocks/lrt_inter_car_barriers/" class="md-nav__link">
         
   
   
@@ -1802,7 +1633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kcr_station_name_signs/" class="md-nav__link">
+      <a href="../../../players/blocks/kcr_station_name_signs/" class="md-nav__link">
         
   
   
@@ -1830,7 +1661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kcr_emg_stop_sign/" class="md-nav__link">
+      <a href="../../../players/blocks/kcr_emg_stop_sign/" class="md-nav__link">
         
   
   
@@ -1858,7 +1689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../light_lantern/" class="md-nav__link">
+      <a href="../../../players/blocks/light_lantern/" class="md-nav__link">
         
   
   
@@ -1886,7 +1717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../spot_lamp/" class="md-nav__link">
+      <a href="../../../players/blocks/spot_lamp/" class="md-nav__link">
         
   
   
@@ -1914,7 +1745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../light_source_block/" class="md-nav__link">
+      <a href="../../../players/blocks/light_source_block/" class="md-nav__link">
         
   
   
@@ -1942,7 +1773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mtr_stairs/" class="md-nav__link">
+      <a href="../../../players/blocks/mtr_stairs/" class="md-nav__link">
         
   
   
@@ -1970,7 +1801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../operator_button/" class="md-nav__link">
+      <a href="../../../players/blocks/operator_button/" class="md-nav__link">
         
   
   
@@ -1998,7 +1829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pids_1a/" class="md-nav__link">
+      <a href="../../../players/blocks/pids_1a/" class="md-nav__link">
         
   
   
@@ -2026,7 +1857,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lcd_pids/" class="md-nav__link">
+      <a href="../../../players/blocks/lcd_pids/" class="md-nav__link">
         
   
   
@@ -2054,7 +1885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rv_pids/" class="md-nav__link">
+      <a href="../../../players/blocks/rv_pids/" class="md-nav__link">
         
   
   
@@ -2082,7 +1913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rv_pids_sil_1/" class="md-nav__link">
+      <a href="../../../players/blocks/rv_pids_sil_1/" class="md-nav__link">
         
   
   
@@ -2110,7 +1941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rv_pids_sil_2/" class="md-nav__link">
+      <a href="../../../players/blocks/rv_pids_sil_2/" class="md-nav__link">
         
   
   
@@ -2138,7 +1969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rv_pids_pole/" class="md-nav__link">
+      <a href="../../../players/blocks/rv_pids_pole/" class="md-nav__link">
         
   
   
@@ -2166,7 +1997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pids_projector/" class="md-nav__link">
+      <a href="../../../players/blocks/pids_projector/" class="md-nav__link">
         
   
   
@@ -2194,7 +2025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../station_ceilings_wrl/" class="md-nav__link">
+      <a href="../../../players/blocks/station_ceilings_wrl/" class="md-nav__link">
         
   
   
@@ -2222,7 +2053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../station_ceiling_wrl_poles/" class="md-nav__link">
+      <a href="../../../players/blocks/station_ceiling_wrl_poles/" class="md-nav__link">
         
   
   
@@ -2250,7 +2081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../station_name_standing/" class="md-nav__link">
+      <a href="../../../players/blocks/station_name_standing/" class="md-nav__link">
         
   
   
@@ -2278,7 +2109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../static_signal_lights/" class="md-nav__link">
+      <a href="../../../players/blocks/static_signal_lights/" class="md-nav__link">
         
   
   
@@ -2306,7 +2137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../inverted_signal_lights/" class="md-nav__link">
+      <a href="../../../players/blocks/inverted_signal_lights/" class="md-nav__link">
         
   
   
@@ -2334,7 +2165,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sound_looper/" class="md-nav__link">
+      <a href="../../../players/blocks/sound_looper/" class="md-nav__link">
         
   
   
@@ -2362,7 +2193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../subsidy_machine/" class="md-nav__link">
+      <a href="../../../players/blocks/subsidy_machine/" class="md-nav__link">
         
   
   
@@ -2390,7 +2221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../train_model_e44/" class="md-nav__link">
+      <a href="../../../players/blocks/train_model_e44/" class="md-nav__link">
         
   
   
@@ -2418,7 +2249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../thales_ticket_barriers/" class="md-nav__link">
+      <a href="../../../players/blocks/thales_ticket_barriers/" class="md-nav__link">
         
   
   
@@ -2446,7 +2277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mtr_trespass_sign/" class="md-nav__link">
+      <a href="../../../players/blocks/mtr_trespass_sign/" class="md-nav__link">
         
   
   
@@ -2474,7 +2305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kcr_trespass_sign/" class="md-nav__link">
+      <a href="../../../players/blocks/kcr_trespass_sign/" class="md-nav__link">
         
   
   
@@ -2502,7 +2333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lrt_trespass_sign/" class="md-nav__link">
+      <a href="../../../players/blocks/lrt_trespass_sign/" class="md-nav__link">
         
   
   
@@ -2530,7 +2361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../water_machine/" class="md-nav__link">
+      <a href="../../../players/blocks/water_machine/" class="md-nav__link">
         
   
   
@@ -2647,7 +2478,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../versions/" class="md-nav__link ">
+            <a href="../../../players/versions/" class="md-nav__link ">
               
   
   
@@ -2691,7 +2522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.2.2/" class="md-nav__link">
+      <a href="../../../players/versions/v1.2.2/" class="md-nav__link">
         
   
   
@@ -2719,7 +2550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.2.1-hotfix-1/" class="md-nav__link">
+      <a href="../../../players/versions/v1.2.1-hotfix-1/" class="md-nav__link">
         
   
   
@@ -2747,7 +2578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.2.1/" class="md-nav__link">
+      <a href="../../../players/versions/v1.2.1/" class="md-nav__link">
         
   
   
@@ -2775,7 +2606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.2.0/" class="md-nav__link">
+      <a href="../../../players/versions/v1.2.0/" class="md-nav__link">
         
   
   
@@ -2803,7 +2634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.9/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.9/" class="md-nav__link">
         
   
   
@@ -2831,7 +2662,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.8/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.8/" class="md-nav__link">
         
   
   
@@ -2859,7 +2690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.7/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.7/" class="md-nav__link">
         
   
   
@@ -2887,7 +2718,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.6-hotfix-1/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.6-hotfix-1/" class="md-nav__link">
         
   
   
@@ -2915,7 +2746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.6/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.6/" class="md-nav__link">
         
   
   
@@ -2943,7 +2774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.5-hotfix-1/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.5-hotfix-1/" class="md-nav__link">
         
   
   
@@ -2971,7 +2802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.5/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.5/" class="md-nav__link">
         
   
   
@@ -2999,7 +2830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.4-hotfix-1/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.4-hotfix-1/" class="md-nav__link">
         
   
   
@@ -3027,7 +2858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.4/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.4/" class="md-nav__link">
         
   
   
@@ -3055,7 +2886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.3/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.3/" class="md-nav__link">
         
   
   
@@ -3083,7 +2914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.2/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.2/" class="md-nav__link">
         
   
   
@@ -3111,7 +2942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.1/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.1/" class="md-nav__link">
         
   
   
@@ -3139,7 +2970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.0a/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.0a/" class="md-nav__link">
         
   
   
@@ -3167,7 +2998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.0/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.0/" class="md-nav__link">
         
   
   
@@ -3195,7 +3026,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.9/" class="md-nav__link">
+      <a href="../../../players/versions/v1.0.9/" class="md-nav__link">
         
   
   
@@ -3223,7 +3054,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.8/" class="md-nav__link">
+      <a href="../../../players/versions/v1.0.8/" class="md-nav__link">
         
   
   
@@ -3251,7 +3082,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.7/" class="md-nav__link">
+      <a href="../../../players/versions/v1.0.7/" class="md-nav__link">
         
   
   
@@ -3279,7 +3110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.6/" class="md-nav__link">
+      <a href="../../../players/versions/v1.0.6/" class="md-nav__link">
         
   
   
@@ -3307,7 +3138,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.5a/" class="md-nav__link">
+      <a href="../../../players/versions/v1.0.5a/" class="md-nav__link">
         
   
   
@@ -3335,7 +3166,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.5/" class="md-nav__link">
+      <a href="../../../players/versions/v1.0.5/" class="md-nav__link">
         
   
   
@@ -3363,7 +3194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.4a/" class="md-nav__link">
+      <a href="../../../players/versions/v1.0.4a/" class="md-nav__link">
         
   
   
@@ -3391,7 +3222,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.4/" class="md-nav__link">
+      <a href="../../../players/versions/v1.0.4/" class="md-nav__link">
         
   
   
@@ -3419,7 +3250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.3/" class="md-nav__link">
+      <a href="../../../players/versions/v1.0.3/" class="md-nav__link">
         
   
   
@@ -3447,7 +3278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.2/" class="md-nav__link">
+      <a href="../../../players/versions/v1.0.2/" class="md-nav__link">
         
   
   
@@ -3475,7 +3306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.1/" class="md-nav__link">
+      <a href="../../../players/versions/v1.0.1/" class="md-nav__link">
         
   
   
@@ -3503,7 +3334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.0/" class="md-nav__link">
+      <a href="../../../players/versions/v1.0.0/" class="md-nav__link">
         
   
   
@@ -3543,8 +3374,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -3556,17 +3389,20 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -3584,7 +3420,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3627,7 +3463,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../dev/pids/" class="md-nav__link ">
+            <a href="../../pids/" class="md-nav__link ">
               
   
   
@@ -3671,7 +3507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/pids/json_preset/" class="md-nav__link">
+      <a href="../../pids/json_preset/" class="md-nav__link">
         
   
   
@@ -3699,7 +3535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/pids/scripted/" class="md-nav__link">
+      <a href="../../pids/scripted/" class="md-nav__link">
         
   
   
@@ -3732,6 +3568,8 @@
                 
   
   
+    
+  
   
   
     
@@ -3756,15 +3594,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../dev/scripting/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -3788,7 +3626,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3885,7 +3723,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../dev/scripting/type/eyecandy/" class="md-nav__link ">
+            <a href="../type/eyecandy/" class="md-nav__link ">
               
   
   
@@ -3955,7 +3793,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../dev/scripting/type/pids/" class="md-nav__link ">
+            <a href="../type/pids/" class="md-nav__link ">
               
   
   
@@ -3999,7 +3837,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/type/pids/tut/pids_tut/" class="md-nav__link">
+      <a href="../type/pids/tut/pids_tut/" class="md-nav__link">
         
   
   
@@ -4107,7 +3945,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/articles/script_guidelines/" class="md-nav__link">
+      <a href="../articles/script_guidelines/" class="md-nav__link">
         
   
   
@@ -4135,7 +3973,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/articles/nte_migration/" class="md-nav__link">
+      <a href="../articles/nte_migration/" class="md-nav__link">
         
   
   
@@ -4163,7 +4001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/articles/scripting_restrictions/" class="md-nav__link">
+      <a href="../articles/scripting_restrictions/" class="md-nav__link">
         
   
   
@@ -4191,7 +4029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/articles/script_quick_reload/" class="md-nav__link">
+      <a href="../articles/script_quick_reload/" class="md-nav__link">
         
   
   
@@ -4219,7 +4057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/articles/script_debug_overlay/" class="md-nav__link">
+      <a href="../articles/script_debug_overlay/" class="md-nav__link">
         
   
   
@@ -4247,7 +4085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/articles/tips/" class="md-nav__link">
+      <a href="../articles/tips/" class="md-nav__link">
         
   
   
@@ -4280,8 +4118,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -4308,11 +4148,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4" checked>
         
           
           <label class="md-nav__link" for="__nav_3_2_4" id="__nav_3_2_4_label" tabindex="0">
@@ -4333,7 +4173,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -4348,10 +4188,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../dev/scripting/console/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Console API
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -4367,6 +4232,57 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#unsupported-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unsupported features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4379,7 +4295,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/resources/" class="md-nav__link">
+      <a href="../resources/" class="md-nav__link">
         
   
   
@@ -4407,7 +4323,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/math/" class="md-nav__link">
+      <a href="../math/" class="md-nav__link">
         
   
   
@@ -4435,7 +4351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/dynamic_textures/" class="md-nav__link">
+      <a href="../dynamic_textures/" class="md-nav__link">
         
   
   
@@ -4463,7 +4379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/rendering/" class="md-nav__link">
+      <a href="../rendering/" class="md-nav__link">
         
   
   
@@ -4491,7 +4407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/sounds/" class="md-nav__link">
+      <a href="../sounds/" class="md-nav__link">
         
   
   
@@ -4577,7 +4493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/mc/" class="md-nav__link">
+      <a href="../mc/" class="md-nav__link">
         
   
   
@@ -4605,7 +4521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/files/" class="md-nav__link">
+      <a href="../files/" class="md-nav__link">
         
   
   
@@ -4633,7 +4549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/networking/" class="md-nav__link">
+      <a href="../networking/" class="md-nav__link">
         
   
   
@@ -4669,7 +4585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/utilities/" class="md-nav__link">
+      <a href="../utilities/" class="md-nav__link">
         
   
   
@@ -4759,7 +4675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/builtin/display_helper/" class="md-nav__link">
+      <a href="../builtin/display_helper/" class="md-nav__link">
         
   
   
@@ -5142,10 +5058,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
+  <a href="#unsupported-features" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Usage
+        Unsupported features
       
     </span>
   </a>
@@ -5153,10 +5069,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#crafting-recipe" class="md-nav__link">
+  <a href="#api-reference" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Crafting Recipe
+        API Reference
       
     </span>
   </a>
@@ -5164,21 +5080,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#block-states" class="md-nav__link">
+  <a href="#example" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Block states
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#history" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        History
+        Example
       
     </span>
   </a>
@@ -5233,10 +5138,10 @@
     
     
       <li class="md-path__item">
-        <a href="../../" class="md-path__link">
+        <a href="../../pids/" class="md-path__link">
           
   <span class="md-ellipsis">
-    For Players
+    For Content Authors
   </span>
 
         </a>
@@ -5257,7 +5162,25 @@
         <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    Blocks
+    Scripting
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    API Reference
   </span>
 
         </a>
@@ -5272,62 +5195,6 @@
               
               <article class="md-content__inner md-typeset">
                 
-
-<div class="jcm-infobox">
-  <h2 class="title">Emergency stop button (TML)</h2>
-  <div class="infobox image"><img src="../previews/JCM_tml_emg_stop_button.png" width="200"></div>
-  
-    <p class="imgdesc"></p>
-  
-
-  <div class="category">
-    General
-  </div>
-
-  <table>
-    <tr>
-      <td>Block ID</td>
-      <td>
-        
-          jsblock:tml_emg_stop_button<br>
-        
-      </td>
-    </tr>
-    <tr>
-      <td>Item Group</td>
-      <td>
-        JCM Blocks
-      </td>
-    </tr>
-    <tr>
-      <td>Light Level</td>
-      <td>
-        15
-      </td>
-    </tr>
-  </table>
-  <div class="category">
-    Other Information
-  </div>
-
-  <table>
-    <tr>
-      <td>Added in</td>
-      <td>
-        1.1.0
-      </td>
-    </tr>
-    <tr>
-      <td>Created by</td>
-      <td>
-        AmberFrost
-      </td>
-    </tr>
-    
-  </table>
-</div>
-
-
                   
 
 
@@ -5335,88 +5202,81 @@
   
 
 
-  <h1>Emergency stop button (TML)</h1>
+  <h1>Console API</h1>
 
-<p>An <strong>Emergency Train Stop Button (Standing, TML)</strong> is a block in Joban Client Mod, modelled after the emergency train stop facility in the new MTR Hung Hom platforms.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Anchor link to this section for reference">#</a></h2>
-<p>Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1 second).</p>
-<h2 id="crafting-recipe">Crafting Recipe<a class="headerlink" href="#crafting-recipe" title="Anchor link to this section for reference">#</a></h2>
-<div class="crafting">
-    <div class="crafting-table">
-        <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div></div>
-        <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Redstone.png"></div>
-        <div></div>
-        <!-- row 3 -->
-        <div><img src="../crafting/JCM_Item_Tcl_emg_stop_button.png"></div>
-        <div><img src="../crafting/Minecraft_Redstone.png"></div>
-        <div></div>
-    </div>
-    <div class="crafting-arrow"></div>
-    <div class="crafting-result" data-count="2">
-        <img src="../crafting/JCM_Item_Tml_emg_stop_button.png">
-    </div>
-</div>
-
-<h2 id="block-states">Block states<a class="headerlink" href="#block-states" title="Anchor link to this section for reference">#</a></h2>
+<p>The console API aims to replicate the JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/API/Console_API">Console API</a> seen in web environment.</p>
+<p>This allows access to <code>console.log</code>, <code>console.warn</code> and other timing-related function to improve the debugging experience, as well as providing familiarity to developers with a basic web development background.</p>
+<h3 id="unsupported-features">Unsupported features<a class="headerlink" href="#unsupported-features" title="Anchor link to this section for reference">#</a></h3>
+<ul>
+<li>Functions that cannot be represented in plain text (e.g. <code>console.table</code>)</li>
+<li>Functions that are irrelevant to JCM Scripting/Minecraft (e.g. <code>console.profile</code>)</li>
+<li>Console string interpolation (Use ES6's backtick string should be enough in most cases)</li>
+</ul>
+<h3 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Anchor link to this section for reference">#</a></h3>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">facing</th>
-<th style="text-align: left;">third</th>
-<th style="text-align: left;">unpowered</th>
+<th style="text-align: left;">Functions</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">north</td>
-<td style="text-align: left;">upper</td>
-<td style="text-align: left;">true</td>
+<td style="text-align: left;"><code>static console.log(values: string...): void</code></td>
+<td style="text-align: left;">Print out the values in the game console, separated by spaces.</td>
 </tr>
 <tr>
-<td style="text-align: left;">east</td>
-<td style="text-align: left;">middle</td>
-<td style="text-align: left;">false</td>
+<td style="text-align: left;"><code>static console.warn(values: string...): void</code></td>
+<td style="text-align: left;">Print out the values in the game console (In WARNING level), separated by spaces.</td>
 </tr>
 <tr>
-<td style="text-align: left;">south</td>
-<td style="text-align: left;">lower</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>static console.error(values: string...): void</code></td>
+<td style="text-align: left;">Print out the values in the game console (In ERROR level), separated by spaces.</td>
 </tr>
 <tr>
-<td style="text-align: left;">west</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>static console.debug(values: string...): void</code></td>
+<td style="text-align: left;">Print out the values in debug mode (Only if JCM's Script Debug Mode is enabled), separated by spaces.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static console.count(label: string = "default"): void</code></td>
+<td style="text-align: left;">Increment 1 to a counter named as the label, as well as printing out the incremented counter value. Each label has a separate counter.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static console.countReset(label: string = "default"): void</code></td>
+<td style="text-align: left;">Set 0 to a counter named as the label, as well as printing out the counter value. Each label has a separate counter.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static console.time(label: string = "default"): void</code></td>
+<td style="text-align: left;">Start a timer named as the label. Each label has a separate timer.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static console.timeLog(label: string = "default"): void</code></td>
+<td style="text-align: left;">Print out how many millisecond has elapsed since the timer is first started. Each label has a separate timer.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static console.timeEnd(label: string = "default"): void</code></td>
+<td style="text-align: left;">Reset a timer named as the label, as well as printing out how many millisecond has elapsed since the timer is first started. Each label has a separate timer.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="history">History<a class="headerlink" href="#history" title="Anchor link to this section for reference">#</a></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Version</th>
-<th style="text-align: left;">Changes Made</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">v1.1.0</td>
-<td style="text-align: left;">Added Emergency Stop Button (Standing, TML)</td>
-</tr>
-<tr>
-<td style="text-align: left;">v1.1.5</td>
-<td style="text-align: left;">Now extends ThirdBlockBase, no longer replaces the block on top.</td>
-</tr>
-<tr>
-<td style="text-align: left;">v2.0.0</td>
-<td style="text-align: left;">Right clicking now emits a redstone signal<br>Rename <code>jsblock:helpline_5</code> to <code>jsblock:tml_emg_stop_button</code></td>
-</tr>
-</tbody>
-</table>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Anchor link to this section for reference">#</a></h3>
+<div class="language-js highlight"><span class="filename">example_log.js</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/* Logging */</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Output: [JCM Scripting] Hello World</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="cm">/* Counters */</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nx">console</span><span class="p">.</span><span class="nx">count</span><span class="p">(</span><span class="s2">&quot;counter1&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Output: counter1: 1</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nx">console</span><span class="p">.</span><span class="nx">count</span><span class="p">(</span><span class="s2">&quot;counter1&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Output: counter1: 2</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nx">console</span><span class="p">.</span><span class="nx">count</span><span class="p">(</span><span class="s2">&quot;counter2&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Output: counter2: 1</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nx">console</span><span class="p">.</span><span class="nx">countReset</span><span class="p">(</span><span class="s2">&quot;counter1&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Output: counter1: 0</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="cm">/* Timers */</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="s2">&quot;timer1&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Output: (None)</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="s2">&quot;timer1&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Output: Timer &quot;timer1&quot; already exists.</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="nx">console</span><span class="p">.</span><span class="nx">timeLog</span><span class="p">(</span><span class="s2">&quot;timer1&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// Output: timer1: [millisecond elapsed]ms</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="nx">console</span><span class="p">.</span><span class="nx">timeEnd</span><span class="p">(</span><span class="s2">&quot;timer1&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// Output: timer1: [millisecond elapsed]ms - timer ended</span>
+</span></code></pre></div>
 <!-- *[JCM]: Joban Client Mod -->
 <!-- *[PIDS]: Passenger Information Display System -->
 
@@ -5426,16 +5286,12 @@
 
 
 
-  
-  
-
 
 
 
 
 
                 
-
               </article>
             </div>
           
@@ -5526,10 +5382,8 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.path", "navigation.top", "navigation.tabs", "navigation.indexes", "content.code.select", "content.code.copy", "content.code.annotate", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
     
     
-  
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
-
   </body>
 </html>

@@ -4365,6 +4365,8 @@
       
         
       
+        
+      
     
     
     
@@ -4407,6 +4409,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../console/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Console API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -4574,10 +4604,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4_7" >
         
           
-          <label class="md-nav__link" for="__nav_3_2_4_6" id="__nav_3_2_4_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_2_4_7" id="__nav_3_2_4_7_label" tabindex="0">
             
   
   
@@ -4595,8 +4625,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_4_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2_4_6">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_4_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -5615,7 +5645,7 @@ For MTRClientData in <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>, s
 <p>If you wish to not rely on this compatibility layer (At this very moment you don't have to!), make the following changes to your code:
 <div class="language-diff highlight"><span class="filename">example.js</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gd">-   ctx.drawModel(state.dh.model, null);</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="gi">+   for(let drawCall of state.dh.drawCalls()) {</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="gi">+       ctx.renderManager().queue(drawCall);</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="gi">+       ctx.getRenderManager().queue(drawCall);</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="gi">+   }</span>
 </span></code></pre></div></p>
 <h2 id="vehicle-migration">Vehicle Migration<a class="headerlink" href="#vehicle-migration" title="Anchor link to this section for reference">#</a></h2>
