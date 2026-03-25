@@ -94,63 +94,64 @@ nav:
         - Download & Install: players/download.md
         - JCM v2 Changes: players/jcmv2.md
       - Features:
+        - Decoration Blocks:
+          - players/blocks/index.md
+          - Automatic Iron Door: players/blocks/auto_iron_door.md
+          - Buffer Stop: players/blocks/buffer_stop.md
+          - Butterfly Light: players/blocks/butterfly_light.md
+          - Ceiling (45°): players/blocks/ceiling_45.md
+          - Circle Walls: players/blocks/circle_walls.md
+          - Departure Pole: players/blocks/departure_pole.md
+          - Departure Timer: players/blocks/departure_timer.md
+          - Disneyland Resorts Line APG: players/blocks/drl_apgs.md
+          - Emergency stop button (TCL): players/blocks/tcl_emg_stop_button.md
+          - Emergency stop button (TML): players/blocks/tml_emg_stop_button.md
+          - Emergency stop button (SIL): players/blocks/sil_emg_stop_button.md
+          - Enquiry Machine: players/blocks/mtr_enquiry_machine.md
+          - Railway Vision Enquiry Machine: players/blocks/rv_enquiry_machine.md
+          - Enquiry Machine (Wall-mounted): players/blocks/mtr_enquiry_machine_wall.md
+          - KCR Enquiry Machine (Wall-mounted): players/blocks/kcr_enquiry_machine.md
+          - Exit Signs: players/blocks/exit_signs.md
+          - Fare Saver: players/blocks/fare_saver.md
+          - Fire Alarm: players/blocks/fire_alarm.md
+          - Help Line (With Sticker): players/blocks/helpline_1.md
+          - Help Line: players/blocks/helpline_2.md
+          - Help Line (West Kowloon Station Type): players/blocks/helpline_hkwk.md
+          - Help Line (East Rail Line Type): players/blocks/helpline_standing_eal.md
+          - Help Line (Tseung Kwan O Line Type): players/blocks/helpline_standing_tkl.md
+          - Help Line (Standing): players/blocks/helpline_standing.md
+          - LRT Inter-Car Barriers: players/blocks/lrt_inter_car_barriers.md
+          - KCR Station Name Signs: players/blocks/kcr_station_name_signs.md
+          - KCR Emergency Stop Sign: players/blocks/kcr_emg_stop_sign.md
+          - Light Lantern: players/blocks/light_lantern.md
+          - Spot Lamp: players/blocks/spot_lamp.md
+          - Light Source Block: players/blocks/light_source_block.md
+          - MTR Stairs: players/blocks/mtr_stairs.md
+          - Operator Button: players/blocks/operator_button.md
+          - PIDS 1A: players/blocks/pids_1a.md
+          - Old Tsueng Kwan O PIDS: players/blocks/lcd_pids.md
+          - Railway Vision PIDS: players/blocks/rv_pids.md
+          - Railway Vision PIDS (SIL, Ocean Park/Wong Chuk Hang Station Variant): players/blocks/rv_pids_sil_1.md
+          - Railway Vision PIDS (SIL, Admiralty/South Horizons Station Variant): players/blocks/rv_pids_sil_2.md
+          - Railway Vision PIDS Pole: players/blocks/rv_pids_pole.md
+          - PIDS Projector: players/blocks/pids_projector.md
+          - Station Ceilings (2009): players/blocks/station_ceilings_wrl.md
+          - Station Ceiling Poles: players/blocks/station_ceiling_wrl_poles.md
+          - Standing Station Name Sign: players/blocks/station_name_standing.md
+          - Static Signal Lights: players/blocks/static_signal_lights.md
+          - Inverted Signal Lights: players/blocks/inverted_signal_lights.md
+          - Sound Looper: players/blocks/sound_looper.md
+          - Subsidy Machine: players/blocks/subsidy_machine.md
+          - E44 Train Model: players/blocks/train_model_e44.md
+          - Thales Ticket Barriers: players/blocks/thales_ticket_barriers.md
+          - Trespass Signage: players/blocks/mtr_trespass_sign.md
+          - Trespass Signage (KCR): players/blocks/kcr_trespass_sign.md
+          - LRT Trespass Signage: players/blocks/lrt_trespass_sign.md
+          - Water Machine: players/blocks/water_machine.md
+        - MTR Patch: players/features/mtr-patch.md
         - JCM PIDS: players/features/jcm-pids.md
-        - Tunnel Wall (Rail Model): players/features/tunnel.md
-        - Mod Integrations: players/features/mod-integrations.md
-      - Blocks:
-        - players/blocks/index.md
-        - Automatic Iron Door: players/blocks/auto_iron_door.md
-        - Buffer Stop: players/blocks/buffer_stop.md
-        - Butterfly Light: players/blocks/butterfly_light.md
-        - Ceiling (45°): players/blocks/ceiling_45.md
-        - Circle Walls: players/blocks/circle_walls.md
-        - Departure Pole: players/blocks/departure_pole.md
-        - Departure Timer: players/blocks/departure_timer.md
-        - Disneyland Resorts Line APG: players/blocks/drl_apgs.md
-        - Emergency stop button (TCL): players/blocks/tcl_emg_stop_button.md
-        - Emergency stop button (TML): players/blocks/tml_emg_stop_button.md
-        - Emergency stop button (SIL): players/blocks/sil_emg_stop_button.md
-        - Enquiry Machine: players/blocks/mtr_enquiry_machine.md
-        - Railway Vision Enquiry Machine: players/blocks/rv_enquiry_machine.md
-        - Enquiry Machine (Wall-mounted): players/blocks/mtr_enquiry_machine_wall.md
-        - KCR Enquiry Machine (Wall-mounted): players/blocks/kcr_enquiry_machine.md
-        - Exit Signs: players/blocks/exit_signs.md
-        - Fare Saver: players/blocks/fare_saver.md
-        - Fire Alarm: players/blocks/fire_alarm.md
-        - Help Line (With Sticker): players/blocks/helpline_1.md
-        - Help Line: players/blocks/helpline_2.md
-        - Help Line (West Kowloon Station Type): players/blocks/helpline_hkwk.md
-        - Help Line (East Rail Line Type): players/blocks/helpline_standing_eal.md
-        - Help Line (Tseung Kwan O Line Type): players/blocks/helpline_standing_tkl.md
-        - Help Line (Standing): players/blocks/helpline_standing.md
-        - LRT Inter-Car Barriers: players/blocks/lrt_inter_car_barriers.md
-        - KCR Station Name Signs: players/blocks/kcr_station_name_signs.md
-        - KCR Emergency Stop Sign: players/blocks/kcr_emg_stop_sign.md
-        - Light Lantern: players/blocks/light_lantern.md
-        - Spot Lamp: players/blocks/spot_lamp.md
-        - Light Source Block: players/blocks/light_source_block.md
-        - MTR Stairs: players/blocks/mtr_stairs.md
-        - Operator Button: players/blocks/operator_button.md
-        - PIDS 1A: players/blocks/pids_1a.md
-        - Old Tsueng Kwan O PIDS: players/blocks/lcd_pids.md
-        - Railway Vision PIDS: players/blocks/rv_pids.md
-        - Railway Vision PIDS (SIL, Ocean Park/Wong Chuk Hang Station Variant): players/blocks/rv_pids_sil_1.md
-        - Railway Vision PIDS (SIL, Admiralty/South Horizons Station Variant): players/blocks/rv_pids_sil_2.md
-        - Railway Vision PIDS Pole: players/blocks/rv_pids_pole.md
-        - PIDS Projector: players/blocks/pids_projector.md
-        - Station Ceilings (2009): players/blocks/station_ceilings_wrl.md
-        - Station Ceiling Poles: players/blocks/station_ceiling_wrl_poles.md
-        - Standing Station Name Sign: players/blocks/station_name_standing.md
-        - Static Signal Lights: players/blocks/static_signal_lights.md
-        - Inverted Signal Lights: players/blocks/inverted_signal_lights.md
-        - Sound Looper: players/blocks/sound_looper.md
-        - Subsidy Machine: players/blocks/subsidy_machine.md
-        - E44 Train Model: players/blocks/train_model_e44.md
-        - Thales Ticket Barriers: players/blocks/thales_ticket_barriers.md
-        - Trespass Signage: players/blocks/mtr_trespass_sign.md
-        - Trespass Signage (KCR): players/blocks/kcr_trespass_sign.md
-        - LRT Trespass Signage: players/blocks/lrt_trespass_sign.md
-        - Water Machine: players/blocks/water_machine.md
+        - Tunnel Walls: players/features/tunnel.md
+      - Mod Integrations: players/features/mod-integrations.md
       - Version Archive:
         - players/versions/index.md
         - v1.2.2: players/versions/v1.2.2.md
@@ -206,15 +207,15 @@ nav:
         - API Reference:
           - Console API: dev/scripting/console.md
           - Resource Loading/Model Related: dev/scripting/resources.md
-          - Math Related: dev/scripting/math.md
-          - Texture Related: dev/scripting/dynamic_textures.md
-          - Rendering Related: dev/scripting/rendering.md
-          - Sounds Related: dev/scripting/sounds.md
-          - Advanced:
-            - Minecraft Related: dev/scripting/mc.md
-            - File IO Related: dev/scripting/files.md
-            - Networking Related: dev/scripting/networking.md
-          - Utilities Method: dev/scripting/utilities.md
+          - Math APIs (Geometry): dev/scripting/math.md
+          - Graphics API: dev/scripting/dynamic_textures.md
+          - Rendering APIs: dev/scripting/rendering.md
+          - Sounds APIs: dev/scripting/sounds.md
+          - Advanced APIs:
+            - Minecraft APIs: dev/scripting/mc.md
+            - File API: dev/scripting/files.md
+            - Networking API: dev/scripting/networking.md
+          - Miscellaneous APIs: dev/scripting/utilities.md
         - Builtin Scripts:
           - Display Helper: dev/scripting/builtin/display_helper.md
     - Contributing:

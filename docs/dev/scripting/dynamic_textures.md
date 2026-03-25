@@ -1,4 +1,6 @@
-NTE provides a GraphicsTexture class to use JS-controlled textures with dynamic content on models for LCD displays, blinking indicators, scrolling text LED, and so on.
+A commonly-seen feature among scripted vehicles is the inclusion of a passenger LCD screen, or some form of destination LED signs. But they aren't just any other texture slapped onto it, they have to be dynamically drawn in order to make it show the correct information in the player's world. How do they do it then?
+
+The **GraphicsTexture** class allows you to create a texture of a fixed resolution, in which you can draw things dynamically with Java's AWT Graphics.
 
 ## GraphicsTexture
 |             Functions And Objects              | Description |
@@ -9,6 +11,15 @@ NTE provides a GraphicsTexture class to use JS-controlled textures with dynamic 
 |`GraphicsTexture.graphics: Graphics2D`|This is the Java AWT's Graphics for this texture. You can call different functions to draw on the bufferedImage.|
 |`GraphicsTexture.upload(): void`|Loads the contents of bufferedImage into video memory and immediately displays it on the model.<br>This operation can significantly reduce FPS. It is recommended to use it in combination with `RateLimit` to reduce the frequency of texture updates.<br><br>For example, the screen can be updated only 10 times per second, and it may not be updated at far distances, in some cases the information may not be updated at all.|
 |`GraphicsTexture.identifier: Identifier`|The identifier of the virtual resource of this dynamic texture. You can use this to replace the model texture/draw a texture with this id.|
+
+## Binding the texture in-game
+After creating your GraphicsTexture (`new GraphicsTexture...`), JCM will tell Minecraft to register this texture with a specific ID (Randomly generated).
+
+To access the ID, simply use `GraphicsTexture.identifier`.
+
+When your script is in Runtime Phase, you can then invoke calls like [QuadDrawCall](./rendering.md#quaddrawcall), and set the texture id to `GraphicsTexture.identifier`, and it will render the texture out.
+
+**Note: After using AWT Graphics to draw things, you must invoke upload() for the texture data to be transferred to the game. See GraphicsTexture.upload() for details.**
 
 ## AWT-related classes
 You can use the importPackage function from Rhino to satisfy the java.awt dependency when using AWT classes.

@@ -1,10 +1,16 @@
 As the scripting functionality is based on the **Nemo Transit Expansion** addon, a number of helper classes are inherited from NTE to provide information or to simplify code implementation.
 
-## Printing debug information
+## Globally-available functions / fields
 
+### print()
 ```static print(params: Object...): void```
 
-This function outputs a message to the Minecraft log (''the message is not displayed in the game''). Any number of arguments of any type can be passed to the function.
+This prints a message out to the console. It is identical to the `console.log` method in the [Console API](./console.md), and was historically the only way to log a message to the console, before the Console API existed.
+
+### MTRClientData
+This is a direct reference to the the [MinecraftClientData.java](https://github.com/Minecraft-Transit-Railway/Minecraft-Transit-Railway/blob/master/fabric/src/main/java/org/mtr/mod/client/MinecraftClientData.java) data class from MTR.
+
+You may obtain additional information (Such as id to route) with this object. **Note however that to conserve network data usage / improve speed, MTR 4 only sends nearby data to the client.**
 
 ## Versions
 Functions are provided where you can get the version number to ensure compatibility with different versions of mods (if any).
@@ -23,8 +29,8 @@ The MTR mod uses the station naming format `Name in one language|Name in another
 |`static TextUtil.getCjkParts(src: String): String`|Returns the CJK parts of the passed string.|
 |`static TextUtil.getNonCjkParts(src: String): String`|Returns the non-CJK parts of the passed string.|
 |`static TextUtil.getExtraParts(src: String): String`|Returns the extra part of the passed string.|
-|`static TextUtil.getNonExtraParts(src: String): String`|Returns everything except the extra part.<br>**Note: When an extra part does not exist, it returns an empty string, instead of returning the original string.**|
-|`static TextUtil.getNonCjkAndExtraParts(src: String): String`|Returns everything except the CJK parts.<br>**Note: This function is broken currently, and returns the Non-CJK Part + Non-extra part, rather than Non-CJK + Extra part**|
+|`static TextUtil.getNonExtraParts(src: String): String`|Returns everything except the extra part.|
+|`static TextUtil.getNonCjkAndExtraParts(src: String): String`|Returns everything except the CJK parts.|
 |`static TextUtil.isCjk(src: String): boolean`|Checks whether the string contains CJK characters.|
 
 ## Timing
@@ -75,6 +81,3 @@ Since each object should have its own tracker, you would probably want to store 
 |`new RateLimit(params: Object[])`|Creates a RateLimit.<br>`interval` is the interval in seconds between two triggers.<br>For example, an interval of 0.1 means it should occur ten times per second.|
 |`RateLimit.shouldUpdate(): boolean`|Has enough time elapsed between the last triggers?<br>Wrap the necessary code using<br>`if (state.rateLimitXXX.shouldUpdate()) { … }`to limit its execution frequency.|
 |`RateLimit.resetCoolDown(): void`|Resets the timer to go off as soon as possible.|
-
-## MTRClientData
-Client data from MTR that can be used to read routes, transfers, etc. See the source code of [MinecraftClientData.java](https://github.com/Minecraft-Transit-Railway/Minecraft-Transit-Railway/blob/master/fabric/src/main/java/org/mtr/mod/client/MinecraftClientData.java) from MTR.

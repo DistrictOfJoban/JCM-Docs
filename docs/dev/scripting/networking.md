@@ -1,4 +1,4 @@
-The `Networking` class allows scripts to send HTTP requests to fetch plain text content/images over the internet.
+The **Networking API** allows scripts to send HTTP requests to fetch plain text content/images over the internet.
 
 Calling any function within this class will return a **NetworkResponse**, which is described below.
 
@@ -80,6 +80,6 @@ if(onlineImage != null) {
 }
 ```
 ### Further Note
-JCM always supplies a default **User-Agent** header with the value `Joban Client Mod (https://joban.org/jcm)`.
+JCM always supplies a default **User-Agent** header with the value `Joban Client Mod (https://jcm.joban.org)`.
 
 This value cannot be overriden (Or rather, JCM will always overwrites your preferred UA) *unless* you disable [Scripting Restrictions](./articles/scripting_restrictions.md), in which case you may specify the `User-Agent` when supplying the header fields in [RequestOption](#requestoption).

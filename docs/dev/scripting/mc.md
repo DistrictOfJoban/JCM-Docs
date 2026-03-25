@@ -1,6 +1,8 @@
-At times it may be desirable to access and invoke Minecraft-specific methods within scripts (Whether it's to know more about the surrounding environment or you want to display a chat message). However because the Minecraft version JCM support all have obfuscation enabled, it means there's not an intuitive and cross-loader way to access it.
+It may be desirable to access Minecraft methods/fields in scripts (Whether it's to know more about the surrounding environment or you want to, say display a chat message).
 
-In JCM, we provide wrapper class to allow invoking certain Minecraft methods. You may also come across these classes in other places (e.g. `PlayerEntity`/`ItemStack` in eyecandy block use event) as it is the most natural and straightforward way to represent a Minecraft object.
+Given Rhino (The JS Engine)'s JS-to-Java interoperability feature, this should not be a difficult task to do. Unfortunately because Minecraft's code is obfuscated (Until Minecraft 26.1, which JCM does not support), it means there's not an intuitive and cross-loader way to access these methods.
+
+Therefore, the following wrapper objects are provided to allow invoking certain Minecraft methods. You may also come across these classes in other places (e.g. `PlayerEntity`/`ItemStack` in eyecandy block use event) as it is the most natural and straightforward way to represent a Minecraft object.
 
 ## MinecraftClient
 This has several utilities method related to the Minecraft Client.
@@ -16,9 +18,9 @@ This has several utilities method related to the Minecraft Client.
 |`static MinecraftClient.lightLevelAt(pos: Vector3f): number`|Return the light level at the specified position.<br>Sourced from both sky light and block light, prefers the one which is lower.|
 |`static MinecraftClient.narrate(message: string): void`|This calls the Minecraft narrator to narrate the message.|
 |`static MinecraftClient.localPlayer(): PlayerEntity`|Obtain the [PlayerEntity](#playerentity) of the current player.|
-|`static MinecraftClient.getScoreboardScore(objectiveName: string, playerName: string): void`|This obtain the player's scoreboard value on the specified scoreboard objective|
+|`static MinecraftClient.getScoreboardScore(objectiveName: string, playerName: string): int`|This obtain the player's scoreboard value on the specified scoreboard objective|
 |`static MinecraftClient.displayMessage(message: String, actionBar: boolean): void`|This displays the message as an in-game chat message. If action bar is true, it will display on the action bar instead. (Above inventory hotbar)|
-|`static MinecraftClient.displayMessage(message: VanillaText, actionBar: boolean): void`|This displays the corresponding [VanillaText](#vanillatext) as an in-game chat message. If action bar is true, it will display on the action bar instead. (Above inventory hotbar)|
+|`static MinecraftClient.displayMessage(message: VanillaText, actionBar: boolean): void`|Same as above, but use [VanillaText](#vanillatext) as the chat message to display.|
 |`static MinecraftClient.gamePaused(): boolean`|Returns whether the game is paused.<br>This may be used to pause rendering/texture update to reduce CPU usage when  paused.<br>**Note: MTR 4/TSC does not pause its simulation even when the game is paused!**|
 
 ## VanillaText
