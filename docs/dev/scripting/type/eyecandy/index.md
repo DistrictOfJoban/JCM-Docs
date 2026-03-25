@@ -20,7 +20,7 @@ Code written in top-level space outside of functions will run when a resource pa
 
 === "MTR 4 Custom Resources"
     ??? info "Mixing static object model & scripts"
-        If the `modelResource` field is specified, the script-driven elements will be overlaid on top of the existing model. Otherwise, the appearance will be controlled solely by scripting.
+        Currently it is not possible to mix static object model and scripts. Once a script entry is specified, the rendering of the object block will be solely driven by scripts.
 
     You can add the `scripting` block to your eyecandy object entry:
 
@@ -30,12 +30,16 @@ Code written in top-level space outside of functions will run when a resource pa
             {
                 "id": "nte_lcd",
                 "name": "NTE LCD Test",
-                "scripting": {
-                    "prependExpressions": ["print('Hello world')"],
-                    "scriptLocations": ["mtrsteamloco:eyecandies/js/nte_lcd_test/main.js"],
-                    "input": {
-                        "ksDay": "514"
-                    }
+                "scriptId": "my_script_entry_1"
+            }
+        ],
+        "objectScripts": [
+            {
+                "id": "my_script_entry_1",
+                "prependExpressions": ["print('Hello world')"],
+                "scriptLocations": ["mtrsteamloco:eyecandies/js/nte_lcd_test/main.js"],
+                "input": {
+                    "ksDay": "514"
                 }
             }
         ]
@@ -54,7 +58,7 @@ Code written in top-level space outside of functions will run when a resource pa
 
 === "MTR 3 / MTR-NTE Format"
     ??? info "Mixing static object model & scripts"
-        If the `model` field is specified, the script-driven elements will be overlaid on top of the existing model. Otherwise, the appearance will be controlled solely by scripting.
+        Currently it is not possible to mix static object model and scripts. Once a script entry is specified, the rendering of the object block will be solely driven by scripts.
 
     You can append the following lines to your `eyecandy.json` file (Where `eyecandy.json` is the json file containing the NTE eyecandy definition):
 
