@@ -4,6 +4,7 @@ repo_url: https://github.com/DistrictOfJoban/Joban-Client-Mod
 site_url: https://jcm.joban.org/
 copyright: Built with ♥️ by Amber
 theme:
+  variant: classic # Zensical
   name: material
   logo: assets/logo.png
   favicon: assets/favicon.png
