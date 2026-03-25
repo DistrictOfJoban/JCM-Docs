@@ -204,6 +204,7 @@ nav:
           - Scripting Debug Overlay: dev/scripting/articles/script_debug_overlay.md
           - Tips & Notes: dev/scripting/articles/tips.md
         - API Reference:
+          - Console API: dev/scripting/console.md
           - Resource Loading/Model Related: dev/scripting/resources.md
           - Math Related: dev/scripting/math.md
           - Texture Related: dev/scripting/dynamic_textures.md

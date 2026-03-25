@@ -29,7 +29,8 @@ As an example, here's a snippet of 2 types of script: **Eyecandy Scripting** and
 
 === "Eyecandy Scripting"
     ```js
-    const poleModel = ModelManager.loadModel(Resources.id("mtr:example/pole.obj"), true);
+    const poleModelData = ModelManager.loadRawModel(Resources.id("mtr:example/pole.obj"), true);
+    const poleModel = ModelManager.upload(poleModelData);
 
     function render(ctx, state, eyecandyBlockEntity) {
         // Define draw call to submit
@@ -63,13 +64,14 @@ Different types of script can also expose different classes/objects to them (e.g
     JCM Scripting is a foundation to serve different types of scripting. The use case and possibilities of scripts is defined by the different type of scripting available.
 
 ### Available Script Types
-JCM currently provides 2 (functional) script types out of the box.
+JCM currently provides 3 (functional) script types out of the box.
 
 If you are looking to *get started* on scripting, check out the script types below to see more details.  
 *Otherwise if you would like to learn more about how scripting in JCM works, keep on reading!*
 
-|Type|Description|Source|
+|Type|Description|Provider|
 |-|-|-|
+|[Vehicle Scripting](./type/vehicle/index.md)|This allows scripts to render 3d models/quads, as well as playing sounds for an MTR vehicle.|MTR (via JCM)|
 |[Eyecandy Scripting](./type/eyecandy/index.md)|This allows scripts to render 3d models/quads, as well as playing sounds on an MTR Decoration Object|MTR (via JCM)|
 |[PIDS Scripting](./type/pids/index.md)|This allows scripts to draw custom text/texture, as well as playing sounds for a JCM PIDS in the form of a PIDS Preset|JCM|
 
@@ -87,9 +89,11 @@ This rest of this article assumes that you have a basic understanding of JavaScr
 You can learn JavaScript from resources on the web, such as [here](https://javascript.info/).
 
 ### The Nature of Scripting in JCM
-While JavaScript is commonly associated with webpages or even server applications (via Node.js), JCM's implementation of JavaScript only utilize the base language itself.
+While JS is commonly associated with web development or even server applications (e.g. Node.js), JCM's implementation usage of JS only utilize the base language itself.
 
-As such, this means that you only really need to care about the syntax (e.g. Variable & Function Declaration, conditional logic) as well as base object such as [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date). Other stuff such as HTML/CSS/DOM manipulation <u>does not apply</u> to JCM Scripting.
+As such, this means that you only really need to care about the syntax (e.g. Variable & Function Declaration, conditional logic) as well as some base object such as [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date).
+
+Other stuff such as HTML/CSS/DOM manipulation <u>is not applicable</u> to JCM Scripting.
 
 Keep that in mind, as IDE (Such as Visual Studio Code) may assume you are developing for a webpage and provides suggestions that are not applicable to JCM/NTE scripting!
 
@@ -98,57 +102,69 @@ Keep that in mind, as IDE (Such as Visual Studio Code) may assume you are develo
     JavaScript does not have anything, or not much to do with Java at all, even though they share "Java" in the name.
 
 ??? question "But can I use Java in JavaScript?"
-    Under normal circumstances, no.
+    This would not be the case under normal circumstances, as these 2 are different languages.
 
-    *However* the JavaScript Engine that JCM/NTE uses, **Rhino**, *do* allow using classes from the standard Java library as `java.package.name`.
+    *However* the JavaScript Engine that JCM/NTE uses, **Rhino**, is based on Java, and it *does* contain interoperability with java classes/packages via a feature called LiveConnect. In practice it means you can invoke methods like they are JS functions.
 
 ### Script Flow
 
-#### Initial Parsing
-Instead of each train or block having it's own script instance, your JS scripts are parsed (Or rather, executed) **once** during the resource pack loading.
+#### Parsing/Loading Phase
+When the game begins to reload it's resource pack (Usually when the game is starting for the first time, or an F3+T instantiation/change of resource pack), JCM will start parsing/executing your JS script once.
 
-Your script are expected to have functions with specific name (e.g. `create()`, `render()`, `dispose()`).
+Your script are expected to have functions with specific name (i.e. `create()`, `render()`, `dispose()`).
 
-These functions will be invoked by JCM/NTE with the parameter corresponding to a specific train/eyecandy/object, including a parameter (**state**) where you can store variables to that specific train.
+After your script has been executed once, JCM will capture the above functions internally (if found) to save them for later invocation in the Runtime Phase.
 
-Consider the following example of scripting applied to a train:
+#### Runtime Phase
+In runtime, JCM will try to invoke the above 3 functions (create, render, dispose) as deemed appropriate. (Usually every frame for `render`, `create` on first render, and `dispose` when script should no longer be executed)
 
-``` js
-let displaySpeed = 1;
+When calling the 3 functions above, 3 parameters will be provided: `ctx, state, wrapper`.
+
+- The `ctx` variable is the Context object, and is used primarily for action (Such as performing rendering). (Different for each script types)
+- The `state` variable is a standard JS object which you can put any variable in, and they will be "remembered" for each instance. (e.g. For each vehicle)
+- The `wrapper` variable is a read-only object to give you information. For example in **Vehicle Scripting**, the `wrapper` object is a `Vehicle`, which you may query various things such as the current vehicle speed, doors value etc. (Different for each script types)
+
+This means that when you have, say 2 vehicles in view, your `render()` function will be called twice, and the `ctx, state, wrapper` all pertains to different vehicles.
+
+An example demonstrating loading and runtime phase is as follows:
+
+``` js linenums="1"
+let displaySpeed = 1; // Loading Phase
 
 function create(ctx, state, train) {
-     state.displaySpeed = 0.75;
+     state.displaySpeed = 0.75; // Runtime Phase
 }
 
 function render(ctx, state, train) {
-     state.displaySpeed += 1; // Increment 1
-     print("dp: " + state.displaySpeed);
+     state.displaySpeed += 1; // Runtime Phase
+     print("dp: " + state.displaySpeed); // Runtime Phase
 }
 
 function dispose(ctx, state, train) {
 }
 
-print(displaySpeed);
+print(displaySpeed); // Loading Phase
 ```
-An example output would be:
+An example console output of the above code:
 ```
-1 // The print(displaySpeed) located at the bottom of the script, as the entire script is executed once during resource reload
+1 // Executed in loading phase (Line 15)
 
-/* Join games, Train A enters into view */
+/* Join games, vehicle A enters into view */
 
-dp: 1.75 // Train A rendering
-dp: 2.75 // Train A rendering
+dp: 1.75 // vehicle A rendering (Line 9)
+dp: 2.75 // vehicle A rendering (Line 9)
 
-// Assume Train B now enters the view, alongside Train A
+// Assume vehicle B now enters the view, alongside vehicle A
 
-dp: 3.75 // Train A rendering
-dp: 1.75 // Train B rendering
+dp: 3.75 // vehicle A rendering (Line 9)
+dp: 1.75 // vehicle B rendering (Line 9)
 
-dp: 4.75 // Train A rendering
-dp: 2.75 // Train B rendering
+dp: 4.75 // vehicle A rendering (Line 9)
+dp: 2.75 // vehicle B rendering (Line 9)
 ```
 
-#### Execution
+#### Runtime Phase (Flow)d
+
 An example flow is available below. This chart assumes the player is running Minecraft at 13fps (For simplicity sake), which means 13 frames in 1 second.
 
 ![JCM Script Execution Example](img/JCM_Script_Execution_Example.png)
@@ -178,7 +194,7 @@ While JCM *tries* to call the `render()` function for every frame, it is only ma
 ### Errors
 
 !!! note inline end
-     Script errors are currently not displayed within the game (Like NTE had with debug mode), you need to check for errors in the game log, usually accessible by your launcher
+     Script errors in the Loading Phase are not currently displayed within the game (Like NTE had with debug mode), you need to check for errors in the game log, usually accessible by your launcher
 
 If the script is executed incorrectly, an error will be reported in the Minecraft log (Starting with `[Scripting] Error executing script!`).
 
