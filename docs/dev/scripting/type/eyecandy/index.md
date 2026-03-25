@@ -22,9 +22,9 @@ Code written in top-level space outside of functions will run when a resource pa
     ??? info "Mixing static object model & scripts"
         Currently it is not possible to mix static object model and scripts. Once a script entry is specified, the rendering of the object block will be solely driven by scripts.
 
-    You can add the `scripting` block to your eyecandy object entry:
+    You can define your script entry in the `objectScripts` array, and reference it with `scriptId` within your object:
 
-    ``` json linenums="1" hl_lines="6-12" title="mtr_custom_resources.json"
+    ``` json linenums="1" hl_lines="6 9-18" title="mtr_custom_resources.json"
     {
         "objects": [
             {
@@ -117,8 +117,8 @@ The following functions are called to **control rendering**. The functions for r
 |:--------------------|:----------|
 |`EyeCandyScriptContext.drawModel(model: ScriptedModel, matrices: Matrices)`| Requests JCM to render a model loaded via [ModelManager](../../resources.md#model-loading).<br>`matrices` is the transformation of model placement. If passed null, the model will be placed in the center of the block without transformation.|
 |`EyeCandyScriptContext.setDebugInfo(key: string, value: object)`|Output debugging information in the upper left corner of the screen. You need to enable **[Script Debug Overlay](../../articles/script_debug_overlay.md)** in JCM Settings to display it.<br>`key` is the name of the value<br>`value` is the content (`value` will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).|
-|`EyeCandyScriptContext.renderManager(): RenderManager`|Obtain a [RenderManager](../../rendering.md#rendermanager) instance, which can be used to render stuff onto the Minecraft World.<br>The base position are set to the block's position + translated position.|
-|`EyeCandyScriptContext.soundManager(): SoundManager`|Obtain a [SoundManager](../../sounds.md) instance, which can be used to play sound onto the Minecraft World.<br>The base position are set to the block's position.|
+|`EyeCandyScriptContext.getRenderManager(): RenderManager`|Obtain a [RenderManager](../../rendering.md#rendermanager) instance, which can be used to render stuff onto the Minecraft World.<br>The base position are set to the block's position + translated position.|
+|`EyeCandyScriptContext.getSoundManager(): SoundManager`|Obtain a [SoundManager](../../sounds.md) instance, which can be used to play sound onto the Minecraft World.<br>The base position are set to the block's position.|
 |`EyecandyScriptContext.events(): EyecandyEvents`|Returns [EyecandyEvents](#eyecandyevents) for checking events.|
 |`EyeCandyScriptContext.setOutlineShape(shape: VoxelShape)`|Set the outline shape (The visual hitbox) of the eyecandy to a corresponding [VoxelShape](../../mc.md#voxelshape)<br>No effect if player is holding a brush.|
 |`EyeCandyScriptContext.setCollisionShape(shape: VoxelShape)`|Set the collision shape (The physical hitbox) of the eyecandy to a corresponding [VoxelShape](../../mc.md#voxelshape).<br>No effect if player is holding a brush.|

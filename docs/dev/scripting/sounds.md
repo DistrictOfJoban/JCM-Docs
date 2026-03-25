@@ -1,6 +1,6 @@
 ## SoundManager
 
-**SoundManager** is a class responsible for playing sound onto Minecraft. It can usually be accessed by the script's context (e.g. `ctx.soundManager()`), however specific implementation may differ between different types of scripting. For details, please check the script type you're trying to code against (e.g. [Eyecandy Scripting](./type/eyecandy/index.md)) and check how to obtain an instance of SoundManager.
+**SoundManager** is a class responsible for playing sound onto Minecraft. It can usually be accessed by the script's context (e.g. `ctx.getSoundManager()`), however specific implementation may differ between different types of scripting. For details, please check the script type you're trying to code against (e.g. [Eyecandy Scripting](./type/eyecandy/index.md)) and check how to obtain an instance of SoundManager.
 
 |Functions|Description|
 |:--------|:----------|

@@ -37,7 +37,7 @@ As an example, here's a snippet of 2 types of script: **Eyecandy Scripting** and
             .modelObject(poleModel)
 
         // Render pole model
-        ctx.renderManager().queue(modelDrawCall);
+        ctx.getRenderManager().queue(modelDrawCall);
     }
     ```
 

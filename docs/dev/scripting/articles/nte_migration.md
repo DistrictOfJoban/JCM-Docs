@@ -93,7 +93,7 @@ If you wish to not rely on this compatibility layer (At this very moment you don
 ```diff title="example.js"
 -   ctx.drawModel(state.dh.model, null);
 +   for(let drawCall of state.dh.drawCalls()) {
-+       ctx.renderManager().queue(drawCall);
++       ctx.getRenderManager().queue(drawCall);
 +   }
 ```
 

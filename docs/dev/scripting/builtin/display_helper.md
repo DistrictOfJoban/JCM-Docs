@@ -73,7 +73,7 @@ function render(ctx, state, eyecandy) {
   }
 
   for(let drawCall of state.dh.drawCalls()) {
-    ctx.renderManager().queue(drawCall);
+    ctx.getRenderManager().queue(drawCall);
   }
 }
 ```
