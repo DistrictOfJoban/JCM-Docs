@@ -16,11 +16,15 @@ This has several utilities method related to the Minecraft Client.
 |`static MinecraftClient.blockLightAt(pos: Vector3f): number`|Return the block light at the specified position.|
 |`static MinecraftClient.skyLightAt(pos: Vector3f): number`|Return the sky light at the specified position.|
 |`static MinecraftClient.lightLevelAt(pos: Vector3f): number`|Return the light level at the specified position.<br>Sourced from both sky light and block light, prefers the one which is lower.|
-|`static MinecraftClient.narrate(message: string): void`|This calls the Minecraft narrator to narrate the message.|
+|`static MinecraftClient.narrate(message: String): void`|This calls the Minecraft narrator to narrate the message.|
 |`static MinecraftClient.localPlayer(): PlayerEntity`|Obtain the [PlayerEntity](#playerentity) of the current player.|
-|`static MinecraftClient.getScoreboardScore(objectiveName: string, playerName: string): int`|This obtain the player's scoreboard value on the specified scoreboard objective|
+|`static MinecraftClient.getScoreboardScore(objectiveName: String, playerName: String): int`|This obtain the player's scoreboard value on the specified scoreboard objective|
 |`static MinecraftClient.displayMessage(message: String, actionBar: boolean): void`|This displays the message as an in-game chat message. If action bar is true, it will display on the action bar instead. (Above inventory hotbar)|
 |`static MinecraftClient.displayMessage(message: VanillaText, actionBar: boolean): void`|Same as above, but use [VanillaText](#vanillatext) as the chat message to display.|
+|`static MinecraftClient.stopSound(id: Identifier, soundCategory: String): void`|Stop a sound identifier that is playing in soundCategory.<br>Possible sound categories:<br>- **MASTER**<br>- **BLOCKS**<br>- **MUSIC**<br>- **RECORDS**<br>- **WEATHER**<br>- **HOSTILE**<br>- **NEUTRAL**<br>- **PLAYERS**<br>- **AMBIENT**<br>- **VOICE**|
+|`static MinecraftClient.spawnParticleInWorld(particleId: Identifier, pos: Vector3f, initialVelocity: Vector3f, alwaysSpawn: boolean = false)`|Spawn a particle in `pos` of the current world, with an initial velocity of `initialVelocity`.<br>Only built-in vanilla particles are supported, see the [Minecraft Wiki page](https://minecraft.fandom.com/wiki/Particles) for particle ids.<br>Set `alwaysSpawn` to true to bypass Minecraft's particle option preference. (Only use this for critical particle effect that must be displayed)|
+|`static MinecraftClient.renderDistance(): int`|Obtain the render distance (In Chunk) that is configured in the Minecraft Option.|
+|`static MinecraftClient.getWorldPlayers(): List<PlayerEntity>`|Obtain a list of [PlayerEntity](#playerentity) that is currently in view of the render distance in the current world.|
 |`static MinecraftClient.gamePaused(): boolean`|Returns whether the game is paused.<br>This may be used to pause rendering/texture update to reduce CPU usage when  paused.<br>**Note: MTR 4/TSC does not pause its simulation even when the game is paused!**|
 
 ## VanillaText
@@ -125,9 +129,17 @@ This is usually supplied/obtainable via events/code rather than something to be 
 |`PlayerEntity.uuid(): string`|Obtain the entity's uuid as a string|
 |`PlayerEntity.hasPermissionLevel(level: number): boolean`|Whether the player has a certain "OP" level.<br>**Note: This is completely client-side only, do not use this for serious permission/authentication checking!**|
 |`PlayerEntity.pos(): Vector3f`|Obtain the current position of the player, as a [Vector3f](./math.md#vector3f)|
-|`PlayerEntity.blockPos(): Vector3f`|Obtain the current block position of the player, as a [Vector3f](./math.md#vector3f)|
+|`PlayerEntity.blockPos(): Vector3f`|Obtain the current block position of the player, as a [Vector3f](./math.md#vector3f).|
+|`PlayerEntity.smoothPos(): Vector3f`|Obtain the smoothed pos of the player, useful for rendering.|
+|`PlayerEntity.velocity(): Vector3f`|Obtain the current velocity of the player.|
+|`PlayerEntity.yaw(): float`|Obtain the yaw rotation of the player head.|
+|`PlayerEntity.pitch(): float`|Obtain the pitch rotation of the player head.|
+|`PlayerEntity.bodyYaw(): float`|Obtain the yaw rotation of the player's body.|
 |`PlayerEntity.playerName(): string`|Obtain the player's canonical name/username (Same as those registered in Mojang's/Microsoft server) |
 |`PlayerEntity.isHoldingItem(id: Identifier): boolean`|Whether player is holding an item with the corresponding [Identifier](./resources.md#identifier-aka-resourcelocation) on either hand.|
 |`PlayerEntity.mainHandItem(): ItemStack`|Obtain the [ItemStack](#itemstack) in the player's main hand|
 |`PlayerEntity.offHandItem(): ItemStack`|Obtain the [ItemStack](#itemstack) in the player's secondary/offhand|
 |`PlayerEntity.activeItem(): ItemStack`|Obtain the [ItemStack](#itemstack) in the player's hands, preferring main hand.|
+|`PlayerEntity.isSneaking(): boolean`|Whether the player is sneaking.|
+|`PlayerEntity.isSprinting(): boolean`|Whether the player is sprinting.|
+|`PlayerEntity.isSwimming(): boolean`|Whether the player is swimming.|
