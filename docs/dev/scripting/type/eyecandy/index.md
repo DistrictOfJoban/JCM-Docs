@@ -133,7 +133,8 @@ The following functions are called to **control rendering**. The functions for r
 |`EyecandyBlockEntity.getRotateX(): number`|The value in **radians** on how much the Decoration Object is rotated on the X-axis, configured via GUI.|
 |`EyecandyBlockEntity.getRotateY(): number`|The value in **radians** on how much the Decoration Object is rotated on the Y-axis, configured via GUI.|
 |`EyecandyBlockEntity.getRotateZ(): number`|The value in **radians** on how much the Decoration Object is rotated on the Z-axis, configured via GUI.|
-|`blockEntity.getFullBrightness(): boolean`|Return whether the Decoration Object is marked as "Full Light", configured via GUI.|
+|`EyecandyBlockEntity.isCrosshairTarget(): boolean`|Returns whether the current block is player's crosshair target. (i.e. Selected block).<br>Can be used to show tooltips.|
+|`EyecandyBlockEntity.getFullBrightness(): boolean`|Return whether the Decoration Object is marked as "Full Light", configured via GUI.|
 
 #### EyecandyEvents
 |Functions And Objects|Description|
