@@ -25,7 +25,7 @@
     
     
       
-        <title>File API - Joban Client Mod</title>
+        <title>File APIs - Joban Client Mod</title>
       
     
     
@@ -129,7 +129,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              File API
+              File APIs
             
           </span>
         </div>
@@ -4491,7 +4491,7 @@
   <span class="md-ellipsis">
     
   
-    File API
+    File APIs
   
 
     
@@ -4509,7 +4509,7 @@
   <span class="md-ellipsis">
     
   
-    File API
+    File APIs
   
 
     
@@ -4555,7 +4555,23 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fileentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FileEntry
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#example" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4563,11 +4579,6 @@
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -5118,7 +5129,23 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fileentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FileEntry
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#example" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5126,11 +5153,6 @@
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -5264,7 +5286,7 @@
   
 
 
-  <h1>File API</h1>
+  <h1>File APIs</h1>
 
 <h2 id="files">Files<a class="headerlink" href="#files" title="Anchor link to this section for reference">#</a></h2>
 <p>The <strong>Files</strong> class allows saving/reading files with scripts to a limited degree. It is intended for scripts to use it as a config file as well as storing persistent/cache data. This is usually only useful for scripts requiring advanced functionalities.</p>
@@ -5283,16 +5305,20 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>static Files.read(path: string...): string</code></td>
-<td style="text-align: left;">Read a file based on the specified path and returns the content in string (null if the file don't exist).<br>This function always resolves relatively starting from '''.minecraft'''.</td>
+<td style="text-align: left;"><code>static Files.read(path: string...): FileEntry</code></td>
+<td style="text-align: left;">Read a file based on the specified path and returns the <a href="#fileentry">FileEntry</a>. (null if the file don't exist).<br>This function always resolves relatively starting from '''.minecraft'''.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>static Files.readData(path: string...): string</code></td>
-<td style="text-align: left;">Read a file based on the specified path and returns the content in string (null if the file don't exist).<br><strong>Note:</strong> It is strongly recommended to store your file in a sub-directory with a unique name to avoid collision<br>This function always resolves relatively starting from <strong>.minecraft/data/mtrscripting</strong>.</td>
+<td style="text-align: left;"><code>static Files.readData(path: string...): FileEntry</code></td>
+<td style="text-align: left;">Read a file based on the specified path and returns the <a href="#fileentry">FileEntry</a>. (null if the file don't exist).<br><strong>Note:</strong> It is strongly recommended to store your file in a sub-directory with a unique name to avoid collision<br>This function always resolves relatively starting from <strong>.minecraft/data/mtrscripting</strong>.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>static Files.saveData(content: string, path: string...): void</code></td>
-<td style="text-align: left;">Create a file with the specified content in the specified path. The filename should be included in the path already.<br>All parent directory in the path will be automatically generated if it doesn't exists.<br>This function always resolves relatively starting from '''.minecraft/data/mtrscripting'''.</td>
+<td style="text-align: left;">Save plain text content to the corresponding path. The filename should be included in the path already.<br>All parent directory in the path will be automatically generated if it doesn't exists.<br>This function always resolves relatively starting from '''.minecraft/data/mtrscripting'''.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Files.saveData(content: BufferedImage, path: string...): void</code></td>
+<td style="text-align: left;">Save a BufferedImage to the corresponding path. The filename should be included in the path already.<br>All parent directory in the path will be automatically generated if it doesn't exists.<br>This function always resolves relatively starting from '''.minecraft/data/mtrscripting'''.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>static Files.deleteData(path: string...): void</code></td>
@@ -5304,21 +5330,49 @@
 </tr>
 </tbody>
 </table>
-<h3 id="example">Example<a class="headerlink" href="#example" title="Anchor link to this section for reference">#</a></h3>
+<h2 id="fileentry">FileEntry<a class="headerlink" href="#fileentry" title="Anchor link to this section for reference">#</a></h2>
+<p>A FileEntry represents a reference to the file, which has not been read yet.</p>
+<p>You can read the data of the file in multiple formats with the following functions:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>FileEntry.asString(): String</code></td>
+<td style="text-align: left;">Return the file's content as plain text, in UTF-8 encoding.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>FileEntry.asBufferedImage(): String</code></td>
+<td style="text-align: left;">Return the file's content as a BufferedImage.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>FileEntry.asRawBytes(): byte[]</code></td>
+<td style="text-align: left;">Return the file's content as a raw byte array.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example">Example<a class="headerlink" href="#example" title="Anchor link to this section for reference">#</a></h2>
 <div class="language-js highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Notice that we don&#39;t use forward slash (/) or backslash (\) to specify path, but instead pass them onto multiple arguments (e.g. (&quot;config&quot;, &quot;mtr.json&quot;) instead of (&quot;config/mtr.json&quot;)</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">mtrConfigStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Files</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="s2">&quot;config&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;mtr.json&quot;</span><span class="p">);</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kd">let</span><span class="w"> </span><span class="nx">mtrConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">mtrConfigStr</span><span class="p">);</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kd">let</span><span class="w"> </span><span class="nx">mtrChatAnnouncementEnabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mtrConfig</span><span class="p">.</span><span class="nx">chatAnnouncements</span><span class="p">;</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kd">let</span><span class="w"> </span><span class="nx">nonExistentFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Files</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="s2">&quot;1234567890&quot;</span><span class="p">);</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nx">print</span><span class="p">(</span><span class="nx">nonExistentFile</span><span class="p">);</span><span class="w"> </span><span class="c1">// null</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">mtrConfigFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Files</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="s2">&quot;config&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;mtr.json&quot;</span><span class="p">);</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">if</span><span class="p">(</span><span class="nx">mtrConfigFile</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// File exists</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">mtrConfigStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mtrConfigFile</span><span class="p">.</span><span class="nx">asString</span><span class="p">();</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">mtrConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">mtrConfigStr</span><span class="p">);</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">mtrChatAnnouncementEnabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mtrConfig</span><span class="p">.</span><span class="nx">chatAnnouncements</span><span class="p">;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="cm">/* Data reading */</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="kd">let</span><span class="w"> </span><span class="nx">haveCompanyName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Files</span><span class="p">.</span><span class="nx">hasData</span><span class="p">(</span><span class="s2">&quot;tut_script&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;company_name.txt&quot;</span><span class="p">);</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="kd">let</span><span class="w"> </span><span class="nx">companyName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">haveCompanyName</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s2">&quot;Unnamed Company&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Files</span><span class="p">.</span><span class="nx">readData</span><span class="p">(</span><span class="s2">&quot;tut_script&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;company_name.txt&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Of course this is an extreme example. Since readData returns null if non-existent anyway, you can just check whether it&#39;s null instead of calling hasData separately.</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="cm">/* Data Saving */</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nx">Files</span><span class="p">.</span><span class="nx">saveData</span><span class="p">(</span><span class="s2">&quot;grass_has_been_touched&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;tut_script&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;stage.txt&quot;</span><span class="p">);</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="kd">let</span><span class="w"> </span><span class="nx">nonExistentFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Files</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="s2">&quot;1234567890&quot;</span><span class="p">);</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nx">print</span><span class="p">(</span><span class="nx">nonExistentFile</span><span class="p">);</span><span class="w"> </span><span class="c1">// null</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="cm">/* Data reading */</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="kd">let</span><span class="w"> </span><span class="nx">haveCompanyName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Files</span><span class="p">.</span><span class="nx">hasData</span><span class="p">(</span><span class="s2">&quot;tut_script&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;company_name.txt&quot;</span><span class="p">);</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="kd">let</span><span class="w"> </span><span class="nx">companyName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">haveCompanyName</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s2">&quot;Unnamed Company&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Files</span><span class="p">.</span><span class="nx">readData</span><span class="p">(</span><span class="s2">&quot;tut_script&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;company_name.txt&quot;</span><span class="p">).</span><span class="nx">asString</span><span class="p">();</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="cm">/* Data Saving */</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="nx">Files</span><span class="p">.</span><span class="nx">saveData</span><span class="p">(</span><span class="s2">&quot;grass_has_been_touched&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;tut_script&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;stage.txt&quot;</span><span class="p">);</span>
 </span></code></pre></div>
 <!-- *[JCM]: Joban Client Mod -->
 <!-- *[PIDS]: Passenger Information Display System -->

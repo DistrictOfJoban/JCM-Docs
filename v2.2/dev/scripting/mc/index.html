@@ -4616,7 +4616,7 @@
   <span class="md-ellipsis">
     
   
-    File API
+    File APIs
   
 
     
@@ -5408,7 +5408,7 @@
 <td style="text-align: left;">Return the light level at the specified position.<br>Sourced from both sky light and block light, prefers the one which is lower.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>static MinecraftClient.narrate(message: string): void</code></td>
+<td style="text-align: left;"><code>static MinecraftClient.narrate(message: String): void</code></td>
 <td style="text-align: left;">This calls the Minecraft narrator to narrate the message.</td>
 </tr>
 <tr>
@@ -5416,7 +5416,7 @@
 <td style="text-align: left;">Obtain the <a href="#playerentity">PlayerEntity</a> of the current player.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>static MinecraftClient.getScoreboardScore(objectiveName: string, playerName: string): int</code></td>
+<td style="text-align: left;"><code>static MinecraftClient.getScoreboardScore(objectiveName: String, playerName: String): int</code></td>
 <td style="text-align: left;">This obtain the player's scoreboard value on the specified scoreboard objective</td>
 </tr>
 <tr>
@@ -5426,6 +5426,22 @@
 <tr>
 <td style="text-align: left;"><code>static MinecraftClient.displayMessage(message: VanillaText, actionBar: boolean): void</code></td>
 <td style="text-align: left;">Same as above, but use <a href="#vanillatext">VanillaText</a> as the chat message to display.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static MinecraftClient.stopSound(id: Identifier, soundCategory: String): void</code></td>
+<td style="text-align: left;">Stop a sound identifier that is playing in soundCategory.<br>Possible sound categories:<br>- <strong>MASTER</strong><br>- <strong>BLOCKS</strong><br>- <strong>MUSIC</strong><br>- <strong>RECORDS</strong><br>- <strong>WEATHER</strong><br>- <strong>HOSTILE</strong><br>- <strong>NEUTRAL</strong><br>- <strong>PLAYERS</strong><br>- <strong>AMBIENT</strong><br>- <strong>VOICE</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static MinecraftClient.spawnParticleInWorld(particleId: Identifier, pos: Vector3f, initialVelocity: Vector3f, alwaysSpawn: boolean = false)</code></td>
+<td style="text-align: left;">Spawn a particle in <code>pos</code> of the current world, with an initial velocity of <code>initialVelocity</code>.<br>Only built-in vanilla particles are supported, see the <a href="https://minecraft.fandom.com/wiki/Particles">Minecraft Wiki page</a> for particle ids.<br>Set <code>alwaysSpawn</code> to true to bypass Minecraft's particle option preference. (Only use this for critical particle effect that must be displayed)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static MinecraftClient.renderDistance(): int</code></td>
+<td style="text-align: left;">Obtain the render distance (In Chunk) that is configured in the Minecraft Option.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static MinecraftClient.getWorldPlayers(): List&lt;PlayerEntity&gt;</code></td>
+<td style="text-align: left;">Obtain a list of <a href="#playerentity">PlayerEntity</a> that is currently in view of the render distance in the current world.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>static MinecraftClient.gamePaused(): boolean</code></td>
@@ -5612,7 +5628,27 @@
 </tr>
 <tr>
 <td style="text-align: left;"><code>PlayerEntity.blockPos(): Vector3f</code></td>
-<td style="text-align: left;">Obtain the current block position of the player, as a <a href="../math/#vector3f">Vector3f</a></td>
+<td style="text-align: left;">Obtain the current block position of the player, as a <a href="../math/#vector3f">Vector3f</a>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PlayerEntity.smoothPos(): Vector3f</code></td>
+<td style="text-align: left;">Obtain the smoothed pos of the player, useful for rendering.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PlayerEntity.velocity(): Vector3f</code></td>
+<td style="text-align: left;">Obtain the current velocity of the player.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PlayerEntity.yaw(): float</code></td>
+<td style="text-align: left;">Obtain the yaw rotation of the player head.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PlayerEntity.pitch(): float</code></td>
+<td style="text-align: left;">Obtain the pitch rotation of the player head.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PlayerEntity.bodyYaw(): float</code></td>
+<td style="text-align: left;">Obtain the yaw rotation of the player's body.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>PlayerEntity.playerName(): string</code></td>
@@ -5633,6 +5669,18 @@
 <tr>
 <td style="text-align: left;"><code>PlayerEntity.activeItem(): ItemStack</code></td>
 <td style="text-align: left;">Obtain the <a href="#itemstack">ItemStack</a> in the player's hands, preferring main hand.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PlayerEntity.isSneaking(): boolean</code></td>
+<td style="text-align: left;">Whether the player is sneaking.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PlayerEntity.isSprinting(): boolean</code></td>
+<td style="text-align: left;">Whether the player is sprinting.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PlayerEntity.isSwimming(): boolean</code></td>
+<td style="text-align: left;">Whether the player is swimming.</td>
 </tr>
 </tbody>
 </table>
