@@ -214,7 +214,7 @@ nav:
           - Sounds APIs: dev/scripting/sounds.md
           - Advanced APIs:
             - Minecraft APIs: dev/scripting/mc.md
-            - File API: dev/scripting/files.md
+            - File APIs: dev/scripting/files.md
             - Networking API: dev/scripting/networking.md
           - Miscellaneous APIs: dev/scripting/utilities.md
         - Builtin Scripts:
