@@ -24,7 +24,7 @@ You can read the data of the file in multiple formats with the following functio
 |Functions|Description|
 |:--------|:----------|
 |`FileEntry.asString(): String`|Return the file's content as plain text, in UTF-8 encoding.|
-|`FileEntry.asBufferedImage(): String`|Return the file's content as a BufferedImage.|
+|`FileEntry.asBufferedImage(): BufferImage`|Return the file's content as a BufferedImage.|
 |`FileEntry.asRawBytes(): byte[]`|Return the file's content as a raw byte array.|
 
 ## Example
