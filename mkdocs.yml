@@ -217,6 +217,7 @@ nav:
             - Minecraft APIs: dev/scripting/mc.md
             - File APIs: dev/scripting/files.md
             - Networking API: dev/scripting/networking.md
+            - Background Worker: dev/scripting/bgworker.md
           - Miscellaneous APIs: dev/scripting/utilities.md
         - Builtin Scripts:
           - Display Helper: dev/scripting/builtin/display_helper.md
