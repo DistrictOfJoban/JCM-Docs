@@ -39,7 +39,7 @@ If you managed to get pass all questions, it likely means that your script have 
     Does your script only manipulates the `flipV` settings in the model / Replace a texture of a flat surface?
 
     - **If yes:**
-    - - `flipV` is provided as a parameter when loading model via [ModelManager](../resources.md#model-loading).
+    - - `flipV` is provided as a parameter when loading model via [ModelManager](../model.md#modelmanager).
     - - Replace texture isn't possible at the moment, *however* you can draw a quad in script and a bind a texture to it, which should achieve a similar effect and act as a substitute to replacing the texture of a flat face.
     - **If no:**
     - - Unfortunately these features aren't available in JCM at the moment. You may have to split your obj model into different parts instead of processing them directly in scripts.

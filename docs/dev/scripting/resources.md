@@ -11,14 +11,6 @@ To create an `Identifier`, you can use the following functions:
 |`static Resources.id(idStr: string): Identifier`|Create an Identifier based on the string<br>e.g. `Resources.id(“mtr:path/absolute.js”)`.|
 |`static Resources.idr(relPath: string): Identifier`|Create an Identifier based on the relative directory the currently executed script are located in<br>e.g. `Resources.idr(“relative.js”)`.|
 
-## Model Loading
-!!! info
-    Please note that the current API is much more high level and does not offer fine-grained control like in MTR 3/NTE.
-
-|Functions|Description|
-|:--------|:----------|
-|`static ModelManager.loadModel(id: Identifier, flipV: boolean): Model`|Load an OBJ/bbmodel model from a path and upload to the GPU.<br>Set `flipV` to true if your texture is rendered incorrectly.|
-
 ## AWT Resources & Fonts
 These functions load the resources used to draw dynamic textures via the Java AWT.
 

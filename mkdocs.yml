@@ -207,7 +207,8 @@ nav:
           - Tips & Notes: dev/scripting/articles/tips.md
         - API Reference:
           - Console API: dev/scripting/console.md
-          - Resource Loading/Model Related: dev/scripting/resources.md
+          - Resource Loading: dev/scripting/resources.md
+          - 3D Model API: dev/scripting/model.md
           - Math APIs (Geometry): dev/scripting/math.md
           - Graphics API: dev/scripting/dynamic_textures.md
           - Rendering APIs: dev/scripting/rendering.md

@@ -59,5 +59,5 @@ This creates a draw call which renders a 3d model onto the world.
 |:--------|:----------|
 |`static ModelDrawCall.create(): ModelDrawCall`|Creates a ModelDrawCall|
 |`static ModelDrawCall.create(comment: string): ModelDrawCall`|Creates a ModelDrawCall with a comment. The comment are not used and are purely for annotations/readability purpose in your code.|
-|`ModelDrawCall.modelObject(model: Model): ModelDrawCall`|Specify the model to render. See [Model Loading](./resources.md#model-loading) on obtaining a Model.|
+|`ModelDrawCall.modelObject(model: Model): ModelDrawCall`|Specify the model to render. See [Model Loading](./model.md) on obtaining a Model.|
 |`ModelDrawCall.matrices(matrices: Matrices): ModelDrawCall`|Supply a [Matrices](./math.md#matrices) to transform the model.|
