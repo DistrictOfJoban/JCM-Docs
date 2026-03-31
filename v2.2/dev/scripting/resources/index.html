@@ -14,7 +14,7 @@
         <link rel="prev" href="../console/">
       
       
-        <link rel="next" href="../math/">
+        <link rel="next" href="../model/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Resource Loading/Model Related - Joban Client Mod</title>
+        <title>Resource Loading - Joban Client Mod</title>
       
     
     
@@ -129,7 +129,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Resource Loading/Model Related
+              Resource Loading
             
           </span>
         </div>
@@ -4171,6 +4171,8 @@
       
         
       
+        
+      
     
     
     
@@ -4263,7 +4265,7 @@
   <span class="md-ellipsis">
     
   
-    Resource Loading/Model Related
+    Resource Loading
   
 
     
@@ -4281,7 +4283,7 @@
   <span class="md-ellipsis">
     
   
-    Resource Loading/Model Related
+    Resource Loading
   
 
     
@@ -4316,17 +4318,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#model-loading" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Model Loading
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#awt-resources-fonts" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4352,6 +4343,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3D Model API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -4484,6 +4503,8 @@
       
         
       
+        
+      
     
     
     
@@ -4495,10 +4516,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4_8" >
         
           
-          <label class="md-nav__link" for="__nav_3_2_4_7" id="__nav_3_2_4_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_2_4_8" id="__nav_3_2_4_8_label" tabindex="0">
             
   
   
@@ -4516,8 +4537,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_4_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2_4_7">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_4_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -4598,6 +4619,34 @@
     
   
     Networking API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bgworker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Background Worker
   
 
     
@@ -5110,17 +5159,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#model-loading" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Model Loading
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#awt-resources-fonts" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5254,7 +5292,7 @@
   
 
 
-  <h1>Resource Loading/Model Related</h1>
+  <h1>Resource Loading</h1>
 
 <p>NTE/JCM provides several methods for controlling the loading and retrieval of resources within resource packs in JavaScript scripts.</p>
 <p>Code written in the top-level space outside of functions will be executed when a resource pack is loaded and can be used to initialize resources such as models, textures, etc. Resources that should not be different for each train (such as models and such) are recommended to be stored in global variables to avoid excessive memory usage when loading a copy of the same content for each train.</p>
@@ -5276,25 +5314,6 @@ To create an <code>Identifier</code>, you can use the following functions:</p>
 <tr>
 <td style="text-align: left;"><code>static Resources.idr(relPath: string): Identifier</code></td>
 <td style="text-align: left;">Create an Identifier based on the relative directory the currently executed script are located in<br>e.g. <code>Resources.idr(“relative.js”)</code>.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="model-loading">Model Loading<a class="headerlink" href="#model-loading" title="Anchor link to this section for reference">#</a></h2>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Please note that the current API is much more high level and does not offer fine-grained control like in <abbr title="Minecraft Transit Railway 3.x">MTR 3</abbr>/NTE.</p>
-</div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Functions</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>static ModelManager.loadModel(id: Identifier, flipV: boolean): Model</code></td>
-<td style="text-align: left;">Load an OBJ/bbmodel model from a path and upload to the GPU.<br>Set <code>flipV</code> to true if your texture is rendered incorrectly.</td>
 </tr>
 </tbody>
 </table>
