@@ -1,4 +1,4 @@
-## Files
+# Files API
 The **Files** class allows saving/reading files with scripts to a limited degree. It is intended for scripts to use it as a config file as well as storing persistent/cache data. This is usually only useful for scripts requiring advanced functionalities.
 
 ### Scope
@@ -9,23 +9,12 @@ The **Files** class allows saving/reading files with scripts to a limited degree
 
 |Functions|Description|
 |:--------|:----------|
-|`static Files.read(path: string...): FileEntry`|Read a file based on the specified path and returns the [FileEntry](#fileentry). (null if the file don't exist).<br>This function always resolves relatively starting from '''.minecraft'''.|
-|`static Files.readData(path: string...): FileEntry`|Read a file based on the specified path and returns the [FileEntry](#fileentry). (null if the file don't exist).<br>**Note:** It is strongly recommended to store your file in a sub-directory with a unique name to avoid collision<br>This function always resolves relatively starting from **.minecraft/data/mtrscripting**.|
+|`static Files.read(path: string...): DataReader`|Read a file based on the specified path and returns the [DataReader](./data_reading.md#datareader). (null if the file don't exist).<br>This function always resolves relatively starting from '''.minecraft'''.|
+|`static Files.readData(path: string...): DataReader`|Read a file based on the specified path and returns the [DataReader](./data_reading.md#datareader). (null if the file don't exist).<br>**Note:** It is strongly recommended to store your file in a sub-directory with a unique name to avoid collision<br>This function always resolves relatively starting from **.minecraft/data/mtrscripting**.|
 |`static Files.saveData(content: string, path: string...): void`|Save plain text content to the corresponding path. The filename should be included in the path already.<br>All parent directory in the path will be automatically generated if it doesn't exists.<br>This function always resolves relatively starting from '''.minecraft/data/mtrscripting'''.|
 |`static Files.saveData(content: BufferedImage, path: string...): void`|Save a BufferedImage to the corresponding path. The filename should be included in the path already.<br>All parent directory in the path will be automatically generated if it doesn't exists.<br>This function always resolves relatively starting from '''.minecraft/data/mtrscripting'''.|
 |`static Files.deleteData(path: string...): void`|Delete the file from the specified path.This function always resolves relatively starting from '''.minecraft/data/mtrscripting'''.|
 |`static Files.hasData(path: string...): boolean`|Returns whether the specified file/directory exists.This function always resolves relatively starting from '''.minecraft/data/mtrscripting'''.|
-
-## FileEntry
-A FileEntry represents a reference to the file, which has not been read yet.
-
-You can read the data of the file in multiple formats with the following functions:
-
-|Functions|Description|
-|:--------|:----------|
-|`FileEntry.asString(): String`|Return the file's content as plain text, in UTF-8 encoding.|
-|`FileEntry.asBufferedImage(): BufferImage`|Return the file's content as a BufferedImage.|
-|`FileEntry.asRawBytes(): byte[]`|Return the file's content as a raw byte array.|
 
 ## Example
 ``` js
