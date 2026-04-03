@@ -115,7 +115,7 @@ The following functions are called to **control rendering**. The functions for r
 
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`EyeCandyScriptContext.drawModel(model: ScriptedModel, matrices: Matrices)`| Requests JCM to render a model loaded via [ModelManager](../../model.md#modelmanager).<br>`matrices` is the transformation of model placement. If passed null, the model will be placed in the center of the block without transformation.|
+|`EyeCandyScriptContext.drawModel(model: ScriptedModel, matrices: Matrices?)`| Requests JCM to render a model loaded via [ModelManager](../../model.md#modelmanager).<br>`matrices` is the transformation of model placement.<br>If `matrices` is null, the model will be placed in the center of the block without transformation.|
 |`EyeCandyScriptContext.setDebugInfo(key: String, value: object)`|Output debugging information in the upper left corner of the screen. You need to enable **[Script Debug Overlay](../../articles/script_debug_overlay.md)** in JCM Settings to display it.<br>`key` is the name of the value<br>`value` is the content (`value` will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).|
 |`EyeCandyScriptContext.getRenderManager(): RenderManager`|Obtain a [RenderManager](../../rendering.md#rendermanager) instance, which can be used to render stuff onto the Minecraft World.<br>The base position are set to the block's position + translated position.|
 |`EyeCandyScriptContext.getSoundManager(): SoundManager`|Obtain a [SoundManager](../../sounds.md) instance, which can be used to play sound onto the Minecraft World.<br>The base position are set to the block's position.|
@@ -126,7 +126,7 @@ The following functions are called to **control rendering**. The functions for r
 #### EyecandyBlockEntity
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`EyecandyBlockEntity.getModelId(): String`|Return the model/prefab that is currently assigned to this block.<br>`null` if no model is selected.|
+|`EyecandyBlockEntity.getModelId(): String?`|Return the model/prefab that is currently assigned to this block.<br>Null if no model is selected.|
 |`EyecandyBlockEntity.getTranslateX(): float`|The value in **meters** on how much the Decoration Object is translated on the X-axis, configured via GUI.|
 |`EyecandyBlockEntity.getTranslateY(): float`|The value in **meters** on how much the Decoration Object is translated on the Y-axis, configured via GUI.|
 |`EyecandyBlockEntity.getTranslateZ(): float`|The value in **meters** on how much the Decoration Object is translated on the Z-axis, configured via GUI.|

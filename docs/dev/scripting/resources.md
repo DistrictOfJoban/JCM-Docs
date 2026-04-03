@@ -18,7 +18,7 @@ This class allows developers to access file contents within resource packs, as w
 ### Resource Reading
 |Functions|Description|
 |:--------|:----------|
-|`static Resources.read(id: Identifier): DataReader?`|Read an asset/file in the resource pack based on the Identifier location.<br>Returns a [DataReader](./data_reading.md#datareader) to read the file's content, or null if the file does not exist.|
+|`static Resources.read(id: Identifier): DataReader?`|Read an asset/file in the resource pack based on the Identifier location.<br>Returns a [DataReader](./data_reading.md#datareader) to read the file's content.<br>Null if the file does not exist.|
 
 ??? info "Show deprecated functions"
     These functions are kept for backward compatibility, before the introduction of a unified [Data Reading](./data_reading.md) API.    
@@ -26,9 +26,9 @@ This class allows developers to access file contents within resource packs, as w
 
     |Functions|Description|
     |:--------|:----------|
-    |`static Resources.readString(id: Identifier): String?`|Reads the contents of a resource file as a string. Returns null if reading fails.|
-    |`static Resources.readBufferedImage(id: Identifier): BufferedImage`|Loads an image file as an AWT BufferedImage.|
-    |`static Resources.readFont(id: Identifier): Font`|Load a custom TTF or OTF font file as an AWT Font.<br> *Note: Due to the way Java and Minecraft Resource Pack works, new temporary font files are generated on your disk every time you call this function.<br>If you find yourself running out of disk space during the development, you can free up disk space by deleting files starting with `+~JF` on your system temp directory, or restart your Minecraft/Computer.*|
+    |`static Resources.readString(id: Identifier): String?`|Reads the contents of a resource file as a string.<br>Null if the file reading failed.|
+    |`static Resources.readBufferedImage(id: Identifier): BufferedImage?`|Loads an image file as an AWT BufferedImage.<br>Null if the file reading failed.|
+    |`static Resources.readFont(id: Identifier): Font?`|Load a custom TTF or OTF font file as an AWT Font.<br>Null if the file reading failed.<br> *Note: Due to the way Java and Minecraft Resource Pack works, new temporary font files are generated on your disk every time you call this function.<br>If you find yourself running out of disk space during the development, you can free up disk space by deleting files starting with `+~JF` on your system temp directory, or restart your Minecraft/Computer.*|
 
 ### AWT related
 [AWT is a window toolkit for Java](https://en.wikipedia.org/wiki/Abstract_Window_Toolkit). While not used directly in Minecraft, many of it's classes are still in-use (Such as BufferedImage/AWT Graphics) for cross-platform graphics processing/canvas. This is also used to power the [Graphics API](./dynamic_textures.md).

@@ -32,17 +32,17 @@ This is a **JavaScript Object** that specifies connection-related details.
 ### NetworkResponse
 Represents an HTTP response.
 
-If request is successful, it will be wrapping a dynamic type you can obtain via `getData()`.  
-(Type is denoted in the [Networking](#networking) class in angle bracket syntax).
+If request is successful, it will be wrapping a dynamic type (Annotated as `DynamicType` below) which you can obtain via `getData()`.  
+(The type is specified in the [Networking](#networking) class in &lt;angle bracket&gt; syntax for the function you chose to invoke).
 
 |Functions|Description|
 |:--------|:----------|
 |`NetworkResponse.getResponseCode(): int`|Get the HTTP Response Code, a list can be found [here](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes).|
-|<code>NetworkResponse.getData(): Dynamic Type \| null</code>|Obtain the fetched data. Null if the request failed.|
 |`NetworkResponse.success(): boolean`|Whether the request succeeded.<br>**Note: This only returns whether a response is given back from the server, use `NetworkResponse.ok()` to check if the response code from server is in the OK range!**|
 |`NetworkResponse.ok(): boolean`|Whether the response code is within 200 - 299 range.<br>Same as checking if `NetworkResponse.getResponseCode()` >= 200 and <= 299|
-|<code>NetworkResponse.exception(): Exception \| null</code>|Returns the relevant java exception if the request failed.<br>Null if the request succeeded (`NetworkResponse.success()`)|
-|`NetworkResponse.getHeaders(): Map<String, List<String>>`|Obtain the headers in the HTTP response|
+|`NetworkResponse.getData(): DynamicType?`|Obtain the fetched data. Null if the request failed.|
+|`NetworkResponse.exception(): Exception?`|Returns the relevant java exception if the request failed.<br>Null if the request succeeded (`NetworkResponse.success()`)|
+|`NetworkResponse.getHeaders(): Map<String, List<String>>?`|Obtain the headers in the HTTP response.<br>Null if the request failed.|
 
 ### Example
 ``` js

@@ -51,7 +51,7 @@ Since each object should have its own tracker, you would probably want to store 
 |`new StateTracker()`|Creates StateTracker.|
 |`StateTracker.setState(value: object?): void`|Sets the new state.|
 |`StateTracker.stateNow(): object?`|Returns the current state.|
-|`StateTracker.stateLast(): object?`|Returns the previous state. If it does not exist, `null` is returned.|
+|`StateTracker.stateLast(): object?`|Returns the previous state.<br>Null if the previous state doesn't exist.|
 |`StateTracker.stateNowDuration(): double`|Returns the amount of time the current state lasts.|
 |`StateTracker.stateNowFirst(): boolean`|Was the state just changed by the `setState` function in this loop or not?|
 |`StateTracker.changedTo(value: object?): boolean`|Whether the state just changed to the specified value.<br>This is mostly equivalent to `stateNowFirst() && stateNow() == value`<br>This uses Java's `Objects.equals` method for equality comparison.|
@@ -67,7 +67,7 @@ Since each object should have its own tracker, you would probably want to store 
 |`new CycleTracker(params: Object[])`|Creates a CycleTracker.<br>The parameters are the states it will switch through and the duration of each state in seconds.<br>Example: `new CycleTracker([“route”, 5, “nextStation”, 5])`.|
 |`CycleTracker.tick(): void`|Updates the status based on the current time.|
 |`CycleTracker.stateNow(): String`|Returns the current state.|
-|`CycleTracker.stateLast(): String?`|Returns the previous state. If it does not exist, `null` is returned.|
+|`CycleTracker.stateLast(): String?`|Returns the previous state.<br>Null if the previous state does not exist.|
 |`CycleTracker.stateNowDuration(): double`|Returns the amount of time the current state lasts.|
 |`CycleTracker.stateNowFirst(): boolean`|Was the state just changed by the `setState` function in this loop or not?|
 

@@ -21,7 +21,7 @@ The API is split into the following 3 classes:
 
     |Functions|Description|
     |:--------|:----------|
-    |`static ModelManager.loadRawModel(null, id: Identifier, null): ModelData`|Equivalent to `ModelManager.loadModel` with the `flipV` parameter set to false.|
+    |`static ModelManager.loadRawModel(null, id: Identifier, null): ModelData?`|Equivalent to `ModelManager.loadModel` with the `flipV` parameter set to false.<br>Null if the model loading failed.|
     |`static ModelManager.loadPartedRawModel(id: Identifier): Map<String, ModelData>`|Equivalent to `ModelManager.loadModelParts`.|
     |`static ModelManager.uploadVertArrays(modelData: ModelData): Model`|Equivalent to `ModelManager.upload`.|
 

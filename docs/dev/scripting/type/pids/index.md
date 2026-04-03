@@ -153,13 +153,13 @@ This would return a string formatted like: `2.0.0-beta.5`
 |`PIDSBlockEntity.isPlatformNumberHidden(): boolean`|Returns whether the platform number is set to hidden. (via PIDS Config)|
 |`PIDSBlockEntity.blockPos(): Vector3f`|Returns the coordinate of which the PIDS block is located.|
 |`PIDSBlockEntity.isKeyBlock(): boolean`|Returns whether the current block is a unique block within a PIDS pair<br>(e.g. Identify 1 side of a dual-sided PIDS)|
-|`PIDSBlockEntity.station(): Station`|Returns the station area that this PIDS is in.<br>`null` if not in any station.|
+|`PIDSBlockEntity.station(): Station?`|Returns the station area that this PIDS is in.<br>Null if not in any station, or the client is not aware of the station.|
 |`PIDSBlockEntity.arrivals(): ArrivalEntries`|Returns the arrivals obtained for the PIDS.|
 
 ##### ArrivalEntries
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`ArrivalEntries.get(i: int): ArrivalEntry?`|Returns the i<sup>th</sup> arrival entry.<br>`null` if there's no i<sup>th</sup> arrival entry or no arrival information.<br>**Note that only up to 10 arrivals is fetched per platform, see this [issue](https://github.com/DistrictOfJoban/Joban-Client-Mod/issues/40) for details.**|
+|`ArrivalEntries.get(i: int): ArrivalEntry?`|Returns the i<sup>th</sup> arrival entry.<br>Null if there's no i<sup>th</sup> arrival entry or no arrival information.<br>**Note that only up to 10 arrivals is fetched per platform, see this [issue](https://github.com/DistrictOfJoban/Joban-Client-Mod/issues/40) for details.**|
 |`ArrivalEntries.mixedCarLength(): boolean`|Returns whether the list of arrivals have arrival entry with different cars.|
 |`ArrivalEntries.platforms(): ObjectArrayList<Platform>`|Returns the platforms that all arrival entry is stopping at.|
 

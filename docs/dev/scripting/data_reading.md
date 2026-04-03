@@ -14,9 +14,9 @@ Multiple functions are provided allowing you to decode these type of bytes data 
 
 |Functions|Description|
 |:--------|:----------|
-|`DataReader.asString(): String`|Return the file's content as plain text, in UTF-8 encoding.|
-|`DataReader.asBufferedImage(): BufferImage`|Return the file's content as a BufferedImage.|
-|`DataReader.asFont(): Font`|Load a custom TTF or OTF font file as an AWT Font.<br> *Note: Due to the way Java and Minecraft Resource Pack works, new temporary font files are generated on your disk every time you call this function.<br>If you find yourself running out of disk space during the development, you can free up disk space by deleting files starting with `+~JF` on your system temp directory, or restart your Minecraft/Computer.*|
+|`DataReader.asString(): String?`|Return the file's content as plain text, in UTF-8 encoding.<br>Null if the decoding failed, alongside a console error.|
+|`DataReader.asBufferedImage(): BufferImage?`|Return the file's content as a BufferedImage.<br>Null if the decoding failed, alongside a console error.|
+|`DataReader.asFont(): Font?`|Load a custom TTF or OTF font file as an AWT Font.<br>Null if the decoding failed, alongside a console error.<br> *Note: Due to the way Java and Minecraft Resource Pack works, new temporary font files are generated on your disk every time you call this function.<br>If you find yourself running out of disk space during the development, you can free up disk space by deleting files starting with `+~JF` on your system temp directory, or restart your Minecraft/Computer.*|
 |`DataReader.asByteArray(): byte[]`|Return the file's content as a raw byte array.|
 |`DataReader.openInputStream(callback: Consumer<InputStream>): void`|Opens the underlying `InputStream` and pass it to `callback`. The closing of InputStream is automatically done after executing your callback.|
 |`DataReader.asInputStream(): InputStream`|Return the underlying `InputStream`.<br>**Note: Remember to close the InputStream after use with .close()**|
