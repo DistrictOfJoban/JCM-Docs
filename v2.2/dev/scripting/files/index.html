@@ -5405,27 +5405,27 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>static Files.read(path: string...): DataReader</code></td>
+<td style="text-align: left;"><code>static Files.read(path: String...): DataReader</code></td>
 <td style="text-align: left;">Read a file based on the specified path and returns the <a href="../data_reading/#datareader">DataReader</a>. (null if the file don't exist).<br>This function always resolves relatively starting from '''.minecraft'''.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>static Files.readData(path: string...): DataReader</code></td>
+<td style="text-align: left;"><code>static Files.readData(path: String...): DataReader</code></td>
 <td style="text-align: left;">Read a file based on the specified path and returns the <a href="../data_reading/#datareader">DataReader</a>. (null if the file don't exist).<br><strong>Note:</strong> It is strongly recommended to store your file in a sub-directory with a unique name to avoid collision<br>This function always resolves relatively starting from <strong>.minecraft/data/mtrscripting</strong>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>static Files.saveData(content: string, path: string...): void</code></td>
+<td style="text-align: left;"><code>static Files.saveData(content: String, path: String...): void</code></td>
 <td style="text-align: left;">Save plain text content to the corresponding path. The filename should be included in the path already.<br>All parent directory in the path will be automatically generated if it doesn't exists.<br>This function always resolves relatively starting from '''.minecraft/data/mtrscripting'''.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>static Files.saveData(content: BufferedImage, path: string...): void</code></td>
+<td style="text-align: left;"><code>static Files.saveData(content: BufferedImage, path: String...): void</code></td>
 <td style="text-align: left;">Save a BufferedImage to the corresponding path. The filename should be included in the path already.<br>All parent directory in the path will be automatically generated if it doesn't exists.<br>This function always resolves relatively starting from '''.minecraft/data/mtrscripting'''.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>static Files.deleteData(path: string...): void</code></td>
+<td style="text-align: left;"><code>static Files.deleteData(path: String...): void</code></td>
 <td style="text-align: left;">Delete the file from the specified path.This function always resolves relatively starting from '''.minecraft/data/mtrscripting'''.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>static Files.hasData(path: string...): boolean</code></td>
+<td style="text-align: left;"><code>static Files.hasData(path: String...): boolean</code></td>
 <td style="text-align: left;">Returns whether the specified file/directory exists.This function always resolves relatively starting from '''.minecraft/data/mtrscripting'''.</td>
 </tr>
 </tbody>

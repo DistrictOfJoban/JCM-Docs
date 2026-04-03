@@ -5574,7 +5574,7 @@
 <td style="text-align: left;">Requests JCM to render a model loaded via <a href="../../model/#modelmanager">ModelManager</a>.<br><code>matrices</code> is the transformation of model placement. If passed null, the model will be placed in the center of the block without transformation.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>EyeCandyScriptContext.setDebugInfo(key: string, value: object)</code></td>
+<td style="text-align: left;"><code>EyeCandyScriptContext.setDebugInfo(key: String, value: object)</code></td>
 <td style="text-align: left;">Output debugging information in the upper left corner of the screen. You need to enable <strong><a href="../../articles/script_debug_overlay/">Script Debug Overlay</a></strong> in JCM Settings to display it.<br><code>key</code> is the name of the value<br><code>value</code> is the content (<code>value</code> will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).</td>
 </tr>
 <tr>
@@ -5609,31 +5609,31 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>EyecandyBlockEntity.getModelId(): string</code></td>
+<td style="text-align: left;"><code>EyecandyBlockEntity.getModelId(): String</code></td>
 <td style="text-align: left;">Return the model/prefab that is currently assigned to this block.<br><code>null</code> if no model is selected.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>EyecandyBlockEntity.getTranslateX(): number</code></td>
+<td style="text-align: left;"><code>EyecandyBlockEntity.getTranslateX(): float</code></td>
 <td style="text-align: left;">The value in <strong>meters</strong> on how much the Decoration Object is translated on the X-axis, configured via GUI.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>EyecandyBlockEntity.getTranslateY(): number</code></td>
+<td style="text-align: left;"><code>EyecandyBlockEntity.getTranslateY(): float</code></td>
 <td style="text-align: left;">The value in <strong>meters</strong> on how much the Decoration Object is translated on the Y-axis, configured via GUI.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>EyecandyBlockEntity.getTranslateZ(): number</code></td>
+<td style="text-align: left;"><code>EyecandyBlockEntity.getTranslateZ(): float</code></td>
 <td style="text-align: left;">The value in <strong>meters</strong> on how much the Decoration Object is translated on the Z-axis, configured via GUI.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>EyecandyBlockEntity.getRotateX(): number</code></td>
+<td style="text-align: left;"><code>EyecandyBlockEntity.getRotateX(): float</code></td>
 <td style="text-align: left;">The value in <strong>radians</strong> on how much the Decoration Object is rotated on the X-axis, configured via GUI.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>EyecandyBlockEntity.getRotateY(): number</code></td>
+<td style="text-align: left;"><code>EyecandyBlockEntity.getRotateY(): float</code></td>
 <td style="text-align: left;">The value in <strong>radians</strong> on how much the Decoration Object is rotated on the Y-axis, configured via GUI.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>EyecandyBlockEntity.getRotateZ(): number</code></td>
+<td style="text-align: left;"><code>EyecandyBlockEntity.getRotateZ(): float</code></td>
 <td style="text-align: left;">The value in <strong>radians</strong> on how much the Decoration Object is rotated on the Z-axis, configured via GUI.</td>
 </tr>
 <tr>
@@ -5646,7 +5646,7 @@
 </tr>
 <tr>
 <td style="text-align: left;"><code>EyecandyBlockEntity.facing(): Direction</code></td>
-<td style="text-align: left;">Returns a Minecraft direction for which way the block is facing. Used for constructing direction-dependent <a href="../../mc/#voxelshape">VoxelShape</a>.</td>
+<td style="text-align: left;">Returns a Minecraft direction for which way the block is facing.<br>Used for constructing direction-dependent <a href="../../mc/#voxelshape">VoxelShape</a>.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>EyecandyBlockEntity.isCrosshairTarget(): boolean</code></td>
@@ -5658,7 +5658,7 @@
 </tr>
 <tr>
 <td style="text-align: left;"><code>EyecandyBlockEntity.redstoneLevel(): int</code></td>
-<td style="text-align: left;">Whether a redstone is powering the eyecandy.<br>Returns 0 (Unpowered) or 15 (Powered).<br><strong>Note: Script must treat the returned number as if 1-14 can be returned, as this behaviour may change in an upcoming version.</strong></td>
+<td style="text-align: left;">Whether a redstone is powering the eyecandy.<br>Returns 0 (Unpowered) or 15 (Powered).<br><strong>Note: Scripts must treat the returned number as if 1-14 can be returned, as this behaviour may change in an upcoming version.</strong></td>
 </tr>
 </tbody>
 </table>
@@ -5675,11 +5675,11 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><code>EyecandyBlockEntity.getWorldPosVector3f(): Vector3f</code></td>
-<td style="text-align: left;">Same as <code>EyecandyBlockEntity.blockPos()</code></td>
+<td style="text-align: left;">Same as <code>EyecandyBlockEntity.blockPos()</code>.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>EyecandyBlockEntity.getTransformPosVector3f(): Vector3f</code></td>
-<td style="text-align: left;">Same as <code>EyecandyBlockEntity.pos()</code></td>
+<td style="text-align: left;">Same as <code>EyecandyBlockEntity.pos()</code>.</td>
 </tr>
 </tbody>
 </table>

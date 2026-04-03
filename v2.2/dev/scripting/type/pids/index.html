@@ -5516,7 +5516,7 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>PIDSScriptContext.setDebugInfo(key: string, value: object)</code></td>
+<td style="text-align: left;"><code>PIDSScriptContext.setDebugInfo(key: String, value: object)</code></td>
 <td style="text-align: left;">Output debugging information in the upper left corner of the screen. You need to enable <strong><a href="../../articles/script_debug_overlay/">Script Debug Overlay</a></strong> in JCM Settings to display it.<br><code>key</code> is the name of the value<br><code>value</code> is the content (<code>value</code> will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).</td>
 </tr>
 <tr>
@@ -5529,10 +5529,10 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 </tr>
 <tr>
 <td style="text-align: left;"><code>PIDSScriptContext.setAutoZOrdering(autoZOrdering: boolean): void</code></td>
-<td style="text-align: left;">To ensure z-fighting don't occur, by default JCM will translate a small amount (step) in the z-direction everytime you draw a text/texture. You can turn this behaviour off by setting autoZOrdering to false, then you can use <code>Text/Texture#zOrder(order: number)</code> to control the z-order manually</td>
+<td style="text-align: left;">To ensure z-fighting don't occur, by default JCM will translate a small amount (step) in the z-direction everytime you draw a text/texture. You can turn this behaviour off by setting autoZOrdering to false, then you can use <code>Text/Texture#zOrder(order: int)</code> to control the z-order manually</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>PIDSScriptContext.setZOrderStep(distanceMeter: number): void</code></td>
+<td style="text-align: left;"><code>PIDSScriptContext.setZOrderStep(distanceMeter: double): void</code></td>
 <td style="text-align: left;">To ensure z-fighting don't occur, by default JCM will translate a small amount (step) in the z-direction everytime you draw a text/texture. Here you can pass in a custom step value. By default this is <code>0.0002</code></td>
 </tr>
 </tbody>
@@ -5547,19 +5547,19 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>Text.create()</code><br><code>Text.create(comment: string)</code></td>
+<td style="text-align: left;"><code>Text.create()</code><br><code>Text.create(comment: String)</code></td>
 <td style="text-align: left;">Create a new text object</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Text.pos(x: number, y: number): Text</code></td>
+<td style="text-align: left;"><code>Text.pos(x: double, y: double): Text</code></td>
 <td style="text-align: left;">Set the X and Y position of the element</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Text.size(w: number, h: number): Text</code></td>
+<td style="text-align: left;"><code>Text.size(w: double, h: double): Text</code></td>
 <td style="text-align: left;">Set the width and height of the element<br>(Used in conjunction with <code>Text.stretchXY()</code> and <code>Text.scaleXY()</code>)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Text.text(str: string): Text</code></td>
+<td style="text-align: left;"><code>Text.text(str: String): Text</code></td>
 <td style="text-align: left;">Set the text content to str</td>
 </tr>
 <tr>
@@ -5615,11 +5615,11 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 <td style="text-align: left;">Apply a <a href="../../math/#matrices">matrices</a> to the current text object</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Text.font(id: string): Text</code><br><code>Text.font(id: Identifier): Text</code></td>
+<td style="text-align: left;"><code>Text.font(id: String): Text</code><br><code>Text.font(id: Identifier): Text</code></td>
 <td style="text-align: left;">Set the font by it's ID. Defaults to <code>mtr:mtr</code><br>The font should be loaded in Minecraft via the font json format.<br>This does not have any effect if <strong>Use Custom MTR Font</strong> is disabled in <abbr title="Minecraft Transit Railway">MTR mod</abbr>'s Config.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Text.color(color: number): Text</code></td>
+<td style="text-align: left;"><code>Text.color(color: int): Text</code></td>
 <td style="text-align: left;">Set the text color, in RGB format.</td>
 </tr>
 <tr>
@@ -5627,7 +5627,7 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 <td style="text-align: left;">Mark the text as something that should be rendered to the PIDS.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Text.zOrder(order: number): Text</code></td>
+<td style="text-align: left;"><code>Text.zOrder(order: int): Text</code></td>
 <td style="text-align: left;">Specify the z-order manually.</td>
 </tr>
 </tbody>
@@ -5642,27 +5642,27 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>Texture.create()</code><br><code>Texture.create(comment: string)</code></td>
+<td style="text-align: left;"><code>Texture.create()</code><br><code>Texture.create(comment: String)</code></td>
 <td style="text-align: left;">Create a new texture object</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Texture.pos(x: number, y: number): Texture</code></td>
+<td style="text-align: left;"><code>Texture.pos(x: double, y: double): Texture</code></td>
 <td style="text-align: left;">Set the X and Y position of the element</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Texture.size(w: number, h: number): Texture</code></td>
+<td style="text-align: left;"><code>Texture.size(w: double, h: double): Texture</code></td>
 <td style="text-align: left;">Set the width and height of the element</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Texture.texture(id: string): Texture</code><br><code>Texture.texture(id: Identifier): Texture</code></td>
+<td style="text-align: left;"><code>Texture.texture(id: String): Texture</code><br><code>Texture.texture(id: Identifier): Texture</code></td>
 <td style="text-align: left;">Set the texture ID to draw.<br>Note that the texture ID should point to a PNG file or an .mcmeta file.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Texture.color(color: number): Texture</code></td>
+<td style="text-align: left;"><code>Texture.color(color: int): Texture</code></td>
 <td style="text-align: left;">Set the text color, in RGB format.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Texture.uv(u2: number, v2: number): Texture</code><br><code>Texture.uv(u1: number, v1: number, u2: number, v2: number): Texture</code></td>
+<td style="text-align: left;"><code>Texture.uv(u2: float, v2: float): Texture</code><br><code>Texture.uv(u1: float, v1: float, u2: float, v2: float): Texture</code></td>
 <td style="text-align: left;">Set the UV coordinates</td>
 </tr>
 <tr>
@@ -5674,7 +5674,7 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 <td style="text-align: left;">Mark the texture as something that should be rendered to the PIDS.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Texture.zOrder(order: number): Texture</code></td>
+<td style="text-align: left;"><code>Texture.zOrder(order: int): Texture</code></td>
 <td style="text-align: left;">Specify the z-order manually.</td>
 </tr>
 </tbody>
@@ -5690,27 +5690,27 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>PIDSBlockEntity.type: string</code></td>
+<td style="text-align: left;"><code>PIDSBlockEntity.type: String</code></td>
 <td style="text-align: left;">Return the type of PIDS used, possible value are:<br>- rv_pids<br>- rv_pids_sil_1<br>- rv_pids_sil_2<br>- lcd_pids<br>- pids_projector<br>- pids_1a</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>PIDSBlockEntity.width: number</code></td>
+<td style="text-align: left;"><code>PIDSBlockEntity.width: int</code></td>
 <td style="text-align: left;">The full width of the available PIDS screen area.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>PIDSBlockEntity.height: number</code></td>
+<td style="text-align: left;"><code>PIDSBlockEntity.height: int</code></td>
 <td style="text-align: left;">The full height of the available PIDS screen area.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>PIDSBlockEntity.rows: number</code></td>
+<td style="text-align: left;"><code>PIDSBlockEntity.rows: int</code></td>
 <td style="text-align: left;">The number of arrival rows supported by the PIDS Block</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>PIDSBlockEntity.isRowHidden(i: number): boolean</code></td>
+<td style="text-align: left;"><code>PIDSBlockEntity.isRowHidden(i: int): boolean</code></td>
 <td style="text-align: left;">Returns whether the arrival for that row is hidden. (via PIDS Config)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>PIDSBlockEntity.getCustomMessage(i: number): string</code></td>
+<td style="text-align: left;"><code>PIDSBlockEntity.getCustomMessage(i: int): String</code></td>
 <td style="text-align: left;">Returns the custom message configured for that row via PIDS Config.<br>Empty string (<code>""</code>) if not set.</td>
 </tr>
 <tr>
@@ -5745,7 +5745,7 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>ArrivalEntries.get(i: number): ArrivalEntry?</code></td>
+<td style="text-align: left;"><code>ArrivalEntries.get(i: int): ArrivalEntry?</code></td>
 <td style="text-align: left;">Returns the i<sup>th</sup> arrival entry.<br><code>null</code> if there's no i<sup>th</sup> arrival entry or no arrival information.<br><strong>Note that only up to 10 arrivals is fetched per platform, see this <a href="https://github.com/DistrictOfJoban/Joban-Client-Mod/issues/40">issue</a> for details.</strong></td>
 </tr>
 <tr>
@@ -5769,19 +5769,19 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>ArrivalEntry.destination(): string</code></td>
+<td style="text-align: left;"><code>ArrivalEntry.destination(): String</code></td>
 <td style="text-align: left;">Returns the destination name of the arrival entry.<br>(Usually the destination's station, or a custom destination string)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ArrivalEntry.arrivalTime(): number</code></td>
+<td style="text-align: left;"><code>ArrivalEntry.arrivalTime(): long</code></td>
 <td style="text-align: left;">Returns the epoch time (in Millisecond) the vehicle will arrive at.<br>Use <code>new Date(value: number)</code>to obtain a <abbr title="JavaScript">JS</abbr> Date object of the arrival time.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ArrivalEntry.departureTime(): number</code></td>
+<td style="text-align: left;"><code>ArrivalEntry.departureTime(): long</code></td>
 <td style="text-align: left;">Returns the epoch time (in Millisecond) the vehicle will depart at.<br>Use <code>new Date(value: number)</code>to obtain a <abbr title="JavaScript">JS</abbr> Date object of the departure time.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ArrivalEntry.deviation(): number</code></td>
+<td style="text-align: left;"><code>ArrivalEntry.deviation(): long</code></td>
 <td style="text-align: left;">Returns the deviation[?]</td>
 </tr>
 <tr>
@@ -5789,7 +5789,7 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 <td style="text-align: left;">Returns whether the arrival entry is scheduled (i.e. Vehicle not departed), or a real-time estimation (i.e. Vehicle running)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ArrivalEntry.departureIndex(): number</code></td>
+<td style="text-align: left;"><code>ArrivalEntry.departureIndex(): long</code></td>
 <td style="text-align: left;">Returns the departure index[?]</td>
 </tr>
 <tr>
@@ -5797,23 +5797,23 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 <td style="text-align: left;">Returns whether the arrival entry will terminate its service at the current platform.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ArrivalEntry.route(): SimplifiedRoute</code></td>
+<td style="text-align: left;"><code>ArrivalEntry.route(): SimplifiedRoute?</code></td>
 <td style="text-align: left;">Returns the SimplifiedRoute object that the vehicle is running on.<br><strong>Might be null if the route cannot be found (e.g. Hidden/Deleted)</strong></td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ArrivalEntry.routeId(): number</code></td>
+<td style="text-align: left;"><code>ArrivalEntry.routeId(): long</code></td>
 <td style="text-align: left;">Returns the id of the route that the vehicle is running on when arrived.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ArrivalEntry.routeName(): string</code></td>
+<td style="text-align: left;"><code>ArrivalEntry.routeName(): String</code></td>
 <td style="text-align: left;">Returns the name of the route that the vehicle is running on when arrived.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ArrivalEntry.routeNumber(): string</code></td>
+<td style="text-align: left;"><code>ArrivalEntry.routeNumber(): String</code></td>
 <td style="text-align: left;">Returns the route number string (Previously called LRT Route Number), empty string if route number is not set.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ArrivalEntry.routeColor(): number</code></td>
+<td style="text-align: left;"><code>ArrivalEntry.routeColor(): int</code></td>
 <td style="text-align: left;">Returns the color of the route that the vehicle is running on when arrived.</td>
 </tr>
 <tr>
@@ -5825,15 +5825,15 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 <td style="text-align: left;">Returns the platform object that the vehicle will approach at.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ArrivalEntry.platformId(): number</code></td>
+<td style="text-align: left;"><code>ArrivalEntry.platformId(): long</code></td>
 <td style="text-align: left;">Returns the id of the platform that the vehicle will approach at.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ArrivalEntry.platformName(): string</code></td>
+<td style="text-align: left;"><code>ArrivalEntry.platformName(): String</code></td>
 <td style="text-align: left;">Returns the name of the platform that the vehicle will approach at.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ArrivalEntry.carCount(): number</code></td>
+<td style="text-align: left;"><code>ArrivalEntry.carCount(): int</code></td>
 <td style="text-align: left;">Returns the number of cars the vehicle has.</td>
 </tr>
 <tr>
@@ -5862,15 +5862,15 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 <td style="text-align: left;">All colors of route that goes through this platform.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Platform.getName(): string</code></td>
+<td style="text-align: left;"><code>Platform.getName(): String</code></td>
 <td style="text-align: left;">Returns the platform name.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Platform.getId(): number</code></td>
+<td style="text-align: left;"><code>Platform.getId(): long</code></td>
 <td style="text-align: left;">Returns the platform ID.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Platform.getDwellTime(): number</code></td>
+<td style="text-align: left;"><code>Platform.getDwellTime(): long</code></td>
 <td style="text-align: left;">The dwell time duration of the platform in millisecond.</td>
 </tr>
 </tbody>
@@ -5885,15 +5885,15 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>SimplifiedRoute.getName(): string</code></td>
+<td style="text-align: left;"><code>SimplifiedRoute.getName(): String</code></td>
 <td style="text-align: left;">Returns the platform name.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>SimplifiedRoute.getId(): number</code></td>
+<td style="text-align: left;"><code>SimplifiedRoute.getId(): long</code></td>
 <td style="text-align: left;">Returns the route ID.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>SimplifiedRoute.getColor(): number</code></td>
+<td style="text-align: left;"><code>SimplifiedRoute.getColor(): int</code></td>
 <td style="text-align: left;">Returns the color of the route.</td>
 </tr>
 <tr>
@@ -5916,19 +5916,19 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>SimplifiedRoutePlatform.getPlatformId(): number</code></td>
+<td style="text-align: left;"><code>SimplifiedRoutePlatform.getPlatformId(): long</code></td>
 <td style="text-align: left;">Returns the id of the platform.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>SimplifiedRoutePlatform.getStationId(): number</code></td>
+<td style="text-align: left;"><code>SimplifiedRoutePlatform.getStationId(): long</code></td>
 <td style="text-align: left;">Returns the id of the belonging station area.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>SimplifiedRoutePlatform.getStationName(): string</code></td>
+<td style="text-align: left;"><code>SimplifiedRoutePlatform.getStationName(): String</code></td>
 <td style="text-align: left;">Returns the name of the belonging station area.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>SimplifiedRoutePlatform.getDestination(): string</code></td>
+<td style="text-align: left;"><code>SimplifiedRoutePlatform.getDestination(): String</code></td>
 <td style="text-align: left;">Returns the destination string of this platform in the route</td>
 </tr>
 </tbody>
@@ -5943,12 +5943,8 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>CarDetails.getVehicleId(): string</code></td>
+<td style="text-align: left;"><code>CarDetails.getVehicleId(): String</code></td>
 <td style="text-align: left;">Returns the id of the vehicle car (As defined in Resource Packs)</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>CarDetails.getOccupancy(): number</code></td>
-<td style="text-align: left;">Returns the occupancy level. <br><b>Only returns 0 at the moment.</b></td>
 </tr>
 </tbody>
 </table>

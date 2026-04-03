@@ -5591,11 +5591,11 @@ An example console output of the above code:
 <h3 id="how-to-read-this-document">How to read this document<a class="headerlink" href="#how-to-read-this-document" title="Anchor link to this section for reference">#</a></h3>
 <p>As you know, values ​​in <abbr title="JavaScript">JS</abbr> have different types. When calling a function, you must pass parameters of the appropriate type, and the result it returns will also have a type. In this article, all of the functions have their parameter and return types stated.</p>
 <p>This scripting documentation will follow the following example:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>static Resources.id(idStr: string): Identifier
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>static Resources.id(idStr: String): Identifier
 </span></code></pre></div>
 <ul>
 <li><code>static</code> means that you don't need to create an object to use this function, you can call <code>Resources.id("aaa:bbb")</code> directly.</li>
-<li><code>idStr: string</code> means that the <code>idStr</code> parameter accepts a string.</li>
+<li><code>idStr: String</code> means that the <code>idStr</code> parameter accepts a java <strong>String</strong> type. (Note: <abbr title="JavaScript">JS</abbr> string are converted to Java String, thus you don't need to do the conversion yourself. See <a href="articles/tips/#interoperability-between-java-classesmethods">Interoperability between Java Classes/Methods</a> for details.)</li>
 <li><code>: Identifier</code> means that a function call will return a value of type <code>Identifier</code>.</li>
 </ul>
 <p>And here's another example:

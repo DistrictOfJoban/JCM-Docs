@@ -5544,19 +5544,19 @@
 <td style="text-align: left;">Is it raining and getting wet in a given chunk?</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>static MinecraftClient.worldDayTime(): number</code></td>
+<td style="text-align: left;"><code>static MinecraftClient.worldDayTime(): int</code></td>
 <td style="text-align: left;">Returns the in-game world time in ticks.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>static MinecraftClient.blockLightAt(pos: Vector3f): number</code></td>
+<td style="text-align: left;"><code>static MinecraftClient.blockLightAt(pos: Vector3f): int</code></td>
 <td style="text-align: left;">Return the block light at the specified position.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>static MinecraftClient.skyLightAt(pos: Vector3f): number</code></td>
+<td style="text-align: left;"><code>static MinecraftClient.skyLightAt(pos: Vector3f): int</code></td>
 <td style="text-align: left;">Return the sky light at the specified position.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>static MinecraftClient.lightLevelAt(pos: Vector3f): number</code></td>
+<td style="text-align: left;"><code>static MinecraftClient.lightLevelAt(pos: Vector3f): int</code></td>
 <td style="text-align: left;">Return the light level at the specified position.<br>Sourced from both sky light and block light, prefers the one which is lower.</td>
 </tr>
 <tr>
@@ -5612,11 +5612,11 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>static VanillaText.literal(str: string): VanillaText</code></td>
+<td style="text-align: left;"><code>static VanillaText.literal(str: String): VanillaText</code></td>
 <td style="text-align: left;">Creates a text component with the <code>str</code> parameter as the content</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>static VanillaText.translatable(key: string, placeholders: objects...): VanillaText</code></td>
+<td style="text-align: left;"><code>static VanillaText.translatable(key: String, placeholders: objects...): VanillaText</code></td>
 <td style="text-align: left;">Creates a text component with the <code>key</code> being the translation key, which can be adapted to the user's current language. Any additional parameters for <code>placeholders</code> may be specified in case a translation supports string substitution</td>
 </tr>
 <tr>
@@ -5640,11 +5640,11 @@
 <td style="text-align: left;">This sets the corresponding RGB code as the color to display the text</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>VanillaText.withColor(colorName: string): VanillaText</code></td>
+<td style="text-align: left;"><code>VanillaText.withColor(colorName: String): VanillaText</code></td>
 <td style="text-align: left;">This sets the color to display the text</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>VanillaText.getString(): string</code></td>
+<td style="text-align: left;"><code>VanillaText.getString(): String</code></td>
 <td style="text-align: left;">This returns the literal text content of the VanillaText. Useful when paired with <code>VanillaText.translatable()</code> so you can access the string localized in the user's language.</td>
 </tr>
 </tbody>
@@ -5698,11 +5698,11 @@
 <td style="text-align: left;">Returns a VoxelShape that is equivalent to a 16x16 rectangle block</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>static VoxelShape.create(minX: number, minY: number, minZ: number, maxX: number, maxY: number, maxZ: number): VoxelShape</code></td>
+<td style="text-align: left;"><code>static VoxelShape.create(minX: double, minY: double, minZ: double, maxX: double, maxY: double, maxZ: double): VoxelShape</code></td>
 <td style="text-align: left;">Returns a VoxelShape with the specified size.<br>The <code>max[?]</code> parameter must always be equal/larger than the <code>min[?]</code> parameters.<br>Unit are 16x16 (16 = 1 full block)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>static VoxelShape.create(minX: number, minY: number, minZ: number, maxX: number, maxY: number, maxZ: number, facing: Direction): VoxelShape</code></td>
+<td style="text-align: left;"><code>static VoxelShape.create(minX: double, minY: double, minZ: double, maxX: double, maxY: double, maxZ: double, facing: Direction): VoxelShape</code></td>
 <td style="text-align: left;">Same as above, but rotated according to the <code>facing</code> parameter. You may obtain the facing direction via <a href="../type/eyecandy/#eyecandyblockentity">EyecandyBlockEntity.facing()</a></td>
 </tr>
 <tr>
@@ -5738,11 +5738,11 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>ItemStack.itemId(): string</code></td>
+<td style="text-align: left;"><code>ItemStack.itemId(): String</code></td>
 <td style="text-align: left;">Obtain the item id (e.g. <code>mtr:rail</code>)`</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ItemStack.translationId(): string</code></td>
+<td style="text-align: left;"><code>ItemStack.translationId(): String</code></td>
 <td style="text-align: left;">Obtain the translation key of the item</td>
 </tr>
 <tr>
@@ -5750,7 +5750,7 @@
 <td style="text-align: left;">Whether the itemstack is considered empty (e.g. Air)<br>e.g. If this is true when trying to obtain the item the player is holding, this means the player isn't holding anything.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ItemStack.count(): number</code></td>
+<td style="text-align: left;"><code>ItemStack.count(): int</code></td>
 <td style="text-align: left;">Get the amount of the ItemStack</td>
 </tr>
 </tbody>
@@ -5767,11 +5767,11 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>PlayerEntity.uuid(): string</code></td>
+<td style="text-align: left;"><code>PlayerEntity.uuid(): String</code></td>
 <td style="text-align: left;">Obtain the entity's uuid as a string</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>PlayerEntity.hasPermissionLevel(level: number): boolean</code></td>
+<td style="text-align: left;"><code>PlayerEntity.hasPermissionLevel(level: int): boolean</code></td>
 <td style="text-align: left;">Whether the player has a certain "OP" level.<br><strong>Note: This is completely client-side only, do not use this for serious permission/authentication checking!</strong></td>
 </tr>
 <tr>
@@ -5803,7 +5803,7 @@
 <td style="text-align: left;">Obtain the yaw rotation of the player's body.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>PlayerEntity.playerName(): string</code></td>
+<td style="text-align: left;"><code>PlayerEntity.playerName(): String</code></td>
 <td style="text-align: left;">Obtain the player's canonical name/username (Same as those registered in Mojang's/Microsoft server)</td>
 </tr>
 <tr>

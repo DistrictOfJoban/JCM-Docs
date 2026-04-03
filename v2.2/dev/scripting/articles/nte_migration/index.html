@@ -5903,7 +5903,7 @@ For MTRClientData in <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>, s
 </span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="gi">+ print(SCRIPT_INPUT.parameters.ksDay) // 514</span>
 </span></code></pre></div></p>
 <h3 id="custom-shapes-for-eyecandy">Custom shapes for eyecandy<a class="headerlink" href="#custom-shapes-for-eyecandy" title="Anchor link to this section for reference">#</a></h3>
-<p>In ANTE, you would invoke <code>BlockEntityEyeCandy.setShape(shape: string)</code> and <code>BlockEntityEyeCandy.setCollisionShape(shape: string)</code> to set the outline and collision shape of the eyecandy, and then invoke <code>BlockEntityEyeCandy.sendUpdateC2S</code> to sync it to the server.</p>
+<p>In ANTE, you would invoke <code>BlockEntityEyeCandy.setShape(shape: String)</code> and <code>BlockEntityEyeCandy.setCollisionShape(shape: String)</code> to set the outline and collision shape of the eyecandy, and then invoke <code>BlockEntityEyeCandy.sendUpdateC2S</code> to sync it to the server.</p>
 <p>In JCM, the key differences are:</p>
 <ul>
 <li>JCM scripting is completely client-side, therefore custom collision shape is not supported as it would de-sync from the server.</li>
