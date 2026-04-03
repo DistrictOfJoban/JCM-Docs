@@ -193,6 +193,8 @@ nav:
       - Scripting:
         - dev/scripting/index.md
         - Script Types:
+          - Vehicle Scripting:
+            - dev/scripting/type/vehicle/index.md
           - Eyecandy Scripting:
             - dev/scripting/type/eyecandy/index.md
           - JCM PIDS Scripting:
@@ -204,10 +206,12 @@ nav:
           - Scripting Restrictions: dev/scripting/articles/scripting_restrictions.md
           - Tips & Notes: dev/scripting/articles/tips.md
         - Features:
-          - Quick Reload: dev/scripting/features/script_quick_reload.md
-          - Script Debug Overlay: dev/scripting/features/script_debug_overlay.md
+          - Including other scripts: dev/scripting/features/script_include.md
           - Replacing MTR Display Cube: dev/scripting/features/vehicle_display_cube.md
           - Vehicle Script Cross-referencing: dev/scripting/features/script_crossreferencing.md
+        - Development Aids:
+          - Quick Reload: dev/scripting/aids/script_quick_reload.md
+          - Script Debug Overlay: dev/scripting/aids/script_debug_overlay.md
         - API Reference:
           - Console API: dev/scripting/console.md
           - Resource Loading API: dev/scripting/resources.md

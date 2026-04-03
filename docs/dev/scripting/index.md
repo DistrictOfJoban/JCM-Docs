@@ -9,7 +9,7 @@ One may consider this as an unofficial continuation of the scripting feature in 
 ### What is Scripting in JCM?
 Essentially it allows you to use **JavaScript** to insert custom logic into the game, which will be executed and widens the possibilities of the MTR Mod.
 
-To understand scripting in JCM, we should understand **Script Type** first.
+JCM Scripting is consisted of different **Script Type**, but what are they?
 
 ### Script Type
 #### Understand Script Type by Analogy
@@ -24,8 +24,8 @@ Within the exhibition **(JCM Scripting)**, there are multiple booths **(Script T
 
 All booths **(Script Type)** may take advantage of the common facilities provided by the venue **(Scripting Engine)** such as air-con & lighting **(Base JavaScript API)**, and anything that an exhibition organizer provides **(Some shared script APIs/Utilities provided by JCM)**.
 
-#### Understand Script Type by example
-As an example, here's a snippet of 2 types of script: **Eyecandy Scripting** and **PIDS Scripting**:
+#### Understand Script Type by Code Example
+Here is a snippet of 2 types of script: **Eyecandy Scripting** and **PIDS Scripting**:
 
 === "Eyecandy Scripting"
     ```js
@@ -91,7 +91,7 @@ You can learn JavaScript from resources on the web, such as [here](https://javas
 ### The Nature of Scripting in JCM
 While JS is commonly associated with web development or even server applications (e.g. Node.js), JCM's implementation usage of JS only utilize the base language itself.
 
-As such, this means that you only really need to care about the syntax (e.g. Variable & Function Declaration, conditional logic) as well as some base object such as [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date).
+As such, this means that you only really need to care about the syntax (e.g. Variable & Function Declaration, conditional logic) as well as some [Built-in Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects) such as [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date), [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) etc.
 
 Other stuff such as HTML/CSS/DOM manipulation <u>is not applicable</u> to JCM Scripting.
 
@@ -163,7 +163,7 @@ dp: 4.75 // vehicle A rendering (Line 9)
 dp: 2.75 // vehicle B rendering (Line 9)
 ```
 
-#### Runtime Phase (Flow)d
+#### Runtime Phase (Flow)
 
 An example flow is available below. This chart assumes the player is running Minecraft at 13fps (For simplicity sake), which means 13 frames in 1 second.
 
@@ -191,18 +191,20 @@ This also means that if you increment a variable by a fixed amount for each fram
 #### Except they aren't always executed every frame!
 While JCM *tries* to call the `render()` function for every frame, it is only made on a best-effort basis. If your script has not finished executing before the next frame came around, then your function won't be called again until it has finished execution.
 
-### Errors
+## Script Errors
 
 !!! note inline end
-     Script errors in the Loading Phase are not currently displayed within the game (Like NTE had with debug mode), you need to check for errors in the game log, usually accessible by your launcher
+     Script errors in the **Parsing/Loading Phase** are not currently displayed within the game (Like NTE had with debug mode), you need to check for errors in the game log, usually accessible by your launcher
 
-If the script is executed incorrectly, an error will be reported in the Minecraft log (Starting with `[Scripting] Error executing script!`).
+If the script is executed incorrectly in the **Runtime Phase**, an error will be reported in the Minecraft log (Starting with `[Scripting] Error executing script!`).
+
+You can visualize the error on your HUD screen by enabling the [Script Debug Overlay](./aids/script_debug_overlay.md).
 
 The error message will indicate which line of code in which script file the error occurred. Most launchers have the ability to display logs in a separate window in real time.
 
 The script execution engine will then pause the entire script for 4 seconds before trying to execute the function again.
 
-### How to read this document
+## How to read this document
 As you know, values ​​in JS have different types. When calling a function, you must pass parameters of the appropriate type, and the result it returns will also have a type. In this article, all of the functions have their parameter and return types stated.
 
 This scripting documentation will follow the following example:
@@ -223,15 +225,3 @@ Matrices.rotateX(radian: float): void
 - The lack of `static` means that an object instance is required to execute the function. For example, if `a` is an object of Matrices type, then the function can be called as `a.rotateX(Math.PI)`.
 - `radian: float` means that the parameter takes a numeric argument. Although JS does not distinguish between integers and fractional numbers, this article will specify a specific type - `int`, `long`, `float` or `double` - to make it clear whether a parameter can accept decimal parts and to what precision.
 - `: void` means that the function has no return value.
-
-### Tips & Notes
-
-See [Tips & Notes](./articles/tips.md)
-
-### Including Other Scripts
-By calling the function below, you can include and execute other JavaScript files.
-
-|Functions|Description|
-|:--------|:----------|
-|`static include(relPath: String): void`|Loads and runs another JS file relative to the current JS file.|
-|`static include(path: Identifier): void`|Loads and runs the JS file by location in the resource pack.<br>For example: `include(Resources.id(“mtr:path/absolute.js”))`.|
