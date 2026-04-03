@@ -109,15 +109,7 @@
          <lastmod>2026-04-03</lastmod>
     </url>
     <url>
-         <loc>https://jcm.joban.org/v2.2/dev/scripting/articles/script_debug_overlay/</loc>
-         <lastmod>2026-04-03</lastmod>
-    </url>
-    <url>
          <loc>https://jcm.joban.org/v2.2/dev/scripting/articles/script_guidelines/</loc>
-         <lastmod>2026-04-03</lastmod>
-    </url>
-    <url>
-         <loc>https://jcm.joban.org/v2.2/dev/scripting/articles/script_quick_reload/</loc>
          <lastmod>2026-04-03</lastmod>
     </url>
     <url>
@@ -130,6 +122,22 @@
     </url>
     <url>
          <loc>https://jcm.joban.org/v2.2/dev/scripting/builtin/display_helper/</loc>
+         <lastmod>2026-04-03</lastmod>
+    </url>
+    <url>
+         <loc>https://jcm.joban.org/v2.2/dev/scripting/features/script_crossreferencing/</loc>
+         <lastmod>2026-04-03</lastmod>
+    </url>
+    <url>
+         <loc>https://jcm.joban.org/v2.2/dev/scripting/features/script_debug_overlay/</loc>
+         <lastmod>2026-04-03</lastmod>
+    </url>
+    <url>
+         <loc>https://jcm.joban.org/v2.2/dev/scripting/features/script_quick_reload/</loc>
+         <lastmod>2026-04-03</lastmod>
+    </url>
+    <url>
+         <loc>https://jcm.joban.org/v2.2/dev/scripting/features/vehicle_display_cube/</loc>
          <lastmod>2026-04-03</lastmod>
     </url>
     <url>
