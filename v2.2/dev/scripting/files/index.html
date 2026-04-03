@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#files" class="md-skip">
+        <a href="#files-api" class="md-skip">
           Skip to content
         </a>
       
@@ -4258,7 +4258,7 @@
   <span class="md-ellipsis">
     
   
-    Resource Loading
+    Resource Loading API
   
 
     
@@ -4515,6 +4515,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -4557,6 +4559,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -4565,38 +4569,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#files" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Files
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Files">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#scope" class="md-nav__link">
     <span class="md-ellipsis">
       
         Scope
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fileentry" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        FileEntry
       
     </span>
   </a>
@@ -4693,9 +4669,29 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../utilities/" class="md-nav__link">
+    
+    
+      
         
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_4_9" id="__nav_3_2_4_9_label" tabindex="0">
+            
   
   
   <span class="md-ellipsis">
@@ -4709,7 +4705,79 @@
   
   
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Miscellaneous APIs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utilities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilities
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DataReader
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -5159,6 +5227,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -5167,38 +5237,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#files" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Files
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Files">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#scope" class="md-nav__link">
     <span class="md-ellipsis">
       
         Scope
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fileentry" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        FileEntry
       
     </span>
   </a>
@@ -5346,9 +5388,7 @@
   
 
 
-  <h1>File APIs</h1>
-
-<h2 id="files">Files<a class="headerlink" href="#files" title="Anchor link to this section for reference">#</a></h2>
+<h1 id="files-api">Files API<a class="headerlink" href="#files-api" title="Anchor link to this section for reference">#</a></h1>
 <p>The <strong>Files</strong> class allows saving/reading files with scripts to a limited degree. It is intended for scripts to use it as a config file as well as storing persistent/cache data. This is usually only useful for scripts requiring advanced functionalities.</p>
 <h3 id="scope">Scope<a class="headerlink" href="#scope" title="Anchor link to this section for reference">#</a></h3>
 <ul>
@@ -5365,12 +5405,12 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>static Files.read(path: string...): FileEntry</code></td>
-<td style="text-align: left;">Read a file based on the specified path and returns the <a href="#fileentry">FileEntry</a>. (null if the file don't exist).<br>This function always resolves relatively starting from '''.minecraft'''.</td>
+<td style="text-align: left;"><code>static Files.read(path: string...): DataReader</code></td>
+<td style="text-align: left;">Read a file based on the specified path and returns the <a href="../data_reading/#datareader">DataReader</a>. (null if the file don't exist).<br>This function always resolves relatively starting from '''.minecraft'''.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>static Files.readData(path: string...): FileEntry</code></td>
-<td style="text-align: left;">Read a file based on the specified path and returns the <a href="#fileentry">FileEntry</a>. (null if the file don't exist).<br><strong>Note:</strong> It is strongly recommended to store your file in a sub-directory with a unique name to avoid collision<br>This function always resolves relatively starting from <strong>.minecraft/data/mtrscripting</strong>.</td>
+<td style="text-align: left;"><code>static Files.readData(path: string...): DataReader</code></td>
+<td style="text-align: left;">Read a file based on the specified path and returns the <a href="../data_reading/#datareader">DataReader</a>. (null if the file don't exist).<br><strong>Note:</strong> It is strongly recommended to store your file in a sub-directory with a unique name to avoid collision<br>This function always resolves relatively starting from <strong>.minecraft/data/mtrscripting</strong>.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>static Files.saveData(content: string, path: string...): void</code></td>
@@ -5387,31 +5427,6 @@
 <tr>
 <td style="text-align: left;"><code>static Files.hasData(path: string...): boolean</code></td>
 <td style="text-align: left;">Returns whether the specified file/directory exists.This function always resolves relatively starting from '''.minecraft/data/mtrscripting'''.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="fileentry">FileEntry<a class="headerlink" href="#fileentry" title="Anchor link to this section for reference">#</a></h2>
-<p>A FileEntry represents a reference to the file, which has not been read yet.</p>
-<p>You can read the data of the file in multiple formats with the following functions:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Functions</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>FileEntry.asString(): String</code></td>
-<td style="text-align: left;">Return the file's content as plain text, in UTF-8 encoding.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>FileEntry.asBufferedImage(): BufferImage</code></td>
-<td style="text-align: left;">Return the file's content as a BufferedImage.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>FileEntry.asRawBytes(): byte[]</code></td>
-<td style="text-align: left;">Return the file's content as a raw byte array.</td>
 </tr>
 </tbody>
 </table>
