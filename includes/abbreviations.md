@@ -9,3 +9,5 @@
 *[JCM v1]: Joban Client Mod v1 (Unsupported)
 *[JCM v2]: Joban Client Mod v2
 *[JS]: JavaScript
+*[NTE]: Nemo Transit Expansion (MTR 3 Addon Mod)
+*[ANTE]: Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)
