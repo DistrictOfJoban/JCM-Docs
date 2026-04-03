@@ -5703,7 +5703,7 @@
 </tr>
 <tr>
 <td style="text-align: left;"><code>static VoxelShape.create(minX: number, minY: number, minZ: number, maxX: number, maxY: number, maxZ: number, facing: Direction): VoxelShape</code></td>
-<td style="text-align: left;">Returns a VoxelShape with the specified size, rotated according to <code>facing</code>.<br>The <code>max[?]</code> parameter must always be equal/larger than the <code>min[?]</code> parameters.<br>Unit are 16x16 (16 = 1 full block)</td>
+<td style="text-align: left;">Same as above, but rotated according to the <code>facing</code> parameter. You may obtain the facing direction via <a href="../type/eyecandy/#eyecandyblockentity">EyecandyBlockEntity.facing()</a></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>VoxelShape.combine(other: VoxelShape): VoxelShape</code></td>
