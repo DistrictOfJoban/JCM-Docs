@@ -133,8 +133,20 @@ The following functions are called to **control rendering**. The functions for r
 |`EyecandyBlockEntity.getRotateX(): number`|The value in **radians** on how much the Decoration Object is rotated on the X-axis, configured via GUI.|
 |`EyecandyBlockEntity.getRotateY(): number`|The value in **radians** on how much the Decoration Object is rotated on the Y-axis, configured via GUI.|
 |`EyecandyBlockEntity.getRotateZ(): number`|The value in **radians** on how much the Decoration Object is rotated on the Z-axis, configured via GUI.|
+|`EyecandyBlockEntity.pos(): Vector3f`|Returns the position of the block + any translation added to the eyecandy model.|
+|`EyecandyBlockEntity.blockPos(): Vector3f`|Returns the position of the eyecandy block.|
+|`EyecandyBlockEntity.facing(): Direction`|Returns a Minecraft direction for which way the block is facing. Used for constructing direction-dependent [VoxelShape](../../mc.md#voxelshape).|
 |`EyecandyBlockEntity.isCrosshairTarget(): boolean`|Returns whether the current block is player's crosshair target. (i.e. Selected block).<br>Can be used to show tooltips.|
 |`EyecandyBlockEntity.getFullBrightness(): boolean`|Return whether the Decoration Object is marked as "Full Light", configured via GUI.|
+|`EyecandyBlockEntity.redstoneLevel(): int`|Whether a redstone is powering the eyecandy.<br>Returns 0 (Unpowered) or 15 (Powered).<br>**Note: Script must treat the returned number as if 1-14 can be returned, as this behaviour may change in an upcoming version.**|
+
+??? info "Show deprecated functions"
+    These functions are kept for backward compatibility with NTE/ANTE. You are advised to avoid using these functions for newly created scripts.
+
+    |Functions|Description|
+    |:--------|:----------|
+    |`EyecandyBlockEntity.getWorldPosVector3f(): Vector3f`|Same as `EyecandyBlockEntity.blockPos()`|
+    |`EyecandyBlockEntity.getTransformPosVector3f(): Vector3f`|Same as `EyecandyBlockEntity.pos()`|
 
 #### EyecandyEvents
 |Functions And Objects|Description|
