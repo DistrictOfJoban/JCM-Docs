@@ -119,6 +119,8 @@ This would return a string formatted like: `2.0.0-beta.5`
 |`Text.scaleXY(): Text`|Text Overflow Mechanism:<br>When the text overflowed beyond it's size, stretch the text on both axis to fit<br>(Keep aspect ratio)|
 |`Text.wrapText(): Text`|Text Overflow Mechanism:<br>When the text overflowed beyond it's size, split the text into the next line without any scaling.|
 |`Text.marquee(): Text`|Text Overflow Mechanism:<br>When the text overflowed beyond it's size, draw a portion of the text at a time with scrolling animation|
+|`Text.marquee(duration: double): Text`|Same as above, but enforce how long a marquee cycle takes. (In Minecraft Tick)|
+|`Text.withMarqueeProgress(progress: double): Text`|A value from 0.0 - 1.0, allowing you to override/control the marquee sliding progress directly.|
 |`Text.fontMC(): Text`|Use vanilla Minecraft's font|
 |`Text.matrices(matrices: Matrices): Text`|Apply a [matrices](../../math.md#matrices) to the current text object|
 |`Text.font(id: String): Text`<br>`Text.font(id: Identifier): Text`|Set the font by it's ID. Defaults to `mtr:mtr`<br>The font should be loaded in Minecraft via the font json format.<br>This does not have any effect if **Use Custom MTR Font** is disabled in MTR mod's Config.|

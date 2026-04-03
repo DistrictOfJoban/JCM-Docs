@@ -12,7 +12,7 @@ This is a direct reference to the the [MinecraftClientData.java](https://github.
 
 You may obtain additional information (Such as id to route) with this object. **Note however that to conserve network data usage / improve speed, MTR 4 only sends nearby data to the client.**
 
-## Versions
+## Versions Querying
 Functions are provided where you can get the version number to ensure compatibility with different versions of mods (if any).
 
 |Functions|Description|
@@ -24,14 +24,14 @@ The MTR mod uses the station naming format `Name in one language|Name in another
 
 |Functions|Description|
 |:--------|:----------|
-|`static TextUtil.cycleString(src: String): String`|Returns a text that cycles different languages. (Delimited by the pipe `|` character)|
-|`static TextUtil.cycleString(src: String, duration: int): String`|Returns a text that cycles different languages. (Delimited by the pipe `|` character)<br>The cycle frequency is decided by the `duration` parameter, in Minecraft Tick.|
 |`static TextUtil.getCjkParts(src: String): String`|Returns the CJK parts of the passed string.|
 |`static TextUtil.getNonCjkParts(src: String): String`|Returns the non-CJK parts of the passed string.|
 |`static TextUtil.getExtraParts(src: String): String`|Returns the extra part of the passed string.|
 |`static TextUtil.getNonExtraParts(src: String): String`|Returns everything except the extra part.|
 |`static TextUtil.getNonCjkAndExtraParts(src: String): String`|Returns everything except the CJK parts.|
 |`static TextUtil.isCjk(src: String): boolean`|Checks whether the string contains CJK characters.|
+|`static TextUtil.cycleString(src: String): String`|Returns a text that automatically cycles between different languages. (Delimited by the pipe `|` character)|
+|`static TextUtil.cycleString(src: String, duration: int): String`|Same as above, with a specified cycle duration (In Minecraft Tick).|
 
 ## Timing
 |Functions|Description|

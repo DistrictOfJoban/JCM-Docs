@@ -202,9 +202,12 @@ nav:
           - Scripting Guidelines: dev/scripting/articles/script_guidelines.md
           - Migration from NTE: dev/scripting/articles/nte_migration.md
           - Scripting Restrictions: dev/scripting/articles/scripting_restrictions.md
-          - Quick Reload: dev/scripting/articles/script_quick_reload.md
-          - Scripting Debug Overlay: dev/scripting/articles/script_debug_overlay.md
           - Tips & Notes: dev/scripting/articles/tips.md
+        - Features:
+          - Quick Reload: dev/scripting/features/script_quick_reload.md
+          - Script Debug Overlay: dev/scripting/features/script_debug_overlay.md
+          - Replacing MTR Display Cube: dev/scripting/features/vehicle_display_cube.md
+          - Vehicle Script Cross-referencing: dev/scripting/features/script_crossreferencing.md
         - API Reference:
           - Console API: dev/scripting/console.md
           - Resource Loading API: dev/scripting/resources.md
@@ -217,7 +220,7 @@ nav:
             - Minecraft APIs: dev/scripting/mc.md
             - File APIs: dev/scripting/files.md
             - Networking API: dev/scripting/networking.md
-            - Background Worker: dev/scripting/bgworker.md
+            - Background Worker API: dev/scripting/bgworker.md
           - Miscellaneous APIs:
             - dev/scripting/utilities.md
             - DataReader: dev/scripting/data_reading.md

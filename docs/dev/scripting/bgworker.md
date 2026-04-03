@@ -1,4 +1,4 @@
-# Background Worker
+# Background Worker API
 For more advanced scripts, it may be desirable to run a task in the background in order to not block the main thread. (e.g. Fetching data from the network)
 
 This class allows you to submit a task to the single-thread background executor.

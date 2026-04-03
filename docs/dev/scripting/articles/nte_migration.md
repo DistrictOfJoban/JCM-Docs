@@ -10,6 +10,9 @@ The end goal is for the scripting feature to be made available for MTR 4's Vehic
 
 Backward compatibility with NTE scripts are made on a best-effort basis, in the sense that we won't go out of our way to intentionally break existing scripts, and we will add stub/redirect methods to retain existing script compatibility. However if a major redesign has occured for reasons outside of our variable (e.g. Internal workings of MTR 4), we are not able to provide full backward compatibility for scripts.
 
+## General (All types of scripting)
+- Both `mtr_custom_resources.json` and `mtr_custom_resources_pending_migration.json` will be parsed for scripts. (In both MTR 3/MTR 4 format)
+
 ## Eyecandy Migration
 ### Feasibility of migrating
 Before continuing with the migration process, it is important to understand whether your script will have any chance of migrating to MTR 4 in the first place.
@@ -107,7 +110,7 @@ If you wish to not rely on this compatibility layer (At this very moment you don
 Note that the additional features within ANTE is not considered (at least for now) within the scope of JCM scripting, and therefore we may not make any guarentee about backward compatibility with ANTE, and some features were delibrately not implemented as they aren't deemed fit in JCM. *That said* some features from ANTE were also recognized and adapted to JCM, which should make migration work just a tad bit easier.
 
 ### Scripting Engine
-ANTE currently uses [GraalJS](https://www.graalvm.org/latest/reference-manual/js/) in place of the [Rhino](https://github.com/mozilla/rhino) JavaScript Engine, which provides support for more modern JS syntax, at the cost of some incompatibilities introduced. For compatibility reasons (And the need to support 1.16), JCM will currently stay on the **Rhino** engine. If you make heavy use of modern JS syntax, unfortunately you may have to try your luck.
+ANTE currently uses [GraalJS](https://www.graalvm.org/latest/reference-manual/js/) in place of the [Rhino](https://github.com/mozilla/rhino) JavaScript Engine, which provides support for more modern JS syntax, at the cost of some incompatibilities introduced. For compatibility reasons JCM will currently stay on the **Rhino** engine. If you make heavy use of modern JS syntax, unfortunately you may have to try your luck.
 
 Rhino 1.9 (The current version used by JCM) makes a more marginal leap to modern JS features, though still arguably outdated in the rapidly changing environment of the web. See the [Rhino compatibility table](https://mozilla.github.io/rhino/compat/engines.html) for details.
 
@@ -145,7 +148,7 @@ JCM on the other hand exposes only the (`scriptInput` for NTE/`scripting`.`input
     ```
 
 === "MTR 4 Custom Resources Format"
-    When using the MTR 4 Custom Resources Format, the corresponding field is `input` within `scripting`.
+    When using the MTR 4 Custom Resources Format, the corresponding field is `input` within the script object.
 
     ```diff title="mtr_custom_resources.json"
     {
@@ -153,16 +156,20 @@ JCM on the other hand exposes only the (`scriptInput` for NTE/`scripting`.`input
             {
                 "id": "nte_lcd",
                 "name": "NTE LCD Test",
-                "scripting": {
-                    "scriptLocations": ["mtrsteamloco:eyecandies/js/nte_lcd_test/main.js"],
-    +               "input": {
-    +                   "name": "NTE LCD Test",
-    +                   "parameters": {
-    +                      "stDay": "310",
-    +                      "ksDay": "514"
-    +                   }
+                "scriptId": "nte_lcd"
+            }
+        ],
+        "objectScripts": [
+            {
+                "id": "nte_lcd",
+                "scriptLocations": ["mtrsteamloco:eyecandies/js/nte_lcd_test/main.js"],
+    +           "input": {
+    +               "name": "NTE LCD Test",
+    +               "parameters": {
+    +                  "stDay": "310",
+    +                  "ksDay": "514"
     +               }
-                }
+    +           }
             }
         ]
     }
