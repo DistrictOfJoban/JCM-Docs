@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://jcm.joban.org/v2.2/dev/scripting/features/script_quick_reload/">
+        <link rel="canonical" href="https://jcm.joban.org/v2.2/dev/scripting/features/script_include/">
       
       
         <link rel="prev" href="../../articles/tips/">
       
       
-        <link rel="next" href="../script_debug_overlay/">
+        <link rel="next" href="../vehicle_display_cube/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Quick Reload - Joban Client Mod</title>
+        <title>Including other scripts - Joban Client Mod</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#quick-reload" class="md-skip">
+        <a href="#including-other-scripts" class="md-skip">
           Skip to content
         </a>
       
@@ -94,9 +94,9 @@
           <aside class="md-banner md-banner--warning">
             <div class="md-banner__inner md-grid md-typeset">
               
-  This version of JCM is no longer supported.
+  This version of JCM is not the latest stable release.
   <a href="../../../../.."> 
-    <strong>Click here to go to latest.</strong>
+    <strong>Click here to go to latest stable release.</strong>
   </a>
 
             </div>
@@ -129,7 +129,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Quick Reload
+              Including other scripts
             
           </span>
         </div>
@@ -3619,6 +3619,8 @@
       
         
       
+        
+      
     
     
     
@@ -3679,6 +3681,8 @@
   
     
     
+      
+        
       
         
       
@@ -3755,6 +3759,74 @@
         
           
           <div class="md-nav__link md-nav__container">
+            <a href="../../type/vehicle/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vehicle Scripting
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vehicle Scripting
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
             <a href="../../type/eyecandy/" class="md-nav__link ">
               
   
@@ -3774,8 +3846,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_2_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2_2_1">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2_2">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3821,7 +3893,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2_3" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -3843,14 +3915,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_2_2_2" id="__nav_3_2_2_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_2_2_3" id="__nav_3_2_2_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2_2_2">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -4103,8 +4175,6 @@
       
         
       
-        
-      
     
     
     
@@ -4171,7 +4241,7 @@
   <span class="md-ellipsis">
     
   
-    Quick Reload
+    Including other scripts
   
 
     
@@ -4189,7 +4259,7 @@
   <span class="md-ellipsis">
     
   
-    Quick Reload
+    Including other scripts
   
 
     
@@ -4215,21 +4285,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#enable-quick-reload" class="md-nav__link">
+  <a href="#example" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Enable quick reload
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-quick-reload" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Using quick reload
+        Example
       
     </span>
   </a>
@@ -4240,34 +4299,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../script_debug_overlay/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Script Debug Overlay
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -4350,6 +4381,126 @@
       
         
       
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development Aids
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development Aids
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aids/script_quick_reload/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reload
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aids/script_debug_overlay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Script Debug Overlay
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
         
       
         
@@ -4375,10 +4526,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6" >
         
           
-          <label class="md-nav__link" for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_2_6" id="__nav_3_2_6_label" tabindex="0">
             
   
   
@@ -4396,8 +4547,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2_5">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -4631,10 +4782,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6_8" >
         
           
-          <label class="md-nav__link" for="__nav_3_2_5_8" id="__nav_3_2_5_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_2_6_8" id="__nav_3_2_6_8_label" tabindex="0">
             
   
   
@@ -4652,8 +4803,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_5_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2_5_8">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_6_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_6_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -4807,10 +4958,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6_9" >
         
           
-          <label class="md-nav__link" for="__nav_3_2_5_9" id="__nav_3_2_5_9_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_2_6_9" id="__nav_3_2_6_9_label" tabindex="0">
             
   
   
@@ -4828,8 +4979,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_5_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2_5_9">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_6_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_6_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -4933,10 +5084,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_7" >
         
           
-          <label class="md-nav__link" for="__nav_3_2_6" id="__nav_3_2_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_2_7" id="__nav_3_2_7_label" tabindex="0">
             
   
   
@@ -4954,8 +5105,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2_6">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -5357,21 +5508,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#enable-quick-reload" class="md-nav__link">
+  <a href="#example" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Enable quick reload
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-quick-reload" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Using quick reload
+        Example
       
     </span>
   </a>
@@ -5490,29 +5630,35 @@
   
 
 
-<h1 id="quick-reload">Quick Reload<a class="headerlink" href="#quick-reload" title="Anchor link to this section for reference">#</a></h1>
-<p>Since scripting is a part of a resource pack, to reload a script you usually have to reload the resource in-game by pressing F3+T.</p>
-<p>To aid development time, <strong><abbr title="Joban Client Mod v2">JCM v2</abbr>.1.2</strong> introduced a new quick reload feature which allows reloading of scripts without going through the normal resource pack reloading routine.</p>
-<h3 id="enable-quick-reload">Enable quick reload<a class="headerlink" href="#enable-quick-reload" title="Anchor link to this section for reference">#</a></h3>
-<p>Go to <strong>Mod Menu</strong> / <strong>Mod Config Screen</strong> (Forge), find JCM and click on <strong>Configure</strong>.<br />
-After that, make sure the <strong>Enable Script Debug mode</strong> checkbox is checked, then click <strong>Save Config</strong>.</p>
-<p><img alt="" src="../img/enable_overlay.png" /></p>
-<h3 id="using-quick-reload">Using quick reload<a class="headerlink" href="#using-quick-reload" title="Anchor link to this section for reference">#</a></h3>
-<p>After enabling debug mode, you can press the following key combination:</p>
-<ul>
-<li><code>Shift+R</code> to reload JCM scripts. (i.e. Scripted PIDS Preset)</li>
-<li><code>Ctrl+R</code> to reload MTR scripts. (i.e. Eyecandy Scripts)</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note on keybinding</p>
-<p>The above assumes a default unmodified key binding, see below for the corresponding keybinds:</p>
-<ul>
-<li><code>Shift</code> refers to your binded Sneak key</li>
-<li><code>Ctrl</code> refers to your binded Sprint key</li>
-<li><code>R</code> refers to your binded JCM reload key, configurable in key binding settings.</li>
-</ul>
-</div>
-<p><img alt="" src="../img/quick_reload.png" /></p>
+<h1 id="including-other-scripts">Including Other Scripts<a class="headerlink" href="#including-other-scripts" title="Anchor link to this section for reference">#</a></h1>
+<p>By calling the function below in your scripts during the <strong>Parsing/Loading Phase</strong>, you can include and execute other JavaScript files.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>static include(relPath: String): void</code></td>
+<td style="text-align: left;">Loads and runs another <abbr title="JavaScript">JS</abbr> file relative to the current <abbr title="JavaScript">JS</abbr> file.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static include(path: Identifier): void</code></td>
+<td style="text-align: left;">Loads and runs the <abbr title="JavaScript">JS</abbr> file by an <a href="../../resources/#identifier-aka-resourcelocation">Identifier</a> in the resource pack.<br>For example: <code>include(Resources.id(“mtr:path/absolute.js”))</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example">Example<a class="headerlink" href="#example" title="Anchor link to this section for reference">#</a></h2>
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">script.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nx">include</span><span class="p">(</span><span class="nx">Resources</span><span class="p">.</span><span class="nx">id</span><span class="p">(</span><span class="s2">&quot;mtrsteamloco:scripts/display_helper.js&quot;</span><span class="p">));</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kd">function</span><span class="w"> </span><span class="nx">create</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">eyecandy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1">// ...</span>
+</span></code></pre></div></td></tr></table></div>
 <!-- *[JCM]: Joban Client Mod -->
 <!-- *[PIDS]: Passenger Information Display System -->
 

@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://jcm.joban.org/v2.2/dev/scripting/articles/tips/">
+        <link rel="canonical" href="https://jcm.joban.org/v2.2/dev/scripting/aids/script_quick_reload/">
       
       
-        <link rel="prev" href="../scripting_restrictions/">
+        <link rel="prev" href="../../features/script_crossreferencing/">
       
       
-        <link rel="next" href="../../features/script_include/">
+        <link rel="next" href="../script_debug_overlay/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Tips & Notes - Joban Client Mod</title>
+        <title>Quick Reload - Joban Client Mod</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#declaring-variables-using-let-or-var" class="md-skip">
+        <a href="#quick-reload" class="md-skip">
           Skip to content
         </a>
       
@@ -129,7 +129,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Tips & Notes
+              Quick Reload
             
           </span>
         </div>
@@ -3982,10 +3982,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -4004,11 +4002,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
         
           
           <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
@@ -4029,7 +4027,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -4047,7 +4045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../script_guidelines/" class="md-nav__link">
+      <a href="../../articles/script_guidelines/" class="md-nav__link">
         
   
   
@@ -4075,7 +4073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../nte_migration/" class="md-nav__link">
+      <a href="../../articles/nte_migration/" class="md-nav__link">
         
   
   
@@ -4103,7 +4101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scripting_restrictions/" class="md-nav__link">
+      <a href="../../articles/scripting_restrictions/" class="md-nav__link">
         
   
   
@@ -4128,35 +4126,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Tips & Notes
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../articles/tips/" class="md-nav__link">
         
   
   
@@ -4172,118 +4145,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#declaring-variables-using-let-or-var" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Declaring variables using let or var
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dont-block-or-infinitely-loop" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Don't Block Or Infinitely Loop
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interoperability-between-java-classesmethods" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Interoperability between Java Classes/Methods
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#calling-java-class-methods" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Calling Java Class Methods
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Calling Java Class Methods">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#introducing-overloading-in-java" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Introducing overloading in Java
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#explicit-method-specification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Explicit Method Specification
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-javascript-features-are-supported" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What JavaScript features are supported?
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4451,8 +4312,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -4467,11 +4330,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" checked>
         
           
           <label class="md-nav__link" for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
@@ -4492,7 +4355,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -4507,10 +4370,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../aids/script_quick_reload/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reload
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -4526,6 +4416,48 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#enable-quick-reload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable quick reload
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-quick-reload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using quick reload
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4538,7 +4470,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aids/script_debug_overlay/" class="md-nav__link">
+      <a href="../script_debug_overlay/" class="md-nav__link">
         
   
   
@@ -5577,6 +5509,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -5585,10 +5519,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#declaring-variables-using-let-or-var" class="md-nav__link">
+  <a href="#enable-quick-reload" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Declaring variables using let or var
+        Enable quick reload
       
     </span>
   </a>
@@ -5596,82 +5530,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dont-block-or-infinitely-loop" class="md-nav__link">
+  <a href="#using-quick-reload" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Don't Block Or Infinitely Loop
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interoperability-between-java-classesmethods" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Interoperability between Java Classes/Methods
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#calling-java-class-methods" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Calling Java Class Methods
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Calling Java Class Methods">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#introducing-overloading-in-java" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Introducing overloading in Java
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#explicit-method-specification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Explicit Method Specification
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-javascript-features-are-supported" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What JavaScript features are supported?
+        Using quick reload
       
     </span>
   </a>
@@ -5765,10 +5627,10 @@
     
     
       <li class="md-path__item">
-        <a href="../script_guidelines/" class="md-path__link">
+        <a href="./" class="md-path__link">
           
   <span class="md-ellipsis">
-    Articles
+    Development Aids
   </span>
 
         </a>
@@ -5790,114 +5652,29 @@
   
 
 
-  <h1>Tips & Notes</h1>
-
-<h2 id="declaring-variables-using-let-or-var">Declaring variables using let or var<a class="headerlink" href="#declaring-variables-using-let-or-var" title="Anchor link to this section for reference">#</a></h2>
-<p>Both JCM/<abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> uses JavaScript's <strong>strict mode</strong>, which does not allow variables to be assigned without first declaring them.</p>
-<p>This means you can't do <code>local = 1</code> and expect <code>local</code> to be automatically defined.</p>
-<p>Instead, you have use syntax like <code>var glb;</code> or outside a function <code>var glb = 1;</code>. For local variables inside a function, use <code>let local;</code> or <code>let local = 1;</code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Translator Note</p>
-<p>In general, it is better to always try to use <code>let</code> and resort to using <code>var</code> as a last resort.</p>
-</div>
-<h2 id="dont-block-or-infinitely-loop">Don't Block Or Infinitely Loop<a class="headerlink" href="#dont-block-or-infinitely-loop" title="Anchor link to this section for reference">#</a></h2>
-<p>The function you wrote are called once per frame by JCM, where  your function is expected to finish processing and return a value <em>as soon/fast as possible</em>. As such, there's no such concept as “<em>wait for a while before continue executing</em>”.</p>
-<p>Instead, what you likely want is to "do a thing later on", in such case you will need to time it and then execute the appropriate action on a call made at the right time.</p>
-<p>If you are trying to execute a long-running operation (e.g. Fetching data over the internet), you should submit it to another thread/executor.</p>
-<p>If blocks or infinite loops did occur, then the entire script execution will stall as scripts are executed one at a time [<em>in the same thread</em>]. In such situation, you can reset it by pressing <span class="keys"><kbd class="key-f3">F3</kbd><span>+</span><kbd class="key-t">T</kbd></span> on your keyboard, which reloads the resource pack and resets the scripting thread.</p>
-<h2 id="interoperability-between-java-classesmethods">Interoperability between Java Classes/Methods<a class="headerlink" href="#interoperability-between-java-classesmethods" title="Anchor link to this section for reference">#</a></h2>
-<p>For common function types such as strings, Java and JavaScript have different class implementations, which causes there to be JavaScript strings as well as Java strings.</p>
-<p><abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr>/MTR functions and fields return Java string classes rather than JavaScript strings, but Rhino does some conversions automatically, so in most cases you can mix and match, but sometimes this can cause problems.</p>
-<p>For example, here's an example of a problem caused by using <code>str.length()</code> from a Java string class and <code>str.length</code> from a JavaScript string class to get the length of a string:</p>
-<p><div class="language-js highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">var</span><span class="w"> </span><span class="nx">stationName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">train</span><span class="p">.</span><span class="nx">getThisRoutePlatforms</span><span class="p">().</span><span class="nx">get</span><span class="p">(</span><span class="mf">0</span><span class="p">).</span><span class="nx">station</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nx">print</span><span class="p">(</span><span class="nx">stationName</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span><span class="w"> </span><span class="c1">// Error: stationName is a Java string, not a JavaScript string</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nx">print</span><span class="p">(</span><span class="nx">stationName</span><span class="p">.</span><span class="nx">length</span><span class="p">());</span><span class="w"> </span><span class="c1">// Java strings get their length from the length() function, not the JavaScript length field</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nx">print</span><span class="p">((</span><span class="s2">&quot;&quot;</span><span class="o">+</span><span class="nx">stationName</span><span class="p">).</span><span class="nx">length</span><span class="p">)</span><span class="w"> </span><span class="c1">// Use &quot;&quot;+ to turn it into a JavaScript string.</span>
-</span></code></pre></div>
-Similarly, there is a <code>List&lt;T&gt;</code> type in Java. It does the same thing as arrays in JavaScript, but has a different type. Trying to call JavaScript array functions on it won't work, but Rhino adapts it so that you can take values with <code>list[0]</code> or loop through them with <code>for (a of list)</code>.</p>
-<h2 id="calling-java-class-methods">Calling Java Class Methods<a class="headerlink" href="#calling-java-class-methods" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="introducing-overloading-in-java">Introducing overloading in Java<a class="headerlink" href="#introducing-overloading-in-java" title="Anchor link to this section for reference">#</a></h3>
-<p>In Java, a class can have several methods with different parameter types sharing the same identifier/name; this is known as overloading. Usually, they were designed to achieve the same result. The method to call is determined by the types of the arguments passed.</p>
-<p>Upon calling a Java class method in JavaScript, Rhino will convert the arguments from JavaScript types into Java types according to the declaration of the preferred methods.</p>
-<p>To be a preferred method, it must...</p>
-<ol>
-<li>Have the same number of parameters as the number of arguments given</li>
-<li>Have all the parameters type convertible from the arguments given</li>
-<li>Have a higher order of preference for its parameters compared to other methods</li>
-</ol>
-<details class="warning">
-<summary>Order of preference may become ambiguous</summary>
-<p>The order of preference of two or more methods may level out. For example, 
-<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/*1.*/</span><span class="w"> </span><span class="n">g</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cm">/*2.*/</span><span class="w"> </span><span class="n">g</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-js highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nx">g</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span><span class="w">  </span><span class="c1">// Type signature (number, number)</span>
-</span></code></pre></div>
-Since neither method is closer to the argument types than the other, Rhino will throw an error.</p>
-</details>
-<p>The order of preference is specified. Since numbers are often causing problems, an order of preference of number is attached here.</p>
-<details class="info">
-<summary>Java argument type in decreasing order of preference</summary>
-<ol>
-<li>double</li>
-<li>java.lang.Double</li>
-<li>float</li>
-<li>long</li>
-<li>int</li>
-<li>short</li>
-<li>char</li>
-<li>byte</li>
-<li>java.lang.String</li>
-<li>java.lang.Object</li>
-</ol>
-</details>
-<p>Sometimes, arguments may not be converted as expected. For example, a number <code>11</code> is converted into double regardless of whether a decimal place is not provided. End up referring to a different method, which may raise an error. Developers should take extra care with argument conversion.</p>
-<p>You may refer to...</p>
+<h1 id="quick-reload">Quick Reload<a class="headerlink" href="#quick-reload" title="Anchor link to this section for reference">#</a></h1>
+<p>Since scripting is a part of a resource pack, to reload a script you usually have to reload the resource in-game by pressing F3+T.</p>
+<p>To aid development time, <strong><abbr title="Joban Client Mod v2">JCM v2</abbr>.1.2</strong> introduced a new quick reload feature which allows reloading of scripts without going through the normal resource pack reloading routine.</p>
+<h3 id="enable-quick-reload">Enable quick reload<a class="headerlink" href="#enable-quick-reload" title="Anchor link to this section for reference">#</a></h3>
+<p>Go to <strong>Mod Menu</strong> / <strong>Mod Config Screen</strong> (Forge), find JCM and click on <strong>Configure</strong>.<br />
+After that, make sure the <strong>Enable Script Debug mode</strong> checkbox is checked, then click <strong>Save Config</strong>.</p>
+<p><img alt="" src="../img/enable_overlay.png" /></p>
+<h3 id="using-quick-reload">Using quick reload<a class="headerlink" href="#using-quick-reload" title="Anchor link to this section for reference">#</a></h3>
+<p>After enabling debug mode, you can press the following key combination:</p>
 <ul>
-<li><a href="https://rhino.github.io/tutorials/scripting_java/#calling-overloaded-methods">Rhino's Tutorials #Calling Overloaded Methods</a> for the details of Rhino's runtime overload resolution.</li>
-<li><a href="https://web.archive.org/web/20110623074154/http://www.mozilla.org/js/liveconnect/lc3_method_overloading.html">Java Method Overloading and LiveConnect 3</a> for a more precise definition of overloading semantics.</li>
+<li><code>Shift+R</code> to reload JCM scripts. (i.e. Scripted PIDS Preset)</li>
+<li><code>Ctrl+R</code> to reload MTR scripts. (i.e. Eyecandy Scripts)</li>
 </ul>
-<h3 id="example">Example<a class="headerlink" href="#example" title="Anchor link to this section for reference">#</a></h3>
-<p>The Java AWT class <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/Color.html"><code>Color</code></a> has the following constructors.</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/*1.*/</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="n">ColorSpace</span><span class="w"> </span><span class="n">cspace</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="o">[]</span><span class="w"> </span><span class="n">components</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">alpha</span><span class="p">)</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="cm">/*2.*/</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="cm">/*3.*/</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">a</span><span class="p">)</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="cm">/*4.*/</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">rgb</span><span class="p">)</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="cm">/*5.*/</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">rgba</span><span class="p">,</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">hasalpha</span><span class="p">)</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="cm">/*6.*/</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="cm">/*7.*/</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">)</span>
-</span></code></pre></div>
-<p>Calling Java constructors in JavaScript:</p>
-<div class="language-js highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">colorFromConstructor4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Color</span><span class="p">(</span><span class="mf">2638978</span><span class="p">);</span><span class="w"> </span><span class="c1">// Type signature (number) pairs with 4. (int)</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">colorFromConstructor5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Color</span><span class="p">(</span><span class="mh">0x7FFFFFFF</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span><span class="w"> </span><span class="c1">// Type signature (number, boolean) pairs with 5. (int, boolean)</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kd">let</span><span class="w"> </span><span class="nx">colorAutoConverted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Color</span><span class="p">(</span><span class="s2">&quot;0x80B846&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// String is converted to integer for constructor 4, as it has 1 parameter, matched the no. of arguments given</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kd">let</span><span class="w"> </span><span class="nx">colorFromConstructor2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Color</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// Number is converted to float, as float has higher order of perference than intger, regardless of whether a decimal place is not provided.</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="kd">let</span><span class="w"> </span><span class="nx">colorFromNoConstructor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Color</span><span class="p">();</span><span class="w"> </span><span class="c1">// It does not pair with any constructor</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1">// Error! com.lx862.mtrscripting.lib.org.mozilla.javascript.EvaluatorException: Java constructor for &quot;java.awt.Color&quot; with arguments &quot;&quot; not found.</span>
-</span></code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Possible misunderstanding while reading error messages</p>
-<p>Developers <strong>should</strong> also consider of <strong>wrong arguments type</strong> when encountering any method not found errors. As instead of directly indicating that the argument types are incorrect, Rhino report that the required method with the specific type signature is not found. (...with arguments XXX <strong>not found</strong>.) </p>
-</div>
-<h3 id="explicit-method-specification">Explicit Method Specification<a class="headerlink" href="#explicit-method-specification" title="Anchor link to this section for reference">#</a></h3>
-<p>From the example of calling the constructor 2 above, you may already see that, JavaScript number may not be converted to a Java type as expected. So, alternatively, Rhino/LiveConnect3 provided a way to specific the method to use, bypassing the resolution process.</p>
-<p>To specify the method, call it as a key of an object, with the type signature suffixed.</p>
-<div class="language-js highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">colorFromConstructor6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Color</span><span class="p">[</span><span class="s2">&quot;(int,int,int)&quot;</span><span class="p">](</span><span class="mf">40</span><span class="p">,</span><span class="w"> </span><span class="mf">68</span><span class="p">,</span><span class="w"> </span><span class="mf">130</span><span class="p">);</span><span class="w"> </span><span class="c1">// No identifer for constructors</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nx">graphics</span><span class="p">[</span><span class="s2">&quot;drawString(java.lang.String,int,int)&quot;</span><span class="p">](</span><span class="s2">&quot;Overload resolution&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">15</span><span class="p">,</span><span class="w"> </span><span class="mf">60</span><span class="p">);</span>
-</span></code></pre></div>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<ol>
-<li>Methods/Constructors identifier are case-sensitive</li>
-<li>Leave the identifier blank for a constructor</li>
-<li>Only fully qualified name (<code>java.lang.String</code>) is accepted, simple name (String) is not accepted</li>
-</ol>
+<p class="admonition-title">Note on keybinding</p>
+<p>The above assumes a default unmodified key binding, see below for the corresponding keybinds:</p>
+<ul>
+<li><code>Shift</code> refers to your binded Sneak key</li>
+<li><code>Ctrl</code> refers to your binded Sprint key</li>
+<li><code>R</code> refers to your binded JCM reload key, configurable in key binding settings.</li>
+</ul>
 </div>
-<p>At least, good luck on avoiding "method not found" error! ^_^</p>
-<h2 id="what-javascript-features-are-supported">What JavaScript features are supported?<a class="headerlink" href="#what-javascript-features-are-supported" title="Anchor link to this section for reference">#</a></h2>
-<p>The Rhino JavaScript Engine <strong>does not support</strong> all of the latest JavaScript features. See <a href="https://mozilla.github.io/rhino/compat/engines.html">Mozilla's documentation</a> for details on what is supported.</p>
-<p>JCM uses Rhino version <strong>1.9.0</strong>. (<abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> uses Rhino <strong>1.7.15</strong> with the <code>VERSION_ES6</code> flag enabled.)</p>
+<p><img alt="" src="../img/quick_reload.png" /></p>
 <!-- *[JCM]: Joban Client Mod -->
 <!-- *[PIDS]: Passenger Information Display System -->
 
