@@ -25,14 +25,14 @@ This may be used to simulate digital screens/displays by assigning a dynamic tex
 |Functions|Description|
 |:--------|:----------|
 |`static QuadDrawCall.create(): QuadDrawCall`|Creates a QuadDrawCall|
-|`static QuadDrawCall.create(comment: string): QuadDrawCall`|Creates a QuadDrawCall with a comment. The comment are not used and are purely for annotations/readability purpose in your code|
+|`static QuadDrawCall.create(comment: String): QuadDrawCall`|Creates a QuadDrawCall with a comment. The comment are not used and are purely for annotations/readability purpose in your code|
 |`QuadDrawCall.quad(corner1: Vector3f, corner2: Vector3f, corner3: Vector3f, corner4: Vector3f): QuadDrawCall`|Specify the coordinate of the 4 corners/vertices.|
 |`QuadDrawCall.corner1(pos: Vector3f): QuadDrawCall`|Specify the [Vector3f](./math.md#vector3f) coordinate of the first corners/vertices.|
 |`QuadDrawCall.corner2(pos: Vector3f): QuadDrawCall`|Specify the [Vector3f](./math.md#vector3f) coordinate of the second corners/vertices.|
 |`QuadDrawCall.corner3(pos: Vector3f): QuadDrawCall`|Specify the [Vector3f](./math.md#vector3f) coordinate of the third corners/vertices.|
 |`QuadDrawCall.corner4(pos: Vector3f): QuadDrawCall`|Specify the [Vector3f](./math.md#vector3f) coordinate of the final corners/vertices.|
-|`QuadDrawCall.renderType(renderType: string): QuadDrawCall`|Specify a render type to use.<br>- `EXTERIOR`: Same as the one used on train exterior, use the light level at the current position.<br>- `EXTERIOR_TRANSLUCENT`: Same as `EXTERIOR`, but supports translucency.<br>- `INTERIOR`: Same as the one used on train interiors, use full light level, normals/face shadings are applied.<br>- `INTERIOR_TRANSLUCENT`: Same as `INTERIOR`, but supports translucency.<br>- `LIGHT` (default): Full brightness without any shading, suitable for LCD screens.<br>- `LIGHT_TRANSLUCENT`: Same as `LIGHT`, supports translucency.|
-|`QuadDrawCall.color(rgb: number): QuadDrawCall`|Specify the color tint of this quad in RGB.<br>e.g. `0xFF0000` for red|
+|`QuadDrawCall.renderType(renderType: String): QuadDrawCall`|Specify a render type to use.<br>- `EXTERIOR`: Same as the one used on train exterior, use the light level at the current position.<br>- `EXTERIOR_TRANSLUCENT`: Same as `EXTERIOR`, but supports translucency.<br>- `INTERIOR`: Same as the one used on train interiors, use full light level, normals/face shadings are applied.<br>- `INTERIOR_TRANSLUCENT`: Same as `INTERIOR`, but supports translucency.<br>- `LIGHT` (default): Full brightness without any shading, suitable for LCD screens.<br>- `LIGHT_TRANSLUCENT`: Same as `LIGHT`, supports translucency.|
+|`QuadDrawCall.color(rgb: int): QuadDrawCall`|Specify the color tint of this quad in RGB.<br>e.g. `0xFF0000` for red|
 |`QuadDrawCall.texture(id: Identifier): QuadDrawCall`|Assign a texture to the quad using the texture [Identifier](./resources.md#identifier-aka-resourcelocation).|
 |`QuadDrawCall.uv(u1: float, v1: float, u2: float, v2: float): QuadDrawCall`|Specify the UV coordinates. (0-1)|
 |`QuadDrawCall.uv(u2: float, v2: float): QuadDrawCall`|Specify the second pair of UV coordinates (0-1)|
@@ -58,6 +58,6 @@ This creates a draw call which renders a 3d model onto the world.
 |Functions|Description|
 |:--------|:----------|
 |`static ModelDrawCall.create(): ModelDrawCall`|Creates a ModelDrawCall|
-|`static ModelDrawCall.create(comment: string): ModelDrawCall`|Creates a ModelDrawCall with a comment. The comment are not used and are purely for annotations/readability purpose in your code.|
+|`static ModelDrawCall.create(comment: String): ModelDrawCall`|Creates a ModelDrawCall with a comment. The comment are not used and are purely for annotations/readability purpose in your code.|
 |`ModelDrawCall.modelObject(model: Model): ModelDrawCall`|Specify the model to render. See [Model Loading](./model.md) on obtaining a Model.|
 |`ModelDrawCall.matrices(matrices: Matrices): ModelDrawCall`|Supply a [Matrices](./math.md#matrices) to transform the model.|

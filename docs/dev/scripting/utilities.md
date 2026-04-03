@@ -17,7 +17,7 @@ Functions are provided where you can get the version number to ensure compatibil
 
 |Functions|Description|
 |:--------|:----------|
-|`static Resources.getAddonVersion(modId: string): string`|Obtain the version of a mod that is hooked to the scripting functionality.<br>Out of the box in JCM, the possible value of `modId` are:<br>- mtr<br>- jcm|
+|`static Resources.getAddonVersion(modId: String): String`|Obtain the version of a mod that is hooked to the scripting functionality.<br>Out of the box in JCM, the possible value of `modId` are:<br>- mtr<br>- jcm|
 
 ## TextUtil
 The MTR mod uses the station naming format `Name in one language|Name in another language||EXTRA`, so TextUtil is implemented to provide functions to separate these parts.
@@ -66,8 +66,8 @@ Since each object should have its own tracker, you would probably want to store 
 |:--------|:----------|
 |`new CycleTracker(params: Object[])`|Creates a CycleTracker.<br>The parameters are the states it will switch through and the duration of each state in seconds.<br>Example: `new CycleTracker([“route”, 5, “nextStation”, 5])`.|
 |`CycleTracker.tick(): void`|Updates the status based on the current time.|
-|`CycleTracker.stateNow(): string`|Returns the current state.|
-|`CycleTracker.stateLast(): string?`|Returns the previous state. If it does not exist, `null` is returned.|
+|`CycleTracker.stateNow(): String`|Returns the current state.|
+|`CycleTracker.stateLast(): String?`|Returns the previous state. If it does not exist, `null` is returned.|
 |`CycleTracker.stateNowDuration(): double`|Returns the amount of time the current state lasts.|
 |`CycleTracker.stateNowFirst(): boolean`|Was the state just changed by the `setState` function in this loop or not?|
 

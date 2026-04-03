@@ -95,19 +95,19 @@ This would return a string formatted like: `2.0.0-beta.5`
 ##### PIDSScriptContext
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`PIDSScriptContext.setDebugInfo(key: string, value: object)`|Output debugging information in the upper left corner of the screen. You need to enable **[Script Debug Overlay](../../articles/script_debug_overlay.md)** in JCM Settings to display it.<br>`key` is the name of the value<br>`value` is the content (`value` will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).|
+|`PIDSScriptContext.setDebugInfo(key: String, value: object)`|Output debugging information in the upper left corner of the screen. You need to enable **[Script Debug Overlay](../../articles/script_debug_overlay.md)** in JCM Settings to display it.<br>`key` is the name of the value<br>`value` is the content (`value` will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).|
 |`PIDSScriptContext.getRenderManager(): RenderManager`|Obtain a [RenderManager](../../rendering.md#rendermanager) instance, which can be used to render stuff onto the Minecraft World.<br>The base position are set to the block's position.|
 |`PIDSScriptContext.getSoundManager(): SoundManager`|Obtain a [SoundManager](../../sounds.md) instance, which can be used to play sound onto the Minecraft World.<br>The base position are set to the block's position.|
-|`PIDSScriptContext.setAutoZOrdering(autoZOrdering: boolean): void`|To ensure z-fighting don't occur, by default JCM will translate a small amount (step) in the z-direction everytime you draw a text/texture. You can turn this behaviour off by setting autoZOrdering to false, then you can use `Text/Texture#zOrder(order: number)` to control the z-order manually|
-|`PIDSScriptContext.setZOrderStep(distanceMeter: number): void`|To ensure z-fighting don't occur, by default JCM will translate a small amount (step) in the z-direction everytime you draw a text/texture. Here you can pass in a custom step value. By default this is `0.0002`|
+|`PIDSScriptContext.setAutoZOrdering(autoZOrdering: boolean): void`|To ensure z-fighting don't occur, by default JCM will translate a small amount (step) in the z-direction everytime you draw a text/texture. You can turn this behaviour off by setting autoZOrdering to false, then you can use `Text/Texture#zOrder(order: int)` to control the z-order manually|
+|`PIDSScriptContext.setZOrderStep(distanceMeter: double): void`|To ensure z-fighting don't occur, by default JCM will translate a small amount (step) in the z-direction everytime you draw a text/texture. Here you can pass in a custom step value. By default this is `0.0002`|
 
 ##### Text
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`Text.create()`<br>`Text.create(comment: string)`|Create a new text object|
-|`Text.pos(x: number, y: number): Text`|Set the X and Y position of the element|
-|`Text.size(w: number, h: number): Text`|Set the width and height of the element<br>(Used in conjunction with `Text.stretchXY()` and `Text.scaleXY()`)|
-|`Text.text(str: string): Text`|Set the text content to str|
+|`Text.create()`<br>`Text.create(comment: String)`|Create a new text object|
+|`Text.pos(x: double, y: double): Text`|Set the X and Y position of the element|
+|`Text.size(w: double, h: double): Text`|Set the width and height of the element<br>(Used in conjunction with `Text.stretchXY()` and `Text.scaleXY()`)|
+|`Text.text(str: String): Text`|Set the text content to str|
 |`Text.scale(i: double): Text`|Set the text's scale to i. Defaults to `1`<br>Note: This scales the whole text component, you should divide your scale when specifying `.size()` for instance.|
 |`Text.leftAlign(): Text`|Align the text to the left (Default)|
 |`Text.centerAlign(): Text`|Align the text to the center|
@@ -121,35 +121,35 @@ This would return a string formatted like: `2.0.0-beta.5`
 |`Text.marquee(): Text`|Text Overflow Mechanism:<br>When the text overflowed beyond it's size, draw a portion of the text at a time with scrolling animation|
 |`Text.fontMC(): Text`|Use vanilla Minecraft's font|
 |`Text.matrices(matrices: Matrices): Text`|Apply a [matrices](../../math.md#matrices) to the current text object|
-|`Text.font(id: string): Text`<br>`Text.font(id: Identifier): Text`|Set the font by it's ID. Defaults to `mtr:mtr`<br>The font should be loaded in Minecraft via the font json format.<br>This does not have any effect if **Use Custom MTR Font** is disabled in MTR mod's Config.|
-|`Text.color(color: number): Text`|Set the text color, in RGB format.|
+|`Text.font(id: String): Text`<br>`Text.font(id: Identifier): Text`|Set the font by it's ID. Defaults to `mtr:mtr`<br>The font should be loaded in Minecraft via the font json format.<br>This does not have any effect if **Use Custom MTR Font** is disabled in MTR mod's Config.|
+|`Text.color(color: int): Text`|Set the text color, in RGB format.|
 |`Text.draw(ctx: PIDSScriptContext): void`|Mark the text as something that should be rendered to the PIDS.|
-|`Text.zOrder(order: number): Text`|Specify the z-order manually.|
+|`Text.zOrder(order: int): Text`|Specify the z-order manually.|
 
 ##### Texture
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`Texture.create()`<br>`Texture.create(comment: string)`|Create a new texture object|
-|`Texture.pos(x: number, y: number): Texture`|Set the X and Y position of the element|
-|`Texture.size(w: number, h: number): Texture`|Set the width and height of the element|
-|`Texture.texture(id: string): Texture`<br>`Texture.texture(id: Identifier): Texture`|Set the texture ID to draw.<br>Note that the texture ID should point to a PNG file or an .mcmeta file.|
-|`Texture.color(color: number): Texture`|Set the text color, in RGB format.|
-|`Texture.uv(u2: number, v2: number): Texture`<br>`Texture.uv(u1: number, v1: number, u2: number, v2: number): Texture`|Set the UV coordinates|
+|`Texture.create()`<br>`Texture.create(comment: String)`|Create a new texture object|
+|`Texture.pos(x: double, y: double): Texture`|Set the X and Y position of the element|
+|`Texture.size(w: double, h: double): Texture`|Set the width and height of the element|
+|`Texture.texture(id: String): Texture`<br>`Texture.texture(id: Identifier): Texture`|Set the texture ID to draw.<br>Note that the texture ID should point to a PNG file or an .mcmeta file.|
+|`Texture.color(color: int): Texture`|Set the text color, in RGB format.|
+|`Texture.uv(u2: float, v2: float): Texture`<br>`Texture.uv(u1: float, v1: float, u2: float, v2: float): Texture`|Set the UV coordinates|
 |`Texture.matrices(matrices: Matrices): Texture`|Apply a [matrices](../../math.md#matrices) to the current texture object|
 |`Texture.draw(ctx: PIDSScriptContext): void`|Mark the texture as something that should be rendered to the PIDS.|
-|`Texture.zOrder(order: number): Texture`|Specify the z-order manually.|
+|`Texture.zOrder(order: int): Texture`|Specify the z-order manually.|
 
 #### PIDS Object Related
 
 ##### PIDSBlockEntity
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`PIDSBlockEntity.type: string`|Return the type of PIDS used, possible value are:<br>- rv_pids<br>- rv_pids_sil_1<br>- rv_pids_sil_2<br>- lcd_pids<br>- pids_projector<br>- pids_1a|
-|`PIDSBlockEntity.width: number`|The full width of the available PIDS screen area.|
-|`PIDSBlockEntity.height: number`|The full height of the available PIDS screen area.|
-|`PIDSBlockEntity.rows: number`|The number of arrival rows supported by the PIDS Block|
-|`PIDSBlockEntity.isRowHidden(i: number): boolean`|Returns whether the arrival for that row is hidden. (via PIDS Config)|
-|`PIDSBlockEntity.getCustomMessage(i: number): string`|Returns the custom message configured for that row via PIDS Config.<br>Empty string (`""`) if not set.|
+|`PIDSBlockEntity.type: String`|Return the type of PIDS used, possible value are:<br>- rv_pids<br>- rv_pids_sil_1<br>- rv_pids_sil_2<br>- lcd_pids<br>- pids_projector<br>- pids_1a|
+|`PIDSBlockEntity.width: int`|The full width of the available PIDS screen area.|
+|`PIDSBlockEntity.height: int`|The full height of the available PIDS screen area.|
+|`PIDSBlockEntity.rows: int`|The number of arrival rows supported by the PIDS Block|
+|`PIDSBlockEntity.isRowHidden(i: int): boolean`|Returns whether the arrival for that row is hidden. (via PIDS Config)|
+|`PIDSBlockEntity.getCustomMessage(i: int): String`|Returns the custom message configured for that row via PIDS Config.<br>Empty string (`""`) if not set.|
 |`PIDSBlockEntity.isPlatformNumberHidden(): boolean`|Returns whether the platform number is set to hidden. (via PIDS Config)|
 |`PIDSBlockEntity.blockPos(): Vector3f`|Returns the coordinate of which the PIDS block is located.|
 |`PIDSBlockEntity.isKeyBlock(): boolean`|Returns whether the current block is a unique block within a PIDS pair<br>(e.g. Identify 1 side of a dual-sided PIDS)|
@@ -159,7 +159,7 @@ This would return a string formatted like: `2.0.0-beta.5`
 ##### ArrivalEntries
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`ArrivalEntries.get(i: number): ArrivalEntry?`|Returns the i<sup>th</sup> arrival entry.<br>`null` if there's no i<sup>th</sup> arrival entry or no arrival information.<br>**Note that only up to 10 arrivals is fetched per platform, see this [issue](https://github.com/DistrictOfJoban/Joban-Client-Mod/issues/40) for details.**|
+|`ArrivalEntries.get(i: int): ArrivalEntry?`|Returns the i<sup>th</sup> arrival entry.<br>`null` if there's no i<sup>th</sup> arrival entry or no arrival information.<br>**Note that only up to 10 arrivals is fetched per platform, see this [issue](https://github.com/DistrictOfJoban/Joban-Client-Mod/issues/40) for details.**|
 |`ArrivalEntries.mixedCarLength(): boolean`|Returns whether the list of arrivals have arrival entry with different cars.|
 |`ArrivalEntries.platforms(): ObjectArrayList<Platform>`|Returns the platforms that all arrival entry is stopping at.|
 
@@ -168,23 +168,23 @@ Represent a single arrival entry.
 
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`ArrivalEntry.destination(): string`|Returns the destination name of the arrival entry.<br>(Usually the destination's station, or a custom destination string)|
-|`ArrivalEntry.arrivalTime(): number`|Returns the epoch time (in Millisecond) the vehicle will arrive at.<br>Use `new Date(value: number)`to obtain a JS Date object of the arrival time.|
-|`ArrivalEntry.departureTime(): number`|Returns the epoch time (in Millisecond) the vehicle will depart at.<br>Use `new Date(value: number)`to obtain a JS Date object of the departure time.|
-|`ArrivalEntry.deviation(): number`|Returns the deviation[?]|
+|`ArrivalEntry.destination(): String`|Returns the destination name of the arrival entry.<br>(Usually the destination's station, or a custom destination string)|
+|`ArrivalEntry.arrivalTime(): long`|Returns the epoch time (in Millisecond) the vehicle will arrive at.<br>Use `new Date(value: number)`to obtain a JS Date object of the arrival time.|
+|`ArrivalEntry.departureTime(): long`|Returns the epoch time (in Millisecond) the vehicle will depart at.<br>Use `new Date(value: number)`to obtain a JS Date object of the departure time.|
+|`ArrivalEntry.deviation(): long`|Returns the deviation[?]|
 |`ArrivalEntry.realtime(): boolean`|Returns whether the arrival entry is scheduled (i.e. Vehicle not departed), or a real-time estimation (i.e. Vehicle running)|
-|`ArrivalEntry.departureIndex(): number`|Returns the departure index[?]|
+|`ArrivalEntry.departureIndex(): long`|Returns the departure index[?]|
 |`ArrivalEntry.terminating(): boolean`|Returns whether the arrival entry will terminate its service at the current platform.|
-|`ArrivalEntry.route(): SimplifiedRoute`|Returns the SimplifiedRoute object that the vehicle is running on.<br>**Might be null if the route cannot be found (e.g. Hidden/Deleted)**|
-|`ArrivalEntry.routeId(): number`|Returns the id of the route that the vehicle is running on when arrived.|
-|`ArrivalEntry.routeName(): string`|Returns the name of the route that the vehicle is running on when arrived.|
-|`ArrivalEntry.routeNumber(): string`|Returns the route number string (Previously called LRT Route Number), empty string if route number is not set.|
-|`ArrivalEntry.routeColor(): number`|Returns the color of the route that the vehicle is running on when arrived.|
+|`ArrivalEntry.route(): SimplifiedRoute?`|Returns the SimplifiedRoute object that the vehicle is running on.<br>**Might be null if the route cannot be found (e.g. Hidden/Deleted)**|
+|`ArrivalEntry.routeId(): long`|Returns the id of the route that the vehicle is running on when arrived.|
+|`ArrivalEntry.routeName(): String`|Returns the name of the route that the vehicle is running on when arrived.|
+|`ArrivalEntry.routeNumber(): String`|Returns the route number string (Previously called LRT Route Number), empty string if route number is not set.|
+|`ArrivalEntry.routeColor(): int`|Returns the color of the route that the vehicle is running on when arrived.|
 |`ArrivalEntry.circularState(): Route.CircularState`|Returns the circular state of the route that the vehicle is running on.|
 |`ArrivalEntry.platform(): Platform`|Returns the platform object that the vehicle will approach at.|
-|`ArrivalEntry.platformId(): number`|Returns the id of the platform that the vehicle will approach at.|
-|`ArrivalEntry.platformName(): string`|Returns the name of the platform that the vehicle will approach at.|
-|`ArrivalEntry.carCount(): number`|Returns the number of cars the vehicle has.|
+|`ArrivalEntry.platformId(): long`|Returns the id of the platform that the vehicle will approach at.|
+|`ArrivalEntry.platformName(): String`|Returns the name of the platform that the vehicle will approach at.|
+|`ArrivalEntry.carCount(): int`|Returns the number of cars the vehicle has.|
 |`ArrivalEntry.cars(): List<CarDetails>`|Returns a List containing [CarDetails](#cardetails) for each car.|
 
 #### Transport Simulation Core Related
@@ -195,32 +195,31 @@ Transport Simulation Core (TSC) is the backend serving MTR 4. Below are some of 
 |:--------------------|:----------|
 |`Platform.routes: ObjectAVLTreeSet<Route>`|A list of routes that goes through this platform.|
 |`Platform.routeColors: IntAVLTreeSet`|All colors of route that goes through this platform.|
-|`Platform.getName(): string`|Returns the platform name.|
-|`Platform.getId(): number`|Returns the platform ID.|
-|`Platform.getDwellTime(): number`|The dwell time duration of the platform in millisecond.|
+|`Platform.getName(): String`|Returns the platform name.|
+|`Platform.getId(): long`|Returns the platform ID.|
+|`Platform.getDwellTime(): long`|The dwell time duration of the platform in millisecond.|
 
 ##### SimplifiedRoute
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`SimplifiedRoute.getName(): string`|Returns the platform name.|
-|`SimplifiedRoute.getId(): number`|Returns the route ID.|
-|`SimplifiedRoute.getColor(): number`|Returns the color of the route.|
+|`SimplifiedRoute.getName(): String`|Returns the platform name.|
+|`SimplifiedRoute.getId(): long`|Returns the route ID.|
+|`SimplifiedRoute.getColor(): int`|Returns the color of the route.|
 |`SimplifiedRoute.getCircularState(): Route.CircularState`|Returns the circular state of the route|
 |`SimplifiedRoute.getPlatforms(): ObjectArrayList<SimplifiedRoutePlatform>`|Returns a SimplifiedRoutePlatform object, see below|
 
 ##### SimplifiedRoutePlatform
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`SimplifiedRoutePlatform.getPlatformId(): number`|Returns the id of the platform.|
-|`SimplifiedRoutePlatform.getStationId(): number`|Returns the id of the belonging station area.|
-|`SimplifiedRoutePlatform.getStationName(): string`|Returns the name of the belonging station area.|
-|`SimplifiedRoutePlatform.getDestination(): string`|Returns the destination string of this platform in the route|
+|`SimplifiedRoutePlatform.getPlatformId(): long`|Returns the id of the platform.|
+|`SimplifiedRoutePlatform.getStationId(): long`|Returns the id of the belonging station area.|
+|`SimplifiedRoutePlatform.getStationName(): String`|Returns the name of the belonging station area.|
+|`SimplifiedRoutePlatform.getDestination(): String`|Returns the destination string of this platform in the route|
 
 ##### CarDetails
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`CarDetails.getVehicleId(): string`|Returns the id of the vehicle car (As defined in Resource Packs)|
-|`CarDetails.getOccupancy(): number`|Returns the occupancy level. <br><b>Only returns 0 at the moment.</b>|
+|`CarDetails.getVehicleId(): String`|Returns the id of the vehicle car (As defined in Resource Packs)|
 
 ### Using AWT Graphics/Dynamic Textures
 While not a regular tested use case for PIDS, you can create a [Dynamic Textures](../../dynamic_textures.md) and draw it onto a PIDS:

@@ -208,11 +208,11 @@ As you know, values ​​in JS have different types. When calling a function, y
 This scripting documentation will follow the following example:
 
 ```
-static Resources.id(idStr: string): Identifier
+static Resources.id(idStr: String): Identifier
 ```
 
 - `static` means that you don't need to create an object to use this function, you can call `Resources.id("aaa:bbb")` directly.
-- `idStr: string` means that the `idStr` parameter accepts a string.
+- `idStr: String` means that the `idStr` parameter accepts a java **String** type. (Note: JS string are converted to Java String, thus you don't need to do the conversion yourself. See [Interoperability between Java Classes/Methods](./articles/tips.md#interoperability-between-java-classesmethods) for details.)
 - `: Identifier` means that a function call will return a value of type `Identifier`.
 
 And here's another example:

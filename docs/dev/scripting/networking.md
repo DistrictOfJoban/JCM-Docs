@@ -4,8 +4,8 @@ The **Networking API** allows scripts to send HTTP requests to fetch data over t
 ## Networking
 |Functions|Description|
 |:--------|:----------|
-|`static Networking.fetch(url: string): NetworkResponse<DataReader>`|Fetch data from the corresponding URL. Returns a [NetworkResponse](#networkresponse) wrapping a [DataReader](./data_reading.md#datareader).|
-|`static Networking.fetch(url: string, requestOption: RequestOption): NetworkResponse<DataReader>`|Fetch data from the corresponding URL, with custom [Request Options](#requestoption) applied.<br>Returns a [NetworkResponse](#networkresponse) wrapping a [DataReader](./data_reading.md#datareader).|
+|`static Networking.fetch(url: String): NetworkResponse<DataReader>`|Fetch data from the corresponding URL. Returns a [NetworkResponse](#networkresponse) wrapping a [DataReader](./data_reading.md#datareader).|
+|`static Networking.fetch(url: String, requestOption: RequestOption): NetworkResponse<DataReader>`|Fetch data from the corresponding URL, with custom [Request Options](#requestoption) applied.<br>Returns a [NetworkResponse](#networkresponse) wrapping a [DataReader](./data_reading.md#datareader).|
 
 ??? info "Show deprecated functions"
     These functions are kept for backward compatibility, before the introduction of a unified [Data Reading](./data_reading.md) API.    
@@ -13,10 +13,10 @@ The **Networking API** allows scripts to send HTTP requests to fetch data over t
 
     |Functions|Description|
     |:--------|:----------|
-    |`static Networking.fetchString(url: string): NetworkResponse<String>`|Fetch plain text content from the corresponding URL.|
-    |`static Networking.fetchString(url: string, requestOption: RequestOption): NetworkResponse<String>`|Fetch plain text content from the corresponding URL, with the request option applied. (See below for RequestOption)|
-    |`static Networking.fetchImage(url: string): NetworkResponse<BufferedImage>`|Fetch image from the corresponding URL.|
-    |`static Networking.fetchImage(url: string, requestOption: RequestOption): NetworkResponse<BufferedImage>`|Fetch image from the corresponding URL, with the request option applied. (See below for RequestOption)|
+    |`static Networking.fetchString(url: String): NetworkResponse<String>`|Fetch plain text content from the corresponding URL.|
+    |`static Networking.fetchString(url: String, requestOption: RequestOption): NetworkResponse<String>`|Fetch plain text content from the corresponding URL, with the request option applied. (See below for RequestOption)|
+    |`static Networking.fetchImage(url: String): NetworkResponse<BufferedImage>`|Fetch image from the corresponding URL.|
+    |`static Networking.fetchImage(url: String, requestOption: RequestOption): NetworkResponse<BufferedImage>`|Fetch image from the corresponding URL, with the request option applied. (See below for RequestOption)|
 
 ### RequestOption
 This is a **JavaScript Object** that specifies connection-related details.

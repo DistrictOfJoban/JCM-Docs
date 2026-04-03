@@ -26,7 +26,7 @@ This class allows developers to access file contents within resource packs, as w
 
     |Functions|Description|
     |:--------|:----------|
-    |`static Resources.readString(id: Identifier): string?`|Reads the contents of a resource file as a string. Returns null if reading fails.|
+    |`static Resources.readString(id: Identifier): String?`|Reads the contents of a resource file as a string. Returns null if reading fails.|
     |`static Resources.readBufferedImage(id: Identifier): BufferedImage`|Loads an image file as an AWT BufferedImage.|
     |`static Resources.readFont(id: Identifier): Font`|Load a custom TTF or OTF font file as an AWT Font.<br> *Note: Due to the way Java and Minecraft Resource Pack works, new temporary font files are generated on your disk every time you call this function.<br>If you find yourself running out of disk space during the development, you can free up disk space by deleting files starting with `+~JF` on your system temp directory, or restart your Minecraft/Computer.*|
 

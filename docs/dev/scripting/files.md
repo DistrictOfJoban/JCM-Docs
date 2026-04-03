@@ -9,12 +9,12 @@ The **Files** class allows saving/reading files with scripts to a limited degree
 
 |Functions|Description|
 |:--------|:----------|
-|`static Files.read(path: string...): DataReader`|Read a file based on the specified path and returns the [DataReader](./data_reading.md#datareader). (null if the file don't exist).<br>This function always resolves relatively starting from '''.minecraft'''.|
-|`static Files.readData(path: string...): DataReader`|Read a file based on the specified path and returns the [DataReader](./data_reading.md#datareader). (null if the file don't exist).<br>**Note:** It is strongly recommended to store your file in a sub-directory with a unique name to avoid collision<br>This function always resolves relatively starting from **.minecraft/data/mtrscripting**.|
-|`static Files.saveData(content: string, path: string...): void`|Save plain text content to the corresponding path. The filename should be included in the path already.<br>All parent directory in the path will be automatically generated if it doesn't exists.<br>This function always resolves relatively starting from '''.minecraft/data/mtrscripting'''.|
-|`static Files.saveData(content: BufferedImage, path: string...): void`|Save a BufferedImage to the corresponding path. The filename should be included in the path already.<br>All parent directory in the path will be automatically generated if it doesn't exists.<br>This function always resolves relatively starting from '''.minecraft/data/mtrscripting'''.|
-|`static Files.deleteData(path: string...): void`|Delete the file from the specified path.This function always resolves relatively starting from '''.minecraft/data/mtrscripting'''.|
-|`static Files.hasData(path: string...): boolean`|Returns whether the specified file/directory exists.This function always resolves relatively starting from '''.minecraft/data/mtrscripting'''.|
+|`static Files.read(path: String...): DataReader`|Read a file based on the specified path and returns the [DataReader](./data_reading.md#datareader). (null if the file don't exist).<br>This function always resolves relatively starting from '''.minecraft'''.|
+|`static Files.readData(path: String...): DataReader`|Read a file based on the specified path and returns the [DataReader](./data_reading.md#datareader). (null if the file don't exist).<br>**Note:** It is strongly recommended to store your file in a sub-directory with a unique name to avoid collision<br>This function always resolves relatively starting from **.minecraft/data/mtrscripting**.|
+|`static Files.saveData(content: String, path: String...): void`|Save plain text content to the corresponding path. The filename should be included in the path already.<br>All parent directory in the path will be automatically generated if it doesn't exists.<br>This function always resolves relatively starting from '''.minecraft/data/mtrscripting'''.|
+|`static Files.saveData(content: BufferedImage, path: String...): void`|Save a BufferedImage to the corresponding path. The filename should be included in the path already.<br>All parent directory in the path will be automatically generated if it doesn't exists.<br>This function always resolves relatively starting from '''.minecraft/data/mtrscripting'''.|
+|`static Files.deleteData(path: String...): void`|Delete the file from the specified path.This function always resolves relatively starting from '''.minecraft/data/mtrscripting'''.|
+|`static Files.hasData(path: String...): boolean`|Returns whether the specified file/directory exists.This function always resolves relatively starting from '''.minecraft/data/mtrscripting'''.|
 
 ## Example
 ``` js

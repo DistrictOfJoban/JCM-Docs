@@ -179,7 +179,7 @@ Then rename `CONFIG_INFO` to `SCRIPT_INPUT` within the script.
 ```
 
 ### Custom shapes for eyecandy
-In ANTE, you would invoke `BlockEntityEyeCandy.setShape(shape: string)` and `BlockEntityEyeCandy.setCollisionShape(shape: string)` to set the outline and collision shape of the eyecandy, and then invoke `BlockEntityEyeCandy.sendUpdateC2S` to sync it to the server.
+In ANTE, you would invoke `BlockEntityEyeCandy.setShape(shape: String)` and `BlockEntityEyeCandy.setCollisionShape(shape: String)` to set the outline and collision shape of the eyecandy, and then invoke `BlockEntityEyeCandy.sendUpdateC2S` to sync it to the server.
 
 In JCM, the key differences are:
 

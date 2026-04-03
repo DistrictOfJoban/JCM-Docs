@@ -12,10 +12,10 @@ This has several utilities method related to the Minecraft Client.
 |`static MinecraftClient.worldIsRaining(): boolean`|Is it raining in the world?|
 |`static MinecraftClient.worldIsThundering(): boolean`|Is it thundering in the world?|
 |`static MinecraftClient.worldIsRainingAt(pos: Vector3f): boolean`|Is it raining and getting wet in a given chunk?|
-|`static MinecraftClient.worldDayTime(): number`|Returns the in-game world time in ticks.|
-|`static MinecraftClient.blockLightAt(pos: Vector3f): number`|Return the block light at the specified position.|
-|`static MinecraftClient.skyLightAt(pos: Vector3f): number`|Return the sky light at the specified position.|
-|`static MinecraftClient.lightLevelAt(pos: Vector3f): number`|Return the light level at the specified position.<br>Sourced from both sky light and block light, prefers the one which is lower.|
+|`static MinecraftClient.worldDayTime(): int`|Returns the in-game world time in ticks.|
+|`static MinecraftClient.blockLightAt(pos: Vector3f): int`|Return the block light at the specified position.|
+|`static MinecraftClient.skyLightAt(pos: Vector3f): int`|Return the sky light at the specified position.|
+|`static MinecraftClient.lightLevelAt(pos: Vector3f): int`|Return the light level at the specified position.<br>Sourced from both sky light and block light, prefers the one which is lower.|
 |`static MinecraftClient.narrate(message: String): void`|This calls the Minecraft narrator to narrate the message.|
 |`static MinecraftClient.localPlayer(): PlayerEntity`|Obtain the [PlayerEntity](#playerentity) of the current player.|
 |`static MinecraftClient.getScoreboardScore(objectiveName: String, playerName: String): int`|This obtain the player's scoreboard value on the specified scoreboard objective|
@@ -32,15 +32,15 @@ Minecraft employs it's own text format called the [Text Component Format](https:
 
 |Functions|Description|
 |:--------|:----------|
-|`static VanillaText.literal(str: string): VanillaText`|Creates a text component with the `str` parameter as the content|
-|`static VanillaText.translatable(key: string, placeholders: objects...): VanillaText`|Creates a text component with the `key` being the translation key, which can be adapted to the user's current language. Any additional parameters for `placeholders` may be specified in case a translation supports string substitution|
+|`static VanillaText.literal(str: String): VanillaText`|Creates a text component with the `str` parameter as the content|
+|`static VanillaText.translatable(key: String, placeholders: objects...): VanillaText`|Creates a text component with the `key` being the translation key, which can be adapted to the user's current language. Any additional parameters for `placeholders` may be specified in case a translation supports string substitution|
 |`VanillaText.append(other: VanillaText): VanillaText`|This append another VanillaText after the current VanillaText, the styles for each VanillaText are retained.|
 |`VanillaText.withBold(): VanillaText`|Set the VanillaText text to bold|
 |`VanillaText.withItalic(): VanillaText`|Set the VanillaText text to italic|
 |`VanillaText.withFont(id: Identifier): VanillaText`|Set the VanillaText text to use a specific font id as the displayed font, which is registered by resource pack|
 |`VanillaText.withColor(rgb: int): VanillaText`|This sets the corresponding RGB code as the color to display the text|
-|`VanillaText.withColor(colorName: string): VanillaText`|This sets the color to display the text|
-|`VanillaText.getString(): string`|This returns the literal text content of the VanillaText. Useful when paired with `VanillaText.translatable()` so you can access the string localized in the user's language.|
+|`VanillaText.withColor(colorName: String): VanillaText`|This sets the color to display the text|
+|`VanillaText.getString(): String`|This returns the literal text content of the VanillaText. Useful when paired with `VanillaText.translatable()` so you can access the string localized in the user's language.|
 
 ### Example
 Displaying a chat message every 1.5s in an eyecandy script.
@@ -83,8 +83,8 @@ This allows you to construct the outline shape of a block, which can be used to 
 |:--------|:----------|
 |`static VoxelShape.empty(): VoxelShape`|Returns an empty VoxelShape|
 |`static VoxelShape.fullCube(): VoxelShape`|Returns a VoxelShape that is equivalent to a 16x16 rectangle block|
-|`static VoxelShape.create(minX: number, minY: number, minZ: number, maxX: number, maxY: number, maxZ: number): VoxelShape`|Returns a VoxelShape with the specified size.<br>The `max[?]` parameter must always be equal/larger than the `min[?]` parameters.<br>Unit are 16x16 (16 = 1 full block)|
-|`static VoxelShape.create(minX: number, minY: number, minZ: number, maxX: number, maxY: number, maxZ: number, facing: Direction): VoxelShape`|Same as above, but rotated according to the `facing` parameter. You may obtain the facing direction via [EyecandyBlockEntity.facing()](./type/eyecandy/index.md#eyecandyblockentity)|
+|`static VoxelShape.create(minX: double, minY: double, minZ: double, maxX: double, maxY: double, maxZ: double): VoxelShape`|Returns a VoxelShape with the specified size.<br>The `max[?]` parameter must always be equal/larger than the `min[?]` parameters.<br>Unit are 16x16 (16 = 1 full block)|
+|`static VoxelShape.create(minX: double, minY: double, minZ: double, maxX: double, maxY: double, maxZ: double, facing: Direction): VoxelShape`|Same as above, but rotated according to the `facing` parameter. You may obtain the facing direction via [EyecandyBlockEntity.facing()](./type/eyecandy/index.md#eyecandyblockentity)|
 |`VoxelShape.combine(other: VoxelShape): VoxelShape`|This returns a new VoxelShape where two different VoxelShape are merged together.|
 
 ### Example
@@ -114,10 +114,10 @@ This is usually supplied/obtainable via events/code rather than something to be 
 
 |Functions|Description|
 |:--------|:----------|
-|`ItemStack.itemId(): string`|Obtain the item id (e.g. `mtr:rail`)`|
-|`ItemStack.translationId(): string`|Obtain the translation key of the item|
+|`ItemStack.itemId(): String`|Obtain the item id (e.g. `mtr:rail`)`|
+|`ItemStack.translationId(): String`|Obtain the translation key of the item|
 |`ItemStack.empty(): boolean`|Whether the itemstack is considered empty (e.g. Air)<br>e.g. If this is true when trying to obtain the item the player is holding, this means the player isn't holding anything.|
-|`ItemStack.count(): number`|Get the amount of the ItemStack|
+|`ItemStack.count(): int`|Get the amount of the ItemStack|
 
 ## PlayerEntity
 Represents a player entity in the game.
@@ -126,8 +126,8 @@ This is usually supplied/obtainable via events/code rather than something to be 
 
 |Functions|Description|
 |:--------|:----------|
-|`PlayerEntity.uuid(): string`|Obtain the entity's uuid as a string|
-|`PlayerEntity.hasPermissionLevel(level: number): boolean`|Whether the player has a certain "OP" level.<br>**Note: This is completely client-side only, do not use this for serious permission/authentication checking!**|
+|`PlayerEntity.uuid(): String`|Obtain the entity's uuid as a string|
+|`PlayerEntity.hasPermissionLevel(level: int): boolean`|Whether the player has a certain "OP" level.<br>**Note: This is completely client-side only, do not use this for serious permission/authentication checking!**|
 |`PlayerEntity.pos(): Vector3f`|Obtain the current position of the player, as a [Vector3f](./math.md#vector3f)|
 |`PlayerEntity.blockPos(): Vector3f`|Obtain the current block position of the player, as a [Vector3f](./math.md#vector3f).|
 |`PlayerEntity.smoothPos(): Vector3f`|Obtain the smoothed pos of the player, useful for rendering.|
@@ -135,7 +135,7 @@ This is usually supplied/obtainable via events/code rather than something to be 
 |`PlayerEntity.yaw(): float`|Obtain the yaw rotation of the player head.|
 |`PlayerEntity.pitch(): float`|Obtain the pitch rotation of the player head.|
 |`PlayerEntity.bodyYaw(): float`|Obtain the yaw rotation of the player's body.|
-|`PlayerEntity.playerName(): string`|Obtain the player's canonical name/username (Same as those registered in Mojang's/Microsoft server) |
+|`PlayerEntity.playerName(): String`|Obtain the player's canonical name/username (Same as those registered in Mojang's/Microsoft server) |
 |`PlayerEntity.isHoldingItem(id: Identifier): boolean`|Whether player is holding an item with the corresponding [Identifier](./resources.md#identifier-aka-resourcelocation) on either hand.|
 |`PlayerEntity.mainHandItem(): ItemStack`|Obtain the [ItemStack](#itemstack) in the player's main hand|
 |`PlayerEntity.offHandItem(): ItemStack`|Obtain the [ItemStack](#itemstack) in the player's secondary/offhand|
