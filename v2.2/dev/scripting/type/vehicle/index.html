@@ -4459,6 +4459,8 @@
       
         
       
+        
+      
     
     
     
@@ -4998,6 +5000,126 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_6_10" id="__nav_3_2_6_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MTR APIs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_6_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_6_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MTR APIs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mtrclientdata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Client Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tsc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transport Simulation Core API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -5460,6 +5582,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Concept">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -5610,6 +5749,103 @@
 <p>In <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>, there is no longer a concept of a <strong>train</strong>. Instead, we have vehicle, which is a single vehicle consist. A train in a siding is made up of multiple consists linked together, just like how it is in real-life.</p>
 <p>Therefore, the vehicle scripting system revolves around a single consist instead of the whole train. If you have an 8-car train of the same type with scripting enabled, your script would be invoked 8 times during rendering.</p>
 <p><strong>(No longer true, need updating)</strong></p>
+<h3 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Anchor link to this section for reference">#</a></h3>
+<h4 id="stop">Stop<a class="headerlink" href="#stop" title="Anchor link to this section for reference">#</a></h4>
+<p>This represents a platform which the train will stop at.<br />
+Also known as <code>RoutePlatform</code> in <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Stop.route: SimplifiedRoute?</code></td>
+<td style="text-align: left;">The <a href="../../tsc/#simplifiedroute">SimplifiedRoute</a> this stop belongs to.<br>Note: By default if multiple routes are assigned to the same stop, this will return the previous one.<br>Use <code>Stop.roundUpRoute</code> to get a copy where this variable would return the info of the next route.<br>Null if the data has not been fetched yet.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Stop.station: Station?</code></td>
+<td style="text-align: left;">The <a href="../../tsc/#station">Station</a> this stop belongs to.<br>Null if the data has not been fetched yet.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Stop.platform: Platform?</code></td>
+<td style="text-align: left;">The <a href="../../tsc/#platform">Platform</a> of this stop.<br>Null if the data has not been fetched yet.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Stop.destinationName: String</code></td>
+<td style="text-align: left;">The destination string. Either the station name of the current route's final stop, or a custom destination defined in the route.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Stop.routeInterchanges: List&lt;RouteInterchange&gt;</code></td>
+<td style="text-align: left;">Interchanging routes in this stop (i.e. All routes at Station, excluding current route). In a list of <a href="#routeinterchange">RouteInterchange</a>.<br>List would be empty if there's no interchange / data hasn't been fetched yet.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Stop.connectingInterchanges: Map&lt;String, List&lt;RouteInterchange&gt;</code></td>
+<td style="text-align: left;">A map corresponding to a list of interchanging routes, grouped by the name of all connecting stations.<br>Note: Multiple stations with the same name will be grouped together.<br>The current station is excluded, as it is already provided by <code>Stop.routeInterchanges</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Stop.dwellTimeMillis: long</code></td>
+<td style="text-align: left;">The dwell time of the stop in millisecond.<br><strong>-1</strong> if <code>Stop.platform</code> is null (Unknown).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Stop.distance: double</code></td>
+<td style="text-align: left;">The railProgress representing the docking (stopping) position of this stop.<br><strong>-1</strong> if data fetching is disabled (Unknown).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Stop.isRouteSwitchoverStop: boolean</code></td>
+<td style="text-align: left;">Whether the current stop is the last stop of one route, and the first stop of the next route. (i.e. Route Switchover)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Stop.roundUpRoute: Stop</code></td>
+<td style="text-align: left;">If <code>Stop.isRouteSwitchoverStop</code> is true, accessing this object will return a copy of this stop, with infos of the next route. (Affecting <code>Stop.route</code>, <code>Stop.destinationName</code>, <code>Stop.routeInterchanges</code> etc.).<br>Otherwise, this will return the current stop (Unchanged).</td>
+</tr>
+</tbody>
+</table>
+<details class="info">
+<summary>Show deprecated fields/functions</summary>
+<p>These fields/functions are kept for backward compatibility with <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr>. You are advised to avoid using these fields/functions for newly created scripts.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Stop.dwellTime: long</code></td>
+<td style="text-align: left;">The dwell time for current stop, in unit (seconds * 2).<br>Use <code>dwellTimeMillis</code> instead.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Stop.reverseAtPlatform: boolean</code></td>
+<td style="text-align: left;">Equivalent to <code>Stop.isRouteSwitchoverStop</code> (Yes it's true!)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h4 id="routeinterchange">RouteInterchange<a class="headerlink" href="#routeinterchange" title="Anchor link to this section for reference">#</a></h4>
+<p>Represent an interchanging route.</p>
+<p><sub>Note: Information are exposed as-is from MTR. Other than the fields below, there are no more information obtainable for the intechanging route.</sub></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>RouteInterchange.color: int</code></td>
+<td style="text-align: left;">The RGB color of the route.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>RouteInterchange.name: String</code></td>
+<td style="text-align: left;">The name of the route.</td>
+</tr>
+</tbody>
+</table>
 <!-- *[JCM]: Joban Client Mod -->
 <!-- *[PIDS]: Passenger Information Display System -->
 

@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://jcm.joban.org/v2.2/players/blocks/rv_pids_sil_1/">
+        <link rel="canonical" href="https://jcm.joban.org/v2.2/dev/scripting/tsc/">
       
       
-        <link rel="prev" href="../rv_pids/">
+        <link rel="prev" href="../mtrclientdata/">
       
       
-        <link rel="next" href="../rv_pids_sil_2/">
+        <link rel="next" href="../builtin/display_helper/">
       
       
         
@@ -25,11 +25,10 @@
     
     
       
-        <title>Railway Vision PIDS (SIL, Ocean Park/Wong Chuk Hang Station Variant) - Joban Client Mod</title>
+        <title>Transport Simulation Core API - Joban Client Mod</title>
       
     
     
-  
       <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
@@ -39,80 +38,6 @@
 
 
     
-
-  <style>
-    .jcm-infobox {
-        border: 1px solid #aaa;
-        float: right;
-        margin: 0 0 1rem 1rem;
-        padding: .75rem;
-        border-radius: .3rem;
-        max-width: 14rem;
-    }
-    .jcm-infobox .title {
-        font-size: 1.15rem;
-        text-align: center;
-        margin: auto;
-        max-width: 16rem;
-    }
-    .jcm-infobox .image {
-        margin: auto;
-        text-align: center;
-    }
-    .jcm-infobox .imgdesc {
-        font-size: 0.6rem;
-        text-align: center;
-        color: gray;
-    }
-    .jcm-infobox .category {
-        text-align: center;
-        background-color: rgba(128, 128, 128, 0.25);
-        font-weight: 500;
-        border-radius: .15rem;
-        width: 100%;
-    }
-    .md-typeset .jcm-infobox table {
-        border: none;
-        display: table;
-        table-layout: fixed;
-    }
-    .jcm-infobox .md-typeset__scrollwrap {
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-    .jcm-infobox th {
-        font-size: 14px;
-        text-align: left;
-        vertical-align: top;
-        width: 90px;
-    }
-    
-    .jcm-infobox td {
-        font-size: 14px;
-        vertical-align: top;
-        border: none !important;
-        padding: 0.2rem 0.3rem !important;
-    }
-
-    .jcm-infobox td:nth-child(1) {
-        font-weight: 500;
-        width: 35%;
-    }
-
-    .jcm-infobox table {
-        margin-top: 0px;
-    }
-
-    @media screen and (max-width: 600px) {
-      .jcm-infobox {
-        float: none;
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-      }
-    }
-  </style>
-
     
       
     
@@ -155,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#usage" class="md-skip">
+        <a href="#transport-simulation-core-api" class="md-skip">
           Skip to content
         </a>
       
@@ -204,7 +129,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Railway Vision PIDS (SIL, Ocean Park/Wong Chuk Hang Station Variant)
+              Transport Simulation Core API
             
           </span>
         </div>
@@ -332,8 +257,6 @@
   
   
   
-    
-  
   
     
     
@@ -341,13 +264,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../players/" class="md-tabs__link">
           
   
   
@@ -368,6 +289,8 @@
   
   
   
+    
+  
   
     
     
@@ -375,11 +298,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../dev/pids/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../pids/" class="md-tabs__link">
           
   
   
@@ -493,10 +418,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -512,20 +435,17 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   
@@ -543,7 +463,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -586,7 +506,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../../players/" class="md-nav__link ">
               
   
   
@@ -630,7 +550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../download/" class="md-nav__link">
+      <a href="../../../players/download/" class="md-nav__link">
         
   
   
@@ -658,7 +578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../jcmv2/" class="md-nav__link">
+      <a href="../../../players/jcmv2/" class="md-nav__link">
         
   
   
@@ -691,10 +611,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -713,11 +631,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -738,7 +656,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -753,8 +671,6 @@
                 
   
   
-    
-  
   
   
     
@@ -875,15 +791,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../../players/blocks/" class="md-nav__link ">
               
   
   
@@ -907,7 +823,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_2_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -927,7 +843,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../auto_iron_door/" class="md-nav__link">
+      <a href="../../../players/blocks/auto_iron_door/" class="md-nav__link">
         
   
   
@@ -955,7 +871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../buffer_stop/" class="md-nav__link">
+      <a href="../../../players/blocks/buffer_stop/" class="md-nav__link">
         
   
   
@@ -983,7 +899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../butterfly_light/" class="md-nav__link">
+      <a href="../../../players/blocks/butterfly_light/" class="md-nav__link">
         
   
   
@@ -1011,7 +927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ceiling_45/" class="md-nav__link">
+      <a href="../../../players/blocks/ceiling_45/" class="md-nav__link">
         
   
   
@@ -1039,7 +955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../circle_walls/" class="md-nav__link">
+      <a href="../../../players/blocks/circle_walls/" class="md-nav__link">
         
   
   
@@ -1067,7 +983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../departure_pole/" class="md-nav__link">
+      <a href="../../../players/blocks/departure_pole/" class="md-nav__link">
         
   
   
@@ -1095,7 +1011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../departure_timer/" class="md-nav__link">
+      <a href="../../../players/blocks/departure_timer/" class="md-nav__link">
         
   
   
@@ -1123,7 +1039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../drl_apgs/" class="md-nav__link">
+      <a href="../../../players/blocks/drl_apgs/" class="md-nav__link">
         
   
   
@@ -1151,7 +1067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tcl_emg_stop_button/" class="md-nav__link">
+      <a href="../../../players/blocks/tcl_emg_stop_button/" class="md-nav__link">
         
   
   
@@ -1179,7 +1095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tml_emg_stop_button/" class="md-nav__link">
+      <a href="../../../players/blocks/tml_emg_stop_button/" class="md-nav__link">
         
   
   
@@ -1207,7 +1123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sil_emg_stop_button/" class="md-nav__link">
+      <a href="../../../players/blocks/sil_emg_stop_button/" class="md-nav__link">
         
   
   
@@ -1235,7 +1151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mtr_enquiry_machine/" class="md-nav__link">
+      <a href="../../../players/blocks/mtr_enquiry_machine/" class="md-nav__link">
         
   
   
@@ -1263,7 +1179,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rv_enquiry_machine/" class="md-nav__link">
+      <a href="../../../players/blocks/rv_enquiry_machine/" class="md-nav__link">
         
   
   
@@ -1291,7 +1207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mtr_enquiry_machine_wall/" class="md-nav__link">
+      <a href="../../../players/blocks/mtr_enquiry_machine_wall/" class="md-nav__link">
         
   
   
@@ -1319,7 +1235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kcr_enquiry_machine/" class="md-nav__link">
+      <a href="../../../players/blocks/kcr_enquiry_machine/" class="md-nav__link">
         
   
   
@@ -1347,7 +1263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../exit_signs/" class="md-nav__link">
+      <a href="../../../players/blocks/exit_signs/" class="md-nav__link">
         
   
   
@@ -1375,7 +1291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fare_saver/" class="md-nav__link">
+      <a href="../../../players/blocks/fare_saver/" class="md-nav__link">
         
   
   
@@ -1403,7 +1319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fire_alarm/" class="md-nav__link">
+      <a href="../../../players/blocks/fire_alarm/" class="md-nav__link">
         
   
   
@@ -1431,7 +1347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../helpline_1/" class="md-nav__link">
+      <a href="../../../players/blocks/helpline_1/" class="md-nav__link">
         
   
   
@@ -1459,7 +1375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../helpline_2/" class="md-nav__link">
+      <a href="../../../players/blocks/helpline_2/" class="md-nav__link">
         
   
   
@@ -1487,7 +1403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../helpline_hkwk/" class="md-nav__link">
+      <a href="../../../players/blocks/helpline_hkwk/" class="md-nav__link">
         
   
   
@@ -1515,7 +1431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../helpline_standing_eal/" class="md-nav__link">
+      <a href="../../../players/blocks/helpline_standing_eal/" class="md-nav__link">
         
   
   
@@ -1543,7 +1459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../helpline_standing_tkl/" class="md-nav__link">
+      <a href="../../../players/blocks/helpline_standing_tkl/" class="md-nav__link">
         
   
   
@@ -1571,7 +1487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../helpline_standing/" class="md-nav__link">
+      <a href="../../../players/blocks/helpline_standing/" class="md-nav__link">
         
   
   
@@ -1599,7 +1515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lrt_inter_car_barriers/" class="md-nav__link">
+      <a href="../../../players/blocks/lrt_inter_car_barriers/" class="md-nav__link">
         
   
   
@@ -1627,7 +1543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kcr_station_name_signs/" class="md-nav__link">
+      <a href="../../../players/blocks/kcr_station_name_signs/" class="md-nav__link">
         
   
   
@@ -1655,7 +1571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kcr_emg_stop_sign/" class="md-nav__link">
+      <a href="../../../players/blocks/kcr_emg_stop_sign/" class="md-nav__link">
         
   
   
@@ -1683,7 +1599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../light_lantern/" class="md-nav__link">
+      <a href="../../../players/blocks/light_lantern/" class="md-nav__link">
         
   
   
@@ -1711,7 +1627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../spot_lamp/" class="md-nav__link">
+      <a href="../../../players/blocks/spot_lamp/" class="md-nav__link">
         
   
   
@@ -1739,7 +1655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../light_source_block/" class="md-nav__link">
+      <a href="../../../players/blocks/light_source_block/" class="md-nav__link">
         
   
   
@@ -1767,7 +1683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mtr_stairs/" class="md-nav__link">
+      <a href="../../../players/blocks/mtr_stairs/" class="md-nav__link">
         
   
   
@@ -1795,7 +1711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../operator_button/" class="md-nav__link">
+      <a href="../../../players/blocks/operator_button/" class="md-nav__link">
         
   
   
@@ -1823,7 +1739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pids_1a/" class="md-nav__link">
+      <a href="../../../players/blocks/pids_1a/" class="md-nav__link">
         
   
   
@@ -1851,7 +1767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lcd_pids/" class="md-nav__link">
+      <a href="../../../players/blocks/lcd_pids/" class="md-nav__link">
         
   
   
@@ -1879,7 +1795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rv_pids/" class="md-nav__link">
+      <a href="../../../players/blocks/rv_pids/" class="md-nav__link">
         
   
   
@@ -1904,35 +1820,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Railway Vision PIDS (SIL, Ocean Park/Wong Chuk Hang Station Variant)
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/rv_pids_sil_1/" class="md-nav__link">
         
   
   
@@ -1948,79 +1839,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Usage
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuring" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuring
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#crafting-recipe" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Crafting Recipe
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#block-states" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Block states
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#history" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        History
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2033,7 +1851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rv_pids_sil_2/" class="md-nav__link">
+      <a href="../../../players/blocks/rv_pids_sil_2/" class="md-nav__link">
         
   
   
@@ -2061,7 +1879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rv_pids_pole/" class="md-nav__link">
+      <a href="../../../players/blocks/rv_pids_pole/" class="md-nav__link">
         
   
   
@@ -2089,7 +1907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pids_projector/" class="md-nav__link">
+      <a href="../../../players/blocks/pids_projector/" class="md-nav__link">
         
   
   
@@ -2117,7 +1935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../station_ceilings_wrl/" class="md-nav__link">
+      <a href="../../../players/blocks/station_ceilings_wrl/" class="md-nav__link">
         
   
   
@@ -2145,7 +1963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../station_ceiling_wrl_poles/" class="md-nav__link">
+      <a href="../../../players/blocks/station_ceiling_wrl_poles/" class="md-nav__link">
         
   
   
@@ -2173,7 +1991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../station_name_standing/" class="md-nav__link">
+      <a href="../../../players/blocks/station_name_standing/" class="md-nav__link">
         
   
   
@@ -2201,7 +2019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../static_signal_lights/" class="md-nav__link">
+      <a href="../../../players/blocks/static_signal_lights/" class="md-nav__link">
         
   
   
@@ -2229,7 +2047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../inverted_signal_lights/" class="md-nav__link">
+      <a href="../../../players/blocks/inverted_signal_lights/" class="md-nav__link">
         
   
   
@@ -2257,7 +2075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sound_looper/" class="md-nav__link">
+      <a href="../../../players/blocks/sound_looper/" class="md-nav__link">
         
   
   
@@ -2285,7 +2103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../subsidy_machine/" class="md-nav__link">
+      <a href="../../../players/blocks/subsidy_machine/" class="md-nav__link">
         
   
   
@@ -2313,7 +2131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../train_model_e44/" class="md-nav__link">
+      <a href="../../../players/blocks/train_model_e44/" class="md-nav__link">
         
   
   
@@ -2341,7 +2159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../thales_ticket_barriers/" class="md-nav__link">
+      <a href="../../../players/blocks/thales_ticket_barriers/" class="md-nav__link">
         
   
   
@@ -2369,7 +2187,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mtr_trespass_sign/" class="md-nav__link">
+      <a href="../../../players/blocks/mtr_trespass_sign/" class="md-nav__link">
         
   
   
@@ -2397,7 +2215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kcr_trespass_sign/" class="md-nav__link">
+      <a href="../../../players/blocks/kcr_trespass_sign/" class="md-nav__link">
         
   
   
@@ -2425,7 +2243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lrt_trespass_sign/" class="md-nav__link">
+      <a href="../../../players/blocks/lrt_trespass_sign/" class="md-nav__link">
         
   
   
@@ -2453,7 +2271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../water_machine/" class="md-nav__link">
+      <a href="../../../players/blocks/water_machine/" class="md-nav__link">
         
   
   
@@ -2489,7 +2307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/mtr-patch/" class="md-nav__link">
+      <a href="../../../players/features/mtr-patch/" class="md-nav__link">
         
   
   
@@ -2517,7 +2335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/jcm-pids/" class="md-nav__link">
+      <a href="../../../players/features/jcm-pids/" class="md-nav__link">
         
   
   
@@ -2545,7 +2363,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/tunnel/" class="md-nav__link">
+      <a href="../../../players/features/tunnel/" class="md-nav__link">
         
   
   
@@ -2581,7 +2399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/mod-integrations/" class="md-nav__link">
+      <a href="../../../players/features/mod-integrations/" class="md-nav__link">
         
   
   
@@ -2690,7 +2508,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../versions/" class="md-nav__link ">
+            <a href="../../../players/versions/" class="md-nav__link ">
               
   
   
@@ -2734,7 +2552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.2.2/" class="md-nav__link">
+      <a href="../../../players/versions/v1.2.2/" class="md-nav__link">
         
   
   
@@ -2762,7 +2580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.2.1-hotfix-1/" class="md-nav__link">
+      <a href="../../../players/versions/v1.2.1-hotfix-1/" class="md-nav__link">
         
   
   
@@ -2790,7 +2608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.2.1/" class="md-nav__link">
+      <a href="../../../players/versions/v1.2.1/" class="md-nav__link">
         
   
   
@@ -2818,7 +2636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.2.0/" class="md-nav__link">
+      <a href="../../../players/versions/v1.2.0/" class="md-nav__link">
         
   
   
@@ -2846,7 +2664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.9/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.9/" class="md-nav__link">
         
   
   
@@ -2874,7 +2692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.8/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.8/" class="md-nav__link">
         
   
   
@@ -2902,7 +2720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.7/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.7/" class="md-nav__link">
         
   
   
@@ -2930,7 +2748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.6-hotfix-1/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.6-hotfix-1/" class="md-nav__link">
         
   
   
@@ -2958,7 +2776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.6/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.6/" class="md-nav__link">
         
   
   
@@ -2986,7 +2804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.5-hotfix-1/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.5-hotfix-1/" class="md-nav__link">
         
   
   
@@ -3014,7 +2832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.5/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.5/" class="md-nav__link">
         
   
   
@@ -3042,7 +2860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.4-hotfix-1/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.4-hotfix-1/" class="md-nav__link">
         
   
   
@@ -3070,7 +2888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.4/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.4/" class="md-nav__link">
         
   
   
@@ -3098,7 +2916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.3/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.3/" class="md-nav__link">
         
   
   
@@ -3126,7 +2944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.2/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.2/" class="md-nav__link">
         
   
   
@@ -3154,7 +2972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.1/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.1/" class="md-nav__link">
         
   
   
@@ -3182,7 +3000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.0a/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.0a/" class="md-nav__link">
         
   
   
@@ -3210,7 +3028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.0/" class="md-nav__link">
+      <a href="../../../players/versions/v1.1.0/" class="md-nav__link">
         
   
   
@@ -3238,7 +3056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.9/" class="md-nav__link">
+      <a href="../../../players/versions/v1.0.9/" class="md-nav__link">
         
   
   
@@ -3266,7 +3084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.8/" class="md-nav__link">
+      <a href="../../../players/versions/v1.0.8/" class="md-nav__link">
         
   
   
@@ -3294,7 +3112,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.7/" class="md-nav__link">
+      <a href="../../../players/versions/v1.0.7/" class="md-nav__link">
         
   
   
@@ -3322,7 +3140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.6/" class="md-nav__link">
+      <a href="../../../players/versions/v1.0.6/" class="md-nav__link">
         
   
   
@@ -3350,7 +3168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.5a/" class="md-nav__link">
+      <a href="../../../players/versions/v1.0.5a/" class="md-nav__link">
         
   
   
@@ -3378,7 +3196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.5/" class="md-nav__link">
+      <a href="../../../players/versions/v1.0.5/" class="md-nav__link">
         
   
   
@@ -3406,7 +3224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.4a/" class="md-nav__link">
+      <a href="../../../players/versions/v1.0.4a/" class="md-nav__link">
         
   
   
@@ -3434,7 +3252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.4/" class="md-nav__link">
+      <a href="../../../players/versions/v1.0.4/" class="md-nav__link">
         
   
   
@@ -3462,7 +3280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.3/" class="md-nav__link">
+      <a href="../../../players/versions/v1.0.3/" class="md-nav__link">
         
   
   
@@ -3490,7 +3308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.2/" class="md-nav__link">
+      <a href="../../../players/versions/v1.0.2/" class="md-nav__link">
         
   
   
@@ -3518,7 +3336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.1/" class="md-nav__link">
+      <a href="../../../players/versions/v1.0.1/" class="md-nav__link">
         
   
   
@@ -3546,7 +3364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.0/" class="md-nav__link">
+      <a href="../../../players/versions/v1.0.0/" class="md-nav__link">
         
   
   
@@ -3586,8 +3404,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -3599,17 +3419,20 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -3627,7 +3450,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3670,7 +3493,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../dev/pids/" class="md-nav__link ">
+            <a href="../../pids/" class="md-nav__link ">
               
   
   
@@ -3714,7 +3537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/pids/json_preset/" class="md-nav__link">
+      <a href="../../pids/json_preset/" class="md-nav__link">
         
   
   
@@ -3742,7 +3565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/pids/scripted/" class="md-nav__link">
+      <a href="../../pids/scripted/" class="md-nav__link">
         
   
   
@@ -3775,6 +3598,8 @@
                 
   
   
+    
+  
   
   
     
@@ -3803,15 +3628,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../dev/scripting/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -3835,7 +3660,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3934,7 +3759,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../dev/scripting/type/vehicle/" class="md-nav__link ">
+            <a href="../type/vehicle/" class="md-nav__link ">
               
   
   
@@ -4002,7 +3827,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../dev/scripting/type/eyecandy/" class="md-nav__link ">
+            <a href="../type/eyecandy/" class="md-nav__link ">
               
   
   
@@ -4072,7 +3897,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../dev/scripting/type/pids/" class="md-nav__link ">
+            <a href="../type/pids/" class="md-nav__link ">
               
   
   
@@ -4116,7 +3941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/type/pids/tut/pids_tut/" class="md-nav__link">
+      <a href="../type/pids/tut/pids_tut/" class="md-nav__link">
         
   
   
@@ -4220,7 +4045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/articles/script_guidelines/" class="md-nav__link">
+      <a href="../articles/script_guidelines/" class="md-nav__link">
         
   
   
@@ -4248,7 +4073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/articles/nte_migration/" class="md-nav__link">
+      <a href="../articles/nte_migration/" class="md-nav__link">
         
   
   
@@ -4276,7 +4101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/articles/scripting_restrictions/" class="md-nav__link">
+      <a href="../articles/scripting_restrictions/" class="md-nav__link">
         
   
   
@@ -4304,7 +4129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/articles/tips/" class="md-nav__link">
+      <a href="../articles/tips/" class="md-nav__link">
         
   
   
@@ -4398,7 +4223,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/features/script_include/" class="md-nav__link">
+      <a href="../features/script_include/" class="md-nav__link">
         
   
   
@@ -4426,7 +4251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/features/vehicle_display_cube/" class="md-nav__link">
+      <a href="../features/vehicle_display_cube/" class="md-nav__link">
         
   
   
@@ -4454,7 +4279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/features/script_crossreferencing/" class="md-nav__link">
+      <a href="../features/script_crossreferencing/" class="md-nav__link">
         
   
   
@@ -4546,7 +4371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/aids/script_quick_reload/" class="md-nav__link">
+      <a href="../aids/script_quick_reload/" class="md-nav__link">
         
   
   
@@ -4574,7 +4399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/aids/script_debug_overlay/" class="md-nav__link">
+      <a href="../aids/script_debug_overlay/" class="md-nav__link">
         
   
   
@@ -4607,8 +4432,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -4639,11 +4466,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6" checked>
         
           
           <label class="md-nav__link" for="__nav_3_2_6" id="__nav_3_2_6_label" tabindex="0">
@@ -4664,7 +4491,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -4682,7 +4509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/console/" class="md-nav__link">
+      <a href="../console/" class="md-nav__link">
         
   
   
@@ -4710,7 +4537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/resources/" class="md-nav__link">
+      <a href="../resources/" class="md-nav__link">
         
   
   
@@ -4738,7 +4565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/model/" class="md-nav__link">
+      <a href="../model/" class="md-nav__link">
         
   
   
@@ -4766,7 +4593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/math/" class="md-nav__link">
+      <a href="../math/" class="md-nav__link">
         
   
   
@@ -4794,7 +4621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/dynamic_textures/" class="md-nav__link">
+      <a href="../dynamic_textures/" class="md-nav__link">
         
   
   
@@ -4822,7 +4649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/rendering/" class="md-nav__link">
+      <a href="../rendering/" class="md-nav__link">
         
   
   
@@ -4850,7 +4677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/sounds/" class="md-nav__link">
+      <a href="../sounds/" class="md-nav__link">
         
   
   
@@ -4938,7 +4765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/mc/" class="md-nav__link">
+      <a href="../mc/" class="md-nav__link">
         
   
   
@@ -4966,7 +4793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/files/" class="md-nav__link">
+      <a href="../files/" class="md-nav__link">
         
   
   
@@ -4994,7 +4821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/networking/" class="md-nav__link">
+      <a href="../networking/" class="md-nav__link">
         
   
   
@@ -5022,7 +4849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/bgworker/" class="md-nav__link">
+      <a href="../bgworker/" class="md-nav__link">
         
   
   
@@ -5114,7 +4941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/utilities/" class="md-nav__link">
+      <a href="../utilities/" class="md-nav__link">
         
   
   
@@ -5142,7 +4969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/data_reading/" class="md-nav__link">
+      <a href="../data_reading/" class="md-nav__link">
         
   
   
@@ -5175,8 +5002,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -5191,11 +5020,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6_10" checked>
         
           
           <label class="md-nav__link" for="__nav_3_2_6_10" id="__nav_3_2_6_10_label" tabindex="0">
@@ -5216,7 +5045,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_6_10_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_6_10_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2_6_10">
             <span class="md-nav__icon md-icon"></span>
             
@@ -5234,7 +5063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/mtrclientdata/" class="md-nav__link">
+      <a href="../mtrclientdata/" class="md-nav__link">
         
   
   
@@ -5259,10 +5088,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../dev/scripting/tsc/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transport Simulation Core API
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -5278,6 +5134,142 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Type
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Type">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Platform
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#station" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Station
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stationexit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StationExit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transportmode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TransportMode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simplifiedroute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SimplifiedRoute
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simplifiedrouteplatform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SimplifiedRoutePlatform
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routecircularstate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route.CircularState
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vector
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Position
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -5360,7 +5352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/builtin/display_helper/" class="md-nav__link">
+      <a href="../builtin/display_helper/" class="md-nav__link">
         
   
   
@@ -5735,6 +5727,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -5743,57 +5737,118 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
+  <a href="#type" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Usage
+        Type
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Type">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Platform
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#configuring" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#station" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuring
+        Station
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#crafting-recipe" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#stationexit" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Crafting Recipe
+        StationExit
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#block-states" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#transportmode" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Block states
+        TransportMode
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#history" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#simplifiedroute" class="md-nav__link">
     <span class="md-ellipsis">
       
-        History
+        SimplifiedRoute
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simplifiedrouteplatform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SimplifiedRoutePlatform
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routecircularstate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route.CircularState
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vector
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Position
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5845,36 +5900,10 @@
     
     
       <li class="md-path__item">
-        <a href="../../" class="md-path__link">
+        <a href="../../pids/" class="md-path__link">
           
   <span class="md-ellipsis">
-    For Players
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-    
-  
-
-      
-        
-  
-  
-    
-    
-      
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    Features
+    For Content Authors
   </span>
 
         </a>
@@ -5895,7 +5924,43 @@
         <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    Decoration Blocks
+    Scripting
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../console/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../mtrclientdata/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    MTR APIs
   </span>
 
         </a>
@@ -5910,62 +5975,6 @@
               
               <article class="md-content__inner md-typeset">
                 
-
-<div class="jcm-infobox">
-  <h2 class="title">Railway Vision PIDS (SIL, Ocean Park/Wong Chuk Hang Station Variant)</h2>
-  <div class="infobox image"><img src="../previews/JCM_rv_pids_sil_1.png" width="200"></div>
-  
-    <p class="imgdesc"></p>
-  
-
-  <div class="category">
-    General
-  </div>
-
-  <table>
-    <tr>
-      <td>Block ID</td>
-      <td>
-        
-          jsblock:rv_pids_sil_1<br>
-        
-      </td>
-    </tr>
-    <tr>
-      <td>Item Group</td>
-      <td>
-        JCM Blocks - PIDS
-      </td>
-    </tr>
-    <tr>
-      <td>Light Level</td>
-      <td>
-        5
-      </td>
-    </tr>
-  </table>
-  <div class="category">
-    Other Information
-  </div>
-
-  <table>
-    <tr>
-      <td>Added in</td>
-      <td>
-        1.1.0
-      </td>
-    </tr>
-    <tr>
-      <td>Created by</td>
-      <td>
-        AmberFrost
-      </td>
-    </tr>
-    
-  </table>
-</div>
-
-
                   
 
 
@@ -5973,98 +5982,445 @@
   
 
 
-  <h1>Railway Vision PIDS (SIL, Ocean Park/Wong Chuk Hang Station Variant)</h1>
-
-<p>A <strong>Railway Vision PIDS (SIL, Ocean Park &amp; Wong Chuk Hang Station Variant)</strong> is a block in Joban Client Mod which replicates the PIDS display seen in <strong>Ocean Park</strong> and <strong>Wong Chuk Hang</strong> station in the MTR South Island Line.</p>
-<p>This block is a part of <a href="../../features/jcm-pids/">JCM PIDS</a>, which includes extra features such as PIDS Preset and more.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Anchor link to this section for reference">#</a></h2>
-<ol>
-<li>Place this block down</li>
-<li>
-<ol>
-<li>If near a platform, the PIDS will show the scheduled arrival for that platform.</li>
-</ol>
-</li>
-<li>
-<ol>
-<li>If away from any platform, you may manually specify platform(s) to show if the PIDS is located inside a MTR station.</li>
-</ol>
-</li>
-</ol>
-<h2 id="configuring">Configuring<a class="headerlink" href="#configuring" title="Anchor link to this section for reference">#</a></h2>
-<p>The PIDS can be configured by right clicking the block with the <strong>Brush</strong> item provided by the <abbr title="Minecraft Transit Railway">MTR mod</abbr>.</p>
-<h2 id="crafting-recipe">Crafting Recipe<a class="headerlink" href="#crafting-recipe" title="Anchor link to this section for reference">#</a></h2>
-<div class="crafting">
-    <div class="crafting-table">
-        <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Glowstone_dust.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <!-- row 3 -->
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-    </div>
-    <div class="crafting-arrow"></div>
-    <div class="crafting-result" data-count="8">
-        <img src="../crafting/JCM_Item_Rv_pids_sil_1.png">
-    </div>
+<h1 id="transport-simulation-core-api">Transport Simulation Core API<a class="headerlink" href="#transport-simulation-core-api" title="Anchor link to this section for reference">#</a></h1>
+<p>Transport Simulation Core (TSC) is the backend serving <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>, it is responsible for holding all simulation data such as Stations / Depots / Rails, as well as performing the simulation itself.</p>
+<p>When developing scripts, you may encounter several types which are related to TSC. This serves as an (incomplete) reference to those types.</p>
+<h2 id="type">Type<a class="headerlink" href="#type" title="Anchor link to this section for reference">#</a></h2>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Anchor link to this section for reference">#</a></h3>
+<p>Represents a platform rail.</p>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/Platform.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/platform.json">Schema Reference</a></li>
+</ul>
 </div>
-
-<h2 id="block-states">Block states<a class="headerlink" href="#block-states" title="Anchor link to this section for reference">#</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">facing</th>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">north</td>
+<td style="text-align: left;"><code>Platform.routes: ObjectAVLTreeSet&lt;Route&gt;</code></td>
+<td style="text-align: left;">A list of routes that goes through this platform.</td>
 </tr>
 <tr>
-<td style="text-align: left;">east</td>
+<td style="text-align: left;"><code>Platform.routeColors: IntAVLTreeSet</code></td>
+<td style="text-align: left;">All colors of route that goes through this platform.</td>
 </tr>
 <tr>
-<td style="text-align: left;">south</td>
+<td style="text-align: left;"><code>Platform.getName(): String</code></td>
+<td style="text-align: left;">Returns the platform name.</td>
 </tr>
 <tr>
-<td style="text-align: left;">west</td>
+<td style="text-align: left;"><code>Platform.getHexId(): String</code></td>
+<td style="text-align: left;">Get the id of the platform, formatted in hexidecimal and returned as a String.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Platform.getId(): long</code></td>
+<td style="text-align: left;">Returns the id of the platform.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Platform.getDwellTime(): long</code></td>
+<td style="text-align: left;">The dwell time duration of the platform in millisecond.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Platform.getMidPosition(): Position</code></td>
+<td style="text-align: left;">Returns the <a href="#position">Position</a> in the middle of the platform rail.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Platform.containsPos(pos: Position): boolean</code></td>
+<td style="text-align: left;">Whether <code>pos</code> is equal to the start or end of the rail position.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="history">History<a class="headerlink" href="#history" title="Anchor link to this section for reference">#</a></h2>
+<h3 id="station">Station<a class="headerlink" href="#station" title="Anchor link to this section for reference">#</a></h3>
+<p>Represents a Station area.</p>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/Station.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/station.json">Schema Reference</a></li>
+</ul>
+</div>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Version</th>
-<th style="text-align: left;">Changes Made</th>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">v1.1.0</td>
-<td style="text-align: left;">Added Railway Vision PIDS (SIL 1)</td>
+<td style="text-align: left;"><code>Station.getHexId(): String</code></td>
+<td style="text-align: left;">Get the id of the station, formatted in hexidecimal and returned as a String.</td>
 </tr>
 <tr>
-<td style="text-align: left;">v1.1.2</td>
-<td style="text-align: left;">Added <a href="../../features/jcm-pids/#pids-variable">PIDS Variables</a> Support</td>
+<td style="text-align: left;"><code>Station.getId(): long</code></td>
+<td style="text-align: left;">Returns the id of the station.</td>
 </tr>
 <tr>
-<td style="text-align: left;">v1.1.4</td>
-<td style="text-align: left;">Added <a href="../../features/jcm-pids/#pids-preset">PIDS Preset</a> Support</td>
+<td style="text-align: left;"><code>Station.getName(): String</code></td>
+<td style="text-align: left;">Returns the station name.</td>
 </tr>
 <tr>
-<td style="text-align: left;">v1.1.8</td>
-<td style="text-align: left;">Added Platform Selection Support</td>
+<td style="text-align: left;"><code>Station.getColor(): int</code></td>
+<td style="text-align: left;">Returns the RGB color of the station.</td>
 </tr>
 <tr>
-<td style="text-align: left;">v2.0.0</td>
-<td style="text-align: left;">Rename <code>jsblock:pids_rv_sil</code> to <code>jsblock:rv_pids_sil_1</code></td>
+<td style="text-align: left;"><code>Station.getColorHex(): String</code></td>
+<td style="text-align: left;">Returns the RGB color of the station, formatted in hexidecimal and returned as a String.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getZone1(): long</code></td>
+<td style="text-align: left;">Returns Fare Zone 1 of the station.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getZone2(): long</code></td>
+<td style="text-align: left;">Returns Fare Zone 2 of the station.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getZone3(): long</code></td>
+<td style="text-align: left;">Returns Fare Zone 3 of the station.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getMinX(): long</code></td>
+<td style="text-align: left;">Returns the minimum X position of the station area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getMinY(): long</code></td>
+<td style="text-align: left;">Returns the minimum Y position of the station area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getMinZ(): long</code></td>
+<td style="text-align: left;">Returns the minimum Z position of the station area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getMaxX(): long</code></td>
+<td style="text-align: left;">Returns the maximum X position of the station area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getMaxY(): long</code></td>
+<td style="text-align: left;">Returns the maximum Y position of the station area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getMaxZ(): long</code></td>
+<td style="text-align: left;">Returns the maximum Z position of the station area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.inArea(pos: Position): boolean</code></td>
+<td style="text-align: left;">Whether a <a href="#position">Position</a> is inside the station area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.isTransportMode(mode: TransportMode): boolean</code></td>
+<td style="text-align: left;">Whether the given <a href="#transportmode">TransportMode</a> is the same as the station's assigned transport mode.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getCenter(): Position</code></td>
+<td style="text-align: left;">Returns the <a href="#position">Position</a> of the station area's center point.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getExits(): List&lt;StationExit&gt;</code></td>
+<td style="text-align: left;">Returns a list of station exits. (<a href="#stationexit">StationExit</a>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="stationexit">StationExit<a class="headerlink" href="#stationexit" title="Anchor link to this section for reference">#</a></h3>
+<p>Represents a Station Exit entry.</p>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/StationExit.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/stationExit.json">Schema Reference</a></li>
+</ul>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>StationExit.getName(): String</code></td>
+<td style="text-align: left;">Returns the name of the exit. (i.e. Exit letter)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>StationExit.getDestinations(): List&lt;String&gt;</code></td>
+<td style="text-align: left;">Returns a list of destinations configured for the exit.<br>The 1st entry in the list is the chosen destination to be displayed by MTR Railway Signs.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="transportmode">TransportMode<a class="headerlink" href="#transportmode" title="Anchor link to this section for reference">#</a></h3>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/TransportMode.java">Class Reference</a></li>
+</ul>
+</div>
+<p>Represents a type of transport.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>static TransportMode.TRAIN: TransportMode</code></td>
+<td style="text-align: left;">Returns an instance of TransportMode, representing rail transport.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static TransportMode.BOAT: TransportMode</code></td>
+<td style="text-align: left;">Returns an instance of TransportMode, representing boat transport.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static TransportMode.CABLE_CAR: TransportMode</code></td>
+<td style="text-align: left;">Returns an instance of TransportMode, representing cable car transport.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static TransportMode.AIRPLANE: TransportMode</code></td>
+<td style="text-align: left;">Returns an instance of TransportMode, representing air transport.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>TransportMode.maxLength: int</code></td>
+<td style="text-align: left;">Returns the maximum vehicle length allowed for the transport.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="simplifiedroute">SimplifiedRoute<a class="headerlink" href="#simplifiedroute" title="Anchor link to this section for reference">#</a></h3>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/SimplifiedRoute.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/simplifiedRoute.json">Schema Reference</a></li>
+</ul>
+</div>
+<p>A Route object designed for consumption by the client-side, with several fields stripped out to save bandwidth.</p>
+<p><em>Note: Hidden routes are never transmitted to the client, therefore it is guarenteed that all SimplifiedRoute must not be hidden.</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>SimplifiedRoute.getName(): String</code></td>
+<td style="text-align: left;">Returns the platform name.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SimplifiedRoute.getId(): long</code></td>
+<td style="text-align: left;">Returns the id of the route.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SimplifiedRoute.getColor(): int</code></td>
+<td style="text-align: left;">Returns the RGB color of the route.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SimplifiedRoute.getCircularState(): Route.CircularState</code></td>
+<td style="text-align: left;">Returns the <a href="#routecircularstate">Circular State</a> of the route</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SimplifiedRoute.getPlatforms(): ObjectArrayList&lt;SimplifiedRoutePlatform&gt;</code></td>
+<td style="text-align: left;">Returns a SimplifiedRoutePlatform object, see below</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SimplifiedRoute.getPlatformIndex(platformId: long): int</code></td>
+<td style="text-align: left;">Given a platform id, returns the index of the first instance of the platform appearing in the route.<br>Returns <strong>-1</strong> if the platformId is not found in SimplifiedRoute's platform list.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="simplifiedrouteplatform">SimplifiedRoutePlatform<a class="headerlink" href="#simplifiedrouteplatform" title="Anchor link to this section for reference">#</a></h3>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/SimplifiedRoutePlatform.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/simplifiedRoutePlatform.json">Schema Reference</a></li>
+</ul>
+</div>
+<p>Equivalent to a stop the train will make.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>SimplifiedRoutePlatform.getPlatformId(): long</code></td>
+<td style="text-align: left;">Returns the id of the platform.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SimplifiedRoutePlatform.getStationId(): long</code></td>
+<td style="text-align: left;">Returns the id of the belonging station area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SimplifiedRoutePlatform.getStationName(): String</code></td>
+<td style="text-align: left;">Returns the name of the belonging station area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SimplifiedRoutePlatform.getDestination(): String</code></td>
+<td style="text-align: left;">Returns the destination string of this platform in the route</td>
+</tr>
+</tbody>
+</table>
+<h3 id="routecircularstate">Route.CircularState<a class="headerlink" href="#routecircularstate" title="Anchor link to this section for reference">#</a></h3>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/3432a3a6ceb5a817c7a5bb9a1bebfc963dab1076/src/main/java/org/mtr/core/data/Route.java#L124">Class Reference</a></li>
+</ul>
+</div>
+<p>Represents a circular state of a route.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>static CircularState.NONE: CircularState</code></td>
+<td style="text-align: left;">The route is not circular.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static CircularState.CLOCKWISE: CircularState</code></td>
+<td style="text-align: left;">The route is clockwise circular.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static CircularState.ANTICLOCKWISE: CircularState</code></td>
+<td style="text-align: left;">The route is anti-clockwise circular.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="vector">Vector<a class="headerlink" href="#vector" title="Anchor link to this section for reference">#</a></h3>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/tool/Vector.java">Class Reference</a></li>
+</ul>
+</div>
+<p>A three-dimensional vector, that is, the coordinates (x, y, z).</p>
+<p>One may convert this to a <a href="../math/#vector3f">Vector3f</a> by passing this to the Vector3f constructor.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Vector.x(): double</code></td>
+<td style="text-align: left;">Return the x-axis component of the vector.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Vector.y(): double</code></td>
+<td style="text-align: left;">Return the y-axis component of the vector.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Vector.z(): double</code></td>
+<td style="text-align: left;">Return the z-axis component of the vector.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Vector.multiply(x: double, y: double, z: double): Vector</code></td>
+<td style="text-align: left;">Multiply the vector, and return a new multiplied Vector.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Vector.multiply(vec: Vector): Vector</code></td>
+<td style="text-align: left;">Multiply the vector, and return a new multiplied Vector.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Vector.rotateX(angle: double): Vector</code></td>
+<td style="text-align: left;">Rotate the vector in the x-axis by angle. Returns a new rotated Vector.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Vector.rotateY(angle: double): Vector</code></td>
+<td style="text-align: left;">Rotate the vector in the y-axis by angle. Returns a new rotated Vector.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Vector.rotateZ(angle: double): Vector</code></td>
+<td style="text-align: left;">Rotate the vector in the z-axis by angle. Returns a new rotated Vector.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Vector.distanceTo(vec: Vector): double</code></td>
+<td style="text-align: left;">Returns the distance in meter in comparison to <code>vec</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Vector.normalize(): Vector</code></td>
+<td style="text-align: left;">Normalize the vector. Returns a new normalized Vector.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Vector.getAverage(vec1: Vector, vec2: Vector): Vector</code></td>
+<td style="text-align: left;">Returns a new Vector representing the average position between vec1 and vec2.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="position">Position<a class="headerlink" href="#position" title="Anchor link to this section for reference">#</a></h3>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/Position.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/position.json">Schema Reference</a></li>
+</ul>
+</div>
+<p>Represents a block position (x, y, z).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>new Position(x: long, y: long, z: long): Position</code></td>
+<td style="text-align: left;">Constructor, create a Position from the specified x y z coordinates.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>new Position(railPosition: Vector): Position</code></td>
+<td style="text-align: left;">Constructor, converting a <a href="#vector">Vector</a> to a <a href="#position">Position</a> by rounding down.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Position.getX(): long</code></td>
+<td style="text-align: left;">Return the x position.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Position.getY(): long</code></td>
+<td style="text-align: left;">Return the y position.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Position.getZ(): long</code></td>
+<td style="text-align: left;">Return the z position.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Position.offset(offsetX: long, offsetY: long, offsetZ: long): Position</code></td>
+<td style="text-align: left;">Returns a copy of the position, with the specified offset being added.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Position.offset(pos: Position): Position</code></td>
+<td style="text-align: left;">Returns a copy of the position, with the xyz of the <code>pos</code> being added.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Position.manhattanDistance(pos: Position): long</code></td>
+<td style="text-align: left;">Returns the manhattan distance of the current position and <code>pos</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Position.getMin(pos1: Position?, pos2: Position?): Position</code></td>
+<td style="text-align: left;">Returns a new Position, with the minimum value for each individual axis (x y z), given 2 position value.<br>If <code>pos1</code> is null, it will return <code>pos2</code>.<br>If <code>pos2</code> is null, it will return <code>pos1</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Position.getMax(pos1: Position?, pos2: Position?): Position</code></td>
+<td style="text-align: left;">Returns a new Position, with the maximum value for each individual axis (x y z), given 2 position value.<br>If <code>pos1</code> is null, it will return <code>pos2</code>.<br>If <code>pos2</code> is null, it will return <code>pos1</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -6077,16 +6433,12 @@
 
 
 
-  
-  
-
 
 
 
 
 
                 
-
               </article>
             </div>
           
@@ -6177,10 +6529,8 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.path", "navigation.top", "navigation.tabs", "navigation.indexes", "content.code.select", "content.code.copy", "content.code.annotate", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
     
     
-  
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
-
   </body>
 </html>
