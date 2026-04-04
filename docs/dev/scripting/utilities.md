@@ -7,11 +7,6 @@ As the scripting functionality is based on the **Nemo Transit Expansion** addon,
 
 This prints a message out to the console. It is identical to the `console.log` method in the [Console API](./console.md), and was historically the only way to log a message to the console, before the Console API existed.
 
-### MTRClientData
-This is a direct reference to the the [MinecraftClientData.java](https://github.com/Minecraft-Transit-Railway/Minecraft-Transit-Railway/blob/master/fabric/src/main/java/org/mtr/mod/client/MinecraftClientData.java) data class from MTR.
-
-You may obtain additional information (Such as id to route) with this object. **Note however that to conserve network data usage / improve speed, MTR 4 only sends nearby data to the client.**
-
 ## Versions Querying
 Functions are provided where you can get the version number to ensure compatibility with different versions of mods (if any).
 

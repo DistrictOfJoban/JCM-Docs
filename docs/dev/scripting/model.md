@@ -15,7 +15,7 @@ The API is split into the following 3 classes:
 |`static ModelManager.loadModelParts(id: Identifier): Map<String, ModelData>`|Load a OBJ model located in `id`.<br>Returns a map of String & [ModelData](#modeldata), each entry corresponding to an object group (or parts) in the OBJ file.<br>This allows selectively picking individual objects out for processing/rendering. |
 |`static ModelManager.upload(modelData: ModelData): Model`|Upload the model data to the GPU so it can be effectively rendered.<br>Returns a [Model](#model)|
 
-??? info "Show deprecated functions (For MTR-NTE)"
+??? info "Show deprecated fields/functions"
     These are the functions implemented in JCM for backward compatibility with scripts made for MTR-NTE.  
     Newer scripts should not utilize these functions anymore.
 

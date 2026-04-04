@@ -21,7 +21,7 @@ This class allows developers to access file contents within resource packs, as w
 |`static Resources.read(id: Identifier): DataReader?`|Read an asset/file in the resource pack based on the Identifier location.<br>Returns a [DataReader](./data_reading.md#datareader) to read the file's content.<br>Null if the file does not exist.|
 |`static Resources.exist(id: Identifier): boolean`|Returns whether the specified file exist in the resource pack.|
 
-??? info "Show deprecated functions"
+??? info "Show deprecated fields/functions"
     These functions are kept for backward compatibility, before the introduction of a unified [Data Reading](./data_reading.md) API.    
     You are advised to avoid using these functions for newly created scripts.
 

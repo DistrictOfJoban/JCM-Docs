@@ -228,6 +228,9 @@ nav:
           - Miscellaneous APIs:
             - dev/scripting/utilities.md
             - DataReader: dev/scripting/data_reading.md
+          - MTR APIs:
+            - Client Data: dev/scripting/mtrclientdata.md
+            - Transport Simulation Core API: dev/scripting/tsc.md
         - Builtin Scripts:
           - Display Helper: dev/scripting/builtin/display_helper.md
     - Contributing:

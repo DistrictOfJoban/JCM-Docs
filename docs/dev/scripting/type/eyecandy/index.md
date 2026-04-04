@@ -140,7 +140,7 @@ The following functions are called to **control rendering**. The functions for r
 |`EyecandyBlockEntity.getFullBrightness(): boolean`|Return whether the Decoration Object is marked as "Full Light", configured via GUI.|
 |`EyecandyBlockEntity.redstoneLevel(): int`|Whether a redstone is powering the eyecandy.<br>Returns 0 (Unpowered) or 15 (Powered).<br>**Note: Scripts must treat the returned number as if 1-14 can be returned, as this behaviour may change in an upcoming version.**|
 
-??? info "Show deprecated functions"
+??? info "Show deprecated fields/functions"
     These functions are kept for backward compatibility with NTE/ANTE. You are advised to avoid using these functions for newly created scripts.
 
     |Functions|Description|
