@@ -2,7 +2,7 @@
 
 Transport Simulation Core (TSC) is the backend serving MTR 4, it is responsible for holding all simulation data such as Stations / Depots / Rails, as well as performing the simulation itself.
 
-When developing scripts, you may encounter several types which are related to TSC. This serves as an (incomplete) reference to those types.
+When developing scripts, you may encounter several types which are related to TSC. The following provides some commonly used fields/functions for those types.
 
 ## Type
 

@@ -40,7 +40,7 @@ This may be used to simulate digital screens/displays by assigning a dynamic tex
 
 #### Example
 ```js linenums="1"
-function render(ctx, state, train) {
+function render(ctx, state, eyecandy) {
     let screenDrawCall = QuadDrawCall.create()
         .corner1(new Vector3f(-1, 3, 0))
         .corner2(new Vector3f(-1, 2, 0))

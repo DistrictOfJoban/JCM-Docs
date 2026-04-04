@@ -14,6 +14,16 @@ Functions are provided where you can get the version number to ensure compatibil
 |:--------|:----------|
 |`static Resources.getAddonVersion(modId: String): String`|Obtain the version of a mod that is hooked to the scripting functionality.<br>Out of the box in JCM, the possible value of `modId` are:<br>- mtr<br>- jcm|
 
+??? info "Show deprecated fields/functions"
+    These functions are kept for backward compatibility with NTE/ANTE. You are advised to avoid using these functions for newly created scripts.
+
+    |Functions|Description|
+    |:--------|:----------|
+    |`static Resources.getMTRVersion(): String`|Returns the version of the MTR mod in String. (e.g. `4.0.3`)<br>Use `Resources.getAddonVersion()` instead.|
+    |`static Resources.getNTEVersion(): String`|Obtain the version of NTE in String.<br>As NTE did not get ported to MTR 4, it always returns `0.5.2+1.19.2` for backward compatibility.|
+    |`static Resources.getNTEVersionInt(): int`|Obtain the version of NTE in integer.<br>As NTE did not get ported to MTR 4, it always returns `502` for backward compatibility.|
+    |`static Resources.getNTEProtoVersion(): int`|Obtain the version of NTE's protocol version in integer.<br>As NTE did not get ported to MTR 4, it always returns `2` for backward compatibility.|
+    
 ## TextUtil
 The MTR mod uses the station naming format `Name in one language|Name in another language||EXTRA`, so TextUtil is implemented to provide functions to separate these parts.
 

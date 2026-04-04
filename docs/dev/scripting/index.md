@@ -108,15 +108,15 @@ Keep that in mind, as IDE (Such as Visual Studio Code) may assume you are develo
 
 ### Script Flow
 
-#### Parsing/Loading Phase
-When the game begins to reload it's resource pack (Usually when the game is starting for the first time, or an F3+T instantiation/change of resource pack), JCM will start parsing/executing your JS script once.
+#### Parsing/Loading Stage
+When the game begins to reload it's resource pack (Usually when the game is starting for the first time, or an F3+T instantiation/change of resource pack), JCM will parse (executes) your JS script once. This is known as the **Parsing Stage**, in which scripts are evaluated for the first time.
 
 Your script are expected to have functions with specific name (i.e. `create()`, `render()`, `dispose()`).
 
 After your script has been executed once, JCM will capture the above functions internally (if found) to save them for later invocation in the Runtime Phase.
 
-#### Runtime Phase
-In runtime, JCM will try to invoke the above 3 functions (create, render, dispose) as deemed appropriate. (Usually every frame for `render`, `create` on first render, and `dispose` when script should no longer be executed)
+#### Runtime Stage
+In the Runtime Stage, JCM will try to invoke the above 3 functions (create, render, dispose) as deemed appropriate. (Usually every frame for `render`, `create` on first render, and `dispose` when script should no longer be executed)
 
 When calling the 3 functions above, 3 parameters will be provided: `ctx, state, wrapper`.
 

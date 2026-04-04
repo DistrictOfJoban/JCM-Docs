@@ -254,3 +254,12 @@ function render(ctx, state, eyecandyBlockEntity) {
 +   let playerPos = clientPlayer.pos();
 }
 ```
+
+### UtilitiesClient
+
+MTR 3 contains a `UtilitiesClient` class that is exposed by ANTE, which is no longer the case in MTR 4. Known equivalent methods can be found as follows:
+
+|ANTE Scripting|JCM/MTR 4 Scripting|
+|:--------------------|:----------|
+|`static UtilitiesClient.getRenderDistance(): int`|`static MinecraftClient.renderDistance(): int`|
+|`static UtilitiesClient.hasResource(resourceLocation: Identifier): boolean`|`static Resources.exist(id: Identifier): boolean`|

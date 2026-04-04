@@ -1,5 +1,5 @@
 # Including Other Scripts
-By calling the function below in your scripts during the **Parsing/Loading Phase**, you can include and execute other JavaScript files.
+By calling the function below in your scripts during the **Parsing/Loading stage**, you can include and execute other JavaScript files.
 
 |Functions|Description|
 |:--------|:----------|
