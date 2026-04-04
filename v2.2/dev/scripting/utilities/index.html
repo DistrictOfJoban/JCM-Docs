@@ -5955,6 +5955,36 @@
 </tr>
 </tbody>
 </table>
+<details class="info">
+<summary>Show deprecated fields/functions</summary>
+<p>These functions are kept for backward compatibility with <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr>/<abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)">ANTE</abbr>. You are advised to avoid using these functions for newly created scripts.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>static Resources.getMTRVersion(): String</code></td>
+<td style="text-align: left;">Returns the version of the <abbr title="Minecraft Transit Railway">MTR mod</abbr> in String. (e.g. <code>4.0.3</code>)<br>Use <code>Resources.getAddonVersion()</code> instead.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Resources.getNTEVersion(): String</code></td>
+<td style="text-align: left;">Obtain the version of <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> in String.<br>As <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> did not get ported to <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>, it always returns <code>0.5.2+1.19.2</code> for backward compatibility.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Resources.getNTEVersionInt(): int</code></td>
+<td style="text-align: left;">Obtain the version of <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> in integer.<br>As <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> did not get ported to <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>, it always returns <code>502</code> for backward compatibility.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Resources.getNTEProtoVersion(): int</code></td>
+<td style="text-align: left;">Obtain the version of <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr>'s protocol version in integer.<br>As <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> did not get ported to <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>, it always returns <code>2</code> for backward compatibility.</td>
+</tr>
+</tbody>
+</table>
+</details>
 <h2 id="textutil">TextUtil<a class="headerlink" href="#textutil" title="Anchor link to this section for reference">#</a></h2>
 <p>The <abbr title="Minecraft Transit Railway">MTR mod</abbr> uses the station naming format <code>Name in one language|Name in another language||EXTRA</code>, so TextUtil is implemented to provide functions to separate these parts.</p>
 <table>

@@ -5779,11 +5779,11 @@ Also known as <code>RoutePlatform</code> in <abbr title="Nemo Transit Expansion 
 </tr>
 <tr>
 <td style="text-align: left;"><code>Stop.routeInterchanges: List&lt;RouteInterchange&gt;</code></td>
-<td style="text-align: left;">Interchanging routes in this stop (i.e. All routes at Station, excluding current route). In a list of <a href="#routeinterchange">RouteInterchange</a>.<br>List would be empty if there's no interchange / data hasn't been fetched yet.</td>
+<td style="text-align: left;">Interchanging routes in this stop (i.e. All routes at Station, excluding current route). In a list of <a href="#routeinterchange">RouteInterchange</a>.<br>Hidden routes are excluded from the list.<br>List would be empty if there's no interchange / data hasn't been fetched yet.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>Stop.connectingInterchanges: Map&lt;String, List&lt;RouteInterchange&gt;</code></td>
-<td style="text-align: left;">A map corresponding to a list of interchanging routes, grouped by the name of all connecting stations.<br>Note: Multiple stations with the same name will be grouped together.<br>The current station is excluded, as it is already provided by <code>Stop.routeInterchanges</code>.</td>
+<td style="text-align: left;">A map corresponding to a list of interchanging routes, grouped by the name of all connecting stations.<br>Note: Multiple stations with the same name will be grouped together.<br>The current station is excluded, as it is already provided by <code>Stop.routeInterchanges</code>.<br>Hidden routes are excluded from the list.<br>List would be empty if there's no interchange / data hasn't been fetched yet.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>Stop.dwellTimeMillis: long</code></td>

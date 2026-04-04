@@ -4674,6 +4674,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#dynamicmodelholder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DynamicModelHolder
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5718,6 +5729,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#dynamicmodelholder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DynamicModelHolder
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5832,11 +5854,12 @@
 
 <h1 id="3d-model-api">3D Model API<a class="headerlink" href="#3d-model-api" title="Anchor link to this section for reference">#</a></h1>
 <p>This API allows the loading of OBJ models from resource packs, as well as performing basic processing of the model data, and uploading them to the GPU for rendering purpose.</p>
-<p>The API is split into the following 3 classes:</p>
+<p>The API consists of the following 4 classes:</p>
 <ul>
-<li><strong>ModelManager</strong>: Provide functions to read model data from resource packs &amp; uploading the model.</li>
+<li><strong>ModelManager</strong>: Provide functions to read model data from resource packs &amp; upload the model in the Loading/Parsing stage.</li>
 <li><strong>ModelData</strong>: Represent the raw model data (Vertices location/faces etc.). Provide functions for basic manipulation such as translation/rotation etc.</li>
 <li><strong>Model</strong>: An uploaded model that can be used for rendering.</li>
+<li><strong>DynamicModelHolder</strong>: A class containing functions that allows uploading a <strong>ModelData</strong> during the Runtime stage.</li>
 </ul>
 <h2 id="modelmanager">ModelManager<a class="headerlink" href="#modelmanager" title="Anchor link to this section for reference">#</a></h2>
 <table>
@@ -5857,7 +5880,7 @@
 </tr>
 <tr>
 <td style="text-align: left;"><code>static ModelManager.upload(modelData: ModelData): Model</code></td>
-<td style="text-align: left;">Upload the model data to the GPU so it can be effectively rendered.<br>Returns a <a href="#model">Model</a></td>
+<td style="text-align: left;">Upload the model data to the GPU so it can be effectively rendered.<br>Returns a <a href="#model">Model</a>.<br><strong>Note: This should only be invoked during the Loading/Parsing stage of scripts. Use DynamicModelHolder if you need to upload the model at runtime.</strong></td>
 </tr>
 </tbody>
 </table>
@@ -5952,6 +5975,36 @@ Newer scripts should not utilize these functions anymore.</p>
 </table>
 <h3 id="rendering">Rendering<a class="headerlink" href="#rendering" title="Anchor link to this section for reference">#</a></h3>
 <p>You can construct a <a href="../rendering/#modeldrawcall">ModelDrawCall</a>, and pass the uploaded model as a parameter to <code>.modelObject</code>.</p>
+<h2 id="dynamicmodelholder">DynamicModelHolder<a class="headerlink" href="#dynamicmodelholder" title="Anchor link to this section for reference">#</a></h2>
+<p>The <code>ModelManager.upload()</code> can only be invoked when it is executed in the render thread, which is true during the initial <strong>Loading/Parsing phase</strong>.</p>
+<p>But afterwards when the script's function is invoked during the Runtime stage, it will be executed in one of the Background Script Worker thread, preventing the ability to use <code>ModelManager.upload()</code> to upload the model.</p>
+<p>If you need the ability to upload a model during the runtime stage (e.g. Lazy loading / Dynamic manipulation of <a href="#modeldata-aka-rawmodel">ModelData</a>), you can do so with this class.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>new DynamicModelHolder(): ModelData</code></td>
+<td style="text-align: left;">Create a new instance of DynamicModelHolder.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>DynamicModelHolder.uploadLater(modelData: ModelData): void</code></td>
+<td style="text-align: left;">Request a model upload. This will schedule a task so that when the next frame comes around, JCM will perform the relevant task to get your model uploaded to the GPU.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>DynamicModelHolder.getUploadedModel(): ModelData?</code></td>
+<td style="text-align: left;">Obtain the uploaded GPU model, or null if either <code>uploadLater</code> has never been invoked, or <code>uploadLater</code> has just been invoked and the model has not been uploaded yet.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>DynamicModelHolder.close(): void</code></td>
+<td style="text-align: left;">Close the model and free-up resources. You should run this after finish using the model in DynamicModelHolder.<br><strong>Note: Does nothing for now, however script developers should still invoke this as usual to prepare for future implementation change.</strong></td>
+</tr>
+</tbody>
+</table>
 <!-- *[JCM]: Joban Client Mod -->
 <!-- *[PIDS]: Passenger Information Display System -->
 

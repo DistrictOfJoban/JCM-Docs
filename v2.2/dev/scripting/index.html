@@ -5886,12 +5886,12 @@ One may consider this as an unofficial continuation of the scripting feature in 
 <p><em>However</em> the JavaScript Engine that JCM/<abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> uses, <strong>Rhino</strong>, is based on Java, and it <em>does</em> contain interoperability with java classes/packages via a feature called LiveConnect. In practice it means you can invoke methods like they are <abbr title="JavaScript">JS</abbr> functions.</p>
 </details>
 <h3 id="script-flow">Script Flow<a class="headerlink" href="#script-flow" title="Anchor link to this section for reference">#</a></h3>
-<h4 id="parsingloading-phase">Parsing/Loading Phase<a class="headerlink" href="#parsingloading-phase" title="Anchor link to this section for reference">#</a></h4>
-<p>When the game begins to reload it's resource pack (Usually when the game is starting for the first time, or an F3+T instantiation/change of resource pack), JCM will start parsing/executing your <abbr title="JavaScript">JS</abbr> script once.</p>
+<h4 id="parsingloading-stage">Parsing/Loading Stage<a class="headerlink" href="#parsingloading-stage" title="Anchor link to this section for reference">#</a></h4>
+<p>When the game begins to reload it's resource pack (Usually when the game is starting for the first time, or an F3+T instantiation/change of resource pack), JCM will parse (executes) your <abbr title="JavaScript">JS</abbr> script once. This is known as the <strong>Parsing Stage</strong>, in which scripts are evaluated for the first time.</p>
 <p>Your script are expected to have functions with specific name (i.e. <code>create()</code>, <code>render()</code>, <code>dispose()</code>).</p>
 <p>After your script has been executed once, JCM will capture the above functions internally (if found) to save them for later invocation in the Runtime Phase.</p>
-<h4 id="runtime-phase">Runtime Phase<a class="headerlink" href="#runtime-phase" title="Anchor link to this section for reference">#</a></h4>
-<p>In runtime, JCM will try to invoke the above 3 functions (create, render, dispose) as deemed appropriate. (Usually every frame for <code>render</code>, <code>create</code> on first render, and <code>dispose</code> when script should no longer be executed)</p>
+<h4 id="runtime-stage">Runtime Stage<a class="headerlink" href="#runtime-stage" title="Anchor link to this section for reference">#</a></h4>
+<p>In the Runtime Stage, JCM will try to invoke the above 3 functions (create, render, dispose) as deemed appropriate. (Usually every frame for <code>render</code>, <code>create</code> on first render, and <code>dispose</code> when script should no longer be executed)</p>
 <p>When calling the 3 functions above, 3 parameters will be provided: <code>ctx, state, wrapper</code>.</p>
 <ul>
 <li>The <code>ctx</code> variable is the Context object, and is used primarily for action (Such as performing rendering). (Different for each script types)</li>
