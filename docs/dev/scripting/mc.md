@@ -46,11 +46,11 @@ Minecraft employs it's own text format called the [Text Component Format](https:
 Displaying a chat message every 1.5s in an eyecandy script.
 
 ```js title="example.js"
-function create(ctx, state, eyecandyBlockEntity) {
+function create(ctx, state, blockEyecandy) {
     state.outputInterval = new RateLimit(1.5); // Every 1.5s
 }
 
-function render(ctx, state, eyecandyBlockEntity) {
+function render(ctx, state, blockEyecandy) {
     if(state.outputInterval.shouldUpdate()) {
         // Create a standalone text
         let textILoveJs = VanillaText.literal(" I love JavaScript /s")
@@ -84,16 +84,16 @@ This allows you to construct the outline shape of a block, which can be used to 
 |`static VoxelShape.empty(): VoxelShape`|Returns an empty VoxelShape|
 |`static VoxelShape.fullCube(): VoxelShape`|Returns a VoxelShape that is equivalent to a 16x16 rectangle block|
 |`static VoxelShape.create(minX: double, minY: double, minZ: double, maxX: double, maxY: double, maxZ: double): VoxelShape`|Returns a VoxelShape with the specified size.<br>The `max[?]` parameter must always be equal/larger than the `min[?]` parameters.<br>Unit are 16x16 (16 = 1 full block)|
-|`static VoxelShape.create(minX: double, minY: double, minZ: double, maxX: double, maxY: double, maxZ: double, facing: Direction): VoxelShape`|Same as above, but rotated according to the `facing` parameter. You may obtain the facing direction via [EyecandyBlockEntity.facing()](./type/eyecandy/index.md#eyecandyblockentity)|
+|`static VoxelShape.create(minX: double, minY: double, minZ: double, maxX: double, maxY: double, maxZ: double, facing: Direction): VoxelShape`|Same as above, but rotated according to the `facing` parameter. You may obtain the facing direction via [BlockEyecandy.facing()](./type/eyecandy/index.md#blockeyecandy)|
 |`VoxelShape.combine(other: VoxelShape): VoxelShape`|This returns a new VoxelShape where two different VoxelShape are merged together.|
 
 ### Example
 Setting an outline shape for an eyecandy:
 
 ```js title="example.js"
-function create(ctx, state, eyecandyBlockEntity) {
-    const shape1 = VoxelShape.create(0, 0, 0, 8, 16, 8, eyecandyBlockEntity.facing());
-    const shape2 = VoxelShape.create(7, 0, 7, 12, 16, 10, eyecandyBlockEntity.facing());
+function create(ctx, state, blockEyecandy) {
+    const shape1 = VoxelShape.create(0, 0, 0, 8, 16, 8, blockEyecandy.facing());
+    const shape2 = VoxelShape.create(7, 0, 7, 12, 16, 10, blockEyecandy.facing());
     const myShape = shape1.combine(shape2);
     ctx.setOutlineShape(myShape);
 }

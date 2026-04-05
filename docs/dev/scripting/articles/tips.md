@@ -17,6 +17,13 @@ If you are trying to execute a long-running operation (e.g. Fetching data over t
 
 If blocks or infinite loops did occur, then the entire script execution will stall as scripts are executed one at a time [*in the same thread*]. In such situation, you can reset it by pressing ++f3+t++ on your keyboard, which reloads the resource pack and resets the scripting thread.
 
+## Avoid using internal APIs
+Any methods/fields that is not documented in this docs, as well as items within MTRClientData and `Vehicle.getMtrVehicle()` is considered internal API.
+
+While you can use these methods/fields, there is no guarentee these items will continue to work in future versions, which makes it less ideal for publicly-distributed pack.
+
+If you think there's a use case which isn't covered by the API, feel free to raise an issue and see whether the use case is sensible enough and can be implemented in a backward compatible way.
+
 ## Interoperability between Java Classes/Methods
 For common function types such as strings, Java and JavaScript have different class implementations, which causes there to be JavaScript strings as well as Java strings.
 

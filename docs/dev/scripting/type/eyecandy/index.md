@@ -104,7 +104,7 @@ JCM calls these functions with three parameters, each of which is described belo
 |:--------|:----------|
 |First (`ctx`)|Used to pass rendering actions to JCM. Type — [EyeCandyScriptContext](#eyecandyscriptcontext).|
 |Second (`state`)|A JavaScript object associated with a single Decoration Object block.<br>The initial value is {}, and its content can be set arbitrarily to store what should be different for each block.|
-|Third (`blockEntity`)|This returns the block entity of the placed Decoration Object block. Type — [EyecandyBlockEntity](#eyecandyblockentity)|
+|Third (`blockEyecandy`)|This returns the block entity of the placed Decoration Object block. Type — [BlockEyecandy](#blockeyecandy)|
 
 The following lists all the rendering control operations that can be performed and all the information that can be obtained about `blockEntity`.
 
@@ -123,30 +123,38 @@ The following functions are called to **control rendering**. The functions for r
 |`EyeCandyScriptContext.setOutlineShape(shape: VoxelShape)`|Set the outline shape (The visual hitbox) of the eyecandy to a corresponding [VoxelShape](../../mc.md#voxelshape)<br>No effect if player is holding a brush.|
 |`EyeCandyScriptContext.setCollisionShape(shape: VoxelShape)`|Set the collision shape (The physical hitbox) of the eyecandy to a corresponding [VoxelShape](../../mc.md#voxelshape).<br>No effect if player is holding a brush.|
 
-#### EyecandyBlockEntity
+#### BlockEyecandy
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`EyecandyBlockEntity.getModelId(): String?`|Return the model/prefab that is currently assigned to this block.<br>Null if no model is selected.|
-|`EyecandyBlockEntity.getTranslateX(): float`|The value in **meters** on how much the Decoration Object is translated on the X-axis, configured via GUI.|
-|`EyecandyBlockEntity.getTranslateY(): float`|The value in **meters** on how much the Decoration Object is translated on the Y-axis, configured via GUI.|
-|`EyecandyBlockEntity.getTranslateZ(): float`|The value in **meters** on how much the Decoration Object is translated on the Z-axis, configured via GUI.|
-|`EyecandyBlockEntity.getRotateX(): float`|The value in **radians** on how much the Decoration Object is rotated on the X-axis, configured via GUI.|
-|`EyecandyBlockEntity.getRotateY(): float`|The value in **radians** on how much the Decoration Object is rotated on the Y-axis, configured via GUI.|
-|`EyecandyBlockEntity.getRotateZ(): float`|The value in **radians** on how much the Decoration Object is rotated on the Z-axis, configured via GUI.|
-|`EyecandyBlockEntity.pos(): Vector3f`|Returns the position of the block + any translation added to the eyecandy model.|
-|`EyecandyBlockEntity.blockPos(): Vector3f`|Returns the position of the eyecandy block.|
-|`EyecandyBlockEntity.facing(): Direction`|Returns a Minecraft direction for which way the block is facing.<br>Used for constructing direction-dependent [VoxelShape](../../mc.md#voxelshape).|
-|`EyecandyBlockEntity.isCrosshairTarget(): boolean`|Returns whether the current block is player's crosshair target. (i.e. Selected block).<br>Can be used to show tooltips.|
-|`EyecandyBlockEntity.getFullBrightness(): boolean`|Return whether the Decoration Object is marked as "Full Light", configured via GUI.|
-|`EyecandyBlockEntity.redstoneLevel(): int`|Whether a redstone is powering the eyecandy.<br>Returns 0 (Unpowered) or 15 (Powered).<br>**Note: Scripts must treat the returned number as if 1-14 can be returned, as this behaviour may change in an upcoming version.**|
+|`BlockEyecandy.getModelId(): String?`|Return the model/prefab that is currently assigned to this block.<br>Null if no model is selected.|
+|`BlockEyecandy.getTranslateX(): float`|The value in **meters** on how much the Decoration Object is translated on the X-axis, configured via GUI.|
+|`BlockEyecandy.getTranslateY(): float`|The value in **meters** on how much the Decoration Object is translated on the Y-axis, configured via GUI.|
+|`BlockEyecandy.getTranslateZ(): float`|The value in **meters** on how much the Decoration Object is translated on the Z-axis, configured via GUI.|
+|`BlockEyecandy.getRotateX(): float`|The value in **radians** on how much the Decoration Object is rotated on the X-axis, configured via GUI.|
+|`BlockEyecandy.getRotateY(): float`|The value in **radians** on how much the Decoration Object is rotated on the Y-axis, configured via GUI.|
+|`BlockEyecandy.getRotateZ(): float`|The value in **radians** on how much the Decoration Object is rotated on the Z-axis, configured via GUI.|
+|`BlockEyecandy.pos(): Vector3f`|Returns the position of the block + any translation added to the eyecandy model.|
+|`BlockEyecandy.blockPos(): Vector3f`|Returns the position of the eyecandy block.|
+|`BlockEyecandy.facing(): Direction`|Returns a Minecraft direction for which way the block is facing.<br>Used for constructing direction-dependent [VoxelShape](../../mc.md#voxelshape).|
+|`BlockEyecandy.isCrosshairTarget(): boolean`|Returns whether the current block is player's crosshair target. (i.e. Selected block).<br>Can be used to show tooltips.|
+|`BlockEyecandy.getFullBrightness(): boolean`|Return whether the Decoration Object is marked as "Full Light", configured via GUI.|
+|`BlockEyecandy.redstoneLevel(): int`|Whether a redstone is powering the eyecandy.<br>Returns 0 (Unpowered) or 15 (Powered).<br>**Note: Scripts must treat the returned number as if 1-14 can be returned, as this behaviour may change in an upcoming version.**|
 
 ??? info "Show deprecated fields/functions"
     These functions are kept for backward compatibility with NTE/ANTE. You are advised to avoid using these functions for newly created scripts.
 
     |Functions|Description|
     |:--------|:----------|
-    |`EyecandyBlockEntity.getWorldPosVector3f(): Vector3f`|Same as `EyecandyBlockEntity.blockPos()`.|
-    |`EyecandyBlockEntity.getTransformPosVector3f(): Vector3f`|Same as `EyecandyBlockEntity.pos()`.|
+    |`BlockEyecandy.prefabId: String?`|Same as `BlockEyecandy.getModelId()`.|
+    |`BlockEyecandy.translateX: float`|Same as `BlockEyecandy.getTranslateX()`.|
+    |`BlockEyecandy.translateY: float`|Same as `BlockEyecandy.getTranslateY()`.|
+    |`BlockEyecandy.translateZ: float`|Same as `BlockEyecandy.getTranslateZ()`.|
+    |`BlockEyecandy.rotateX: float`|Same as `BlockEyecandy.getRotateX()`.|
+    |`BlockEyecandy.rotateY: float`|Same as `BlockEyecandy.getRotateY()`.|
+    |`BlockEyecandy.rotateZ: float`|Same as `BlockEyecandy.getRotateZ()`.|
+    |`BlockEyecandy.fullLight: boolean`|Same as `BlockEyecandy.getFullBrightness()`|
+    |`BlockEyecandy.getWorldPosVector3f(): Vector3f`|Same as `BlockEyecandy.blockPos()`.|
+    |`BlockEyecandy.getTransformPosVector3f(): Vector3f`|Same as `BlockEyecandy.pos()`.|
 
 #### EyecandyEvents
 |Functions And Objects|Description|

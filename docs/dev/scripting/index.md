@@ -32,7 +32,7 @@ Here is a snippet of 2 types of script: **Eyecandy Scripting** and **PIDS Script
     const poleModelData = ModelManager.loadRawModel(Resources.id("mtr:example/pole.obj"), true);
     const poleModel = ModelManager.upload(poleModelData);
 
-    function render(ctx, state, eyecandyBlockEntity) {
+    function render(ctx, state, blockEyecandy) {
         // Define draw call to submit
         let modelDrawCall = ModelDrawCall.create()
             .modelObject(poleModel)
@@ -56,7 +56,7 @@ Here is a snippet of 2 types of script: **Eyecandy Scripting** and **PIDS Script
     !!! note
         The **Text** in this instance is only made available for PIDS Scripting, this does not exist in Eyecandy Scripting!
 
-You'll notice that function name (and number of parameters) are the same across script types (The `render` function), however the parameter values passed to them are different (`pidsBlockEntity` vs `eyecandyBlockEntity`).
+You'll notice that function name (and number of parameters) are the same across script types (The `render` function), however the parameter values passed to them are different (`pidsBlockEntity` vs `blockEyecandy`).
 
 Different types of script can also expose different classes/objects to them (e.g. PIDS Scripting's **Text** class), and they may impose their own design paradigm.
 
