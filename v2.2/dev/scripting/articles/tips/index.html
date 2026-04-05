@@ -4209,6 +4209,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#avoid-using-internal-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avoid using internal APIs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#interoperability-between-java-classesmethods" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5729,6 +5740,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#avoid-using-internal-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avoid using internal APIs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#interoperability-between-java-classesmethods" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5927,6 +5949,10 @@
 <p>Instead, what you likely want is to "do a thing later on", in such case you will need to time it and then execute the appropriate action on a call made at the right time.</p>
 <p>If you are trying to execute a long-running operation (e.g. Fetching data over the internet), you should submit it to another thread/executor.</p>
 <p>If blocks or infinite loops did occur, then the entire script execution will stall as scripts are executed one at a time [<em>in the same thread</em>]. In such situation, you can reset it by pressing <span class="keys"><kbd class="key-f3">F3</kbd><span>+</span><kbd class="key-t">T</kbd></span> on your keyboard, which reloads the resource pack and resets the scripting thread.</p>
+<h2 id="avoid-using-internal-apis">Avoid using internal APIs<a class="headerlink" href="#avoid-using-internal-apis" title="Anchor link to this section for reference">#</a></h2>
+<p>Any methods/fields that is not documented in this docs, as well as items within MTRClientData and <code>Vehicle.getMtrVehicle()</code> is considered internal API.</p>
+<p>While you can use these methods/fields, there is no guarentee these items will continue to work in future versions, which makes it less ideal for publicly-distributed pack.</p>
+<p>If you think there's a use case which isn't covered by the API, feel free to raise an issue and see whether the use case is sensible enough and can be implemented in a backward compatible way.</p>
 <h2 id="interoperability-between-java-classesmethods">Interoperability between Java Classes/Methods<a class="headerlink" href="#interoperability-between-java-classesmethods" title="Anchor link to this section for reference">#</a></h2>
 <p>For common function types such as strings, Java and JavaScript have different class implementations, which causes there to be JavaScript strings as well as Java strings.</p>
 <p><abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr>/MTR functions and fields return Java string classes rather than JavaScript strings, but Rhino does some conversions automatically, so in most cases you can mix and match, but sometimes this can cause problems.</p>

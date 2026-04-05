@@ -6361,12 +6361,12 @@ For MTRClientData in <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>, s
 </span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="gi">+ print(SCRIPT_INPUT.parameters.ksDay) // 514</span>
 </span></code></pre></div></p>
 <h3 id="custom-shapes-for-eyecandy">Custom shapes for eyecandy<a class="headerlink" href="#custom-shapes-for-eyecandy" title="Anchor link to this section for reference">#</a></h3>
-<p>In <abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)">ANTE</abbr>, you would invoke <code>BlockEntityEyeCandy.setShape(shape: String)</code> and <code>BlockEntityEyeCandy.setCollisionShape(shape: String)</code> to set the outline and collision shape of the eyecandy, and then invoke <code>BlockEntityEyeCandy.sendUpdateC2S</code> to sync it to the server.</p>
+<p>In <abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)">ANTE</abbr>, you would invoke <code>BlockEyeCandy.setShape(shape: String)</code> and <code>BlockEyeCandy.setCollisionShape(shape: String)</code> to set the outline and collision shape of the eyecandy, and then invoke <code>BlockEyeCandy.sendUpdateC2S</code> to sync it to the server.</p>
 <p>In JCM, the key differences are:</p>
 <ul>
 <li>JCM scripting is completely client-side, therefore custom collision shape is not supported as it would de-sync from the server.</li>
 <li>Shapes are now serialized with <a href="../../mc/#voxelshape">VoxelShape</a> rather than string, which provides more intuitive API and better guard against errors.</li>
-<li><code>BlockEntityEyeCandy.setShape</code> has now moved to <code>EyeCandyScriptContext.setOutlineShape</code></li>
+<li><code>BlockEyeCandy.setShape</code> has now moved to <code>EyeCandyScriptContext.setOutlineShape</code></li>
 <li>When a player is holding a brush, it would always reset to the default outline block shape to ensure operators/admin can't be 'locked out' due to a block shape that is infeasible to right click on.</li>
 </ul>
 <h4 id="migration-example_1">Migration example<a class="headerlink" href="#migration-example_1" title="Anchor link to this section for reference">#</a></h4>
@@ -6376,16 +6376,16 @@ For MTRClientData in <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>, s
 <span class="normal"><a href="#__codelineno-6-4">4</a></span>
 <span class="normal"><a href="#__codelineno-6-5">5</a></span>
 <span class="normal"><a href="#__codelineno-6-6">6</a></span>
-<span class="normal"><a href="#__codelineno-6-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>function render(ctx, state, eyeCandyBlockEntity) {
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="gd">-   eyeCandyBlockEntity.setShape(&quot;0,0,0,8,8,8/7,0,7,12,16,10&quot;);</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="gd">-   eyeCandyBlockEntity.sendUpdateC2S();</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="gi">+   const shape1 = VoxelShape.create(0, 0, 0, 8, 8, 8, eyeCandyBlockEntity.facing());</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="gi">+   const shape2 = VoxelShape.create(7, 0, 7, 12,16,10, eyeCandyBlockEntity.facing());</span>
+<span class="normal"><a href="#__codelineno-6-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>function render(ctx, state, blockEyecandy) {
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="gd">-   blockEyecandy.setShape(&quot;0,0,0,8,8,8/7,0,7,12,16,10&quot;);</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="gd">-   blockEyecandy.sendUpdateC2S();</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="gi">+   const shape1 = VoxelShape.create(0, 0, 0, 8, 8, 8, blockEyecandy.facing());</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="gi">+   const shape2 = VoxelShape.create(7, 0, 7, 12,16,10, blockEyecandy.facing());</span>
 </span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="gi">+   ctx.setOutlineShape(shape1.combine(shape2));</span>
 </span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7"></a>}
 </span></code></pre></div></td></tr></table></div>
 <h3 id="block-use-event">Block Use Event<a class="headerlink" href="#block-use-event" title="Anchor link to this section for reference">#</a></h3>
-<p>In <abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)">ANTE</abbr>, the <code>use</code> function would be invoked with 4 parameters: <code>ctx, state, eyecandyBlockEntity, player</code> when a player right click on it with anything other than an MTR Brush.</p>
+<p>In <abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)">ANTE</abbr>, the <code>use</code> function would be invoked with 4 parameters: <code>ctx, state, blockEyecandy, player</code> when a player right click on it with anything other than an MTR Brush.</p>
 <p>In JCM, you would have to check the event by yourself within the <code>render</code> function.</p>
 <h4 id="migration-example_2">Migration Example<a class="headerlink" href="#migration-example_2" title="Anchor link to this section for reference">#</a></h4>
 <div class="language-diff highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">example.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
@@ -6398,7 +6398,7 @@ For MTRClientData in <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>, s
 <span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-7-10">10</a></span>
-<span class="normal"><a href="#__codelineno-7-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>function render(ctx, state, eyeCandyBlockEntity) {
+<span class="normal"><a href="#__codelineno-7-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>function render(ctx, state, blockEyecandy) {
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="gi">+   if(ctx.events().onBlockUse.occurred()) {</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="gi">+       let eventDetail = ctx.events().onBlockUse.detail();</span>
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="gi">+       print(`Player at ${eventDetail.player().pos().x()}, ${eventDetail.player().pos().z()} right clicked the block!`);</span>
@@ -6406,7 +6406,7 @@ For MTRClientData in <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>, s
 </span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="gi">+   ctx.events().handled(); // Important, this resets the event state!</span>
 </span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7"></a>}
 </span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8"></a>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="gd">-   function use(ctx, state, eyeCandyBlockEntity, player) {</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="gd">-   function use(ctx, state, blockEyecandy, player) {</span>
 </span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="gd">-       print(`Player at ${player.getPosition().getX()}, ${player.getPosition().getZ()} right clicked the block!`);</span>
 </span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="gd">-   }</span>
 </span></code></pre></div></td></tr></table></div>
@@ -6419,7 +6419,7 @@ For MTRClientData in <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>, s
 <span class="normal"><a href="#__codelineno-8-4">4</a></span>
 <span class="normal"><a href="#__codelineno-8-5">5</a></span>
 <span class="normal"><a href="#__codelineno-8-6">6</a></span>
-<span class="normal"><a href="#__codelineno-8-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>function render(ctx, state, eyecandyBlockEntity) {
+<span class="normal"><a href="#__codelineno-8-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>function render(ctx, state, blockEyecandy) {
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w"> </span>   ...
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="gd">-   let component = ComponentUtil.translatable(&quot;text.aph.is&quot;, &quot;A&quot;, &quot;B&quot;);</span>
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="gd">-   let str = ComponentUtil.getString(component);</span>
@@ -6437,7 +6437,7 @@ JCM provides <a href="../../mc/#playerentity">PlayerEntity</a> as the wrapper to
 <span class="normal"><a href="#__codelineno-9-4">4</a></span>
 <span class="normal"><a href="#__codelineno-9-5">5</a></span>
 <span class="normal"><a href="#__codelineno-9-6">6</a></span>
-<span class="normal"><a href="#__codelineno-9-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a>function render(ctx, state, eyecandyBlockEntity) {
+<span class="normal"><a href="#__codelineno-9-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a>function render(ctx, state, blockEyecandy) {
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w"> </span>   ...
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="gd">-   let clientPlayer = MinecraftClient.getPlayer();</span>
 </span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="gd">-   let playerPos = clientPlayer.getPosition();</span>
