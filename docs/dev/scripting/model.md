@@ -42,11 +42,24 @@ The API consists of the following 4 classes:
 |`ModelData.applyMirror(x: boolean, y: boolean, z: boolean): void`|Mirror the model for the respective axis which are set to `true`.<br>Both the vertices's Position and Normals are mirrored for the respective axis.|
 |`ModelData.applyUVMirror(u: boolean, v: boolean): void`|Set whether the respective UV axis should be mirrored.<br>A value of `(false, true)` is identical to the result of `flipV` in MTR.|
 |`ModelData.setAllRenderType(renderType: String): void`|Set the render type for all object to `renderType`. Supported values:<br>- `EXTERIOR`<br>- `exteriortranslucent`<br>- `INTERIOR`<br>- `INTERIOR_TRANSLUCENT` / `interiortranslucent`<br>- `ALWAYS_ON_LIGHT` / `lighttranslucent`<br>- `LIGHT`|
+|`ModelData.copy(): ModelData`|Copy all vertices and material data and return a new instance of ModelData.|
+|`ModelData.replaceTexture(fileName: string, id: Identifier): void`|Replace all texture ending with `fileName` to `id`.|
+|`ModelData.replaceAllTexture(id: Identifier): void`|Replace all texture of this ModelData with `id`.|
 
 ## Model (a.k.a. ModelCluster)
+
+This represents a model with all vertices data uploaded to the GPU, therefore at this stage you can no longer change the vertices data.
+
+However texture replacing operation is still possible.
+
+!!! Note "On copyForMaterialChanges()"
+    At the moment there is no `Model.copyForMaterialChanges()`, this require changes in the main MTR mod for it to be implemented.
+
 |Functions|Description|
 |:--------|:----------|
-|`Model.close(): void`|Close this Model instance and free-up resources.<br>Note: This does nothing for now as MTR 4 does not provide a way to close a model, but script developers should still invoke this when they finished using the model.|
+|`Model.replaceTexture(fileName: string, id: Identifier): void`|Replace all texture ending with `fileName` to `id`.|
+|`Model.replaceAllTexture(id: Identifier): void`|Replace all texture of this Model with `id`.|
+|`Model.close(): void`|Close this Model instance and free-up resources.|
 
 ### Rendering
 You can construct a [ModelDrawCall](./rendering.md#modeldrawcall), and pass the uploaded model as a parameter to `.modelObject`.
@@ -63,4 +76,4 @@ If you need the ability to upload a model during the runtime stage (e.g. Lazy lo
 |`new DynamicModelHolder(): ModelData`|Create a new instance of DynamicModelHolder.|
 |`DynamicModelHolder.uploadLater(modelData: ModelData): void`|Request a model upload. This will schedule a task so that when the next frame comes around, JCM will perform the relevant task to get your model uploaded to the GPU.|
 |`DynamicModelHolder.getUploadedModel(): ModelData?`|Obtain the uploaded GPU model, or null if either `uploadLater` has never been invoked, or `uploadLater` has just been invoked and the model has not been uploaded yet.|
-|`DynamicModelHolder.close(): void`|Close the model and free-up resources. You should run this after finish using the model in DynamicModelHolder.<br>**Note: Does nothing for now, however script developers should still invoke this as usual to prepare for future implementation change.**|
+|`DynamicModelHolder.close(): void`|Close the model and free-up resources. You should run this after finish using the model in DynamicModelHolder.<br>Note: If multiple `uploadLater` has been invoked, the previous model would be closed automatically without the execution of this function.|
