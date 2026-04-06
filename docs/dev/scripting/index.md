@@ -1,9 +1,10 @@
 # JCM Scripting
-!!! warning "Work In Progress"
-    Please note that full feature parity with scripting from NTE is still not complete. You may explore around the documentation and see if scripting at the current stage meets your need.
 
-JCM Scripting is a feature introduced in **JCM v2.0.0**, it serves as a testbed for scripting in MTR 4.  
-One may consider this as an unofficial continuation of the scripting feature in [Nemo Transit Expansion](https://modrinth.com/mod/mtr-nte).
+JCM Scripting is a feature introduced in **JCM v2**, which allows the use of JavaScript to control PIDS/Decoration Object/Vehicle rendering and sounds.
+
+This feature is inspired by the [Nemo Transit Expansion](https://modrinth.com/mod/mtr-nte) for MTR 3, and thus also implements a very similar paradigm, as well as backward compatibility functions.
+
+One may consider this as an unofficial continuation for the NTE Scripting Feature.
 
 ## Introduction
 ### What is Scripting in JCM?
@@ -71,8 +72,8 @@ If you are looking to *get started* on scripting, check out the script types bel
 
 |Type|Description|Provider|
 |-|-|-|
-|[Vehicle Scripting](./type/vehicle/index.md)|This allows scripts to render 3d models/quads, as well as playing sounds for an MTR vehicle.|MTR (via JCM)|
-|[Eyecandy Scripting](./type/eyecandy/index.md)|This allows scripts to render 3d models/quads, as well as playing sounds on an MTR Decoration Object|MTR (via JCM)|
+|[Vehicle Scripting](./type/vehicle/index.md)|This allows scripts to render 3D models/displays, as well as playing sounds for an MTR vehicle.|MTR (via JCM)|
+|[Eyecandy Scripting](./type/eyecandy/index.md)|This allows scripts to render 3D models/displays, as well as playing sounds on an MTR Decoration Object|MTR (via JCM)|
 |[PIDS Scripting](./type/pids/index.md)|This allows scripts to draw custom text/texture, as well as playing sounds for a JCM PIDS in the form of a PIDS Preset|JCM|
 
 ??? info "Third party Script Types"
@@ -109,7 +110,7 @@ Keep that in mind, as IDE (Such as Visual Studio Code) may assume you are develo
 ### Script Flow
 
 #### Parsing/Loading Stage
-When the game begins to reload it's resource pack (Usually when the game is starting for the first time, or an F3+T instantiation/change of resource pack), JCM will parse (executes) your JS script once. This is known as the **Parsing Stage**, in which scripts are evaluated for the first time.
+When Minecraft reloads it's resource pack (When the game is starting, or an F3+T instantiation/change of resource pack), JCM will parse (executes) your JS script once. This is known as the **Parsing Stage**, in which scripts are evaluated for the first time.
 
 Your script are expected to have functions with specific name (i.e. `create()`, `render()`, `dispose()`).
 
@@ -205,11 +206,14 @@ The error message will indicate which line of code in which script file the erro
 The script execution engine will then pause the entire script for 4 seconds before trying to execute the function again.
 
 ## How to read this document
-As you know, values ​​in JS have different types. When calling a function, you must pass parameters of the appropriate type, and the result it returns will also have a type. In this article, all of the functions have their parameter and return types stated.
 
-This scripting documentation will follow the following example:
+On the sidebar to your left, you will see **API Reference**, which documents all the classes/functions/fields you can access in the script.
 
-```
+For each API reference page, it usually contains references to functions/fields you can access on a specific class, the notation is described below in the form of different examples.
+
+### Example 1
+
+```js
 static Resources.id(idStr: String): Identifier
 ```
 
@@ -217,11 +221,38 @@ static Resources.id(idStr: String): Identifier
 - `idStr: String` means that the `idStr` parameter accepts a java **String** type. (Note: JS string are converted to Java String, thus you don't need to do the conversion yourself. See [Interoperability between Java Classes/Methods](./articles/tips.md#interoperability-between-java-classesmethods) for details.)
 - `: Identifier` means that a function call will return a value of type `Identifier`.
 
-And here's another example:
-```
-Matrices.rotateX(radian: float): void
+### Example 2
+```js
+DataReader.asString(): String?
 ```
 
-- The lack of `static` means that an object instance is required to execute the function. For example, if `a` is an object of Matrices type, then the function can be called as `a.rotateX(Math.PI)`.
-- `radian: float` means that the parameter takes a numeric argument. Although JS does not distinguish between integers and fractional numbers, this article will specify a specific type - `int`, `long`, `float` or `double` - to make it clear whether a parameter can accept decimal parts and to what precision.
+- The lack of `static` means that an **instance** of the object is required to execute the function. In the above example, you need to obtain an instance of `DataReader` (Usually through return values from functions like [Resources.read](./resources.md#resources)). For example, if `a` is an object of DataReader type, then the function can be called as `a.asString()`.
+- `()` means that this is a function with no parameters, you can just invoke it.
+- `: String?` means that it will return a java **String**. The `?` denotes that the value is nullable, and it is possible for the function to return **null**.
+    - In typescript notation (With Java type), this would be `: String | null`.
+
+**Example Usage:**
+```js
+let dr = Resources.read(Resources.idr("a.bin")); // Obtain a DataReader instance by reading a resource from resource pack
+let decodedString = dr.asString(); // Invoke DataReader.asString()
+
+// String? indicates it is nullable. The reason for null is usually documented in the reference table.
+if(decodedString != null) { // In this case, it will return null if a.bin cannot be decoded as a plain text file.
+    print(decodedString);
+}
+```
+
+### Example 3
+```js
+static Files.saveData(content: BufferedImage, path: String...): void
+```
+
+- `static` means that you don't need to create an object to use this function, you can call `Files.saveData` directly in your script.
+- `content: BufferedImage` means that the parameter accepts a BufferedImage, which is a Java type. See [Interoperability between Java Classes/Methods](./articles/tips.md#interoperability-between-java-classesmethods) for details.
+- `path: String...` means that from now on, you may pass as much parameter as you like, as long as they are all `String`. It's like passing an array of `String`, but you pass the `String` directly as the function parameter.
 - `: void` means that the function has no return value.
+
+**Example Usage:**
+```js
+Files.saveData(bufferedImage, "script_data_a", "cache", "test.png");
+```

@@ -53,7 +53,7 @@ Since each object should have its own tracker, you would probably want to store 
 
 |Functions|Description|
 |:--------|:----------|
-|`new StateTracker()`|Creates StateTracker.|
+|`new StateTracker(): StateTracker`|Create an instance of StateTracker.|
 |`StateTracker.setState(value: object?): void`|Sets the new state.|
 |`StateTracker.stateNow(): object?`|Returns the current state.|
 |`StateTracker.stateLast(): object?`|Returns the previous state.<br>Null if the previous state doesn't exist.|
@@ -69,7 +69,7 @@ Since each object should have its own tracker, you would probably want to store 
 
 |Functions|Description|
 |:--------|:----------|
-|`new CycleTracker(params: Object[])`|Creates a CycleTracker.<br>The parameters are the states it will switch through and the duration of each state in seconds.<br>Example: `new CycleTracker([“route”, 5, “nextStation”, 5])`.|
+|`new CycleTracker(params: Object[]): CycleTracker`|Create an instance of CycleTracker.<br>The parameters are the states it will switch through and the duration of each state in seconds.<br>Example: `new CycleTracker([“route”, 5, “nextStation”, 5])`.|
 |`CycleTracker.tick(): void`|Updates the status based on the current time.|
 |`CycleTracker.stateNow(): String`|Returns the current state.|
 |`CycleTracker.stateLast(): String?`|Returns the previous state.<br>Null if the previous state does not exist.|
@@ -83,6 +83,6 @@ Since each object should have its own tracker, you would probably want to store 
 
 |Functions|Description|
 |:--------|:----------|
-|`new RateLimit(params: Object[])`|Creates a RateLimit.<br>`interval` is the interval in seconds between two triggers.<br>For example, an interval of 0.1 means it should occur ten times per second.|
+|`new RateLimit(params: Object[]): RateLimit`|Create a new RateLimit instance.<br>`interval` is the interval in seconds between two triggers.<br>For example, an interval of 0.1 means it should occur ten times per second.|
 |`RateLimit.shouldUpdate(): boolean`|Has enough time elapsed between the last triggers?<br>Wrap the necessary code using<br>`if (state.rateLimitXXX.shouldUpdate()) { … }`to limit its execution frequency.|
 |`RateLimit.resetCoolDown(): void`|Resets the timer to go off as soon as possible.|

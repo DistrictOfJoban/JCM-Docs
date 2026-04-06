@@ -104,7 +104,7 @@ This would return a string formatted like: `2.0.0-beta.5`
 ##### Text
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`Text.create()`<br>`Text.create(comment: String)`|Create a new text object|
+|`Text.create(): Text`<br>`Text.create(comment: String): Text`|Create a new text object|
 |`Text.pos(x: double, y: double): Text`|Set the X and Y position of the element|
 |`Text.size(w: double, h: double): Text`|Set the width and height of the element<br>(Used in conjunction with `Text.stretchXY()` and `Text.scaleXY()`)|
 |`Text.text(str: String): Text`|Set the text content to str|
@@ -131,7 +131,7 @@ This would return a string formatted like: `2.0.0-beta.5`
 ##### Texture
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`Texture.create()`<br>`Texture.create(comment: String)`|Create a new texture object|
+|`Texture.create(): Texture`<br>`Texture.create(comment: String): Texture`|Create a new texture object|
 |`Texture.pos(x: double, y: double): Texture`|Set the X and Y position of the element|
 |`Texture.size(w: double, h: double): Texture`|Set the width and height of the element|
 |`Texture.texture(id: String): Texture`<br>`Texture.texture(id: Identifier): Texture`|Set the texture ID to draw.<br>Note that the texture ID should point to a PNG file or an .mcmeta file.|

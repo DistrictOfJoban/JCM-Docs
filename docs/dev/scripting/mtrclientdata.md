@@ -1,6 +1,9 @@
 # MTR Client Data
 
 ### MTRClientData
+!!! warning inline end "Outside of API Coverage"
+    This code is MTR's internal working and does not provide a stable API. The implementation of this class may change from version to version, potentially breaking compatibility for scripts that relies on it.
+
 This object is a direct reference to the the [MinecraftClientData.java](https://github.com/Minecraft-Transit-Railway/Minecraft-Transit-Railway/blob/master/fabric/src/main/java/org/mtr/mod/client/MinecraftClientData.java) data class from MTR.
 
 It is available globally for all scripts.

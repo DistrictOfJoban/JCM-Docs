@@ -19,5 +19,4 @@ You can also dynamically insert html content as Mkdocs uses [Jinja](https://jinj
 For an example, see:
 
 - `docs/index.md` and `overrides/home.html`
-- `docs/nerds/neojcm/neojcm.md` and `overrides/neojcm.html`
 - `docs/players/blocks/index.md` and `overrides/blocks.html`

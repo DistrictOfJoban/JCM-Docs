@@ -153,7 +153,7 @@ nav:
         - JCM PIDS: players/features/jcm-pids.md
         - Tunnel Walls: players/features/tunnel.md
       - Mod Integrations: players/features/mod-integrations.md
-      - Version Archive:
+      - v1 Version Archive:
         - players/versions/index.md
         - v1.2.2: players/versions/v1.2.2.md
         - v1.2.1-hotfix-1: players/versions/v1.2.1-hotfix-1.md

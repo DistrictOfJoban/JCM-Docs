@@ -9,7 +9,6 @@ The current patch set includes:
 - Attempt to improve frame-rate slightly through means of caching and lazy-evaluation
 
 ## Bug fixes / Migration issues
-- Fix `exteriortranslucent`, `lighttranslucent` and `interiortranslucent` in OBJ materials not being recognized by MTR 4, which was previously supported in NTE.
 - Fix MTR 4 not recognizing path traversal (e.g. `../`, `..\`) for OBJ textures, which was previously supported in NTE.
 - Fix MTR 4 not recognizing legacy NTE object's `translation`, `rotation`, `scale` and `mirror` fields in resource packs.
 - Automatically replace MTR 3 reference of gangway & barrier textures to MTR 4, solving issues of MTR 3 pack gangway textures being missing.

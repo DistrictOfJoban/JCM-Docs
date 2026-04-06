@@ -43,7 +43,7 @@ Matrices implements a stack where multiple transformations can be stored. push a
 
 |Functions|Description|
 |:--------|:----------|
-|`new Matrices()`|Returns Matrices. Initially there is only one unit matrix.|
+|`new Matrices(): Matrices`|Returns Matrices. Initially there is only one unit matrix.|
 |`Matrices.translate(x: float, y: float, z: float): void`|Adds a (x,y,z) translation transformation to the current state.|
 |`Matrices.rotateX(xRad: float): void`|Rotates along the X axis, in radian|
 |`Matrices.rotateY(yRad: float): void`|Rotates along the Y axis, in radian|

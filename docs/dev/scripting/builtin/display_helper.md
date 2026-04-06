@@ -7,7 +7,7 @@ To import this script, insert `include(Resources.id("mtrsteamloco:scripts/displa
 
 |Functions|Description|
 |:--------|:----------|
-|`new DisplayHelper(cfg: Object)`|Creates a new DisplayHelper based on the configuration object|
+|`new DisplayHelper(cfg: Object): DisplayHelper`|Creates a new DisplayHelper based on the configuration object|
 |`DisplayHelper.create(): DisplayHelper`|This returns a new *instance* of DisplayHelper, with the associated textures already binded for you.<br>You should call this in the `create()` function and store it in the `state` variable for re-using in `render()`.|
 |`DisplayHelper.close(): void`|This release the associated resource (Such as texture), freeing up memory.<br>You should call this in the `dispose()` function to prevent memory leak/memory accumulating.|
 |`DisplayHelper.graphics(): Graphics2D`|This returns an AWT Graphics2D for the full texture defined in the configuration object.|

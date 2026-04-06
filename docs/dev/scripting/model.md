@@ -52,13 +52,11 @@ This represents a model with all vertices data uploaded to the GPU, therefore at
 
 However texture replacing operation is still possible.
 
-!!! Note "On copyForMaterialChanges()"
-    At the moment there is no `Model.copyForMaterialChanges()`, this require changes in the main MTR mod for it to be implemented.
-
 |Functions|Description|
 |:--------|:----------|
 |`Model.replaceTexture(fileName: string, id: Identifier): void`|Replace all texture ending with `fileName` to `id`.|
 |`Model.replaceAllTexture(id: Identifier): void`|Replace all texture of this Model with `id`.|
+|`Model.copyForMaterialChanges(): Model`|Returns an instance of Model with the material copied. This allows you to replace textures on the newly created copy, without affecting the existing instance.<br>**Note: Requires MTR 4.0.4**|
 |`Model.close(): void`|Close this Model instance and free-up resources.|
 
 ### Rendering
@@ -73,7 +71,10 @@ If you need the ability to upload a model during the runtime stage (e.g. Lazy lo
 
 |Functions|Description|
 |:--------|:----------|
-|`new DynamicModelHolder(): ModelData`|Create a new instance of DynamicModelHolder.|
+|`new DynamicModelHolder(): DynamicModelHolder`|Create a new instance of DynamicModelHolder.|
 |`DynamicModelHolder.uploadLater(modelData: ModelData): void`|Request a model upload. This will schedule a task so that when the next frame comes around, JCM will perform the relevant task to get your model uploaded to the GPU.|
 |`DynamicModelHolder.getUploadedModel(): ModelData?`|Obtain the uploaded GPU model, or null if either `uploadLater` has never been invoked, or `uploadLater` has just been invoked and the model has not been uploaded yet.|
 |`DynamicModelHolder.close(): void`|Close the model and free-up resources. You should run this after finish using the model in DynamicModelHolder.<br>Note: If multiple `uploadLater` has been invoked, the previous model would be closed automatically without the execution of this function.|
+
+??? tip "Use Matrices for dynamic transformation in runtime"
+    While it is possible to use `ModelData.applyTranslation` / `ModelData.applyRotation` and re-upload the model with DynamicModelHolder for every frame, it is very heavy in performance. For simple transformation, what you likely want to do is to use [Matrices](./math.md#matrices) to perform the transformation and pass that to [ModelDrawCall.matrices](./rendering.md#modeldrawcall) in runtime.

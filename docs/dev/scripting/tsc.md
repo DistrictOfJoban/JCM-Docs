@@ -89,6 +89,9 @@ A Route object designed for consumption by the client-side, with several fields 
 
 *Note: Hidden routes are never transmitted to the client, therefore it is guarenteed that all SimplifiedRoute must not be hidden.*
 
+??? note "Access of Route Number"
+    Route Number (a.k.a. Light Rail Route Number) is not transferred as part of SimplifiedRoute.  
+
 |Functions And Objects|Description|
 |:--------------------|:----------|
 |`SimplifiedRoute.getName(): String`|Returns the platform name.|

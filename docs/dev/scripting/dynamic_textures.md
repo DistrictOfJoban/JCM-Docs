@@ -5,7 +5,7 @@ The **GraphicsTexture** class allows you to create a texture of a fixed resoluti
 ## GraphicsTexture
 |             Functions And Objects              | Description |
 | :--------------------------------------------- | :---------- |
-| `new GraphicsTexture(width: int, height: int)` | To create a dynamic texture, you need to specify the width and height.<br>If you plan to draw contents related to per-block/per-train, you should use this in the  `create` function and store in `state`.|
+| `new GraphicsTexture(width: int, height: int): GraphicsTexture` | Create a GraphicsTexture with `width` and `height` pixels.<br>If you plan to draw contents related to per-block/per-train, you should use this in the  `create` function and store in `state`.|
 | `GraphicsTexture.close(): void` | Releases the memory used by this texture. It cannot be used after that.<br>If it was created in the `create` train function, it must be deleted in the `dispose` function, otherwise it will continue to occupy memory, thus creating a memory leak.|
 |`GraphicsTexture.bufferedImage: BufferedImage`|Java AWT's BufferedImage for use as a temporary canvas.|
 |`GraphicsTexture.graphics: Graphics2D`|This is the Java AWT's Graphics for this texture. You can call different functions to draw on the bufferedImage.|
