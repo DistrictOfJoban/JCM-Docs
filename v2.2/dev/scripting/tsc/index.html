@@ -5174,6 +5174,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#platform_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Platform
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#station" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5760,6 +5771,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#platform_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Platform
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#station" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5987,6 +6009,73 @@
 <p>When developing scripts, you may encounter several types which are related to TSC. The following provides some commonly used fields/functions for those types.</p>
 <h2 id="type">Type<a class="headerlink" href="#type" title="Anchor link to this section for reference">#</a></h2>
 <h3 id="platform">Platform<a class="headerlink" href="#platform" title="Anchor link to this section for reference">#</a></h3>
+<p>Represents a siding rail.</p>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/Siding.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/siding.json">Schema Reference</a></li>
+</ul>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Siding.getName(): String</code></td>
+<td style="text-align: left;">Returns the siding name / siding number.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Siding.getHexId(): String</code></td>
+<td style="text-align: left;">Get the id of the siding, formatted in hexidecimal and returned as a String.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Siding.getId(): long</code></td>
+<td style="text-align: left;">Returns the id of the siding.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Siding.getRailLength(): double</code></td>
+<td style="text-align: left;">Returns the length of the siding in meters.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Siding.getDepotName(): String</code></td>
+<td style="text-align: left;">Returns the name of the depot containing this siding.<br>Returns empty string if there's no data reference to the depot.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Siding.getEarlyVehicleIncreaseDwellTime(): boolean</code></td>
+<td style="text-align: left;">Returns whether vehicle will extend it's dwell time if early.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Siding.getMaxVehicles(): int</code></td>
+<td style="text-align: left;">Returns the maximum number of vehicles for this siding.<br>Returns 0 if unlimited vehicles.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Siding.getIsUnlimited(): boolean</code></td>
+<td style="text-align: left;">Returns whether the siding allows unlimited vehicles.<br>Same as checking <code>Siding.getMaxVehicles() == 0</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Siding.getDelayedVehicleSpeedIncreasePercentage(): int</code></td>
+<td style="text-align: left;">Returns the percentage in which train will increase it's speedif running late.<br>Unit is percentage in integer form.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Siding.getDelayedVehicleReduceDwellTimePercentage(): int</code></td>
+<td style="text-align: left;">Returns the percentage in which train will reduce it's dwell time if running late.<br>Unit is percentage in integer form.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Siding.getMidPosition(): Position</code></td>
+<td style="text-align: left;">Returns the <a href="#position">Position</a> in the middle of the siding rail.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Siding.containsPos(pos: Position): boolean</code></td>
+<td style="text-align: left;">Whether <code>pos</code> is equal to the start or end of the rail position.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="platform_1">Platform<a class="headerlink" href="#platform_1" title="Anchor link to this section for reference">#</a></h3>
 <p>Represents a platform rail.</p>
 <div class="admonition info inline end">
 <p class="admonition-title">References</p>
@@ -6013,7 +6102,7 @@
 </tr>
 <tr>
 <td style="text-align: left;"><code>Platform.getName(): String</code></td>
-<td style="text-align: left;">Returns the platform name.</td>
+<td style="text-align: left;">Returns the platform name / platform number.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>Platform.getHexId(): String</code></td>
@@ -6217,7 +6306,7 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SimplifiedRoute.getName(): String</code></td>
-<td style="text-align: left;">Returns the platform name.</td>
+<td style="text-align: left;">Returns the route name.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SimplifiedRoute.getId(): long</code></td>
