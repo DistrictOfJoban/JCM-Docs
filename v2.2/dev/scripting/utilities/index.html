@@ -2515,7 +2515,7 @@
   <span class="md-ellipsis">
     
   
-    Version Archive
+    v1 Version Archive
   
 
     
@@ -2537,7 +2537,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Version Archive
+    v1 Version Archive
   
 
           </label>
@@ -6068,8 +6068,8 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>new StateTracker()</code></td>
-<td style="text-align: left;">Creates StateTracker.</td>
+<td style="text-align: left;"><code>new StateTracker(): StateTracker</code></td>
+<td style="text-align: left;">Create an instance of StateTracker.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>StateTracker.setState(value: object?): void</code></td>
@@ -6113,8 +6113,8 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>new CycleTracker(params: Object[])</code></td>
-<td style="text-align: left;">Creates a CycleTracker.<br>The parameters are the states it will switch through and the duration of each state in seconds.<br>Example: <code>new CycleTracker([“route”, 5, “nextStation”, 5])</code>.</td>
+<td style="text-align: left;"><code>new CycleTracker(params: Object[]): CycleTracker</code></td>
+<td style="text-align: left;">Create an instance of CycleTracker.<br>The parameters are the states it will switch through and the duration of each state in seconds.<br>Example: <code>new CycleTracker([“route”, 5, “nextStation”, 5])</code>.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>CycleTracker.tick(): void</code></td>
@@ -6150,8 +6150,8 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>new RateLimit(params: Object[])</code></td>
-<td style="text-align: left;">Creates a RateLimit.<br><code>interval</code> is the interval in seconds between two triggers.<br>For example, an interval of 0.1 means it should occur ten times per second.</td>
+<td style="text-align: left;"><code>new RateLimit(params: Object[]): RateLimit</code></td>
+<td style="text-align: left;">Create a new RateLimit instance.<br><code>interval</code> is the interval in seconds between two triggers.<br>For example, an interval of 0.1 means it should occur ten times per second.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>RateLimit.shouldUpdate(): boolean</code></td>

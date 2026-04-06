@@ -2515,7 +2515,7 @@
   <span class="md-ellipsis">
     
   
-    Version Archive
+    v1 Version Archive
   
 
     
@@ -2537,7 +2537,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Version Archive
+    v1 Version Archive
   
 
           </label>
@@ -5973,10 +5973,6 @@ Newer scripts should not utilize these functions anymore.</p>
 <h2 id="model-aka-modelcluster">Model (a.k.a. ModelCluster)<a class="headerlink" href="#model-aka-modelcluster" title="Anchor link to this section for reference">#</a></h2>
 <p>This represents a model with all vertices data uploaded to the GPU, therefore at this stage you can no longer change the vertices data.</p>
 <p>However texture replacing operation is still possible.</p>
-<div class="admonition note">
-<p class="admonition-title">On copyForMaterialChanges()</p>
-<p>At the moment there is no <code>Model.copyForMaterialChanges()</code>, this require changes in the main <abbr title="Minecraft Transit Railway">MTR mod</abbr> for it to be implemented.</p>
-</div>
 <table>
 <thead>
 <tr>
@@ -5992,6 +5988,10 @@ Newer scripts should not utilize these functions anymore.</p>
 <tr>
 <td style="text-align: left;"><code>Model.replaceAllTexture(id: Identifier): void</code></td>
 <td style="text-align: left;">Replace all texture of this Model with <code>id</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Model.copyForMaterialChanges(): Model</code></td>
+<td style="text-align: left;">Returns an instance of Model with the material copied. This allows you to replace textures on the newly created copy, without affecting the existing instance.<br><strong>Note: Requires <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>.0.4</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>Model.close(): void</code></td>
@@ -6014,7 +6014,7 @@ Newer scripts should not utilize these functions anymore.</p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>new DynamicModelHolder(): ModelData</code></td>
+<td style="text-align: left;"><code>new DynamicModelHolder(): DynamicModelHolder</code></td>
 <td style="text-align: left;">Create a new instance of DynamicModelHolder.</td>
 </tr>
 <tr>
@@ -6031,6 +6031,10 @@ Newer scripts should not utilize these functions anymore.</p>
 </tr>
 </tbody>
 </table>
+<details class="tip">
+<summary>Use Matrices for dynamic transformation in runtime</summary>
+<p>While it is possible to use <code>ModelData.applyTranslation</code> / <code>ModelData.applyRotation</code> and re-upload the model with DynamicModelHolder for every frame, it is very heavy in performance. For simple transformation, what you likely want to do is to use <a href="../math/#matrices">Matrices</a> to perform the transformation and pass that to <a href="../rendering/#modeldrawcall">ModelDrawCall.matrices</a> in runtime.</p>
+</details>
 <!-- *[JCM]: Joban Client Mod -->
 <!-- *[PIDS]: Passenger Information Display System -->
 

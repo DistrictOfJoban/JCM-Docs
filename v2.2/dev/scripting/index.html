@@ -2515,7 +2515,7 @@
   <span class="md-ellipsis">
     
   
-    Version Archive
+    v1 Version Archive
   
 
     
@@ -2537,7 +2537,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Version Archive
+    v1 Version Archive
   
 
           </label>
@@ -5672,6 +5672,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="How to read this document">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -5769,12 +5808,9 @@
 
 
 <h1 id="jcm-scripting">JCM Scripting<a class="headerlink" href="#jcm-scripting" title="Anchor link to this section for reference">#</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Work In Progress</p>
-<p>Please note that full feature parity with scripting from <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> is still not complete. You may explore around the documentation and see if scripting at the current stage meets your need.</p>
-</div>
-<p>JCM Scripting is a feature introduced in <strong><abbr title="Joban Client Mod v2">JCM v2</abbr>.0.0</strong>, it serves as a testbed for scripting in <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>.<br />
-One may consider this as an unofficial continuation of the scripting feature in <a href="https://modrinth.com/mod/mtr-nte">Nemo Transit Expansion</a>.</p>
+<p>JCM Scripting is a feature introduced in <strong><abbr title="Joban Client Mod v2">JCM v2</abbr></strong>, which allows the use of JavaScript to control PIDS/Decoration Object/Vehicle rendering and sounds.</p>
+<p>This feature is inspired by the <a href="https://modrinth.com/mod/mtr-nte">Nemo Transit Expansion</a> for <abbr title="Minecraft Transit Railway 3.x">MTR 3</abbr>, and thus also implements a very similar paradigm, as well as backward compatibility functions.</p>
+<p>One may consider this as an unofficial continuation for the <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> Scripting Feature.</p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Anchor link to this section for reference">#</a></h2>
 <h3 id="what-is-scripting-in-jcm">What is Scripting in JCM?<a class="headerlink" href="#what-is-scripting-in-jcm" title="Anchor link to this section for reference">#</a></h3>
 <p>Essentially it allows you to use <strong>JavaScript</strong> to insert custom logic into the game, which will be executed and widens the possibilities of the MTR Mod.</p>
@@ -5845,12 +5881,12 @@ One may consider this as an unofficial continuation of the scripting feature in 
 <tbody>
 <tr>
 <td><a href="type/vehicle/">Vehicle Scripting</a></td>
-<td>This allows scripts to render 3d models/quads, as well as playing sounds for an MTR vehicle.</td>
+<td>This allows scripts to render 3D models/displays, as well as playing sounds for an MTR vehicle.</td>
 <td>MTR (via JCM)</td>
 </tr>
 <tr>
 <td><a href="type/eyecandy/">Eyecandy Scripting</a></td>
-<td>This allows scripts to render 3d models/quads, as well as playing sounds on an MTR Decoration Object</td>
+<td>This allows scripts to render 3D models/displays, as well as playing sounds on an MTR Decoration Object</td>
 <td>MTR (via JCM)</td>
 </tr>
 <tr>
@@ -5887,7 +5923,7 @@ One may consider this as an unofficial continuation of the scripting feature in 
 </details>
 <h3 id="script-flow">Script Flow<a class="headerlink" href="#script-flow" title="Anchor link to this section for reference">#</a></h3>
 <h4 id="parsingloading-stage">Parsing/Loading Stage<a class="headerlink" href="#parsingloading-stage" title="Anchor link to this section for reference">#</a></h4>
-<p>When the game begins to reload it's resource pack (Usually when the game is starting for the first time, or an F3+T instantiation/change of resource pack), JCM will parse (executes) your <abbr title="JavaScript">JS</abbr> script once. This is known as the <strong>Parsing Stage</strong>, in which scripts are evaluated for the first time.</p>
+<p>When Minecraft reloads it's resource pack (When the game is starting, or an F3+T instantiation/change of resource pack), JCM will parse (executes) your <abbr title="JavaScript">JS</abbr> script once. This is known as the <strong>Parsing Stage</strong>, in which scripts are evaluated for the first time.</p>
 <p>Your script are expected to have functions with specific name (i.e. <code>create()</code>, <code>render()</code>, <code>dispose()</code>).</p>
 <p>After your script has been executed once, JCM will capture the above functions internally (if found) to save them for later invocation in the Runtime Phase.</p>
 <h4 id="runtime-stage">Runtime Stage<a class="headerlink" href="#runtime-stage" title="Anchor link to this section for reference">#</a></h4>
@@ -5974,23 +6010,48 @@ An example console output of the above code:
 <p>The error message will indicate which line of code in which script file the error occurred. Most launchers have the ability to display logs in a separate window in real time.</p>
 <p>The script execution engine will then pause the entire script for 4 seconds before trying to execute the function again.</p>
 <h2 id="how-to-read-this-document">How to read this document<a class="headerlink" href="#how-to-read-this-document" title="Anchor link to this section for reference">#</a></h2>
-<p>As you know, values ​​in <abbr title="JavaScript">JS</abbr> have different types. When calling a function, you must pass parameters of the appropriate type, and the result it returns will also have a type. In this article, all of the functions have their parameter and return types stated.</p>
-<p>This scripting documentation will follow the following example:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>static Resources.id(idStr: String): Identifier
+<p>On the sidebar to your left, you will see <strong>API Reference</strong>, which documents all the classes/functions/fields you can access in the script.</p>
+<p>For each API reference page, it usually contains references to functions/fields you can access on a specific class, the notation is described below in the form of different examples.</p>
+<h3 id="example-1">Example 1<a class="headerlink" href="#example-1" title="Anchor link to this section for reference">#</a></h3>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">static</span><span class="w"> </span><span class="nx">Resources</span><span class="p">.</span><span class="nx">id</span><span class="p">(</span><span class="nx">idStr</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">Identifier</span>
 </span></code></pre></div>
 <ul>
 <li><code>static</code> means that you don't need to create an object to use this function, you can call <code>Resources.id("aaa:bbb")</code> directly.</li>
 <li><code>idStr: String</code> means that the <code>idStr</code> parameter accepts a java <strong>String</strong> type. (Note: <abbr title="JavaScript">JS</abbr> string are converted to Java String, thus you don't need to do the conversion yourself. See <a href="articles/tips/#interoperability-between-java-classesmethods">Interoperability between Java Classes/Methods</a> for details.)</li>
 <li><code>: Identifier</code> means that a function call will return a value of type <code>Identifier</code>.</li>
 </ul>
-<p>And here's another example:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Matrices.rotateX(radian: float): void
-</span></code></pre></div></p>
+<h3 id="example-2">Example 2<a class="headerlink" href="#example-2" title="Anchor link to this section for reference">#</a></h3>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nx">DataReader</span><span class="p">.</span><span class="nx">asString</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="o">?</span>
+</span></code></pre></div>
 <ul>
-<li>The lack of <code>static</code> means that an object instance is required to execute the function. For example, if <code>a</code> is an object of Matrices type, then the function can be called as <code>a.rotateX(Math.PI)</code>.</li>
-<li><code>radian: float</code> means that the parameter takes a numeric argument. Although <abbr title="JavaScript">JS</abbr> does not distinguish between integers and fractional numbers, this article will specify a specific type - <code>int</code>, <code>long</code>, <code>float</code> or <code>double</code> - to make it clear whether a parameter can accept decimal parts and to what precision.</li>
+<li>The lack of <code>static</code> means that an <strong>instance</strong> of the object is required to execute the function. In the above example, you need to obtain an instance of <code>DataReader</code> (Usually through return values from functions like <a href="resources/#resources">Resources.read</a>). For example, if <code>a</code> is an object of DataReader type, then the function can be called as <code>a.asString()</code>.</li>
+<li><code>()</code> means that this is a function with no parameters, you can just invoke it.</li>
+<li><code>: String?</code> means that it will return a java <strong>String</strong>. The <code>?</code> denotes that the value is nullable, and it is possible for the function to return <strong>null</strong>.<ul>
+<li>In typescript notation (With Java type), this would be <code>: String | null</code>.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Example Usage:</strong>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">dr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Resources</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="nx">Resources</span><span class="p">.</span><span class="nx">idr</span><span class="p">(</span><span class="s2">&quot;a.bin&quot;</span><span class="p">));</span><span class="w"> </span><span class="c1">// Obtain a DataReader instance by reading a resource from resource pack</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">decodedString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dr</span><span class="p">.</span><span class="nx">asString</span><span class="p">();</span><span class="w"> </span><span class="c1">// Invoke DataReader.asString()</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1">// String? indicates it is nullable. The reason for null is usually documented in the reference table.</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">if</span><span class="p">(</span><span class="nx">decodedString</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// In this case, it will return null if a.bin cannot be decoded as a plain text file.</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="nx">print</span><span class="p">(</span><span class="nx">decodedString</span><span class="p">);</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<h3 id="example-3">Example 3<a class="headerlink" href="#example-3" title="Anchor link to this section for reference">#</a></h3>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">static</span><span class="w"> </span><span class="nx">Files</span><span class="p">.</span><span class="nx">saveData</span><span class="p">(</span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="nx">BufferedImage</span><span class="p">,</span><span class="w"> </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">...)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
+</span></code></pre></div>
+<ul>
+<li><code>static</code> means that you don't need to create an object to use this function, you can call <code>Files.saveData</code> directly in your script.</li>
+<li><code>content: BufferedImage</code> means that the parameter accepts a BufferedImage, which is a Java type. See <a href="articles/tips/#interoperability-between-java-classesmethods">Interoperability between Java Classes/Methods</a> for details.</li>
+<li><code>path: String...</code> means that from now on, you may pass as much parameter as you like, as long as they are all <code>String</code>. It's like passing an array of <code>String</code>, but you pass the <code>String</code> directly as the function parameter.</li>
 <li><code>: void</code> means that the function has no return value.</li>
 </ul>
+<p><strong>Example Usage:</strong>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nx">Files</span><span class="p">.</span><span class="nx">saveData</span><span class="p">(</span><span class="nx">bufferedImage</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;script_data_a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;cache&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;test.png&quot;</span><span class="p">);</span>
+</span></code></pre></div></p>
 <!-- *[JCM]: Joban Client Mod -->
 <!-- *[PIDS]: Passenger Information Display System -->
 
