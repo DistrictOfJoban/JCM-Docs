@@ -87,9 +87,9 @@ Code written in top-level space outside of functions will run when a resource pa
 ### Called Functions
 Your script should include the following functions that JCM will call as needed:
 ``` js
-function create(ctx, state, blockEntity) { ... }
-function render(ctx, state, blockEntity) { ... }
-function dispose(ctx, state, blockEntity) { ... }
+function create(ctx, state, blockEyecandy) { ... }
+function render(ctx, state, blockEyecandy) { ... }
+function dispose(ctx, state, blockEyecandy) { ... }
 ```
 
 |Functions|Description|
@@ -106,7 +106,7 @@ JCM calls these functions with three parameters, each of which is described belo
 |Second (`state`)|A JavaScript object associated with a single Decoration Object block.<br>The initial value is {}, and its content can be set arbitrarily to store what should be different for each block.|
 |Third (`blockEyecandy`)|This returns the block entity of the placed Decoration Object block. Type — [BlockEyecandy](#blockeyecandy)|
 
-The following lists all the rendering control operations that can be performed and all the information that can be obtained about `blockEntity`.
+The following lists all the rendering control operations that can be performed and all the information that can be obtained about `blockEyecandy`.
 
 ### API Reference
 

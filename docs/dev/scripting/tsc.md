@@ -7,6 +7,28 @@ When developing scripts, you may encounter several types which are related to TS
 ## Type
 
 ### Platform
+Represents a siding rail.
+
+!!! info inline end "References"
+    - [Class Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/Siding.java)
+    - [Schema Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/siding.json)
+
+|Functions And Objects|Description|
+|:--------------------|:----------|
+|`Siding.getName(): String`|Returns the siding name / siding number.|
+|`Siding.getHexId(): String`|Get the id of the siding, formatted in hexidecimal and returned as a String.|
+|`Siding.getId(): long`|Returns the id of the siding.|
+|`Siding.getRailLength(): double`|Returns the length of the siding in meters.|
+|`Siding.getDepotName(): String`|Returns the name of the depot containing this siding.<br>Returns empty string if there's no data reference to the depot.|
+|`Siding.getEarlyVehicleIncreaseDwellTime(): boolean`|Returns whether vehicle will extend it's dwell time if early.|
+|`Siding.getMaxVehicles(): int`|Returns the maximum number of vehicles for this siding.<br>Returns 0 if unlimited vehicles.|
+|`Siding.getIsUnlimited(): boolean`|Returns whether the siding allows unlimited vehicles.<br>Same as checking `Siding.getMaxVehicles() == 0`|
+|`Siding.getDelayedVehicleSpeedIncreasePercentage(): int`|Returns the percentage in which train will increase it's speedif running late.<br>Unit is percentage in integer form.|
+|`Siding.getDelayedVehicleReduceDwellTimePercentage(): int`|Returns the percentage in which train will reduce it's dwell time if running late.<br>Unit is percentage in integer form.|
+|`Siding.getMidPosition(): Position`|Returns the [Position](#position) in the middle of the siding rail.|
+|`Siding.containsPos(pos: Position): boolean`|Whether `pos` is equal to the start or end of the rail position.|
+
+### Platform
 Represents a platform rail.
 
 !!! info inline end "References"
@@ -17,7 +39,7 @@ Represents a platform rail.
 |:--------------------|:----------|
 |`Platform.routes: ObjectAVLTreeSet<Route>`|A list of routes that goes through this platform.|
 |`Platform.routeColors: IntAVLTreeSet`|All colors of route that goes through this platform.|
-|`Platform.getName(): String`|Returns the platform name.|
+|`Platform.getName(): String`|Returns the platform name / platform number.|
 |`Platform.getHexId(): String`|Get the id of the platform, formatted in hexidecimal and returned as a String.|
 |`Platform.getId(): long`|Returns the id of the platform.|
 |`Platform.getDwellTime(): long`|The dwell time duration of the platform in millisecond.|
@@ -94,7 +116,7 @@ A Route object designed for consumption by the client-side, with several fields 
 
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`SimplifiedRoute.getName(): String`|Returns the platform name.|
+|`SimplifiedRoute.getName(): String`|Returns the route name.|
 |`SimplifiedRoute.getId(): long`|Returns the id of the route.|
 |`SimplifiedRoute.getColor(): int`|Returns the RGB color of the route.|
 |`SimplifiedRoute.getCircularState(): Route.CircularState`|Returns the [Circular State](#routecircularstate) of the route|
