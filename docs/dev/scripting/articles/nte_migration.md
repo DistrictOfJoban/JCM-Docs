@@ -22,13 +22,15 @@ If you think any of the below suits the situation for your script, you should **
 
 If you managed to get pass all questions, it likely means that your script have a high feasibility of being able to migrate to JCM.
 
-??? note "My script makes use of advanced Java classes (Anything outside of AWT/MTR)."
-    Please check whether the newly introduced API like [**Networking**](../networking.md) and [**Files**](../files.md) replace your need?
+??? note "My script makes use of external Java classes (Anything outside of AWT/MTR)."
+    JCM introduced a [Scripting Restriction feature](./scripting_restrictions.md) for security reasons.
+
+    If the packages you use is not listed above, please check whether the newly introduced API like [**Networking**](../networking.md), [**Files**](../files.md), [**DataReader**](../data_reading.md#datareader) and [**BackgroundWorker**](../bgworker.md) replace your need?
 
     - **If yes:** You should migrate to use these new API. (*-Continue to next situation-*)
     - **If no:**
     - - If you think your use case should be included in the API, please open an [issue](https://github.com/DistrictOfJoban/Joban-Client-Mod/issues) for it to be added in JCM.
-    - - Otherwise if you think your use case is special enough, you would need to turn off **Scripting Restrictions** in JCM Settings, as well as telling your player to do the same.
+    - - Otherwise if you think your use case is special enough, you may need to turn off **Scripting Restrictions** in JCM Settings, as well as telling your player to do the same.
 
 ??? note "My script makes use of ANTE-specific features."
     Does your script make use of the eyecandy's custom config/GUI features in ANTE?
@@ -38,21 +40,18 @@ If you managed to get pass all questions, it likely means that your script have 
     - - **If yes:** You will need to migrate your script to these methods/functions.
     - - **If no:** Unfortunately these features aren't available in JCM at the moment.
 
-??? note "My script would process/manipulate model after loading them."
-    Does your script only manipulates the `flipV` settings in the model / Replace a texture of a flat surface?
-
-    - **If yes:**
-    - - `flipV` is provided as a parameter when loading model via [ModelManager](../model.md#modelmanager).
-    - - Replace texture isn't possible at the moment, *however* you can draw a quad in script and a bind a texture to it, which should achieve a similar effect and act as a substitute to replacing the texture of a flat face.
-    - **If no:**
-    - - Unfortunately these features aren't available in JCM at the moment. You may have to split your obj model into different parts instead of processing them directly in scripts.
+??? note "My script utilize advanced model processing techniques (RawMeshBuilder / MaterialProperties / VertArrays etc.)"
+    - Unfortunately these features aren't available in JCM at the moment.  
+    RawMeshBuilder may become available in the future, however there is no plan for other classes. Please try working around them with the existing NTE model API.
 
 ??? note "My script make use of the BVE CSV/OpenBVE Animated models."
-    You need to migrate to OBJ model as CSV/Animated are not supported in MTR 4.
+    You need to migrate to the OBJ model format as CSV/Animated are not supported in MTR 4.
 
-??? note "My script access the internal of MTR Mod (e.g. Use of MTRClientData)."
-    You will need to look in the MTR 4 codebase to adapt the changes to your script.  
-    For MTRClientData in MTR 4, see [MinecraftClientData](https://github.com/Minecraft-Transit-Railway/Minecraft-Transit-Railway/blob/master/fabric/src/main/java/org/mtr/mod/client/MinecraftClientData.java).
+??? note "My script access the internal of MTR Mod (e.g. Use of MTRClientData / Station / Route etc.)"
+    You will need to look in the MTR 4 codebase to adapt the changes to your script.
+
+    - For MTRClientData in MTR 4, see [MinecraftClientData](https://github.com/Minecraft-Transit-Railway/Minecraft-Transit-Railway/blob/master/fabric/src/main/java/org/mtr/mod/client/MinecraftClientData.java).
+    - For `Route.lightRailRouteNumber`, they are no longer transferred as part of the route. Please see [VehicleExtraData](../tsc.md#vehicleextradata-stops-related) to obtain them.
 
 ### Eyecandy Script Registration
 Existing NTE eyecandy registration will continue to work. (`scriptFiles`/`scriptTexts` within an NTE eyecandy json).
@@ -71,17 +70,21 @@ If you wish to migrate to the new MTR 4 format however, please note that there a
     ```
 
 === "MTR 4 Custom Resources"
-    ```json title="mtr_custom_resources.json" hl_lines="7-10" linenums="1"
+    ```json title="mtr_custom_resources.json" hl_lines="7 10-16" linenums="1"
     {
         ...
         "objects": [
             {
                 "id": "psd_door",
                 "name": "Platform Screen Door (TML)",
-                "scripting": {
-                    "prependExpressions": ["const targetPlat = \"auto\""],
-                    "scriptLocations": ["mtr:custom_directory/js/eyecandy/psd/door.js"]
-                }
+                "scriptId": "psd_door"
+            }
+        ],
+        "objectScripts": [
+            {
+                "id": "psd_door",
+                "prependExpressions": ["const targetPlat = \"auto\""],
+                "scriptLocations": ["mtr:custom_directory/js/eyecandy/psd/door.js"]
             }
         ]
     }

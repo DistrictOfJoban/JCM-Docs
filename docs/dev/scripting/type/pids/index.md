@@ -163,7 +163,7 @@ This would return a string formatted like: `2.0.0-beta.5`
 |:--------------------|:----------|
 |`ArrivalEntries.get(i: int): ArrivalEntry?`|Returns the i<sup>th</sup> arrival entry.<br>Null if there's no i<sup>th</sup> arrival entry or no arrival information.<br>**Note that only up to 10 arrivals is fetched per platform, see this [issue](https://github.com/DistrictOfJoban/Joban-Client-Mod/issues/40) for details.**|
 |`ArrivalEntries.mixedCarLength(): boolean`|Returns whether the list of arrivals have arrival entry with different cars.|
-|`ArrivalEntries.platforms(): ObjectArrayList<Platform>`|Returns the platforms that all arrival entry is stopping at.|
+|`ArrivalEntries.platforms(): List<Platform>`|Returns the platforms that all arrival entry is stopping at.|
 
 ##### ArrivalEntry
 Represent a single arrival entry.
@@ -177,13 +177,13 @@ Represent a single arrival entry.
 |`ArrivalEntry.realtime(): boolean`|Returns whether the arrival entry is scheduled (i.e. Vehicle not departed), or a real-time estimation (i.e. Vehicle running)|
 |`ArrivalEntry.departureIndex(): long`|Returns the departure index[?]|
 |`ArrivalEntry.terminating(): boolean`|Returns whether the arrival entry will terminate its service at the current platform.|
-|`ArrivalEntry.route(): SimplifiedRoute?`|Returns the SimplifiedRoute object that the vehicle is running on.<br>**Might be null if the route cannot be found (e.g. Hidden/Deleted)**|
+|`ArrivalEntry.route(): SimplifiedRoute?`|Returns the [SimplifiedRoute](../../tsc.md#simplifiedroute) object that the vehicle is running on.<br>Returns null if the route cannot be found (e.g. Hidden/Deleted/Not fetched)|
 |`ArrivalEntry.routeId(): long`|Returns the id of the route that the vehicle is running on when arrived.|
 |`ArrivalEntry.routeName(): String`|Returns the name of the route that the vehicle is running on when arrived.|
 |`ArrivalEntry.routeNumber(): String`|Returns the route number string (Previously called LRT Route Number), empty string if route number is not set.|
 |`ArrivalEntry.routeColor(): int`|Returns the color of the route that the vehicle is running on when arrived.|
-|`ArrivalEntry.circularState(): Route.CircularState`|Returns the circular state of the route that the vehicle is running on.|
-|`ArrivalEntry.platform(): Platform`|Returns the platform object that the vehicle will approach at.|
+|`ArrivalEntry.circularState(): Route.CircularState`|Returns the [circular state](../../tsc.md#routecircularstate) of the route that the vehicle is running on.|
+|`ArrivalEntry.platform(): Platform?`|Returns the [Platform](../../tsc.md#platform) object that the vehicle will approach at the monitored platform.<br>Returns null if the platform cannot be found (e.g. Hidden/Deleted/Not fetched)|
 |`ArrivalEntry.platformId(): long`|Returns the id of the platform that the vehicle will approach at.|
 |`ArrivalEntry.platformName(): String`|Returns the name of the platform that the vehicle will approach at.|
 |`ArrivalEntry.carCount(): int`|Returns the number of cars the vehicle has.|
@@ -191,32 +191,6 @@ Represent a single arrival entry.
 
 #### Transport Simulation Core Related
 Transport Simulation Core (TSC) is the backend serving MTR 4. Below are some of the classes in TSC, which may be returned by JCM above.
-
-##### Platform
-|Functions And Objects|Description|
-|:--------------------|:----------|
-|`Platform.routes: ObjectAVLTreeSet<Route>`|A list of routes that goes through this platform.|
-|`Platform.routeColors: IntAVLTreeSet`|All colors of route that goes through this platform.|
-|`Platform.getName(): String`|Returns the platform name.|
-|`Platform.getId(): long`|Returns the platform ID.|
-|`Platform.getDwellTime(): long`|The dwell time duration of the platform in millisecond.|
-
-##### SimplifiedRoute
-|Functions And Objects|Description|
-|:--------------------|:----------|
-|`SimplifiedRoute.getName(): String`|Returns the platform name.|
-|`SimplifiedRoute.getId(): long`|Returns the route ID.|
-|`SimplifiedRoute.getColor(): int`|Returns the color of the route.|
-|`SimplifiedRoute.getCircularState(): Route.CircularState`|Returns the circular state of the route|
-|`SimplifiedRoute.getPlatforms(): ObjectArrayList<SimplifiedRoutePlatform>`|Returns a SimplifiedRoutePlatform object, see below|
-
-##### SimplifiedRoutePlatform
-|Functions And Objects|Description|
-|:--------------------|:----------|
-|`SimplifiedRoutePlatform.getPlatformId(): long`|Returns the id of the platform.|
-|`SimplifiedRoutePlatform.getStationId(): long`|Returns the id of the belonging station area.|
-|`SimplifiedRoutePlatform.getStationName(): String`|Returns the name of the belonging station area.|
-|`SimplifiedRoutePlatform.getDestination(): String`|Returns the destination string of this platform in the route|
 
 ##### CarDetails
 |Functions And Objects|Description|

@@ -29,7 +29,7 @@ Represents a vehicle / trainset / train consist.
 |`Vehicle.isRendered(): boolean`|Returns whether any car is being rendered. (i.e. Not being culled by MTR)|
 |`Vehicle.isCarRendered(cars: int...): boolean`|Returns whether any of the given car index is being rendered.|
 |`Vehicle.isClientPlayerRiding(): boolean`|Returns whether the client player is riding (onboard) the current vehicle.|
-|`Vehicle.getMtrVehicle(): VehicleExtension`|Returns the underlying MTR VehicleExtension.|
+|`Vehicle.getMtrVehicle(): VehicleExtension`|Returns the underlying MTR VehicleExtension, which extends [Vehicle](../../tsc.md#vehicle).|
 |`Vehicle.getId(): long`|Returns a unique id representing this vehicle.|
 |`Vehicle.getSiding(): Siding?`|Returns the [Siding](../../tsc.md#siding) that this vehicle belongs to.<br>Returns null if client does not have reference to the Siding, or data fetching is in progress.|
 |`Vehicle.getVehicleId(carIndex: int): String?`|Returns the Vehicle Resource ID as defined in the resource pack for the given `carIndex`.<br>Null if `carIndex` is beyond the car-length of this vehicle.|
@@ -48,6 +48,7 @@ Represents a vehicle / trainset / train consist.
 |`Vehicle.getRailSpeed(pathIndex: int): double`|Returns the speed of a section given a `pathIndex` (via `getRailIndex`).<br>Unit is in `km/h`.|
 |`Vehicle.getNotchLevel(): int`|Returns the manual driving notch for the current vehicle.<br>Positive number indicates acceleration, negative number indicates deceleration.<br>In MTR 4, the range is between **-5** and **5** for normal operation.<br>Values up to **-7** and **7** is possible, representing 140% of the service acceleration/deceleration.<br>Values up to **-8** is possible, representing emergency brake (EM).|
 |`Vehicle.getNotchPosition(): double`|Returns the manual driving notch in the form of a relative percentage, irrespective of the number of notch available.<br>Positive number indicates acceleration, negative number indicates deceleration.<br>Normal operation would return between **-1** and **1**.<br>Values higher than 1 is possible as MTR 4 allows up to 140% of acceleration/deceleration rate, as well as emergency brake.|
+|`Vehicle.getDepartureIndex(): long`|Returns the departure index of the train.<br>TODO: Is it relative to depot schedule or the assigned siding schedule?|
 |`Vehicle.getSpeedMs(): double`|Returns the current vehicle speed in m/s.|
 |`Vehicle.getSpeedKmh(): double`|Returns the current vehicle speed in km/h.|
 |`Vehicle.getDoorValue(): double`|Returns a value between 0.0 (Closed) and 1.0 (Opened) representing the door value.<br>This does not account for the actual door opening position, which may be affected by e.g. whether nearby platform blocks are installed.|

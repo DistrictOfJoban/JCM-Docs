@@ -6,7 +6,7 @@ When developing scripts, you may encounter several types which are related to TS
 
 ## Type
 
-### Platform
+### Siding
 Represents a siding rail.
 
 !!! info inline end "References"
@@ -113,6 +113,7 @@ A Route object designed for consumption by the client-side, with several fields 
 
 ??? note "Access of Route Number"
     Route Number (a.k.a. Light Rail Route Number) is not transferred as part of SimplifiedRoute.  
+    It may be obtained via [VehicleExtraData](#vehicleextradata-stops-related)
 
 |Functions And Objects|Description|
 |:--------------------|:----------|
@@ -120,7 +121,7 @@ A Route object designed for consumption by the client-side, with several fields 
 |`SimplifiedRoute.getId(): long`|Returns the id of the route.|
 |`SimplifiedRoute.getColor(): int`|Returns the RGB color of the route.|
 |`SimplifiedRoute.getCircularState(): Route.CircularState`|Returns the [Circular State](#routecircularstate) of the route|
-|`SimplifiedRoute.getPlatforms(): ObjectArrayList<SimplifiedRoutePlatform>`|Returns a SimplifiedRoutePlatform object, see below|
+|`SimplifiedRoute.getPlatforms(): List<SimplifiedRoutePlatform>`|Returns a list of [SimplifiedRoutePlatform](#simplifiedrouteplatform) object, representing the list of stop of the route.|
 |`SimplifiedRoute.getPlatformIndex(platformId: long): int`|Given a platform id, returns the index of the first instance of the platform appearing in the route.<br>Returns **-1** if the platformId is not found in SimplifiedRoute's platform list.|
 
 ### SimplifiedRoutePlatform
@@ -150,6 +151,68 @@ Represents a circular state of a route.
 |`static CircularState.NONE: CircularState`|The route is not circular.|
 |`static CircularState.CLOCKWISE: CircularState`|The route is clockwise circular.|
 |`static CircularState.ANTICLOCKWISE: CircularState`|The route is anti-clockwise circular.|
+
+### Vehicle
+!!! info inline end "References"
+    - [Class Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/3432a3a6ceb5a817c7a5bb9a1bebfc963dab1076/src/main/java/org/mtr/core/data/Vehicle.java)
+    - [Schema Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/vehicle.json)
+
+A vehicle formation / consists.
+
+|Functions And Objects|Description|
+|:--------------------|:----------|
+|`Vehicle.vehicleExtraData: VehicleExtraData`|The real-time data of the vehicle, related to operations. (Such as speed target, stop index etc.)<br>See [VehicleExtraData](#vehicleextradata)|
+
+
+### VehicleExtraData
+!!! info inline end "References"
+    - [Class Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/3432a3a6ceb5a817c7a5bb9a1bebfc963dab1076/src/main/java/org/mtr/core/data/Vehicle.java)
+    - [Schema Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/vehicle.json)
+
+Represents real-time data of a vehicle.
+
+|Functions And Objects|Description|
+|:--------------------|:----------|
+|`VehicleExtraData.getDepotId(): long`|Returns the id of the depot this vehicle's siding belongs to.|
+|`VehicleExtraData.getSidingId(): long`|Returns the id of the siding this vehicle belongs to.|
+|`VehicleExtraData.getStopIndex(): int`|Returns the next stop index along the PathData.|
+|`VehicleExtraData.getIsTerminating(): boolean`|Returns whether the train has reached the last stop or beyond.|
+|`VehicleExtraData.getStoppingPoint(): double`|Returns the absolute railProgress distance in which the train is expected stop.|
+|`VehicleExtraData.getSpeedTarget(): double`|Returns the target speed the train should accelerate and follow against.<br>Unit is in `m/millisecond`, multiply by 1000 to get m/s.|
+|`VehicleExtraData.iterateRidingEntities(callback: Consumer<VehicleRidingEntity>): void`|Executes a callback, providing all [VehicleRidingEntity](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/VehicleRidingEntity.java) of the current vehicle.|
+
+#### VehicleExtraData (Stops-related)
+|Functions And Objects|Description|
+|:--------------------|:----------|
+|`VehicleExtraData.getPreviousRouteId(): long`|Returns the id of the route in previous stops.<br>Returns 0 if there's no previous stop.|
+|`VehicleExtraData.getPreviousRouteColor(): int`|Returns the id of the route's color in previous stops, in RGB format.<br>Returns 0 if there's no previous stop.|
+|`VehicleExtraData.getPreviousRouteName(): String`|Returns the route name in previous stops.<br>Returns an empty string if there's no previous stop.|
+|`VehicleExtraData.getPreviousRouteNumber(): String`|Returns the route number (In MTR 3, a lightRailRouteNumber) in previous stops.<br>Returns an empty string if there's no previous stop.|
+|`VehicleExtraData.getPreviousRouteCircularState(): Route.CircularState`|Returns the route's [CircularState](#routecircularstate) in previous stops.<br>Returns Route.CircularState.NONE if there's no previous route.|
+|`VehicleExtraData.getPreviousRouteType(): RouteType`|Returns the route's [RouteType](#routetype) in previous stops.<br>Returns RouteType.NORMAL if there's no previous stop.|
+|`VehicleExtraData.getPreviousRouteDestination(): long`|Returns the route's destination of the last stop.<br>Returns an empty string f there's no previous stop / station area in previous stop.|
+|`VehicleExtraData.getPreviousPlatformId(): long`|Returns the platform id of the last stop.<br>Returns 0 if there's no previous stop.|
+|`VehicleExtraData.getPreviousStationId(): long`|Returns the station id of the last stop.<br>Returns 0 if there's no previous stop / station area in previous stop.|
+|`VehicleExtraData.getPreviousStationName(): long`|Returns the station name of the last stop.<br>Returns an empty string if there's no previous stop / station area in previous stop.|
+
+Equivalent function exists for:
+
+- Current Stop (When docked) / Next Stop (When moving)
+    - Function prefix: `getThis` (e.g. `VehicleExtraData.getThisRouteId()`)
+- Next Stop (When docked) / Next 2 Stop (When moving)
+    - Function prefix: `getNext` (e.g. `VehicleExtraData.getNextRouteId()`)
+
+### RouteType
+!!! info inline end "References"
+    - [Class Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/3432a3a6ceb5a817c7a5bb9a1bebfc963dab1076/src/main/java/org/mtr/core/data/RouteType.java)
+
+Represents the type of route.
+
+|Functions And Objects|Description|
+|:--------------------|:----------|
+|`static RouteType.NORMAL: RouteType`|Normal Heavy Rail route.|
+|`static RouteType.LIGHT_RAIL: RouteType`|A light rail route.|
+|`static RouteType.HIGH_SPEED: RouteType`|A high speed rail route.|
 
 ### Vector
 !!! info inline end "References"
