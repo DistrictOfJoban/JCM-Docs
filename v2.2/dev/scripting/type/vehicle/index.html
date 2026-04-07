@@ -5794,7 +5794,7 @@
 </tr>
 <tr>
 <td style="text-align: left;"><code>Vehicle.getMtrVehicle(): VehicleExtension</code></td>
-<td style="text-align: left;">Returns the underlying MTR VehicleExtension.</td>
+<td style="text-align: left;">Returns the underlying MTR VehicleExtension, which extends <a href="../../tsc/#vehicle">Vehicle</a>.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>Vehicle.getId(): long</code></td>
@@ -5867,6 +5867,10 @@
 <tr>
 <td style="text-align: left;"><code>Vehicle.getNotchPosition(): double</code></td>
 <td style="text-align: left;">Returns the manual driving notch in the form of a relative percentage, irrespective of the number of notch available.<br>Positive number indicates acceleration, negative number indicates deceleration.<br>Normal operation would return between <strong>-1</strong> and <strong>1</strong>.<br>Values higher than 1 is possible as <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr> allows up to 140% of acceleration/deceleration rate, as well as emergency brake.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Vehicle.getDepartureIndex(): long</code></td>
+<td style="text-align: left;">Returns the departure index of the train.<br>TODO: Is it relative to depot schedule or the assigned siding schedule?</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>Vehicle.getSpeedMs(): double</code></td>

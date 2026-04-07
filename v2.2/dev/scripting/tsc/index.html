@@ -5163,10 +5163,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#platform" class="md-nav__link">
+  <a href="#siding" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Platform
+        Siding
       
     </span>
   </a>
@@ -5174,7 +5174,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#platform_1" class="md-nav__link">
+  <a href="#platform" class="md-nav__link">
     <span class="md-ellipsis">
       
         Platform
@@ -5244,6 +5244,39 @@
     <span class="md-ellipsis">
       
         Route.CircularState
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vehicle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vehicle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vehicleextradata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VehicleExtraData
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RouteType
       
     </span>
   </a>
@@ -5760,10 +5793,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#platform" class="md-nav__link">
+  <a href="#siding" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Platform
+        Siding
       
     </span>
   </a>
@@ -5771,7 +5804,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#platform_1" class="md-nav__link">
+  <a href="#platform" class="md-nav__link">
     <span class="md-ellipsis">
       
         Platform
@@ -5841,6 +5874,39 @@
     <span class="md-ellipsis">
       
         Route.CircularState
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vehicle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vehicle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vehicleextradata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VehicleExtraData
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RouteType
       
     </span>
   </a>
@@ -6008,7 +6074,7 @@
 <p>Transport Simulation Core (TSC) is the backend serving <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>, it is responsible for holding all simulation data such as Stations / Depots / Rails, as well as performing the simulation itself.</p>
 <p>When developing scripts, you may encounter several types which are related to TSC. The following provides some commonly used fields/functions for those types.</p>
 <h2 id="type">Type<a class="headerlink" href="#type" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="siding">Siding<a class="headerlink" href="#siding" title="Anchor link to this section for reference">#</a></h3>
 <p>Represents a siding rail.</p>
 <div class="admonition info inline end">
 <p class="admonition-title">References</p>
@@ -6075,7 +6141,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="platform_1">Platform<a class="headerlink" href="#platform_1" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Anchor link to this section for reference">#</a></h3>
 <p>Represents a platform rail.</p>
 <div class="admonition info inline end">
 <p class="admonition-title">References</p>
@@ -6294,7 +6360,8 @@
 <p><em>Note: Hidden routes are never transmitted to the client, therefore it is guarenteed that all SimplifiedRoute must not be hidden.</em></p>
 <details class="note">
 <summary>Access of Route Number</summary>
-<p>Route Number (a.k.a. Light Rail Route Number) is not transferred as part of SimplifiedRoute.  </p>
+<p>Route Number (a.k.a. Light Rail Route Number) is not transferred as part of SimplifiedRoute.<br />
+It may be obtained via <a href="#vehicleextradata-stops-related">VehicleExtraData</a></p>
 </details>
 <table>
 <thead>
@@ -6321,8 +6388,8 @@
 <td style="text-align: left;">Returns the <a href="#routecircularstate">Circular State</a> of the route</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>SimplifiedRoute.getPlatforms(): ObjectArrayList&lt;SimplifiedRoutePlatform&gt;</code></td>
-<td style="text-align: left;">Returns a SimplifiedRoutePlatform object, see below</td>
+<td style="text-align: left;"><code>SimplifiedRoute.getPlatforms(): List&lt;SimplifiedRoutePlatform&gt;</code></td>
+<td style="text-align: left;">Returns a list of <a href="#simplifiedrouteplatform">SimplifiedRoutePlatform</a> object, representing the list of stop of the route.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SimplifiedRoute.getPlatformIndex(platformId: long): int</code></td>
@@ -6392,6 +6459,168 @@
 <tr>
 <td style="text-align: left;"><code>static CircularState.ANTICLOCKWISE: CircularState</code></td>
 <td style="text-align: left;">The route is anti-clockwise circular.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="vehicle">Vehicle<a class="headerlink" href="#vehicle" title="Anchor link to this section for reference">#</a></h3>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/3432a3a6ceb5a817c7a5bb9a1bebfc963dab1076/src/main/java/org/mtr/core/data/Vehicle.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/vehicle.json">Schema Reference</a></li>
+</ul>
+</div>
+<p>A vehicle formation / consists.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Vehicle.vehicleExtraData: VehicleExtraData</code></td>
+<td style="text-align: left;">The real-time data of the vehicle, related to operations. (Such as speed target, stop index etc.)<br>See <a href="#vehicleextradata">VehicleExtraData</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="vehicleextradata">VehicleExtraData<a class="headerlink" href="#vehicleextradata" title="Anchor link to this section for reference">#</a></h3>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/3432a3a6ceb5a817c7a5bb9a1bebfc963dab1076/src/main/java/org/mtr/core/data/Vehicle.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/vehicle.json">Schema Reference</a></li>
+</ul>
+</div>
+<p>Represents real-time data of a vehicle.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getDepotId(): long</code></td>
+<td style="text-align: left;">Returns the id of the depot this vehicle's siding belongs to.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getSidingId(): long</code></td>
+<td style="text-align: left;">Returns the id of the siding this vehicle belongs to.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getStopIndex(): int</code></td>
+<td style="text-align: left;">Returns the next stop index along the PathData.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getIsTerminating(): boolean</code></td>
+<td style="text-align: left;">Returns whether the train has reached the last stop or beyond.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getStoppingPoint(): double</code></td>
+<td style="text-align: left;">Returns the absolute railProgress distance in which the train is expected stop.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getSpeedTarget(): double</code></td>
+<td style="text-align: left;">Returns the target speed the train should accelerate and follow against.<br>Unit is in <code>m/millisecond</code>, multiply by 1000 to get m/s.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.iterateRidingEntities(callback: Consumer&lt;VehicleRidingEntity&gt;): void</code></td>
+<td style="text-align: left;">Executes a callback, providing all <a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/VehicleRidingEntity.java">VehicleRidingEntity</a> of the current vehicle.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="vehicleextradata-stops-related">VehicleExtraData (Stops-related)<a class="headerlink" href="#vehicleextradata-stops-related" title="Anchor link to this section for reference">#</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getPreviousRouteId(): long</code></td>
+<td style="text-align: left;">Returns the id of the route in previous stops.<br>Returns 0 if there's no previous stop.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getPreviousRouteColor(): int</code></td>
+<td style="text-align: left;">Returns the id of the route's color in previous stops, in RGB format.<br>Returns 0 if there's no previous stop.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getPreviousRouteName(): String</code></td>
+<td style="text-align: left;">Returns the route name in previous stops.<br>Returns an empty string if there's no previous stop.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getPreviousRouteNumber(): String</code></td>
+<td style="text-align: left;">Returns the route number (In <abbr title="Minecraft Transit Railway 3.x">MTR 3</abbr>, a lightRailRouteNumber) in previous stops.<br>Returns an empty string if there's no previous stop.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getPreviousRouteCircularState(): Route.CircularState</code></td>
+<td style="text-align: left;">Returns the route's <a href="#routecircularstate">CircularState</a> in previous stops.<br>Returns Route.CircularState.NONE if there's no previous route.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getPreviousRouteType(): RouteType</code></td>
+<td style="text-align: left;">Returns the route's <a href="#routetype">RouteType</a> in previous stops.<br>Returns RouteType.NORMAL if there's no previous stop.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getPreviousRouteDestination(): long</code></td>
+<td style="text-align: left;">Returns the route's destination of the last stop.<br>Returns an empty string f there's no previous stop / station area in previous stop.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getPreviousPlatformId(): long</code></td>
+<td style="text-align: left;">Returns the platform id of the last stop.<br>Returns 0 if there's no previous stop.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getPreviousStationId(): long</code></td>
+<td style="text-align: left;">Returns the station id of the last stop.<br>Returns 0 if there's no previous stop / station area in previous stop.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getPreviousStationName(): long</code></td>
+<td style="text-align: left;">Returns the station name of the last stop.<br>Returns an empty string if there's no previous stop / station area in previous stop.</td>
+</tr>
+</tbody>
+</table>
+<p>Equivalent function exists for:</p>
+<ul>
+<li>Current Stop (When docked) / Next Stop (When moving)<ul>
+<li>Function prefix: <code>getThis</code> (e.g. <code>VehicleExtraData.getThisRouteId()</code>)</li>
+</ul>
+</li>
+<li>Next Stop (When docked) / Next 2 Stop (When moving)<ul>
+<li>Function prefix: <code>getNext</code> (e.g. <code>VehicleExtraData.getNextRouteId()</code>)</li>
+</ul>
+</li>
+</ul>
+<h3 id="routetype">RouteType<a class="headerlink" href="#routetype" title="Anchor link to this section for reference">#</a></h3>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/3432a3a6ceb5a817c7a5bb9a1bebfc963dab1076/src/main/java/org/mtr/core/data/RouteType.java">Class Reference</a></li>
+</ul>
+</div>
+<p>Represents the type of route.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>static RouteType.NORMAL: RouteType</code></td>
+<td style="text-align: left;">Normal Heavy Rail route.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static RouteType.LIGHT_RAIL: RouteType</code></td>
+<td style="text-align: left;">A light rail route.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static RouteType.HIGH_SPEED: RouteType</code></td>
+<td style="text-align: left;">A high speed rail route.</td>
 </tr>
 </tbody>
 </table>

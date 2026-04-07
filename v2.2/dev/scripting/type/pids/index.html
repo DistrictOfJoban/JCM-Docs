@@ -6167,7 +6167,7 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 <td style="text-align: left;">Returns whether the list of arrivals have arrival entry with different cars.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ArrivalEntries.platforms(): ObjectArrayList&lt;Platform&gt;</code></td>
+<td style="text-align: left;"><code>ArrivalEntries.platforms(): List&lt;Platform&gt;</code></td>
 <td style="text-align: left;">Returns the platforms that all arrival entry is stopping at.</td>
 </tr>
 </tbody>
@@ -6212,7 +6212,7 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalEntry.route(): SimplifiedRoute?</code></td>
-<td style="text-align: left;">Returns the SimplifiedRoute object that the vehicle is running on.<br><strong>Might be null if the route cannot be found (e.g. Hidden/Deleted)</strong></td>
+<td style="text-align: left;">Returns the <a href="../../tsc/#simplifiedroute">SimplifiedRoute</a> object that the vehicle is running on.<br>Returns null if the route cannot be found (e.g. Hidden/Deleted/Not fetched)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalEntry.routeId(): long</code></td>
@@ -6232,11 +6232,11 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalEntry.circularState(): Route.CircularState</code></td>
-<td style="text-align: left;">Returns the circular state of the route that the vehicle is running on.</td>
+<td style="text-align: left;">Returns the <a href="../../tsc/#routecircularstate">circular state</a> of the route that the vehicle is running on.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ArrivalEntry.platform(): Platform</code></td>
-<td style="text-align: left;">Returns the platform object that the vehicle will approach at.</td>
+<td style="text-align: left;"><code>ArrivalEntry.platform(): Platform?</code></td>
+<td style="text-align: left;">Returns the <a href="../../tsc/#platform">Platform</a> object that the vehicle will approach at the monitored platform.<br>Returns null if the platform cannot be found (e.g. Hidden/Deleted/Not fetched)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalEntry.platformId(): long</code></td>
@@ -6258,95 +6258,6 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 </table>
 <h4 id="transport-simulation-core-related">Transport Simulation Core Related<a class="headerlink" href="#transport-simulation-core-related" title="Anchor link to this section for reference">#</a></h4>
 <p>Transport Simulation Core (TSC) is the backend serving <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>. Below are some of the classes in TSC, which may be returned by JCM above.</p>
-<h5 id="platform">Platform<a class="headerlink" href="#platform" title="Anchor link to this section for reference">#</a></h5>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Functions And Objects</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>Platform.routes: ObjectAVLTreeSet&lt;Route&gt;</code></td>
-<td style="text-align: left;">A list of routes that goes through this platform.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>Platform.routeColors: IntAVLTreeSet</code></td>
-<td style="text-align: left;">All colors of route that goes through this platform.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>Platform.getName(): String</code></td>
-<td style="text-align: left;">Returns the platform name.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>Platform.getId(): long</code></td>
-<td style="text-align: left;">Returns the platform ID.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>Platform.getDwellTime(): long</code></td>
-<td style="text-align: left;">The dwell time duration of the platform in millisecond.</td>
-</tr>
-</tbody>
-</table>
-<h5 id="simplifiedroute">SimplifiedRoute<a class="headerlink" href="#simplifiedroute" title="Anchor link to this section for reference">#</a></h5>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Functions And Objects</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>SimplifiedRoute.getName(): String</code></td>
-<td style="text-align: left;">Returns the platform name.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>SimplifiedRoute.getId(): long</code></td>
-<td style="text-align: left;">Returns the route ID.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>SimplifiedRoute.getColor(): int</code></td>
-<td style="text-align: left;">Returns the color of the route.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>SimplifiedRoute.getCircularState(): Route.CircularState</code></td>
-<td style="text-align: left;">Returns the circular state of the route</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>SimplifiedRoute.getPlatforms(): ObjectArrayList&lt;SimplifiedRoutePlatform&gt;</code></td>
-<td style="text-align: left;">Returns a SimplifiedRoutePlatform object, see below</td>
-</tr>
-</tbody>
-</table>
-<h5 id="simplifiedrouteplatform">SimplifiedRoutePlatform<a class="headerlink" href="#simplifiedrouteplatform" title="Anchor link to this section for reference">#</a></h5>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Functions And Objects</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>SimplifiedRoutePlatform.getPlatformId(): long</code></td>
-<td style="text-align: left;">Returns the id of the platform.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>SimplifiedRoutePlatform.getStationId(): long</code></td>
-<td style="text-align: left;">Returns the id of the belonging station area.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>SimplifiedRoutePlatform.getStationName(): String</code></td>
-<td style="text-align: left;">Returns the name of the belonging station area.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>SimplifiedRoutePlatform.getDestination(): String</code></td>
-<td style="text-align: left;">Returns the destination string of this platform in the route</td>
-</tr>
-</tbody>
-</table>
 <h5 id="cardetails">CarDetails<a class="headerlink" href="#cardetails" title="Anchor link to this section for reference">#</a></h5>
 <table>
 <thead>

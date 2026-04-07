@@ -6157,8 +6157,9 @@ For <abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)
 If you think any of the below suits the situation for your script, you should <strong>expand it</strong> to see the instructions.</p>
 <p>If you managed to get pass all questions, it likely means that your script have a high feasibility of being able to migrate to JCM.</p>
 <details class="note">
-<summary>My script makes use of advanced Java classes (Anything outside of AWT/MTR).</summary>
-<p>Please check whether the newly introduced API like <a href="../../networking/"><strong>Networking</strong></a> and <a href="../../files/"><strong>Files</strong></a> replace your need?</p>
+<summary>My script makes use of external Java classes (Anything outside of AWT/MTR).</summary>
+<p>JCM introduced a <a href="../scripting_restrictions/">Scripting Restriction feature</a> for security reasons.</p>
+<p>If the packages you use is not listed above, please check whether the newly introduced API like <a href="../../networking/"><strong>Networking</strong></a>, <a href="../../files/"><strong>Files</strong></a>, <a href="../../data_reading/#datareader"><strong>DataReader</strong></a> and <a href="../../bgworker/"><strong>BackgroundWorker</strong></a> replace your need?</p>
 <ul>
 <li><strong>If yes:</strong> You should migrate to use these new API. (<em>-Continue to next situation-</em>)</li>
 <li><strong>If no:</strong></li>
@@ -6169,7 +6170,7 @@ If you think any of the below suits the situation for your script, you should <s
 </li>
 <li>
 <ul>
-<li>Otherwise if you think your use case is special enough, you would need to turn off <strong>Scripting Restrictions</strong> in JCM Settings, as well as telling your player to do the same.</li>
+<li>Otherwise if you think your use case is special enough, you may need to turn off <strong>Scripting Restrictions</strong> in JCM Settings, as well as telling your player to do the same.</li>
 </ul>
 </li>
 </ul>
@@ -6193,36 +6194,23 @@ If you think any of the below suits the situation for your script, you should <s
 </ul>
 </details>
 <details class="note">
-<summary>My script would process/manipulate model after loading them.</summary>
-<p>Does your script only manipulates the <code>flipV</code> settings in the model / Replace a texture of a flat surface?</p>
+<summary>My script utilize advanced model processing techniques (RawMeshBuilder / MaterialProperties / VertArrays etc.)</summary>
 <ul>
-<li><strong>If yes:</strong></li>
-<li>
-<ul>
-<li><code>flipV</code> is provided as a parameter when loading model via <a href="../../model/#modelmanager">ModelManager</a>.</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>Replace texture isn't possible at the moment, <em>however</em> you can draw a quad in script and a bind a texture to it, which should achieve a similar effect and act as a substitute to replacing the texture of a flat face.</li>
-</ul>
-</li>
-<li><strong>If no:</strong></li>
-<li>
-<ul>
-<li>Unfortunately these features aren't available in JCM at the moment. You may have to split your obj model into different parts instead of processing them directly in scripts.</li>
-</ul>
-</li>
+<li>Unfortunately these features aren't available in JCM at the moment.<br />
+RawMeshBuilder may become available in the future, however there is no plan for other classes. Please try working around them with the existing <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> model API.</li>
 </ul>
 </details>
 <details class="note">
 <summary>My script make use of the BVE CSV/OpenBVE Animated models.</summary>
-<p>You need to migrate to OBJ model as CSV/Animated are not supported in <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>.</p>
+<p>You need to migrate to the OBJ model format as CSV/Animated are not supported in <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>.</p>
 </details>
 <details class="note">
-<summary>My script access the internal of MTR Mod (e.g. Use of MTRClientData).</summary>
-<p>You will need to look in the <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr> codebase to adapt the changes to your script.<br />
-For MTRClientData in <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>, see <a href="https://github.com/Minecraft-Transit-Railway/Minecraft-Transit-Railway/blob/master/fabric/src/main/java/org/mtr/mod/client/MinecraftClientData.java">MinecraftClientData</a>.</p>
+<summary>My script access the internal of MTR Mod (e.g. Use of MTRClientData / Station / Route etc.)</summary>
+<p>You will need to look in the <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr> codebase to adapt the changes to your script.</p>
+<ul>
+<li>For MTRClientData in <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>, see <a href="https://github.com/Minecraft-Transit-Railway/Minecraft-Transit-Railway/blob/master/fabric/src/main/java/org/mtr/mod/client/MinecraftClientData.java">MinecraftClientData</a>.</li>
+<li>For <code>Route.lightRailRouteNumber</code>, they are no longer transferred as part of the route. Please see <a href="../../tsc/#vehicleextradata-stops-related">VehicleExtraData</a> to obtain them.</li>
+</ul>
 </details>
 <h3 id="eyecandy-script-registration">Eyecandy Script Registration<a class="headerlink" href="#eyecandy-script-registration" title="Anchor link to this section for reference">#</a></h3>
 <p>Existing <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> eyecandy registration will continue to work. (<code>scriptFiles</code>/<code>scriptTexts</code> within an <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> eyecandy json).</p>
@@ -6258,19 +6246,27 @@ For MTRClientData in <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>, s
 <span class="normal"><a href="#__codelineno-1-10">10</a></span>
 <span class="normal"><a href="#__codelineno-1-11">11</a></span>
 <span class="normal"><a href="#__codelineno-1-12">12</a></span>
-<span class="normal"><a href="#__codelineno-1-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="p">{</span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="p">{</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="err">...</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="nt">&quot;objects&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">        </span><span class="p">{</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;psd_door&quot;</span><span class="p">,</span>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Platform Screen Door (TML)&quot;</span><span class="p">,</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="hll"><span class="w">            </span><span class="nt">&quot;scripting&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span></span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="hll"><span class="w">                </span><span class="nt">&quot;prependExpressions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;const targetPlat = \&quot;auto\&quot;&quot;</span><span class="p">],</span>
-</span></span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="hll"><span class="w">                </span><span class="nt">&quot;scriptLocations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;mtr:custom_directory/js/eyecandy/psd/door.js&quot;</span><span class="p">]</span>
-</span></span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="hll"><span class="w">            </span><span class="p">}</span>
-</span></span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">    </span><span class="p">]</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="p">}</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="hll"><span class="w">            </span><span class="nt">&quot;scriptId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;psd_door&quot;</span>
+</span></span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="p">],</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="hll"><span class="w">    </span><span class="nt">&quot;objectScripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span></span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="hll"><span class="w">        </span><span class="p">{</span>
+</span></span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="hll"><span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;psd_door&quot;</span><span class="p">,</span>
+</span></span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="hll"><span class="w">            </span><span class="nt">&quot;prependExpressions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;const targetPlat = \&quot;auto\&quot;&quot;</span><span class="p">],</span>
+</span></span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="hll"><span class="w">            </span><span class="nt">&quot;scriptLocations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;mtr:custom_directory/js/eyecandy/psd/door.js&quot;</span><span class="p">]</span>
+</span></span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="hll"><span class="w">        </span><span class="p">}</span>
+</span></span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="hll"><span class="w">    </span><span class="p">]</span>
+</span></span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 </div>
 </div>
