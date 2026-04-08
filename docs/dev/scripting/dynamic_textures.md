@@ -17,7 +17,7 @@ After creating your GraphicsTexture (`new GraphicsTexture...`), JCM will tell Mi
 
 To access the ID, simply use `GraphicsTexture.identifier`.
 
-When your script is in Runtime Phase, you can then invoke calls like [QuadDrawCall](./rendering.md#quaddrawcall), and set the texture id to `GraphicsTexture.identifier`, and it will render the texture out.
+When your script is in Runtime Stage, you can then invoke calls like [QuadDrawCall](./rendering.md#quaddrawcall), and set the texture id to `GraphicsTexture.identifier`, and it will render the texture out.
 
 **Note: After using AWT Graphics to draw things, you must invoke upload() for the texture data to be transferred to the game. See GraphicsTexture.upload() for details.**
 

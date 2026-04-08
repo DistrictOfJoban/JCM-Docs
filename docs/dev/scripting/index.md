@@ -114,7 +114,7 @@ When Minecraft reloads it's resource pack (When the game is starting, or an F3+T
 
 Your script are expected to have functions with specific name (i.e. `create()`, `render()`, `dispose()`).
 
-After your script has been executed once, JCM will capture the above functions internally (if found) to save them for later invocation in the Runtime Phase.
+After your script has been executed once, JCM will capture the above functions internally (if found) to save them for later invocation in the Runtime Stage.
 
 #### Runtime Stage
 In the Runtime Stage, JCM will try to invoke the above 3 functions (create, render, dispose) as deemed appropriate. (Usually every frame for `render`, `create` on first render, and `dispose` when script should no longer be executed)
@@ -127,28 +127,28 @@ When calling the 3 functions above, 3 parameters will be provided: `ctx, state, 
 
 This means that when you have, say 2 vehicles in view, your `render()` function will be called twice, and the `ctx, state, wrapper` all pertains to different vehicles.
 
-An example demonstrating loading and runtime phase is as follows:
+An example demonstrating loading and runtime stage is as follows:
 
 ``` js linenums="1"
-let displaySpeed = 1; // Loading Phase
+let displaySpeed = 1; // Loading Stage
 
 function create(ctx, state, train) {
-     state.displaySpeed = 0.75; // Runtime Phase
+     state.displaySpeed = 0.75; // Runtime Stage
 }
 
 function render(ctx, state, train) {
-     state.displaySpeed += 1; // Runtime Phase
-     print("dp: " + state.displaySpeed); // Runtime Phase
+     state.displaySpeed += 1; // Runtime Stage
+     print("dp: " + state.displaySpeed); // Runtime Stage
 }
 
 function dispose(ctx, state, train) {
 }
 
-print(displaySpeed); // Loading Phase
+print(displaySpeed); // Loading Stage
 ```
 An example console output of the above code:
 ```
-1 // Executed in loading phase (Line 15)
+1 // Executed in loading stage (Line 15)
 
 /* Join games, vehicle A enters into view */
 
@@ -164,7 +164,7 @@ dp: 4.75 // vehicle A rendering (Line 9)
 dp: 2.75 // vehicle B rendering (Line 9)
 ```
 
-#### Runtime Phase (Flow)
+#### Runtime Stage (Flow Illustration)
 
 An example flow is available below. This chart assumes the player is running Minecraft at 13fps (For simplicity sake), which means 13 frames in 1 second.
 
@@ -174,6 +174,8 @@ Immediately you may have noticed the following thing:
 
 #### Scripts are executed asynchronously
 This means that the script runs in the background and does not prevent the game from continue rendering (Therefore, less fps lag).
+
+In the runtime stage, scripts are executed with a total of 4 threads, see [Multithreaded Runtime Execution](./features/threaded_execution.md) for detals.
 
 !!! warning
      This does not mean you can freely block script execution or run some `Thread.Sleep`, as you would then be blocking the script execution thread, making others (and your) script run slower!
@@ -195,9 +197,9 @@ While JCM *tries* to call the `render()` function for every frame, it is only ma
 ## Script Errors
 
 !!! note inline end
-     Script errors in the **Parsing/Loading Phase** are not currently displayed within the game (Like NTE had with debug mode), you need to check for errors in the game log, usually accessible by your launcher
+     Script errors in the **Parsing/Loading Stage** are not currently displayed within the game (Like NTE had with debug mode), you need to check for errors in the game log, usually accessible by your launcher
 
-If the script is executed incorrectly in the **Runtime Phase**, an error will be reported in the Minecraft log (Starting with `[Scripting] Error executing script!`).
+If the script is executed incorrectly in the **Runtime Stage**, an error will be reported in the Minecraft log (Starting with `[Scripting] Error executing script!`).
 
 You can visualize the error on your HUD screen by enabling the [Script Debug Overlay](./aids/script_debug_overlay.md).
 

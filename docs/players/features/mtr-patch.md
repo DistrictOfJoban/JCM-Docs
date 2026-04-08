@@ -11,7 +11,6 @@ The current patch set includes:
 ## Bug fixes / Migration issues
 - Fix MTR 4 not recognizing path traversal (e.g. `../`, `..\`) for OBJ textures, which was previously supported in NTE.
 - Fix MTR 4 not recognizing legacy NTE object's `translation`, `rotation`, `scale` and `mirror` fields in resource packs.
-- Automatically replace MTR 3 reference of gangway & barrier textures to MTR 4, solving issues of MTR 3 pack gangway textures being missing.
 
 ## User Interface / UX
 For vehicles sets/families formatted appropriately, you may now hold the `SHIFT` key when adding vehicles in Siding to automatically fill out the entire siding length.  

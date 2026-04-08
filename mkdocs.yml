@@ -203,9 +203,11 @@ nav:
         - Articles:
           - Scripting Guidelines: dev/scripting/articles/script_guidelines.md
           - Migration from NTE: dev/scripting/articles/nte_migration.md
+          - Dual-versioned Scripts (MTR 3 & MTR 4): dev/scripting/articles/mtr34scripts.md
           - Scripting Restrictions: dev/scripting/articles/scripting_restrictions.md
           - Tips & Notes: dev/scripting/articles/tips.md
         - Features:
+          - Multithreaded Runtime Execution: dev/scripting/features/threaded_execution.md
           - Including other scripts: dev/scripting/features/script_include.md
           - Replacing MTR Display Cube: dev/scripting/features/vehicle_display_cube.md
           - Vehicle Script Cross-referencing: dev/scripting/features/script_crossreferencing.md

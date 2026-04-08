@@ -14,6 +14,39 @@ Therefore, the vehicle scripting system revolves around a single consist instead
 
 **(No longer true, need updating)**
 
+### :material-refresh: Data Fetching
+The data fetching mechanisms in MTR 4 differs from previous MTR version (e.g. MTR 3)
+
+**Under MTR 3**, many MTR data are sent to the client directly, and thus the client has a full reference on all the stations/routes/train paths on the server, and they can easily query the full Station/Route object. (e.g. To read station exits)
+
+**Under MTR 4**, only nearby stations/routes are sent to the client in order to conserve data usage. This means that if, let's say you join in the middle between 2 stations (And you are nowhere close to either of them), the client would not be aware of any route nor stations.  
+<sub>*Side note: This is also part of the reason why the route filter in sensor blocks may not show any routes.*</sub>
+
+This presents a problem for script developers: They need the route and station references, as well as what stop the vehicle is going to make, in order to make stuff like on-board passenger information system possible (Since most of them shows a partial or complete route map).
+
+To workaround this, JCM introduced it's own data fetching mechanism that is separate from MTR.
+
+Under this mehcanism, scripts can:
+
+1. Request for all the stops the vehicle is going to make (Stopping point distance, and all the station/route ids).
+2. After that, request the Station/Route object that appears in the stops data (Based on the ID) from the server.
+3. Finally, scripts can enjoy a full reference to the stops, routes & stations the vehicle is running.
+
+Note that this is not a perfect solution for complex scripts which may need a full copy of the Station/Route reference, but it does solve the common "lack of data" issue for most scripts.
+
+#### Data Fetching in practice
+In practice, JCM divides the data fetching into 3 different mode:
+
+- **SKIP** - Default for MTR 4 scripts, it skips the data fetching process. Stops data are compiled locally in a best-effort attempt, but there's no guarentee any data would be complete or exists. Suitable for simple scripts that does not require stops reference. (e.g. Sounding a chime when the train starts moving, you only need to compare the vehicle's speed.)
+- **ALL** - This requests JCM to fetch both the stops data, as well as the MTR data. Before the stops data arrives (Which takes time over the network), it performs identically to **NONE**. After it arrives, `Stop.station` and `Stop.route` may still return null, since the MTR data may not be fetched yet. Scripts should perform appropriate null checks to avoid error.
+- **MANDATORY** - Under this mode, stops data are requested just like **ALL**. However JCM will not execute the script until both the vehicle stops data and MTR data are retrieved.<br>This is the default for MTR 3 registered scripts, which previously expects data to be immediately available.
+
+#### Configuring Data Fetching mode
+
+You can use `VehicleScriptContext.setDataFetchMode(mode: String)` to configure the data fetching mode as mentioned above.
+
+Note that it is not possible for scripts registered in the MTR 3 format to configure this, since it defaults to the **MANDATORY** mode, and thus the `create()` function is not executed before the data fetching has already been done.
+
 ### API Reference
 
 #### Vehicle

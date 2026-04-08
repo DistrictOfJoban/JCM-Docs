@@ -63,7 +63,7 @@ However texture replacing operation is still possible.
 You can construct a [ModelDrawCall](./rendering.md#modeldrawcall), and pass the uploaded model as a parameter to `.modelObject`.
 
 ## DynamicModelHolder
-The `ModelManager.upload()` can only be invoked when it is executed in the render thread, which is true during the initial **Loading/Parsing phase**.
+The `ModelManager.upload()` can only be invoked when it is executed in the render thread, which is true during the initial **Loading/Parsing stage**.
 
 But afterwards when the script's function is invoked during the Runtime stage, it will be executed in one of the Background Script Worker thread, preventing the ability to use `ModelManager.upload()` to upload the model.
 

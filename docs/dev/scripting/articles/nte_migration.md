@@ -11,7 +11,12 @@ The end goal is for the scripting feature to be made available for MTR 4's Vehic
 Backward compatibility with NTE scripts are made on a best-effort basis, in the sense that we won't go out of our way to intentionally break existing scripts, and we will add stub/redirect methods to retain existing script compatibility. However if a major redesign has occured for reasons outside of our variable (e.g. Internal workings of MTR 4), we are not able to provide full backward compatibility for scripts.
 
 ## General (All types of scripting)
+### Registrations
 - Both `mtr_custom_resources.json` and `mtr_custom_resources_pending_migration.json` will be parsed for scripts. (In both MTR 3/MTR 4 format)
+- Eyecandy scripts registered in NTE format are also automatically parsed.
+
+### DisplayHelper
+Backward compatibility for DisplayHelper (`mtrsteamloco:scripts/display_helper.js`) has been added, and should just work out of the box without any changes.
 
 ## Eyecandy Migration
 ### Feasibility of migrating
@@ -90,22 +95,8 @@ If you wish to migrate to the new MTR 4 format however, please note that there a
     }
     ```
 
-### DisplayHelper
-Backward compatibility for DisplayHelper (`display_helper.js` / `mtrsteamloco:scripts/display_helper.js`) has been added since JCM v2.1.0.
-
-Eyecandy scripts making use of DisplayHelper should just work out of the box without the need for any migration process. (Of course other parts of your script may still need updating)
-
-If you wish to not rely on this compatibility layer (At this very moment you don't have to!), make the following changes to your code:
-```diff title="example.js"
--   ctx.drawModel(state.dh.model, null);
-+   for(let drawCall of state.dh.drawCalls()) {
-+       ctx.getRenderManager().queue(drawCall);
-+   }
-```
-
 ## Vehicle Migration
-### Feasibility of migrating
-**Vehicle scripting is not yet ready at the moment.** Unfortunately you will have to wait a bit longer in the future.
+To be done...
 
 ## Migrating from ANTE
 **[Aphrodite's Nemo's Transit Expansion](https://modrinth.com/mod/mtr-ante)** (ANTE) is a fork of the Nemo Transit Expansion, which brings several new features such as rail tilting and some new scripting abilities.
