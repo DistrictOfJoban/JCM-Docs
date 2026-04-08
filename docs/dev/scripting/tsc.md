@@ -197,9 +197,9 @@ Represents real-time data of a vehicle.
 
 Equivalent function exists for:
 
-- Current Stop (When docked) / Next Stop (When moving)
+- Current Stop (When docked) / Previous Stop (When moving)
     - Function prefix: `getThis` (e.g. `VehicleExtraData.getThisRouteId()`)
-- Next Stop (When docked) / Next 2 Stop (When moving)
+- Next Stop
     - Function prefix: `getNext` (e.g. `VehicleExtraData.getNextRouteId()`)
 
 ### RouteType
