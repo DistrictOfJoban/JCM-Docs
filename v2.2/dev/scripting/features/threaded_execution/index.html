@@ -8,31 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://jcm.joban.org/v2.2/players/features/jcm-pids/">
+        <link rel="canonical" href="https://jcm.joban.org/v2.2/dev/scripting/features/threaded_execution/">
       
       
-        <link rel="prev" href="../mtr-patch/">
+        <link rel="prev" href="../../articles/tips/">
       
       
-        <link rel="next" href="../tunnel/">
+        <link rel="next" href="../script_include/">
       
       
         
       
       
-      <link rel="icon" href="../../../assets/favicon.png">
+      <link rel="icon" href="../../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>JCM PIDS - Joban Client Mod</title>
+        <title>Multithreaded Runtime Execution - Joban Client Mod</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -46,16 +46,16 @@
         
         
         
-        <link rel="stylesheet" href="../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <link rel="stylesheet" href="../../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/custom-color.css">
+      <link rel="stylesheet" href="../../../../stylesheets/custom-color.css">
     
-      <link rel="stylesheet" href="../../../stylesheets/custom-layout.css">
+      <link rel="stylesheet" href="../../../../stylesheets/custom-layout.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pids-preset" class="md-skip">
+        <a href="#multithreaded-runtime-execution" class="md-skip">
           Skip to content
         </a>
       
@@ -95,12 +95,12 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   This version of JCM is not the latest stable release.
-  <a href="../../../.."> 
+  <a href="../../../../.."> 
     <strong>Click here to go to latest stable release.</strong>
   </a>
 
             </div>
-            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../../../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
           </aside>
         
       </div>
@@ -110,9 +110,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Joban Client Mod" class="md-header__button md-logo" aria-label="Joban Client Mod" data-md-component="logo">
+    <a href="../../../.." title="Joban Client Mod" class="md-header__button md-logo" aria-label="Joban Client Mod" data-md-component="logo">
       
-  <img src="../../../assets/logo.png" alt="logo">
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -129,7 +129,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              JCM PIDS
+              Multithreaded Runtime Execution
             
           </span>
         </div>
@@ -240,7 +240,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../../../.." class="md-tabs__link">
         
   
   
@@ -250,6 +250,38 @@
 
       </a>
     </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../players/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  For Players
+
+        </a>
+      </li>
+    
+  
+
+    
   
 
       
@@ -272,39 +304,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
-          
-  
-  
-    
-  
-  For Players
-
-        </a>
-      </li>
-    
-  
-
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../../dev/pids/" class="md-tabs__link">
+        <a href="../../../pids/" class="md-tabs__link">
           
   
   
@@ -329,7 +329,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../contributing/introduction/" class="md-tabs__link">
+        <a href="../../../../contributing/introduction/" class="md-tabs__link">
           
   
   
@@ -365,9 +365,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Joban Client Mod" class="md-nav__button md-logo" aria-label="Joban Client Mod" data-md-component="logo">
+    <a href="../../../.." title="Joban Client Mod" class="md-nav__button md-logo" aria-label="Joban Client Mod" data-md-component="logo">
       
-  <img src="../../../assets/logo.png" alt="logo">
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     Joban Client Mod
@@ -394,7 +394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         
   
   
@@ -418,10 +418,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -437,20 +435,17 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   
@@ -468,7 +463,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -511,7 +506,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../../../players/" class="md-nav__link ">
               
   
   
@@ -555,7 +550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../download/" class="md-nav__link">
+      <a href="../../../../players/download/" class="md-nav__link">
         
   
   
@@ -583,7 +578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../jcmv2/" class="md-nav__link">
+      <a href="../../../../players/jcmv2/" class="md-nav__link">
         
   
   
@@ -616,10 +611,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -638,11 +631,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -663,7 +656,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -806,7 +799,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../blocks/" class="md-nav__link ">
+            <a href="../../../../players/blocks/" class="md-nav__link ">
               
   
   
@@ -850,7 +843,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/auto_iron_door/" class="md-nav__link">
+      <a href="../../../../players/blocks/auto_iron_door/" class="md-nav__link">
         
   
   
@@ -878,7 +871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/buffer_stop/" class="md-nav__link">
+      <a href="../../../../players/blocks/buffer_stop/" class="md-nav__link">
         
   
   
@@ -906,7 +899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/butterfly_light/" class="md-nav__link">
+      <a href="../../../../players/blocks/butterfly_light/" class="md-nav__link">
         
   
   
@@ -934,7 +927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/ceiling_45/" class="md-nav__link">
+      <a href="../../../../players/blocks/ceiling_45/" class="md-nav__link">
         
   
   
@@ -962,7 +955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/circle_walls/" class="md-nav__link">
+      <a href="../../../../players/blocks/circle_walls/" class="md-nav__link">
         
   
   
@@ -990,7 +983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/departure_pole/" class="md-nav__link">
+      <a href="../../../../players/blocks/departure_pole/" class="md-nav__link">
         
   
   
@@ -1018,7 +1011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/departure_timer/" class="md-nav__link">
+      <a href="../../../../players/blocks/departure_timer/" class="md-nav__link">
         
   
   
@@ -1046,7 +1039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/drl_apgs/" class="md-nav__link">
+      <a href="../../../../players/blocks/drl_apgs/" class="md-nav__link">
         
   
   
@@ -1074,7 +1067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/tcl_emg_stop_button/" class="md-nav__link">
+      <a href="../../../../players/blocks/tcl_emg_stop_button/" class="md-nav__link">
         
   
   
@@ -1102,7 +1095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/tml_emg_stop_button/" class="md-nav__link">
+      <a href="../../../../players/blocks/tml_emg_stop_button/" class="md-nav__link">
         
   
   
@@ -1130,7 +1123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/sil_emg_stop_button/" class="md-nav__link">
+      <a href="../../../../players/blocks/sil_emg_stop_button/" class="md-nav__link">
         
   
   
@@ -1158,7 +1151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/mtr_enquiry_machine/" class="md-nav__link">
+      <a href="../../../../players/blocks/mtr_enquiry_machine/" class="md-nav__link">
         
   
   
@@ -1186,7 +1179,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/rv_enquiry_machine/" class="md-nav__link">
+      <a href="../../../../players/blocks/rv_enquiry_machine/" class="md-nav__link">
         
   
   
@@ -1214,7 +1207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/mtr_enquiry_machine_wall/" class="md-nav__link">
+      <a href="../../../../players/blocks/mtr_enquiry_machine_wall/" class="md-nav__link">
         
   
   
@@ -1242,7 +1235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/kcr_enquiry_machine/" class="md-nav__link">
+      <a href="../../../../players/blocks/kcr_enquiry_machine/" class="md-nav__link">
         
   
   
@@ -1270,7 +1263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/exit_signs/" class="md-nav__link">
+      <a href="../../../../players/blocks/exit_signs/" class="md-nav__link">
         
   
   
@@ -1298,7 +1291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/fare_saver/" class="md-nav__link">
+      <a href="../../../../players/blocks/fare_saver/" class="md-nav__link">
         
   
   
@@ -1326,7 +1319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/fire_alarm/" class="md-nav__link">
+      <a href="../../../../players/blocks/fire_alarm/" class="md-nav__link">
         
   
   
@@ -1354,7 +1347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/helpline_1/" class="md-nav__link">
+      <a href="../../../../players/blocks/helpline_1/" class="md-nav__link">
         
   
   
@@ -1382,7 +1375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/helpline_2/" class="md-nav__link">
+      <a href="../../../../players/blocks/helpline_2/" class="md-nav__link">
         
   
   
@@ -1410,7 +1403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/helpline_hkwk/" class="md-nav__link">
+      <a href="../../../../players/blocks/helpline_hkwk/" class="md-nav__link">
         
   
   
@@ -1438,7 +1431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/helpline_standing_eal/" class="md-nav__link">
+      <a href="../../../../players/blocks/helpline_standing_eal/" class="md-nav__link">
         
   
   
@@ -1466,7 +1459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/helpline_standing_tkl/" class="md-nav__link">
+      <a href="../../../../players/blocks/helpline_standing_tkl/" class="md-nav__link">
         
   
   
@@ -1494,7 +1487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/helpline_standing/" class="md-nav__link">
+      <a href="../../../../players/blocks/helpline_standing/" class="md-nav__link">
         
   
   
@@ -1522,7 +1515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/lrt_inter_car_barriers/" class="md-nav__link">
+      <a href="../../../../players/blocks/lrt_inter_car_barriers/" class="md-nav__link">
         
   
   
@@ -1550,7 +1543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/kcr_station_name_signs/" class="md-nav__link">
+      <a href="../../../../players/blocks/kcr_station_name_signs/" class="md-nav__link">
         
   
   
@@ -1578,7 +1571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/kcr_emg_stop_sign/" class="md-nav__link">
+      <a href="../../../../players/blocks/kcr_emg_stop_sign/" class="md-nav__link">
         
   
   
@@ -1606,7 +1599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/light_lantern/" class="md-nav__link">
+      <a href="../../../../players/blocks/light_lantern/" class="md-nav__link">
         
   
   
@@ -1634,7 +1627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/spot_lamp/" class="md-nav__link">
+      <a href="../../../../players/blocks/spot_lamp/" class="md-nav__link">
         
   
   
@@ -1662,7 +1655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/light_source_block/" class="md-nav__link">
+      <a href="../../../../players/blocks/light_source_block/" class="md-nav__link">
         
   
   
@@ -1690,7 +1683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/mtr_stairs/" class="md-nav__link">
+      <a href="../../../../players/blocks/mtr_stairs/" class="md-nav__link">
         
   
   
@@ -1718,7 +1711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/operator_button/" class="md-nav__link">
+      <a href="../../../../players/blocks/operator_button/" class="md-nav__link">
         
   
   
@@ -1746,7 +1739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/pids_1a/" class="md-nav__link">
+      <a href="../../../../players/blocks/pids_1a/" class="md-nav__link">
         
   
   
@@ -1774,7 +1767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/lcd_pids/" class="md-nav__link">
+      <a href="../../../../players/blocks/lcd_pids/" class="md-nav__link">
         
   
   
@@ -1802,7 +1795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/rv_pids/" class="md-nav__link">
+      <a href="../../../../players/blocks/rv_pids/" class="md-nav__link">
         
   
   
@@ -1830,7 +1823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/rv_pids_sil_1/" class="md-nav__link">
+      <a href="../../../../players/blocks/rv_pids_sil_1/" class="md-nav__link">
         
   
   
@@ -1858,7 +1851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/rv_pids_sil_2/" class="md-nav__link">
+      <a href="../../../../players/blocks/rv_pids_sil_2/" class="md-nav__link">
         
   
   
@@ -1886,7 +1879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/rv_pids_pole/" class="md-nav__link">
+      <a href="../../../../players/blocks/rv_pids_pole/" class="md-nav__link">
         
   
   
@@ -1914,7 +1907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/pids_projector/" class="md-nav__link">
+      <a href="../../../../players/blocks/pids_projector/" class="md-nav__link">
         
   
   
@@ -1942,7 +1935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/station_ceilings_wrl/" class="md-nav__link">
+      <a href="../../../../players/blocks/station_ceilings_wrl/" class="md-nav__link">
         
   
   
@@ -1970,7 +1963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/station_ceiling_wrl_poles/" class="md-nav__link">
+      <a href="../../../../players/blocks/station_ceiling_wrl_poles/" class="md-nav__link">
         
   
   
@@ -1998,7 +1991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/station_name_standing/" class="md-nav__link">
+      <a href="../../../../players/blocks/station_name_standing/" class="md-nav__link">
         
   
   
@@ -2026,7 +2019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/static_signal_lights/" class="md-nav__link">
+      <a href="../../../../players/blocks/static_signal_lights/" class="md-nav__link">
         
   
   
@@ -2054,7 +2047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/inverted_signal_lights/" class="md-nav__link">
+      <a href="../../../../players/blocks/inverted_signal_lights/" class="md-nav__link">
         
   
   
@@ -2082,7 +2075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/sound_looper/" class="md-nav__link">
+      <a href="../../../../players/blocks/sound_looper/" class="md-nav__link">
         
   
   
@@ -2110,7 +2103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/subsidy_machine/" class="md-nav__link">
+      <a href="../../../../players/blocks/subsidy_machine/" class="md-nav__link">
         
   
   
@@ -2138,7 +2131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/train_model_e44/" class="md-nav__link">
+      <a href="../../../../players/blocks/train_model_e44/" class="md-nav__link">
         
   
   
@@ -2166,7 +2159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/thales_ticket_barriers/" class="md-nav__link">
+      <a href="../../../../players/blocks/thales_ticket_barriers/" class="md-nav__link">
         
   
   
@@ -2194,7 +2187,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/mtr_trespass_sign/" class="md-nav__link">
+      <a href="../../../../players/blocks/mtr_trespass_sign/" class="md-nav__link">
         
   
   
@@ -2222,7 +2215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/kcr_trespass_sign/" class="md-nav__link">
+      <a href="../../../../players/blocks/kcr_trespass_sign/" class="md-nav__link">
         
   
   
@@ -2250,7 +2243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/lrt_trespass_sign/" class="md-nav__link">
+      <a href="../../../../players/blocks/lrt_trespass_sign/" class="md-nav__link">
         
   
   
@@ -2278,7 +2271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blocks/water_machine/" class="md-nav__link">
+      <a href="../../../../players/blocks/water_machine/" class="md-nav__link">
         
   
   
@@ -2314,7 +2307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mtr-patch/" class="md-nav__link">
+      <a href="../../../../players/features/mtr-patch/" class="md-nav__link">
         
   
   
@@ -2339,35 +2332,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    JCM PIDS
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../players/features/jcm-pids/" class="md-nav__link">
         
   
   
@@ -2383,46 +2351,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#pids-preset" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PIDS Preset
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pids-variable" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PIDS Variable
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2435,7 +2363,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tunnel/" class="md-nav__link">
+      <a href="../../../../players/features/tunnel/" class="md-nav__link">
         
   
   
@@ -2471,7 +2399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mod-integrations/" class="md-nav__link">
+      <a href="../../../../players/features/mod-integrations/" class="md-nav__link">
         
   
   
@@ -2580,7 +2508,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../versions/" class="md-nav__link ">
+            <a href="../../../../players/versions/" class="md-nav__link ">
               
   
   
@@ -2624,7 +2552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.2.2/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.2.2/" class="md-nav__link">
         
   
   
@@ -2652,7 +2580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.2.1-hotfix-1/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.2.1-hotfix-1/" class="md-nav__link">
         
   
   
@@ -2680,7 +2608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.2.1/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.2.1/" class="md-nav__link">
         
   
   
@@ -2708,7 +2636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.2.0/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.2.0/" class="md-nav__link">
         
   
   
@@ -2736,7 +2664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.9/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.1.9/" class="md-nav__link">
         
   
   
@@ -2764,7 +2692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.8/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.1.8/" class="md-nav__link">
         
   
   
@@ -2792,7 +2720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.7/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.1.7/" class="md-nav__link">
         
   
   
@@ -2820,7 +2748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.6-hotfix-1/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.1.6-hotfix-1/" class="md-nav__link">
         
   
   
@@ -2848,7 +2776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.6/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.1.6/" class="md-nav__link">
         
   
   
@@ -2876,7 +2804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.5-hotfix-1/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.1.5-hotfix-1/" class="md-nav__link">
         
   
   
@@ -2904,7 +2832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.5/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.1.5/" class="md-nav__link">
         
   
   
@@ -2932,7 +2860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.4-hotfix-1/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.1.4-hotfix-1/" class="md-nav__link">
         
   
   
@@ -2960,7 +2888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.4/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.1.4/" class="md-nav__link">
         
   
   
@@ -2988,7 +2916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.3/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.1.3/" class="md-nav__link">
         
   
   
@@ -3016,7 +2944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.2/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.1.2/" class="md-nav__link">
         
   
   
@@ -3044,7 +2972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.1/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.1.1/" class="md-nav__link">
         
   
   
@@ -3072,7 +3000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.0a/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.1.0a/" class="md-nav__link">
         
   
   
@@ -3100,7 +3028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.1.0/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.1.0/" class="md-nav__link">
         
   
   
@@ -3128,7 +3056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.9/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.0.9/" class="md-nav__link">
         
   
   
@@ -3156,7 +3084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.8/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.0.8/" class="md-nav__link">
         
   
   
@@ -3184,7 +3112,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.7/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.0.7/" class="md-nav__link">
         
   
   
@@ -3212,7 +3140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.6/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.0.6/" class="md-nav__link">
         
   
   
@@ -3240,7 +3168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.5a/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.0.5a/" class="md-nav__link">
         
   
   
@@ -3268,7 +3196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.5/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.0.5/" class="md-nav__link">
         
   
   
@@ -3296,7 +3224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.4a/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.0.4a/" class="md-nav__link">
         
   
   
@@ -3324,7 +3252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.4/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.0.4/" class="md-nav__link">
         
   
   
@@ -3352,7 +3280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.3/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.0.3/" class="md-nav__link">
         
   
   
@@ -3380,7 +3308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.2/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.0.2/" class="md-nav__link">
         
   
   
@@ -3408,7 +3336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.1/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.0.1/" class="md-nav__link">
         
   
   
@@ -3436,7 +3364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../versions/v1.0.0/" class="md-nav__link">
+      <a href="../../../../players/versions/v1.0.0/" class="md-nav__link">
         
   
   
@@ -3476,8 +3404,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -3489,17 +3419,20 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -3517,7 +3450,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3560,7 +3493,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../dev/pids/" class="md-nav__link ">
+            <a href="../../../pids/" class="md-nav__link ">
               
   
   
@@ -3604,7 +3537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/pids/json_preset/" class="md-nav__link">
+      <a href="../../../pids/json_preset/" class="md-nav__link">
         
   
   
@@ -3632,7 +3565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/pids/scripted/" class="md-nav__link">
+      <a href="../../../pids/scripted/" class="md-nav__link">
         
   
   
@@ -3665,6 +3598,8 @@
                 
   
   
+    
+  
   
   
     
@@ -3693,15 +3628,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../dev/scripting/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -3725,7 +3660,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3824,7 +3759,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../dev/scripting/type/vehicle/" class="md-nav__link ">
+            <a href="../../type/vehicle/" class="md-nav__link ">
               
   
   
@@ -3892,7 +3827,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../dev/scripting/type/eyecandy/" class="md-nav__link ">
+            <a href="../../type/eyecandy/" class="md-nav__link ">
               
   
   
@@ -3962,7 +3897,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../dev/scripting/type/pids/" class="md-nav__link ">
+            <a href="../../type/pids/" class="md-nav__link ">
               
   
   
@@ -4006,7 +3941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/type/pids/tut/pids_tut/" class="md-nav__link">
+      <a href="../../type/pids/tut/pids_tut/" class="md-nav__link">
         
   
   
@@ -4112,7 +4047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/articles/script_guidelines/" class="md-nav__link">
+      <a href="../../articles/script_guidelines/" class="md-nav__link">
         
   
   
@@ -4140,7 +4075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/articles/nte_migration/" class="md-nav__link">
+      <a href="../../articles/nte_migration/" class="md-nav__link">
         
   
   
@@ -4168,7 +4103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/articles/mtr34scripts/" class="md-nav__link">
+      <a href="../../articles/mtr34scripts/" class="md-nav__link">
         
   
   
@@ -4196,7 +4131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/articles/scripting_restrictions/" class="md-nav__link">
+      <a href="../../articles/scripting_restrictions/" class="md-nav__link">
         
   
   
@@ -4224,7 +4159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/articles/tips/" class="md-nav__link">
+      <a href="../../articles/tips/" class="md-nav__link">
         
   
   
@@ -4257,8 +4192,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -4277,11 +4214,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4" checked>
         
           
           <label class="md-nav__link" for="__nav_3_2_4" id="__nav_3_2_4_label" tabindex="0">
@@ -4302,7 +4239,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -4317,10 +4254,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../dev/scripting/features/threaded_execution/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multithreaded Runtime Execution
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -4336,6 +4300,37 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#note-on-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Note on performance
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4348,7 +4343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/features/script_include/" class="md-nav__link">
+      <a href="../script_include/" class="md-nav__link">
         
   
   
@@ -4376,7 +4371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/features/vehicle_display_cube/" class="md-nav__link">
+      <a href="../vehicle_display_cube/" class="md-nav__link">
         
   
   
@@ -4404,7 +4399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/features/script_crossreferencing/" class="md-nav__link">
+      <a href="../script_crossreferencing/" class="md-nav__link">
         
   
   
@@ -4496,7 +4491,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/aids/script_quick_reload/" class="md-nav__link">
+      <a href="../../aids/script_quick_reload/" class="md-nav__link">
         
   
   
@@ -4524,7 +4519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/aids/script_debug_overlay/" class="md-nav__link">
+      <a href="../../aids/script_debug_overlay/" class="md-nav__link">
         
   
   
@@ -4632,7 +4627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/console/" class="md-nav__link">
+      <a href="../../console/" class="md-nav__link">
         
   
   
@@ -4660,7 +4655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/resources/" class="md-nav__link">
+      <a href="../../resources/" class="md-nav__link">
         
   
   
@@ -4688,7 +4683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/model/" class="md-nav__link">
+      <a href="../../model/" class="md-nav__link">
         
   
   
@@ -4716,7 +4711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/math/" class="md-nav__link">
+      <a href="../../math/" class="md-nav__link">
         
   
   
@@ -4744,7 +4739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/dynamic_textures/" class="md-nav__link">
+      <a href="../../dynamic_textures/" class="md-nav__link">
         
   
   
@@ -4772,7 +4767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/rendering/" class="md-nav__link">
+      <a href="../../rendering/" class="md-nav__link">
         
   
   
@@ -4800,7 +4795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/sounds/" class="md-nav__link">
+      <a href="../../sounds/" class="md-nav__link">
         
   
   
@@ -4888,7 +4883,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/mc/" class="md-nav__link">
+      <a href="../../mc/" class="md-nav__link">
         
   
   
@@ -4916,7 +4911,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/files/" class="md-nav__link">
+      <a href="../../files/" class="md-nav__link">
         
   
   
@@ -4944,7 +4939,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/networking/" class="md-nav__link">
+      <a href="../../networking/" class="md-nav__link">
         
   
   
@@ -4972,7 +4967,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/bgworker/" class="md-nav__link">
+      <a href="../../bgworker/" class="md-nav__link">
         
   
   
@@ -5064,7 +5059,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/utilities/" class="md-nav__link">
+      <a href="../../utilities/" class="md-nav__link">
         
   
   
@@ -5092,7 +5087,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/data_reading/" class="md-nav__link">
+      <a href="../../data_reading/" class="md-nav__link">
         
   
   
@@ -5184,7 +5179,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/mtrclientdata/" class="md-nav__link">
+      <a href="../../mtrclientdata/" class="md-nav__link">
         
   
   
@@ -5212,7 +5207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/tsc/" class="md-nav__link">
+      <a href="../../tsc/" class="md-nav__link">
         
   
   
@@ -5310,7 +5305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/scripting/builtin/display_helper/" class="md-nav__link">
+      <a href="../../builtin/display_helper/" class="md-nav__link">
         
   
   
@@ -5421,7 +5416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/introduction/" class="md-nav__link">
+      <a href="../../../../contributing/introduction/" class="md-nav__link">
         
   
   
@@ -5449,7 +5444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/translation/" class="md-nav__link">
+      <a href="../../../../contributing/translation/" class="md-nav__link">
         
   
   
@@ -5477,7 +5472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/documentation/" class="md-nav__link">
+      <a href="../../../../contributing/documentation/" class="md-nav__link">
         
   
   
@@ -5532,7 +5527,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../contributing/project/" class="md-nav__link ">
+            <a href="../../../../contributing/project/" class="md-nav__link ">
               
   
   
@@ -5576,7 +5571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/project/project_structure/" class="md-nav__link">
+      <a href="../../../../contributing/project/project_structure/" class="md-nav__link">
         
   
   
@@ -5604,7 +5599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/project/code_guidelines/" class="md-nav__link">
+      <a href="../../../../contributing/project/code_guidelines/" class="md-nav__link">
         
   
   
@@ -5632,7 +5627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/project/multiversion_development/" class="md-nav__link">
+      <a href="../../../../contributing/project/multiversion_development/" class="md-nav__link">
         
   
   
@@ -5685,6 +5680,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -5693,21 +5690,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pids-preset" class="md-nav__link">
+  <a href="#note-on-performance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PIDS Preset
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pids-variable" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PIDS Variable
+        Note on performance
       
     </span>
   </a>
@@ -5739,7 +5725,7 @@
   
   
     <li class="md-path__item">
-      <a href="../../.." class="md-path__link">
+      <a href="../../../.." class="md-path__link">
         
   <span class="md-ellipsis">
     Home
@@ -5762,10 +5748,10 @@
     
     
       <li class="md-path__item">
-        <a href="../../" class="md-path__link">
+        <a href="../../../pids/" class="md-path__link">
           
   <span class="md-ellipsis">
-    For Players
+    For Content Authors
   </span>
 
         </a>
@@ -5782,16 +5768,11 @@
   
     
     
-      
-  
-  
-    
-    
       <li class="md-path__item">
-        <a href="../../blocks/" class="md-path__link">
+        <a href="../../" class="md-path__link">
           
   <span class="md-ellipsis">
-    Features
+    Scripting
   </span>
 
         </a>
@@ -5799,6 +5780,21 @@
     
   
 
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Features
+  </span>
+
+        </a>
+      </li>
     
   
 
@@ -5816,60 +5812,13 @@
   
 
 
-  <h1>JCM PIDS</h1>
-
-<p><strong>PIDS</strong> blocks in the Joban Client Mod behaves mostly similarly to the PIDS in <abbr title="Minecraft Transit Railway">MTR mod</abbr>, however it has several extra features which are listed belows.</p>
-<h2 id="pids-preset">PIDS Preset<a class="headerlink" href="#pids-preset" title="Anchor link to this section for reference">#</a></h2>
-<p>A <strong>PIDS Preset</strong> (Or <strong>PIDS Layout</strong> if you prefer that) is a set of configuration which defines how a PIDS should look.</p>
-<p>For instance, the <a href="../../blocks/rv_pids/">RV PIDS</a> by default looks different from the <a href="../../blocks/lcd_pids/">LCD PIDS</a>. That's because they are both using different preset.<br />
-A PIDS Preset can be chosen by right clicking a PIDS block provided by Joban Client Mod with the <strong>Brush</strong> item provided by the <abbr title="Minecraft Transit Railway">MTR mod</abbr>.</p>
-<p>Custom PIDS Preset can be created through the use of resource packs, you can head over to the <a href="../../../dev/pids/">Developer Documentation</a> if you want to learn more about creating your own PIDS Preset.</p>
-<p>Alternatively you may explore the <a href="https://modrinth.com/resourcepacks?q=pids">various resource packs</a> published online which adds extra PIDS preset to the game.</p>
-<h2 id="pids-variable">PIDS Variable<a class="headerlink" href="#pids-variable" title="Anchor link to this section for reference">#</a></h2>
-<p>PIDS in Joban Client Mod also allows you to enter a dynamic variable in the PIDS's <strong>Custom Message</strong> section.</p>
-<p>A variable is essentially a text formatted in a specific way, in which it will be replaced with a dynamic value when displaying.<br />
-You can add any of the following variable by inserting the variable name into your custom message.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Variable Name</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: center;">Version Added</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>{weather}</code></td>
-<td style="text-align: left;">The weather of the current world, possible values are:<br>"Sunny", "Raining", "Thundering"</td>
-<td style="text-align: center;">v1.1.2</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>{time}</code></td>
-<td style="text-align: left;">The current world time, returns "HH:MM"</td>
-<td style="text-align: center;">v1.1.2</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>{time_period}</code></td>
-<td style="text-align: left;">The current time period, possible values are:<br>"Morning", "Afternoon", "Night"</td>
-<td style="text-align: center;">v1.1.2</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>{weatherChin}</code></td>
-<td style="text-align: left;">The weather of the current world in chinese.<br>Possible values are: "晴天", "下雨", "雷暴"</td>
-<td style="text-align: center;">v1.1.4</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>{worldPlayer}</code></td>
-<td style="text-align: left;">Current amount of player on the current world</td>
-<td style="text-align: center;">v1.1.4</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>{day}</code></td>
-<td style="text-align: left;">The day elapsed (Same as the one shown in F3 Screen)</td>
-<td style="text-align: center;">v1.1.5</td>
-</tr>
-</tbody>
-</table>
+<h1 id="multithreaded-runtime-execution">Multithreaded Runtime Execution<a class="headerlink" href="#multithreaded-runtime-execution" title="Anchor link to this section for reference">#</a></h1>
+<p>In <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr>, all scripts are executed on a single background thread sequentially.</p>
+<p>Due to the growing need for script content, JCM now expanded this so that scripts are executed with a total of <strong>4</strong> threads during runtime execution. (Parsing stage remains unaffected, it will still be parsed one-by-one on the main render thread).</p>
+<p>Please note that the multithreaded execution is only applied across different script entry. The same script entry will always be executed in the same thread, therefore older content are expected to remain compatible without many issues. (Internally it allocates a script entry to a specific thread)</p>
+<h2 id="note-on-performance">Note on performance<a class="headerlink" href="#note-on-performance" title="Anchor link to this section for reference">#</a></h2>
+<p>Please note that the increased amount of threads is <em>not an excuse</em> to disregard script performance / efficiency, it only minimizes (but not eliminate) the execution speed of an individual script affecting other script execution.</p>
+<p>Moreover, scripts that are slow to execute (excluding the use of sleeping) may result in higher CPU usage (Especially considering they are executed nearly every frame), which can potentially overload the player's computer. (Assuming this is on a multiplayer server / You plan on distributing the script)</p>
 <!-- *[JCM]: Joban Client Mod -->
 <!-- *[PIDS]: Passenger Information Display System -->
 
@@ -5972,10 +5921,10 @@ You can add any of the following variable by inserting the variable name into yo
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.path", "navigation.top", "navigation.tabs", "navigation.indexes", "content.code.select", "content.code.copy", "content.code.annotate", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.path", "navigation.top", "navigation.tabs", "navigation.indexes", "content.code.select", "content.code.copy", "content.code.annotate", "content.tooltips"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

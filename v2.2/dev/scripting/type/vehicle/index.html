@@ -3999,6 +3999,8 @@
       
         
       
+        
+      
     
     
     
@@ -4105,6 +4107,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../articles/mtr34scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dual-versioned Scripts (MTR 3 & MTR 4)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../articles/scripting_restrictions/" class="md-nav__link">
         
   
@@ -4177,6 +4207,8 @@
       
         
       
+        
+      
     
     
     
@@ -4219,6 +4251,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/threaded_execution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multithreaded Runtime Execution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -5586,6 +5646,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#data-fetching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Fetching
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#api-reference" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5749,6 +5820,30 @@
 <p>In <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>, there is no longer a concept of a <strong>train</strong>. Instead, we have vehicle, which is a single vehicle consist. A train in a siding is made up of multiple consists linked together, just like how it is in real-life.</p>
 <p>Therefore, the vehicle scripting system revolves around a single consist instead of the whole train. If you have an 8-car train of the same type with scripting enabled, your script would be invoked 8 times during rendering.</p>
 <p><strong>(No longer true, need updating)</strong></p>
+<h3 id="data-fetching"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.65 6.35A7.96 7.96 0 0 0 12 4a8 8 0 0 0-8 8 8 8 0 0 0 8 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18a6 6 0 0 1-6-6 6 6 0 0 1 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4z"/></svg></span> Data Fetching<a class="headerlink" href="#data-fetching" title="Anchor link to this section for reference">#</a></h3>
+<p>The data fetching mechanisms in <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr> differs from previous MTR version (e.g. <abbr title="Minecraft Transit Railway 3.x">MTR 3</abbr>)</p>
+<p><strong>Under <abbr title="Minecraft Transit Railway 3.x">MTR 3</abbr></strong>, many MTR data are sent to the client directly, and thus the client has a full reference on all the stations/routes/train paths on the server, and they can easily query the full Station/Route object. (e.g. To read station exits)</p>
+<p><strong>Under <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr></strong>, only nearby stations/routes are sent to the client in order to conserve data usage. This means that if, let's say you join in the middle between 2 stations (And you are nowhere close to either of them), the client would not be aware of any route nor stations.<br />
+<sub><em>Side note: This is also part of the reason why the route filter in sensor blocks may not show any routes.</em></sub></p>
+<p>This presents a problem for script developers: They need the route and station references, as well as what stop the vehicle is going to make, in order to make stuff like on-board passenger information system possible (Since most of them shows a partial or complete route map).</p>
+<p>To workaround this, JCM introduced it's own data fetching mechanism that is separate from MTR.</p>
+<p>Under this mehcanism, scripts can:</p>
+<ol>
+<li>Request for all the stops the vehicle is going to make (Stopping point distance, and all the station/route ids).</li>
+<li>After that, request the Station/Route object that appears in the stops data (Based on the ID) from the server.</li>
+<li>Finally, scripts can enjoy a full reference to the stops, routes &amp; stations the vehicle is running.</li>
+</ol>
+<p>Note that this is not a perfect solution for complex scripts which may need a full copy of the Station/Route reference, but it does solve the common "lack of data" issue for most scripts.</p>
+<h4 id="data-fetching-in-practice">Data Fetching in practice<a class="headerlink" href="#data-fetching-in-practice" title="Anchor link to this section for reference">#</a></h4>
+<p>In practice, JCM divides the data fetching into 3 different mode:</p>
+<ul>
+<li><strong>SKIP</strong> - Default for <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr> scripts, it skips the data fetching process. Stops data are compiled locally in a best-effort attempt, but there's no guarentee any data would be complete or exists. Suitable for simple scripts that does not require stops reference. (e.g. Sounding a chime when the train starts moving, you only need to compare the vehicle's speed.)</li>
+<li><strong>ALL</strong> - This requests JCM to fetch both the stops data, as well as the MTR data. Before the stops data arrives (Which takes time over the network), it performs identically to <strong>NONE</strong>. After it arrives, <code>Stop.station</code> and <code>Stop.route</code> may still return null, since the MTR data may not be fetched yet. Scripts should perform appropriate null checks to avoid error.</li>
+<li><strong>MANDATORY</strong> - Under this mode, stops data are requested just like <strong>ALL</strong>. However JCM will not execute the script until both the vehicle stops data and MTR data are retrieved.<br>This is the default for <abbr title="Minecraft Transit Railway 3.x">MTR 3</abbr> registered scripts, which previously expects data to be immediately available.</li>
+</ul>
+<h4 id="configuring-data-fetching-mode">Configuring Data Fetching mode<a class="headerlink" href="#configuring-data-fetching-mode" title="Anchor link to this section for reference">#</a></h4>
+<p>You can use <code>VehicleScriptContext.setDataFetchMode(mode: String)</code> to configure the data fetching mode as mentioned above.</p>
+<p>Note that it is not possible for scripts registered in the <abbr title="Minecraft Transit Railway 3.x">MTR 3</abbr> format to configure this, since it defaults to the <strong>MANDATORY</strong> mode, and thus the <code>create()</code> function is not executed before the data fetching has already been done.</p>
 <h3 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Anchor link to this section for reference">#</a></h3>
 <h4 id="vehicle">Vehicle<a class="headerlink" href="#vehicle" title="Anchor link to this section for reference">#</a></h4>
 <p>Represents a vehicle / trainset / train consist.</p>

@@ -3995,6 +3995,8 @@
       
         
       
+        
+      
     
     
     
@@ -4101,6 +4103,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../articles/mtr34scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dual-versioned Scripts (MTR 3 & MTR 4)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../articles/scripting_restrictions/" class="md-nav__link">
         
   
@@ -4173,6 +4203,8 @@
       
         
       
+        
+      
     
     
     
@@ -4215,6 +4247,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/threaded_execution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multithreaded Runtime Execution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -6002,7 +6062,7 @@ Newer scripts should not utilize these functions anymore.</p>
 <h3 id="rendering">Rendering<a class="headerlink" href="#rendering" title="Anchor link to this section for reference">#</a></h3>
 <p>You can construct a <a href="../rendering/#modeldrawcall">ModelDrawCall</a>, and pass the uploaded model as a parameter to <code>.modelObject</code>.</p>
 <h2 id="dynamicmodelholder">DynamicModelHolder<a class="headerlink" href="#dynamicmodelholder" title="Anchor link to this section for reference">#</a></h2>
-<p>The <code>ModelManager.upload()</code> can only be invoked when it is executed in the render thread, which is true during the initial <strong>Loading/Parsing phase</strong>.</p>
+<p>The <code>ModelManager.upload()</code> can only be invoked when it is executed in the render thread, which is true during the initial <strong>Loading/Parsing stage</strong>.</p>
 <p>But afterwards when the script's function is invoked during the Runtime stage, it will be executed in one of the Background Script Worker thread, preventing the ability to use <code>ModelManager.upload()</code> to upload the model.</p>
 <p>If you need the ability to upload a model during the runtime stage (e.g. Lazy loading / Dynamic manipulation of <a href="#modeldata-aka-rawmodel">ModelData</a>), you can do so with this class.</p>
 <table>

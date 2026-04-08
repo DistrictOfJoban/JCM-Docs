@@ -3995,6 +3995,8 @@
       
         
       
+        
+      
     
     
     
@@ -4101,6 +4103,34 @@
   
   
     <li class="md-nav__item">
+      <a href="articles/mtr34scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dual-versioned Scripts (MTR 3 & MTR 4)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="articles/scripting_restrictions/" class="md-nav__link">
         
   
@@ -4173,6 +4203,8 @@
       
         
       
+        
+      
     
     
     
@@ -4215,6 +4247,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="features/threaded_execution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multithreaded Runtime Execution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -5925,7 +5985,7 @@
 <h4 id="parsingloading-stage">Parsing/Loading Stage<a class="headerlink" href="#parsingloading-stage" title="Anchor link to this section for reference">#</a></h4>
 <p>When Minecraft reloads it's resource pack (When the game is starting, or an F3+T instantiation/change of resource pack), JCM will parse (executes) your <abbr title="JavaScript">JS</abbr> script once. This is known as the <strong>Parsing Stage</strong>, in which scripts are evaluated for the first time.</p>
 <p>Your script are expected to have functions with specific name (i.e. <code>create()</code>, <code>render()</code>, <code>dispose()</code>).</p>
-<p>After your script has been executed once, JCM will capture the above functions internally (if found) to save them for later invocation in the Runtime Phase.</p>
+<p>After your script has been executed once, JCM will capture the above functions internally (if found) to save them for later invocation in the Runtime Stage.</p>
 <h4 id="runtime-stage">Runtime Stage<a class="headerlink" href="#runtime-stage" title="Anchor link to this section for reference">#</a></h4>
 <p>In the Runtime Stage, JCM will try to invoke the above 3 functions (create, render, dispose) as deemed appropriate. (Usually every frame for <code>render</code>, <code>create</code> on first render, and <code>dispose</code> when script should no longer be executed)</p>
 <p>When calling the 3 functions above, 3 parameters will be provided: <code>ctx, state, wrapper</code>.</p>
@@ -5935,7 +5995,7 @@
 <li>The <code>wrapper</code> variable is a read-only object to give you information. For example in <strong>Vehicle Scripting</strong>, the <code>wrapper</code> object is a <code>Vehicle</code>, which you may query various things such as the current vehicle speed, doors value etc. (Different for each script types)</li>
 </ul>
 <p>This means that when you have, say 2 vehicles in view, your <code>render()</code> function will be called twice, and the <code>ctx, state, wrapper</code> all pertains to different vehicles.</p>
-<p>An example demonstrating loading and runtime phase is as follows:</p>
+<p>An example demonstrating loading and runtime stage is as follows:</p>
 <p><div class="language-js highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
@@ -5950,24 +6010,24 @@
 <span class="normal"><a href="#__codelineno-2-12">12</a></span>
 <span class="normal"><a href="#__codelineno-2-13">13</a></span>
 <span class="normal"><a href="#__codelineno-2-14">14</a></span>
-<span class="normal"><a href="#__codelineno-2-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">displaySpeed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Loading Phase</span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">displaySpeed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Loading Stage</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="kd">function</span><span class="w"> </span><span class="nx">create</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">train</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">     </span><span class="nx">state</span><span class="p">.</span><span class="nx">displaySpeed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.75</span><span class="p">;</span><span class="w"> </span><span class="c1">// Runtime Phase</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">     </span><span class="nx">state</span><span class="p">.</span><span class="nx">displaySpeed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.75</span><span class="p">;</span><span class="w"> </span><span class="c1">// Runtime Stage</span>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="p">}</span>
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a>
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="kd">function</span><span class="w"> </span><span class="nx">render</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">train</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">     </span><span class="nx">state</span><span class="p">.</span><span class="nx">displaySpeed</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Runtime Phase</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">     </span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;dp: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">state</span><span class="p">.</span><span class="nx">displaySpeed</span><span class="p">);</span><span class="w"> </span><span class="c1">// Runtime Phase</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">     </span><span class="nx">state</span><span class="p">.</span><span class="nx">displaySpeed</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Runtime Stage</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">     </span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;dp: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">state</span><span class="p">.</span><span class="nx">displaySpeed</span><span class="p">);</span><span class="w"> </span><span class="c1">// Runtime Stage</span>
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="p">}</span>
 </span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11"></a>
 </span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="kd">function</span><span class="w"> </span><span class="nx">dispose</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">train</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="p">}</span>
 </span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14"></a>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="nx">print</span><span class="p">(</span><span class="nx">displaySpeed</span><span class="p">);</span><span class="w"> </span><span class="c1">// Loading Phase</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="nx">print</span><span class="p">(</span><span class="nx">displaySpeed</span><span class="p">);</span><span class="w"> </span><span class="c1">// Loading Stage</span>
 </span></code></pre></div></td></tr></table></div>
 An example console output of the above code:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>1 // Executed in loading phase (Line 15)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>1 // Executed in loading stage (Line 15)
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>/* Join games, vehicle A enters into view */
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
@@ -5982,12 +6042,13 @@ An example console output of the above code:
 </span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>dp: 4.75 // vehicle A rendering (Line 9)
 </span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>dp: 2.75 // vehicle B rendering (Line 9)
 </span></code></pre></div></p>
-<h4 id="runtime-phase-flow">Runtime Phase (Flow)<a class="headerlink" href="#runtime-phase-flow" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="runtime-stage-flow-illustration">Runtime Stage (Flow Illustration)<a class="headerlink" href="#runtime-stage-flow-illustration" title="Anchor link to this section for reference">#</a></h4>
 <p>An example flow is available below. This chart assumes the player is running Minecraft at 13fps (For simplicity sake), which means 13 frames in 1 second.</p>
 <p><img alt="JCM Script Execution Example" src="img/JCM_Script_Execution_Example.png" /></p>
 <p>Immediately you may have noticed the following thing:</p>
 <h4 id="scripts-are-executed-asynchronously">Scripts are executed asynchronously<a class="headerlink" href="#scripts-are-executed-asynchronously" title="Anchor link to this section for reference">#</a></h4>
 <p>This means that the script runs in the background and does not prevent the game from continue rendering (Therefore, less fps lag).</p>
+<p>In the runtime stage, scripts are executed with a total of 4 threads, see <a href="features/threaded_execution/">Multithreaded Runtime Execution</a> for detals.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This does not mean you can freely block script execution or run some <code>Thread.Sleep</code>, as you would then be blocking the script execution thread, making others (and your) script run slower!</p>
@@ -6003,9 +6064,9 @@ An example console output of the above code:
 <h2 id="script-errors">Script Errors<a class="headerlink" href="#script-errors" title="Anchor link to this section for reference">#</a></h2>
 <div class="admonition note inline end">
 <p class="admonition-title">Note</p>
-<p>Script errors in the <strong>Parsing/Loading Phase</strong> are not currently displayed within the game (Like <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> had with debug mode), you need to check for errors in the game log, usually accessible by your launcher</p>
+<p>Script errors in the <strong>Parsing/Loading Stage</strong> are not currently displayed within the game (Like <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> had with debug mode), you need to check for errors in the game log, usually accessible by your launcher</p>
 </div>
-<p>If the script is executed incorrectly in the <strong>Runtime Phase</strong>, an error will be reported in the Minecraft log (Starting with <code>[Scripting] Error executing script!</code>).</p>
+<p>If the script is executed incorrectly in the <strong>Runtime Stage</strong>, an error will be reported in the Minecraft log (Starting with <code>[Scripting] Error executing script!</code>).</p>
 <p>You can visualize the error on your HUD screen by enabling the <a href="aids/script_debug_overlay/">Script Debug Overlay</a>.</p>
 <p>The error message will indicate which line of code in which script file the error occurred. Most launchers have the ability to display logs in a separate window in real time.</p>
 <p>The script execution engine will then pause the entire script for 4 seconds before trying to execute the function again.</p>

@@ -14,7 +14,7 @@
         <link rel="prev" href="../script_guidelines/">
       
       
-        <link rel="next" href="../scripting_restrictions/">
+        <link rel="next" href="../mtr34scripts/">
       
       
         
@@ -3997,6 +3997,8 @@
       
         
       
+        
+      
     
     
     
@@ -4161,6 +4163,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="General (All types of scripting)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#displayhelper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DisplayHelper
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -4197,17 +4227,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#displayhelper" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DisplayHelper
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -4221,23 +4240,6 @@
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Vehicle Migration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#feasibility-of-migrating_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Feasibility of migrating
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -4351,6 +4353,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../mtr34scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dual-versioned Scripts (MTR 3 & MTR 4)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../scripting_restrictions/" class="md-nav__link">
         
   
@@ -4423,6 +4453,8 @@
       
         
       
+        
+      
     
     
     
@@ -4465,6 +4497,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/threaded_execution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multithreaded Runtime Execution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -5848,6 +5908,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="General (All types of scripting)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#displayhelper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DisplayHelper
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -5884,17 +5972,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#displayhelper" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DisplayHelper
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -5908,23 +5985,6 @@
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Vehicle Migration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#feasibility-of-migrating_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Feasibility of migrating
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -6147,9 +6207,13 @@ For <abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)
 </div>
 <p>Backward compatibility with <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> scripts are made on a best-effort basis, in the sense that we won't go out of our way to intentionally break existing scripts, and we will add stub/redirect methods to retain existing script compatibility. However if a major redesign has occured for reasons outside of our variable (e.g. Internal workings of <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>), we are not able to provide full backward compatibility for scripts.</p>
 <h2 id="general-all-types-of-scripting">General (All types of scripting)<a class="headerlink" href="#general-all-types-of-scripting" title="Anchor link to this section for reference">#</a></h2>
+<h3 id="registrations">Registrations<a class="headerlink" href="#registrations" title="Anchor link to this section for reference">#</a></h3>
 <ul>
 <li>Both <code>mtr_custom_resources.json</code> and <code>mtr_custom_resources_pending_migration.json</code> will be parsed for scripts. (In both <abbr title="Minecraft Transit Railway 3.x">MTR 3</abbr>/<abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr> format)</li>
+<li>Eyecandy scripts registered in <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> format are also automatically parsed.</li>
 </ul>
+<h3 id="displayhelper">DisplayHelper<a class="headerlink" href="#displayhelper" title="Anchor link to this section for reference">#</a></h3>
+<p>Backward compatibility for DisplayHelper (<code>mtrsteamloco:scripts/display_helper.js</code>) has been added, and should just work out of the box without any changes.</p>
 <h2 id="eyecandy-migration">Eyecandy Migration<a class="headerlink" href="#eyecandy-migration" title="Anchor link to this section for reference">#</a></h2>
 <h3 id="feasibility-of-migrating">Feasibility of migrating<a class="headerlink" href="#feasibility-of-migrating" title="Anchor link to this section for reference">#</a></h3>
 <p>Before continuing with the migration process, it is important to understand whether your script will have any chance of migrating to <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr> in the first place.</p>
@@ -6271,18 +6335,8 @@ RawMeshBuilder may become available in the future, however there is no plan for 
 </div>
 </div>
 </div>
-<h3 id="displayhelper">DisplayHelper<a class="headerlink" href="#displayhelper" title="Anchor link to this section for reference">#</a></h3>
-<p>Backward compatibility for DisplayHelper (<code>display_helper.js</code> / <code>mtrsteamloco:scripts/display_helper.js</code>) has been added since <abbr title="Joban Client Mod v2">JCM v2</abbr>.1.0.</p>
-<p>Eyecandy scripts making use of DisplayHelper should just work out of the box without the need for any migration process. (Of course other parts of your script may still need updating)</p>
-<p>If you wish to not rely on this compatibility layer (At this very moment you don't have to!), make the following changes to your code:
-<div class="language-diff highlight"><span class="filename">example.js</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gd">-   ctx.drawModel(state.dh.model, null);</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="gi">+   for(let drawCall of state.dh.drawCalls()) {</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="gi">+       ctx.getRenderManager().queue(drawCall);</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="gi">+   }</span>
-</span></code></pre></div></p>
 <h2 id="vehicle-migration">Vehicle Migration<a class="headerlink" href="#vehicle-migration" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="feasibility-of-migrating_1">Feasibility of migrating<a class="headerlink" href="#feasibility-of-migrating_1" title="Anchor link to this section for reference">#</a></h3>
-<p><strong>Vehicle scripting is not yet ready at the moment.</strong> Unfortunately you will have to wait a bit longer in the future.</p>
+<p>To be done...</p>
 <h2 id="migrating-from-ante">Migrating from <abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)">ANTE</abbr><a class="headerlink" href="#migrating-from-ante" title="Anchor link to this section for reference">#</a></h2>
 <p><strong><a href="https://modrinth.com/mod/mtr-ante">Aphrodite's Nemo's Transit Expansion</a></strong> (<abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)">ANTE</abbr>) is a fork of the Nemo Transit Expansion, which brings several new features such as rail tilting and some new scripting abilities.</p>
 <p>Note that the additional features within <abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)">ANTE</abbr> is not considered (at least for now) within the scope of JCM scripting, and therefore we may not make any guarentee about backward compatibility with <abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)">ANTE</abbr>, and some features were delibrately not implemented as they aren't deemed fit in JCM. <em>That said</em> some features from <abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)">ANTE</abbr> were also recognized and adapted to JCM, which should make migration work just a tad bit easier.</p>
@@ -6301,60 +6355,60 @@ RawMeshBuilder may become available in the future, however there is no plan for 
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When using the <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> Eyecandy format (Individualized json file), put the necessary variables within <code>scriptInput</code>.</p>
-<div class="language-diff highlight"><span class="filename">eyecandy.json</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>{
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w"> </span>   &quot;nte_lcd&quot;: {
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w"> </span>       &quot;name&quot;: &quot;NTE LCD Test&quot;,
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w"> </span>       &quot;scriptFiles&quot;: [&quot;mtrsteamloco:eyecandies/js/nte_lcd_test/main.js&quot;],
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="gd">-       &quot;parameters&quot;: {</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="gd">-           &quot;stDay&quot;: &quot;310&quot;,</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="gd">-           &quot;ksDay&quot;: &quot;514&quot;</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="gd">-       }</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="gi">+       &quot;scriptInput&quot;: {</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="gi">+           &quot;name&quot;: &quot;NTE LCD Test&quot;,</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="gi">+           &quot;parameters&quot;: {</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="gi">+              &quot;stDay&quot;: &quot;310&quot;,</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="gi">+              &quot;ksDay&quot;: &quot;514&quot;</span>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="gi">+          }</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="gi">+       }</span>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w"> </span>   }
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>}
+<div class="language-diff highlight"><span class="filename">eyecandy.json</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>{
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w"> </span>   &quot;nte_lcd&quot;: {
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w"> </span>       &quot;name&quot;: &quot;NTE LCD Test&quot;,
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w"> </span>       &quot;scriptFiles&quot;: [&quot;mtrsteamloco:eyecandies/js/nte_lcd_test/main.js&quot;],
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="gd">-       &quot;parameters&quot;: {</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="gd">-           &quot;stDay&quot;: &quot;310&quot;,</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="gd">-           &quot;ksDay&quot;: &quot;514&quot;</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="gd">-       }</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="gi">+       &quot;scriptInput&quot;: {</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="gi">+           &quot;name&quot;: &quot;NTE LCD Test&quot;,</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="gi">+           &quot;parameters&quot;: {</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="gi">+              &quot;stDay&quot;: &quot;310&quot;,</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="gi">+              &quot;ksDay&quot;: &quot;514&quot;</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="gi">+          }</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="gi">+       }</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w"> </span>   }
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>}
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>When using the <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr> Custom Resources Format, the corresponding field is <code>input</code> within the script object.</p>
-<div class="language-diff highlight"><span class="filename">mtr_custom_resources.json</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>{
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w"> </span>   &quot;objects&quot;: [
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w"> </span>       {
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w"> </span>           &quot;id&quot;: &quot;nte_lcd&quot;,
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w"> </span>           &quot;name&quot;: &quot;NTE LCD Test&quot;,
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w"> </span>           &quot;scriptId&quot;: &quot;nte_lcd&quot;
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w"> </span>       }
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w"> </span>   ],
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w"> </span>   &quot;objectScripts&quot;: [
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w"> </span>       {
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w"> </span>           &quot;id&quot;: &quot;nte_lcd&quot;,
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w"> </span>           &quot;scriptLocations&quot;: [&quot;mtrsteamloco:eyecandies/js/nte_lcd_test/main.js&quot;],
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="gi">+           &quot;input&quot;: {</span>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="gi">+               &quot;name&quot;: &quot;NTE LCD Test&quot;,</span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="gi">+               &quot;parameters&quot;: {</span>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="gi">+                  &quot;stDay&quot;: &quot;310&quot;,</span>
-</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="gi">+                  &quot;ksDay&quot;: &quot;514&quot;</span>
-</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="gi">+               }</span>
-</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="gi">+           }</span>
-</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w"> </span>       }
-</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w"> </span>   ]
-</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>}
+<div class="language-diff highlight"><span class="filename">mtr_custom_resources.json</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>{
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w"> </span>   &quot;objects&quot;: [
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w"> </span>       {
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w"> </span>           &quot;id&quot;: &quot;nte_lcd&quot;,
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w"> </span>           &quot;name&quot;: &quot;NTE LCD Test&quot;,
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w"> </span>           &quot;scriptId&quot;: &quot;nte_lcd&quot;
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w"> </span>       }
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w"> </span>   ],
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w"> </span>   &quot;objectScripts&quot;: [
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w"> </span>       {
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w"> </span>           &quot;id&quot;: &quot;nte_lcd&quot;,
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w"> </span>           &quot;scriptLocations&quot;: [&quot;mtrsteamloco:eyecandies/js/nte_lcd_test/main.js&quot;],
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="gi">+           &quot;input&quot;: {</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="gi">+               &quot;name&quot;: &quot;NTE LCD Test&quot;,</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="gi">+               &quot;parameters&quot;: {</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="gi">+                  &quot;stDay&quot;: &quot;310&quot;,</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="gi">+                  &quot;ksDay&quot;: &quot;514&quot;</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="gi">+               }</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="gi">+           }</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w"> </span>       }
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w"> </span>   ]
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>}
 </span></code></pre></div>
 </div>
 </div>
 </div>
 <p>Then rename <code>CONFIG_INFO</code> to <code>SCRIPT_INPUT</code> within the script.
-<div class="language-diff highlight"><span class="filename">script.js</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="gd">- print(CONFIG_INFO.name); // NTE LCD Test</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="gd">- print(CONFIG_INFO.parameters.stDay) // 310</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="gd">- print(CONFIG_INFO.parameters.ksDay) // 514</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="gi">+ print(SCRIPT_INPUT.name); // NTE LCD Test</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="gi">+ print(SCRIPT_INPUT.parameters.stDay) // 310</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="gi">+ print(SCRIPT_INPUT.parameters.ksDay) // 514</span>
+<div class="language-diff highlight"><span class="filename">script.js</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gd">- print(CONFIG_INFO.name); // NTE LCD Test</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="gd">- print(CONFIG_INFO.parameters.stDay) // 310</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="gd">- print(CONFIG_INFO.parameters.ksDay) // 514</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="gi">+ print(SCRIPT_INPUT.name); // NTE LCD Test</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="gi">+ print(SCRIPT_INPUT.parameters.stDay) // 310</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="gi">+ print(SCRIPT_INPUT.parameters.ksDay) // 514</span>
 </span></code></pre></div></p>
 <h3 id="custom-shapes-for-eyecandy">Custom shapes for eyecandy<a class="headerlink" href="#custom-shapes-for-eyecandy" title="Anchor link to this section for reference">#</a></h3>
 <p>In <abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)">ANTE</abbr>, you would invoke <code>BlockEyeCandy.setShape(shape: String)</code> and <code>BlockEyeCandy.setCollisionShape(shape: String)</code> to set the outline and collision shape of the eyecandy, and then invoke <code>BlockEyeCandy.sendUpdateC2S</code> to sync it to the server.</p>
@@ -6366,49 +6420,67 @@ RawMeshBuilder may become available in the future, however there is no plan for 
 <li>When a player is holding a brush, it would always reset to the default outline block shape to ensure operators/admin can't be 'locked out' due to a block shape that is infeasible to right click on.</li>
 </ul>
 <h4 id="migration-example_1">Migration example<a class="headerlink" href="#migration-example_1" title="Anchor link to this section for reference">#</a></h4>
-<div class="language-diff highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">example.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
-<span class="normal"><a href="#__codelineno-6-2">2</a></span>
-<span class="normal"><a href="#__codelineno-6-3">3</a></span>
-<span class="normal"><a href="#__codelineno-6-4">4</a></span>
-<span class="normal"><a href="#__codelineno-6-5">5</a></span>
-<span class="normal"><a href="#__codelineno-6-6">6</a></span>
-<span class="normal"><a href="#__codelineno-6-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>function render(ctx, state, blockEyecandy) {
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="gd">-   blockEyecandy.setShape(&quot;0,0,0,8,8,8/7,0,7,12,16,10&quot;);</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="gd">-   blockEyecandy.sendUpdateC2S();</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="gi">+   const shape1 = VoxelShape.create(0, 0, 0, 8, 8, 8, blockEyecandy.facing());</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="gi">+   const shape2 = VoxelShape.create(7, 0, 7, 12,16,10, blockEyecandy.facing());</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="gi">+   ctx.setOutlineShape(shape1.combine(shape2));</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7"></a>}
+<div class="language-diff highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">example.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span>
+<span class="normal"><a href="#__codelineno-5-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a>function render(ctx, state, blockEyecandy) {
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="gd">-   blockEyecandy.setShape(&quot;0,0,0,8,8,8/7,0,7,12,16,10&quot;);</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="gd">-   blockEyecandy.sendUpdateC2S();</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="gi">+   const shape1 = VoxelShape.create(0, 0, 0, 8, 8, 8, blockEyecandy.facing());</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="gi">+   const shape2 = VoxelShape.create(7, 0, 7, 12,16,10, blockEyecandy.facing());</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="gi">+   ctx.setOutlineShape(shape1.combine(shape2));</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7"></a>}
 </span></code></pre></div></td></tr></table></div>
 <h3 id="block-use-event">Block Use Event<a class="headerlink" href="#block-use-event" title="Anchor link to this section for reference">#</a></h3>
 <p>In <abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)">ANTE</abbr>, the <code>use</code> function would be invoked with 4 parameters: <code>ctx, state, blockEyecandy, player</code> when a player right click on it with anything other than an MTR Brush.</p>
 <p>In JCM, you would have to check the event by yourself within the <code>render</code> function.</p>
 <h4 id="migration-example_2">Migration Example<a class="headerlink" href="#migration-example_2" title="Anchor link to this section for reference">#</a></h4>
-<div class="language-diff highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">example.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-7-10">10</a></span>
-<span class="normal"><a href="#__codelineno-7-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>function render(ctx, state, blockEyecandy) {
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="gi">+   if(ctx.events().onBlockUse.occurred()) {</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="gi">+       let eventDetail = ctx.events().onBlockUse.detail();</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="gi">+       print(`Player at ${eventDetail.player().pos().x()}, ${eventDetail.player().pos().z()} right clicked the block!`);</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="gi">+   }</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="gi">+   ctx.events().handled(); // Important, this resets the event state!</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7"></a>}
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8"></a>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="gd">-   function use(ctx, state, blockEyecandy, player) {</span>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="gd">-       print(`Player at ${player.getPosition().getX()}, ${player.getPosition().getZ()} right clicked the block!`);</span>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="gd">-   }</span>
+<div class="language-diff highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">example.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>function render(ctx, state, blockEyecandy) {
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="gi">+   if(ctx.events().onBlockUse.occurred()) {</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="gi">+       let eventDetail = ctx.events().onBlockUse.detail();</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="gi">+       print(`Player at ${eventDetail.player().pos().x()}, ${eventDetail.player().pos().z()} right clicked the block!`);</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="gi">+   }</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="gi">+   ctx.events().handled(); // Important, this resets the event state!</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7"></a>}
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="gd">-   function use(ctx, state, blockEyecandy, player) {</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="gd">-       print(`Player at ${player.getPosition().getX()}, ${player.getPosition().getZ()} right clicked the block!`);</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="gd">-   }</span>
 </span></code></pre></div></td></tr></table></div>
 <h3 id="componentutil">ComponentUtil<a class="headerlink" href="#componentutil" title="Anchor link to this section for reference">#</a></h3>
 <p><abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)">ANTE</abbr> allows creating Raw Minecraft Text Component with the use of <code>ComponentUtil</code>. JCM instead creates a wrapper for the Component via <a href="../../mc/#vanillatext">VanillaText</a>.</p>
 <h4 id="migration-example_3">Migration Example<a class="headerlink" href="#migration-example_3" title="Anchor link to this section for reference">#</a></h4>
+<div class="language-diff highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">example.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span>
+<span class="normal"><a href="#__codelineno-7-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>function render(ctx, state, blockEyecandy) {
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w"> </span>   ...
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="gd">-   let component = ComponentUtil.translatable(&quot;text.aph.is&quot;, &quot;A&quot;, &quot;B&quot;);</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="gd">-   let str = ComponentUtil.getString(component);</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="gi">+   let component = VanillaText.translatable(&quot;text.aph.is&quot;, &quot;A&quot;, &quot;B&quot;);</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="gi">+   let str = component.getString();</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7"></a>}
+</span></code></pre></div></td></tr></table></div>
+<h3 id="wrappedentity">WrappedEntity<a class="headerlink" href="#wrappedentity" title="Anchor link to this section for reference">#</a></h3>
+<p><abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)">ANTE</abbr> uses WrappedEntity to represent a Minecraft entity, which is obtainable via the <code>use</code> event and <code>MinecraftClient.getPlayer()</code>.<br />
+JCM provides <a href="../../mc/#playerentity">PlayerEntity</a> as the wrapper to represent a Minecraft entity, which contains a couple more methods to obtain information. The client player can be obtained with <code>MinecraftClient.localPlayer()</code> instead of <code>MinecraftClient.getPlayer()</code></p>
+<h4 id="migration-example_4">Migration Example<a class="headerlink" href="#migration-example_4" title="Anchor link to this section for reference">#</a></h4>
 <div class="language-diff highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">example.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
 <span class="normal"><a href="#__codelineno-8-2">2</a></span>
 <span class="normal"><a href="#__codelineno-8-3">3</a></span>
@@ -6417,29 +6489,11 @@ RawMeshBuilder may become available in the future, however there is no plan for 
 <span class="normal"><a href="#__codelineno-8-6">6</a></span>
 <span class="normal"><a href="#__codelineno-8-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>function render(ctx, state, blockEyecandy) {
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w"> </span>   ...
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="gd">-   let component = ComponentUtil.translatable(&quot;text.aph.is&quot;, &quot;A&quot;, &quot;B&quot;);</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="gd">-   let str = ComponentUtil.getString(component);</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="gi">+   let component = VanillaText.translatable(&quot;text.aph.is&quot;, &quot;A&quot;, &quot;B&quot;);</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="gi">+   let str = component.getString();</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="gd">-   let clientPlayer = MinecraftClient.getPlayer();</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="gd">-   let playerPos = clientPlayer.getPosition();</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="gi">+   let clientPlayer = MinecraftClient.localPlayer();</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="gi">+   let playerPos = clientPlayer.pos();</span>
 </span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7"></a>}
-</span></code></pre></div></td></tr></table></div>
-<h3 id="wrappedentity">WrappedEntity<a class="headerlink" href="#wrappedentity" title="Anchor link to this section for reference">#</a></h3>
-<p><abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)">ANTE</abbr> uses WrappedEntity to represent a Minecraft entity, which is obtainable via the <code>use</code> event and <code>MinecraftClient.getPlayer()</code>.<br />
-JCM provides <a href="../../mc/#playerentity">PlayerEntity</a> as the wrapper to represent a Minecraft entity, which contains a couple more methods to obtain information. The client player can be obtained with <code>MinecraftClient.localPlayer()</code> instead of <code>MinecraftClient.getPlayer()</code></p>
-<h4 id="migration-example_4">Migration Example<a class="headerlink" href="#migration-example_4" title="Anchor link to this section for reference">#</a></h4>
-<div class="language-diff highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">example.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
-<span class="normal"><a href="#__codelineno-9-2">2</a></span>
-<span class="normal"><a href="#__codelineno-9-3">3</a></span>
-<span class="normal"><a href="#__codelineno-9-4">4</a></span>
-<span class="normal"><a href="#__codelineno-9-5">5</a></span>
-<span class="normal"><a href="#__codelineno-9-6">6</a></span>
-<span class="normal"><a href="#__codelineno-9-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a>function render(ctx, state, blockEyecandy) {
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w"> </span>   ...
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="gd">-   let clientPlayer = MinecraftClient.getPlayer();</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="gd">-   let playerPos = clientPlayer.getPosition();</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="gi">+   let clientPlayer = MinecraftClient.localPlayer();</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="gi">+   let playerPos = clientPlayer.pos();</span>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7"></a>}
 </span></code></pre></div></td></tr></table></div>
 <h3 id="utilitiesclient">UtilitiesClient<a class="headerlink" href="#utilitiesclient" title="Anchor link to this section for reference">#</a></h3>
 <p><abbr title="Minecraft Transit Railway 3.x">MTR 3</abbr> contains a <code>UtilitiesClient</code> class that is exposed by <abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)">ANTE</abbr>, which is no longer the case in <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>. Known equivalent methods can be found as follows:</p>
