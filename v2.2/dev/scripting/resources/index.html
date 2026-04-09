@@ -5947,6 +5947,10 @@ You are advised to avoid using these functions for newly created scripts.</p>
 </thead>
 <tbody>
 <tr>
+<td style="text-align: left;"><code>static Resources.manager(): null</code></td>
+<td style="text-align: left;">Returns Minecraft's native resource manager in <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr>.<br>Since it is not exposed in Minecraft-Mappings (<abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>'s cross-version framework), this now returns null. Other functions that require <code>Resources.manager()</code> can accept null without any issues.</td>
+</tr>
+<tr>
 <td style="text-align: left;"><code>static Resources.readString(id: Identifier): String?</code></td>
 <td style="text-align: left;">Reads the contents of a resource file as a string.<br>Null if the file reading failed.</td>
 </tr>
@@ -5981,8 +5985,8 @@ You are advised to avoid using these functions for newly created scripts.</p>
 <td style="text-align: left;">Obtain an <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/font/FontRenderContext.html">AWT FontRenderContext</a> for dimension measurement of text.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>static Resources.ensureStrFonts(text: String, primaryFont: Font): AttributedString</code></td>
-<td style="text-align: left;">Get an instance of AttributedString with the corresponding text and font set.<br><code>primaryFont</code> is the default font used. If the primary font cannot render a certain character, it will iterate over the fonts available in the user's computer until a suitable one can be found.<br><br>This is useful to prevent Tofu/Square when rendering versatile scripts (Such as Arabic on a Latin font).</td>
+<td style="text-align: left;"><code>static Resources.ensureStrFonts(text: String, primaryFont: Font, fallbackFonts: Font...): AttributedString</code></td>
+<td style="text-align: left;">Get an instance of AttributedString with the corresponding text and font set.<br><code>primaryFont</code> is the default font used. If the primary font cannot render a certain character, it will iterate over <code>fallbackFonts</code> (If there are any) and check whether the font is capable of rendering the characters. If not, it will iterate through the fonts available in the user's computer until a suitable one can be found.<br><br>This is useful to prevent Tofu/Square when rendering versatile scripts (Such as Arabic on a Latin font).</td>
 </tr>
 </tbody>
 </table>

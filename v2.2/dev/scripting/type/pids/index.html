@@ -5656,17 +5656,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#global-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Global Environment
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -5685,10 +5674,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#registering-a-scripted-pids-preset" class="md-nav__link">
+  <a href="#script-registration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Registering a Scripted PIDS Preset
+        Script Registration
       
     </span>
   </a>
@@ -5894,12 +5883,8 @@ Therefore, this can be seen as a replacement to the above systems which supports
 <p><img alt="JCM PIDS Scripting Draw Order" src="img/PIDS_Scripting_Draw_Order.png" width="500" /></p>
 <p>The number in the circle depicts the order in which the element is drawn in. 1 gets drawn first, then 2, 3, 4, 5 and finally 6.</p>
 <p>As such, element 6 is the frontmost element, which can cover element 1-5 if overlapped.</p>
-<h3 id="global-environment">Global Environment<a class="headerlink" href="#global-environment" title="Anchor link to this section for reference">#</a></h3>
-<p>A script is evaluated &amp; executed when a PIDS Preset is loaded during the resource-pack loading phase.</p>
-<p>Therefore, the same type of PIDS Preset will use the same working environment (global variables and etc).</p>
-<p>Code written in top-level space outside of functions will run when a resource package is loaded, and can be used to load resources such as models and textures. It is recommended to store resources (such as models, fonts and textures) in global variables, which do not need to be different for each PIDS block, to avoid excessive memory usage caused by loading a copy of the same content for each PIDS.  </p>
 <h2 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="registering-a-scripted-pids-preset">Registering a Scripted PIDS Preset<a class="headerlink" href="#registering-a-scripted-pids-preset" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="script-registration">Script Registration<a class="headerlink" href="#script-registration" title="Anchor link to this section for reference">#</a></h3>
 <p>A preset is automatically considered as a Scripted PIDS Preset by specifying either <code>scriptFiles</code> <strong>or</strong> <code>scriptTexts</code> property in <code>joban_custom_resources.json</code>:</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;pids_images&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
@@ -5916,7 +5901,7 @@ Therefore, this can be seen as a replacement to the above systems which supports
 <p><code>scriptTexts</code> allows you to directly write <abbr title="JavaScript">JS</abbr> inside, but should only be used for simple variable declaration.</p>
 <p><em>Note: At the moment, mixing Scripted PIDS Preset and JSON PIDS Preset is not possible.</em></p>
 <h3 id="called-functions">Called Functions<a class="headerlink" href="#called-functions" title="Anchor link to this section for reference">#</a></h3>
-<p>Your script should include the following functions that JCM will call as needed:
+<p>Your script can include the following functions that JCM will call as needed:
 <div class="language-js highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">create</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">pids</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">render</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">pids</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kd">function</span><span class="w"> </span><span class="nx">dispose</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">pids</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
@@ -5982,10 +5967,6 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>PIDSScriptContext.setDebugInfo(key: String, value: object)</code></td>
-<td style="text-align: left;">Output debugging information in the upper left corner of the screen. You need to enable <strong><a href="../../aids/script_debug_overlay/">Script Debug Overlay</a></strong> in JCM Settings to display it.<br><code>key</code> is the name of the value<br><code>value</code> is the content (<code>value</code> will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).</td>
-</tr>
-<tr>
 <td style="text-align: left;"><code>PIDSScriptContext.getRenderManager(): RenderManager</code></td>
 <td style="text-align: left;">Obtain a <a href="../../rendering/#rendermanager">RenderManager</a> instance, which can be used to render stuff onto the Minecraft World.<br>The base position are set to the block's position.</td>
 </tr>
@@ -6000,6 +5981,10 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 <tr>
 <td style="text-align: left;"><code>PIDSScriptContext.setZOrderStep(distanceMeter: double): void</code></td>
 <td style="text-align: left;">To ensure z-fighting don't occur, by default JCM will translate a small amount (step) in the z-direction everytime you draw a text/texture. Here you can pass in a custom step value. By default this is <code>0.0002</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PIDSScriptContext.setDebugInfo(key: String, value: object): void</code></td>
+<td style="text-align: left;">Output debugging information in the upper left corner of the screen. You need to enable <strong><a href="../../aids/script_debug_overlay/">Script Debug Overlay</a></strong> in JCM Settings to display it.<br><code>key</code> is the name of the value<br><code>value</code> is the content (<code>value</code> will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).</td>
 </tr>
 </tbody>
 </table>

@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#unsupported-features" class="md-skip">
+        <a href="#console-api" class="md-skip">
           Skip to content
         </a>
       
@@ -4575,6 +4575,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -4617,23 +4619,14 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#unsupported-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Unsupported features
-      
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#api-reference" class="md-nav__link">
@@ -4644,13 +4637,52 @@
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="API Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#print-function" class="md-nav__link">
+    <span class="md-ellipsis">
       
-        <li class="md-nav__item">
+        print() function
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#console" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Console
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#example" class="md-nav__link">
     <span class="md-ellipsis">
       
         Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#printing-an-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Printing an object
       
     </span>
   </a>
@@ -5698,23 +5730,14 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#unsupported-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Unsupported features
-      
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#api-reference" class="md-nav__link">
@@ -5725,13 +5748,52 @@
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="API Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#print-function" class="md-nav__link">
+    <span class="md-ellipsis">
       
-        <li class="md-nav__item">
+        print() function
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#console" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Console
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#example" class="md-nav__link">
     <span class="md-ellipsis">
       
         Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#printing-an-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Printing an object
       
     </span>
   </a>
@@ -5850,17 +5912,24 @@
   
 
 
-  <h1>Console API</h1>
-
-<p>The console API aims to replicate the JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/API/Console_API">Console API</a> seen in web environment.</p>
-<p>This allows access to <code>console.log</code>, <code>console.warn</code> and other timing-related function to improve the debugging experience, as well as providing familiarity to developers with a basic web development background.</p>
-<h3 id="unsupported-features">Unsupported features<a class="headerlink" href="#unsupported-features" title="Anchor link to this section for reference">#</a></h3>
+<h1 id="console-api">Console API<a class="headerlink" href="#console-api" title="Anchor link to this section for reference">#</a></h1>
+<p>This allows access to <code>print()</code>, <code>console.log()</code>, <code>console.warn()</code> and other relevant logging functions to allow debugging for script developers.</p>
+<h2 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Anchor link to this section for reference">#</a></h2>
+<h3 id="print-function">print() function<a class="headerlink" href="#print-function" title="Anchor link to this section for reference">#</a></h3>
+<p>This is a globally available function for all scripts, which performs identically to <code>console.log</code>:</p>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">static</span><span class="w"> </span><span class="nx">print</span><span class="p">(</span><span class="nx">params</span><span class="o">:</span><span class="w"> </span><span class="nb">Object</span><span class="p">...)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
+</span></code></pre></div>
+<p>This was the only logging function available in <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> before the introduction of the JavaScript Console API in JCM.<br />
+For compatibility and ease-of-use, this function will remain accessible, and script developers may use <code>print()</code> in place of <code>console.log()</code> if they feel like.</p>
+<h3 id="console">Console<a class="headerlink" href="#console" title="Anchor link to this section for reference">#</a></h3>
+<p>This is a class which replicates the JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/API/Console_API">Console API</a> seen in web environment.</p>
+<h4 id="unsupported-features">Unsupported features<a class="headerlink" href="#unsupported-features" title="Anchor link to this section for reference">#</a></h4>
 <ul>
 <li>Functions that cannot be represented in plain text (e.g. <code>console.table</code>)</li>
 <li>Functions that are irrelevant to JCM Scripting/Minecraft (e.g. <code>console.profile</code>)</li>
 <li>Console string interpolation (Use ES6's backtick string should be enough in most cases)</li>
 </ul>
-<h3 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Anchor link to this section for reference">#</a></h3>
+<h4 id="api-reference_1">API Reference<a class="headerlink" href="#api-reference_1" title="Anchor link to this section for reference">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -5908,23 +5977,27 @@
 </tbody>
 </table>
 <h3 id="example">Example<a class="headerlink" href="#example" title="Anchor link to this section for reference">#</a></h3>
-<div class="language-js highlight"><span class="filename">example_log.js</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/* Logging */</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Output: [JCM Scripting] Hello World</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="cm">/* Counters */</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nx">console</span><span class="p">.</span><span class="nx">count</span><span class="p">(</span><span class="s2">&quot;counter1&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Output: counter1: 1</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nx">console</span><span class="p">.</span><span class="nx">count</span><span class="p">(</span><span class="s2">&quot;counter1&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Output: counter1: 2</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nx">console</span><span class="p">.</span><span class="nx">count</span><span class="p">(</span><span class="s2">&quot;counter2&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Output: counter2: 1</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nx">console</span><span class="p">.</span><span class="nx">countReset</span><span class="p">(</span><span class="s2">&quot;counter1&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Output: counter1: 0</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="cm">/* Timers */</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="s2">&quot;timer1&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Output: (None)</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="s2">&quot;timer1&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Output: Timer &quot;timer1&quot; already exists.</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="nx">console</span><span class="p">.</span><span class="nx">timeLog</span><span class="p">(</span><span class="s2">&quot;timer1&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// Output: timer1: [millisecond elapsed]ms</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="nx">console</span><span class="p">.</span><span class="nx">timeEnd</span><span class="p">(</span><span class="s2">&quot;timer1&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// Output: timer1: [millisecond elapsed]ms - timer ended</span>
+<div class="language-js highlight"><span class="filename">example_log.js</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* Logging */</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">);</span><span class="w">       </span><span class="c1">// Output: [JCM Scripting] Hello World</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Output: [JCM Scripting] Hello World</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="cm">/* Counters */</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nx">console</span><span class="p">.</span><span class="nx">count</span><span class="p">(</span><span class="s2">&quot;counter1&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Output: counter1: 1</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nx">console</span><span class="p">.</span><span class="nx">count</span><span class="p">(</span><span class="s2">&quot;counter1&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Output: counter1: 2</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="nx">console</span><span class="p">.</span><span class="nx">count</span><span class="p">(</span><span class="s2">&quot;counter2&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Output: counter2: 1</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="nx">console</span><span class="p">.</span><span class="nx">countReset</span><span class="p">(</span><span class="s2">&quot;counter1&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Output: counter1: 0</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="cm">/* Timers */</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="s2">&quot;timer1&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Output: (None)</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="s2">&quot;timer1&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Output: Timer &quot;timer1&quot; already exists.</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="nx">console</span><span class="p">.</span><span class="nx">timeLog</span><span class="p">(</span><span class="s2">&quot;timer1&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// Output: timer1: [millisecond elapsed]ms</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="nx">console</span><span class="p">.</span><span class="nx">timeEnd</span><span class="p">(</span><span class="s2">&quot;timer1&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// Output: timer1: [millisecond elapsed]ms - timer ended</span>
 </span></code></pre></div>
+<h2 id="printing-an-object">Printing an object<a class="headerlink" href="#printing-an-object" title="Anchor link to this section for reference">#</a></h2>
+<p>When printing a JavaScript object, you may find that it would only output <code>[object Object]</code>.</p>
+<p>To also print all the fields within the object, you can use <code>JSON.stringify()</code> to convert it into a string first, before printing to the console.</p>
 <!-- *[JCM]: Joban Client Mod -->
 <!-- *[PIDS]: Passenger Information Display System -->
 

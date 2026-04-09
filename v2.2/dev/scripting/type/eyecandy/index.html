@@ -5642,23 +5642,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Concept">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#global-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Global Environment
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -5674,10 +5657,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#registering-scripts-to-decoration-object" class="md-nav__link">
+  <a href="#script-registration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Registering scripts to Decoration Object
+        Script Registration
       
     </span>
   </a>
@@ -5854,13 +5837,9 @@
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Anchor link to this section for reference">#</a></h2>
 <p>Your script will be associated as part of a Decoration Object model entry in the resource pack. When the model is assigned to a Decoration Object block, your script will start to execute.</p>
 <p>During the execution, you may request for one or more model to be drawn onto the world, as well as requesting for sounds to be played.</p>
-<h3 id="global-environment">Global Environment<a class="headerlink" href="#global-environment" title="Anchor link to this section for reference">#</a></h3>
-<p>A script is evaluated &amp; executed when a Decoration Object entry is loaded during the resource-pack loading phase.</p>
-<p>Therefore, the same Decoration Object entry will use the same working environment (global variables and etc).</p>
-<p>Code written in top-level space outside of functions will run when a resource package is loaded, and can be used to load resources such as models and textures. It is recommended to store resources (such as models, fonts and textures) in global variables, which do not need to be different for each decoration object, to avoid excessive memory usage caused by loading a copy of the same content for each block.  </p>
 <h2 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="registering-scripts-to-decoration-object">Registering scripts to Decoration Object<a class="headerlink" href="#registering-scripts-to-decoration-object" title="Anchor link to this section for reference">#</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="mtr-4-custom-resources" name="__tabbed_1" type="radio" /><input id="mtr-3--mtr-nte-format" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="mtr-4-custom-resources"><abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr> Custom Resources</label><label for="mtr-3--mtr-nte-format"><abbr title="Minecraft Transit Railway 3.x">MTR 3</abbr> / MTR-<abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> Format</label></div>
+<h3 id="script-registration">Script Registration<a class="headerlink" href="#script-registration" title="Anchor link to this section for reference">#</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="mtr-4-custom-resources" name="__tabbed_1" type="radio" /><input id="mtr-3--nte-format" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="mtr-4-custom-resources"><abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr> Custom Resources</label><label for="mtr-3--nte-format"><abbr title="Minecraft Transit Railway 3.x">MTR 3</abbr> / <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> Format</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <details class="info">
@@ -5906,7 +5885,7 @@
 </span></span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="hll"><span class="w">    </span><span class="p">]</span>
 </span></span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Field description within the <code>scripting</code> block are listed as follows:</p>
+<p>Field description within the script entry (entries within <code>objectScripts</code>) are listed as follows:</p>
 <table>
 <thead>
 <tr>
@@ -5933,7 +5912,7 @@
 </tr>
 </tbody>
 </table>
-<p>All fields are optional and could be emitted (Including the entire <code>scripting</code> object). However in order for script to load, either the <code>scriptLocation</code> or <code>prependExpressions</code> should be filled.</p>
+<p>All fields are optional and could be omitted. However in order for script to load, either the <code>scriptLocation</code> or <code>prependExpressions</code> should be filled.</p>
 </div>
 <div class="tabbed-block">
 <details class="info">
@@ -5973,7 +5952,7 @@
 </div>
 </div>
 <h3 id="called-functions">Called Functions<a class="headerlink" href="#called-functions" title="Anchor link to this section for reference">#</a></h3>
-<p>Your script should include the following functions that JCM will call as needed:
+<p>Your script <em>can</em> include the following functions that JCM will call as needed:
 <div class="language-js highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">create</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">blockEyecandy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">render</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">blockEyecandy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kd">function</span><span class="w"> </span><span class="nx">dispose</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">blockEyecandy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
@@ -6000,7 +5979,8 @@
 </tr>
 </tbody>
 </table>
-<p>JCM calls these functions with three parameters, each of which is described below.</p>
+<p><em>Note: Any of the above functions are optional and may be omitted if you don't find it useful for your script.</em></p>
+<p>The parameters (<code>ctx, state, blockEyecandy</code>) are described below:</p>
 <table>
 <thead>
 <tr>
@@ -6023,10 +6003,10 @@
 </tr>
 </tbody>
 </table>
-<p>The following lists all the rendering control operations that can be performed and all the information that can be obtained about <code>blockEyecandy</code>.</p>
 <h3 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Anchor link to this section for reference">#</a></h3>
 <h4 id="eyecandyscriptcontext">EyeCandyScriptContext<a class="headerlink" href="#eyecandyscriptcontext" title="Anchor link to this section for reference">#</a></h4>
-<p>The following functions are called to <strong>control rendering</strong>. The functions for rendering models should be called each time render is called.</p>
+<p>This is the <code>ctx</code> parameter passed to the create/render/dispose functions.</p>
+<p>Script may invoke one of the following methods to control rendering and sounds, modify eyecandy voxel shape, set debug info overlay, as well as checking for events (Such as block right-clicking).</p>
 <table>
 <thead>
 <tr>
@@ -6036,11 +6016,11 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>EyeCandyScriptContext.drawModel(model: ScriptedModel, matrices: Matrices?)</code></td>
+<td style="text-align: left;"><code>EyeCandyScriptContext.drawModel(model: ScriptedModel, matrices: Matrices?): void</code></td>
 <td style="text-align: left;">Requests JCM to render a model loaded via <a href="../../model/#modelmanager">ModelManager</a>.<br><code>matrices</code> is the transformation of model placement.<br>If <code>matrices</code> is null, the model will be placed in the center of the block without transformation.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>EyeCandyScriptContext.setDebugInfo(key: String, value: object)</code></td>
+<td style="text-align: left;"><code>EyeCandyScriptContext.setDebugInfo(key: String, value: object): void</code></td>
 <td style="text-align: left;">Output debugging information in the upper left corner of the screen. You need to enable <strong><a href="../../aids/script_debug_overlay/">Script Debug Overlay</a></strong> in JCM Settings to display it.<br><code>key</code> is the name of the value<br><code>value</code> is the content (<code>value</code> will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).</td>
 </tr>
 <tr>
@@ -6066,6 +6046,7 @@
 </tbody>
 </table>
 <h4 id="blockeyecandy">BlockEyecandy<a class="headerlink" href="#blockeyecandy" title="Anchor link to this section for reference">#</a></h4>
+<p>Represents a Decoration Block in the world.</p>
 <table>
 <thead>
 <tr>

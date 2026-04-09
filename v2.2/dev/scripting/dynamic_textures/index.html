@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#graphicstexture" class="md-skip">
+        <a href="#graphics-api" class="md-skip">
           Skip to content
         </a>
       
@@ -4687,6 +4687,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -4729,6 +4731,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -4763,17 +4767,6 @@
     <span class="md-ellipsis">
       
         AWT-related classes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#referenced-sources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Referenced sources
       
     </span>
   </a>
@@ -5709,6 +5702,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -5743,17 +5738,6 @@
     <span class="md-ellipsis">
       
         AWT-related classes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#referenced-sources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Referenced sources
       
     </span>
   </a>
@@ -5872,8 +5856,7 @@
   
 
 
-  <h1>Graphics API</h1>
-
+<h1 id="graphics-api">Graphics API<a class="headerlink" href="#graphics-api" title="Anchor link to this section for reference">#</a></h1>
 <p>A commonly-seen feature among scripted vehicles is the inclusion of a passenger LCD screen, or some form of destination LED signs. But they aren't just any other texture slapped onto it, they have to be dynamically drawn in order to make it show the correct information in the player's world. How do they do it then?</p>
 <p>The <strong>GraphicsTexture</strong> class allows you to create a texture of a fixed resolution, in which you can draw things dynamically with Java's AWT Graphics.</p>
 <h2 id="graphicstexture">GraphicsTexture<a class="headerlink" href="#graphicstexture" title="Anchor link to this section for reference">#</a></h2>
@@ -5890,8 +5873,8 @@
 <td style="text-align: left;">Create a GraphicsTexture with <code>width</code> and <code>height</code> pixels.<br>If you plan to draw contents related to per-block/per-train, you should use this in the  <code>create</code> function and store in <code>state</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>GraphicsTexture.close(): void</code></td>
-<td style="text-align: left;">Releases the memory used by this texture. It cannot be used after that.<br>If it was created in the <code>create</code> train function, it must be deleted in the <code>dispose</code> function, otherwise it will continue to occupy memory, thus creating a memory leak.</td>
+<td style="text-align: left;"><code>GraphicsTexture.identifier: Identifier</code></td>
+<td style="text-align: left;">The identifier of the virtual resource of this dynamic texture. You can use this to replace the model texture/draw a texture with this id.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>GraphicsTexture.bufferedImage: BufferedImage</code></td>
@@ -5906,8 +5889,8 @@
 <td style="text-align: left;">Loads the contents of bufferedImage into video memory and immediately displays it on the model.<br>This operation can significantly reduce FPS. It is recommended to use it in combination with <code>RateLimit</code> to reduce the frequency of texture updates.<br><br>For example, the screen can be updated only 10 times per second, and it may not be updated at far distances, in some cases the information may not be updated at all.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>GraphicsTexture.identifier: Identifier</code></td>
-<td style="text-align: left;">The identifier of the virtual resource of this dynamic texture. You can use this to replace the model texture/draw a texture with this id.</td>
+<td style="text-align: left;"><code>GraphicsTexture.close(): void</code></td>
+<td style="text-align: left;">Releases the memory used by this texture. It cannot be used after that.<br>If it was created in the <code>create</code> train function, it must be deleted in the <code>dispose</code> function, otherwise it will continue to occupy memory, thus creating a memory leak.</td>
 </tr>
 </tbody>
 </table>
@@ -5933,10 +5916,6 @@
 <li><code>Graphics.getTransform</code>, <code>Graphics.transform</code>, <code>Graphics.setTransform</code>, <code>AffineTransform.getTranslateInstance</code>, <code>AffineTransform.getRotateInstance</code></li>
 <li><code>Graphics.setClip</code></li>
 <li><code>Graphics.getComposite</code>, <code>Graphics.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, …))</code>, <code>Graphics.setComposite</code></li>
-</ul>
-<h2 id="referenced-sources">Referenced sources<a class="headerlink" href="#referenced-sources" title="Anchor link to this section for reference">#</a></h2>
-<ul>
-<li><a href="https://wiki.minecrafttransitrailway.com/mtr_addon:nte:js:dynamic_texture">https://wiki.minecrafttransitrailway.com/mtr_addon:nte:js:dynamic_texture</a></li>
 </ul>
 <!-- *[JCM]: Joban Client Mod -->
 <!-- *[PIDS]: Passenger Information Display System -->
