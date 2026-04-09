@@ -7,16 +7,9 @@ Your script will be associated as part of a Decoration Object model entry in the
 
 During the execution, you may request for one or more model to be drawn onto the world, as well as requesting for sounds to be played.
 
-### Global Environment
-A script is evaluated & executed when a Decoration Object entry is loaded during the resource-pack loading phase.
-
-Therefore, the same Decoration Object entry will use the same working environment (global variables and etc).
-
-Code written in top-level space outside of functions will run when a resource package is loaded, and can be used to load resources such as models and textures. It is recommended to store resources (such as models, fonts and textures) in global variables, which do not need to be different for each decoration object, to avoid excessive memory usage caused by loading a copy of the same content for each block.  
-
 ## Implementation
 
-### Registering scripts to Decoration Object
+### Script Registration
 
 === "MTR 4 Custom Resources"
     ??? info "Mixing static object model & scripts"
@@ -46,7 +39,7 @@ Code written in top-level space outside of functions will run when a resource pa
     }
     ```
 
-    Field description within the `scripting` block are listed as follows:
+    Field description within the script entry (entries within `objectScripts`) are listed as follows:
 
     |Field name|Description|Equivalence in MTR 3/NTE format|
     |----------|-------|--------------------|
@@ -54,9 +47,9 @@ Code written in top-level space outside of functions will run when a resource pa
     |prependExpressions|Allows you to directly write JS inside, which will be executed before the scripts in **scriptLocations**|scriptTexts|
     |input|Allows you to specify arbitary JSON object. which is then made accessible to the **.js** scripts via the variable `SCRIPT_INPUT`|scriptInput|
 
-    All fields are optional and could be emitted (Including the entire `scripting` object). However in order for script to load, either the `scriptLocation` or `prependExpressions` should be filled.
+    All fields are optional and could be omitted. However in order for script to load, either the `scriptLocation` or `prependExpressions` should be filled.
 
-=== "MTR 3 / MTR-NTE Format"
+=== "MTR 3 / NTE Format"
     ??? info "Mixing static object model & scripts"
         Currently it is not possible to mix static object model and scripts. Once a script entry is specified, the rendering of the object block will be solely driven by scripts.
 
@@ -85,7 +78,7 @@ Code written in top-level space outside of functions will run when a resource pa
 
 
 ### Called Functions
-Your script should include the following functions that JCM will call as needed:
+Your script *can* include the following functions that JCM will call as needed:
 ``` js
 function create(ctx, state, blockEyecandy) { ... }
 function render(ctx, state, blockEyecandy) { ... }
@@ -98,7 +91,9 @@ function dispose(ctx, state, blockEyecandy) { ... }
 |`render` |This function is called at-most once per frame. It is used to render contents. In practice however, the code is executed in a separate thread so as not to slow down FPS. If it takes too long to execute the code, it may be called once every few frames instead of every frame.|
 |`dispose`|Called when the Decoration Object block goes out of sight. Can be used for things like releasing the dynamic textures to free up memory.|
 
-JCM calls these functions with three parameters, each of which is described below.
+*Note: Any of the above functions are optional and may be omitted if you don't find it useful for your script.*
+
+The parameters (`ctx, state, blockEyecandy`) are described below:
 
 |Parameter|Description|
 |:--------|:----------|
@@ -106,17 +101,17 @@ JCM calls these functions with three parameters, each of which is described belo
 |Second (`state`)|A JavaScript object associated with a single Decoration Object block.<br>The initial value is {}, and its content can be set arbitrarily to store what should be different for each block.|
 |Third (`blockEyecandy`)|This returns the block entity of the placed Decoration Object block. Type — [BlockEyecandy](#blockeyecandy)|
 
-The following lists all the rendering control operations that can be performed and all the information that can be obtained about `blockEyecandy`.
-
 ### API Reference
 
 #### EyeCandyScriptContext
-The following functions are called to **control rendering**. The functions for rendering models should be called each time render is called.
+This is the `ctx` parameter passed to the create/render/dispose functions.
+
+Script may invoke one of the following methods to control rendering and sounds, modify eyecandy voxel shape, set debug info overlay, as well as checking for events (Such as block right-clicking).
 
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`EyeCandyScriptContext.drawModel(model: ScriptedModel, matrices: Matrices?)`| Requests JCM to render a model loaded via [ModelManager](../../model.md#modelmanager).<br>`matrices` is the transformation of model placement.<br>If `matrices` is null, the model will be placed in the center of the block without transformation.|
-|`EyeCandyScriptContext.setDebugInfo(key: String, value: object)`|Output debugging information in the upper left corner of the screen. You need to enable **[Script Debug Overlay](../../aids/script_debug_overlay.md)** in JCM Settings to display it.<br>`key` is the name of the value<br>`value` is the content (`value` will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).|
+|`EyeCandyScriptContext.drawModel(model: ScriptedModel, matrices: Matrices?): void`| Requests JCM to render a model loaded via [ModelManager](../../model.md#modelmanager).<br>`matrices` is the transformation of model placement.<br>If `matrices` is null, the model will be placed in the center of the block without transformation.|
+|`EyeCandyScriptContext.setDebugInfo(key: String, value: object): void`|Output debugging information in the upper left corner of the screen. You need to enable **[Script Debug Overlay](../../aids/script_debug_overlay.md)** in JCM Settings to display it.<br>`key` is the name of the value<br>`value` is the content (`value` will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).|
 |`EyeCandyScriptContext.getRenderManager(): RenderManager`|Obtain a [RenderManager](../../rendering.md#rendermanager) instance, which can be used to render stuff onto the Minecraft World.<br>The base position are set to the block's position + translated position.|
 |`EyeCandyScriptContext.getSoundManager(): SoundManager`|Obtain a [SoundManager](../../sounds.md) instance, which can be used to play sound onto the Minecraft World.<br>The base position are set to the block's position.|
 |`EyecandyScriptContext.events(): EyecandyEvents`|Returns [EyecandyEvents](#eyecandyevents) for checking events.|
@@ -124,6 +119,8 @@ The following functions are called to **control rendering**. The functions for r
 |`EyeCandyScriptContext.setCollisionShape(shape: VoxelShape)`|Set the collision shape (The physical hitbox) of the eyecandy to a corresponding [VoxelShape](../../mc.md#voxelshape).<br>No effect if player is holding a brush.|
 
 #### BlockEyecandy
+Represents a Decoration Block in the world.
+
 |Functions And Objects|Description|
 |:--------------------|:----------|
 |`BlockEyecandy.getModelId(): String?`|Return the model/prefab that is currently assigned to this block.<br>Null if no model is selected.|

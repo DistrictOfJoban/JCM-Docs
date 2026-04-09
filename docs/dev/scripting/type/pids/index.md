@@ -29,16 +29,9 @@ The number in the circle depicts the order in which the element is drawn in. 1 g
 
 As such, element 6 is the frontmost element, which can cover element 1-5 if overlapped.
 
-### Global Environment
-A script is evaluated & executed when a PIDS Preset is loaded during the resource-pack loading phase.
-
-Therefore, the same type of PIDS Preset will use the same working environment (global variables and etc).
-
-Code written in top-level space outside of functions will run when a resource package is loaded, and can be used to load resources such as models and textures. It is recommended to store resources (such as models, fonts and textures) in global variables, which do not need to be different for each PIDS block, to avoid excessive memory usage caused by loading a copy of the same content for each PIDS.  
-
 ## Implementation
 
-###Registering a Scripted PIDS Preset###
+### Script Registration
 A preset is automatically considered as a Scripted PIDS Preset by specifying either `scriptFiles` **or** `scriptTexts` property in `joban_custom_resources.json`:
 
 ``` json
@@ -61,7 +54,7 @@ A preset is automatically considered as a Scripted PIDS Preset by specifying eit
 *Note: At the moment, mixing Scripted PIDS Preset and JSON PIDS Preset is not possible.*
 
 ### Called Functions
-Your script should include the following functions that JCM will call as needed:
+Your script can include the following functions that JCM will call as needed:
 ``` js
 function create(ctx, state, pids) { ... }
 function render(ctx, state, pids) { ... }
@@ -95,11 +88,11 @@ This would return a string formatted like: `2.0.0-beta.5`
 ##### PIDSScriptContext
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`PIDSScriptContext.setDebugInfo(key: String, value: object)`|Output debugging information in the upper left corner of the screen. You need to enable **[Script Debug Overlay](../../aids/script_debug_overlay.md)** in JCM Settings to display it.<br>`key` is the name of the value<br>`value` is the content (`value` will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).|
 |`PIDSScriptContext.getRenderManager(): RenderManager`|Obtain a [RenderManager](../../rendering.md#rendermanager) instance, which can be used to render stuff onto the Minecraft World.<br>The base position are set to the block's position.|
 |`PIDSScriptContext.getSoundManager(): SoundManager`|Obtain a [SoundManager](../../sounds.md) instance, which can be used to play sound onto the Minecraft World.<br>The base position are set to the block's position.|
 |`PIDSScriptContext.setAutoZOrdering(autoZOrdering: boolean): void`|To ensure z-fighting don't occur, by default JCM will translate a small amount (step) in the z-direction everytime you draw a text/texture. You can turn this behaviour off by setting autoZOrdering to false, then you can use `Text/Texture#zOrder(order: int)` to control the z-order manually|
 |`PIDSScriptContext.setZOrderStep(distanceMeter: double): void`|To ensure z-fighting don't occur, by default JCM will translate a small amount (step) in the z-direction everytime you draw a text/texture. Here you can pass in a custom step value. By default this is `0.0002`|
+|`PIDSScriptContext.setDebugInfo(key: String, value: object): void`|Output debugging information in the upper left corner of the screen. You need to enable **[Script Debug Overlay](../../aids/script_debug_overlay.md)** in JCM Settings to display it.<br>`key` is the name of the value<br>`value` is the content (`value` will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).|
 
 ##### Text
 |Functions And Objects|Description|

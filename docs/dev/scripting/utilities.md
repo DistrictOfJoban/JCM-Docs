@@ -1,12 +1,5 @@
 As the scripting functionality is based on the **Nemo Transit Expansion** addon, a number of helper classes are inherited from NTE to provide information or to simplify code implementation.
 
-## Globally-available functions / fields
-
-### print()
-```static print(params: Object...): void```
-
-This prints a message out to the console. It is identical to the `console.log` method in the [Console API](./console.md), and was historically the only way to log a message to the console, before the Console API existed.
-
 ## Versions Querying
 Functions are provided where you can get the version number to ensure compatibility with different versions of mods (if any).
 

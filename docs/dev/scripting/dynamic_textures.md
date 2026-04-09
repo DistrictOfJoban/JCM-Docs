@@ -1,3 +1,5 @@
+# Graphics API
+
 A commonly-seen feature among scripted vehicles is the inclusion of a passenger LCD screen, or some form of destination LED signs. But they aren't just any other texture slapped onto it, they have to be dynamically drawn in order to make it show the correct information in the player's world. How do they do it then?
 
 The **GraphicsTexture** class allows you to create a texture of a fixed resolution, in which you can draw things dynamically with Java's AWT Graphics.
@@ -6,11 +8,11 @@ The **GraphicsTexture** class allows you to create a texture of a fixed resoluti
 |             Functions And Objects              | Description |
 | :--------------------------------------------- | :---------- |
 | `new GraphicsTexture(width: int, height: int): GraphicsTexture` | Create a GraphicsTexture with `width` and `height` pixels.<br>If you plan to draw contents related to per-block/per-train, you should use this in the  `create` function and store in `state`.|
-| `GraphicsTexture.close(): void` | Releases the memory used by this texture. It cannot be used after that.<br>If it was created in the `create` train function, it must be deleted in the `dispose` function, otherwise it will continue to occupy memory, thus creating a memory leak.|
+|`GraphicsTexture.identifier: Identifier`|The identifier of the virtual resource of this dynamic texture. You can use this to replace the model texture/draw a texture with this id.|
 |`GraphicsTexture.bufferedImage: BufferedImage`|Java AWT's BufferedImage for use as a temporary canvas.|
 |`GraphicsTexture.graphics: Graphics2D`|This is the Java AWT's Graphics for this texture. You can call different functions to draw on the bufferedImage.|
 |`GraphicsTexture.upload(): void`|Loads the contents of bufferedImage into video memory and immediately displays it on the model.<br>This operation can significantly reduce FPS. It is recommended to use it in combination with `RateLimit` to reduce the frequency of texture updates.<br><br>For example, the screen can be updated only 10 times per second, and it may not be updated at far distances, in some cases the information may not be updated at all.|
-|`GraphicsTexture.identifier: Identifier`|The identifier of the virtual resource of this dynamic texture. You can use this to replace the model texture/draw a texture with this id.|
+| `GraphicsTexture.close(): void` | Releases the memory used by this texture. It cannot be used after that.<br>If it was created in the `create` train function, it must be deleted in the `dispose` function, otherwise it will continue to occupy memory, thus creating a memory leak.|
 
 ## Binding the texture in-game
 After creating your GraphicsTexture (`new GraphicsTexture...`), JCM will tell Minecraft to register this texture with a specific ID (Randomly generated).
@@ -39,6 +41,3 @@ The following functions can be used:
 - `Graphics.getTransform`, `Graphics.transform`, `Graphics.setTransform`, `AffineTransform.getTranslateInstance`, `AffineTransform.getRotateInstance`
 - `Graphics.setClip`
 - `Graphics.getComposite`, `Graphics.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, …))`, `Graphics.setComposite`
-
-## Referenced sources
-- [https://wiki.minecrafttransitrailway.com/mtr_addon:nte:js:dynamic_texture](https://wiki.minecrafttransitrailway.com/mtr_addon:nte:js:dynamic_texture)

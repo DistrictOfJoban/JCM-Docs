@@ -56,7 +56,7 @@ However texture replacing operation is still possible.
 |:--------|:----------|
 |`Model.replaceTexture(fileName: string, id: Identifier): void`|Replace all texture ending with `fileName` to `id`.|
 |`Model.replaceAllTexture(id: Identifier): void`|Replace all texture of this Model with `id`.|
-|`Model.copyForMaterialChanges(): Model`|Returns an instance of Model with the material copied. This allows you to replace textures on the newly created copy, without affecting the existing instance.<br>**Note: Requires MTR 4.0.4**|
+|`Model.copyForMaterialChanges(): Model`|Returns an instance of Model with the material copied. This allows you to replace textures on the newly created copy, without affecting the existing instance.|
 |`Model.close(): void`|Close this Model instance and free-up resources.|
 
 ### Rendering

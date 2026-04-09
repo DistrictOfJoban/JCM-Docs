@@ -1,11 +1,13 @@
 # Vehicle Scripting
 
-Vehicle Scripting allows you to use [JavaScript](../index.md) to control train rendering.
+Vehicle Scripting allows you to use [JavaScript](../index.md) to control vehicle rendering.
 
 While JCM supports **vehicle scripting**, it is nowhere near a state for something useful to be made(1), and thus no implementation documentation is provided at the moment.
 { .annotate }
 
 1. MTR 4 does not expose low-level model operation (Such as dynamically replacing the texture after uploading the model), therefore stuff like per-vehicle LCD screen is not quite possible.
+
+**(No longer true, need updating)**
 
 ## Concept
 In MTR 4, there is no longer a concept of a **train**. Instead, we have vehicle, which is a single vehicle consist. A train in a siding is made up of multiple consists linked together, just like how it is in real-life.
@@ -14,19 +16,15 @@ Therefore, the vehicle scripting system revolves around a single consist instead
 
 **(No longer true, need updating)**
 
-### :material-refresh: Data Fetching
-The data fetching mechanisms in MTR 4 differs from previous MTR version (e.g. MTR 3)
-
-**Under MTR 3**, many MTR data are sent to the client directly, and thus the client has a full reference on all the stations/routes/train paths on the server, and they can easily query the full Station/Route object. (e.g. To read station exits)
-
-**Under MTR 4**, only nearby stations/routes are sent to the client in order to conserve data usage. This means that if, let's say you join in the middle between 2 stations (And you are nowhere close to either of them), the client would not be aware of any route nor stations.  
+### :material-refresh: Data Obtaining & Fetching
+**Under MTR 4**, only nearby stations/routes are sent to the client in order to conserve data usage. This means that if, let's say you join in the middle between 2 stations (And you are nowhere close to either of them), the client would not be aware of any existence of routes nor stations.  
 <sub>*Side note: This is also part of the reason why the route filter in sensor blocks may not show any routes.*</sub>
 
-This presents a problem for script developers: They need the route and station references, as well as what stop the vehicle is going to make, in order to make stuff like on-board passenger information system possible (Since most of them shows a partial or complete route map).
+This presents a problem for script developers:  
+To compose something moderately complex such as an on-board LCD route map, they need the route and station reference, as well as the full list of stops the vehicle is going to make. This "nearby-data fetching" concept would pose marginal limitations to these scripts.
 
-To workaround this, JCM introduced it's own data fetching mechanism that is separate from MTR.
-
-Under this mehcanism, scripts can:
+To solve this, JCM introduced it's own data fetching mechanism that is separate from MTR.  
+Under this mechanism, scripts can:
 
 1. Request for all the stops the vehicle is going to make (Stopping point distance, and all the station/route ids).
 2. After that, request the Station/Route object that appears in the stops data (Based on the ID) from the server.
@@ -34,20 +32,140 @@ Under this mehcanism, scripts can:
 
 Note that this is not a perfect solution for complex scripts which may need a full copy of the Station/Route reference, but it does solve the common "lack of data" issue for most scripts.
 
-#### Data Fetching in practice
-In practice, JCM divides the data fetching into 3 different mode:
+JCM divides the data fetching into 3 different mode, which are described more in detail in the **Implementation** section.
 
-- **SKIP** - Default for MTR 4 scripts, it skips the data fetching process. Stops data are compiled locally in a best-effort attempt, but there's no guarentee any data would be complete or exists. Suitable for simple scripts that does not require stops reference. (e.g. Sounding a chime when the train starts moving, you only need to compare the vehicle's speed.)
-- **ALL** - This requests JCM to fetch both the stops data, as well as the MTR data. Before the stops data arrives (Which takes time over the network), it performs identically to **NONE**. After it arrives, `Stop.station` and `Stop.route` may still return null, since the MTR data may not be fetched yet. Scripts should perform appropriate null checks to avoid error.
-- **MANDATORY** - Under this mode, stops data are requested just like **ALL**. However JCM will not execute the script until both the vehicle stops data and MTR data are retrieved.<br>This is the default for MTR 3 registered scripts, which previously expects data to be immediately available.
+## Implementation
+### Script Registration
+
+=== "MTR 4 Custom Resources"
+    You can define your script entry in the `vehicleScripts` array, and reference it with `scriptId` within your vehicle object:
+
+    ``` json linenums="1" hl_lines="7 10-19" title="mtr_custom_resources.json"
+    {
+        "vehicles": [
+            {
+                "id": "cst_sp1900_cab_1",
+                "name": "Modified SP1900 (Cab, Forward)",
+                // ...
+                "scriptId": "cst_sp1900_lcd"
+            }
+        ],
+        "vehicleScripts": [
+            {
+                "id": "cst_sp1900_lcd",
+                "prependExpressions": ["print('Hello world')"],
+                "scriptLocations": ["mtr:my_pack/js/sp1900_lcd/main.js"],
+                "input": {
+                    "yearEra": 2004
+                }
+            }
+        ]
+    }
+    ```
+
+    Field description within the script entry (entries within `vehicleScripts`) block are listed as follows:
+
+    |Field name|Description|Equivalence in MTR 3/NTE format|
+    |----------|-------|--------------------|
+    |scriptLocations|An array containing the locations of .js scripts, multiple scripts can be specified.|scriptFiles|
+    |prependExpressions|Allows you to directly write JS inside, which will be executed before the scripts in **scriptLocations**|scriptTexts|
+    |input|Allows you to specify arbitary JSON object. which is then made accessible to the **.js** scripts via the variable `SCRIPT_INPUT`|scriptInput|
+
+    All fields are optional and could be omitted. However in order for script to load, either the `scriptLocation` or `prependExpressions` should be filled.
+
+=== "MTR 3 / NTE Format"
+    The registration is same as NTE.
+
+    ``` json linenums="1" hl_lines="6-10" title="mtr_custom_resources.json"
+    {
+        "custom_trains": {
+            "cst_sp1900": {
+                "name": "Modified SP1900",
+                // ...
+                "script_texts": ["print('Hello World!')"],
+                "script_files": ["mtr:my_pack/js/sp1900_lcd/main.js"],
+                "script_input": {
+                    "yearEra": 2004
+                }
+            }
+        },
+        "custom_signs": {
+            // ...
+        }
+    }
+    ```
+
+    - `script_files` is an array containing the locations of .js scripts. Multiple scripts can be specified.
+    - `script_texts` allows you to directly write JS inside, and are executed before the scripts in **scriptFiles**.
+    - `script_input` allows you to specify arbitary JSON object. This is then made accessible to the **.js** scripts via the variable `SCRIPT_INPUT`.
+
+    All script fields are optional and could be omitted. However in order for script to load, either the `script_files` or `script_texts` should be filled.
+
+### Called Functions
+Your script can include the following functions that JCM will call as needed:
+``` js
+function create(ctx, state, vehicle) { ... }
+function render(ctx, state, vehicle) { ... }
+function dispose(ctx, state, vehicle) { ... }
+```
+
+|Functions|Description|
+|:--------|:----------|
+|`create`|It is called when a Decoration Object block is rendered for the first time and can be used to perform some initialization operations, for example, to create dynamic textures. (via the [Graphics API](../../dynamic_textures.md))|
+|`render` |This function is called at-most once per frame. It is used to render contents. In practice however, the code is executed in a separate thread so as not to slow down FPS. If it takes too long to execute the code, it may be called once every few frames instead of every frame.|
+|`dispose`|Called when the vehicle goes out of sight. Can be used for things like releasing the dynamic textures to free up memory.|
+
+*Note: Any of the above functions are optional and may be omitted if you don't find it useful for your script.*
+
+The parameters (`ctx, state, vehicle`) are described below:
+
+|Parameter|Description|
+|:--------|:----------|
+|First (`ctx`)|Used to pass rendering actions to JCM. Type — [VehicleScriptContext](#vehiclescriptcontext).|
+|Second (`state`)|A JavaScript object associated with a vehicle.<br>The initial value is {}, and its content can be set arbitrarily to store what should be different for each block.|
+|Third (`vehicle`)|This returns the vehicle object representing the current vehicle consist. Type — [Vehicle](#vehicle)|
+
+### Implementing Data Fetching
+For the most part, JCM tries to handle data obtaining / fetching as transparently as possible.  
+For developers, you only need to know the following 3 different data fetching mode that are employed:
+
+- **SKIP** - Default for MTR 4 scripts, it skips the data fetching process. Stops data are compiled locally in a best-effort attempt, but there's no guarentee any data would be complete or exists. Suitable for simple scripts that does not require stops reference. (e.g. Sounding a chime when the vehicle starts moving, you only need to compare the vehicle's speed.)
+- **ALL** - This requests JCM to a) fetch the stops data, and b) fetch the MTR data (Station/Route etc.) based on the stops data. Before the stops data is retrieved (which takes time over the network), it performs identically to **SKIP**.<br>Note that even after the stop data is retrieved, `Stop.station` and `Stop.route` may still return null, since the MTR data may not be fetched yet. You should add appropriate null checks to avoid error.
+- **MANDATORY** - Under this mode, stops data are requested just like **ALL**. However JCM will not execute the script until both the stop data and MTR data are retrieved.<br>This is the default for scripts in the MTR 3 registration format, since these scripts previously expects data to be immediately available and therefore may not tolerate any null value.
 
 #### Configuring Data Fetching mode
 
-You can use `VehicleScriptContext.setDataFetchMode(mode: String)` to configure the data fetching mode as mentioned above.
+You can use `VehicleScriptContext.setDataFetchMode(mode: String)` to configure the data fetching mode. See more details in the **API Reference** section.
 
 Note that it is not possible for scripts registered in the MTR 3 format to configure this, since it defaults to the **MANDATORY** mode, and thus the `create()` function is not executed before the data fetching has already been done.
 
 ### API Reference
+
+#### VehicleScriptContext
+This is the `ctx` parameter passed to the create/render/dispose functions.
+
+Script may invoke one of the following methods to check the script's status (Such as which car index it is associated with), control rendering and sounds, change the data fetch mode, set debug info overlay.
+
+|Functions And Objects|Description|
+|:--------------------|:----------|
+|`VehicleScriptContext.drawCarModel(model: Model, carIndex: int, matrices: Matrices?): void`|Requests a [Model](../../model.md#model-aka-modelcluster) loaded via [ModelManager](../../model.md#modelmanager) to be drawn.<br>`carIndex` is the car number which the model should be rendered in. If the script does not belong to the car in `carIndex`, this function will do nothing.<br>`matrices` is the transformation of model placement. If null, the model will be placed in the center of the car without transformation.|
+|`VehicleScriptContext.playCarSound(sound: Identifier, carIndex: int, x: float, y: float, z: float, volume: float, pitch: float): void`|Requests a sound specified by the [Identifier](../../resources.md#identifier-aka-resourcelocation) to be played in the world.<br>`carIndex` is the car number which the sound should play in. If the script does not belong to the car in `carIndex`, this function will do nothing.<br>`x`, `y` and `z` is the offset of the sound position, relative to the car's center.<br>`volume` and `pitch` represents the volume and pitch of the sound, `1.0` is the base value.|
+|`VehicleScriptContext.playAnnSound(sound: Identifier, carIndex: int, x: float, y: float, z: float, volume: float, pitch: float): void`|Requests a sound specified by the [Identifier](../../resources.md#identifier-aka-resourcelocation) to be played in the game (Non-positional, only if player is boarded).<br>This is useful for playing on-board announcements.<br>Arguments are same as those of `playCarSound`.|
+|`VehicleScriptContext.getCarRenderManager(carIndex: int): RenderManager?`|Obtain a [RenderManager](../../rendering.md#rendermanager) instance, which can be used to render stuff onto the Minecraft World.<br>The base position are set to the center position of the car `carIndex`.<br>Returns null if the `carIndex` is not associated with the current script entry.|
+|`VehicleScriptContext.getCarSoundManager(carIndex: int): SoundManager?`|Obtain a [SoundManager](../../sounds.md) instance, which can be used to play sound onto the Minecraft World.<br>The base position are set to the center position of the car `carIndex`.<br>Returns null if the `carIndex` is not associated with the current script entry.|
+|`VehicleScriptContext.getScriptEntryId(): String`|Obtain the script entry id.|
+|`VehicleScriptContext.getMyCars(): int[]`|Obtain an array of car indexes which is associated with this script entry.|
+|`VehicleScriptContext.setDataFetchMode(mode: String): void`|Set the [Data Fetch Mode](#implementing-data-fetching) for the current script entry, one of "SKIP", "ALL" or "MANDATORY".|
+|`VehicleScriptContext.setDebugInfo(key: String, value: object): void`|Output debugging information in the upper left corner of the screen. You need to enable **[Script Debug Overlay](../../aids/script_debug_overlay.md)** in JCM Settings to display it.<br>`key` is the name of the value<br>`value` is the content (`value` will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).|
+
+??? warning "Show unimplemented functions"
+    The following functions are not yet carried over from NTE. However it is expected these functions have relatively low usage and provides limited impact for compatibility.  
+    To prove otherwise, submit a new GitHub issue in regard to this, or talk with us in our Discord!
+
+    |Functions And Objects|Description|
+    |:--------------------|:----------|
+    |`VehicleScriptContext.drawConnModel(model: Model, carIndex: int, matrices: Matrices?)`|Requests a [Model](../../model.md#model-aka-modelcluster) loaded via [ModelManager](../../model.md#modelmanager) to be drawn as a connector between 2 cars.<br>`carIndex` is the car number which the model should be rendered in. If the script does not belong to the car in `carIndex`, this function will do nothing.<br>`matrices` is the transformation of model placement. If null, the model will be placed in the middle of the 2 car without transformation, and 1m of elevation.|
+    |`VehicleScriptContext.drawConnStretchTexture(texture: Identifier, carIndex: int)`|Draw the same stretching car connection model as MTR, with a custom texture specified by [Identifier](../../resources.md#identifier-aka-resourcelocation).|
 
 #### Vehicle
 Represents a vehicle / trainset / train consist.
@@ -81,7 +199,7 @@ Represents a vehicle / trainset / train consist.
 |`Vehicle.getRailSpeed(pathIndex: int): double`|Returns the speed of a section given a `pathIndex` (via `getRailIndex`).<br>Unit is in `km/h`.|
 |`Vehicle.getNotchLevel(): int`|Returns the manual driving notch for the current vehicle.<br>Positive number indicates acceleration, negative number indicates deceleration.<br>In MTR 4, the range is between **-5** and **5** for normal operation.<br>Values up to **-7** and **7** is possible, representing 140% of the service acceleration/deceleration.<br>Values up to **-8** is possible, representing emergency brake (EM).|
 |`Vehicle.getNotchPosition(): double`|Returns the manual driving notch in the form of a relative percentage, irrespective of the number of notch available.<br>Positive number indicates acceleration, negative number indicates deceleration.<br>Normal operation would return between **-1** and **1**.<br>Values higher than 1 is possible as MTR 4 allows up to 140% of acceleration/deceleration rate, as well as emergency brake.|
-|`Vehicle.getDepartureIndex(): long`|Returns the departure index of the train.<br>TODO: Is it relative to depot schedule or the assigned siding schedule?|
+|`Vehicle.getDepartureIndex(): long`|Returns the departure index of the vehicle.<br>TODO: Is it relative to depot schedule or the assigned siding schedule?|
 |`Vehicle.getSpeedMs(): double`|Returns the current vehicle speed in m/s.|
 |`Vehicle.getSpeedKmh(): double`|Returns the current vehicle speed in km/h.|
 |`Vehicle.getDoorValue(): double`|Returns a value between 0.0 (Closed) and 1.0 (Opened) representing the door value.<br>This does not account for the actual door opening position, which may be affected by e.g. whether nearby platform blocks are installed.|
@@ -122,7 +240,7 @@ Represents a vehicle / trainset / train consist.
 
 
 #### Stop
-This represents a platform which the train will stop at.  
+This represents a platform which the vehicle will stop at.  
 Also known as `RoutePlatform` in NTE.
 
 |Functions And Objects|Description|
