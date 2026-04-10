@@ -53,7 +53,7 @@ function render(ctx, state, eyecandy) {
 ```
 
 ### ModelDrawCall
-This creates a draw call which renders a 3d model onto the world.
+This creates a draw call which allows rendering a 3D model onto the world.
 
 |Functions|Description|
 |:--------|:----------|

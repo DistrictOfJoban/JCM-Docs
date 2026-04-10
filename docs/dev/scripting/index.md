@@ -34,12 +34,8 @@ Here is a snippet of 2 types of script: **Eyecandy Scripting** and **PIDS Script
     const poleModel = ModelManager.upload(poleModelData);
 
     function render(ctx, state, blockEyecandy) {
-        // Define draw call to submit
-        let modelDrawCall = ModelDrawCall.create()
-            .modelObject(poleModel)
-
         // Render pole model
-        ctx.getRenderManager().queue(modelDrawCall);
+        ctx.drawModel(poleModel, null);
     }
     ```
 

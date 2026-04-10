@@ -1,25 +1,41 @@
 ## Background
-The **[Nemo Transit Expansion](https://modrinth.com/mod/mtr-nte)** is an addon mod for the Minecraft Transit Railway 3.x version, which adds high performance OBJ rendering as well as scripting ability. While the former is merged into MTR 4.x, the latter is not. The scripting ability in JCM *can be considered* as the successor to NTE's scripting ability, inheriting the same script engine (Rhino) and design paradigm for it's API.
+The **[Nemo Transit Expansion](https://modrinth.com/mod/mtr-nte)** is an addon mod for the Minecraft Transit Railway 3.x version, which adds high performance OBJ rendering as well as JS scripting for trains and decoration object. While the former feature is merged into MTR 4.x, the scripting feature remained a gap in MTR 4.
 
-The end goal is for the scripting feature to be made available for MTR 4's Vehicle and Eyecandy, while allowing other form of scripting to added by addon mods.
+JCM Scripting is an attempt at re-implementing the NTE scripting functionality, inheriting the same script engine (Rhino) and design paradigm for it's API.
 
-## Note on backward compatibility
-!!! warning "Important!"
+## Backward compatibility policy with NTE
+!!! warning inline end "Important!"
     This policy does not apply to any NTE derivative fork, such as ANTE (Aphrodite's Nemo's Transit Expansion).  
     For ANTE specifically, see [Migrating from ANTE](#migrating-from-ante)
 
 Backward compatibility with NTE scripts are made on a best-effort basis, in the sense that we won't go out of our way to intentionally break existing scripts, and we will add stub/redirect methods to retain existing script compatibility. However if a major redesign has occured for reasons outside of our variable (e.g. Internal workings of MTR 4), we are not able to provide full backward compatibility for scripts.
 
-## General (All types of scripting)
-### Registrations
-- Both `mtr_custom_resources.json` and `mtr_custom_resources_pending_migration.json` will be parsed for scripts. (In both MTR 3/MTR 4 format)
-- Eyecandy scripts registered in NTE format are also automatically parsed.
+## Compatibility Overview
+### Registration
+- Both `mtr_custom_resources.json` and `mtr_custom_resources_pending_migration.json`, in both MTR 3 and MTR 4 format is supported.
+- Eyecandy scripts registered in the old NTE format are also supported.
+### API
+- Most if not all functions/methods provided by NTE should continue working as-is.
+    - Known Exception: `VehicleScriptContext.drawConnModel` / `VehicleScriptContext.drawConnStretchTexture` has not been re-added yet due to low demand.
+- `DisplayHelper` is implemented, most DisplayHelper scripts should work out of the box without any issue.
+- `DynamicModelHolder` is implemented.
+- Partial misc. functions from ANTE has been added, though without backward compatibility. (New API)
+- **(Important!)** Code accessing MTR 3's internal code may break. (e.g. Most common one being `route.lightRailRouteNumber` not being in MTR 4 anymore, causing instances of "undefined" in route displays.)
+### Give me some statistics...
+!!! note inline end "Take this with a grain of salt"
+    - Test conducted in Apr 2026, before the first beta release of JCM v2.2.
+    - Only versions with NTE Scripting are picked for the test, even if an updated version for MTR 4 is available.
+    - Content enlisted in MTR Content DB is not representative of the work of the wider MTR community, who may choose to publish their work in other platform.
+    - To prevent non-faithful comparisons between packs, the tested packs will not be listed out.
 
-### DisplayHelper
-Backward compatibility for DisplayHelper (`mtrsteamloco:scripts/display_helper.js`) has been added, and should just work out of the box without any changes.
+- **23** NTE (non-ANTE) packs from [MTR Content DB](https://addons.minecrafttransitrailway.com/) were tested against JCM Scripting, with the pack being unmodified.
+    - **8 (~34%)** packs are able to work without any issue.
+    - **6 (~26%)** packs are able to function, with minor issues. (Such as light rail route not showing)
+    - **5 (~22%)** packs errored out during execution, requiring some level of migration by script developers.
+    - **2 (~8%)** packs are heavily reliant on MTR 3's feature.
+    - **2 (~8%)** packs are unloadable in MTR 4, thus scripting functionalities cannot be tested.
 
-## Eyecandy Migration
-### Feasibility of migrating
+## Migration Checklist
 Before continuing with the migration process, it is important to understand whether your script will have any chance of migrating to MTR 4 in the first place.
 
 Listed below are several situations in which it may become a potential roadblocker to migrate your script to MTR 4.  
@@ -47,7 +63,7 @@ If you managed to get pass all questions, it likely means that your script have 
 
 ??? note "My script utilize advanced model processing techniques (RawMeshBuilder / MaterialProperties / VertArrays etc.)"
     - Unfortunately these features aren't available in JCM at the moment.  
-    RawMeshBuilder may become available in the future, however there is no plan for other classes. Please try working around them with the existing NTE model API.
+    RawMeshBuilder may become available in the future, however there is no plan for other deeper classes like accessing MaterialProperties / VertArrays. Please try working around them with the existing NTE model API.
 
 ??? note "My script make use of the BVE CSV/OpenBVE Animated models."
     You need to migrate to the OBJ model format as CSV/Animated are not supported in MTR 4.
@@ -58,45 +74,14 @@ If you managed to get pass all questions, it likely means that your script have 
     - For MTRClientData in MTR 4, see [MinecraftClientData](https://github.com/Minecraft-Transit-Railway/Minecraft-Transit-Railway/blob/master/fabric/src/main/java/org/mtr/mod/client/MinecraftClientData.java).
     - For `Route.lightRailRouteNumber`, they are no longer transferred as part of the route. Please see [VehicleExtraData](../tsc.md#vehicleextradata-stops-related) to obtain them.
 
-### Eyecandy Script Registration
-Existing NTE eyecandy registration will continue to work. (`scriptFiles`/`scriptTexts` within an NTE eyecandy json).
+Got through all of them? Great, below are some resources/tips to get started:
 
-If you wish to migrate to the new MTR 4 format however, please note that there are some slight difference in registration, see below for comparisons:
-
-=== "NTE Eyecandy JSON"
-    ```json hl_lines="4-5" title="example.json" linenums="1"
-    {
-        "psd_door": {
-            "name": "Platform Screen Door (TML)",
-            "scriptTexts": ["const targetPlat = \"auto\""],
-            "scriptFiles": ["mtr:custom_directory/js/eyecandy/psd/door.js"]
-        }
-    }
-    ```
-
-=== "MTR 4 Custom Resources"
-    ```json title="mtr_custom_resources.json" hl_lines="7 10-16" linenums="1"
-    {
-        ...
-        "objects": [
-            {
-                "id": "psd_door",
-                "name": "Platform Screen Door (TML)",
-                "scriptId": "psd_door"
-            }
-        ],
-        "objectScripts": [
-            {
-                "id": "psd_door",
-                "prependExpressions": ["const targetPlat = \"auto\""],
-                "scriptLocations": ["mtr:custom_directory/js/eyecandy/psd/door.js"]
-            }
-        ]
-    }
-    ```
-
-## Vehicle Migration
-To be done...
+- Try your scripted resource pack in MTR 4 w/ JCM, enable [Script Debug Overlay](../aids/script_debug_overlay.md), and see which part it errors out, or if it works at all!
+- Confused on the equivalent of `Station` and `Route` object in MTR 4? See the [Transport Simulation Core](../tsc.md) page for a type listing.
+    - <sub>Note: Due to some irresistable force, Rhino is able to read protected fields for these types. Stuff such as `Station.name` will work, which incidentally make a lot of scripts compatible. Not implying it's a good practice to rely on it however...</sub>
+- Data fetching mechanism is changed (Affecting `MTRClientData` and other scripts relying on client data). Please see [Data Obtaining / Fetching](../type/vehicle/index.md#data-obtaining-fetching) for more details.
+- [Through conditional logic, you can support both MTR 3/NTE and MTR 4/JCM!](./mtr34scripts.md)
+- [The NTE F3+5 quick reload is now Ctrl+R](../aids/script_quick_reload.md)
 
 ## Migrating from ANTE
 **[Aphrodite's Nemo's Transit Expansion](https://modrinth.com/mod/mtr-ante)** (ANTE) is a fork of the Nemo Transit Expansion, which brings several new features such as rail tilting and some new scripting abilities.

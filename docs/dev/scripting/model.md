@@ -60,7 +60,10 @@ However texture replacing operation is still possible.
 |`Model.close(): void`|Close this Model instance and free-up resources.|
 
 ### Rendering
-You can construct a [ModelDrawCall](./rendering.md#modeldrawcall), and pass the uploaded model as a parameter to `.modelObject`.
+You may either:
+
+- Construct a [ModelDrawCall](./rendering.md#modeldrawcall), and pass the uploaded model as a parameter to `.modelObject` and use [RenderManager](./rendering.md#rendermanager) to render it out.
+- Or pass in the model to the draw model functions in [VehicleScriptContext](./type/vehicle/index.md#vehiclescriptcontext) and [EyecandyScriptContext](./type/eyecandy/index.md#eyecandyscriptcontext)
 
 ## DynamicModelHolder
 The `ModelManager.upload()` can only be invoked when it is executed in the render thread, which is true during the initial **Loading/Parsing stage**.

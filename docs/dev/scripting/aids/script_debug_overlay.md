@@ -6,7 +6,7 @@ To better visualize errors and performance of your script, you can turn on Scrip
 
 ### Enable the overlay
 Go to **Mod Menu** / **Mod Config Screen** (Forge), find JCM and click on **Configure**.  
-After that, make sure the **Enable Script Debug mode** checkbox is checked, then click **Save Config**.
+After that, make sure the **Script debug mode** checkbox is checked, then click **Save Config**.
 
 ![](./img/enable_overlay.png)
 

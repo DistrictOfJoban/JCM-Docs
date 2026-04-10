@@ -142,7 +142,7 @@ Equivalent to a stop the train will make.
 ### Route.CircularState
 
 !!! info inline end "References"
-    - [Class Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/3432a3a6ceb5a817c7a5bb9a1bebfc963dab1076/src/main/java/org/mtr/core/data/Route.java#L124)
+    - [Class Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/Route.java#L124)
 
 Represents a circular state of a route.
 
@@ -154,7 +154,7 @@ Represents a circular state of a route.
 
 ### Vehicle
 !!! info inline end "References"
-    - [Class Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/3432a3a6ceb5a817c7a5bb9a1bebfc963dab1076/src/main/java/org/mtr/core/data/Vehicle.java)
+    - [Class Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/Vehicle.java)
     - [Schema Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/vehicle.json)
 
 A vehicle formation / consists.
@@ -166,7 +166,7 @@ A vehicle formation / consists.
 
 ### VehicleExtraData
 !!! info inline end "References"
-    - [Class Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/3432a3a6ceb5a817c7a5bb9a1bebfc963dab1076/src/main/java/org/mtr/core/data/Vehicle.java)
+    - [Class Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/Vehicle.java)
     - [Schema Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/vehicle.json)
 
 Represents real-time data of a vehicle.
@@ -204,7 +204,7 @@ Equivalent function exists for:
 
 ### RouteType
 !!! info inline end "References"
-    - [Class Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/3432a3a6ceb5a817c7a5bb9a1bebfc963dab1076/src/main/java/org/mtr/core/data/RouteType.java)
+    - [Class Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/RouteType.java)
 
 Represents the type of route.
 
@@ -213,6 +213,40 @@ Represents the type of route.
 |`static RouteType.NORMAL: RouteType`|Normal Heavy Rail route.|
 |`static RouteType.LIGHT_RAIL: RouteType`|A light rail route.|
 |`static RouteType.HIGH_SPEED: RouteType`|A high speed rail route.|
+
+### PathData
+!!! info inline end "References"
+    - [Class Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/PathData.java)
+    - [Schema Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/pathData.json)
+
+Represents 1 section (i.e. 1 rail) of a generated path.
+
+|Functions And Objects|Description|
+|:--------------------|:----------|
+|`PathData.getStartDistance(): double`|Returns the starting distance of the path. You can compare that with vehicle's railProgress.|
+|`PathData.getEndDistance(): double`|Returns the ending distance of the path. You can compare that with vehicle's railProgress.|
+|`PathData.getRail(): Rail`|Returns the [Rail](#rail) this path is for.|
+|`PathData.getOrderedPosition1(): Position`|Returns a [Position](#position) representing the starting position in the world.|
+|`PathData.getOrderedPosition2(): Position`|Returns a [Position](#position) representing the ending position in the world.|
+|`PathData.isSameRail(other: PathData): boolean`|Returns if a `PathData` is equivalent. (In terms of starting & ending position)|
+|`PathData.isOppositeRail(other: PathData): boolean`|Returns true if another `PathData` is a reversed version of the current path data. (e.g. For vehicle reversal/turnback, there may be 1 path representing the forward direction, and 1 path going in reverse, but they share the same piece of rail.)|
+|`PathData.getSpeedLimitKilometersPerHour(): long`|Returns the speed limit of this rail in km/h.|
+|`PathData.getRailLength(): double`|Returns the length of the path in meters.|
+|`PathData.isDescending(): boolean`|Returns true if the ending Y position is lower than the starting Y position.|
+|`PathData.getDwellTime(): long`|Returns the dwell time for this path in millisecond.<br>Values higher than 0 indcates the vehicle should stop and open the door.|
+
+### Rail
+!!! info inline end "References"
+    - [Class Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/Rail.java)
+    - [Schema Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/rail.json)
+Represents a single rail section. (Node to Node)
+
+|Functions And Objects|Description|
+|:--------------------|:----------|
+|`Rail.getTransportMode(): TransportMode`|Returns the type of [TransportMode](#transportmode) this rail is for.|
+|`Rail.getStyles(): List<String>`|Returns a list of rail model ids (a.k.a. styles) applied to this rail.|
+|`Rail.canAccelerate(): boolean`|Returns whether the train can accelerate to the rail's speed limit, or should it hold the current speed.<br>False if it's a platform or a turnback rail.|
+
 
 ### Vector
 !!! info inline end "References"

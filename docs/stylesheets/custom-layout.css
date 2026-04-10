@@ -69,3 +69,7 @@
   line-height: 1;
   content: attr(data-count);
 }
+
+article a {
+    text-decoration: underline;
+}

@@ -6,7 +6,7 @@ To aid development time, **JCM v2.1.2** introduced a new quick reload feature wh
 
 ### Enable quick reload
 Go to **Mod Menu** / **Mod Config Screen** (Forge), find JCM and click on **Configure**.  
-After that, make sure the **Enable Script Debug mode** checkbox is checked, then click **Save Config**.
+After that, make sure the **Script debug mode** checkbox is checked, then click **Save Config**.
 
 ![](./img/enable_overlay.png)
 

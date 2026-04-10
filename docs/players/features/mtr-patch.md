@@ -13,6 +13,7 @@ The current patch set includes:
 - Fix MTR 4 not recognizing legacy NTE object's `translation`, `rotation`, `scale` and `mirror` fields in resource packs.
 
 ## User Interface / UX
+### Car auto-fill
 For vehicles sets/families formatted appropriately, you may now hold the `SHIFT` key when adding vehicles in Siding to automatically fill out the entire siding length.  
 (Formation: Cab Front - N number of car trailers - Cab End)
 
@@ -20,4 +21,10 @@ For vehicles sets/families formatted appropriately, you may now hold the `SHIFT`
 
 The vehicle id must end in `_cab_1` (Front), `_cab_2` (Back) and `_trailer` (Car trailer) for this feature to be used. Most MTR built-in vehicles follow this rule.
 
-The above changes are applied once JCM is installed.
+### Hide rail rendering
+For debugging purposes and easier discovery of blocks beneath rails, you can now turn off rail rendering completely in JCM's settings.  
+This feature is carried over from NTE.
+
+### Hide currently-riding vehicle
+This hides the vehicle the player is currently riding, which is useful especially for cab-view video without the obstruction of the train model.  
+This feature is carried over from NTE.

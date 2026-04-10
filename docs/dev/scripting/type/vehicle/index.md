@@ -176,7 +176,7 @@ Represents a vehicle / trainset / train consist.
 |`Vehicle.getThisRouteStops(): List<Stop>`|Get a list of [Stop](#stop) the vehicle will make for the current running route.|
 |`Vehicle.getNextRouteStops(): List<Stop>`|Get a list of [Stop](#stop) the vehicle will make for the upcoming route.|
 |`Vehicle.getNextStopIndex(stopList: List<Stop>, overrunTolerance: double = 0.5): int`|Get the index of the next stop within a `stopList`. (Can be obtained above).<br>`overrunTolerance` is the tolerance in meters in which the next stop will still be counted as the previous stop, even after overruning the stop mark.<br>Returns `stopList.size()` if vehicle already passed all stops in the given `stopList`.|
-|`Vehicle.isStopsDataFetched(): boolean`| Whether the stop data is fetched from the server (Instead of being compiled locally).<br>i.e. Always false if data fetch mode is set to `NONE`.|
+|`Vehicle.isStopsDataFetched(): boolean`| Whether the stop data is fetched from the server (Instead of being compiled locally).<br>i.e. Always false if data fetch mode is set to `SKIP`.|
 |`Vehicle.isRendered(): boolean`|Returns whether any car is being rendered. (i.e. Not being culled by MTR)|
 |`Vehicle.isCarRendered(cars: int...): boolean`|Returns whether any of the given car index is being rendered.|
 |`Vehicle.isClientPlayerRiding(): boolean`|Returns whether the client player is riding (onboard) the current vehicle.|
