@@ -5344,6 +5344,28 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#pathdata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PathData
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#vector" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5974,6 +5996,28 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#pathdata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PathData
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#vector" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6496,7 +6540,7 @@ It may be obtained via <a href="#vehicleextradata-stops-related">VehicleExtraDat
 <div class="admonition info inline end">
 <p class="admonition-title">References</p>
 <ul>
-<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/3432a3a6ceb5a817c7a5bb9a1bebfc963dab1076/src/main/java/org/mtr/core/data/Route.java#L124">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/Route.java#L124">Class Reference</a></li>
 </ul>
 </div>
 <p>Represents a circular state of a route.</p>
@@ -6526,7 +6570,7 @@ It may be obtained via <a href="#vehicleextradata-stops-related">VehicleExtraDat
 <div class="admonition info inline end">
 <p class="admonition-title">References</p>
 <ul>
-<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/3432a3a6ceb5a817c7a5bb9a1bebfc963dab1076/src/main/java/org/mtr/core/data/Vehicle.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/Vehicle.java">Class Reference</a></li>
 <li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/vehicle.json">Schema Reference</a></li>
 </ul>
 </div>
@@ -6549,7 +6593,7 @@ It may be obtained via <a href="#vehicleextradata-stops-related">VehicleExtraDat
 <div class="admonition info inline end">
 <p class="admonition-title">References</p>
 <ul>
-<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/3432a3a6ceb5a817c7a5bb9a1bebfc963dab1076/src/main/java/org/mtr/core/data/Vehicle.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/Vehicle.java">Class Reference</a></li>
 <li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/vehicle.json">Schema Reference</a></li>
 </ul>
 </div>
@@ -6658,7 +6702,7 @@ It may be obtained via <a href="#vehicleextradata-stops-related">VehicleExtraDat
 <div class="admonition info inline end">
 <p class="admonition-title">References</p>
 <ul>
-<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/3432a3a6ceb5a817c7a5bb9a1bebfc963dab1076/src/main/java/org/mtr/core/data/RouteType.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/RouteType.java">Class Reference</a></li>
 </ul>
 </div>
 <p>Represents the type of route.</p>
@@ -6681,6 +6725,100 @@ It may be obtained via <a href="#vehicleextradata-stops-related">VehicleExtraDat
 <tr>
 <td style="text-align: left;"><code>static RouteType.HIGH_SPEED: RouteType</code></td>
 <td style="text-align: left;">A high speed rail route.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pathdata">PathData<a class="headerlink" href="#pathdata" title="Anchor link to this section for reference">#</a></h3>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/PathData.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/pathData.json">Schema Reference</a></li>
+</ul>
+</div>
+<p>Represents 1 section (i.e. 1 rail) of a generated path.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>PathData.getStartDistance(): double</code></td>
+<td style="text-align: left;">Returns the starting distance of the path. You can compare that with vehicle's railProgress.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PathData.getEndDistance(): double</code></td>
+<td style="text-align: left;">Returns the ending distance of the path. You can compare that with vehicle's railProgress.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PathData.getRail(): Rail</code></td>
+<td style="text-align: left;">Returns the <a href="#rail">Rail</a> this path is for.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PathData.getOrderedPosition1(): Position</code></td>
+<td style="text-align: left;">Returns a <a href="#position">Position</a> representing the starting position in the world.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PathData.getOrderedPosition2(): Position</code></td>
+<td style="text-align: left;">Returns a <a href="#position">Position</a> representing the ending position in the world.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PathData.isSameRail(other: PathData): boolean</code></td>
+<td style="text-align: left;">Returns if a <code>PathData</code> is equivalent. (In terms of starting &amp; ending position)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PathData.isOppositeRail(other: PathData): boolean</code></td>
+<td style="text-align: left;">Returns true if another <code>PathData</code> is a reversed version of the current path data. (e.g. For vehicle reversal/turnback, there may be 1 path representing the forward direction, and 1 path going in reverse, but they share the same piece of rail.)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PathData.getSpeedLimitKilometersPerHour(): long</code></td>
+<td style="text-align: left;">Returns the speed limit of this rail in km/h.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PathData.getRailLength(): double</code></td>
+<td style="text-align: left;">Returns the length of the path in meters.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PathData.isDescending(): boolean</code></td>
+<td style="text-align: left;">Returns true if the ending Y position is lower than the starting Y position.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PathData.getDwellTime(): long</code></td>
+<td style="text-align: left;">Returns the dwell time for this path in millisecond.<br>Values higher than 0 indcates the vehicle should stop and open the door.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rail">Rail<a class="headerlink" href="#rail" title="Anchor link to this section for reference">#</a></h3>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/Rail.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/rail.json">Schema Reference</a></li>
+</ul>
+</div>
+<p>Represents a single rail section. (Node to Node)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Rail.getTransportMode(): TransportMode</code></td>
+<td style="text-align: left;">Returns the type of <a href="#transportmode">TransportMode</a> this rail is for.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Rail.getStyles(): List&lt;String&gt;</code></td>
+<td style="text-align: left;">Returns a list of rail model ids (a.k.a. styles) applied to this rail.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Rail.canAccelerate(): boolean</code></td>
+<td style="text-align: left;">Returns whether the train can accelerate to the rail's speed limit, or should it hold the current speed.<br>False if it's a platform or a turnback rail.</td>
 </tr>
 </tbody>
 </table>

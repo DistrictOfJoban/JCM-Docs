@@ -6060,7 +6060,11 @@ Newer scripts should not utilize these functions anymore.</p>
 </tbody>
 </table>
 <h3 id="rendering">Rendering<a class="headerlink" href="#rendering" title="Anchor link to this section for reference">#</a></h3>
-<p>You can construct a <a href="../rendering/#modeldrawcall">ModelDrawCall</a>, and pass the uploaded model as a parameter to <code>.modelObject</code>.</p>
+<p>You may either:</p>
+<ul>
+<li>Construct a <a href="../rendering/#modeldrawcall">ModelDrawCall</a>, and pass the uploaded model as a parameter to <code>.modelObject</code> and use <a href="../rendering/#rendermanager">RenderManager</a> to render it out.</li>
+<li>Or pass in the model to the draw model functions in <a href="../type/vehicle/#vehiclescriptcontext">VehicleScriptContext</a> and <a href="../type/eyecandy/#eyecandyscriptcontext">EyecandyScriptContext</a></li>
+</ul>
 <h2 id="dynamicmodelholder">DynamicModelHolder<a class="headerlink" href="#dynamicmodelholder" title="Anchor link to this section for reference">#</a></h2>
 <p>The <code>ModelManager.upload()</code> can only be invoked when it is executed in the render thread, which is true during the initial <strong>Loading/Parsing stage</strong>.</p>
 <p>But afterwards when the script's function is invoked during the Runtime stage, it will be executed in one of the Background Script Worker thread, preventing the ability to use <code>ModelManager.upload()</code> to upload the model.</p>
