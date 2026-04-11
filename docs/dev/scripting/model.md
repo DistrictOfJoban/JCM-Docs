@@ -13,8 +13,8 @@ The API consists of the following 4 classes:
 |Functions|Description|
 |:--------|:----------|
 |`static ModelManager.loadModel(id: Identifier, flipV: boolean): ModelData`|Load a full OBJ model located in `id`.<br>Returns a [ModelData](#modeldata).<br>If `flipV` is provided, the texture's V axis will be mirrored.|
-|`static ModelManager.loadModelParts(id: Identifier): Map<String, ModelData>`|Load a OBJ model located in `id`.<br>Returns a map of String & [ModelData](#modeldata), each entry corresponding to an object group (or parts) in the OBJ file.<br>This allows selectively picking individual objects out for processing/rendering. |
-|`static ModelManager.upload(modelData: ModelData): Model`|Upload the model data to the GPU so it can be effectively rendered.<br>Returns a [Model](#model).<br>**Note: This should only be invoked during the Loading/Parsing stage of scripts. Use DynamicModelHolder if you need to upload the model at runtime.**|
+|`static ModelManager.loadModelParts(id: Identifier): Map<String, ModelData>`|Load a OBJ model located in `id`.<br>Returns a map of String & [ModelData](#modeldata-aka-rawmodel), each entry corresponding to an object group (or parts) in the OBJ file.<br>This allows selectively picking individual objects out for processing/rendering. |
+|`static ModelManager.upload(modelData: ModelData): Model`|Upload the model data to the GPU so it can be effectively rendered.<br>Returns a [Model](#model-aka-modelcluster).<br>**Note: This should only be invoked during the Loading/Parsing stage of scripts. Use DynamicModelHolder if you need to upload the model at runtime.**|
 
 ??? info "Show deprecated fields/functions"
     These are the functions implemented in JCM for backward compatibility with scripts made for MTR-NTE.  

@@ -1,20 +1,22 @@
 # Vehicle Scripting
 
-Vehicle Scripting allows you to use [JavaScript](../index.md) to control vehicle rendering.
-
-While JCM supports **vehicle scripting**, it is nowhere near a state for something useful to be made(1), and thus no implementation documentation is provided at the moment.
-{ .annotate }
-
-1. MTR 4 does not expose low-level model operation (Such as dynamically replacing the texture after uploading the model), therefore stuff like per-vehicle LCD screen is not quite possible.
-
-**(No longer true, need updating)**
+Vehicle Scripting allows you to use [JavaScript](../../index.md) to control vehicle rendering and playing sounds (Such as playing on-board announcements).
 
 ## Concept
-In MTR 4, there is no longer a concept of a **train**. Instead, we have vehicle, which is a single vehicle consist. A train in a siding is made up of multiple consists linked together, just like how it is in real-life.
+In MTR 4, Resource Pack is able to define a custom vehicle (In the context of railway & trains, it is the equivalent of a single **carriage**). These vehicles/carriages can be freely arranged in-game via the Siding options, which would make up a **Vehicle Consists**.
 
-Therefore, the vehicle scripting system revolves around a single consist instead of the whole train. If you have an 8-car train of the same type with scripting enabled, your script would be invoked 8 times during rendering.
+(For MTR 3 resource packs, a train entry is broken up into Forward Cab, Trailer, Backward Cab and Double Cab variant.)
 
-**(No longer true, need updating)**
+### The question: What should a vehicle script be bound to?
+
+Per-carriage, per-consist? Or how about just a **Script Entry**:
+
+![Illustration of the Script Entry concept](./img/script_entry.png)
+
+A **Script Entry** is a separate object that exists just like vehicle, and vehicle entries in resource packs can reference a Script Entry by it's id. (In which, a Script Entry can be re-used by multiple vehicles.)
+
+This effectively allows mixed carriage operation, while minimizing the number of script instances (Which could hinder performance), as well as providing backward compatibility with NTE scripts, which previously expected a script to be tied to an entire train consist.
+
 
 ### :material-refresh: Data Obtaining & Fetching
 **Under MTR 4**, only nearby stations/routes are sent to the client in order to conserve data usage. This means that if, let's say you join in the middle between 2 stations (And you are nowhere close to either of them), the client would not be aware of any existence of routes nor stations.  

@@ -15,6 +15,11 @@ To create an `Identifier`, you can use the following functions:
 ## Resources
 This class allows developers to access file contents within resource packs, as well as some utilities functions for obtaining AWT resources such as Font.
 
+!!! note Performance for reading resources
+    Reading resources from the disk is rather slow compared to other in-memory operations. Reading it every frame (i.e. in `render()`) may cause significant lag issues depending on the resources.
+    
+    If the resources (Image/Text/Whatever) you want to read is known ahead of time, you should read it and save it to a variable during the **Parsing Stage**, so you can re-use the content during the runtime stage.
+
 ### Resource Reading
 |Functions|Description|
 |:--------|:----------|
