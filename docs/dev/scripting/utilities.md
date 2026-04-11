@@ -3,9 +3,16 @@ As the scripting functionality is based on the **Nemo Transit Expansion** addon,
 ## Versions Querying
 Functions are provided where you can get the version number to ensure compatibility with different versions of mods (if any).
 
+!!! note inline end "mtrscripting" vs "jcm"
+    Currently the `mtrscripting` addon id is equivalent to `jcm`.
+    
+    This id is reserved for when scripting may be split to an individual addon from JCM.  
+    If you are using Vehicle/Eyecandy scripting and requiring checking for API compatibility, use `mtrscripting` instead.  
+    If you are using PIDS Scripting, continue checking `jcm`.
+
 |Functions|Description|
 |:--------|:----------|
-|`static Resources.getAddonVersion(modId: String): String`|Obtain the version of a mod that is hooked to the scripting functionality.<br>Out of the box in JCM, the possible value of `modId` are:<br>- mtr<br>- jcm|
+|`static Resources.getAddonVersion(modId: String): String`|Obtain the version of a mod that is hooked to the scripting functionality.<br>Out of the box in JCM, the possible value of `modId` are:<br>- mtr<br>- jcm<br>- mtrscripting|
 
 ??? info "Show deprecated fields/functions"
     These functions are kept for backward compatibility with NTE/ANTE. You are advised to avoid using these functions for newly created scripts.
