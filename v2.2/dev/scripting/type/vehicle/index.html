@@ -5646,6 +5646,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#the-question-what-should-a-vehicle-script-be-bound-to" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The question: What should a vehicle script be bound to?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#data-obtaining-fetching" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5861,16 +5872,15 @@
 
 
 <h1 id="vehicle-scripting">Vehicle Scripting<a class="headerlink" href="#vehicle-scripting" title="Anchor link to this section for reference">#</a></h1>
-<p>Vehicle Scripting allows you to use <a href="../index.md">JavaScript</a> to control vehicle rendering.</p>
-<p class="annotate">While JCM supports <strong>vehicle scripting</strong>, it is nowhere near a state for something useful to be made(1), and thus no implementation documentation is provided at the moment.</p>
-<ol>
-<li><abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr> does not expose low-level model operation (Such as dynamically replacing the texture after uploading the model), therefore stuff like per-vehicle LCD screen is not quite possible.</li>
-</ol>
-<p><strong>(No longer true, need updating)</strong></p>
+<p>Vehicle Scripting allows you to use <a href="../../">JavaScript</a> to control vehicle rendering and playing sounds (Such as playing on-board announcements).</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Anchor link to this section for reference">#</a></h2>
-<p>In <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>, there is no longer a concept of a <strong>train</strong>. Instead, we have vehicle, which is a single vehicle consist. A train in a siding is made up of multiple consists linked together, just like how it is in real-life.</p>
-<p>Therefore, the vehicle scripting system revolves around a single consist instead of the whole train. If you have an 8-car train of the same type with scripting enabled, your script would be invoked 8 times during rendering.</p>
-<p><strong>(No longer true, need updating)</strong></p>
+<p>In <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>, Resource Pack is able to define a custom vehicle (In the context of railway &amp; trains, it is the equivalent of a single <strong>carriage</strong>). These vehicles/carriages can be freely arranged in-game via the Siding options, which would make up a <strong>Vehicle Consists</strong>.</p>
+<p>(For <abbr title="Minecraft Transit Railway 3.x">MTR 3</abbr> resource packs, a train entry is broken up into Forward Cab, Trailer, Backward Cab and Double Cab variant.)</p>
+<h3 id="the-question-what-should-a-vehicle-script-be-bound-to">The question: What should a vehicle script be bound to?<a class="headerlink" href="#the-question-what-should-a-vehicle-script-be-bound-to" title="Anchor link to this section for reference">#</a></h3>
+<p>Per-carriage, per-consist? Or how about just a <strong>Script Entry</strong>:</p>
+<p><img alt="Illustration of the Script Entry concept" src="img/script_entry.png" /></p>
+<p>A <strong>Script Entry</strong> is a separate object that exists just like vehicle, and vehicle entries in resource packs can reference a Script Entry by it's id. (In which, a Script Entry can be re-used by multiple vehicles.)</p>
+<p>This effectively allows mixed carriage operation, while minimizing the number of script instances (Which could hinder performance), as well as providing backward compatibility with <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> scripts, which previously expected a script to be tied to an entire train consist.</p>
 <h3 id="data-obtaining-fetching"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.65 6.35A7.96 7.96 0 0 0 12 4a8 8 0 0 0-8 8 8 8 0 0 0 8 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18a6 6 0 0 1-6-6 6 6 0 0 1 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4z"/></svg></span> Data Obtaining &amp; Fetching<a class="headerlink" href="#data-obtaining-fetching" title="Anchor link to this section for reference">#</a></h3>
 <p><strong>Under <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr></strong>, only nearby stations/routes are sent to the client in order to conserve data usage. This means that if, let's say you join in the middle between 2 stations (And you are nowhere close to either of them), the client would not be aware of any existence of routes nor stations.<br />
 <sub><em>Side note: This is also part of the reason why the route filter in sensor blocks may not show any routes.</em></sub></p>

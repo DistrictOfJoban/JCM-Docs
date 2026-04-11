@@ -5915,6 +5915,11 @@ To create an <code>Identifier</code>, you can use the following functions:</p>
 </table>
 <h2 id="resources">Resources<a class="headerlink" href="#resources" title="Anchor link to this section for reference">#</a></h2>
 <p>This class allows developers to access file contents within resource packs, as well as some utilities functions for obtaining AWT resources such as Font.</p>
+<div class="admonition note performance for reading resources">
+<p class="admonition-title">Note</p>
+<p>Reading resources from the disk is rather slow compared to other in-memory operations. Reading it every frame (i.e. in <code>render()</code>) may cause significant lag issues depending on the resources.</p>
+<p>If the resources (Image/Text/Whatever) you want to read is known ahead of time, you should read it and save it to a variable during the <strong>Parsing Stage</strong>, so you can re-use the content during the runtime stage.</p>
+</div>
 <h3 id="resource-reading">Resource Reading<a class="headerlink" href="#resource-reading" title="Anchor link to this section for reference">#</a></h3>
 <table>
 <thead>

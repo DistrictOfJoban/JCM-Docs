@@ -5936,11 +5936,11 @@
 </tr>
 <tr>
 <td style="text-align: left;"><code>static ModelManager.loadModelParts(id: Identifier): Map&lt;String, ModelData&gt;</code></td>
-<td style="text-align: left;">Load a OBJ model located in <code>id</code>.<br>Returns a map of String &amp; <a href="#modeldata">ModelData</a>, each entry corresponding to an object group (or parts) in the OBJ file.<br>This allows selectively picking individual objects out for processing/rendering.</td>
+<td style="text-align: left;">Load a OBJ model located in <code>id</code>.<br>Returns a map of String &amp; <a href="#modeldata-aka-rawmodel">ModelData</a>, each entry corresponding to an object group (or parts) in the OBJ file.<br>This allows selectively picking individual objects out for processing/rendering.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>static ModelManager.upload(modelData: ModelData): Model</code></td>
-<td style="text-align: left;">Upload the model data to the GPU so it can be effectively rendered.<br>Returns a <a href="#model">Model</a>.<br><strong>Note: This should only be invoked during the Loading/Parsing stage of scripts. Use DynamicModelHolder if you need to upload the model at runtime.</strong></td>
+<td style="text-align: left;">Upload the model data to the GPU so it can be effectively rendered.<br>Returns a <a href="#model-aka-modelcluster">Model</a>.<br><strong>Note: This should only be invoked during the Loading/Parsing stage of scripts. Use DynamicModelHolder if you need to upload the model at runtime.</strong></td>
 </tr>
 </tbody>
 </table>
