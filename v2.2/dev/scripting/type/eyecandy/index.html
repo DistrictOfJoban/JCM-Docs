@@ -5842,10 +5842,6 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="mtr-4-custom-resources" name="__tabbed_1" type="radio" /><input id="mtr-3--nte-format" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="mtr-4-custom-resources"><abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr> Custom Resources</label><label for="mtr-3--nte-format"><abbr title="Minecraft Transit Railway 3.x">MTR 3</abbr> / <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> Format</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<details class="info">
-<summary>Mixing static object model &amp; scripts</summary>
-<p>Currently it is not possible to mix static object model and scripts. Once a script entry is specified, the rendering of the object block will be solely driven by scripts.</p>
-</details>
 <p>You can define your script entry in the <code>objectScripts</code> array, and reference it with <code>scriptId</code> within your object:</p>
 <div class="language-json highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">mtr_custom_resources.json</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
@@ -5915,10 +5911,6 @@
 <p>All fields are optional and could be omitted. However in order for script to load, either the <code>scriptLocation</code> or <code>prependExpressions</code> should be filled.</p>
 </div>
 <div class="tabbed-block">
-<details class="info">
-<summary>Mixing static object model &amp; scripts</summary>
-<p>Currently it is not possible to mix static object model and scripts. Once a script entry is specified, the rendering of the object block will be solely driven by scripts.</p>
-</details>
 <p>You can append the following lines to your <code>eyecandy.json</code> file (Where <code>eyecandy.json</code> is the json file containing the <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> eyecandy definition):</p>
 <div class="language-json highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">eyecandy.json</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
