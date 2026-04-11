@@ -12,8 +12,6 @@ During the execution, you may request for one or more model to be drawn onto the
 ### Script Registration
 
 === "MTR 4 Custom Resources"
-    ??? info "Mixing static object model & scripts"
-        Currently it is not possible to mix static object model and scripts. Once a script entry is specified, the rendering of the object block will be solely driven by scripts.
 
     You can define your script entry in the `objectScripts` array, and reference it with `scriptId` within your object:
 
@@ -50,8 +48,6 @@ During the execution, you may request for one or more model to be drawn onto the
     All fields are optional and could be omitted. However in order for script to load, either the `scriptLocation` or `prependExpressions` should be filled.
 
 === "MTR 3 / NTE Format"
-    ??? info "Mixing static object model & scripts"
-        Currently it is not possible to mix static object model and scripts. Once a script entry is specified, the rendering of the object block will be solely driven by scripts.
 
     You can append the following lines to your `eyecandy.json` file (Where `eyecandy.json` is the json file containing the NTE eyecandy definition):
 
