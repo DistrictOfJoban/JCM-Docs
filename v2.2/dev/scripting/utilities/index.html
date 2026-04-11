@@ -5941,6 +5941,13 @@
 <p>As the scripting functionality is based on the <strong>Nemo Transit Expansion</strong> addon, a number of helper classes are inherited from <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> to provide information or to simplify code implementation.</p>
 <h2 id="versions-querying">Versions Querying<a class="headerlink" href="#versions-querying" title="Anchor link to this section for reference">#</a></h2>
 <p>Functions are provided where you can get the version number to ensure compatibility with different versions of mods (if any).</p>
+<div class="admonition note inline end">
+<p class="admonition-title">mtrscripting" vs "jcm</p>
+<p>Currently the <code>mtrscripting</code> addon id is equivalent to <code>jcm</code>.</p>
+<p>This id is reserved for when scripting may be split to an individual addon from JCM.<br />
+If you are using Vehicle/Eyecandy scripting and requiring checking for API compatibility, use <code>mtrscripting</code> instead.<br />
+If you are using PIDS Scripting, continue checking <code>jcm</code>.</p>
+</div>
 <table>
 <thead>
 <tr>
@@ -5951,7 +5958,7 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><code>static Resources.getAddonVersion(modId: String): String</code></td>
-<td style="text-align: left;">Obtain the version of a mod that is hooked to the scripting functionality.<br>Out of the box in JCM, the possible value of <code>modId</code> are:<br>- mtr<br>- jcm</td>
+<td style="text-align: left;">Obtain the version of a mod that is hooked to the scripting functionality.<br>Out of the box in JCM, the possible value of <code>modId</code> are:<br>- mtr<br>- jcm<br>- mtrscripting</td>
 </tr>
 </tbody>
 </table>
