@@ -251,6 +251,7 @@ Also known as `RoutePlatform` in NTE.
 |`Stop.station: Station?`|The [Station](../../tsc.md#station) this stop belongs to.<br>Null if the data has not been fetched yet.|
 |`Stop.platform: Platform?`|The [Platform](../../tsc.md#platform) of this stop.<br>Null if the data has not been fetched yet.|
 |`Stop.destinationName: String`|The destination string. Either the station name of the current route's final stop, or a custom destination defined in the route.|
+|`Stop.customDestination: String?`|The custom destination set for the stop.|
 |`Stop.routeInterchanges: List<RouteInterchange>`|Interchanging routes in this stop (i.e. All routes at Station, excluding current route). In a list of [RouteInterchange](#routeinterchange).<br>Hidden routes are excluded from the list.<br>List would be empty if there's no interchange / data hasn't been fetched yet.|
 |`Stop.connectingInterchanges: Map<String, List<RouteInterchange>`|A map corresponding to a list of interchanging routes, grouped by the name of all connecting stations.<br>Note: Multiple stations with the same name will be grouped together.<br>The current station is excluded, as it is already provided by `Stop.routeInterchanges`.<br>Hidden routes are excluded from the list.<br>List would be empty if there's no interchange / data hasn't been fetched yet.|
 |`Stop.dwellTimeMillis: long`|The dwell time of the stop in millisecond.<br>**-1** if `Stop.platform` is null (Unknown).|
@@ -264,6 +265,7 @@ Also known as `RoutePlatform` in NTE.
     |Functions And Objects|Description|
     |:--------------------|:----------|
     |`Stop.dwellTime: long`|The dwell time for current stop, in unit (seconds * 2).<br>Use `dwellTimeMillis` instead.|
+    |`Stop.destinationStation: Station`|The [Station](../../tsc.md#station) belonging to the last stop of the current route.<br>Use `Vehicle.getThisRouteStops()` to obtain the last stop, and get the station from there instead.|
     |`Stop.reverseAtPlatform: boolean`|Equivalent to `Stop.isRouteSwitchoverStop` (Yes it's true!)|
 
 

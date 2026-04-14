@@ -12,8 +12,8 @@ The API consists of the following 4 classes:
 ## ModelManager
 |Functions|Description|
 |:--------|:----------|
-|`static ModelManager.loadModel(id: Identifier, flipV: boolean): ModelData`|Load a full OBJ model located in `id`.<br>Returns a [ModelData](#modeldata).<br>If `flipV` is provided, the texture's V axis will be mirrored.|
-|`static ModelManager.loadModelParts(id: Identifier): Map<String, ModelData>`|Load a OBJ model located in `id`.<br>Returns a map of String & [ModelData](#modeldata-aka-rawmodel), each entry corresponding to an object group (or parts) in the OBJ file.<br>This allows selectively picking individual objects out for processing/rendering. |
+|`static ModelManager.loadModel(id: Identifier, flipV: boolean = true): ModelData`|Load a full OBJ model located in `id`.<br>Returns a [ModelData](#modeldata).<br>If `flipV` is true, the texture's V axis will be mirrored. (Required for OBJ exported from commonly used modelling software like blender)|
+|`static ModelManager.loadModelParts(id: Identifier, flipV: boolean = true): Map<String, ModelData>`|Load a OBJ model located in `id`.<br>Returns a map of String & [ModelData](#modeldata-aka-rawmodel), each entry corresponding to an object group (or parts) in the OBJ file.<br>This allows selectively picking individual objects out for processing/rendering.<br>If `flipV` is true, the texture's V axis will be mirrored. (Required for OBJ exported from commonly used modelling software like blender)|
 |`static ModelManager.upload(modelData: ModelData): Model`|Upload the model data to the GPU so it can be effectively rendered.<br>Returns a [Model](#model-aka-modelcluster).<br>**Note: This should only be invoked during the Loading/Parsing stage of scripts. Use DynamicModelHolder if you need to upload the model at runtime.**|
 
 ??? info "Show deprecated fields/functions"
@@ -23,7 +23,7 @@ The API consists of the following 4 classes:
     |Functions|Description|
     |:--------|:----------|
     |`static ModelManager.loadRawModel(null, id: Identifier, null): ModelData?`|Equivalent to `ModelManager.loadModel` with the `flipV` parameter set to false.<br>Null if the model loading failed.|
-    |`static ModelManager.loadPartedRawModel(id: Identifier): Map<String, ModelData>`|Equivalent to `ModelManager.loadModelParts`.|
+    |`static ModelManager.loadPartedRawModel(null, id: Identifier, null): Map<String, ModelData>`|Equivalent to `ModelManager.loadModelParts`.|
     |`static ModelManager.uploadVertArrays(modelData: ModelData): Model`|Equivalent to `ModelManager.upload`.|
 
 ## ModelData (a.k.a. RawModel)
