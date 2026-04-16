@@ -234,6 +234,11 @@ function render(ctx, state, blockEyecandy) {
 }
 ```
 
+### TickableSound
+In ANTE, `TickableSound` is a sound instance where it's parameter (Such as volume/pitch) can be updated midway during playback.
+
+The equivalent in JCM is [TickableSoundInstance](../sounds.md#tickablesoundinstance), which can be used together with [SoundManager](../sounds.md#soundmanager)
+
 ### UtilitiesClient
 
 MTR 3 contains a `UtilitiesClient` class that is exposed by ANTE, which is no longer the case in MTR 4. Known equivalent methods can be found as follows:

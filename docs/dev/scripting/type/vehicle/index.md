@@ -166,8 +166,8 @@ Script may invoke one of the following methods to check the script's status (Suc
 
     |Functions And Objects|Description|
     |:--------------------|:----------|
-    |`VehicleScriptContext.drawConnModel(model: Model, carIndex: int, matrices: Matrices?)`|Requests a [Model](../../model.md#model-aka-modelcluster) loaded via [ModelManager](../../model.md#modelmanager) to be drawn as a connector between 2 cars.<br>`carIndex` is the car number which the model should be rendered in. If the script does not belong to the car in `carIndex`, this function will do nothing.<br>`matrices` is the transformation of model placement. If null, the model will be placed in the middle of the 2 car without transformation, and 1m of elevation.|
-    |`VehicleScriptContext.drawConnStretchTexture(texture: Identifier, carIndex: int)`|Draw the same stretching car connection model as MTR, with a custom texture specified by [Identifier](../../resources.md#identifier-aka-resourcelocation).|
+    |`VehicleScriptContext.drawConnModel(model: Model, carIndex: int, matrices: Matrices?): void`|Requests a [Model](../../model.md#model-aka-modelcluster) loaded via [ModelManager](../../model.md#modelmanager) to be drawn as a connector between 2 cars.<br>`carIndex` is the car number which the model should be rendered in. If the script does not belong to the car in `carIndex`, this function will do nothing.<br>`matrices` is the transformation of model placement. If null, the model will be placed in the middle of the 2 car without transformation, and 1m of elevation.|
+    |`VehicleScriptContext.drawConnStretchTexture(texture: Identifier, carIndex: int): void`|Draw the same stretching car connection model as MTR, with a custom texture specified by [Identifier](../../resources.md#identifier-aka-resourcelocation).|
 
 #### Vehicle
 Represents a vehicle / trainset / train consist.
@@ -251,7 +251,7 @@ Also known as `RoutePlatform` in NTE.
 |`Stop.station: Station?`|The [Station](../../tsc.md#station) this stop belongs to.<br>Null if the data has not been fetched yet.|
 |`Stop.platform: Platform?`|The [Platform](../../tsc.md#platform) of this stop.<br>Null if the data has not been fetched yet.|
 |`Stop.destinationName: String`|The destination string. Either the station name of the current route's final stop, or a custom destination defined in the route.|
-|`Stop.customDestination: String?`|The custom destination set for the stop.|
+|`Stop.customDestination: String?`|The raw custom destination set for the stop.<br>Any preceding custom destination set is not accounted for.|
 |`Stop.routeInterchanges: List<RouteInterchange>`|Interchanging routes in this stop (i.e. All routes at Station, excluding current route). In a list of [RouteInterchange](#routeinterchange).<br>Hidden routes are excluded from the list.<br>List would be empty if there's no interchange / data hasn't been fetched yet.|
 |`Stop.connectingInterchanges: Map<String, List<RouteInterchange>`|A map corresponding to a list of interchanging routes, grouped by the name of all connecting stations.<br>Note: Multiple stations with the same name will be grouped together.<br>The current station is excluded, as it is already provided by `Stop.routeInterchanges`.<br>Hidden routes are excluded from the list.<br>List would be empty if there's no interchange / data hasn't been fetched yet.|
 |`Stop.dwellTimeMillis: long`|The dwell time of the stop in millisecond.<br>**-1** if `Stop.platform` is null (Unknown).|

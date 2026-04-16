@@ -10,11 +10,16 @@ This class allows you to submit a task to the single-thread background executor.
 |:--------|:----------|
 |`static BackgroundWorker.submit(task: Runnable): void`|Submit a lambda task to the background thread.<br>**Note: Exception handling (try/catch) for the task should be done within the lambda function.**|
 
+### Interruption
+If a resource pack/script reload has occurred, all existing background tasks will be cleared, and the running background task will be interrupted.
+
+This allows for recovery from a very long task queue / stuck tasks.
+
 ## Example
 ```js
 
 BackgroundWorker.submit(() => {
-    // We do the network fetching in the background thread, so Minecraft's resource loading can continue without waiting specifically for our script.
+    // We do the network fetching in the background thread, so Minecraft's resource pack loading can continue without waiting specifically for our script.
     let resp = Networking.fetch("https://api.modrinth.com/v2/project/minecraft-transit-railway");
     if(resp.ok()) {
         let data = resp.getData();

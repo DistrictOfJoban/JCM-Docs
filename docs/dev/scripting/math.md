@@ -10,8 +10,8 @@ A three-dimensional vector, that is, the coordinates (x, y, z).
 
 |Functions|Description|
 |:--------|:----------|
-|`new Vector3f(x: float, y: float, z: float)`|Creates an instance of the Vector3f class. |
-|`new Vector3f(tscVec: Vector)`|Creates an instance of the Vector3f class from the [Vector](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/tool/Vector.java) class from MTR's Transport Simulation Core. |
+|`new Vector3f(x: float, y: float, z: float): Vector3f`|Creates an instance of the Vector3f class. |
+|`new Vector3f(tscVec: Vector): Vector3f`|Creates an instance of the Vector3f class from the [Vector](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/tool/Vector.java) class from MTR's Transport Simulation Core. |
 |`Vector3f.x(): float`|Returns the X coordinate|
 |`Vector3f.y(): float`|Returns the Y coordinate|
 |`Vector3f.z(): float`|Returns the Z coordinate|
@@ -28,7 +28,7 @@ A three-dimensional vector, that is, the coordinates (x, y, z).
 |`Vector3f.cross(other: Vector3f): Vector3f`|Performs a vector product with another vector. The result will be perpendicular to both vectors. |
 |`Vector3f.distance(other: Vector3f): float`|Returns the distance to the coordinates represented by the other vector. |
 |`Vector3f.distanceSq(other: Vector3f): float`| Returns the square of the distance to the coordinates represented by the other vector. The calculation is somewhat faster than in the previous case. |
-|`Vector3f.rawBlockPos(): BlockPos(MC)`| Returns BlockPos from Minecraft with rounded vector values. |
+|`Vector3f.rawBlockPos(): BlockPos`| Returns BlockPos from Minecraft with rounded vector values. |
 |`static Vector3f.ZERO: Vector3f`|Zero vector. **Do not operate/manipulate this object.** |
 |`static Vector3f.XP: Vector3f`|Vector with value (1, 0, 0). **Do not operate/manipulate this object.**|
 |`static Vector3f.YP: Vector3f`|Vector with value (0, 1, 0). **Do not operate/manipulate this object.**|

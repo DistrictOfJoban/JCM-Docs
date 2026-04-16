@@ -30,7 +30,7 @@ Here is a snippet of 2 types of script: **Eyecandy Scripting** and **PIDS Script
 
 === "Eyecandy Scripting"
     ```js
-    const poleModelData = ModelManager.loadRawModel(Resources.id("mtr:example/pole.obj"), true);
+    const poleModelData = ModelManager.loadModel(Resources.id("mtr:example/pole.obj"));
     const poleModel = ModelManager.upload(poleModelData);
 
     function render(ctx, state, blockEyecandy) {

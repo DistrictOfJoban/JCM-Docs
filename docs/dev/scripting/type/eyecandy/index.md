@@ -111,8 +111,8 @@ Script may invoke one of the following methods to control rendering and sounds, 
 |`EyeCandyScriptContext.getRenderManager(): RenderManager`|Obtain a [RenderManager](../../rendering.md#rendermanager) instance, which can be used to render stuff onto the Minecraft World.<br>The base position are set to the block's position + translated position.|
 |`EyeCandyScriptContext.getSoundManager(): SoundManager`|Obtain a [SoundManager](../../sounds.md) instance, which can be used to play sound onto the Minecraft World.<br>The base position are set to the block's position.|
 |`EyecandyScriptContext.events(): EyecandyEvents`|Returns [EyecandyEvents](#eyecandyevents) for checking events.|
-|`EyeCandyScriptContext.setOutlineShape(shape: VoxelShape)`|Set the outline shape (The visual hitbox) of the eyecandy to a corresponding [VoxelShape](../../mc.md#voxelshape)<br>No effect if player is holding a brush.|
-|`EyeCandyScriptContext.setCollisionShape(shape: VoxelShape)`|Set the collision shape (The physical hitbox) of the eyecandy to a corresponding [VoxelShape](../../mc.md#voxelshape).<br>No effect if player is holding a brush.|
+|`EyeCandyScriptContext.setOutlineShape(shape: VoxelShape): void`|Set the outline shape (The visual hitbox) of the eyecandy to a corresponding [VoxelShape](../../mc.md#voxelshape)<br>No effect if player is holding a brush.|
+|`EyeCandyScriptContext.setCollisionShape(shape: VoxelShape): void`|Set the collision shape (The physical hitbox) of the eyecandy to a corresponding [VoxelShape](../../mc.md#voxelshape).<br>No effect if player is holding a brush.|
 
 #### BlockEyecandy
 Represents a Decoration Block in the world.
@@ -153,7 +153,7 @@ Represents a Decoration Block in the world.
 |Functions And Objects|Description|
 |:--------------------|:----------|
 |`EyecandyEvents.onBlockUse: BlockUseEvent`|Event triggered when the block is right-clicked on. (Excluding brush)|
-|`EyecandyEvents.handled()`|Reset the event. Should be called after you have checked the `onBlockUse` event in your code.|
+|`EyecandyEvents.handled(): void`|Reset the event. Should be called after you have checked the `onBlockUse` event in your code.|
 
 #### BlockUseEvent
 |Functions And Objects|Description|

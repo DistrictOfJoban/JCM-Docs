@@ -83,6 +83,6 @@ Since each object should have its own tracker, you would probably want to store 
 
 |Functions|Description|
 |:--------|:----------|
-|`new RateLimit(params: Object[]): RateLimit`|Create a new RateLimit instance.<br>`interval` is the interval in seconds between two triggers.<br>For example, an interval of 0.1 means it should occur ten times per second.|
+|`new RateLimit(interval: double): RateLimit`|Create a new RateLimit instance.<br>`interval` is the interval in seconds between two triggers.<br>For example, an interval of 0.1 means it should occur ten times per second.|
 |`RateLimit.shouldUpdate(): boolean`|Has enough time elapsed between the last triggers?<br>Wrap the necessary code using<br>`if (state.rateLimitXXX.shouldUpdate()) { … }`to limit its execution frequency.|
 |`RateLimit.resetCoolDown(): void`|Resets the timer to go off as soon as possible.|
