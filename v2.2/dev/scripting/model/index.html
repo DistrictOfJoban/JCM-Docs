@@ -4696,10 +4696,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#modeldata-aka-rawmodel" class="md-nav__link">
+  <a href="#rawmodel" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ModelData (a.k.a. RawModel)
+        RawModel
       
     </span>
   </a>
@@ -4723,6 +4723,34 @@
     <span class="md-ellipsis">
       
         Rendering
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rawmeshbuilder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RawMeshBuilder
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RawMeshBuilder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
       
     </span>
   </a>
@@ -5751,10 +5779,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#modeldata-aka-rawmodel" class="md-nav__link">
+  <a href="#rawmodel" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ModelData (a.k.a. RawModel)
+        RawModel
       
     </span>
   </a>
@@ -5778,6 +5806,34 @@
     <span class="md-ellipsis">
       
         Rendering
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rawmeshbuilder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RawMeshBuilder
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RawMeshBuilder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
       
     </span>
   </a>
@@ -5914,12 +5970,14 @@
 
 <h1 id="3d-model-api">3D Model API<a class="headerlink" href="#3d-model-api" title="Anchor link to this section for reference">#</a></h1>
 <p>This API allows the loading of OBJ models from resource packs, as well as performing basic processing of the model data, and uploading them to the GPU for rendering purpose.</p>
-<p>The API consists of the following 4 classes:</p>
+<p>The API consists of the following 6 primary types:</p>
 <ul>
-<li><strong>ModelManager</strong>: Provide functions to read model data from resource packs &amp; upload the model in the Loading/Parsing stage.</li>
-<li><strong>ModelData</strong>: Represent the raw model data (Vertices location/faces etc.). Provide functions for basic manipulation such as translation/rotation etc.</li>
-<li><strong>Model</strong>: An uploaded model that can be used for rendering.</li>
-<li><strong>DynamicModelHolder</strong>: A class containing functions that allows uploading a <strong>ModelData</strong> during the Runtime stage.</li>
+<li><strong>ModelManager</strong>: Provide functions to read model data (RawModel) from resource packs &amp; upload the model in the Loading/Parsing stage.</li>
+<li><strong>RawMesh</strong>: Represents the raw mesh data (Vertices location/faces/materials etc.)</li>
+<li><strong>RawModel</strong>: A holder for multiple meshes combined together. Provide functions for basic manipulation such as translation/rotation etc.</li>
+<li><strong>Model</strong>: A <code>RawModel</code> that is uploaded to the GPU memory, which can be used for rendering.</li>
+<li><strong>RawMeshBuilder</strong>: Allow using code to form a model by specifying vertices location.</li>
+<li><strong>DynamicModelHolder</strong>: A class containing functions that allows uploading a <strong>RawModel</strong> during the Runtime stage.</li>
 </ul>
 <h2 id="modelmanager">ModelManager<a class="headerlink" href="#modelmanager" title="Anchor link to this section for reference">#</a></h2>
 <table>
@@ -5931,15 +5989,15 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>static ModelManager.loadModel(id: Identifier, flipV: boolean): ModelData</code></td>
-<td style="text-align: left;">Load a full OBJ model located in <code>id</code>.<br>Returns a <a href="#modeldata">ModelData</a>.<br>If <code>flipV</code> is provided, the texture's V axis will be mirrored.</td>
+<td style="text-align: left;"><code>static ModelManager.loadModel(id: Identifier, flipV: boolean = true): RawModel</code></td>
+<td style="text-align: left;">Load a full OBJ model located in <code>id</code>.<br>Returns a <a href="#rawmodel">RawModel</a>.<br>If <code>flipV</code> is true, the texture's V axis will be mirrored. (Required for OBJ exported from commonly used modelling software like blender)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>static ModelManager.loadModelParts(id: Identifier): Map&lt;String, ModelData&gt;</code></td>
-<td style="text-align: left;">Load a OBJ model located in <code>id</code>.<br>Returns a map of String &amp; <a href="#modeldata-aka-rawmodel">ModelData</a>, each entry corresponding to an object group (or parts) in the OBJ file.<br>This allows selectively picking individual objects out for processing/rendering.</td>
+<td style="text-align: left;"><code>static ModelManager.loadModelParts(id: Identifier, flipV: boolean = true): Map&lt;String, RawModel&gt;</code></td>
+<td style="text-align: left;">Load a OBJ model located in <code>id</code>.<br>Returns a map of String &amp; <a href="#rawmodel">RawModel</a>, each entry corresponding to an object group (or parts) in the OBJ file.<br>This allows selectively picking individual objects out for processing/rendering.<br>If <code>flipV</code> is true, the texture's V axis will be mirrored. (Required for OBJ exported from commonly used modelling software like blender)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>static ModelManager.upload(modelData: ModelData): Model</code></td>
+<td style="text-align: left;"><code>static ModelManager.upload(rawModel: RawModel): Model</code></td>
 <td style="text-align: left;">Upload the model data to the GPU so it can be effectively rendered.<br>Returns a <a href="#model-aka-modelcluster">Model</a>.<br><strong>Note: This should only be invoked during the Loading/Parsing stage of scripts. Use DynamicModelHolder if you need to upload the model at runtime.</strong></td>
 </tr>
 </tbody>
@@ -5957,27 +6015,27 @@ Newer scripts should not utilize these functions anymore.</p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>static ModelManager.loadRawModel(null, id: Identifier, null): ModelData?</code></td>
+<td style="text-align: left;"><code>static ModelManager.loadRawModel(null, id: Identifier, null): RawModel?</code></td>
 <td style="text-align: left;">Equivalent to <code>ModelManager.loadModel</code> with the <code>flipV</code> parameter set to false.<br>Null if the model loading failed.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>static ModelManager.loadPartedRawModel(id: Identifier): Map&lt;String, ModelData&gt;</code></td>
+<td style="text-align: left;"><code>static ModelManager.loadPartedRawModel(null, id: Identifier, null): Map&lt;String, RawModel&gt;</code></td>
 <td style="text-align: left;">Equivalent to <code>ModelManager.loadModelParts</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>static ModelManager.uploadVertArrays(modelData: ModelData): Model</code></td>
+<td style="text-align: left;"><code>static ModelManager.uploadVertArrays(rawModel: RawModel): Model</code></td>
 <td style="text-align: left;">Equivalent to <code>ModelManager.upload</code>.</td>
 </tr>
 </tbody>
 </table>
 </details>
-<h2 id="modeldata-aka-rawmodel">ModelData (a.k.a. RawModel)<a class="headerlink" href="#modeldata-aka-rawmodel" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="rawmodel">RawModel<a class="headerlink" href="#rawmodel" title="Anchor link to this section for reference">#</a></h2>
 <details class="note">
-<summary>ModelData vs Model</summary>
+<summary>RawModel vs Model</summary>
 <ul>
-<li><strong>ModelData</strong> only represents the static data of a model, such as it's vertices locations, UVs, object groups, how faces are mapped etc.</li>
-<li><strong>ModelData</strong> itself cannot be used for rendering. Instead, you must upload the model via <code>ModelManager.upload()</code>.</li>
-<li>A <strong>Model</strong> represents an instance of a ModelData that has been uploaded to the GPU for rendering.</li>
+<li><strong>RawModel</strong> only represents the static data of a model, such as it's vertices locations, UVs, object groups, how faces are mapped etc.</li>
+<li><strong>RawModel</strong> itself cannot be used for rendering. Instead, you must upload the model via <code>ModelManager.upload()</code>.</li>
+<li>A <strong>Model</strong> represents an instance of a RawModel that has been uploaded to the GPU for rendering.</li>
 </ul>
 </details>
 <table>
@@ -5989,44 +6047,52 @@ Newer scripts should not utilize these functions anymore.</p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>ModelData.append(other: ModelData): ModelData</code></td>
-<td style="text-align: left;">Append/combine another <strong>ModelData</strong> to the current <strong>ModelData</strong>, and return the current ModelData.</td>
+<td style="text-align: left;"><code>new RawModel(): RawModel</code></td>
+<td style="text-align: left;">Create a new empty RawModel.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ModelData.applyTranslation(x: float, y: float, z: float): void</code></td>
+<td style="text-align: left;"><code>RawModel.append(other: RawMesh): RawModel</code></td>
+<td style="text-align: left;">Append/combine another <strong>RawMesh</strong> to the current <strong>RawModel</strong>, and return the current RawModel.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>RawModel.append(other: RawModel): RawModel</code></td>
+<td style="text-align: left;">Append/combine another <strong>RawModel</strong> to the current <strong>RawModel</strong>, and return the current RawModel.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>RawModel.applyTranslation(x: float, y: float, z: float): void</code></td>
 <td style="text-align: left;">Translate all vertices in the model by <code>x</code>, <code>y</code> and <code>z</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ModelData.applyRotation(direction: Vector3f, angle: float): void</code></td>
+<td style="text-align: left;"><code>RawModel.applyRotation(direction: Vector3f, angle: float): void</code></td>
 <td style="text-align: left;">Apply rotation to all vertices in a direction specified by a <a href="../math/#vector3f">Vector3f</a>.<br>Transformation is applied relative to the model's origin.<br><code>angle</code> is the angle to rotate in degree.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ModelData.applyScale(x: float, y: float, z: float): void</code></td>
+<td style="text-align: left;"><code>RawModel.applyScale(x: float, y: float, z: float): void</code></td>
 <td style="text-align: left;">Scale the model.<br>Transformation is applied relative to the model's origin.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ModelData.applyMirror(x: boolean, y: boolean, z: boolean): void</code></td>
+<td style="text-align: left;"><code>RawModel.applyMirror(x: boolean, y: boolean, z: boolean): void</code></td>
 <td style="text-align: left;">Mirror the model for the respective axis which are set to <code>true</code>.<br>Both the vertices's Position and Normals are mirrored for the respective axis.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ModelData.applyUVMirror(u: boolean, v: boolean): void</code></td>
+<td style="text-align: left;"><code>RawModel.applyUVMirror(u: boolean, v: boolean): void</code></td>
 <td style="text-align: left;">Set whether the respective UV axis should be mirrored.<br>A value of <code>(false, true)</code> is identical to the result of <code>flipV</code> in MTR.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ModelData.setAllRenderType(renderType: String): void</code></td>
+<td style="text-align: left;"><code>RawModel.setAllRenderType(renderType: String): void</code></td>
 <td style="text-align: left;">Set the render type for all object to <code>renderType</code>. Supported values:<br>- <code>EXTERIOR</code><br>- <code>exteriortranslucent</code><br>- <code>INTERIOR</code><br>- <code>INTERIOR_TRANSLUCENT</code> / <code>interiortranslucent</code><br>- <code>ALWAYS_ON_LIGHT</code> / <code>lighttranslucent</code><br>- <code>LIGHT</code></td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ModelData.copy(): ModelData</code></td>
-<td style="text-align: left;">Copy all vertices and material data and return a new instance of ModelData.</td>
+<td style="text-align: left;"><code>RawModel.copy(): RawModel</code></td>
+<td style="text-align: left;">Copy all vertices and material data and return a new instance of RawModel.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ModelData.replaceTexture(fileName: string, id: Identifier): void</code></td>
+<td style="text-align: left;"><code>RawModel.replaceTexture(fileName: string, id: Identifier): void</code></td>
 <td style="text-align: left;">Replace all texture ending with <code>fileName</code> to <code>id</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ModelData.replaceAllTexture(id: Identifier): void</code></td>
-<td style="text-align: left;">Replace all texture of this ModelData with <code>id</code>.</td>
+<td style="text-align: left;"><code>RawModel.replaceAllTexture(id: Identifier): void</code></td>
+<td style="text-align: left;">Replace all texture of this RawModel with <code>id</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -6065,10 +6131,93 @@ Newer scripts should not utilize these functions anymore.</p>
 <li>Construct a <a href="../rendering/#modeldrawcall">ModelDrawCall</a>, and pass the uploaded model as a parameter to <code>.modelObject</code> and use <a href="../rendering/#rendermanager">RenderManager</a> to render it out.</li>
 <li>Or pass in the model to the draw model functions in <a href="../type/vehicle/#vehiclescriptcontext">VehicleScriptContext</a> and <a href="../type/eyecandy/#eyecandyscriptcontext">EyecandyScriptContext</a></li>
 </ul>
+<h2 id="rawmeshbuilder">RawMeshBuilder<a class="headerlink" href="#rawmeshbuilder" title="Anchor link to this section for reference">#</a></h2>
+<p>The RawMeshBuilder allows forming a RawMesh using code.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>new RawMeshBuilder(faceSize: int, renderType: String, texture: Identifier): RawMeshBuilder</code></td>
+<td style="text-align: left;">Forms a new RawMeshBuilder.<br><code>faceSize</code> is to specify the amount of vertices required to form a face.<br><code>renderType</code> is one of the following:<br>- <code>EXTERIOR</code> / <code>exterior</code><br>- <code>exteriortranslucent</code><br>- <code>INTERIOR</code><br>- <code>INTERIOR_TRANSLUCENT</code> / <code>interiortranslucent</code><br>- <code>ALWAYS_ON_LIGHT</code> / <code>lighttranslucent</code><br>- <code>LIGHT</code><br><code>texture</code> is the <a href="../resources/#identifier-aka-resourcelocation">Identifier</a> pointing to the texture image.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>RawMeshBuilder.vertex(pos: Vector3f): RawMeshBuilder</code></td>
+<td style="text-align: left;">Start building a vertex with the position set to <code>pos</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>RawMeshBuilder.vertex(x: double, y: double, z: double): RawMeshBuilder</code></td>
+<td style="text-align: left;">Start building a vertex with the position set to <code>x</code>, <code>y</code> and <code>z</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>RawMeshBuilder.normal(x: double, y: double, z: double): RawMeshBuilder</code></td>
+<td style="text-align: left;">Set the normal vector of the currently-building vertex.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>RawMeshBuilder.uv(x: float, y: float): RawMeshBuilder</code></td>
+<td style="text-align: left;">Set the UV value of the currently-building vertex.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>RawMeshBuilder.endVertex(): RawMeshBuilder</code></td>
+<td style="text-align: left;">Finish building the current vertex. This will add the vertices to the mesh, and form a face if necessary.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>RawMeshBuilder.color(r: int, g: int, b: int, a: int): RawMeshBuilder</code></td>
+<td style="text-align: left;">Set the color of the mesh in rgba format.<br>Each channel is an int value from 0 - 255.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>RawMeshBuilder.getMesh(): RawMesh</code></td>
+<td style="text-align: left;">Obtain the RawMesh, which can be used to be appended to a <a href="#rawmodel">RawModel</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Anchor link to this section for reference">#</a></h3>
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">example.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1">// Create RawMeshBuilder, use method chaining to build vertices</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">rawMeshBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">RawMeshBuilder</span><span class="p">(</span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;exterior&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">Resources</span><span class="p">.</span><span class="nx">idr</span><span class="p">(</span><span class="s2">&quot;wordmark.png&quot;</span><span class="p">))</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">.</span><span class="nx">vertex</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">2</span><span class="p">).</span><span class="nx">normal</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">).</span><span class="nx">uv</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">).</span><span class="nx">endVertex</span><span class="p">()</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="p">.</span><span class="nx">vertex</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">2</span><span class="p">).</span><span class="nx">normal</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">).</span><span class="nx">uv</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">).</span><span class="nx">endVertex</span><span class="p">()</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="p">.</span><span class="nx">vertex</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">).</span><span class="nx">normal</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">).</span><span class="nx">uv</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">).</span><span class="nx">endVertex</span><span class="p">()</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="p">.</span><span class="nx">vertex</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">).</span><span class="nx">normal</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">).</span><span class="nx">uv</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">).</span><span class="nx">endVertex</span><span class="p">();</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="kd">const</span><span class="w"> </span><span class="nx">wordmarkRawModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">RawModel</span><span class="p">();</span><span class="w"> </span><span class="c1">// Create an empty RawModel</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="nx">wordmarkRawModel</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">rawMeshBuilder</span><span class="p">.</span><span class="nx">getMesh</span><span class="p">())</span><span class="w"> </span><span class="c1">// Append the mesh to RawModel</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="nx">wordmarkRawModel</span><span class="p">.</span><span class="nx">triangulate</span><span class="p">();</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="nx">wordmarkRawModel</span><span class="p">.</span><span class="nx">generateNormals</span><span class="p">();</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="kd">let</span><span class="w"> </span><span class="nx">wordmarkModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ModelManager</span><span class="p">.</span><span class="nx">upload</span><span class="p">(</span><span class="nx">wordmarkRawModel</span><span class="p">);</span><span class="w"> </span><span class="c1">// Upload the model to GPU</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="kd">function</span><span class="w"> </span><span class="nx">render</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">vehicle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">carIndex</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">getMyCars</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">        </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">drawCarModel</span><span class="p">(</span><span class="nx">wordmarkModel</span><span class="p">,</span><span class="w"> </span><span class="nx">carIndex</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span><span class="w"> </span><span class="c1">// Draw the model out</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
 <h2 id="dynamicmodelholder">DynamicModelHolder<a class="headerlink" href="#dynamicmodelholder" title="Anchor link to this section for reference">#</a></h2>
 <p>The <code>ModelManager.upload()</code> can only be invoked when it is executed in the render thread, which is true during the initial <strong>Loading/Parsing stage</strong>.</p>
 <p>But afterwards when the script's function is invoked during the Runtime stage, it will be executed in one of the Background Script Worker thread, preventing the ability to use <code>ModelManager.upload()</code> to upload the model.</p>
-<p>If you need the ability to upload a model during the runtime stage (e.g. Lazy loading / Dynamic manipulation of <a href="#modeldata-aka-rawmodel">ModelData</a>), you can do so with this class.</p>
+<p>If you need the ability to upload a model during the runtime stage (e.g. Lazy loading / Dynamic manipulation of <a href="#rawmodel">RawModel</a>), you can do so with this class.</p>
 <table>
 <thead>
 <tr>
@@ -6082,11 +6231,11 @@ Newer scripts should not utilize these functions anymore.</p>
 <td style="text-align: left;">Create a new instance of DynamicModelHolder.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>DynamicModelHolder.uploadLater(modelData: ModelData): void</code></td>
+<td style="text-align: left;"><code>DynamicModelHolder.uploadLater(rawModel: RawModel): void</code></td>
 <td style="text-align: left;">Request a model upload. This will schedule a task so that when the next frame comes around, JCM will perform the relevant task to get your model uploaded to the GPU.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>DynamicModelHolder.getUploadedModel(): ModelData?</code></td>
+<td style="text-align: left;"><code>DynamicModelHolder.getUploadedModel(): RawModel?</code></td>
 <td style="text-align: left;">Obtain the uploaded GPU model, or null if either <code>uploadLater</code> has never been invoked, or <code>uploadLater</code> has just been invoked and the model has not been uploaded yet.</td>
 </tr>
 <tr>
@@ -6097,7 +6246,7 @@ Newer scripts should not utilize these functions anymore.</p>
 </table>
 <details class="tip">
 <summary>Use Matrices for dynamic transformation in runtime</summary>
-<p>While it is possible to use <code>ModelData.applyTranslation</code> / <code>ModelData.applyRotation</code> and re-upload the model with DynamicModelHolder for every frame, it is very heavy in performance. For simple transformation, what you likely want to do is to use <a href="../math/#matrices">Matrices</a> to perform the transformation and pass that to <a href="../rendering/#modeldrawcall">ModelDrawCall.matrices</a> in runtime.</p>
+<p>While it is possible to use <code>RawModel.applyTranslation</code> / <code>RawModel.applyRotation</code> and re-upload the model with DynamicModelHolder for every frame, it is very heavy in performance. For simple transformation, what you likely want to do is to use <a href="../math/#matrices">Matrices</a> to perform the transformation and pass that to <a href="../rendering/#modeldrawcall">ModelDrawCall.matrices</a> in runtime.</p>
 </details>
 <!-- *[JCM]: Joban Client Mod -->
 <!-- *[PIDS]: Passenger Information Display System -->

@@ -5928,15 +5928,11 @@
 </tr>
 <tr>
 <td style="text-align: left;"><code>DisplayHelper.model: DisplayHelperCompat</code></td>
-<td style="text-align: left;"><strong>[Deprecated!]</strong> This used to be a <code>ModelCluster</code> in <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr>.<br>Due to design limitations in <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>, this is changed to a special type<br>called <code>DisplayHelperCompat</code>, which can be passed to <code>ctx.drawModel()</code> and related <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> methods to achieve full backward compatibility.</td>
+<td style="text-align: left;">This is a <a href="../../model/#model-aka-modelcluster">Model</a> of the display. You can pass this to <code>ModelDrawCall</code> or call the relevant <code>drawModel</code> function.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>DisplayHelper.texture: GraphicsTexture</code></td>
 <td style="text-align: left;">Returns the <a href="../../dynamic_textures/#graphicstexture">GraphicsTexture</a> used by this DisplayHelper.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>DisplayHelper.drawCalls(): List&lt;DrawCall&gt;</code></td>
-<td style="text-align: left;">Returns a list of draw calls to be passed into <code>RenderManager#queue()</code> in order to render the DisplayHelper screens.</td>
 </tr>
 </tbody>
 </table>
@@ -5994,9 +5990,7 @@
 <span class="normal"><a href="#__codelineno-0-51">51</a></span>
 <span class="normal"><a href="#__codelineno-0-52">52</a></span>
 <span class="normal"><a href="#__codelineno-0-53">53</a></span>
-<span class="normal"><a href="#__codelineno-0-54">54</a></span>
-<span class="normal"><a href="#__codelineno-0-55">55</a></span>
-<span class="normal"><a href="#__codelineno-0-56">56</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nx">include</span><span class="p">(</span><span class="nx">Resources</span><span class="p">.</span><span class="nx">id</span><span class="p">(</span><span class="s2">&quot;mtrsteamloco:scripts/display_helper.js&quot;</span><span class="p">));</span>
+<span class="normal"><a href="#__codelineno-0-54">54</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nx">include</span><span class="p">(</span><span class="nx">Resources</span><span class="p">.</span><span class="nx">id</span><span class="p">(</span><span class="s2">&quot;mtrsteamloco:scripts/display_helper.js&quot;</span><span class="p">));</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kd">let</span><span class="w"> </span><span class="nx">slotCfg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">  </span><span class="s2">&quot;version&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
@@ -6048,10 +6042,8 @@
 </span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="w">    </span><span class="nx">state</span><span class="p">.</span><span class="nx">dh</span><span class="p">.</span><span class="nx">upload</span><span class="p">();</span>
 </span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52"></a>
-</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">drawCall</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">state</span><span class="p">.</span><span class="nx">dh</span><span class="p">.</span><span class="nx">drawCalls</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="w">    </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">getRenderManager</span><span class="p">().</span><span class="nx">queue</span><span class="p">(</span><span class="nx">drawCall</span><span class="p">);</span>
-</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="p">}</span>
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="w">  </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">drawModel</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="nx">dh</span><span class="p">.</span><span class="nx">model</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span>
+</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 <h3 id="configuration-object">Configuration Object<a class="headerlink" href="#configuration-object" title="Anchor link to this section for reference">#</a></h3>
 <p>The dynamic display settings are specified using an array. This allows for greater flexibility in the settings, making it easier to add to existing vehicle models, and it's also similar to RTM's display settings.</p>

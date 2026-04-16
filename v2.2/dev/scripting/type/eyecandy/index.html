@@ -6028,11 +6028,11 @@
 <td style="text-align: left;">Returns <a href="#eyecandyevents">EyecandyEvents</a> for checking events.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>EyeCandyScriptContext.setOutlineShape(shape: VoxelShape)</code></td>
+<td style="text-align: left;"><code>EyeCandyScriptContext.setOutlineShape(shape: VoxelShape): void</code></td>
 <td style="text-align: left;">Set the outline shape (The visual hitbox) of the eyecandy to a corresponding <a href="../../mc/#voxelshape">VoxelShape</a><br>No effect if player is holding a brush.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>EyeCandyScriptContext.setCollisionShape(shape: VoxelShape)</code></td>
+<td style="text-align: left;"><code>EyeCandyScriptContext.setCollisionShape(shape: VoxelShape): void</code></td>
 <td style="text-align: left;">Set the collision shape (The physical hitbox) of the eyecandy to a corresponding <a href="../../mc/#voxelshape">VoxelShape</a>.<br>No effect if player is holding a brush.</td>
 </tr>
 </tbody>
@@ -6169,7 +6169,7 @@
 <td style="text-align: left;">Event triggered when the block is right-clicked on. (Excluding brush)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>EyecandyEvents.handled()</code></td>
+<td style="text-align: left;"><code>EyecandyEvents.handled(): void</code></td>
 <td style="text-align: left;">Reset the event. Should be called after you have checked the <code>onBlockUse</code> event in your code.</td>
 </tr>
 </tbody>

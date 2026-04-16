@@ -4979,6 +4979,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="BackgroundWorker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interruption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interruption
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -5711,6 +5728,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="BackgroundWorker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interruption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interruption
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -5873,9 +5907,12 @@
 </tr>
 </tbody>
 </table>
+<h3 id="interruption">Interruption<a class="headerlink" href="#interruption" title="Anchor link to this section for reference">#</a></h3>
+<p>If a resource pack/script reload has occurred, all existing background tasks will be cleared, and the running background task will be interrupted.</p>
+<p>This allows for recovery from a very long task queue / stuck tasks.</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Anchor link to this section for reference">#</a></h2>
 <div class="language-js highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nx">BackgroundWorker</span><span class="p">.</span><span class="nx">submit</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="c1">// We do the network fetching in the background thread, so Minecraft&#39;s resource loading can continue without waiting specifically for our script.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="c1">// We do the network fetching in the background thread, so Minecraft&#39;s resource pack loading can continue without waiting specifically for our script.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">resp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Networking</span><span class="p">.</span><span class="nx">fetch</span><span class="p">(</span><span class="s2">&quot;https://api.modrinth.com/v2/project/minecraft-transit-railway&quot;</span><span class="p">);</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">ok</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">resp</span><span class="p">.</span><span class="nx">getData</span><span class="p">();</span>

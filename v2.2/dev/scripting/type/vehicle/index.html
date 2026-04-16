@@ -6139,11 +6139,11 @@ To prove otherwise, submit a new GitHub issue in regard to this, or talk with us
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>VehicleScriptContext.drawConnModel(model: Model, carIndex: int, matrices: Matrices?)</code></td>
+<td style="text-align: left;"><code>VehicleScriptContext.drawConnModel(model: Model, carIndex: int, matrices: Matrices?): void</code></td>
 <td style="text-align: left;">Requests a <a href="../../model/#model-aka-modelcluster">Model</a> loaded via <a href="../../model/#modelmanager">ModelManager</a> to be drawn as a connector between 2 cars.<br><code>carIndex</code> is the car number which the model should be rendered in. If the script does not belong to the car in <code>carIndex</code>, this function will do nothing.<br><code>matrices</code> is the transformation of model placement. If null, the model will be placed in the middle of the 2 car without transformation, and 1m of elevation.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>VehicleScriptContext.drawConnStretchTexture(texture: Identifier, carIndex: int)</code></td>
+<td style="text-align: left;"><code>VehicleScriptContext.drawConnStretchTexture(texture: Identifier, carIndex: int): void</code></td>
 <td style="text-align: left;">Draw the same stretching car connection model as MTR, with a custom texture specified by <a href="../../resources/#identifier-aka-resourcelocation">Identifier</a>.</td>
 </tr>
 </tbody>
@@ -6436,6 +6436,10 @@ Also known as <code>RoutePlatform</code> in <abbr title="Nemo Transit Expansion 
 <td style="text-align: left;">The destination string. Either the station name of the current route's final stop, or a custom destination defined in the route.</td>
 </tr>
 <tr>
+<td style="text-align: left;"><code>Stop.customDestination: String?</code></td>
+<td style="text-align: left;">The raw custom destination set for the stop.<br>Any preceding custom destination set is not accounted for.</td>
+</tr>
+<tr>
 <td style="text-align: left;"><code>Stop.routeInterchanges: List&lt;RouteInterchange&gt;</code></td>
 <td style="text-align: left;">Interchanging routes in this stop (i.e. All routes at Station, excluding current route). In a list of <a href="#routeinterchange">RouteInterchange</a>.<br>Hidden routes are excluded from the list.<br>List would be empty if there's no interchange / data hasn't been fetched yet.</td>
 </tr>
@@ -6475,6 +6479,10 @@ Also known as <code>RoutePlatform</code> in <abbr title="Nemo Transit Expansion 
 <tr>
 <td style="text-align: left;"><code>Stop.dwellTime: long</code></td>
 <td style="text-align: left;">The dwell time for current stop, in unit (seconds * 2).<br>Use <code>dwellTimeMillis</code> instead.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Stop.destinationStation: Station</code></td>
+<td style="text-align: left;">The <a href="../../tsc/#station">Station</a> belonging to the last stop of the current route.<br>Use <code>Vehicle.getThisRouteStops()</code> to obtain the last stop, and get the station from there instead.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>Stop.reverseAtPlatform: boolean</code></td>
