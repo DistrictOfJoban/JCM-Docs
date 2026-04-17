@@ -10,23 +10,62 @@ One may consider this as an unofficial continuation for the NTE Scripting Featur
 ### What is Scripting in JCM?
 Essentially it allows you to use **JavaScript** to insert custom logic into the game, which will be executed and widens the possibilities of the MTR Mod.
 
-JCM Scripting is consisted of different **Script Type**, but what are they?
+The JS engine is powered by [Rhino](https://rhino.github.io/), an implementation of JS in pure Java.
+
+### What is JavaScript?
+JavaScript is a programming language that... in very simple terms, instructs computer to do stuff :D
+
+It can describe conditional logic, such as:  
+<u>If</u> there's pineapple on top of the pizza, <u>then</u> remove the pineapple and eat the pizza, <u>otherwise</u> eat the pizza.
+
+*This rest of this article assumes that you have a basic understanding of JavaScript and JavaScript types, so it won't delve into the basic syntax and other aspects here.*  
+*You can learn JavaScript from resources on the web, such as [here](https://javascript.info/).*
+
+??? question "Do I have to learn Java to write JavaScript?"
+    JavaScript does not have anything, or not much to do with Java at all, even though they share "Java" in the name.
+
+??? question "But can I use Java in JavaScript?"
+    Since Java and JavaScript are 2 distinct languages, *normally* you can't mix both of them.
+
+    However the JS Engine that JCM uses, **Rhino**, is based on Java, and it *does* contain interoperability with java classes/packages via a feature called **LiveConnect**. In-fact, many of the built-in JCM APIs is provided using this feature, they are all just Java class underneath, magic!
+
+    See [Calling Java Class Methods](./articles/tips.md#calling-java-class-methods) for details.
+
+### JavaScript Execution Environment
+While JS is commonly associated with web development or even server applications (e.g. Node.js), JCM's implementation usage of JS only utilize the base language itself.
+
+As such, this means that you only really need to care about the syntax (e.g. Variable & Function Declaration, conditional logic) as well as some [Built-in Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects) such as [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date), [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) etc.
+
+Other stuff such as HTML/CSS/DOM manipulation <u>is not applicable</u> to JCM Scripting.
+
+Keep that in mind, as IDE (Such as Visual Studio Code) may assume you are developing for a webpage and provides suggestions that are not applicable to JCM/NTE scripting!
 
 ### Script Type
-#### Understand Script Type by Analogy
+
+"Enough yapping, so what can JCM Scripting do?"
+
+Well *in of itself*, it does nothing. JCM Scripting is mere a base platform to provide JS scripting ability.
+
+To leverage the platform, JCM Scripting is consisted of different **Script Type**, so what are they?
+
+#### Script Type via Analogy
 To better understand **Script Type**, let's imagine the following:
 
+- JCM = **Exhibition Organizer**
+- JCM Scripting = **Exhibition Event**
+- JS Engine = **Venue**
 - Script Type = **Booth**
-- Scripting Engine = **Venue**
-- JCM Scripting = **Exhibiton Event**
-- JCM = **Exhibiton Organizer**
 
-Within the exhibition **(JCM Scripting)**, there are multiple booths **(Script Type)**. There are no "one way" to interact with a booth **(Script Type)** as each booth is setup different. However each booth still have a predefined plot size and a specific entrance direction that the visitor expects **(Common function calls)**.
+Within an exhibition **(JCM Scripting)**, there are multiple booths **(Script Type)**. There are no "one way" to interact with a booth **(Script Type)** as each booth is setup different. However each booth still have a predefined plot size and a specific entrance direction that the visitor expects. **(Common function calls)**
 
-All booths **(Script Type)** may take advantage of the common facilities provided by the venue **(Scripting Engine)** such as air-con & lighting **(Base JavaScript API)**, and anything that an exhibition organizer provides **(Some shared script APIs/Utilities provided by JCM)**.
+All booths **(Script Type)** may take advantage of the common facilities provided by the venue **(Scripting Engine)** such as air-con & lighting **(Base JS API)**, and anything that an exhibition organizer provides **(Shared APIs/Utilities provided by JCM)**.
 
-#### Understand Script Type by Code Example
-Here is a snippet of 2 types of script: **Eyecandy Scripting** and **PIDS Scripting**:
+
+
+#### Script Type via Example
+Script Type is an implementation of scripting which is domain-specific, meaning it only targets one specialized area.
+
+Here, let's look at a snippet of 2 form of script type: **Eyecandy Scripting** and **PIDS Scripting**:
 
 === "Eyecandy Scripting"
     ```js
@@ -41,7 +80,7 @@ Here is a snippet of 2 types of script: **Eyecandy Scripting** and **PIDS Script
 
 === "PIDS Scripting"
     ```js
-    function render(ctx, state, pidsBlockEntity) {
+    function render(ctx, state, pids) {
         // Render Hello World text to PIDS
         Text.create()
         .text("Hello World!")
@@ -53,7 +92,7 @@ Here is a snippet of 2 types of script: **Eyecandy Scripting** and **PIDS Script
     !!! note
         The **Text** in this instance is only made available for PIDS Scripting, this does not exist in Eyecandy Scripting!
 
-You'll notice that function name (and number of parameters) are the same across script types (The `render` function), however the parameter values passed to them are different (`pidsBlockEntity` vs `blockEyecandy`).
+You'll notice that function name (and number of parameters) are the same across script types (The `render` function), however the parameter values passed to them are different (`pids` vs `blockEyecandy`).
 
 Different types of script can also expose different classes/objects to them (e.g. PIDS Scripting's **Text** class), and they may impose their own design paradigm.
 
@@ -61,47 +100,15 @@ Different types of script can also expose different classes/objects to them (e.g
     JCM Scripting is a foundation to serve different types of scripting. The use case and possibilities of scripts is defined by the different type of scripting available.
 
 ### Available Script Types
-JCM currently provides 3 (functional) script types out of the box.
+JCM currently provides 3 script types out of the box, each type providing a domain-specific use cases. (PIDS Scripting for PIDS Layout, Vehicle Scripting to render stuff on a vehicle, etc.)
 
-If you are looking to *get started* on scripting, check out the script types below to see more details.  
-*Otherwise if you would like to learn more about how scripting in JCM works, keep on reading!*
+|Type|Description|
+|-|-|
+|[Vehicle Scripting](./type/vehicle/index.md)|This allows scripts to render 3D models/displays, as well as playing sounds for an MTR Vehicle/Train.|
+|[Eyecandy Scripting](./type/eyecandy/index.md)|This allows scripts to render 3D models/displays, as well as playing sounds on an MTR Decoration Object|
+|[PIDS Scripting](./type/pids/index.md)|This allows scripts to draw custom text/texture, as well as playing sounds for a JCM PIDS in the form of a PIDS Preset|
 
-|Type|Description|Provider|
-|-|-|-|
-|[Vehicle Scripting](./type/vehicle/index.md)|This allows scripts to render 3D models/displays, as well as playing sounds for an MTR vehicle.|MTR (via JCM)|
-|[Eyecandy Scripting](./type/eyecandy/index.md)|This allows scripts to render 3D models/displays, as well as playing sounds on an MTR Decoration Object|MTR (via JCM)|
-|[PIDS Scripting](./type/pids/index.md)|This allows scripts to draw custom text/texture, as well as playing sounds for a JCM PIDS in the form of a PIDS Preset|JCM|
-
-??? info "Third party Script Types"
-    Note that additional script types can be registered by 3rd party mod developers. In that case, they should be responsible for documenting how their specific type of scripting works, and how developers may make use of them. Those won't be covered in this documentation.
-
-### What is JavaScript?
-JavaScript is a programming language that... in very simple terms, instructs computer to do stuff :D
-
-It can describe logic, an example would be:  
-<u>If</u> there's pineapple on top of the pizza, <u>then</u> remove the pineapple and eat the pizza, <u>otherwise</u> eat the pizza.
-
-This rest of this article assumes that you have a basic understanding of JavaScript and JavaScript types, so it won't delve into the basic syntax and other aspects of it here.
-
-You can learn JavaScript from resources on the web, such as [here](https://javascript.info/).
-
-### The Nature of Scripting in JCM
-While JS is commonly associated with web development or even server applications (e.g. Node.js), JCM's implementation usage of JS only utilize the base language itself.
-
-As such, this means that you only really need to care about the syntax (e.g. Variable & Function Declaration, conditional logic) as well as some [Built-in Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects) such as [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date), [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) etc.
-
-Other stuff such as HTML/CSS/DOM manipulation <u>is not applicable</u> to JCM Scripting.
-
-Keep that in mind, as IDE (Such as Visual Studio Code) may assume you are developing for a webpage and provides suggestions that are not applicable to JCM/NTE scripting!
-
-#### FAQs
-??? question "Do I have to learn Java to write JavaScript?"
-    JavaScript does not have anything, or not much to do with Java at all, even though they share "Java" in the name.
-
-??? question "But can I use Java in JavaScript?"
-    This would not be the case under normal circumstances, as these 2 are different languages.
-
-    *However* the JavaScript Engine that JCM/NTE uses, **Rhino**, is based on Java, and it *does* contain interoperability with java classes/packages via a feature called LiveConnect. In practice it means you can invoke methods like they are JS functions.
+Below describes the general lifecycle and flow of a regular script execution.
 
 ### Script Flow
 
@@ -113,6 +120,8 @@ Your script are expected to have functions with specific name (i.e. `create()`, 
 After your script has been executed once, JCM will capture the above functions internally (if found) to save them for later invocation in the Runtime Stage.
 
 #### Runtime Stage
+![](./img/runtime_fsm.png){ align=right }
+
 In the Runtime Stage, JCM will try to invoke the above 3 functions (create, render, dispose) as deemed appropriate. (Usually every frame for `render`, `create` on first render, and `dispose` when script should no longer be executed)
 
 When calling the 3 functions above, 3 parameters will be provided: `ctx, state, wrapper`.
@@ -190,10 +199,12 @@ This also means that if you increment a variable by a fixed amount for each fram
 #### Except they aren't always executed every frame!
 While JCM *tries* to call the `render()` function for every frame, it is only made on a best-effort basis. If your script has not finished executing before the next frame came around, then your function won't be called again until it has finished execution.
 
-## Script Errors
+
+## :material-exclamation: Script Errors
 
 !!! note inline end
-     Script errors in the **Parsing/Loading Stage** are not currently displayed within the game (Like NTE had with debug mode), you need to check for errors in the game log, usually accessible by your launcher
+     Script errors in the **Parsing/Loading Stage** are only displayed in-game as a chat message.  
+     To do so outside the game, you need to check for errors in the **game/console log**, usually accessible by your launcher.
 
 If the script is executed incorrectly in the **Runtime Stage**, an error will be reported in the Minecraft log (Starting with `[Scripting] Error executing script!`).
 
@@ -203,7 +214,7 @@ The error message will indicate which line of code in which script file the erro
 
 The script execution engine will then pause the entire script for 4 seconds before trying to execute the function again.
 
-## How to read this document
+## :octicons-book-24: &nbsp; How to read this document
 
 On the sidebar to your left, you will see **API Reference**, which documents all the classes/functions/fields you can access in the script.
 

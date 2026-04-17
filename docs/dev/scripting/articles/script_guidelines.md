@@ -1,8 +1,8 @@
 # Script Guidelines
 
-*With power comes great responsibilities.*
+*With great power comes great responsibilities.*
 
-The scripting features in JCM/NTE allows the use of standard JavaScript API, as well as interoperability between Java and JS code, greatly improving the possibilities achievable by scripting. However there are a few things that you should be aware of before you go completely ham with it.
+JCM scripting allows the use of standard JavaScript API, as well as interoperability between Java and JS code via **LiveConnect**, greatly improving the possibilities achievable by scripting. However there are a few things that you should be aware of before you go completely ham with it.
 
 Note that this guideline only serves as a form of guidance. It is not possible to enforce the community to create scripts which behaves in a certain way. If you disagree or you do not wish to abide by these guidelines for any reason, you are free to do whatever you want. *You should however* be fully aware of the intention behind these guidelines and the consequence of doing so, as well as bearing the responsibilties that comes with it.
 

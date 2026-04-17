@@ -145,6 +145,7 @@ This would return a string formatted like: `2.0.0-beta.5`
 |`PIDSBlockEntity.rows: int`|The number of arrival rows supported by the PIDS Block|
 |`PIDSBlockEntity.isRowHidden(i: int): boolean`|Returns whether the arrival for that row is hidden. (via PIDS Config)|
 |`PIDSBlockEntity.getCustomMessage(i: int): String`|Returns the custom message configured for that row via PIDS Config.<br>Empty string (`""`) if not set.|
+|`PIDSBlockEntity.getTargetPlatformIds(): List<Long>`|Returns the detected platform id by the PIDS, regardless of whether the platform has any arrival or not.<br>This is either the auto-detected platforms, or specific arrival platform as configured to the PIDS.|
 |`PIDSBlockEntity.isPlatformNumberHidden(): boolean`|Returns whether the platform number is set to hidden. (via PIDS Config)|
 |`PIDSBlockEntity.blockPos(): Vector3f`|Returns the coordinate of which the PIDS block is located.|
 |`PIDSBlockEntity.isKeyBlock(): boolean`|Returns whether the current block is a unique block within a PIDS pair<br>(e.g. Identify 1 side of a dual-sided PIDS)|

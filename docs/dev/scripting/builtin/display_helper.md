@@ -13,7 +13,7 @@ To import this script, insert `include(Resources.id("mtrsteamloco:scripts/displa
 |`DisplayHelper.graphics(): Graphics2D`|This returns an AWT Graphics2D for the full texture defined in the configuration object.|
 |`DisplayHelper.graphicsFor(slotName: String): Graphics2D`|This returns an AWT Graphics2D for the full texture defined in the configuration object.<br>This applies the appropriate translation in Graphics2D so that it is ready to be used with the corresponding slot.|
 |`DisplayHelper.upload(): void`|Upload the texture to the GPU. Call this if your texture has been updated and you want to display the updated content.|
-|`DisplayHelper.model: DisplayHelperCompat`|This is a [Model](../model.md#model-aka-modelcluster) of the display. You can pass this to `ModelDrawCall` or call the relevant `drawModel` function.|
+|`DisplayHelper.model: Model`|This is a [Model](../model.md#model-aka-modelcluster) of the display. You can pass this to `ModelDrawCall` or call the relevant `drawModel` function.|
 |`DisplayHelper.texture: GraphicsTexture`|Returns the [GraphicsTexture](../dynamic_textures.md#graphicstexture) used by this DisplayHelper.|
 
 ### Example Script

@@ -61,12 +61,12 @@ If you managed to get pass all questions, it likely means that your script have 
     - - **If yes:** You will need to migrate your script to these methods/functions.
     - - **If no:** Unfortunately these features aren't available in JCM at the moment.
 
-??? note "My script utilize advanced model processing techniques (RawMeshBuilder / MaterialProperties / VertArrays etc.)"
+??? note "My script utilize advanced model processing techniques (MaterialProp / VertArrays etc.)"
     - Unfortunately these features aren't available in JCM at the moment.  
-    RawMeshBuilder may become available in the future, however there is no plan for other deeper classes like accessing MaterialProperties / VertArrays. Please try working around them with the existing NTE model API.
+    `RawModel/RawMesh/RawMeshBuilder/ModelCluster` are currently already implemented, however there are no plan to expose other deeper classes like MaterialProperties / VertArrays. Please try working around them with the existing NTE model API.
 
 ??? note "My script make use of the BVE CSV/OpenBVE Animated models."
-    You need to migrate to the OBJ model format as CSV/Animated are not supported in MTR 4.
+    You need to migrate to the OBJ model format as CSV/Animated is not supported in MTR 4.
 
 ??? note "My script access the internal of MTR Mod (e.g. Use of MTRClientData / Station / Route etc.)"
     You will need to look in the MTR 4 codebase to adapt the changes to your script.

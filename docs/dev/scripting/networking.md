@@ -82,6 +82,10 @@ if(onlineImage != null) {
     g.drawImage(onlineImage, 0, 0, null);
 }
 ```
+### Background Fetching
+
+You may combine this with the [Background Worker API](./bgworker.md) to perform non-blocking HTTP request.
+
 ### Note on User-Agent
 JCM always supplies a default **User-Agent** header with the value `Joban Client Mod (https://jcm.joban.org)`.
 

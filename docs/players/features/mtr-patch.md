@@ -12,6 +12,9 @@ The current patch set includes:
 - Fix MTR 4 not recognizing path traversal (e.g. `../`, `..\`) for OBJ textures, which was previously supported in NTE.
 - Fix MTR 4 not recognizing legacy NTE object's `translation`, `rotation`, `scale` and `mirror` fields in resource packs.
 
+## Feature-parity related
+- The **lift ding sound** feature from MTR 3 has been re-added.
+
 ## User Interface / UX
 ### Car auto-fill
 For vehicles sets/families formatted appropriately, you may now hold the `SHIFT` key when adding vehicles in Siding to automatically fill out the entire siding length.  
