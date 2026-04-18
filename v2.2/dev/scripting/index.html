@@ -6072,7 +6072,7 @@ An example console output of the above code:
 <ul>
 <li><code>static</code> means that you don't need to create an object to use this function, you can call <code>Resources.id("aaa:bbb")</code> directly.</li>
 <li><code>idStr: String</code> means that the <code>idStr</code> parameter accepts a java <strong>String</strong> type. (Note: <abbr title="JavaScript">JS</abbr> string are converted to Java String, thus you don't need to do the conversion yourself. See <a href="articles/tips/#interoperability-between-java-classesmethods">Interoperability between Java Classes/Methods</a> for details.)</li>
-<li><code>: Identifier</code> means that a function call will return a value of type <code>Identifier</code>.</li>
+<li><code>: Identifier</code> means that a function call will return a value of type <code>Identifier</code>. Most types are documented in the JCM docs (<a href="resources/#identifier-aka-resourcelocation">Like Identifier</a>), with the exception of Java types such as String/int etc.</li>
 </ul>
 <h3 id="example-2">Example 2<a class="headerlink" href="#example-2" title="Anchor link to this section for reference">#</a></h3>
 <div class="language-js highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nx">DataReader</span><span class="p">.</span><span class="nx">asString</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="o">?</span>
