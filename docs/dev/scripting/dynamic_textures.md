@@ -8,7 +8,7 @@ The **GraphicsTexture** class allows you to create a texture of a fixed resoluti
 |             Functions And Objects              | Description |
 | :--------------------------------------------- | :---------- |
 | `new GraphicsTexture(width: int, height: int): GraphicsTexture` | Create a GraphicsTexture with `width` and `height` pixels.<br>If you plan to draw contents related to per-block/per-train, you should use this in the  `create` function and store in `state`.|
-|`GraphicsTexture.identifier: Identifier`|The identifier of the virtual resource of this dynamic texture. You can use this to replace the model texture/draw a texture with this id.|
+|`GraphicsTexture.identifier: Identifier`|The [Identifier](./resources.md#identifier-aka-resourcelocation) of the virtual resource of this dynamic texture. You can use this to replace the model texture/draw a texture with this id.|
 |`GraphicsTexture.bufferedImage: BufferedImage`|Java AWT's BufferedImage for use as a temporary canvas.|
 |`GraphicsTexture.graphics: Graphics2D`|This is the Java AWT's Graphics for this texture. You can call different functions to draw on the bufferedImage.|
 |`GraphicsTexture.upload(): void`|Loads the contents of bufferedImage into video memory and immediately displays it on the model.<br>This operation can significantly reduce FPS. It is recommended to use it in combination with `RateLimit` to reduce the frequency of texture updates.<br><br>For example, the screen can be updated only 10 times per second, and it may not be updated at far distances, in some cases the information may not be updated at all.|

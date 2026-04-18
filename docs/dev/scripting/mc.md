@@ -36,7 +36,7 @@ Minecraft employs it's own text format called the [Text Component Format](https:
 |`VanillaText.append(other: VanillaText): VanillaText`|This append another VanillaText after the current VanillaText, the styles for each VanillaText are retained.|
 |`VanillaText.withBold(): VanillaText`|Set the VanillaText text to bold|
 |`VanillaText.withItalic(): VanillaText`|Set the VanillaText text to italic|
-|`VanillaText.withFont(id: Identifier): VanillaText`|Set the VanillaText text to use a specific font id as the displayed font, which is registered by resource pack|
+|`VanillaText.withFont(id: Identifier): VanillaText`|Set the VanillaText text to use a specific Font [Identifier](./resources.md#identifier-aka-resourcelocation) as the displayed font, which is registered by resource pack.|
 |`VanillaText.withColor(rgb: int): VanillaText`|This sets the corresponding RGB code as the color to display the text|
 |`VanillaText.withColor(colorName: String): VanillaText`|This sets the color to display the text|
 |`VanillaText.getString(): String`|This returns the literal text content of the VanillaText. Useful when paired with `VanillaText.translatable()` so you can access the string localized in the user's language.|
@@ -135,7 +135,7 @@ This is usually supplied/obtainable via events/code rather than something to be 
 |`PlayerEntity.pitch(): float`|Obtain the pitch rotation of the player head.|
 |`PlayerEntity.bodyYaw(): float`|Obtain the yaw rotation of the player's body.|
 |`PlayerEntity.playerName(): String`|Obtain the player's canonical name/username (Same as those registered in Mojang's/Microsoft server) |
-|`PlayerEntity.isHoldingItem(id: Identifier): boolean`|Whether player is holding an item with the corresponding [Identifier](./resources.md#identifier-aka-resourcelocation) on either hand.|
+|`PlayerEntity.isHoldingItem(id: Identifier): boolean`|Whether player is holding an with the corresponding [Item ID](./resources.md#identifier-aka-resourcelocation) on either hand.|
 |`PlayerEntity.mainHandItem(): ItemStack`|Obtain the [ItemStack](#itemstack) in the player's main hand|
 |`PlayerEntity.offHandItem(): ItemStack`|Obtain the [ItemStack](#itemstack) in the player's secondary/offhand|
 |`PlayerEntity.activeItem(): ItemStack`|Obtain the [ItemStack](#itemstack) in the player's hands, preferring main hand.|

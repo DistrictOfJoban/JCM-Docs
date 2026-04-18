@@ -4,8 +4,8 @@
 
 |Functions|Description|
 |:--------|:----------|
-|`SoundManager.playLocalSound(id: Identifier, volume: float, pitch: float): void`|This plays a sound by it's id, in which the sound are *not* localized to a specific position in the world and are always played at a constant volume. This can be used in, for example train announcements.|
-|`SoundManager.playSound(id: Identifier, pos: Vector3f, volume: float, pitch: float): void`|This plays a sound by it's id in the current Minecraft world at a [Vector3f](./math.md#vector3f) position relative to the current base position.|
+|`SoundManager.playLocalSound(id: Identifier, volume: float, pitch: float): void`|This plays a sound by its Sound [Identifier](./resources.md#identifier-aka-resourcelocation), in which the sound are *not* localized to a specific position in the world and are always played at a constant volume. This can be used in, for example train announcements.|
+|`SoundManager.playSound(id: Identifier, pos: Vector3f, volume: float, pitch: float): void`|This plays a sound by its Sound [Identifier](./resources.md#identifier-aka-resourcelocation) in the current Minecraft world at a [Vector3f](./math.md#vector3f) position relative to the current base position.|
 |`SoundManager.play(soundInstance: TickableSoundInstance): void`|This begins playing a [TickableSoundInstance](#tickablesoundinstance) in the game.|
 |`SoundManager.stop(soundInstance: TickableSoundInstance): void`|This stops a playing [TickableSoundInstance](#tickablesoundinstance) in the game.|
 

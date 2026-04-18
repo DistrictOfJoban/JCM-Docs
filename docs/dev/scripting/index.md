@@ -228,7 +228,7 @@ static Resources.id(idStr: String): Identifier
 
 - `static` means that you don't need to create an object to use this function, you can call `Resources.id("aaa:bbb")` directly.
 - `idStr: String` means that the `idStr` parameter accepts a java **String** type. (Note: JS string are converted to Java String, thus you don't need to do the conversion yourself. See [Interoperability between Java Classes/Methods](./articles/tips.md#interoperability-between-java-classesmethods) for details.)
-- `: Identifier` means that a function call will return a value of type `Identifier`.
+- `: Identifier` means that a function call will return a value of type `Identifier`. Most types are documented in the JCM docs ([Like Identifier](./resources.md#identifier-aka-resourcelocation)), with the exception of Java types such as String/int etc.
 
 ### Example 2
 ```js
