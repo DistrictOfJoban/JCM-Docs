@@ -45,16 +45,15 @@ let slotCfg = {
 };
 var dhBase = new DisplayHelper(slotCfg);
 
-function create(ctx, state, eyecandy) {
+function create(ctx, state, vehicle) {
+  // For performance reason we don't want to update every frame
+  // We set an object that enforce update only at most every 0.05s
   state.pisRateLimit = new RateLimit(0.05);
   state.dh = dhBase.create();
 }
 
-function dispose(ctx, state, eyecandy) {
-  state.dh.close();
-}
-
-function render(ctx, state, eyecandy) {
+function render(ctx, state, vehicle) {
+  // Drawing graphics may take a decent amount of time, so we should only update it every 0.05s (via pisRateLimit)
   if (state.pisRateLimit.shouldUpdate()) {
     let g;
 
@@ -71,7 +70,16 @@ function render(ctx, state, eyecandy) {
     state.dh.upload();
   }
 
-  ctx.drawModel(state.dh.model, null)
+  // Note: Our actual render operation shouldn't be inside pisRateLimit
+  // We must draw the model every frame so it still shows in the game
+  
+  for(let carNumber of vehicle.getMyCars()) {
+    ctx.drawCarModel(state.dh.model, carNumber, null);
+  }
+}
+
+function dispose(ctx, state, vehicle) {
+  state.dh.close(); // Dispose the graphics to free up memory
 }
 ```
 
