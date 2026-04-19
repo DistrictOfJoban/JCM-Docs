@@ -73,7 +73,7 @@ function render(ctx, state, vehicle) {
   // Note: Our actual render operation shouldn't be inside pisRateLimit
   // We must draw the model every frame so it still shows in the game
   
-  for(let carNumber of vehicle.getMyCars()) {
+  for(let carNumber of ctx.getMyCars()) {
     ctx.drawCarModel(state.dh.model, carNumber, null);
   }
 }
