@@ -210,6 +210,7 @@ nav:
         - Development Aids:
           - Quick Reload: dev/scripting/aids/script_quick_reload.md
           - Script Debug Overlay: dev/scripting/aids/script_debug_overlay.md
+          - VSCode Intellisense: dev/scripting/aids/ide_aids.md
         - API Reference:
           - Console API: dev/scripting/console.md
           - Resource Loading API: dev/scripting/resources.md
