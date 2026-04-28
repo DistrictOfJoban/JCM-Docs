@@ -1,9 +1,9 @@
 # Eyecandy Scripting
 
-Eyecandy Scripting allows you to use [JavaScript](../../index.md) to control the rendering of a MTR Decoration Object.
+Eyecandy Scripting allows you to use [JavaScript](../../index.md) to control the rendering of a MTR **Decoration Object**.
 
 ## Concept
-Your script will be associated as part of a Decoration Object model entry in the resource pack. When the model is assigned to a Decoration Object block, your script will start to execute.
+Your script will be associated as part of a Decoration Object model entry in the resource pack. When the model is selected in the Decoration Object block, your script will start to execute.
 
 During the execution, you may request for one or more model to be drawn onto the world, as well as requesting for sounds to be played.
 
@@ -76,9 +76,9 @@ During the execution, you may request for one or more model to be drawn onto the
 ### Called Functions
 Your script *can* include the following functions that JCM will call as needed:
 ``` js
-function create(ctx, state, blockEyecandy) { ... }
-function render(ctx, state, blockEyecandy) { ... }
-function dispose(ctx, state, blockEyecandy) { ... }
+function create(ctx, state, eyecandy) { ... }
+function render(ctx, state, eyecandy) { ... }
+function dispose(ctx, state, eyecandy) { ... }
 ```
 
 |Functions|Description|
@@ -89,13 +89,13 @@ function dispose(ctx, state, blockEyecandy) { ... }
 
 *Note: Any of the above functions are optional and may be omitted if you don't find it useful for your script.*
 
-The parameters (`ctx, state, blockEyecandy`) are described below:
+The parameters (`ctx, state, eyecandy`) are described below:
 
 |Parameter|Description|
 |:--------|:----------|
 |First (`ctx`)|Used to pass rendering actions to JCM. Type — [EyeCandyScriptContext](#eyecandyscriptcontext).|
 |Second (`state`)|A JavaScript object associated with a single Decoration Object block.<br>The initial value is {}, and its content can be set arbitrarily to store what should be different for each block.|
-|Third (`blockEyecandy`)|This returns the block entity of the placed Decoration Object block. Type — [BlockEyecandy](#blockeyecandy)|
+|Third (`eyecandy`)|This returns the block entity of the placed Decoration Object block. Type — [BlockEyecandy](#blockeyecandy)|
 
 ### API Reference
 
@@ -108,8 +108,8 @@ Script may invoke one of the following methods to control rendering and sounds, 
 |:--------------------|:----------|
 |`EyeCandyScriptContext.drawModel(model: ScriptedModel, matrices: Matrices?): void`| Requests JCM to render a model loaded via [ModelManager](../../model.md#modelmanager).<br>`matrices` is the transformation of model placement.<br>If `matrices` is null, the model will be placed in the center of the block without transformation.|
 |`EyeCandyScriptContext.setDebugInfo(key: String, value: object): void`|Output debugging information in the upper left corner of the screen. You need to enable **[Script Debug Overlay](../../aids/script_debug_overlay.md)** in JCM Settings to display it.<br>`key` is the name of the value<br>`value` is the content (`value` will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).|
-|`EyeCandyScriptContext.getRenderManager(): RenderManager`|Obtain a [RenderManager](../../rendering.md#rendermanager) instance, which can be used to render stuff onto the Minecraft World.<br>The base position are set to the block's position + translated position.|
-|`EyeCandyScriptContext.getSoundManager(): SoundManager`|Obtain a [SoundManager](../../sounds.md) instance, which can be used to play sound onto the Minecraft World.<br>The base position are set to the block's position.|
+|`EyeCandyScriptContext.getRenderManager(): RenderManager`|Obtain a [RenderManager](../../rendering.md#rendermanager) instance, which can be used to render stuff onto the Minecraft World.<br>Base transformation is set to the **block's position + translated position**, with custom rotation configured per-block applied.|
+|`EyeCandyScriptContext.getSoundManager(): SoundManager`|Obtain a [SoundManager](../../sounds.md) instance, which can be used to play sound onto the Minecraft World.<br>Base position are set to the block's position.|
 |`EyecandyScriptContext.events(): EyecandyEvents`|Returns [EyecandyEvents](#eyecandyevents) for checking events.|
 |`EyeCandyScriptContext.setOutlineShape(shape: VoxelShape): void`|Set the outline shape (The visual hitbox) of the eyecandy to a corresponding [VoxelShape](../../mc.md#voxelshape)<br>No effect if player is holding a brush.|
 |`EyeCandyScriptContext.setCollisionShape(shape: VoxelShape): void`|Set the collision shape (The physical hitbox) of the eyecandy to a corresponding [VoxelShape](../../mc.md#voxelshape).<br>No effect if player is holding a brush.|
@@ -119,7 +119,7 @@ Represents a Decoration Block in the world.
 
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`BlockEyecandy.getModelId(): String?`|Return the model/prefab that is currently assigned to this block.<br>Null if no model is selected.|
+|`BlockEyecandy.getModelId(): String`|Returns the id of the eyecandy entry currently assigned to this block.<br>Note that this is not the actual model id referenced in your eyecandy entry.|
 |`BlockEyecandy.getTranslateX(): float`|The value in **meters** on how much the Decoration Object is translated on the X-axis, configured via GUI.|
 |`BlockEyecandy.getTranslateY(): float`|The value in **meters** on how much the Decoration Object is translated on the Y-axis, configured via GUI.|
 |`BlockEyecandy.getTranslateZ(): float`|The value in **meters** on how much the Decoration Object is translated on the Z-axis, configured via GUI.|

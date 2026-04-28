@@ -176,23 +176,23 @@ In JCM, the key differences are:
 
 #### Migration example
 ```diff title="example.js" linenums="1"
-function render(ctx, state, blockEyecandy) {
--   blockEyecandy.setShape("0,0,0,8,8,8/7,0,7,12,16,10");
--   blockEyecandy.sendUpdateC2S();
-+   const shape1 = VoxelShape.create(0, 0, 0, 8, 8, 8, blockEyecandy.facing());
-+   const shape2 = VoxelShape.create(7, 0, 7, 12,16,10, blockEyecandy.facing());
+function render(ctx, state, eyecandy) {
+-   eyecandy.setShape("0,0,0,8,8,8/7,0,7,12,16,10");
+-   eyecandy.sendUpdateC2S();
++   const shape1 = VoxelShape.create(0, 0, 0, 8, 8, 8, eyecandy.facing());
++   const shape2 = VoxelShape.create(7, 0, 7, 12,16,10, eyecandy.facing());
 +   ctx.setOutlineShape(shape1.combine(shape2));
 }
 ```
 
 ### Block Use Event
-In ANTE, the `use` function would be invoked with 4 parameters: `ctx, state, blockEyecandy, player` when a player right click on it with anything other than an MTR Brush.
+In ANTE, the `use` function would be invoked with 4 parameters: `ctx, state, eyecandy, player` when a player right click on it with anything other than an MTR Brush.
 
 In JCM, you would have to check the event by yourself within the `render` function.
 
 #### Migration Example
 ```diff title="example.js" linenums="1"
-function render(ctx, state, blockEyecandy) {
+function render(ctx, state, eyecandy) {
 +   if(ctx.events().onBlockUse.occurred()) {
 +       let eventDetail = ctx.events().onBlockUse.detail();
 +       print(`Player at ${eventDetail.player().pos().x()}, ${eventDetail.player().pos().z()} right clicked the block!`);
@@ -200,7 +200,7 @@ function render(ctx, state, blockEyecandy) {
 +   ctx.events().handled(); // Important, this resets the event state!
 }
 
--   function use(ctx, state, blockEyecandy, player) {
+-   function use(ctx, state, eyecandy, player) {
 -       print(`Player at ${player.getPosition().getX()}, ${player.getPosition().getZ()} right clicked the block!`);
 -   }
 ```
@@ -210,7 +210,7 @@ ANTE allows creating Raw Minecraft Text Component with the use of `ComponentUtil
 
 #### Migration Example
 ```diff title="example.js" linenums="1"
-function render(ctx, state, blockEyecandy) {
+function render(ctx, state, eyecandy) {
     ...
 -   let component = ComponentUtil.translatable("text.aph.is", "A", "B");
 -   let str = ComponentUtil.getString(component);
@@ -225,7 +225,7 @@ JCM provides [PlayerEntity](../mc.md#playerentity) as the wrapper to represent a
 
 #### Migration Example
 ```diff title="example.js" linenums="1"
-function render(ctx, state, blockEyecandy) {
+function render(ctx, state, eyecandy) {
     ...
 -   let clientPlayer = MinecraftClient.getPlayer();
 -   let playerPos = clientPlayer.getPosition();

@@ -45,11 +45,11 @@ Minecraft employs it's own text format called the [Text Component Format](https:
 Displaying a chat message every 1.5s in an eyecandy script.
 
 ```js title="example.js"
-function create(ctx, state, blockEyecandy) {
+function create(ctx, state, eyecandy) {
     state.outputInterval = new RateLimit(1.5); // Every 1.5s
 }
 
-function render(ctx, state, blockEyecandy) {
+function render(ctx, state, eyecandy) {
     if(state.outputInterval.shouldUpdate()) {
         // Create a standalone text
         let textILoveJs = VanillaText.literal(" I love JavaScript /s")
@@ -90,9 +90,9 @@ This allows you to construct the outline shape of a block, which can be used to 
 Setting an outline shape for an eyecandy:
 
 ```js title="example.js"
-function create(ctx, state, blockEyecandy) {
-    const shape1 = VoxelShape.create(0, 0, 0, 8, 16, 8, blockEyecandy.facing());
-    const shape2 = VoxelShape.create(7, 0, 7, 12, 16, 10, blockEyecandy.facing());
+function create(ctx, state, eyecandy) {
+    const shape1 = VoxelShape.create(0, 0, 0, 8, 16, 8, eyecandy.facing());
+    const shape2 = VoxelShape.create(7, 0, 7, 12, 16, 10, eyecandy.facing());
     const myShape = shape1.combine(shape2);
     ctx.setOutlineShape(myShape);
 }

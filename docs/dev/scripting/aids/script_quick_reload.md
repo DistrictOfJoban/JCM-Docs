@@ -2,7 +2,7 @@
 
 Since scripting is a part of a resource pack, to reload a script you usually have to reload the resource in-game by pressing F3+T.
 
-To aid development time, **JCM v2.1.2** introduced a new quick reload feature which allows reloading of scripts without going through the normal resource pack reloading routine.
+To aid development time, JCM offers a **quick reload** feature which allows reloading of scripts without going through the normal resource pack reloading routine.
 
 ### Enable quick reload
 Go to **Mod Menu** / **Mod Config Screen** (Forge), find JCM and click on **Configure**.  
@@ -25,3 +25,4 @@ After enabling debug mode, you can press the following key combination:
 
 ![](./img/quick_reload.png)
 
+Please note that for the reloading process, script registries/entries (e.g. Those in `mtr_custom_resources.json`) are also re-parsed, rather than only reloading all loaded scripts.

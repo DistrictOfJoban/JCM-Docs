@@ -13,7 +13,7 @@ To import this script, insert `include(Resources.id("mtrsteamloco:scripts/displa
 |`DisplayHelper.graphics(): Graphics2D`|This returns an AWT Graphics2D for the full texture defined in the configuration object.|
 |`DisplayHelper.graphicsFor(slotName: String): Graphics2D`|This returns an AWT Graphics2D for the full texture defined in the configuration object.<br>This applies the appropriate translation in Graphics2D so that it is ready to be used with the corresponding slot.|
 |`DisplayHelper.upload(): void`|Upload the texture to the GPU. Call this if your texture has been updated and you want to display the updated content.|
-|`DisplayHelper.model: Model`|This is a [Model](../model.md#model-aka-modelcluster) of the display. You can pass this to `ModelDrawCall` or call the relevant `drawModel` function.|
+|`DisplayHelper.model: Model`|This is a [Model](../model.md#model-aka-modelcluster) of the display. You can pass this to the `drawModel` functions in [RenderManager](../rendering.md#rendermanager).|
 |`DisplayHelper.texture: GraphicsTexture`|Returns the [GraphicsTexture](../dynamic_textures.md#graphicstexture) used by this DisplayHelper.|
 
 ### Example Script
@@ -74,7 +74,8 @@ function render(ctx, state, vehicle) {
   // We must draw the model every frame so it still shows in the game
   
   for(let carNumber of ctx.getMyCars()) {
-    ctx.drawCarModel(state.dh.model, carNumber, null);
+    let renderManager = ctx.getCarRenderManager(carNumber);
+    renderManager.drawModel(state.dh.model, null);
   }
 }
 
@@ -85,6 +86,8 @@ function dispose(ctx, state, vehicle) {
 
 ### Configuration Object
 The dynamic display settings are specified using an array. This allows for greater flexibility in the settings, making it easier to add to existing vehicle models, and it's also similar to RTM's display settings.
+
+Please note that all position values (`pos`, `offsets`) are in **meters/blocks**, which is different from blockbench's 1/16 unit. (Simply divide everything by 16 to get the meter/block.)
 
 ```js linenums="1"
 {
@@ -121,6 +124,3 @@ The content of all screens is drawn together on a single generated dynamic textu
 - `texArea` specifies which part of the final dynamic texture is used as the display content for this screen, defined by its X, Y, width, and height.
 - `pos` is a three-level array (pay attention to the number and distribution of parentheses to avoid errors) specifying the position of each screen. Each screen can only be rectangular, and for each screen, four XYZ coordinates are given in the order of top-left, bottom-left, bottom-right, and top-right relative to its front. The origin of the coordinates is the train center, at floor height, with positive X pointing left, positive Y pointing up, and positive Z pointing backward.
 - `offsets` is a two-level array used to duplicate the display screen specified by `pos`, saving space in scenes such as flashing lights above a door. Specify the XYZ offsets for each copy to be made. If no offsets are specified, the copying will not be performed.
-
-### Reference
-[https://www.zbx1425.cn/nautilus/mtr-nte/js-display-helper.html](https://www.zbx1425.cn/nautilus/mtr-nte/js-display-helper.html)

@@ -12,6 +12,7 @@ The **GraphicsTexture** class allows you to create a texture of a fixed resoluti
 |`GraphicsTexture.bufferedImage: BufferedImage`|Java AWT's BufferedImage for use as a temporary canvas.|
 |`GraphicsTexture.graphics: Graphics2D`|This is the Java AWT's Graphics for this texture. You can call different functions to draw on the bufferedImage.|
 |`GraphicsTexture.upload(): void`|Loads the contents of bufferedImage into video memory and immediately displays it on the model.<br>This operation can significantly reduce FPS. It is recommended to use it in combination with `RateLimit` to reduce the frequency of texture updates.<br><br>For example, the screen can be updated only 10 times per second, and it may not be updated at far distances, in some cases the information may not be updated at all.|
+|`GraphicsTexture.upload(x: int, y: int, width: int, height: int): void`|Same as `upload()` but limited to a sub-region. See [Sub-region texture uploading](#sub-region-texture-uploading) for detail.|
 | `GraphicsTexture.close(): void` | Releases the memory used by this texture. It cannot be used after that.<br>If it was created in the `create` train function, it must be deleted in the `dispose` function, otherwise it will continue to occupy memory, thus creating a memory leak.|
 
 ## Binding the texture in-game
@@ -41,3 +42,13 @@ The following functions can be used:
 - `Graphics.getTransform`, `Graphics.transform`, `Graphics.setTransform`, `AffineTransform.getTranslateInstance`, `AffineTransform.getRotateInstance`
 - `Graphics.setClip`
 - `Graphics.getComposite`, `Graphics.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, …))`, `Graphics.setComposite`
+
+## Advanced texture uploading
+### Sub-region texture uploading
+When we run `GraphicsTexture.upload()`, we upload the full image for display in-game.
+
+This is relatively intuitive to use, however for large resolution displays with frequent update, this may harm in-game performance. (In the main render thread, not only on the script thread)
+
+Hence, an overload function of `GraphicsTexture.upload(x: int, y: int, width: int, height: int)` has been added. If you think your script is complex enough where texture uploading is seriously hurting performance, and that no other shortcuts/tradeoff can be made, you can use this to only update a certain region of the image. This way, the old content will be retained, and only the content within `x`, `y`, `x+width` and `y+height` will be uploaded.
+
+Note that smart coordination among scripts may be needed on which region needs to be uploaded and when should it be uploaded, otherwise you may encounter graphical glitches where one part of the image may not be updated when they should be.

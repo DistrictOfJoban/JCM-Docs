@@ -21,8 +21,8 @@ After that, make sure the **Script debug mode** checkbox is checked, then click 
 - - - Script Developer should generally aim for the blue color.
 
 ### Navigate between sources
-As Java addon developers has the ability to take advantage of the scripting functionalities, mixing all script instances into 1 view would clutter up the overlay, making it very hard to spot for useful data.
+As Java addon developers has the ability to take advantage of the scripting functionalities, mixing all script instances into 1 view would clutter up the overlay, making it rather hard to spot for useful data.
 
-In JCM v2.1.0, the overlay are now separated by different "source". In the following example, it is only showing scripts coming from **[MTR]** (Vehicle/Eyecandy Scripting), while **[JCM]** (PIDS Scripting) is also available as an option.
+Therefore, the overlay are separated by different "source". In the following example, it is only showing scripts coming from **[MTR]** (Vehicle/Eyecandy Scripting), while **[JCM]** (PIDS Scripting) is also available as an option.
 
 You can press `[` and `]` on your keyboard to select between them, they are also configurable in keybind settings in-case a conflict occurs.

@@ -72,9 +72,9 @@ Here, let's look at a snippet of 2 form of script type: **Eyecandy Scripting** a
     const poleModelData = ModelManager.loadModel(Resources.id("mtr:example/pole.obj"));
     const poleModel = ModelManager.upload(poleModelData);
 
-    function render(ctx, state, blockEyecandy) {
+    function render(ctx, state, eyecandy) {
         // Render pole model
-        ctx.drawModel(poleModel, null);
+        ctx.getRenderManager().drawModel(poleModel, null);
     }
     ```
 
@@ -92,7 +92,7 @@ Here, let's look at a snippet of 2 form of script type: **Eyecandy Scripting** a
     !!! note
         The **Text** in this instance is only made available for PIDS Scripting, this does not exist in Eyecandy Scripting!
 
-You'll notice that function name (and number of parameters) are the same across script types (The `render` function), however the parameter values passed to them are different (`pids` vs `blockEyecandy`).
+You'll notice that function name (and number of parameters) are the same across script types (The `render` function), however the parameter values passed to them are different (`pids` vs `eyecandy`).
 
 Different types of script can also expose different classes/objects to them (e.g. PIDS Scripting's **Text** class), and they may impose their own design paradigm.
 
@@ -216,9 +216,11 @@ The script execution engine will then pause the entire script for 4 seconds befo
 
 ## :octicons-book-24: &nbsp; How to read this document
 
-On the sidebar to your left, you will see **API Reference**, which documents all the classes/functions/fields you can access in the script.
+On the sidebar to your left, you will see **Common APIs**, which documents all the commonly-available classes/functions/fields you can utilize in all types of script.
 
-For each API reference page, it usually contains references to functions/fields you can access on a specific class, the notation is described below in the form of different examples.
+Please note that Script Type APIs (Like **Vehicle Scripting**, **Eyecandy Scripting**) is documented in it's own page under **Script Type**, and is not covered under the Common APIs section.
+
+However all API References (Both Common & Script Types) in this docs site all follows the following notation when describing functions/fields. (In the form of different examples)
 
 ### Example 1
 

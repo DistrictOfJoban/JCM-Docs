@@ -1,21 +1,26 @@
 ## Fundamentals
 As mentioned in the [Main Scripting Page](./index.md), for performance reasons scripting are executed on a background thread dedicated for scripting, rather than on the main Minecraft's render thread.
 
-To meet this goal, rendering in JCM utilize the concept of **DrawCall**. To put it very simply, this is a set of instructions (Sort of a like a recipe) telling JCM how you want to render the element. You submit/hand over these instructions to JCM by invoking the `queue()` function in [RenderManager](#rendermanager). Afterwards, JCM will memorize your calls, and render the element for you when the next rendering frame comes around.
+To meet this goal, rendering in JCM utilize the concept of **draw call**. To put it very simply, this is a set of instructions/command (Sort of a like a recipe) telling JCM how you want to render the element. You submit/hand over these instructions to JCM by invoking the `draw()` function in [RenderManager](#rendermanager) (Or `drawModel()` function when drawing model). Afterwards, JCM will memorize your calls, and render the element for you until your script gets executed again the next round.
 
-Note that the old draw calls (from previous script execution) are cleared/discarded after the execution of your script, as such you should keep submitting these calls within the `render()` function if you wish to keep rendering your element. However in the case where a script is too slow to be executed every frame, then the old draw calls will be retained until your script gets invoked again. (Which means your content will continue to render even if your script is not actively invoking it)
+Note that the old draw calls (from previous script execution) are cleared/discarded after the execution of your script, *as such you should keep submitting these calls within the `render()` function if you wish to keep rendering your element*. Though you do not need to be concerned with rendering issues caused by your script's execution speed, since JCM will hold on to the previous draw calls until your script finishes execution.
 
 ## RenderManager
 **RenderManager** is a class responsible for storing and following the **draw calls** you constructed, and render them onto the Minecraft world. It can usually be accessed by the script's context (e.g. `ctx.getRenderManager()`), however specific implementation may differ between different types of scripting. For details, please check the script type you're trying to code against (e.g. [Eyecandy Scripting](./type/eyecandy/index.md)) and check how to obtain an instance of RenderManager.
 
-### Base Position
-A RenderManager are usually already initialized with a "base" position, in which all calls you submit to RenderManager will be rendered **relative** to the base position. For example, the RenderManager provided by [Eyecandy Scripting](./type/eyecandy/index.md) has the base position set as `(Eyecandy Block Position + Eyecandy XYZ Translation)`. Therefore when rendering for example a model, you do not need to do any translation by yourself.
+### Base Transformation
+A **RenderManager** is usually initialized with a "base transformation" (Position & Rotation), in which everything submitted to RenderManager will be rendered **relative** to the "base transformation". For example, the RenderManager provided by [Eyecandy Scripting](./type/eyecandy/index.md) will have their starting position as `(Eyecandy Block Position + Eyecandy XYZ Translation)`, as well as applying any rotation manually-configured in the block. Therefore when rendering for example a model, you do not need to do any transformation by yourself.
+
+This is different for each script types, and may vary depending on where and how you obtained RenderManager in the first place.
 
 |Functions|Description|
 |:--------|:----------|
-|`RenderManager.queue(call: DrawCall): void`|Submit a draw call to RenderManager.|
+|`RenderManager.drawModel(model: Model, matrices: Matrices?): void`|Submit a [Model](./model.md#model-aka-modelcluster) to render manager, with an optional [Matrices](./math.md#matrices).|
+|`RenderManager.drawModel(modelHolder: DynamicModelHolder, matrices: Matrices?): void`|Submit a [DynamicModelHolder](./model.md#dynamicmodelholder) to render manager, with an optional [Matrices](./math.md#matrices).|
+|`RenderManager.draw(call: DrawCall): void`|Submit a raw draw call to RenderManager.|
 
-## Available Draw Calls
+## Draw Call Types
+Note that for drawing models, it is recommended to simply use the `drawModel` function (which internally creates a model draw call) since it is less cumbersome to write. Thus this section won't go through the "Model Draw Calls", as `drawModel` already covered all parameters of a model draw call.
 
 ### QuadDrawCall
 This creates a draw call which renders a single quad (A polygon with 4 vertices). You may optionally customize the color, lighting, UV or assign a texture to the quad.
@@ -51,13 +56,3 @@ function render(ctx, state, eyecandy) {
     ctx.getRenderManager().queue(screenDrawCall);
 }
 ```
-
-### ModelDrawCall
-This creates a draw call which allows rendering a 3D model onto the world.
-
-|Functions|Description|
-|:--------|:----------|
-|`static ModelDrawCall.create(): ModelDrawCall`|Creates a ModelDrawCall|
-|`static ModelDrawCall.create(comment: String): ModelDrawCall`|Creates a ModelDrawCall with a comment. The comment are not used and are purely for annotations/readability purpose in your code.|
-|`ModelDrawCall.modelObject(model: Model): ModelDrawCall`|Specify the model to render. See [Model Loading](./model.md) on obtaining a Model.|
-|`ModelDrawCall.matrices(matrices: Matrices): ModelDrawCall`|Supply a [Matrices](./math.md#matrices) to transform the model.|

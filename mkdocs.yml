@@ -149,7 +149,7 @@ nav:
           - Trespass Signage (KCR): players/blocks/kcr_trespass_sign.md
           - LRT Trespass Signage: players/blocks/lrt_trespass_sign.md
           - Water Machine: players/blocks/water_machine.md
-        - MTR Patch: players/features/mtr-patch.md
+        - MTR Enhancements: players/features/mtr-patch.md
         - JCM PIDS: players/features/jcm-pids.md
         - Tunnel Walls: players/features/tunnel.md
       - Mod Integrations: players/features/mod-integrations.md
@@ -193,28 +193,14 @@ nav:
             - dev/scripting/type/vehicle/index.md
           - Eyecandy Scripting:
             - dev/scripting/type/eyecandy/index.md
+            - Example: dev/scripting/type/eyecandy/example.md
           - JCM PIDS Scripting:
             - dev/scripting/type/pids/index.md 
             - Scripted PIDS Preset Tutorial: dev/scripting/type/pids/tut/pids_tut.md
-        - Articles:
-          - Scripting Guidelines: dev/scripting/articles/script_guidelines.md
-          - Migration from NTE: dev/scripting/articles/nte_migration.md
-          - Dual-versioned Scripts (MTR 3 & MTR 4): dev/scripting/articles/mtr34scripts.md
-          - Scripting Restrictions: dev/scripting/articles/scripting_restrictions.md
-          - Tips & Notes: dev/scripting/articles/tips.md
-        - Features:
-          - Multithreaded Runtime Execution: dev/scripting/features/threaded_execution.md
-          - Including other scripts: dev/scripting/features/script_include.md
-          - Replacing MTR Display Cube: dev/scripting/features/vehicle_display_cube.md
-          - Vehicle Script Cross-referencing: dev/scripting/features/script_crossreferencing.md
-        - Development Aids:
-          - Quick Reload: dev/scripting/aids/script_quick_reload.md
-          - Script Debug Overlay: dev/scripting/aids/script_debug_overlay.md
-          - VSCode Intellisense: dev/scripting/aids/ide_aids.md
-        - API Reference:
+        - Common APIs:
           - Console API: dev/scripting/console.md
           - Resource Loading API: dev/scripting/resources.md
-          - 3D Model API: dev/scripting/model.md
+          - Model Loading API: dev/scripting/model.md
           - Math APIs (Geometry): dev/scripting/math.md
           - Graphics API: dev/scripting/dynamic_textures.md
           - Rendering APIs: dev/scripting/rendering.md
@@ -230,8 +216,23 @@ nav:
           - MTR APIs:
             - Client Data: dev/scripting/mtrclientdata.md
             - Transport Simulation Core API: dev/scripting/tsc.md
-        - Builtin Scripts:
+        - Built-in JS Script:
           - Display Helper: dev/scripting/builtin/display_helper.md
+        - Articles:
+          - Scripting Guidelines: dev/scripting/articles/script_guidelines.md
+          - Migration from NTE: dev/scripting/articles/nte_migration.md
+          - Dual-versioned Scripts (MTR 3 & MTR 4): dev/scripting/articles/mtr34scripts.md
+          - Scripting Restrictions: dev/scripting/articles/scripting_restrictions.md
+          - Tips & Notes: dev/scripting/articles/tips.md
+        - Features:
+          - Multithreaded Runtime Execution: dev/scripting/features/threaded_execution.md
+          - Including other scripts: dev/scripting/features/script_include.md
+          - Replacing MTR Display Cube: dev/scripting/features/vehicle_display_cube.md
+          - Vehicle Script Cross-referencing: dev/scripting/features/script_crossreferencing.md
+        - Development Aids:
+          - Quick Reload: dev/scripting/aids/script_quick_reload.md
+          - Script Debug Overlay: dev/scripting/aids/script_debug_overlay.md
+          - VSCode Intellisense: dev/scripting/aids/ide_aids.md
       - PIDS Preset:
         - dev/pids/index.md
         - JSON PIDS Preset: dev/pids/json_preset.md

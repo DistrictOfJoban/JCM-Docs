@@ -1,22 +1,24 @@
 # 3D Model API
 
-This API allows the loading of OBJ models from resource packs, as well as performing basic processing of the model data, and uploading them to the GPU for rendering purpose.
+This API allows the loading of model files from resource packs, as well as performing basic processing of the model data, and uploading them to the GPU for rendering purpose.
 
-The API consists of the following 6 primary types:
+The API consists of the following 5 primary types:
 
 - **ModelManager**: Provide functions to read model data (RawModel) from resource packs & upload the model in the Loading/Parsing stage.
-- **RawMesh**: Represents the raw mesh data (Vertices location/faces/materials etc.)
 - **RawModel**: A holder for multiple meshes combined together. Provide functions for basic manipulation such as translation/rotation etc.
 - **Model**: A `RawModel` that is uploaded to the GPU memory, which can be used for rendering.
 - **RawMeshBuilder**: Allow using code to form a model by specifying vertices location.
 - **DynamicModelHolder**: A class containing functions that allows uploading a **RawModel** during the Runtime stage.
 
+## Supported model format
+Currently, only the **WaveFront OBJ** model format is supported for model loading (bbmodel is **not** supported). These files ends with the `.obj` file extension, and are usually available for exports in modelling software like **Blender**.
+
 ## ModelManager
 
 |Functions|Description|
 |:--------|:----------|
-|`static ModelManager.loadModel(id: Identifier, flipV: boolean = true): RawModel`|Load a full OBJ model located in the specified [Identifier](./resources.md#identifier-aka-resourcelocation).<br>Returns a [RawModel](#rawmodel).<br>If `flipV` is true, the texture's V axis will be mirrored. (Required for OBJ exported from commonly used modelling software like blender)|
-|`static ModelManager.loadModelParts(id: Identifier, flipV: boolean = true): Map<String, RawModel>`|Load a OBJ model located in the specified [Identifier](./resources.md#identifier-aka-resourcelocation).<br>Returns a map of String & [RawModel](#rawmodel), each entry corresponding to an object group (or parts) in the OBJ file.<br>This allows selectively picking individual objects out for processing/rendering.<br>If `flipV` is true, the texture's V axis will be mirrored. (Required for OBJ exported from commonly used modelling software like blender)|
+|`static ModelManager.loadModel(id: Identifier, flipV: boolean = true): RawModel`|Load a model file specified by the [Identifier](./resources.md#identifier-aka-resourcelocation).<br>This returns a [RawModel](#rawmodel) where all object parts are combined together.<br>If `flipV` is true, the texture's V axis will be mirrored. (Required for OBJ exported from commonly used modelling software like blender)|
+|`static ModelManager.loadModelParts(id: Identifier, flipV: boolean = true): Map<String, RawModel>`|Load a model file specified by the [Identifier](./resources.md#identifier-aka-resourcelocation).<br>Returns a map of String & [RawModel](#rawmodel), each entry corresponding to an object group (or parts) in the model.<br>This allows selectively picking individual objects out for processing/rendering.<br>If `flipV` is true, the texture's V axis will be mirrored. (Required to be **true** for OBJ exported from commonly used modelling software like blender)|
 |`static ModelManager.upload(rawModel: RawModel): Model`|Upload the model data to the GPU so it can be effectively rendered.<br>Returns a [Model](#model-aka-modelcluster).<br>**Note: This should only be invoked during the Loading/Parsing stage of scripts. Use DynamicModelHolder if you need to upload the model at runtime.**|
 
 ??? info "Show deprecated fields/functions"
@@ -39,7 +41,7 @@ The API consists of the following 6 primary types:
 |Functions|Description|
 |:--------|:----------|
 |`new RawModel(): RawModel`|Create a new empty RawModel.|
-|`RawModel.append(other: RawMesh): RawModel`|Append/combine another **RawMesh** to the current **RawModel**, and return the current RawModel.|
+|`RawModel.append(other: RawMesh): RawModel`|Append/combine another **RawMesh** (Usually obtained from [RawMeshBuilder](#rawmeshbuilder)) to the current **RawModel**, and return the current RawModel.|
 |`RawModel.append(other: RawModel): RawModel`|Append/combine another **RawModel** to the current **RawModel**, and return the current RawModel.|
 |`RawModel.applyTranslation(x: float, y: float, z: float): void`|Translate all vertices in the model by `x`, `y` and `z`.|
 |`RawModel.applyRotation(direction: Vector3f, angle: float): void`|Apply rotation to all vertices in a direction specified by a [Vector3f](./math.md#vector3f).<br>Transformation is applied relative to the model's origin.<br>`angle` is the angle to rotate in degree.|
@@ -67,12 +69,12 @@ However texture replacing operation is still possible.
 ### Rendering
 You may either:
 
-- Construct a [ModelDrawCall](./rendering.md#modeldrawcall), and pass the uploaded model as a parameter to `.modelObject` and use [RenderManager](./rendering.md#rendermanager) to render it out.
+- Pass the [uploaded model](#model-aka-modelcluster) to [RenderManager](./rendering.md#rendermanager)'s `drawModel` function to render it out.
 - Or pass in the model to the draw model functions in [VehicleScriptContext](./type/vehicle/index.md#vehiclescriptcontext) and [EyecandyScriptContext](./type/eyecandy/index.md#eyecandyscriptcontext)
 
 ## RawMeshBuilder
 
-The RawMeshBuilder allows forming a RawMesh using code.
+The RawMeshBuilder allows forming a [Mesh](https://en.wikipedia.org/wiki/Polygon_mesh) using code, which can then be used for rendering by using `asRawModel` (Or constructing `RawModel` manually with `getMesh()`) to form a 3D model that can be uploaded to the GPU.
 
 |Functions|Description|
 |:--------|:----------|
@@ -84,6 +86,7 @@ The RawMeshBuilder allows forming a RawMesh using code.
 |`RawMeshBuilder.endVertex(): RawMeshBuilder`|Finish building the current vertex. This will add the vertices to the mesh, and form a face if necessary.|
 |`RawMeshBuilder.color(r: int, g: int, b: int, a: int): RawMeshBuilder`|Set the color of the mesh in rgba format.<br>Each channel is an int value from 0 - 255.|
 |`RawMeshBuilder.getMesh(): RawMesh`|Obtain the RawMesh, which can be used to be appended to a [RawModel](#rawmodel)|
+|`RawMeshBuilder.asRawModel(): RawModel`|Creates a new [RawModel](#rawmodel) with the mesh of this RawMeshBuilder.<br>This is a shortcut, equivalent to creating a new [RawModel](#rawmodel) and using `RawModel.append(rawMesh: RawMesh)`.|
 
 ### Example
 ```js title="example.js" linenums="1"
@@ -104,7 +107,8 @@ let wordmarkModel = ModelManager.upload(wordmarkRawModel); // Upload the model t
 
 function render(ctx, state, vehicle) {
     for(let carIndex of ctx.getMyCars()) {
-        ctx.drawCarModel(wordmarkModel, carIndex, null); // Draw the model out
+        let renderManager = ctx.getCarRenderManager(carIndex);
+        renderManager.drawModel(wordmarkModel, null); // Draw the model out
     }
 }
 ```
@@ -123,5 +127,12 @@ If you need the ability to upload a model during the runtime stage (e.g. Lazy lo
 |`DynamicModelHolder.getUploadedModel(): RawModel?`|Obtain the uploaded GPU model, or null if either `uploadLater` has never been invoked, or `uploadLater` has just been invoked and the model has not been uploaded yet.|
 |`DynamicModelHolder.close(): void`|Close the model and free-up resources. You should run this after finish using the model in DynamicModelHolder.<br>Note: If multiple `uploadLater` has been invoked, the previous model would be closed automatically without the execution of this function.|
 
+??? tip "Avoid using getUploadedModel() for rendering"
+    Please note that the **drawModel** function in [RenderManager](./rendering.md#rendermanager) and other places not only take in [Model](./model.md), but also [DynamicModelHolder](#dynamicmodelholder) directly. You should use those functions whenever possible.
+    
+    This is due to `uploadLater()` scheduling the actual upload operation for the next frame. Thus if you call `getUploadedModel()` after `uploadLater()` in the same script execution, you are actually obtaining the old uploaded model result (or null if the model has not yet been uploaded), resulting in a 1-frame gap where the model is not rendered.
+
+    The **drawModel** functions with [DynamicModelHolder](#dynamicmodelholder) handles that for you by only obtaining the model in the next frame, in which the model would be uploaded by then. (Hence resolving the issue of flickering effects.)
+
 ??? tip "Use Matrices for dynamic transformation in runtime"
-    While it is possible to use `RawModel.applyTranslation` / `RawModel.applyRotation` and re-upload the model with DynamicModelHolder for every frame, it is very heavy in performance. For simple transformation, what you likely want to do is to use [Matrices](./math.md#matrices) to perform the transformation and pass that to [ModelDrawCall.matrices](./rendering.md#modeldrawcall) in runtime.
+    While it is possible to use `RawModel.applyTranslation` / `RawModel.applyRotation` and re-upload the model with DynamicModelHolder for every frame, it is very heavy in performance. For simple transformation, what you likely want to do is to create a [Matrices](./math.md#matrices) to perform the transformation, and pass that to the `matrices` parameter in [RenderManager](./rendering.md#rendermanager)'s `drawModel` function.
