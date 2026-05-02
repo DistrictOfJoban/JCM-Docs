@@ -6,6 +6,8 @@ This feature is inspired by the [Nemo Transit Expansion](https://modrinth.com/mo
 
 One may consider this as an unofficial continuation for the NTE Scripting Feature.
 
+To learn more about compatibility and migration from NTE, please check out the [Migration from NTE](./articles/nte_migration.md) page.
+
 ## Introduction
 ### What is Scripting in JCM?
 Essentially it allows you to use **JavaScript** to insert custom logic into the game, which will be executed and widens the possibilities of the MTR Mod.

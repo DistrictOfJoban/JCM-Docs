@@ -32,6 +32,10 @@ When hovering your mouse over a Platform/Siding, it will now show some propertie
 
 ![Dashboard Screen](./img/dashboard_tooltips.png)
 
+!!! tip "Tooltip overflow"
+    Note that the tooltip may overflow the screen in some cases due to the route name being too long.  
+    It is recommended to pair this with mods like [ToolTipFix](https://modrinth.com/mod/tooltipfix) to ensure the content is wrapped in a comfortable way for viewing.
+
 
 ### Hide rail rendering
 For debugging purposes and easier discovery of blocks beneath rails, you can now turn off rail rendering completely in JCM's settings.  

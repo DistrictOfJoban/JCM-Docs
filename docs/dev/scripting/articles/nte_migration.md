@@ -6,7 +6,7 @@ JCM Scripting is an attempt at re-implementing the NTE scripting functionality, 
 ## Backward compatibility policy with NTE
 !!! warning inline end "Important!"
     This policy does not apply to any NTE derivative fork, such as ANTE (Aphrodite's Nemo's Transit Expansion).  
-    For ANTE specifically, see [Migrating from ANTE](#migrating-from-ante)
+    For ANTE specifically, see [ANTE Feature Parity](#ante-feature-parity)
 
 Backward compatibility with NTE scripts are made on a best-effort basis, in the sense that we won't go out of our way to intentionally break existing scripts, and we will add stub/redirect methods to retain existing script compatibility. However if a major redesign has occured for reasons outside of our variable (e.g. Internal workings of MTR 4), we are not able to provide full backward compatibility for scripts.
 
@@ -57,7 +57,7 @@ If you managed to get pass all questions, it likely means that your script have 
     Does your script make use of the eyecandy's custom config/GUI features in ANTE?
 
     - **If yes:** Unfortunately these features aren't available in JCM at the moment.
-    - **If no:** Please check whether the features described in the [**ANTE section**](#migrating-from-ante) covers your use case?
+    - **If no:** Please check whether the features described in the [**ANTE section**](#ante-feature-parity) covers your use case?
     - - **If yes:** You will need to migrate your script to these methods/functions.
     - - **If no:** Unfortunately these features aren't available in JCM at the moment.
 
@@ -83,10 +83,10 @@ Got through all of them? Great, below are some resources/tips to get started:
 - [Through conditional logic, you can support both MTR 3/NTE and MTR 4/JCM!](./mtr34scripts.md)
 - [The NTE F3+5 quick reload is now Ctrl+R](../aids/script_quick_reload.md)
 
-## Migrating from ANTE
+## ANTE Feature Parity
 **[Aphrodite's Nemo's Transit Expansion](https://modrinth.com/mod/mtr-ante)** (ANTE) is a fork of the Nemo Transit Expansion, which brings several new features such as rail tilting and some new scripting abilities.
 
-Note that the additional features within ANTE is not considered (at least for now) within the scope of JCM scripting, and therefore we may not make any guarentee about backward compatibility with ANTE, and some features were delibrately not implemented as they aren't deemed fit in JCM. *That said* some features from ANTE were also recognized and adapted to JCM, which should make migration work just a tad bit easier.
+Note that the additional features within ANTE is not considered (at least for now) within the scope of JCM scripting, and therefore there is no guarentee in regards to backward compatibility for ANTE, and some features were delibrately not implemented as they aren't deemed fit in JCM. *That said* some features from ANTE were also recognized and adapted to JCM, which may be proven useful to script developers.
 
 ### Scripting Engine
 ANTE currently uses [GraalJS](https://www.graalvm.org/latest/reference-manual/js/) in place of the [Rhino](https://github.com/mozilla/rhino) JavaScript Engine, which provides support for more modern JS syntax, at the cost of some incompatibilities introduced. For compatibility reasons JCM will currently stay on the **Rhino** engine. If you make heavy use of modern JS syntax, unfortunately you may have to try your luck.

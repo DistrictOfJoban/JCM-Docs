@@ -6,7 +6,7 @@
 |:--------|:----------|
 |`SoundManager.playLocalSound(id: Identifier, volume: float, pitch: float): void`|This plays a sound by its Sound [Identifier](./resources.md#identifier-aka-resourcelocation), in which the sound are *not* localized to a specific position in the world and are always played at a constant volume. This can be used in, for example train announcements.|
 |`SoundManager.playSound(id: Identifier, pos: Vector3f, volume: float, pitch: float): void`|This plays a sound by its Sound [Identifier](./resources.md#identifier-aka-resourcelocation) in the current Minecraft world at a [Vector3f](./math.md#vector3f) position relative to the current base position.|
-|`SoundManager.play(soundInstance: TickableSoundInstance): void`|This begins playing a [TickableSoundInstance](#tickablesoundinstance) in the game.|
+|`SoundManager.play(soundInstance: TickableSoundInstance): void`|This begins playing a [TickableSoundInstance](#tickablesoundinstance) in the game.<br>Note that an instance can only be played once, it must be stopped via `SoundManager.stop()` before being able to be played again.|
 |`SoundManager.stop(soundInstance: TickableSoundInstance): void`|This stops a playing [TickableSoundInstance](#tickablesoundinstance) in the game.|
 
 ## TickableSoundInstance
@@ -32,7 +32,6 @@ Some example use-cases:
 |`TickableSoundInstance.isPlaying(): boolean`|Whether the sound is currently playing.|
 
 !!! tips "Tips when using TickableSoundInstance"
-    - Only invoke `SoundManager.play` once on the same instance.
     - If sound is loopable, always stop it via `SoundManager.stop` in `dispose()`.
     - If in a moving environment (e.g. Vehicle), always call `setPos` to update the position, since the instance is fully under the script control and will not be automatically updated by JCM.
 
