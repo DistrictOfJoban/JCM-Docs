@@ -5931,30 +5931,15 @@ After that, make sure the <strong>Script debug mode</strong> checkbox is checked
 <h3 id="how-to-read-the-overlay">How to read the overlay<a class="headerlink" href="#how-to-read-the-overlay" title="Anchor link to this section for reference">#</a></h3>
 <p><img alt="" src="../img/script_overlay_preview_annotated.png" /></p>
 <ul>
-<li>For each underlined text, it represents a registry entry of the script. The type of scripts are appended after the text (e.g. <code>(eyecandy)</code>)</li>
-<li>
-<ul>
+<li>For each underlined text, it represents a registry entry of the script. The type of scripts are appended after the text (e.g. <code>(eyecandy)</code>)<ul>
 <li>For each indented items, it represents an instance of the script. Note that these instances are "virtual", as in there's still only a single instance of your script, but to keep track of the state variables and draw calls, JCM uses a concept called instance to associate data for each uniquely identifiable script objects in the world, and invoke the <code>render()</code> function with values from different instances.</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>There are 3 colors for each instances: Blue (Normal), Yellow (Slightly slow execution), Red (Very slow execution).</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>
-<ul>
-<li>Script Developer should generally aim for the blue color.</li>
-</ul>
-</li>
+<li>There are 3 colors for each instances: <strong>Blue (Normal)</strong>, <strong>Yellow (Slightly slow execution)</strong> and <strong>Red (Relatively slow execution)</strong>.</li>
+<li>Script developers should generally aim for the Blue color if possible.</li>
 </ul>
 </li>
 </ul>
 <h3 id="navigate-between-sources">Navigate between sources<a class="headerlink" href="#navigate-between-sources" title="Anchor link to this section for reference">#</a></h3>
-<p>As Java addon developers has the ability to take advantage of the scripting functionalities, mixing all script instances into 1 view would clutter up the overlay, making it rather hard to spot for useful data.</p>
-<p>Therefore, the overlay are separated by different "source". In the following example, it is only showing scripts coming from <strong>[MTR]</strong> (Vehicle/Eyecandy Scripting), while <strong>[JCM]</strong> (PIDS Scripting) is also available as an option.</p>
+<p>Since mixing all script instances into 1 view would clutter up the overlay, the overlay are separated by different "source". For instance, it will only show scripts coming from <strong>[MTR]</strong> (Vehicle/Eyecandy Scripting), and <strong>[JCM]</strong> (PIDS Scripting).</p>
 <p>You can press <code>[</code> and <code>]</code> on your keyboard to select between them, they are also configurable in keybind settings in-case a conflict occurs.</p>
 <!-- *[JCM]: Joban Client Mod -->
 <!-- *[PIDS]: Passenger Information Display System -->

@@ -5949,7 +5949,7 @@
 </tr>
 <tr>
 <td style="text-align: left;"><code>SoundManager.play(soundInstance: TickableSoundInstance): void</code></td>
-<td style="text-align: left;">This begins playing a <a href="#tickablesoundinstance">TickableSoundInstance</a> in the game.</td>
+<td style="text-align: left;">This begins playing a <a href="#tickablesoundinstance">TickableSoundInstance</a> in the game.<br>Note that an instance can only be played once, it must be stopped via <code>SoundManager.stop()</code> before being able to be played again.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SoundManager.stop(soundInstance: TickableSoundInstance): void</code></td>
@@ -6011,7 +6011,6 @@
 <div class="admonition tips">
 <p class="admonition-title">Tips when using TickableSoundInstance</p>
 <ul>
-<li>Only invoke <code>SoundManager.play</code> once on the same instance.</li>
 <li>If sound is loopable, always stop it via <code>SoundManager.stop</code> in <code>dispose()</code>.</li>
 <li>If in a moving environment (e.g. Vehicle), always call <code>setPos</code> to update the position, since the instance is fully under the script control and will not be automatically updated by JCM.</li>
 </ul>
