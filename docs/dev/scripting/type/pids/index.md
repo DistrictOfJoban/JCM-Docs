@@ -167,7 +167,7 @@ Represent a single arrival entry.
 |`ArrivalEntry.destination(): String`|Returns the destination name of the arrival entry.<br>(Usually the destination's station, or a custom destination string)|
 |`ArrivalEntry.arrivalTime(): long`|Returns the epoch time (in Millisecond) the vehicle will arrive at.<br>Use `new Date(value: number)`to obtain a JS Date object of the arrival time.|
 |`ArrivalEntry.departureTime(): long`|Returns the epoch time (in Millisecond) the vehicle will depart at.<br>Use `new Date(value: number)`to obtain a JS Date object of the departure time.|
-|`ArrivalEntry.deviation(): long`|Returns the deviation[?]|
+|`ArrivalEntry.deviation(): long`|Returns the deviation from the scheduled timetable.<br>Positive value indicate the train is late.<br>Negative value indicates the train is early.|
 |`ArrivalEntry.realtime(): boolean`|Returns whether the arrival entry is scheduled (i.e. Vehicle not departed), or a real-time estimation (i.e. Vehicle running)|
 |`ArrivalEntry.departureIndex(): long`|Returns the departure index[?]|
 |`ArrivalEntry.terminating(): boolean`|Returns whether the arrival entry will terminate its service at the current platform.|
