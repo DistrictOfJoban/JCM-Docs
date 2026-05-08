@@ -6310,7 +6310,7 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalEntry.deviation(): long</code></td>
-<td style="text-align: left;">Returns the deviation[?]</td>
+<td style="text-align: left;">Returns the deviation from the scheduled timetable.<br>Positive value indicate the train is late.<br>Negative value indicates the train is early.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalEntry.realtime(): boolean</code></td>
@@ -6318,7 +6318,7 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalEntry.departureIndex(): long</code></td>
-<td style="text-align: left;">Returns the departure index[?]</td>
+<td style="text-align: left;">Returns the departure index of the vehicle.<br>The departure index is incremented for every scheduled departure of each individual sidings.<br>It is wrapped back to <code>1</code> at 00:00 UTC (For real-time scheduling).<br>A departure index of <code>0</code> always represents a manually-departed vehicle.<br>A departure index of <code>-1</code> indicates the vehicle has not yet departed.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ArrivalEntry.terminating(): boolean</code></td>

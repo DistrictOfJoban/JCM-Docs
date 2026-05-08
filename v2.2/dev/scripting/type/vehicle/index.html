@@ -6324,6 +6324,10 @@ To prove otherwise, submit a new GitHub issue in regard to this, or talk with us
 <td style="text-align: left;">Returns whether manual driving is enabled for this vehicle.</td>
 </tr>
 <tr>
+<td style="text-align: left;"><code>Vehicle.getDepartureIndex(): long</code></td>
+<td style="text-align: left;">Returns the departure index of the vehicle.<br>The departure index is incremented for every scheduled departure of each individual sidings.<br>It is wrapped back to <code>1</code> at 00:00 UTC (For real-time scheduling).<br>A departure index of <code>0</code> always represents a manually-departed vehicle.<br>A departure index of <code>-1</code> indicates the vehicle has not yet departed.</td>
+</tr>
+<tr>
 <td style="text-align: left;"><code>Vehicle.getManualToAutomaticTime(): int</code></td>
 <td style="text-align: left;">Returns the time required for the vehicle to automatically switch to automatic operation (ATO), when no one is driving.<br>Unit is in <code>millisecond</code>. (Multiply by 1000 for second)</td>
 </tr>
