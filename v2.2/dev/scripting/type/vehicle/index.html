@@ -6325,7 +6325,7 @@ To prove otherwise, submit a new GitHub issue in regard to this, or talk with us
 </tr>
 <tr>
 <td style="text-align: left;"><code>Vehicle.getDepartureIndex(): long</code></td>
-<td style="text-align: left;">Returns the departure index of the vehicle.<br>The departure index is incremented for every scheduled departure of each individual sidings.<br>It is wrapped back to <code>1</code> at 00:00 UTC (For real-time scheduling).<br>A departure index of <code>0</code> always represents a manually-departed vehicle.<br>A departure index of <code>-1</code> indicates the vehicle has not yet departed.</td>
+<td style="text-align: left;">Returns the departure index of the vehicle.<br>The departure index is incremented for every scheduled departure of each individual sidings.<br>It is wrapped back to <code>1</code> at 00:00 UTC (For real-time scheduling).<br>A departure index of <code>-1</code> indicates the vehicle has either not yet departed, or it is a manually departed train.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>Vehicle.getManualToAutomaticTime(): int</code></td>
@@ -6354,10 +6354,6 @@ To prove otherwise, submit a new GitHub issue in regard to this, or talk with us
 <tr>
 <td style="text-align: left;"><code>Vehicle.getNotchPosition(): double</code></td>
 <td style="text-align: left;">Returns the manual driving notch in the form of a relative percentage, irrespective of the number of notch available.<br>Positive number indicates acceleration, negative number indicates deceleration.<br>Normal operation would return between <strong>-1</strong> and <strong>1</strong>.<br>Values higher than 1 is possible as <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr> allows up to 140% of acceleration/deceleration rate, as well as emergency brake.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>Vehicle.getDepartureIndex(): long</code></td>
-<td style="text-align: left;">Returns the departure index of the vehicle.<br>TODO: Is it relative to depot schedule or the assigned siding schedule?</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>Vehicle.getSpeedMs(): double</code></td>
