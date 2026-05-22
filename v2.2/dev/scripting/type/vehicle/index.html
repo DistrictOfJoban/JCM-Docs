@@ -6126,7 +6126,7 @@ Under this mechanism, scripts can:</p>
 </tr>
 <tr>
 <td style="text-align: left;">Third (<code>vehicle</code>)</td>
-<td style="text-align: left;">This returns the vehicle object representing the current vehicle consist. Type — <a href="#vehicle">Vehicle</a></td>
+<td style="text-align: left;">This returns the vehicle object representing the current vehicle consist. Type — <a href="#vehiclewrapper">VehicleWrapper</a></td>
 </tr>
 </tbody>
 </table>
@@ -6233,8 +6233,14 @@ To prove otherwise, submit a new GitHub issue in regard to this, or talk with us
 </tbody>
 </table>
 </details>
-<h4 id="vehicle">Vehicle<a class="headerlink" href="#vehicle" title="Anchor link to this section for reference">#</a></h4>
-<p>Represents a vehicle / trainset / train consist.</p>
+<h4 id="vehiclewrapper">VehicleWrapper<a class="headerlink" href="#vehiclewrapper" title="Anchor link to this section for reference">#</a></h4>
+<p>This is a representation of MTR vehicle / trainset / train consist for use by scripts.</p>
+<div class="admonition note">
+<p class="admonition-title">VehicleWrapper vs MTR's Vehicle</p>
+<p>The <code>VehicleWrapper</code> type is a wrapper object specifically for convenient access by scripts.<br />
+MTR (TSC) also has a <a href="../../tsc/#vehicle">Vehicle</a> type, which is the underlying vehicle representation by MTR.</p>
+<p>If you want to access types like <a href="../../tsc/#vehicleextradata">VehicleExtraData</a>, you need to obtain MTR's Vehicle, which can be done with <code>VehicleWrapper.getMtrVehicle()</code>, or in the <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> fashion, <code>VehicleWrapper.mtrTrain()</code>.</p>
+</div>
 <table>
 <thead>
 <tr>
@@ -6244,147 +6250,147 @@ To prove otherwise, submit a new GitHub issue in regard to this, or talk with us
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getStops(): List&lt;Stop&gt;</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getStops(): List&lt;Stop&gt;</code></td>
 <td style="text-align: left;">Get a list of <a href="#stop">Stop</a> the vehicle will make, across all routes.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getThisRouteStops(): List&lt;Stop&gt;</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getThisRouteStops(): List&lt;Stop&gt;</code></td>
 <td style="text-align: left;">Get a list of <a href="#stop">Stop</a> the vehicle will make for the current running route.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getNextRouteStops(): List&lt;Stop&gt;</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getNextRouteStops(): List&lt;Stop&gt;</code></td>
 <td style="text-align: left;">Get a list of <a href="#stop">Stop</a> the vehicle will make for the upcoming route.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getNextStopIndex(stopList: List&lt;Stop&gt;, overrunTolerance: double = 0.5): int</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getNextStopIndex(stopList: List&lt;Stop&gt;, overrunTolerance: double = 0.5): int</code></td>
 <td style="text-align: left;">Get the index of the next stop within a <code>stopList</code>. (Can be obtained above).<br><code>overrunTolerance</code> is the tolerance in meters in which the next stop will still be counted as the previous stop, even after overruning the stop mark.<br>Returns <code>stopList.size()</code> if vehicle already passed all stops in the given <code>stopList</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.isStopsDataFetched(): boolean</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.isStopsDataFetched(): boolean</code></td>
 <td style="text-align: left;">Whether the stop data is fetched from the server (Instead of being compiled locally).<br>i.e. Always false if data fetch mode is set to <code>SKIP</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.isRendered(): boolean</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.isRendered(): boolean</code></td>
 <td style="text-align: left;">Returns whether any car is being rendered. (i.e. Not being culled by MTR)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.isCarRendered(cars: int...): boolean</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.isCarRendered(cars: int...): boolean</code></td>
 <td style="text-align: left;">Returns whether any of the given car index is being rendered.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.isClientPlayerRiding(): boolean</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.isClientPlayerRiding(): boolean</code></td>
 <td style="text-align: left;">Returns whether the client player is riding (onboard) the current vehicle.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getMtrVehicle(): VehicleExtension</code></td>
-<td style="text-align: left;">Returns the underlying MTR VehicleExtension, which extends <a href="../../tsc/#vehicle">Vehicle</a>.</td>
+<td style="text-align: left;"><code>VehicleWrapper.getMtrVehicle(): VehicleExtension</code></td>
+<td style="text-align: left;">Returns the underlying MTR VehicleExtension, which is a client representation of <a href="../../tsc/#vehicle">MTR/TSC's Vehicle</a>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getId(): long</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getId(): long</code></td>
 <td style="text-align: left;">Returns a unique id representing this vehicle.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getSiding(): Siding?</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getSiding(): Siding?</code></td>
 <td style="text-align: left;">Returns the <a href="../../tsc/#siding">Siding</a> that this vehicle belongs to.<br>Returns null if client does not have reference to the Siding, or data fetching is in progress.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getVehicleId(carIndex: int): String?</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getVehicleId(carIndex: int): String?</code></td>
 <td style="text-align: left;">Returns the Vehicle Resource ID as defined in the resource pack for the given <code>carIndex</code>.<br>Null if <code>carIndex</code> is beyond the car-length of this vehicle.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getLength(carIndex: int): double</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getLength(carIndex: int): double</code></td>
 <td style="text-align: left;">Returns the length (in meters) of the car <code>carIndex</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getWidth(carIndex: int): double</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getWidth(carIndex: int): double</code></td>
 <td style="text-align: left;">Returns the width (in meters) of the car <code>carIndex</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getTransportMode(): TransportMode</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getTransportMode(): TransportMode</code></td>
 <td style="text-align: left;">Returns the <a href="../../tsc/#transportmode">TransportMode</a> of the current vehicle.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getCarCount(): int</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getCarCount(): int</code></td>
 <td style="text-align: left;">Returns the number of cars this vehicle has.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getServiceAcceleration(): double</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getServiceAcceleration(): double</code></td>
 <td style="text-align: left;">Returns the acceleration value configured in the siding, and used when the vehicle is in 100% acceleration rate.<br>Unit is <code>m/millis^2</code> (Multiply by 1000^2 for m/s^2)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getServiceDeceleration(): double</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getServiceDeceleration(): double</code></td>
 <td style="text-align: left;">Returns the deceleration value configured in the siding, and used when the vehicle is in 100% deceleration rate.<br>Unit is <code>m/millis^2</code> (Multiply by 1000^2 for m/s^2)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getMaxManualSpeed(): double</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getMaxManualSpeed(): double</code></td>
 <td style="text-align: left;">Returns the maximum allowed manual speed for this vehicle.<br>Unit is <code>m/millis</code>. (Multiply by 1000 for m/s)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.isManualAllowed(): boolean</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.isManualAllowed(): boolean</code></td>
 <td style="text-align: left;">Returns whether manual driving is enabled for this vehicle.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getDepartureIndex(): long</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getDepartureIndex(): long</code></td>
 <td style="text-align: left;">Returns the departure index of the vehicle.<br>The departure index is incremented for every scheduled departure of each individual sidings.<br>It is wrapped back to <code>0</code> at 00:00 UTC (For real-time scheduling).<br>A departure index of <code>-1</code> indicates the vehicle has either not yet departed, or it is a manually departed train.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getManualToAutomaticTime(): int</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getManualToAutomaticTime(): int</code></td>
 <td style="text-align: left;">Returns the time required for the vehicle to automatically switch to automatic operation (ATO), when no one is driving.<br>Unit is in <code>millisecond</code>. (Multiply by 1000 for second)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getPathData(): List&lt;PathData&gt;</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getPathData(): List&lt;PathData&gt;</code></td>
 <td style="text-align: left;">Returns the <a href="../../tsc/#pathdata">PathData</a> for this vehicle.<br>Note: Due to <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>'s data syncing mechanism, only a portion of the full PathData will be returned, instead of the full route.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getRailProgress(carIndex: int = 0): int</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getRailProgress(carIndex: int = 0): int</code></td>
 <td style="text-align: left;">Returns the distance in meters the vehicle has travelled since departing from the siding.<br>Supplying a <code>carIndex</code> would offset the progress by the car length.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getRailIndex(railProgress: double, roundDown: boolean): int</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getRailIndex(railProgress: double, roundDown: boolean): int</code></td>
 <td style="text-align: left;">Returns the index of PathData given a <code>railProgress</code>.<br><code>roundDown</code> will return the previous path index if vehicle is stopped exactly on a node.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getRailSpeed(pathIndex: int): double</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getRailSpeed(pathIndex: int): double</code></td>
 <td style="text-align: left;">Returns the speed of a section given a <code>pathIndex</code> (via <code>getRailIndex</code>).<br>Unit is in <code>km/h</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getNotchLevel(): int</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getNotchLevel(): int</code></td>
 <td style="text-align: left;">Returns the manual driving notch for the current vehicle.<br>Positive number indicates acceleration, negative number indicates deceleration.<br>In <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>, the range is between <strong>-5</strong> and <strong>5</strong> for normal operation.<br>Values up to <strong>-7</strong> and <strong>7</strong> is possible, representing 140% of the service acceleration/deceleration.<br>Values up to <strong>-8</strong> is possible, representing emergency brake (EM).</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getNotchPosition(): double</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getNotchPosition(): double</code></td>
 <td style="text-align: left;">Returns the manual driving notch in the form of a relative percentage, irrespective of the number of notch available.<br>Positive number indicates acceleration, negative number indicates deceleration.<br>Normal operation would return between <strong>-1</strong> and <strong>1</strong>.<br>Values higher than 1 is possible as <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr> allows up to 140% of acceleration/deceleration rate, as well as emergency brake.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getSpeedMs(): double</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getSpeedMs(): double</code></td>
 <td style="text-align: left;">Returns the current vehicle speed in m/s.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getSpeedKmh(): double</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getSpeedKmh(): double</code></td>
 <td style="text-align: left;">Returns the current vehicle speed in km/h.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getDoorValue(): double</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getDoorValue(): double</code></td>
 <td style="text-align: left;">Returns a value between 0.0 (Closed) and 1.0 (Opened) representing the door value.<br>This does not account for the actual door opening position, which may be affected by e.g. whether nearby platform blocks are installed.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.isCurrentlyManual(): boolean</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.isCurrentlyManual(): boolean</code></td>
 <td style="text-align: left;">Returns whether the vehicle is currently manually driven.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.isReversed(): boolean</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.isReversed(): boolean</code></td>
 <td style="text-align: left;">Whether the vehicle is running in reverse.<br>Changed after a turnback rail.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.isOnRoute(): boolean</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.isOnRoute(): boolean</code></td>
 <td style="text-align: left;">Whether the vehicle has started up and no longer idle in the siding.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getTotalDwellTime(): long</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getTotalDwellTime(): long</code></td>
 <td style="text-align: left;">Returns the total dwell time for the current platform.<br>Unit is in <code>millisecond</code>.<br>Returns <strong>-1</strong> if vehicle is not on a platform.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getElapsedDwellTime(): long</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.getElapsedDwellTime(): long</code></td>
 <td style="text-align: left;">Returns the elapsed dwell time synced from the server.<br>Unit is in <code>millisecond</code>.<br><strong>Note: The values are outputted as-is from the periodic syncing of the server, which is not real-time. The client does not count elapsed dwell time by itself.</strong></td>
 </tr>
 </tbody>
@@ -6402,92 +6408,92 @@ Newer scripts should not utilize these functions anymore.</p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getAllPlatforms(): List&lt;Stop&gt;</code></td>
-<td style="text-align: left;">Equivalent to <code>Vehicle.getStops()</code>.</td>
+<td style="text-align: left;"><code>VehicleWrapper.getAllPlatforms(): List&lt;Stop&gt;</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getStops()</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getThisRoutePlatforms(): List&lt;Stop&gt;</code></td>
-<td style="text-align: left;">Equivalent to <code>Vehicle.getThisRouteStops()</code>.</td>
+<td style="text-align: left;"><code>VehicleWrapper.getThisRoutePlatforms(): List&lt;Stop&gt;</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getThisRouteStops()</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getNextRoutePlatforms(): List&lt;Stop&gt;</code></td>
-<td style="text-align: left;">Equivalent to <code>Vehicle.getNextRouteStops()</code>.</td>
+<td style="text-align: left;"><code>VehicleWrapper.getNextRoutePlatforms(): List&lt;Stop&gt;</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getNextRouteStops()</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getAllPlatformsNextIndex(): int</code></td>
-<td style="text-align: left;">Equivalent to <code>getNextStopIndex(getStops(), 0)</code>.<br>(0m overrun tolerance)</td>
+<td style="text-align: left;"><code>VehicleWrapper.getAllPlatformsNextIndex(): int</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getNextStopIndex(getStops(), 0)</code>.<br>(0m overrun tolerance)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.getThisRoutePlatformsNextIndex(): int</code></td>
-<td style="text-align: left;">Equivalent to <code>getNextStopIndex(getThisRouteStops(), 0)</code>.<br>(0m overrun tolerance)</td>
+<td style="text-align: left;"><code>VehicleWrapper.getThisRoutePlatformsNextIndex(): int</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getNextStopIndex(getThisRouteStops(), 0)</code>.<br>(0m overrun tolerance)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.id(): long</code></td>
-<td style="text-align: left;">Equivalent to <code>Vehicle.getId()</code>.</td>
+<td style="text-align: left;"><code>VehicleWrapper.id(): long</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getId()</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.siding(): Siding</code></td>
-<td style="text-align: left;">Equivalent to <code>Vehicle.getSiding()</code>.</td>
+<td style="text-align: left;"><code>VehicleWrapper.siding(): Siding</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getSiding()</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.transportMode(): TransportMode</code></td>
-<td style="text-align: left;">Equivalent to <code>Vehicle.getTransportMode()</code>.</td>
+<td style="text-align: left;"><code>VehicleWrapper.transportMode(): TransportMode</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getTransportMode()</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.trainCars(): int</code></td>
-<td style="text-align: left;">Equivalent to <code>Vehicle.getCarCount()</code>.</td>
+<td style="text-align: left;"><code>VehicleWrapper.trainCars(): int</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getCarCount()</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.shouldRender(): boolean</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.shouldRender(): boolean</code></td>
 <td style="text-align: left;">Always returns true.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.shouldRenderDetail(): boolean</code></td>
+<td style="text-align: left;"><code>VehicleWrapper.shouldRenderDetail(): boolean</code></td>
 <td style="text-align: left;">Always returns true.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.trainTypeId(): String</code></td>
-<td style="text-align: left;">Equivalent to <code>Vehicle.getVehicleId(0)</code>.</td>
+<td style="text-align: left;"><code>VehicleWrapper.trainTypeId(): String</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getVehicleId(0)</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.mtrTrain(): VehicleExtension</code></td>
-<td style="text-align: left;">Equivalent to <code>Vehicle.getMtrVehicle()</code>.</td>
+<td style="text-align: left;"><code>VehicleWrapper.mtrTrain(): VehicleExtension</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getMtrVehicle()</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.speed(): double</code></td>
-<td style="text-align: left;">Equivalent to <code>Vehicle.getSpeedMs() * (1/20d)</code>.</td>
+<td style="text-align: left;"><code>VehicleWrapper.speed(): double</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getSpeedMs() * (1/20d)</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.spacing(): double</code></td>
-<td style="text-align: left;">Equivalent to <code>Vehicle.getLength(0)</code>.</td>
+<td style="text-align: left;"><code>VehicleWrapper.spacing(): double</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getLength(0)</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.width(): double</code></td>
-<td style="text-align: left;">Equivalent to <code>Vehicle.getWidth(0)</code>.</td>
+<td style="text-align: left;"><code>VehicleWrapper.width(): double</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getWidth(0)</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.accelerationConstant(): double</code></td>
-<td style="text-align: left;">Equivalent to <code>(Vehicle.getServiceAcceleration() * 1000 * 1000) / (1/400d)</code>.</td>
+<td style="text-align: left;"><code>VehicleWrapper.accelerationConstant(): double</code></td>
+<td style="text-align: left;">Equivalent to <code>(VehicleWrapper.getServiceAcceleration() * 1000 * 1000) / (1/400d)</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.railProgress(): double</code></td>
-<td style="text-align: left;">Equivalent to <code>Vehicle.getRailProgress()</code>.</td>
+<td style="text-align: left;"><code>VehicleWrapper.railProgress(): double</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getRailProgress()</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.path(): List&lt;PathData&gt;</code></td>
-<td style="text-align: left;">Equivalent to <code>Vehicle.getPathData()</code>.</td>
+<td style="text-align: left;"><code>VehicleWrapper.path(): List&lt;PathData&gt;</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getPathData()</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.manualAllowed(): boolean</code></td>
-<td style="text-align: left;">Equivalent to <code>Vehicle.isManualAllowed()</code>.</td>
+<td style="text-align: left;"><code>VehicleWrapper.manualAllowed(): boolean</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.isManualAllowed()</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.doorValue(): double</code></td>
-<td style="text-align: left;">Equivalent to <code>Vehicle.getDoorValue()</code>.</td>
+<td style="text-align: left;"><code>VehicleWrapper.doorValue(): double</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getDoorValue()</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Vehicle.manualToAutomaticTime(): int</code></td>
-<td style="text-align: left;">Equivalent to <code>Vehicle.getManualToAutomaticTime()</code>.</td>
+<td style="text-align: left;"><code>VehicleWrapper.manualToAutomaticTime(): int</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getManualToAutomaticTime()</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -6566,7 +6572,7 @@ Also known as <code>RoutePlatform</code> in <abbr title="Nemo Transit Expansion 
 </tr>
 <tr>
 <td style="text-align: left;"><code>Stop.destinationStation: Station</code></td>
-<td style="text-align: left;">The <a href="../../tsc/#station">Station</a> belonging to the last stop of the current route.<br>Use <code>Vehicle.getThisRouteStops()</code> to obtain the last stop, and get the station from there instead.</td>
+<td style="text-align: left;">The <a href="../../tsc/#station">Station</a> belonging to the last stop of the current route.<br>Use <code>VehicleWrapper.getThisRouteStops()</code> to obtain the last stop, and get the station from there instead.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>Stop.reverseAtPlatform: boolean</code></td>

@@ -6050,7 +6050,7 @@
 <ul>
 <li>The <code>ctx</code> variable is the Context object, and is used primarily for action (Such as performing rendering). (Different for each script types)</li>
 <li>The <code>state</code> variable is a standard <abbr title="JavaScript">JS</abbr> object which you can put any variable in, and they will be "remembered" for each instance. (e.g. For each vehicle)</li>
-<li>The <code>wrapper</code> variable is a read-only object to give you information. For example in <strong>Vehicle Scripting</strong>, the <code>wrapper</code> object is a <code>Vehicle</code>, which you may query various things such as the current vehicle speed, doors value etc. (Different for each script types)</li>
+<li>The <code>wrapper</code> variable is a read-only object to give you information. For example in <strong>Vehicle Scripting</strong>, the <code>wrapper</code> object is a <a href="type/vehicle/#vehiclewrapper">VehicleWrapper</a>, which you may query various things such as the current vehicle speed, doors value etc. (Different for each script types)</li>
 </ul>
 <p>This means that when you have, say 2 vehicles in view, your <code>render()</code> function will be called twice, and the <code>ctx, state, wrapper</code> all pertains to different vehicles.</p>
 <p>An example demonstrating loading and runtime stage is as follows:</p>

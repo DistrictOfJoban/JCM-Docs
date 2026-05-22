@@ -6056,7 +6056,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Third (<code>eyecandy</code>)</td>
-<td style="text-align: left;">This returns the block entity of the placed Decoration Object block. Type — <a href="#blockeyecandy">BlockEyecandy</a></td>
+<td style="text-align: left;">This returns the block entity of the placed Decoration Object block. Type — <a href="#eyecandywrapper">EyecandyWrapper</a></td>
 </tr>
 </tbody>
 </table>
@@ -6102,8 +6102,8 @@
 </tr>
 </tbody>
 </table>
-<h4 id="blockeyecandy">BlockEyecandy<a class="headerlink" href="#blockeyecandy" title="Anchor link to this section for reference">#</a></h4>
-<p>Represents a Decoration Block in the world.</p>
+<h4 id="eyecandywrapper">EyecandyWrapper<a class="headerlink" href="#eyecandywrapper" title="Anchor link to this section for reference">#</a></h4>
+<p>This is a representation of a Decoration Block (a.k.a Eyecandy Block) placed in the world, for use by scripts.</p>
 <table>
 <thead>
 <tr>
@@ -6113,55 +6113,55 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>BlockEyecandy.getModelId(): String</code></td>
+<td style="text-align: left;"><code>EyecandyWrapper.getModelId(): String</code></td>
 <td style="text-align: left;">Returns the id of the eyecandy entry currently assigned to this block.<br>Note that this is not the actual model id referenced in your eyecandy entry.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>BlockEyecandy.getTranslateX(): float</code></td>
+<td style="text-align: left;"><code>EyecandyWrapper.getTranslateX(): float</code></td>
 <td style="text-align: left;">The value in <strong>meters</strong> on how much the Decoration Object is translated on the X-axis, configured via GUI.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>BlockEyecandy.getTranslateY(): float</code></td>
+<td style="text-align: left;"><code>EyecandyWrapper.getTranslateY(): float</code></td>
 <td style="text-align: left;">The value in <strong>meters</strong> on how much the Decoration Object is translated on the Y-axis, configured via GUI.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>BlockEyecandy.getTranslateZ(): float</code></td>
+<td style="text-align: left;"><code>EyecandyWrapper.getTranslateZ(): float</code></td>
 <td style="text-align: left;">The value in <strong>meters</strong> on how much the Decoration Object is translated on the Z-axis, configured via GUI.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>BlockEyecandy.getRotateX(): float</code></td>
+<td style="text-align: left;"><code>EyecandyWrapper.getRotateX(): float</code></td>
 <td style="text-align: left;">The value in <strong>radians</strong> on how much the Decoration Object is rotated on the X-axis, configured via GUI.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>BlockEyecandy.getRotateY(): float</code></td>
+<td style="text-align: left;"><code>EyecandyWrapper.getRotateY(): float</code></td>
 <td style="text-align: left;">The value in <strong>radians</strong> on how much the Decoration Object is rotated on the Y-axis, configured via GUI.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>BlockEyecandy.getRotateZ(): float</code></td>
+<td style="text-align: left;"><code>EyecandyWrapper.getRotateZ(): float</code></td>
 <td style="text-align: left;">The value in <strong>radians</strong> on how much the Decoration Object is rotated on the Z-axis, configured via GUI.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>BlockEyecandy.pos(): Vector3f</code></td>
+<td style="text-align: left;"><code>EyecandyWrapper.pos(): Vector3f</code></td>
 <td style="text-align: left;">Returns the position of the block + any translation added to the eyecandy model.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>BlockEyecandy.blockPos(): Vector3f</code></td>
+<td style="text-align: left;"><code>EyecandyWrapper.blockPos(): Vector3f</code></td>
 <td style="text-align: left;">Returns the position of the eyecandy block.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>BlockEyecandy.facing(): Direction</code></td>
+<td style="text-align: left;"><code>EyecandyWrapper.facing(): Direction</code></td>
 <td style="text-align: left;">Returns a Minecraft direction for which way the block is facing.<br>Used for constructing direction-dependent <a href="../../mc/#voxelshape">VoxelShape</a>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>BlockEyecandy.isCrosshairTarget(): boolean</code></td>
+<td style="text-align: left;"><code>EyecandyWrapper.isCrosshairTarget(): boolean</code></td>
 <td style="text-align: left;">Returns whether the current block is player's crosshair target. (i.e. Selected block).<br>Can be used to show tooltips.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>BlockEyecandy.getFullBrightness(): boolean</code></td>
+<td style="text-align: left;"><code>EyecandyWrapper.getFullBrightness(): boolean</code></td>
 <td style="text-align: left;">Return whether the Decoration Object is marked as "Full Light", configured via GUI.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>BlockEyecandy.redstoneLevel(): int</code></td>
+<td style="text-align: left;"><code>EyecandyWrapper.redstoneLevel(): int</code></td>
 <td style="text-align: left;">Whether a redstone is powering the eyecandy.<br>Returns 0 (Unpowered) or 15 (Powered).<br><strong>Note: Scripts must treat the returned number as if 1-14 can be returned, as this behaviour may change in an upcoming version.</strong></td>
 </tr>
 </tbody>
@@ -6178,44 +6178,44 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>BlockEyecandy.prefabId: String?</code></td>
-<td style="text-align: left;">Same as <code>BlockEyecandy.getModelId()</code>.</td>
+<td style="text-align: left;"><code>EyecandyWrapper.prefabId: String?</code></td>
+<td style="text-align: left;">Same as <code>EyecandyWrapper.getModelId()</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>BlockEyecandy.translateX: float</code></td>
-<td style="text-align: left;">Same as <code>BlockEyecandy.getTranslateX()</code>.</td>
+<td style="text-align: left;"><code>EyecandyWrapper.translateX: float</code></td>
+<td style="text-align: left;">Same as <code>EyecandyWrapper.getTranslateX()</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>BlockEyecandy.translateY: float</code></td>
-<td style="text-align: left;">Same as <code>BlockEyecandy.getTranslateY()</code>.</td>
+<td style="text-align: left;"><code>EyecandyWrapper.translateY: float</code></td>
+<td style="text-align: left;">Same as <code>EyecandyWrapper.getTranslateY()</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>BlockEyecandy.translateZ: float</code></td>
-<td style="text-align: left;">Same as <code>BlockEyecandy.getTranslateZ()</code>.</td>
+<td style="text-align: left;"><code>EyecandyWrapper.translateZ: float</code></td>
+<td style="text-align: left;">Same as <code>EyecandyWrapper.getTranslateZ()</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>BlockEyecandy.rotateX: float</code></td>
-<td style="text-align: left;">Same as <code>BlockEyecandy.getRotateX()</code>.</td>
+<td style="text-align: left;"><code>EyecandyWrapper.rotateX: float</code></td>
+<td style="text-align: left;">Same as <code>EyecandyWrapper.getRotateX()</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>BlockEyecandy.rotateY: float</code></td>
-<td style="text-align: left;">Same as <code>BlockEyecandy.getRotateY()</code>.</td>
+<td style="text-align: left;"><code>EyecandyWrapper.rotateY: float</code></td>
+<td style="text-align: left;">Same as <code>EyecandyWrapper.getRotateY()</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>BlockEyecandy.rotateZ: float</code></td>
-<td style="text-align: left;">Same as <code>BlockEyecandy.getRotateZ()</code>.</td>
+<td style="text-align: left;"><code>EyecandyWrapper.rotateZ: float</code></td>
+<td style="text-align: left;">Same as <code>EyecandyWrapper.getRotateZ()</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>BlockEyecandy.fullLight: boolean</code></td>
-<td style="text-align: left;">Same as <code>BlockEyecandy.getFullBrightness()</code></td>
+<td style="text-align: left;"><code>EyecandyWrapper.fullLight: boolean</code></td>
+<td style="text-align: left;">Same as <code>EyecandyWrapper.getFullBrightness()</code></td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>BlockEyecandy.getWorldPosVector3f(): Vector3f</code></td>
-<td style="text-align: left;">Same as <code>BlockEyecandy.blockPos()</code>.</td>
+<td style="text-align: left;"><code>EyecandyWrapper.getWorldPosVector3f(): Vector3f</code></td>
+<td style="text-align: left;">Same as <code>EyecandyWrapper.blockPos()</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>BlockEyecandy.getTransformPosVector3f(): Vector3f</code></td>
-<td style="text-align: left;">Same as <code>BlockEyecandy.pos()</code>.</td>
+<td style="text-align: left;"><code>EyecandyWrapper.getTransformPosVector3f(): Vector3f</code></td>
+<td style="text-align: left;">Same as <code>EyecandyWrapper.pos()</code>.</td>
 </tr>
 </tbody>
 </table>
