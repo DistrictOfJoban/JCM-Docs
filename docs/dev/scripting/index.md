@@ -130,7 +130,7 @@ When calling the 3 functions above, 3 parameters will be provided: `ctx, state, 
 
 - The `ctx` variable is the Context object, and is used primarily for action (Such as performing rendering). (Different for each script types)
 - The `state` variable is a standard JS object which you can put any variable in, and they will be "remembered" for each instance. (e.g. For each vehicle)
-- The `wrapper` variable is a read-only object to give you information. For example in **Vehicle Scripting**, the `wrapper` object is a `Vehicle`, which you may query various things such as the current vehicle speed, doors value etc. (Different for each script types)
+- The `wrapper` variable is a read-only object to give you information. For example in **Vehicle Scripting**, the `wrapper` object is a [VehicleWrapper](./type/vehicle/index.md#vehiclewrapper), which you may query various things such as the current vehicle speed, doors value etc. (Different for each script types)
 
 This means that when you have, say 2 vehicles in view, your `render()` function will be called twice, and the `ctx, state, wrapper` all pertains to different vehicles.
 

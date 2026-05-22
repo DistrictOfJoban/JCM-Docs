@@ -83,7 +83,7 @@ This allows you to construct the outline shape of a block, which can be used to 
 |`static VoxelShape.empty(): VoxelShape`|Returns an empty VoxelShape|
 |`static VoxelShape.fullCube(): VoxelShape`|Returns a VoxelShape that is equivalent to a 16x16 rectangle block|
 |`static VoxelShape.create(minX: double, minY: double, minZ: double, maxX: double, maxY: double, maxZ: double): VoxelShape`|Returns a VoxelShape with the specified size.<br>The `max[?]` parameter must always be equal/larger than the `min[?]` parameters.<br>Unit are 16x16 (16 = 1 full block)|
-|`static VoxelShape.create(minX: double, minY: double, minZ: double, maxX: double, maxY: double, maxZ: double, facing: Direction): VoxelShape`|Same as above, but rotated according to the `facing` parameter. You may obtain the facing direction via [BlockEyecandy.facing()](./type/eyecandy/index.md#blockeyecandy)|
+|`static VoxelShape.create(minX: double, minY: double, minZ: double, maxX: double, maxY: double, maxZ: double, facing: Direction): VoxelShape`|Same as above, but rotated according to the `facing` parameter. You may obtain the facing direction via [EyecandyWrapper.facing()](./type/eyecandy/index.md#eyecandywrapper)|
 |`VoxelShape.combine(other: VoxelShape): VoxelShape`|This returns a new VoxelShape where two different VoxelShape are merged together.|
 
 ### Example

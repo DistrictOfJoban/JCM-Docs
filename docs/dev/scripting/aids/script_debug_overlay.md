@@ -21,6 +21,6 @@ After that, make sure the **Script debug mode** checkbox is checked, then click 
     - Script developers should generally aim for the Blue color if possible.
 
 ### Navigate between sources
-Since mixing all script instances into 1 view would clutter up the overlay, the overlay are separated by different "source". For instance, it will only show scripts coming from **[MTR]** (Vehicle/Eyecandy Scripting), and **[JCM]** (PIDS Scripting).
+Since mixing all script instances into 1 view would clutter up the overlay, the overlay are separated by different "source". For instance, it will only show scripts coming from **\[MTR\]** (Vehicle/Eyecandy Scripting), and **\[JCM\]** (PIDS Scripting).
 
 You can press `[` and `]` on your keyboard to select between them, they are also configurable in keybind settings in-case a conflict occurs.

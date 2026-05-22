@@ -72,7 +72,7 @@ If you managed to get pass all questions, it likely means that your script have 
     You will need to look in the MTR 4 codebase to adapt the changes to your script.
 
     - For MTRClientData in MTR 4, see [MinecraftClientData](https://github.com/Minecraft-Transit-Railway/Minecraft-Transit-Railway/blob/master/fabric/src/main/java/org/mtr/mod/client/MinecraftClientData.java).
-    - For `Route.lightRailRouteNumber`, they are no longer transferred as part of the route. Please see [VehicleExtraData](../tsc.md#vehicleextradata-stops-related) to obtain them.
+    - For `Route.lightRailRouteNumber`, they are no longer transferred as part of the route. Please see [VehicleExtraData](../tsc.md#vehicleextradata-stops-related) to obtain them. (To obtain an instance of VehicleExtraData, you need to first obtain the underlying MTR vehicle/train representation, which can be done with `train.getMtrVehicle()`.)
 
 Got through all of them? Great, below are some resources/tips to get started:
 
@@ -165,13 +165,13 @@ Then rename `CONFIG_INFO` to `SCRIPT_INPUT` within the script.
 ```
 
 ### Custom shapes for eyecandy
-In ANTE, you would invoke `BlockEyeCandy.setShape(shape: String)` and `BlockEyeCandy.setCollisionShape(shape: String)` to set the outline and collision shape of the eyecandy, and then invoke `BlockEyeCandy.sendUpdateC2S` to sync it to the server.
+In ANTE, you would invoke `EyecandyWrapper.setShape(shape: String)` and `EyecandyWrapper.setCollisionShape(shape: String)` to set the outline and collision shape of the eyecandy, and then invoke `EyecandyWrapper.sendUpdateC2S` to sync it to the server.
 
 In JCM, the key differences are:
 
 - JCM scripting is completely client-side, therefore custom collision shape is not supported as it would de-sync from the server.
 - Shapes are now serialized with [VoxelShape](../mc.md#voxelshape) rather than string, which provides more intuitive API and better guard against errors.
-- `BlockEyeCandy.setShape` has now moved to `EyeCandyScriptContext.setOutlineShape`
+- `EyecandyWrapper.setShape` has now moved to `EyeCandyScriptContext.setOutlineShape`
 - When a player is holding a brush, it would always reset to the default outline block shape to ensure operators/admin can't be 'locked out' due to a block shape that is infeasible to right click on.
 
 #### Migration example

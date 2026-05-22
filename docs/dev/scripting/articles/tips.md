@@ -15,10 +15,10 @@ Instead, what you likely want is to "do a thing later on", in such case you will
 
 If you are trying to execute a long-running operation (e.g. Fetching data over the internet), you should submit it to another thread/executor.
 
-If blocks or infinite loops did occur, then the entire script execution will stall as scripts are executed one at a time [*in the same thread*]. In such situation, you can reset it by pressing ++f3+t++ on your keyboard, which reloads the resource pack and resets the scripting thread.
+If blocks or infinite loops did occur, then the entire script execution will stall as scripts are executed one at a time \[*in the same thread*\]. In such situation, you can reset it by pressing ++f3+t++ on your keyboard, which reloads the resource pack and resets the scripting thread.
 
 ## Avoid using internal APIs
-Any methods/fields that is not documented in this docs, as well as items within MTRClientData and `Vehicle.getMtrVehicle()` is considered internal API.
+Any methods/fields that is not documented in this docs, as well as items within MTRClientData and `VehicleWrapper.getMtrVehicle()` is considered internal API.
 
 While you can use these methods/fields, there is no guarentee these items will continue to work in future versions, which makes it less ideal for publicly-distributed pack.
 
