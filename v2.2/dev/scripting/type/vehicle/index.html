@@ -6553,6 +6553,10 @@ Also known as <code>RoutePlatform</code> in <abbr title="Nemo Transit Expansion 
 <td style="text-align: left;"><code>Stop.roundUpRoute: Stop</code></td>
 <td style="text-align: left;">If <code>Stop.isRouteSwitchoverStop</code> is true, accessing this object will return a copy of this stop, with infos of the next route. (Affecting <code>Stop.route</code>, <code>Stop.destinationName</code>, <code>Stop.routeInterchanges</code> etc.).<br>Otherwise, this will return the current stop (Unchanged).</td>
 </tr>
+<tr>
+<td style="text-align: left;"><code>Stop.turnbackPlatform: boolean</code></td>
+<td style="text-align: left;">Returns whether the train will reverse to the other side after this stop.</td>
+</tr>
 </tbody>
 </table>
 <details class="info">
