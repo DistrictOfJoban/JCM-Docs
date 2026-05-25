@@ -272,6 +272,7 @@ Also known as `RoutePlatform` in NTE.
 |`Stop.distance: double`|The railProgress representing the docking (stopping) position of this stop.<br>**-1** if data fetching is disabled (Unknown).|
 |`Stop.isRouteSwitchoverStop: boolean`|Whether the current stop is the last stop of one route, and the first stop of the next route. (i.e. Route Switchover)|
 |`Stop.roundUpRoute: Stop`|If `Stop.isRouteSwitchoverStop` is true, accessing this object will return a copy of this stop, with infos of the next route. (Affecting `Stop.route`, `Stop.destinationName`, `Stop.routeInterchanges` etc.).<br>Otherwise, this will return the current stop (Unchanged).|
+|`Stop.turnbackPlatform: boolean`|Returns whether the train will reverse to the other side after this stop.|
 
 ??? info "Show deprecated fields/functions"
     These fields/functions are kept for backward compatibility with NTE. You are advised to avoid using these fields/functions for newly created scripts.
