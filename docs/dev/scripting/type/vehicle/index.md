@@ -98,7 +98,7 @@ JCM divides the data fetching into 3 different mode, which are described more in
     ```
 
     - `script_files` is an array containing the locations of .js scripts. Multiple scripts can be specified.
-    - `script_texts` allows you to directly write JS inside, and are executed before the scripts in **scriptFiles**.
+    - `script_texts` allows you to directly write JS inside, and are executed before the scripts in **script_files**.
     - `script_input` allows you to specify arbitary JSON object. This is then made accessible to the **.js** scripts via the variable `SCRIPT_INPUT`.
 
     All script fields are optional and could be omitted. However in order for script to load, either the `script_files` or `script_texts` should be filled.

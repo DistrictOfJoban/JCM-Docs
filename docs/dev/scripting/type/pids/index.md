@@ -41,15 +41,16 @@ A preset is automatically considered as a Scripted PIDS Preset by specifying eit
       "id": "pids_tut",
       "name": "JS Tutorial Preset",
       "scriptTexts": ["print('Goodbye World');"],
-      "scriptFiles": ["jsblock:scripts/pids_tut.js"]
+      "scriptFiles": ["jsblock:scripts/pids_tut.js"],
+      "scriptInput": {"announcement_text": "何意味是什麼意思"}
     }
   ]
 }
 ```
 
-`scriptFiles` points to the list of script file to load.
-
-`scriptTexts` allows you to directly write JS inside, but should only be used for simple variable declaration.
+- `scriptFiles` is an array containing the locations of .js scripts. Multiple scripts can be specified.
+- `scriptTexts` allows you to directly write JS inside, and are executed before the scripts in **scriptFiles**.
+- `scriptInput` allows you to specify arbitary JSON object. This is then made accessible to the **.js** scripts via the variable `SCRIPT_INPUT`.
 
 *Note: At the moment, mixing Scripted PIDS Preset and JSON PIDS Preset is not possible.*
 
