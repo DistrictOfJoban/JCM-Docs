@@ -4085,6 +4085,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Supported model format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note-on-texture-uv-coordinates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Note on Texture UV Coordinates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -5852,6 +5869,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Supported model format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note-on-texture-uv-coordinates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Note on Texture UV Coordinates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -6066,7 +6100,14 @@
 <li><strong>DynamicModelHolder</strong>: A class containing functions that allows uploading a <strong>RawModel</strong> during the Runtime stage.</li>
 </ul>
 <h2 id="supported-model-format">Supported model format<a class="headerlink" href="#supported-model-format" title="Anchor link to this section for reference">#</a></h2>
-<p>Currently, only the <strong>WaveFront OBJ</strong> model format is supported for model loading (bbmodel is <strong>not</strong> supported). These files ends with the <code>.obj</code> file extension, and are usually available for exports in modelling software like <strong>Blender</strong>.</p>
+<p>Currently JCM supports the <strong>WaveFront OBJ (.obj)</strong> and <strong>Metasequoia (.mqo)</strong> model. (Notably bbmodel is <strong>not</strong> supported).<br />
+They are usually exported via modelling software like <strong>Blender</strong> or <strong>Metasequoia</strong>.</p>
+<h3 id="note-on-texture-uv-coordinates">Note on Texture UV Coordinates<a class="headerlink" href="#note-on-texture-uv-coordinates" title="Anchor link to this section for reference">#</a></h3>
+<p>Sometimes a texture may appear incorrect in-game, in which the texture is flipped vertically.</p>
+<p>MTR currently assumes the V coordinates facing downwards, which is the same direction as models exported from <strong>Metasequoia</strong>, but <strong>Blender</strong>, <strong>Blockbench</strong> and other modelling software may have it facing up instead.</p>
+<p>For this reason, you may see a <code>flipTextureV</code> parameter, which is used to invert the texture V coordinates.<br />
+This is required for Blender and Blockbench-exported model, but not for Metasequoia.</p>
+<p>JCM currently sets <code>flipTextureV</code> to true to cater for models exported from Blockbench/Blender, so for Metasequoia, you need to explicitly pass <strong>false</strong> to <code>flipTextureV</code> to load correctly.</p>
 <h2 id="modelmanager">ModelManager<a class="headerlink" href="#modelmanager" title="Anchor link to this section for reference">#</a></h2>
 <table>
 <thead>
@@ -6078,7 +6119,7 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><code>static ModelManager.loadModel(id: Identifier, flipV: boolean = true): RawModel</code></td>
-<td style="text-align: left;">Load a model file specified by the <a href="../resources/#identifier-aka-resourcelocation">Identifier</a>.<br>This returns a <a href="#rawmodel">RawModel</a> where all object parts are combined together.<br>If <code>flipV</code> is true, the texture's V axis will be mirrored. (Required for OBJ exported from commonly used modelling software like blender)</td>
+<td style="text-align: left;">Load a model file specified by the <a href="../resources/#identifier-aka-resourcelocation">Identifier</a>.<br>This returns a <a href="#rawmodel">RawModel</a> where all object parts are combined together.<br>If <code>flipV</code> is true, the texture's V axis will be mirrored. (<code>true</code> for OBJ exported from modelling software like blender/blockbench, but false for Metasequoia)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>static ModelManager.loadModelParts(id: Identifier, flipV: boolean = true): Map&lt;String, RawModel&gt;</code></td>
