@@ -11,13 +11,24 @@ The API consists of the following 5 primary types:
 - **DynamicModelHolder**: A class containing functions that allows uploading a **RawModel** during the Runtime stage.
 
 ## Supported model format
-Currently, only the **WaveFront OBJ** model format is supported for model loading (bbmodel is **not** supported). These files ends with the `.obj` file extension, and are usually available for exports in modelling software like **Blender**.
+Currently JCM supports the **WaveFront OBJ (.obj)** and **Metasequoia (.mqo)** model. (Notably bbmodel is **not** supported).  
+They are usually exported via modelling software like **Blender** or **Metasequoia**.
+
+### Note on Texture UV Coordinates
+Sometimes a texture may appear incorrect in-game, in which the texture is flipped vertically.
+
+MTR currently assumes the V coordinates facing downwards, which is the same direction as models exported from **Metasequoia**, but **Blender**, **Blockbench** and other modelling software may have it facing up instead.
+
+For this reason, you may see a `flipTextureV` parameter, which is used to invert the texture V coordinates.  
+This is required for Blender and Blockbench-exported model, but not for Metasequoia.
+
+JCM currently sets `flipTextureV` to true to cater for models exported from Blockbench/Blender, so for Metasequoia, you need to explicitly pass **false** to `flipTextureV` to load correctly.
 
 ## ModelManager
 
 |Functions|Description|
 |:--------|:----------|
-|`static ModelManager.loadModel(id: Identifier, flipV: boolean = true): RawModel`|Load a model file specified by the [Identifier](./resources.md#identifier-aka-resourcelocation).<br>This returns a [RawModel](#rawmodel) where all object parts are combined together.<br>If `flipV` is true, the texture's V axis will be mirrored. (Required for OBJ exported from commonly used modelling software like blender)|
+|`static ModelManager.loadModel(id: Identifier, flipV: boolean = true): RawModel`|Load a model file specified by the [Identifier](./resources.md#identifier-aka-resourcelocation).<br>This returns a [RawModel](#rawmodel) where all object parts are combined together.<br>If `flipV` is true, the texture's V axis will be mirrored. (`true` for OBJ exported from modelling software like blender/blockbench, but false for Metasequoia)|
 |`static ModelManager.loadModelParts(id: Identifier, flipV: boolean = true): Map<String, RawModel>`|Load a model file specified by the [Identifier](./resources.md#identifier-aka-resourcelocation).<br>Returns a map of String & [RawModel](#rawmodel), each entry corresponding to an object group (or parts) in the model.<br>This allows selectively picking individual objects out for processing/rendering.<br>If `flipV` is true, the texture's V axis will be mirrored. (Required to be **true** for OBJ exported from commonly used modelling software like blender)|
 |`static ModelManager.upload(rawModel: RawModel): Model`|Upload the model data to the GPU so it can be effectively rendered.<br>Returns a [Model](#model-aka-modelcluster).<br>**Note: This should only be invoked during the Loading/Parsing stage of scripts. Use DynamicModelHolder if you need to upload the model at runtime.**|
 

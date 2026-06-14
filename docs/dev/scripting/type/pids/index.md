@@ -109,6 +109,7 @@ This would return a string formatted like: `2.0.0-beta.5`
 |`Text.shadowed(): Text`|Add shadow to the drawn text|
 |`Text.italic(): Text`|Set the text style to Italic|
 |`Text.bold(): Text`|Set the text style to Bold|
+|`Text.lineHeight(factor: number): Text`|Set the line height in factor (Default: 1, corresponds to 9 unit)<br>Only used for wrapText to set additional spacing between lines.|
 |`Text.stretchXY(): Text`|Text Overflow Mechanism:<br>When text overflowed beyond it's size, stretch the text on the overflowing axis to fit|
 |`Text.scaleXY(): Text`|Text Overflow Mechanism:<br>When the text overflowed beyond it's size, stretch the text on both axis to fit<br>(Keep aspect ratio)|
 |`Text.wrapText(): Text`|Text Overflow Mechanism:<br>When the text overflowed beyond it's size, split the text into the next line without any scaling.|
