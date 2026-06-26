@@ -39,6 +39,10 @@ Minecraft employs it's own text format called the [Text Component Format](https:
 |`VanillaText.withFont(id: Identifier): VanillaText`|Set the VanillaText text to use a specific Font [Identifier](./resources.md#identifier-aka-resourcelocation) as the displayed font, which is registered by resource pack.|
 |`VanillaText.withColor(rgb: int): VanillaText`|This sets the corresponding RGB code as the color to display the text|
 |`VanillaText.withColor(colorName: String): VanillaText`|This sets the color to display the text|
+|`VanillaText.clickToCopyText(clipboardText: String): VanillaText`|When supplied, this will copy the `clipboardText` content when players clicked on the text message in their chatbox.|
+|`VanillaText.clickToOpenURL(url: String): VanillaText`|When supplied, this will attempt to open `url` when players clicked on the text message in their chatbox.<br>Note that vanilla provide an additional warning screen for unseen URLs, so it is not a guarentee the url will open immediately.|
+|`VanillaText.withHoverText(content: String): VanillaText`|Provides the content that will be shown when player hovers their mouse on the text in their chatbox.|
+|`VanillaText.withHoverText(content: VanillaText): VanillaText`|Same as above, but with `VanillaText` for customization with the hover text itself.|
 |`VanillaText.getString(): String`|This returns the literal text content of the VanillaText. Useful when paired with `VanillaText.translatable()` so you can access the string localized in the user's language.|
 
 ### Example
