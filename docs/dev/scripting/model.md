@@ -52,8 +52,8 @@ JCM currently sets `flipTextureV` to true to cater for models exported from Bloc
 |Functions|Description|
 |:--------|:----------|
 |`new RawModel(): RawModel`|Create a new empty RawModel.|
-|`RawModel.append(other: RawMesh): RawModel`|Append/combine another **RawMesh** (Usually obtained from [RawMeshBuilder](#rawmeshbuilder)) to the current **RawModel**, and return the current RawModel.|
-|`RawModel.append(other: RawModel): RawModel`|Append/combine another **RawModel** to the current **RawModel**, and return the current RawModel.|
+|`RawModel.append(other: RawMesh): void`|Append/combine another **RawMesh** (Usually obtained from [RawMeshBuilder](#rawmeshbuilder)) to the current **RawModel**, and return the current RawModel.|
+|`RawModel.append(other: RawModel): void`|Append/combine another **RawModel** to the current **RawModel**, and return the current RawModel.|
 |`RawModel.applyTranslation(x: float, y: float, z: float): void`|Translate all vertices in the model by `x`, `y` and `z`.|
 |`RawModel.applyRotation(direction: Vector3f, angle: float): void`|Apply rotation to all vertices in a direction specified by a [Vector3f](./math.md#vector3f).<br>Transformation is applied relative to the model's origin.<br>`angle` is the angle to rotate in degree.|
 |`RawModel.applyScale(x: float, y: float, z: float): void`|Scale the model.<br>Transformation is applied relative to the model's origin.|
