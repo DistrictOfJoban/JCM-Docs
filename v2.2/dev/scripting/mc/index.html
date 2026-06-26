@@ -6171,6 +6171,22 @@
 <td style="text-align: left;">This sets the color to display the text</td>
 </tr>
 <tr>
+<td style="text-align: left;"><code>VanillaText.clickToCopyText(clipboardText: String): VanillaText</code></td>
+<td style="text-align: left;">When supplied, this will copy the <code>clipboardText</code> content when players clicked on the text message in their chatbox.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VanillaText.clickToOpenURL(url: String): VanillaText</code></td>
+<td style="text-align: left;">When supplied, this will attempt to open <code>url</code> when players clicked on the text message in their chatbox.<br>Note that vanilla provide an additional warning screen for unseen URLs, so it is not a guarentee the url will open immediately.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VanillaText.withHoverText(content: String): VanillaText</code></td>
+<td style="text-align: left;">Provides the content that will be shown when player hovers their mouse on the text in their chatbox.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VanillaText.withHoverText(content: VanillaText): VanillaText</code></td>
+<td style="text-align: left;">Same as above, but with <code>VanillaText</code> for customization with the hover text itself.</td>
+</tr>
+<tr>
 <td style="text-align: left;"><code>VanillaText.getString(): String</code></td>
 <td style="text-align: left;">This returns the literal text content of the VanillaText. Useful when paired with <code>VanillaText.translatable()</code> so you can access the string localized in the user's language.</td>
 </tr>
