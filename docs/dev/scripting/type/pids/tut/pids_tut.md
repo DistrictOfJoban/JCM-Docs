@@ -73,7 +73,7 @@ Our custom logic can be placed between each curly brackets for each of the funct
 
 - The `create` function is called when our PIDS enters the player's view. So this means that when a player switches the PIDS preset to our preset, or if a player is approaching a station with our PIDS in sight, everything within the curly bracket of the create function will be run.
 
-- The `render` function is called every frame (So 60fps = 60 times per second)*. Notice the asterisk? Because running scripts simply takes time, even if a short amount of time. JCM will *try to*, whenever possible, call your function every frame. However if there are too many scripts or your script is slow, then it may not be called every frame.
+- The `render` function is called every frame\* (So 60fps = 60 times per second\*). Notice the asterisk? Because running scripts simply takes time, even if a short amount of time. JCM will *try to*, whenever possible, call your function every frame. However if there are too many scripts or your script is slow, then it may not be called every frame.
 
 - The `dispose` function is called when a PIDS Preset is switched away from, or the PIDS is no longer in sight for the player. This can be used to do clean-up work in complex PIDS that stores texture etc.
 
