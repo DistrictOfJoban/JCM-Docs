@@ -6166,6 +6166,10 @@ For developers, you only need to know the following 3 different data fetching mo
 <td style="text-align: left;">Obtain a <a href="../../sounds/">SoundManager</a> instance, which can be used to play sound onto the Minecraft World.<br>The base position are set to the center position of the car <code>carIndex</code>.<br>Returns null if the <code>carIndex</code> is not associated with the current script entry.</td>
 </tr>
 <tr>
+<td style="text-align: left;"><code>VehicleScriptContext.playAnnSound(sound: Identifier, carIndex: int, x: float, y: float, z: float, volume: float, pitch: float): void</code></td>
+<td style="text-align: left;">Requests a sound specified by the <a href="../../resources/#identifier-aka-resourcelocation">Identifier</a> to be played in the game. (Non-positional, <strong>only if player is boarded</strong>.)<br>This is useful for playing on-board announcements.</td>
+</tr>
+<tr>
 <td style="text-align: left;"><code>VehicleScriptContext.getScriptEntryId(): String</code></td>
 <td style="text-align: left;">Obtain the script entry id.</td>
 </tr>
@@ -6202,10 +6206,6 @@ Newer scripts should not utilize these functions anymore.</p>
 <tr>
 <td style="text-align: left;"><code>VehicleScriptContext.playCarSound(sound: Identifier, carIndex: int, x: float, y: float, z: float, volume: float, pitch: float): void</code></td>
 <td style="text-align: left;">Requests a sound specified by the <a href="../../resources/#identifier-aka-resourcelocation">Identifier</a> to be played in the world.<br><code>carIndex</code> is the car number which the sound should play in. If the script does not belong to the car in <code>carIndex</code>, this function will do nothing.<br><code>x</code>, <code>y</code> and <code>z</code> is the offset of the sound position, relative to the car's center.<br><code>volume</code> and <code>pitch</code> represents the volume and pitch of the sound, <code>1.0</code> is the base value.<br><br>Replaced by <a href="../../sounds/#soundmanager">SoundManager</a>'s <code>playSound()</code> via <code>getCarSoundManager()</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>VehicleScriptContext.playAnnSound(sound: Identifier, carIndex: int, x: float, y: float, z: float, volume: float, pitch: float): void</code></td>
-<td style="text-align: left;">Requests a sound specified by the <a href="../../resources/#identifier-aka-resourcelocation">Identifier</a> to be played in the game (Non-positional, only if player is boarded).<br>This is useful for playing on-board announcements.<br>Arguments are same as those of <code>playCarSound</code>.<br><br>Replaced by <a href="../../sounds/#soundmanager">SoundManager</a>'s' <code>playLocalSound()</code> via <code>getCarSoundManager()</code></td>
 </tr>
 </tbody>
 </table>
