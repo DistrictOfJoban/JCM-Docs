@@ -15,14 +15,16 @@ The **GraphicsTexture** class allows you to create a texture of a fixed resoluti
 |`GraphicsTexture.upload(x: int, y: int, width: int, height: int): void`|Same as `upload()` but limited to a sub-region. See [Sub-region texture uploading](#sub-region-texture-uploading) for detail.|
 | `GraphicsTexture.close(): void` | Releases the memory used by this texture. It cannot be used after that.<br>If it was created in the `create` train function, it must be deleted in the `dispose` function, otherwise it will continue to occupy memory, thus creating a memory leak.|
 
-## Binding the texture in-game
+## Using the texture in-game
 After creating your GraphicsTexture (`new GraphicsTexture...`), JCM will tell Minecraft to register this texture with a specific ID (Randomly generated).
 
 To access the ID, simply use `GraphicsTexture.identifier`.
 
 When your script is in Runtime Stage, you can then invoke calls like [QuadDrawCall](./rendering.md#quaddrawcall), and set the texture id to `GraphicsTexture.identifier`, and it will render the texture out.
 
-**Note: After using AWT Graphics to draw things, you must invoke upload() for the texture data to be transferred to the game. See GraphicsTexture.upload() for details.**
+!!! warning "You need to upload the texture"
+    For the updated texture to be visible in-game, you must invoke `GraphicsTexture.upload()` for the texture data to be transferred to the game.  
+    **Please note that there is no guarentee of the texture's content upon creation of GraphicsTexture. It may reuse a previously-allocated memory portion, which may result in old/random textures/artifacts being shown. Therefore you should invoke `GraphicsTexture.upload()` after creation to replace it with your content.**
 
 ## AWT-related classes
 You can use the importPackage function from Rhino to satisfy the java.awt dependency when using AWT classes.
