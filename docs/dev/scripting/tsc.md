@@ -166,8 +166,8 @@ A vehicle formation / consists.
 
 ### VehicleExtraData
 !!! info inline end "References"
-    - [Class Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/Vehicle.java)
-    - [Schema Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/vehicle.json)
+    - [Class Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/VehicleExtraData.java)
+    - [Schema Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/vehicleExtraData.json)
 
 Represents real-time data of a vehicle.
 
