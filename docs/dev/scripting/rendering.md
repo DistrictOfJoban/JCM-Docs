@@ -53,6 +53,6 @@ function render(ctx, state, eyecandy) {
         .corner4(new Vector3f(1, 3, 0))
         .texture(Resources.id("mtr:your_texture_path_here.png"));
 
-    ctx.getRenderManager().queue(screenDrawCall);
+    ctx.getRenderManager().draw(screenDrawCall);
 }
 ```
