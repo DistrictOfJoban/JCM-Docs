@@ -5952,13 +5952,13 @@ Therefore, this can be seen as a replacement to the above systems which supports
 <h3 id="script-registration">Script Registration<a class="headerlink" href="#script-registration" title="Anchor link to this section for reference">#</a></h3>
 <p>A preset is automatically considered as a Scripted PIDS Preset by specifying either <code>scriptFiles</code> <strong>or</strong> <code>scriptTexts</code> property in <code>joban_custom_resources.json</code>:</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;pids_images&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">"pids_images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pids_tut&quot;</span><span class="p">,</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;JS Tutorial Preset&quot;</span><span class="p">,</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">&quot;scriptTexts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;print(&#39;Goodbye World&#39;);&quot;</span><span class="p">],</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="nt">&quot;scriptFiles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;jsblock:scripts/pids_tut.js&quot;</span><span class="p">],</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">&quot;scriptInput&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;announcement_text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;何意味是什麼意思&quot;</span><span class="p">}</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pids_tut"</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JS Tutorial Preset"</span><span class="p">,</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">"scriptTexts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"print('Goodbye World');"</span><span class="p">],</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="nt">"scriptFiles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"jsblock:scripts/pids_tut.js"</span><span class="p">],</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">"scriptInput"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"announcement_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"何意味是什麼意思"</span><span class="p">}</span>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p">]</span>
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
@@ -6140,7 +6140,15 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 </tr>
 <tr>
 <td style="text-align: left;"><code>Text.fontMC(): Text</code></td>
-<td style="text-align: left;">Use vanilla Minecraft's font</td>
+<td style="text-align: left;">Use vanilla Minecraft's font.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Text.naturalLight(): Text</code></td>
+<td style="text-align: left;">Set the brightness of the text to be the in-game world light.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Text.renderType(renderType: String): QuadDrawCall</code></td>
+<td style="text-align: left;">Specify a render type to use.<br>- <code>EXTERIOR</code>: Same as the one used on train exterior, use the light level at the current position.<br>- <code>EXTERIOR_TRANSLUCENT</code>: Same as <code>EXTERIOR</code>, but supports translucency.<br>- <code>INTERIOR</code>: Same as the one used on train interiors, use full light level, normals/face shadings are applied.<br>- <code>INTERIOR_TRANSLUCENT</code>: Same as <code>INTERIOR</code>, but supports translucency.<br>- <code>LIGHT</code> (default): Full brightness without any shading, suitable for LCD screens.<br>- <code>LIGHT_TRANSLUCENT</code>: Same as <code>LIGHT</code>, supports translucency.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>Text.matrices(matrices: Matrices): Text</code></td>
@@ -6175,7 +6183,7 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>Texture.create(): Texture</code><br><code>Texture.create(comment: String): Texture</code></td>
-<td style="text-align: left;">Create a new texture object</td>
+<td style="text-align: left;">Create a new texture to be drawn in the world.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>Texture.pos(x: double, y: double): Texture</code></td>
@@ -6191,15 +6199,19 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 </tr>
 <tr>
 <td style="text-align: left;"><code>Texture.color(color: int): Texture</code></td>
-<td style="text-align: left;">Set the text color, in RGB format.</td>
+<td style="text-align: left;">Set the texture color, in RGB format.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>Texture.uv(u2: float, v2: float): Texture</code><br><code>Texture.uv(u1: float, v1: float, u2: float, v2: float): Texture</code></td>
 <td style="text-align: left;">Set the UV coordinates</td>
 </tr>
 <tr>
+<td style="text-align: left;"><code>Texture.naturalLight(): Text</code></td>
+<td style="text-align: left;">Set the brightness of the texture to be the in-game world light.</td>
+</tr>
+<tr>
 <td style="text-align: left;"><code>Texture.matrices(matrices: Matrices): Texture</code></td>
-<td style="text-align: left;">Apply a <a href="../../math/#matrices">matrices</a> to the current texture object</td>
+<td style="text-align: left;">Apply a <a href="../../math/#matrices">matrices</a> to the current texture</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>Texture.draw(ctx: PIDSScriptContext): void</code></td>
@@ -6412,7 +6424,7 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 </span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
 </span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="nx">state</span><span class="p">.</span><span class="nx">tex</span><span class="p">.</span><span class="nx">upload</span><span class="p">();</span>
 </span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="nx">Texture</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s2">&quot;Dynamic Texture&quot;</span><span class="p">)</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="nx">Texture</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s2">"Dynamic Texture"</span><span class="p">)</span>
 </span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="p">.</span><span class="nx">texture</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="nx">tex</span><span class="p">.</span><span class="nx">identifier</span><span class="p">)</span>
 </span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="p">.</span><span class="nx">size</span><span class="p">(</span><span class="nx">pids</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span><span class="w"> </span><span class="nx">pids</span><span class="p">.</span><span class="nx">height</span><span class="p">)</span>
 </span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="nx">ctx</span><span class="p">);</span>
