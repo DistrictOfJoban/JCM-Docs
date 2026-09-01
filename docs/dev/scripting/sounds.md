@@ -4,8 +4,8 @@
 
 |Functions|Description|
 |:--------|:----------|
-|`SoundManager.playLocalSound(id: Identifier, volume: float, pitch: float): void`|This plays a sound by its Sound [Identifier](./resources.md#identifier-aka-resourcelocation), in which the sound are *not* localized to a specific position in the world and are always played at a constant volume. This can be used in, for example train announcements.|
-|`SoundManager.playSound(id: Identifier, pos: Vector3f, volume: float, pitch: float): void`|This plays a sound by its Sound [Identifier](./resources.md#identifier-aka-resourcelocation) in the current Minecraft world at a [Vector3f](./math.md#vector3f) position relative to the current base position.|
+|`SoundManager.playLocalSound(id: Identifier, volume: float, pitch: float, soundCategory: string = "MASTER"): void`|This plays a sound by its Sound [Identifier](./resources.md#identifier-aka-resourcelocation) under the specified [Sound Category](#available-sound-categories), in which the sound are *not* localized to a specific position in the world and are always played at a constant volume. This can be used in, for example train announcements.|
+|`SoundManager.playSound(id: Identifier, pos: Vector3f, volume: float, pitch: float, soundCategory: string = "MASTER"): void`|This plays a sound by its Sound [Identifier](./resources.md#identifier-aka-resourcelocation) in the current Minecraft world under the specified [Sound Category](#available-sound-categories) at a [Vector3f](./math.md#vector3f) position relative to the current base position.|
 |`SoundManager.play(soundInstance: TickableSoundInstance): void`|This begins playing a [TickableSoundInstance](#tickablesoundinstance) in the game.<br>Note that an instance can only be played once, it must be stopped via `SoundManager.stop()` before being able to be played again.|
 |`SoundManager.stop(soundInstance: TickableSoundInstance): void`|This stops a playing [TickableSoundInstance](#tickablesoundinstance) in the game.|
 
@@ -22,7 +22,7 @@ Some example use-cases:
 
 |Functions|Description|
 |:--------|:----------|
-|`static TickableSoundInstance.create(id: Identifier, soundCategory: String): TickableSoundInstance`|Creates a `TickableSoundInstance`.<br>`id` is the [Identifier](./resources.md#identifier-aka-resourcelocation) for the sound.<br>`soundCategory` is one of the following:<br>- **MASTER**<br>- **BLOCKS**<br>- **MUSIC**<br>- **RECORDS**<br>- **WEATHER**<br>- **HOSTILE**<br>- **NEUTRAL**<br>- **PLAYERS**<br>- **AMBIENT**<br>- **VOICE**|
+|`static TickableSoundInstance.create(id: Identifier, soundCategory: String): TickableSoundInstance`|Creates a `TickableSoundInstance`.<br>`id` is the [Identifier](./resources.md#identifier-aka-resourcelocation) for the sound.<br>See [Available Sound Categories](#available-sound-categories) for a list of possible values for `soundCategory`.|
 |`TickableSoundInstance.setSoundVolume(volume: float): TickableSoundInstance`|This sets the volume of the sound instance.<br>A value of `1.0` represents the default sound volume.|
 |`TickableSoundInstance.setSoundPitch(pitch: float): TickableSoundInstance`|This sets the pitch of the sound instance.<br>A value of `1.0` represents the default sound pitch.|
 |`TickableSoundInstance.setLoopable(loopable: boolean): TickableSoundInstance`|Sets whether the sound will play again after the playback has finished.|
@@ -34,6 +34,18 @@ Some example use-cases:
 !!! tips "Tips when using TickableSoundInstance"
     - If sound is loopable, always stop it via `SoundManager.stop` in `dispose()`.
     - If in a moving environment (e.g. Vehicle), always call `setPos` to update the position, since the instance is fully under the script control and will not be automatically updated by JCM.
+
+### Available Sound Categories
+- **MASTER**
+- **BLOCKS**
+- **MUSIC**
+- **RECORDS**
+- **WEATHER**
+- **HOSTILE**
+- **NEUTRAL**
+- **PLAYERS**
+- **AMBIENT**
+- **VOICE**
 
 ### Example (Eyecandy)
 ```js title="example.js" linenums="1"
