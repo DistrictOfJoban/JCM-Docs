@@ -116,7 +116,9 @@ This would return a string formatted like: `2.0.0-beta.5`
 |`Text.marquee(): Text`|Text Overflow Mechanism:<br>When the text overflowed beyond it's size, draw a portion of the text at a time with scrolling animation|
 |`Text.marquee(duration: double): Text`|Same as above, but enforce how long a marquee cycle takes. (In Minecraft Tick)|
 |`Text.withMarqueeProgress(progress: double): Text`|A value from 0.0 - 1.0, allowing you to override/control the marquee sliding progress directly.|
-|`Text.fontMC(): Text`|Use vanilla Minecraft's font|
+|`Text.fontMC(): Text`|Use vanilla Minecraft's font.|
+|`Text.naturalLight(): Text`|Set the brightness of the text to be the in-game world light.|
+|`Text.renderType(renderType: String): QuadDrawCall`|Specify a render type to use.<br>- `EXTERIOR`: Same as the one used on train exterior, use the light level at the current position.<br>- `EXTERIOR_TRANSLUCENT`: Same as `EXTERIOR`, but supports translucency.<br>- `INTERIOR`: Same as the one used on train interiors, use full light level, normals/face shadings are applied.<br>- `INTERIOR_TRANSLUCENT`: Same as `INTERIOR`, but supports translucency.<br>- `LIGHT` (default): Full brightness without any shading, suitable for LCD screens.<br>- `LIGHT_TRANSLUCENT`: Same as `LIGHT`, supports translucency.|
 |`Text.matrices(matrices: Matrices): Text`|Apply a [matrices](../../math.md#matrices) to the current text object|
 |`Text.font(id: String): Text`<br>`Text.font(id: Identifier): Text`|Set the font by it's ID. Defaults to `mtr:mtr`<br>The font should be loaded in Minecraft via the font json format.<br>This does not have any effect if **Use Custom MTR Font** is disabled in MTR mod's Config.|
 |`Text.color(color: int): Text`|Set the text color, in RGB format.|
@@ -126,13 +128,14 @@ This would return a string formatted like: `2.0.0-beta.5`
 ##### Texture
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`Texture.create(): Texture`<br>`Texture.create(comment: String): Texture`|Create a new texture object|
+|`Texture.create(): Texture`<br>`Texture.create(comment: String): Texture`|Create a new texture to be drawn in the world.|
 |`Texture.pos(x: double, y: double): Texture`|Set the X and Y position of the element|
 |`Texture.size(w: double, h: double): Texture`|Set the width and height of the element|
 |`Texture.texture(id: String): Texture`<br>`Texture.texture(id: Identifier): Texture`|Set the texture ID to draw.<br>Note that the texture ID should point to a PNG file or an .mcmeta file.|
-|`Texture.color(color: int): Texture`|Set the text color, in RGB format.|
+|`Texture.color(color: int): Texture`|Set the texture color, in RGB format.|
 |`Texture.uv(u2: float, v2: float): Texture`<br>`Texture.uv(u1: float, v1: float, u2: float, v2: float): Texture`|Set the UV coordinates|
-|`Texture.matrices(matrices: Matrices): Texture`|Apply a [matrices](../../math.md#matrices) to the current texture object|
+|`Texture.naturalLight(): Text`|Set the brightness of the texture to be the in-game world light.|
+|`Texture.matrices(matrices: Matrices): Texture`|Apply a [matrices](../../math.md#matrices) to the current texture|
 |`Texture.draw(ctx: PIDSScriptContext): void`|Mark the texture as something that should be rendered to the PIDS.|
 |`Texture.zOrder(order: int): Texture`|Specify the z-order manually.|
 
