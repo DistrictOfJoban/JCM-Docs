@@ -131,7 +131,7 @@ This is a representation of a Decoration Block (a.k.a Eyecandy Block) placed in 
 |`EyecandyWrapper.facing(): Direction`|Returns a Minecraft direction for which way the block is facing.<br>Used for constructing direction-dependent [VoxelShape](../../mc.md#voxelshape).|
 |`EyecandyWrapper.isCrosshairTarget(): boolean`|Returns whether the current block is player's crosshair target. (i.e. Selected block).<br>Can be used to show tooltips.|
 |`EyecandyWrapper.getFullBrightness(): boolean`|Return whether the Decoration Object is marked as "Full Light", configured via GUI.|
-|`EyecandyWrapper.redstoneLevel(): int`|Whether a redstone is powering the eyecandy.<br>Returns 0 (Unpowered) or 15 (Powered).<br>**Note: Scripts must treat the returned number as if 1-14 can be returned, as this behaviour may change in an upcoming version.**|
+|`EyecandyWrapper.redstoneLevel(): int`|Returns the level of redstone power received by the eyecandy block (0-15).|
 
 ??? info "Show deprecated fields/functions"
     These functions are kept for backward compatibility with NTE/ANTE. You are advised to avoid using these functions for newly created scripts.
