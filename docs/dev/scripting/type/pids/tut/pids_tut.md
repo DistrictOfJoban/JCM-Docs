@@ -393,7 +393,7 @@ Much better! The last thing we have to deal with is handling different languages
 
 To cycle the string, we can wrap our destination string with the `TextUtil.cycleString(str)` function.
 
-`TextUtil` is a utility method provided our of the box for us, you can check the [Utilities](../../../utilities.md) page for more helper functions like these.
+`TextUtil` is a utility method provided out of the box for us, you can check the [Utilities](../../../utilities.md) page for more helper functions like these.
 
 ``` js title="pids_tut.js" linenums="8" hl_lines="3"
 /// ... code before
