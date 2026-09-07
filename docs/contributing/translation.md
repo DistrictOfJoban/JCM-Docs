@@ -1,7 +1,10 @@
-We currently provide official translations for **English**, **Chinese Simplified (zh_cn)** and **Chinese Traditional (zh_tw, zh_hk)**.  
-Other translations are not officially maintained, but you may contribute by forking this project, adding the necessary translation files and submit a pull request here.
+We currently provide official translations for **English**, **Chinese Simplified (zh_cn)** and **Chinese Traditional (zh_tw, zh_hk)**, with other languages being community maintained.
 
-## Categories
+## Getting Started
+
+Translation take place in the [ZiYue Weblate](https://weblate.ziyuesinicization.site/engage/joban-client-mod/) instance. You may register an account there (Or sign in with GitHub) and begin your translation work!
+
+## Translation Priority
 
 ### Primary translations
 **Primary translations** refers to translations that will appear with only Joban Client Mod (And it's dependencies, including MTR) installed. These are usually item and blocks translations, which is vital for the players.
