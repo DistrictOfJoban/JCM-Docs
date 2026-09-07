@@ -18,6 +18,7 @@ This has several utilities method related to the Minecraft Client.
 |`static MinecraftClient.lightLevelAt(pos: Vector3f): int`|Return the light level at the specified position.<br>Sourced from both sky light and block light, prefers the one which is lower.|
 |`static MinecraftClient.narrate(message: String): void`|This calls the Minecraft narrator to narrate the message.|
 |`static MinecraftClient.localPlayer(): PlayerEntity`|Obtain the [PlayerEntity](#playerentity) of the current player.|
+|`static MinecraftClient.getScoreboardScore(objectiveName: String, playerName: String): int`|This obtain the player's scoreboard value on the specified scoreboard objective|
 |`static MinecraftClient.getRedstoneLevel(pos: Vector3f): int`|Returns the received redstone level of the block in `pos`.|
 |`static MinecraftClient.displayMessage(message: String, actionBar: boolean): void`|This displays the message as an in-game chat message. If action bar is true, it will display on the action bar instead. (Above inventory hotbar)|
 |`static MinecraftClient.displayMessage(message: VanillaText, actionBar: boolean): void`|Same as above, but use [VanillaText](#vanillatext) as the chat message to display.|
