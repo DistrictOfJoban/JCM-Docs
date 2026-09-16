@@ -180,6 +180,10 @@ img.bg {
     opacity: 1;
 }
 
+main {
+    margin: 0 2rem;
+}
+
 @media only screen and (max-width: 1024px) {
     .jcm-container {
         width: 100%;
