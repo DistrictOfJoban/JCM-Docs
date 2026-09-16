@@ -178,7 +178,7 @@ Represents real-time data of a vehicle.
 |`VehicleExtraData.getStopIndex(): int`|Returns the next stop index along the PathData.|
 |`VehicleExtraData.getIsTerminating(): boolean`|Returns whether the train has reached the last stop or beyond.|
 |`VehicleExtraData.getStoppingPoint(): double`|Returns the absolute railProgress distance in which the train is expected stop.|
-|`VehicleExtraData.getSpeedTarget(): double`|Returns the target speed the train should accelerate and follow against.<br>Unit is in `m/millisecond`, multiply by 1000 to get m/s.|
+|`VehicleExtraData.getSpeedTarget(): double`|Returns the target speed the train should accelerate and follow against.<br>Unit is in `m/millisecond`, multiply by 1000 to get m/s.<br>**-1** when vehicle is approaching to a stop.|
 |`VehicleExtraData.iterateRidingEntities(callback: Consumer<VehicleRidingEntity>): void`|Executes a callback, providing all [VehicleRidingEntity](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/VehicleRidingEntity.java) of the current vehicle.|
 
 #### VehicleExtraData (Stops-related)
