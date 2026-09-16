@@ -19,13 +19,13 @@ A **Ceiling (Slanted)** is a decorative block in Joban Client Mod.
         <!-- row 1 -->
         <div></div>
         <div></div>
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
         <!-- row 2 -->
         <div></div>
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
         <div></div>
         <!-- row 3 -->
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
         <div></div>
         <div></div>
     </div>

@@ -20,13 +20,13 @@ You can toggle the arrow direction by right clicking with the MTR mod **Brush** 
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Blue_dye.png"></div>
-        <div><img src="../crafting/Minecraft_Yellow_dye.png"></div>
-        <div><img src="../crafting/Minecraft_Blue_dye.png"></div>
+        <div><img src="./crafting/Minecraft_Blue_dye.png"></div>
+        <div><img src="./crafting/Minecraft_Yellow_dye.png"></div>
+        <div><img src="./crafting/Minecraft_Blue_dye.png"></div>
         <!-- row 3 -->
         <div></div>
         <div></div>
@@ -34,7 +34,7 @@ You can toggle the arrow direction by right clicking with the MTR mod **Brush** 
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="6">
-        <img src="../crafting/JCM_Item_Kcr_emg_stop_sign.png">
+        <img src="./crafting/JCM_Item_Kcr_emg_stop_sign.png">
     </div>
 </div>
 

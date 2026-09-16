@@ -27,8 +27,8 @@ The PIDS can be configured by right clicking the block with the **Brush** item p
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/MTR_Item_Pids_1.png"></div>
-        <div><img src="../crafting/MTR_Item_Pids_1.png"></div>
+        <div><img src="./crafting/MTR_Item_Pids_1.png"></div>
+        <div><img src="./crafting/MTR_Item_Pids_1.png"></div>
         <div></div>
         <!-- row 2 -->
         <div></div>
@@ -41,7 +41,7 @@ The PIDS can be configured by right clicking the block with the **Brush** item p
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="2">
-        <img src="../crafting/JCM_Item_Pids_1a.png">
+        <img src="./crafting/JCM_Item_Pids_1a.png">
     </div>
 </div>
 

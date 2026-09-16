@@ -19,7 +19,7 @@ A **Spot Lamp** is a decorative block in Joban Client Mod that acts as a light s
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/JCM_Item_Light_lantern.png"></div>
+        <div><img src="./crafting/JCM_Item_Light_lantern.png"></div>
         <div></div>
         <div></div>
         <!-- row 2 -->
@@ -33,7 +33,7 @@ A **Spot Lamp** is a decorative block in Joban Client Mod that acts as a light s
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="16">
-        <img src="../crafting/JCM_Item_Spot_lamp.png">
+        <img src="./crafting/JCM_Item_Spot_lamp.png">
     </div>
 </div>
 

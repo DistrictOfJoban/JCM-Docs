@@ -46,17 +46,17 @@ A rail model of the tunnel wall is available which works against curve, check [h
         <div></div>
         <div></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
         <div></div>
         <!-- row 3 -->
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="16">
-        <img src="../crafting/JCM_Item_Circle_wall.png">
+        <img src="./crafting/JCM_Item_Circle_wall.png">
     </div>
 </div>
 
@@ -64,21 +64,21 @@ A rail model of the tunnel wall is available which works against curve, check [h
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
         <div></div>
         <div></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
         <div></div>
         <!-- row 3 -->
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="16">
-        <img src="../crafting/JCM_Item_Circle_wall.png">
+        <img src="./crafting/JCM_Item_Circle_wall.png">
     </div>
 </div>
 
@@ -86,21 +86,21 @@ A rail model of the tunnel wall is available which works against curve, check [h
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
         <div></div>
         <div></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
         <div></div>
         <div></div>
         <!-- row 3 -->
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
         <div></div>
         <div></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="16">
-        <img src="../crafting/JCM_Item_Circle_wall.png">
+        <img src="./crafting/JCM_Item_Circle_wall.png">
     </div>
 </div>
 
@@ -108,21 +108,21 @@ A rail model of the tunnel wall is available which works against curve, check [h
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
         <div></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
         <div></div>
         <div></div>
         <!-- row 3 -->
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
         <div></div>
         <div></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="16">
-        <img src="../crafting/JCM_Item_Circle_wall.png">
+        <img src="./crafting/JCM_Item_Circle_wall.png">
     </div>
 </div>
 
@@ -130,21 +130,21 @@ A rail model of the tunnel wall is available which works against curve, check [h
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
         <div></div>
         <!-- row 3 -->
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
         <div></div>
         <div></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="16">
-        <img src="../crafting/JCM_Item_Circle_wall.png">
+        <img src="./crafting/JCM_Item_Circle_wall.png">
     </div>
 </div>
 
@@ -152,11 +152,11 @@ A rail model of the tunnel wall is available which works against curve, check [h
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
         <div></div>
         <div></div>
         <!-- row 3 -->
@@ -166,7 +166,7 @@ A rail model of the tunnel wall is available which works against curve, check [h
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="16">
-        <img src="../crafting/JCM_Item_Circle_wall.png">
+        <img src="./crafting/JCM_Item_Circle_wall.png">
     </div>
 </div>
 
@@ -174,9 +174,9 @@ A rail model of the tunnel wall is available which works against curve, check [h
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
         <!-- row 2 -->
         <div></div>
         <div></div>
@@ -188,7 +188,7 @@ A rail model of the tunnel wall is available which works against curve, check [h
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="16">
-        <img src="../crafting/JCM_Item_Circle_wall.png">
+        <img src="./crafting/JCM_Item_Circle_wall.png">
     </div>
 </div>
 

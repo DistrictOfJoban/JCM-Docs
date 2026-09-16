@@ -34,21 +34,21 @@ By placing an MTR fence next to the Thales Ticket Barrier (Bare) variant, the ba
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
         <div></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Redstone.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Redstone.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
         <!-- row 3 -->
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Redstone.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Redstone.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="2">
-        <img src="../crafting/JCM_Item_Thales_ticket_barrier_entrance.png">
+        <img src="./crafting/JCM_Item_Thales_ticket_barrier_entrance.png">
     </div>
 </div>
 
@@ -56,7 +56,7 @@ By placing an MTR fence next to the Thales Ticket Barrier (Bare) variant, the ba
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/JCM_Item_Thales_ticket_barrier_entrance.png"></div>
+        <div><img src="./crafting/JCM_Item_Thales_ticket_barrier_entrance.png"></div>
         <div></div>
         <div></div>
         <!-- row 2 -->
@@ -70,7 +70,7 @@ By placing an MTR fence next to the Thales Ticket Barrier (Bare) variant, the ba
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result">
-        <img src="../crafting/JCM_Item_Thales_ticket_barrier_exit.png">
+        <img src="./crafting/JCM_Item_Thales_ticket_barrier_exit.png">
     </div>
 </div>
 
@@ -79,20 +79,20 @@ By placing an MTR fence next to the Thales Ticket Barrier (Bare) variant, the ba
     <div class="crafting-table">
         <!-- row 1 -->
         <div></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
         <div></div>
         <!-- row 2 -->
         <div></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
         <!-- row 3 -->
         <div></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="2">
-        <img src="../crafting/JCM_Item_Thales_ticket_barrier_bare.png">
+        <img src="./crafting/JCM_Item_Thales_ticket_barrier_bare.png">
     </div>
 </div>
 

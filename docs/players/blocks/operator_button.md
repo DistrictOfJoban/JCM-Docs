@@ -28,12 +28,12 @@ You may right click the block with the **Brush** item provided by the MTR mod to
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
         <div></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Redstone.png"></div>
-        <div><img src="../crafting/Minecraft_Redstone.png"></div>
+        <div><img src="./crafting/Minecraft_Redstone.png"></div>
+        <div><img src="./crafting/Minecraft_Redstone.png"></div>
         <div></div>
         <!-- row 3 -->
         <div></div>
@@ -42,7 +42,7 @@ You may right click the block with the **Brush** item provided by the MTR mod to
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="6">
-        <img src="../crafting/JCM_Item_Operator_button.png">
+        <img src="./crafting/JCM_Item_Operator_button.png">
     </div>
 </div>
 

@@ -22,21 +22,21 @@ Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Yellow_dye.png"></div>
-        <div><img src="../crafting/Minecraft_Yellow_dye.png"></div>
+        <div><img src="./crafting/Minecraft_Yellow_dye.png"></div>
+        <div><img src="./crafting/Minecraft_Yellow_dye.png"></div>
         <div></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Purple_dye.png"></div>
-        <div><img src="../crafting/Minecraft_Purple_dye.png"></div>
+        <div><img src="./crafting/Minecraft_Purple_dye.png"></div>
+        <div><img src="./crafting/Minecraft_Purple_dye.png"></div>
         <div></div>
         <!-- row 3 -->
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
         <div></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="4">
-        <img src="../crafting/JCM_Item_Helpline_standing_eal.png">
+        <img src="./crafting/JCM_Item_Helpline_standing_eal.png">
     </div>
 </div>
 

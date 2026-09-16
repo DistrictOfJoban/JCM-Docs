@@ -20,21 +20,21 @@ You may refill a water bottle/bucket by right clicking on the water machine with
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Redstone.png"></div>
-        <div><img src="../crafting/Minecraft_Water_bucket.png"></div>
-        <div><img src="../crafting/Minecraft_Redstone.png"></div>
+        <div><img src="./crafting/Minecraft_Redstone.png"></div>
+        <div><img src="./crafting/Minecraft_Water_bucket.png"></div>
+        <div><img src="./crafting/Minecraft_Redstone.png"></div>
         <!-- row 3 -->
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="3">
-        <img src="../crafting/JCM_Item_Water_machine.png">
+        <img src="./crafting/JCM_Item_Water_machine.png">
     </div>
 </div>
 

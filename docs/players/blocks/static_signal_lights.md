@@ -26,21 +26,21 @@ Its purpose is to provide a dummy decoration-only signal light.
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
-        <div><img src="../crafting/Minecraft_Redstone.png"></div>
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Redstone.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
         <!-- row 3 -->
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
-        <div><img src="../crafting/Minecraft_Red_dye.png"></div>
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Red_dye.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="2">
-        <img src="../crafting/JCM_Item_Signal_light_red_1.png">
+        <img src="./crafting/JCM_Item_Signal_light_red_1.png">
     </div>
 </div>
 
@@ -48,21 +48,21 @@ Its purpose is to provide a dummy decoration-only signal light.
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
-        <div><img src="../crafting/Minecraft_Red_dye.png"></div>
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Red_dye.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
         <!-- row 3 -->
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
-        <div><img src="../crafting/Minecraft_Redstone.png"></div>
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Redstone.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="2">
-        <img src="../crafting/JCM_Item_Signal_light_red_2.png">
+        <img src="./crafting/JCM_Item_Signal_light_red_2.png">
     </div>
 </div>
 
@@ -70,21 +70,21 @@ Its purpose is to provide a dummy decoration-only signal light.
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
-        <div><img src="../crafting/Minecraft_Blue_dye.png"></div>
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Blue_dye.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
         <!-- row 3 -->
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
-        <div><img src="../crafting/Minecraft_Redstone.png"></div>
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Redstone.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="2">
-        <img src="../crafting/JCM_Item_Signal_light_blue.png">
+        <img src="./crafting/JCM_Item_Signal_light_blue.png">
     </div>
 </div>
 
@@ -92,21 +92,21 @@ Its purpose is to provide a dummy decoration-only signal light.
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
-        <div><img src="../crafting/Minecraft_Lime_dye.png"></div>
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Lime_dye.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
         <!-- row 3 -->
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
-        <div><img src="../crafting/Minecraft_Redstone.png"></div>
-        <div><img src="../crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
+        <div><img src="./crafting/Minecraft_Redstone.png"></div>
+        <div><img src="./crafting/Minecraft_Blackstone.png"></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="2">
-        <img src="../crafting/JCM_Item_Signal_light_green.png">
+        <img src="./crafting/JCM_Item_Signal_light_green.png">
     </div>
 </div>
 

@@ -20,21 +20,21 @@ Place the block at least **2 blocks** in front of the final rail node.
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Redstone_torch.png"></div>
+        <div><img src="./crafting/Minecraft_Redstone_torch.png"></div>
         <div></div>
-        <div><img src="../crafting/Minecraft_Redstone_torch.png"></div>
+        <div><img src="./crafting/Minecraft_Redstone_torch.png"></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Yellow_concrete.png"></div>
-        <div><img src="../crafting/Minecraft_Yellow_concrete.png"></div>
-        <div><img src="../crafting/Minecraft_Yellow_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Yellow_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Yellow_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Yellow_concrete.png"></div>
         <!-- row 3 -->
-        <div><img src="../crafting/Minecraft_Yellow_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Yellow_concrete.png"></div>
         <div></div>
-        <div><img src="../crafting/Minecraft_Yellow_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Yellow_concrete.png"></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="8">
-        <img src="../crafting/JCM_Item_Buffer_stop.png">
+        <img src="./crafting/JCM_Item_Buffer_stop.png">
     </div>
 </div>
 

@@ -33,21 +33,21 @@ It is divided into 3 parts: **Left**, **Middle** and **Right**.
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Yellow_dye.png"></div>
+        <div><img src="./crafting/Minecraft_Yellow_dye.png"></div>
         <div></div>
         <div></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Yellow_dye.png"></div>
+        <div><img src="./crafting/Minecraft_Yellow_dye.png"></div>
         <div></div>
         <div></div>
         <!-- row 3 -->
-        <div><img src="../crafting/Minecraft_Stick.png"></div>
+        <div><img src="./crafting/Minecraft_Stick.png"></div>
         <div></div>
         <div></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="6">
-        <img src="../crafting/JCM_Item_Lrt_inter_car_barrier_left.png">
+        <img src="./crafting/JCM_Item_Lrt_inter_car_barrier_left.png">
     </div>
 </div>
 
@@ -56,20 +56,20 @@ It is divided into 3 parts: **Left**, **Middle** and **Right**.
     <div class="crafting-table">
         <!-- row 1 -->
         <div></div>
-        <div><img src="../crafting/Minecraft_Yellow_dye.png"></div>
+        <div><img src="./crafting/Minecraft_Yellow_dye.png"></div>
         <div></div>
         <!-- row 2 -->
         <div></div>
-        <div><img src="../crafting/Minecraft_Yellow_dye.png"></div>
+        <div><img src="./crafting/Minecraft_Yellow_dye.png"></div>
         <div></div>
         <!-- row 3 -->
         <div></div>
-        <div><img src="../crafting/Minecraft_Stick.png"></div>
+        <div><img src="./crafting/Minecraft_Stick.png"></div>
         <div></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="6">
-        <img src="../crafting/JCM_Item_Lrt_inter_car_barrier_middle.png">
+        <img src="./crafting/JCM_Item_Lrt_inter_car_barrier_middle.png">
     </div>
 </div>
 
@@ -79,19 +79,19 @@ It is divided into 3 parts: **Left**, **Middle** and **Right**.
         <!-- row 1 -->
         <div></div>
         <div></div>
-        <div><img src="../crafting/Minecraft_Yellow_dye.png"></div>
+        <div><img src="./crafting/Minecraft_Yellow_dye.png"></div>
         <!-- row 2 -->
         <div></div>
         <div></div>
-        <div><img src="../crafting/Minecraft_Yellow_dye.png"></div>
+        <div><img src="./crafting/Minecraft_Yellow_dye.png"></div>
         <!-- row 3 -->
         <div></div>
         <div></div>
-        <div><img src="../crafting/Minecraft_Stick.png"></div>
+        <div><img src="./crafting/Minecraft_Stick.png"></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="6">
-        <img src="../crafting/JCM_Item_Lrt_inter_car_barrier_right.png">
+        <img src="./crafting/JCM_Item_Lrt_inter_car_barrier_right.png">
     </div>
 </div>
 

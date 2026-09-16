@@ -27,7 +27,7 @@ Then, you can place both the [Butterfly Light](./butterfly_light.md) and [Depart
         <div></div>
         <!-- row 2 -->
         <div></div>
-        <div><img src="../crafting/JCM_Item_Departure_timer.png"></div>
+        <div><img src="./crafting/JCM_Item_Departure_timer.png"></div>
         <div></div>
         <!-- row 3 -->
         <div></div>
@@ -36,7 +36,7 @@ Then, you can place both the [Butterfly Light](./butterfly_light.md) and [Depart
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="16">
-        <img src="../crafting/JCM_Item_Departure_pole.png">
+        <img src="./crafting/JCM_Item_Departure_pole.png">
     </div>
 </div>
 

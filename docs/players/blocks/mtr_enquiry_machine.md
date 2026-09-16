@@ -21,21 +21,21 @@ These journey records are saved in-game whenever you exit a station through the 
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Redstone.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Redstone.png"></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
         <div></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
         <!-- row 3 -->
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="4">
-        <img src="../crafting/JCM_Item_Mtr_enquiry_machine.png">
+        <img src="./crafting/JCM_Item_Mtr_enquiry_machine.png">
     </div>
 </div>
 

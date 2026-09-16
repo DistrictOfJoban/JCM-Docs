@@ -1,4 +1,4 @@
-The pages you are seeing at this moment right now is hosted on the [JCM-Docs](https://github.com/DistrictOfJoban/JCM-Docs) github repository. It is powered by [Material for Mkdocs](https://squidfunk.github.io/mkdocs-material/) and uses the [Markdown format](https://commonmark.org/help/) for writing.
+The pages you are seeing at this moment right now is hosted on the [JCM-Docs](https://github.com/DistrictOfJoban/JCM-Docs) github repository. It is powered by [Zensical](https://zensical.org/) and uses the [Markdown format](https://commonmark.org/help/) for writing.
 
 ## Adding new pages
 To add a new page, simply add a new markdown (.md) file in the relevant location within the `docs` folder.
@@ -14,7 +14,7 @@ template: <your_html_file>.html
 ---
 ```
 
-You can also dynamically insert html content as Mkdocs uses [Jinja](https://jinja.palletsprojects.com/en/stable/) as its templating engine.
+You can also dynamically insert html content as Zensical uses [Minijinja](https://docs.rs/minijinja/latest/minijinja/index.html) as its templating engine.
 
 For an example, see:
 

@@ -26,13 +26,13 @@ You may configure the time when it starts flashing before departure by right cli
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
-        <div><img src="../crafting/Minecraft_Redstone.png"></div>
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Redstone.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
-        <div><img src="../crafting/Minecraft_Lapis_lazuli.png"></div>
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Lapis_lazuli.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
         <!-- row 3 -->
         <div></div>
         <div></div>
@@ -40,7 +40,7 @@ You may configure the time when it starts flashing before departure by right cli
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="4">
-        <img src="../crafting/JCM_Item_Butterfly_light.png">
+        <img src="./crafting/JCM_Item_Butterfly_light.png">
     </div>
 </div>
 

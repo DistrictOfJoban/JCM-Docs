@@ -23,13 +23,13 @@ It is designed to be hanging/attached to the bottom of a block.
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Glowstone_dust.png"></div>
-        <div><img src="../crafting/Minecraft_Redstone.png"></div>
-        <div><img src="../crafting/Minecraft_Glowstone_dust.png"></div>
+        <div><img src="./crafting/Minecraft_Glowstone_dust.png"></div>
+        <div><img src="./crafting/Minecraft_Redstone.png"></div>
+        <div><img src="./crafting/Minecraft_Glowstone_dust.png"></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Glowstone_dust.png"></div>
-        <div><img src="../crafting/Minecraft_Stone.png"></div>
-        <div><img src="../crafting/Minecraft_Glowstone_dust.png"></div>
+        <div><img src="./crafting/Minecraft_Glowstone_dust.png"></div>
+        <div><img src="./crafting/Minecraft_Stone.png"></div>
+        <div><img src="./crafting/Minecraft_Glowstone_dust.png"></div>
         <!-- row 3 -->
         <div></div>
         <div></div>
@@ -37,14 +37,14 @@ It is designed to be hanging/attached to the bottom of a block.
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="8">
-        <img src="../crafting/JCM_Item_Exit_sign_odd.png">
+        <img src="./crafting/JCM_Item_Exit_sign_odd.png">
     </div>
 </div>
 
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/JCM_Item_Exit_sign_even.png"></div>
+        <div><img src="./crafting/JCM_Item_Exit_sign_even.png"></div>
         <div></div>
         <div></div>
         <!-- row 2 -->
@@ -58,7 +58,7 @@ It is designed to be hanging/attached to the bottom of a block.
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result">
-        <img src="../crafting/JCM_Item_Exit_sign_odd.png">
+        <img src="./crafting/JCM_Item_Exit_sign_odd.png">
     </div>
 </div>
 
@@ -66,7 +66,7 @@ It is designed to be hanging/attached to the bottom of a block.
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/JCM_Item_Exit_sign_odd.png"></div>
+        <div><img src="./crafting/JCM_Item_Exit_sign_odd.png"></div>
         <div></div>
         <div></div>
         <!-- row 2 -->
@@ -80,7 +80,7 @@ It is designed to be hanging/attached to the bottom of a block.
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result">
-        <img src="../crafting/JCM_Item_Exit_sign_even.png">
+        <img src="./crafting/JCM_Item_Exit_sign_even.png">
     </div>
 </div>
 

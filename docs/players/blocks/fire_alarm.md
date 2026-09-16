@@ -21,13 +21,13 @@ Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Redstone.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Redstone.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Paper.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Paper.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
         <!-- row 3 -->
         <div></div>
         <div></div>
@@ -35,7 +35,7 @@ Right clicking the block would emit a redstone signal for 20 in-game ticks (or 1
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="2">
-        <img src="../crafting/JCM_Item_Fire_alarm.png">
+        <img src="./crafting/JCM_Item_Fire_alarm.png">
     </div>
 </div>
 

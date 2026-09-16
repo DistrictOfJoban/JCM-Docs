@@ -25,13 +25,13 @@ A **Double Pane**, **Single Pane** and **Station Colored** variants are offered 
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Stick.png"></div>
+        <div><img src="./crafting/Minecraft_Stick.png"></div>
         <div></div>
-        <div><img src="../crafting/Minecraft_Stick.png"></div>
+        <div><img src="./crafting/Minecraft_Stick.png"></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_White_concrete.png"></div>
-        <div><img src="../crafting/Minecraft_White_concrete.png"></div>
-        <div><img src="../crafting/Minecraft_White_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_White_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_White_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_White_concrete.png"></div>
         <!-- row 3 -->
         <div></div>
         <div></div>
@@ -39,7 +39,7 @@ A **Double Pane**, **Single Pane** and **Station Colored** variants are offered 
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="6">
-        <img src="../crafting/JCM_Item_Station_ceiling_wrl.png">
+        <img src="./crafting/JCM_Item_Station_ceiling_wrl.png">
     </div>
 </div>
 
@@ -50,21 +50,21 @@ A **Double Pane**, **Single Pane** and **Station Colored** variants are offered 
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Stick.png"></div>
+        <div><img src="./crafting/Minecraft_Stick.png"></div>
         <div></div>
-        <div><img src="../crafting/Minecraft_Stick.png"></div>
+        <div><img src="./crafting/Minecraft_Stick.png"></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_White_concrete.png"></div>
-        <div><img src="../crafting/Minecraft_White_concrete.png"></div>
-        <div><img src="../crafting/Minecraft_White_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_White_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_White_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_White_concrete.png"></div>
         <!-- row 3 -->
         <div></div>
-        <div><img src="../crafting/Minecraft_Blue_dye.png"></div>
+        <div><img src="./crafting/Minecraft_Blue_dye.png"></div>
         <div></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="6">
-        <img src="../crafting/JCM_Item_Station_ceiling_wrl_station_color.png">
+        <img src="./crafting/JCM_Item_Station_ceiling_wrl_station_color.png">
     </div>
 </div>
 

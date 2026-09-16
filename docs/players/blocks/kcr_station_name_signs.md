@@ -27,13 +27,13 @@ For the **station-color** variant, the color of the sign will also change to the
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Lapis_lazuli.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Lapis_lazuli.png"></div>
+        <div><img src="./crafting/Minecraft_Lapis_lazuli.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Lapis_lazuli.png"></div>
         <!-- row 3 -->
         <div></div>
         <div></div>
@@ -41,7 +41,7 @@ For the **station-color** variant, the color of the sign will also change to the
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="3">
-        <img src="../crafting/JCM_Item_Kcr_name_sign.png">
+        <img src="./crafting/JCM_Item_Kcr_name_sign.png">
     </div>
 </div>
 
@@ -52,13 +52,13 @@ For the **station-color** variant, the color of the sign will also change to the
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Glowstone_dust.png"></div>
-        <div><img src="../crafting/Minecraft_Blue_dye.png"></div>
-        <div><img src="../crafting/Minecraft_Glowstone_dust.png"></div>
+        <div><img src="./crafting/Minecraft_Glowstone_dust.png"></div>
+        <div><img src="./crafting/Minecraft_Blue_dye.png"></div>
+        <div><img src="./crafting/Minecraft_Glowstone_dust.png"></div>
         <!-- row 3 -->
         <div></div>
         <div></div>
@@ -66,7 +66,7 @@ For the **station-color** variant, the color of the sign will also change to the
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="3">
-        <img src="../crafting/JCM_Item_Kcr_name_sign_station_color.png">
+        <img src="./crafting/JCM_Item_Kcr_name_sign_station_color.png">
     </div>
 </div>
 

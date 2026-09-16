@@ -18,20 +18,20 @@ A **LRT Trespass Signage** is a decorative block in Joban Client Mod, replicatin
     <div class="crafting-table">
         <!-- row 1 -->
         <div></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
         <div></div>
         <!-- row 2 -->
         <div></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
         <div></div>
         <!-- row 3 -->
         <div></div>
-        <div><img src="../crafting/Minecraft_Stick.png"></div>
+        <div><img src="./crafting/Minecraft_Stick.png"></div>
         <div></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="6">
-        <img src="../crafting/JCM_Item_Lrt_trespass_sign.png">
+        <img src="./crafting/JCM_Item_Lrt_trespass_sign.png">
     </div>
 </div>
 

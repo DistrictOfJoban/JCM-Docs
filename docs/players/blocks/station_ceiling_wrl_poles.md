@@ -20,7 +20,7 @@ recipes:
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/JCM_Item_Light_lantern.png"></div>
+        <div><img src="./crafting/JCM_Item_Light_lantern.png"></div>
         <div></div>
         <div></div>
         <!-- row 2 -->
@@ -34,7 +34,7 @@ recipes:
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="32">
-        <img src="../crafting/JCM_Item_Station_ceiling_wrl_pole.png">
+        <img src="./crafting/JCM_Item_Station_ceiling_wrl_pole.png">
     </div>
 </div>
 

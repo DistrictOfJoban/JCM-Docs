@@ -29,8 +29,8 @@ Same as MTR mod's Signal Lights.
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/JCM_Item_Signal_light_red_1.png"></div>
-        <div><img src="../crafting/Minecraft_Gold_ingot.png"></div>
+        <div><img src="./crafting/JCM_Item_Signal_light_red_1.png"></div>
+        <div><img src="./crafting/Minecraft_Gold_ingot.png"></div>
         <div></div>
         <!-- row 2 -->
         <div></div>
@@ -43,14 +43,14 @@ Same as MTR mod's Signal Lights.
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="2">
-        <img src="../crafting/JCM_Item_Inverted_signal_1.png">
+        <img src="./crafting/JCM_Item_Inverted_signal_1.png">
     </div>
 </div>
 
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/JCM_Item_Inverted_signal_2.png"></div>
+        <div><img src="./crafting/JCM_Item_Inverted_signal_2.png"></div>
         <div></div>
         <div></div>
         <!-- row 2 -->
@@ -64,7 +64,7 @@ Same as MTR mod's Signal Lights.
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result">
-        <img src="../crafting/JCM_Item_Inverted_signal_1.png">
+        <img src="./crafting/JCM_Item_Inverted_signal_1.png">
     </div>
 </div>
 
@@ -72,7 +72,7 @@ Same as MTR mod's Signal Lights.
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/JCM_Item_Inverted_signal_1.png"></div>
+        <div><img src="./crafting/JCM_Item_Inverted_signal_1.png"></div>
         <div></div>
         <div></div>
         <!-- row 2 -->
@@ -86,7 +86,7 @@ Same as MTR mod's Signal Lights.
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result">
-        <img src="../crafting/JCM_Item_Inverted_signal_2.png">
+        <img src="./crafting/JCM_Item_Inverted_signal_2.png">
     </div>
 </div>
 

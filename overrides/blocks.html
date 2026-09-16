@@ -30,16 +30,22 @@
 
 <div class="grid cards" markdown>
   <ul>
-    {% for page in nav.pages %}
-        {% if page.meta.template == 'block.html' %}
-          <li>
-            <img class="block-img" src="./previews/{{ page.meta.image }}">
-            <div class="block-title">
-              <a href="{{ page.url|url }}">{{ page.title }}</a>
-            </div>
-          </li>
-        {% endif %}
-      {% endfor %}
+    {% for section in nav.items %}
+        {% for page in section.children recursive %}
+            {% if page.meta.template == 'block.html' %}
+            <li>
+                <img class="block-img" src="./previews/{{ page.meta.image }}">
+                <div class="block-title">
+                <a href="../../{{ page.url }}">{{ page.title }}</a>
+                </div>
+            </li>
+            {% endif %}
+
+            {% if page.children %}
+                {{ loop(page.children) }}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
   </ul>
 </div>
 

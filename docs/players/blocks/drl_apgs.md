@@ -28,11 +28,11 @@ They are slightly lower than the APG seen in other MTR Routes.
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Redstone_block.png"></div>
-        <div data-count="5"><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Glowstone_dust.png"></div>
+        <div><img src="./crafting/Minecraft_Redstone_block.png"></div>
+        <div data-count="5"><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Glowstone_dust.png"></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Glass_pane.png"></div>
+        <div><img src="./crafting/Minecraft_Glass_pane.png"></div>
         <div></div>
         <div></div>
         <!-- row 3 -->
@@ -42,14 +42,14 @@ They are slightly lower than the APG seen in other MTR Routes.
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="8">
-        <img src="../crafting/JCM_Item_Apg_door_drl.png">
+        <img src="./crafting/JCM_Item_Apg_door_drl.png">
     </div>
 </div>
 
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/JCM_Item_Apg_glass_end_drl.png"></div>
+        <div><img src="./crafting/JCM_Item_Apg_glass_end_drl.png"></div>
         <div></div>
         <div></div>
         <!-- row 2 -->
@@ -63,7 +63,7 @@ They are slightly lower than the APG seen in other MTR Routes.
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result">
-        <img src="../crafting/JCM_Item_Apg_door_drl.png">
+        <img src="./crafting/JCM_Item_Apg_door_drl.png">
     </div>
 </div>
 
@@ -71,7 +71,7 @@ They are slightly lower than the APG seen in other MTR Routes.
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/JCM_Item_Apg_door_drl.png"></div>
+        <div><img src="./crafting/JCM_Item_Apg_door_drl.png"></div>
         <div></div>
         <div></div>
         <!-- row 2 -->
@@ -85,7 +85,7 @@ They are slightly lower than the APG seen in other MTR Routes.
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result">
-        <img src="../crafting/JCM_Item_Apg_glass_drl.png">
+        <img src="./crafting/JCM_Item_Apg_glass_drl.png">
     </div>
 </div>
 
@@ -93,7 +93,7 @@ They are slightly lower than the APG seen in other MTR Routes.
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/JCM_Item_Apg_glass_drl.png"></div>
+        <div><img src="./crafting/JCM_Item_Apg_glass_drl.png"></div>
         <div></div>
         <div></div>
         <!-- row 2 -->
@@ -107,7 +107,7 @@ They are slightly lower than the APG seen in other MTR Routes.
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result">
-        <img src="../crafting/JCM_Item_Apg_glass_end_drl.png">
+        <img src="./crafting/JCM_Item_Apg_glass_end_drl.png">
     </div>
 </div>
 

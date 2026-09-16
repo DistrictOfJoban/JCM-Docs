@@ -24,17 +24,17 @@ Right clicking on the block will display your current MTR balance value at the b
         <div></div>
         <div></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Redstone.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Redstone.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
         <!-- row 3 -->
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="4">
-        <img src="../crafting/JCM_Item_Kcr_enquiry_machine.png">
+        <img src="./crafting/JCM_Item_Kcr_enquiry_machine.png">
     </div>
 </div>
 

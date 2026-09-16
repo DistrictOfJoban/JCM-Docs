@@ -26,21 +26,21 @@ You may configure the balance amount provided by the machine and cooldown period
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Blue_dye.png"></div>
-        <div><img src="../crafting/Minecraft_Emerald.png"></div>
-        <div><img src="../crafting/Minecraft_Blue_dye.png"></div>
+        <div><img src="./crafting/Minecraft_Blue_dye.png"></div>
+        <div><img src="./crafting/Minecraft_Emerald.png"></div>
+        <div><img src="./crafting/Minecraft_Blue_dye.png"></div>
         <!-- row 3 -->
-        <div><img src="../crafting/Minecraft_Redstone.png"></div>
-        <div><img src="../crafting/Minecraft_Redstone.png"></div>
-        <div><img src="../crafting/Minecraft_Redstone.png"></div>
+        <div><img src="./crafting/Minecraft_Redstone.png"></div>
+        <div><img src="./crafting/Minecraft_Redstone.png"></div>
+        <div><img src="./crafting/Minecraft_Redstone.png"></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="2">
-        <img src="../crafting/JCM_Item_Subsidy_machine.png">
+        <img src="./crafting/JCM_Item_Subsidy_machine.png">
     </div>
 </div>
 

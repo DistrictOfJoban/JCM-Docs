@@ -29,20 +29,20 @@ You can right click the block with the **Brush** item provided by the MTR mod to
     <div class="crafting-table">
         <!-- row 1 -->
         <div></div>
-        <div><img src="../crafting/MTR_Station_name_tall_wall.png"></div>
+        <div><img src="./crafting/MTR_Station_name_tall_wall.png"></div>
         <div></div>
         <!-- row 2 -->
         <div></div>
-        <div><img src="../crafting/Minecraft_Stick.png"></div>
+        <div><img src="./crafting/Minecraft_Stick.png"></div>
         <div></div>
         <!-- row 3 -->
         <div></div>
-        <div><img src="../crafting/Minecraft_Stick.png"></div>
+        <div><img src="./crafting/Minecraft_Stick.png"></div>
         <div></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="4">
-        <img src="../crafting/JCM_Item_Station_name_standing.png">
+        <img src="./crafting/JCM_Item_Station_name_standing.png">
     </div>
 </div>
 

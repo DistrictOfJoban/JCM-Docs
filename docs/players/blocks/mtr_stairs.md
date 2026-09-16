@@ -20,17 +20,17 @@ This block is a retextured Minecraft Stair, for more detail please visit the [St
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Yellow_concrete_powder.png"></div>
+        <div><img src="./crafting/Minecraft_Yellow_concrete_powder.png"></div>
         <div></div>
         <div></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Light_gray_concrete_powder.png"></div>
-        <div><img src="../crafting/Minecraft_Light_gray_concrete_powder.png"></div>
+        <div><img src="./crafting/Minecraft_Light_gray_concrete_powder.png"></div>
+        <div><img src="./crafting/Minecraft_Light_gray_concrete_powder.png"></div>
         <div></div>
         <!-- row 3 -->
-        <div><img src="../crafting/Minecraft_Gray_concrete_powder.png"></div>
-        <div><img src="../crafting/Minecraft_Gray_concrete_powder.png"></div>
-        <div><img src="../crafting/Minecraft_Gray_concrete_powder.png"></div>
+        <div><img src="./crafting/Minecraft_Gray_concrete_powder.png"></div>
+        <div><img src="./crafting/Minecraft_Gray_concrete_powder.png"></div>
+        <div><img src="./crafting/Minecraft_Gray_concrete_powder.png"></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="24">

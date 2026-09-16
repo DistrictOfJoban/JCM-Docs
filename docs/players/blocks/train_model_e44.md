@@ -26,17 +26,17 @@ An **E44 Train Model** is a decorative block in Joban Client Mod, representing a
         <div></div>
         <div></div>
         <!-- row 2 -->
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
-        <div><img src="../crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
+        <div><img src="./crafting/Minecraft_Black_concrete.png"></div>
         <!-- row 3 -->
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="8">
-        <img src="../crafting/JCM_Item_Train_model_e44.png">
+        <img src="./crafting/JCM_Item_Train_model_e44.png">
     </div>
 </div>
 

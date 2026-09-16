@@ -23,19 +23,19 @@ Place the pole on top of any PIDS block provided by Joban Client Mod (Except [PI
         <!-- row 1 -->
         <div></div>
         <div></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
         <!-- row 2 -->
         <div></div>
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
         <div></div>
         <!-- row 3 -->
-        <div><img src="../crafting/Minecraft_Iron_ingot.png"></div>
+        <div><img src="./crafting/Minecraft_Iron_ingot.png"></div>
         <div></div>
         <div></div>
     </div>
     <div class="crafting-arrow"></div>
     <div class="crafting-result" data-count="8">
-        <img src="../crafting/JCM_Item_Rv_pids_pole.png">
+        <img src="./crafting/JCM_Item_Rv_pids_pole.png">
     </div>
 </div>
 

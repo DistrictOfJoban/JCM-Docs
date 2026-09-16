@@ -20,8 +20,8 @@ Configuration such as **Repeating Interval**, **Sound ID**, **Limited Block Rang
 <div class="crafting">
     <div class="crafting-table">
         <!-- row 1 -->
-        <div><img src="../crafting/Minecraft_Smooth_stone.png"></div>
-        <div data-count="2"><img src="../crafting/Minecraft_Redstone.png"></div>
+        <div><img src="./crafting/Minecraft_Smooth_stone.png"></div>
+        <div data-count="2"><img src="./crafting/Minecraft_Redstone.png"></div>
         <div></div>
         <!-- row 2 -->
         <div></div>
