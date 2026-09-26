@@ -11,7 +11,8 @@ A three-dimensional vector, that is, the coordinates (x, y, z).
 |Functions|Description|
 |:--------|:----------|
 |`new Vector3f(x: float, y: float, z: float): Vector3f`|Creates an instance of the Vector3f class. |
-|`new Vector3f(tscVec: Vector): Vector3f`|Creates an instance of the Vector3f class from the [Vector](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/tool/Vector.java) class from MTR's Transport Simulation Core. |
+|`new Vector3f(tscVec: Vector): Vector3f`|Creates an instance of the Vector3f class from the [Vector](../scripting/tsc.md#vector) class from MTR's Transport Simulation Core. |
+|`new Vector3f(tscPos: Position): Vector3f`|Creates an instance of the Vector3f class from the [Position](../scripting/tsc.md#position) class from MTR's Transport Simulation Core. |
 |`Vector3f.x(): float`|Returns the X coordinate|
 |`Vector3f.y(): float`|Returns the Y coordinate|
 |`Vector3f.z(): float`|Returns the Z coordinate|

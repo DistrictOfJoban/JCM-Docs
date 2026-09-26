@@ -124,6 +124,7 @@ This would return a string formatted like: `2.0.0-beta.5`
 |`Text.color(color: int): Text`|Set the text color, in RGB format.|
 |`Text.draw(ctx: PIDSScriptContext): void`|Mark the text as something that should be rendered to the PIDS.|
 |`Text.zOrder(order: int): Text`|Specify the z-order manually.|
+|`Text.measureWidth(): int`|Returns the text width, should be invoked after all text configuration is specified.<br>Note: This returns `int`, thus you can't chain this method like other functions.|
 
 ##### Texture
 |Functions And Objects|Description|
@@ -151,6 +152,7 @@ This would return a string formatted like: `2.0.0-beta.5`
 |`PIDSBlockEntity.isRowHidden(i: int): boolean`|Returns whether the arrival for that row is hidden. (via PIDS Config)|
 |`PIDSBlockEntity.getCustomMessage(i: int): String`|Returns the custom message configured for that row via PIDS Config.<br>Empty string (`""`) if not set.|
 |`PIDSBlockEntity.getTargetPlatformIds(): List<Long>`|Returns the detected platform id by the PIDS, regardless of whether the platform has any arrival or not.<br>This is either the auto-detected platforms, or specific arrival platform as configured to the PIDS.|
+|`PIDSBlockEntity.isPlatformAutoDetected(): boolean`|Returns whether the PIDS is auto-detecting nearby platform, or have a specific platform configured.|
 |`PIDSBlockEntity.isPlatformNumberHidden(): boolean`|Returns whether the platform number is set to hidden. (via PIDS Config)|
 |`PIDSBlockEntity.blockPos(): Vector3f`|Returns the coordinate of which the PIDS block is located.|
 |`PIDSBlockEntity.isKeyBlock(): boolean`|Returns whether the current block is a unique block within a PIDS pair<br>(e.g. Identify 1 side of a dual-sided PIDS)|

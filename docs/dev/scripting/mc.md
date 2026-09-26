@@ -118,10 +118,10 @@ This is usually supplied/obtainable via events/code rather than something to be 
 
 |Functions|Description|
 |:--------|:----------|
-|`ItemStack.itemId(): String`|Obtain the item id (e.g. `mtr:rail`)`|
-|`ItemStack.translationId(): String`|Obtain the translation key of the item|
+|`ItemStack.itemId(): String`|Obtain the item id. (e.g. `mtr:rail`)`|
+|`ItemStack.translationId(): String`|Obtain the translation key of the item.|
 |`ItemStack.empty(): boolean`|Whether the itemstack is considered empty (e.g. Air)<br>e.g. If this is true when trying to obtain the item the player is holding, this means the player isn't holding anything.|
-|`ItemStack.count(): int`|Get the amount of the ItemStack|
+|`ItemStack.count(): int`|Get the amount of the ItemStack.|
 
 ## PlayerEntity
 Represents a player entity in the game.
@@ -132,18 +132,21 @@ This is usually supplied/obtainable via events/code rather than something to be 
 |:--------|:----------|
 |`PlayerEntity.uuid(): String`|Obtain the entity's uuid as a string|
 |`PlayerEntity.hasPermissionLevel(level: int): boolean`|Whether the player has a certain "OP" level.<br>**Note: This is completely client-side only, do not use this for serious permission/authentication checking!**|
-|`PlayerEntity.pos(): Vector3f`|Obtain the current position of the player, as a [Vector3f](./math.md#vector3f)|
+|`PlayerEntity.pos(): Vector3f`|Obtain the current position of the player, as a [Vector3f](./math.md#vector3f).|
 |`PlayerEntity.blockPos(): Vector3f`|Obtain the current block position of the player, as a [Vector3f](./math.md#vector3f).|
 |`PlayerEntity.smoothPos(): Vector3f`|Obtain the smoothed pos of the player, useful for rendering.|
 |`PlayerEntity.velocity(): Vector3f`|Obtain the current velocity of the player.|
 |`PlayerEntity.yaw(): float`|Obtain the yaw rotation of the player head.|
 |`PlayerEntity.pitch(): float`|Obtain the pitch rotation of the player head.|
 |`PlayerEntity.bodyYaw(): float`|Obtain the yaw rotation of the player's body.|
-|`PlayerEntity.playerName(): String`|Obtain the player's canonical name/username (Same as those registered in Mojang's/Microsoft server) |
+|`PlayerEntity.playerName(): String`|Obtain the player's canonical name/username. (Same as those registered in Mojang's/Microsoft server) |
+|`PlayerEntity.displayName(): String`|Obtain the player's displayed name. (Usually username + team prefix/suffix decoration) |
 |`PlayerEntity.isHoldingItem(id: Identifier): boolean`|Whether player is holding an with the corresponding [Item ID](./resources.md#identifier-aka-resourcelocation) on either hand.|
-|`PlayerEntity.mainHandItem(): ItemStack`|Obtain the [ItemStack](#itemstack) in the player's main hand|
-|`PlayerEntity.offHandItem(): ItemStack`|Obtain the [ItemStack](#itemstack) in the player's secondary/offhand|
+|`PlayerEntity.mainHandItem(): ItemStack`|Obtain the [ItemStack](#itemstack) in the player's main hand.|
+|`PlayerEntity.offHandItem(): ItemStack`|Obtain the [ItemStack](#itemstack) in the player's secondary/offhand.|
 |`PlayerEntity.activeItem(): ItemStack`|Obtain the [ItemStack](#itemstack) in the player's hands, preferring main hand.|
 |`PlayerEntity.isSneaking(): boolean`|Whether the player is sneaking.|
 |`PlayerEntity.isSprinting(): boolean`|Whether the player is sprinting.|
 |`PlayerEntity.isSwimming(): boolean`|Whether the player is swimming.|
+|`PlayerEntity.isCreative(): boolean`|Whether the player is creative mode.|
+|`PlayerEntity.isSpectator(): boolean`|Whether the player is in spectator mode.|
