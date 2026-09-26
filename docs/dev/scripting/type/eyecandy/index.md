@@ -21,7 +21,8 @@ During the execution, you may request for one or more model to be drawn onto the
             {
                 "id": "nte_lcd",
                 "name": "NTE LCD Test",
-                "scriptId": "my_script_entry_1"
+                "scriptId": "my_script_entry_1",
+                "isScriptRendered": false
             }
         ],
         "objectScripts": [
@@ -44,6 +45,7 @@ During the execution, you may request for one or more model to be drawn onto the
     |scriptLocations|An array containing the locations of .js scripts, multiple scripts can be specified.|scriptFiles|
     |prependExpressions|Allows you to directly write JS inside, which will be executed before the scripts in **scriptLocations**|scriptTexts|
     |input|Allows you to specify arbitary JSON object. which is then made accessible to the **.js** scripts via the variable `SCRIPT_INPUT`|scriptInput|
+    |isScriptRendered|If `true`, this will hide the original eyecandy object model, so that JS can take over rendering. (Useful for fallback without JCM)|
 
     All fields are optional and could be omitted. However in order for script to load, either the `scriptLocation` or `prependExpressions` should be filled.
 
@@ -60,6 +62,7 @@ During the execution, you may request for one or more model to be drawn onto the
             "scriptInput": {
                 "ksDay": "514"
             },
+            "isScriptRendered": false,
             "mirror": [ false, false, false ]
         }
     }
@@ -68,6 +71,7 @@ During the execution, you may request for one or more model to be drawn onto the
     - `scriptFiles` is an array containing the locations of .js scripts. Multiple scripts can be specified.
     - `scriptTexts` allows you to directly write JS inside, and are executed before the scripts in **scriptFiles**.
     - `scriptInput` allows you to specify arbitary JSON object. This is then made accessible to the **.js** scripts via the variable `SCRIPT_INPUT`.
+    - `isScriptRendered` is a boolean. If `true`, this will hide the original eyecandy object model, so that JS can take over rendering. (Useful for fallback without JCM)
 
     All script fields are optional and could be emitted. However in order for script to load, either the `scriptFiles` or `scriptTexts` should be filled.
 
@@ -108,6 +112,7 @@ Script may invoke one of the following methods to control rendering and sounds, 
 |:--------------------|:----------|
 |`EyeCandyScriptContext.drawModel(model: ScriptedModel, matrices: Matrices?): void`| Requests JCM to render a model loaded via [ModelManager](../../model.md#modelmanager).<br>`matrices` is the transformation of model placement.<br>If `matrices` is null, the model will be placed in the center of the block without transformation.|
 |`EyeCandyScriptContext.setDebugInfo(key: String, value: object): void`|Output debugging information in the upper left corner of the screen. You need to enable **[Script Debug Overlay](../../aids/script_debug_overlay.md)** in JCM Settings to display it.<br>`key` is the name of the value<br>`value` is the content (`value` will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).|
+|`EyeCandyScriptContext.setDebugInfo(value: object): void`|Same as `EyeCandyScriptContext.setDebugInfo(key, value)`, but the key is set to `<Untitled>`. Useful for temporary debugging/output of a single variable.|
 |`EyeCandyScriptContext.getRenderManager(): RenderManager`|Obtain a [RenderManager](../../rendering.md#rendermanager) instance, which can be used to render stuff onto the Minecraft World.<br>Base transformation is set to the **block's position + translated position**, with custom rotation configured per-block applied.|
 |`EyeCandyScriptContext.getSoundManager(): SoundManager`|Obtain a [SoundManager](../../sounds.md) instance, which can be used to play sound onto the Minecraft World.<br>Base position are set to the block's position.|
 |`EyecandyScriptContext.events(): EyecandyEvents`|Returns [EyecandyEvents](#eyecandyevents) for checking events.|
