@@ -42,7 +42,7 @@ JCM divides the data fetching into 3 different mode, which are described more in
 === "MTR 4 Custom Resources"
     You can define your script entry in the `vehicleScripts` array, and reference it with `scriptId` within your vehicle object:
 
-    ``` json linenums="1" hl_lines="7 10-19" title="mtr_custom_resources.json"
+    ``` json linenums="1" hl_lines="7 10-20" title="mtr_custom_resources.json"
     {
         "vehicles": [
             {
@@ -59,7 +59,8 @@ JCM divides the data fetching into 3 different mode, which are described more in
                 "scriptLocations": ["mtr:my_pack/js/sp1900_lcd/main.js"],
                 "input": {
                     "yearEra": 2004
-                }
+                },
+                "dataFetchMode": "ALL"
             }
         ]
     }
@@ -72,6 +73,7 @@ JCM divides the data fetching into 3 different mode, which are described more in
     |scriptLocations|An array containing the locations of .js scripts, multiple scripts can be specified.|scriptFiles|
     |prependExpressions|Allows you to directly write JS inside, which will be executed before the scripts in **scriptLocations**|scriptTexts|
     |input|Allows you to specify arbitary JSON object. which is then made accessible to the **.js** scripts via the variable `SCRIPT_INPUT`|scriptInput|
+    |dataFetchMode|Specify the data fetch mode, see [Implementing Data Fetching](#implementing-data-fetching) section for details.|scriptInput|
 
     All fields are optional and could be omitted. However in order for script to load, either the `scriptLocation` or `prependExpressions` should be filled.
 
@@ -135,10 +137,6 @@ For developers, you only need to know the following 3 different data fetching mo
 - **ALL** - This requests JCM to a) fetch the stops data, and b) fetch the MTR data (Station/Route etc.) based on the stops data. Before the stops data is retrieved (which takes time over the network), it performs identically to **SKIP**.<br>Note that even after the stop data is retrieved, `Stop.station` and `Stop.route` may still return null, since the MTR data may not be fetched yet. You should add appropriate null checks to avoid error.
 - **MANDATORY** - Under this mode, stops data are requested just like **ALL**. However JCM will not execute the script until both the stop data and MTR data are retrieved.<br>This is the default for scripts in the MTR 3 registration format, since these scripts previously expects data to be immediately available and therefore may not tolerate any null value.
 
-#### Configuring Data Fetching mode
-
-You can use `VehicleScriptContext.setDataFetchMode(mode: String)` to configure the data fetching mode. See more details in the **API Reference** section.
-
 Note that it is not possible for scripts registered in the MTR 3 format to configure this, since it defaults to the **MANDATORY** mode, and thus the `create()` function is not executed before the data fetching has already been done.
 
 ### API Reference
@@ -156,7 +154,6 @@ Script may invoke one of the following methods to check the script's status (Suc
 |`VehicleScriptContext.playAnnSound(sound: Identifier, volume: float, pitch: float): void`|Requests a sound specified by the [Identifier](../../resources.md#identifier-aka-resourcelocation) to be played in the game. (Non-positional, **only if player is boarded**.)<br>This is useful for playing on-board announcements.|
 |`VehicleScriptContext.getScriptEntryId(): String`|Obtain the script entry id.|
 |`VehicleScriptContext.getMyCars(): int[]`|Obtain an array of car indexes which is associated with this script entry.|
-|`VehicleScriptContext.setDataFetchMode(mode: String): void`|Set the [Data Fetch Mode](#implementing-data-fetching) for the current script entry, one of "SKIP", "ALL" or "MANDATORY".|
 |`VehicleScriptContext.setDebugInfo(key: String, value: object): void`|Output debugging information in the upper left corner of the screen. You need to enable **[Script Debug Overlay](../../aids/script_debug_overlay.md)** in JCM Settings to display it.<br>`key` is the name of the value<br>`value` is the content (`value` will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).|
 
 ??? info "Show deprecated fields/functions"
@@ -165,6 +162,7 @@ Script may invoke one of the following methods to check the script's status (Suc
 
     |Functions And Objects|Description|
     |:--------------------|:----------|
+    |`VehicleScriptContext.setDataFetchMode(mode: String): void`|Set the [Data Fetch Mode](#implementing-data-fetching) for the current script entry.<br>Deprecated, specify the `dataFetchMode` field in the vehicle registration entry (mtr_custom_resources.json) instead.|
     |`VehicleScriptContext.drawCarModel(model: Model, carIndex: int, matrices: Matrices?): void`|Requests a [Model](../../model.md#model-aka-modelcluster) loaded via [ModelManager](../../model.md#modelmanager) to be drawn.<br>`carIndex` is the car number which the model should be rendered in. If the script does not belong to the car in `carIndex`, this function will do nothing.<br>`matrices` is the transformation of model placement. If null, the model will be placed in the center of the car without transformation.<br>Replaced by [RenderManager](../../rendering.md#rendermanager)'s `drawModel()` via `getCarRenderManager()`|
     |`VehicleScriptContext.playCarSound(sound: Identifier, carIndex: int, x: float, y: float, z: float, volume: float, pitch: float): void`|Requests a sound specified by the [Identifier](../../resources.md#identifier-aka-resourcelocation) to be played in the world.<br>`carIndex` is the car number which the sound should play in. If the script does not belong to the car in `carIndex`, this function will do nothing.<br>`x`, `y` and `z` is the offset of the sound position, relative to the car's center.<br>`volume` and `pitch` represents the volume and pitch of the sound, `1.0` is the base value.<br><br>Replaced by [SoundManager](../../sounds.md#soundmanager)'s `playSound()` via `getCarSoundManager()`|
 
