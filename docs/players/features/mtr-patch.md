@@ -5,6 +5,9 @@ It is hoped that eventually these patch will be upstreamed to the main MTR Mod, 
 
 The following outlines the changes made to the MTR mod.
 
+## Blocks
+- Railway Sign Poles may now extend to upper slab.
+
 ## Resource Pack Features
 - Add support for the `textColor` field for Railway Signs in MTR 4 format, same format as `backgroundColor`
     - This allows specifying a custom color (Other than white text) to be used on the sign.
@@ -39,7 +42,6 @@ When hovering your mouse over a Platform/Siding, it will now show some propertie
 !!! tip "Tooltip overflow"
     Note that the tooltip may overflow the screen in some cases due to the route name being too long.  
     It is recommended to pair this with mods like [ToolTipFix](https://modrinth.com/mod/tooltipfix) to ensure the content is wrapped in a comfortable way for viewing.
-
 
 ### Hide rail rendering
 For debugging purposes and easier discovery of blocks beneath rails, you can now turn off rail rendering completely in JCM's settings.  

@@ -38,10 +38,10 @@ A **Spot Lamp** is a decorative block in Joban Client Mod that acts as a light s
 </div>
 
 ## Block states
-| ceiling | powered |
-|:--------|:--------|
-| true    | true    |
-| false   | false   |
+| ceiling | powered | is_slab |
+|:--------|:--------|:--------|
+| true    | true    | true    |
+| false   | false   | false   |
 
 ## History
 | Version | Changes Made                                    |
