@@ -5,6 +5,10 @@ It is hoped that eventually these patch will be upstreamed to the main MTR Mod, 
 
 The following outlines the changes made to the MTR mod.
 
+## Resource Pack Features
+- Add support for the `textColor` field for Railway Signs in MTR 4 format, same format as `backgroundColor`
+    - This allows specifying a custom color (Other than white text) to be used on the sign.
+
 ## Optimization-Related
 - Reduce lag spikes and memory consumption when loading 3D vehicle/object models
 - Attempt to improve frame-rate slightly through means of caching and lazy-evaluation
