@@ -194,6 +194,8 @@ nav:
           - Eyecandy Scripting:
             - dev/scripting/type/eyecandy/index.md
             - Example: dev/scripting/type/eyecandy/example.md
+          - Lift Scripting:
+            - dev/scripting/type/lift/index.md
           - JCM PIDS Scripting:
             - dev/scripting/type/pids/index.md 
             - Scripted PIDS Preset Tutorial: dev/scripting/type/pids/tut/pids_tut.md
