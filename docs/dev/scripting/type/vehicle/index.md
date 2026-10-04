@@ -155,6 +155,7 @@ Script may invoke one of the following methods to check the script's status (Suc
 |`VehicleScriptContext.getScriptEntryId(): String`|Obtain the script entry id.|
 |`VehicleScriptContext.getMyCars(): int[]`|Obtain an array of car indexes which is associated with this script entry.|
 |`VehicleScriptContext.setDebugInfo(key: String, value: object): void`|Output debugging information in the upper left corner of the screen. You need to enable **[Script Debug Overlay](../../aids/script_debug_overlay.md)** in JCM Settings to display it.<br>`key` is the name of the value<br>`value` is the content (`value` will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).|
+|`VehicleScriptContext.setDebugInfo(value: object): void`|Same as above, but the key is set to `<Untitled>`. Useful for temporary debugging/output of a single variable.|
 
 ??? info "Show deprecated fields/functions"
     These are the functions implemented in JCM for backward compatibility with scripts made for MTR-NTE.  

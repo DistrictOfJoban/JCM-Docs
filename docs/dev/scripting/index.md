@@ -102,13 +102,14 @@ Different types of script can also expose different classes/objects to them (e.g
     JCM Scripting is a foundation to serve different types of scripting. The use case and possibilities of scripts is defined by the different type of scripting available.
 
 ### Available Script Types
-JCM currently provides 3 script types out of the box, each type providing a domain-specific use cases. (PIDS Scripting for PIDS Layout, Vehicle Scripting to render stuff on a vehicle, etc.)
+JCM currently provides 4 script types out of the box, each type providing a domain-specific use cases. (PIDS Scripting for PIDS Layout, Vehicle Scripting to render stuff on a vehicle, etc.)
 
 |Type|Description|
 |-|-|
 |[Vehicle Scripting](./type/vehicle/index.md)|This allows scripts to render 3D models/displays, as well as playing sounds for an MTR Vehicle/Train.|
-|[Eyecandy Scripting](./type/eyecandy/index.md)|This allows scripts to render 3D models/displays, as well as playing sounds on an MTR Decoration Object|
-|[PIDS Scripting](./type/pids/index.md)|This allows scripts to draw custom text/texture, as well as playing sounds for a JCM PIDS in the form of a PIDS Preset|
+|[Eyecandy Scripting](./type/eyecandy/index.md)|This allows scripts to render 3D models/displays, as well as playing sounds on an MTR Decoration Object.|
+|[Lift Scripting](./type/lift/index.md)|This allows scripts to render 3D models/displays, as well as playing sounds on a MTR Lift.|
+|[PIDS Scripting](./type/pids/index.md)|This allows scripts to draw custom text/texture, as well as playing sounds for a JCM PIDS in the form of a PIDS Preset.|
 
 Below describes the general lifecycle and flow of a regular script execution.
 

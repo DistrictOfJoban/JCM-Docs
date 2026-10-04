@@ -94,6 +94,7 @@ This would return a string formatted like: `2.0.0-beta.5`
 |`PIDSScriptContext.setAutoZOrdering(autoZOrdering: boolean): void`|To ensure z-fighting don't occur, by default JCM will translate a small amount (step) in the z-direction everytime you draw a text/texture. You can turn this behaviour off by setting autoZOrdering to false, then you can use `Text/Texture#zOrder(order: int)` to control the z-order manually|
 |`PIDSScriptContext.setZOrderStep(distanceMeter: double): void`|To ensure z-fighting don't occur, by default JCM will translate a small amount (step) in the z-direction everytime you draw a text/texture. Here you can pass in a custom step value. By default this is `0.0002`|
 |`PIDSScriptContext.setDebugInfo(key: String, value: object): void`|Output debugging information in the upper left corner of the screen. You need to enable **[Script Debug Overlay](../../aids/script_debug_overlay.md)** in JCM Settings to display it.<br>`key` is the name of the value<br>`value` is the content (`value` will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).|
+|`PIDSScriptContext.setDebugInfo(value: object): void`|Same as above, but the key is set to `<Untitled>`. Useful for temporary debugging/output of a single variable.|
 
 ##### Text
 |Functions And Objects|Description|
