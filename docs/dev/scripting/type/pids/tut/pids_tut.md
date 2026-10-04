@@ -826,8 +826,8 @@ There are multiple ways to achieve that, but the one we are going to use in the 
 
 ``` js title="pids_tut.js" hl_lines="2-6"
 // ... code before
-Texture.create("LRT Circle White")
-.texture("mtr:textures/block/white.png")
+Rectangle.create("LRT Circle White") // You can use "Rectangle" to draw a solid-colored quad onto the world.
+.color(0xFFFFFF)
 .pos(7.5, rowY+1.5)
 .size(18, 6)
 .draw(ctx);
@@ -842,9 +842,7 @@ Again, remember first to draw, first to be covered. It needs to be drawn first b
 !!! note inline end "(Self Note)"
     Maybe it does make sense to implement `Rectangle` alongside `Text` and `Texture` as well... but for now this will do!
 
-Also worth nothing is the texture `mtr:textures/block/white.png`. This is a built-in texture in the MTR mod that's literally just a solid white color, which can coincidentally be used in this situation.
-
-Nothing note-worthy other than that however. The position and size is already given for the sake of this tutorial, but in practice you may need some trial and error to get it right.
+The position and size is already given for the sake of this tutorial, but in practice you may need some trial and error to get it right.
 
 Now we just need to draw the route number, *do it after we draw the pill so it stays on top*:
 
@@ -1191,8 +1189,8 @@ function render(ctx, state, pids) {
         } else {
             let arrival = pids.arrivals().get(i);
             if(arrival != null && !pids.isRowHidden(i)) {
-                Texture.create("LRT Circle White")
-                .texture("mtr:textures/block/white.png")
+                Rectangle.create("LRT Circle White")
+                .color(0xFFFFFF)
                 .pos(7.5, rowY+1.5)
                 .size(18, 6)
                 .draw(ctx);

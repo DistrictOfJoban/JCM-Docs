@@ -135,10 +135,26 @@ This would return a string formatted like: `2.0.0-beta.5`
 |`Texture.texture(id: String): Texture`<br>`Texture.texture(id: Identifier): Texture`|Set the texture ID to draw.<br>Note that the texture ID should point to a PNG file or an .mcmeta file.|
 |`Texture.color(color: int): Texture`|Set the texture color, in RGB format.|
 |`Texture.uv(u2: float, v2: float): Texture`<br>`Texture.uv(u1: float, v1: float, u2: float, v2: float): Texture`|Set the UV coordinates|
-|`Texture.naturalLight(): Text`|Set the brightness of the texture to be the in-game world light.|
+|`Texture.naturalLight(): Texture`|Set the brightness of the texture to be the in-game world light.|
 |`Texture.matrices(matrices: Matrices): Texture`|Apply a [matrices](../../math.md#matrices) to the current texture|
 |`Texture.draw(ctx: PIDSScriptContext): void`|Mark the texture as something that should be rendered to the PIDS.|
 |`Texture.zOrder(order: int): Texture`|Specify the z-order manually.|
+
+##### Rectangle
+Same as `Texture`, but the texture is hardcoded to a white PNG file.  
+Useful for rendering a solid-colored rectangle.
+
+
+|Functions And Objects|Description|
+|:--------------------|:----------|
+|`Rectangle.create(): Rectangle`<br>`Rectangle.create(comment: String): Rectangle`|Create a new rectangle to be drawn in the world.|
+|`Rectangle.pos(x: double, y: double): Rectangle`|Set the X and Y position of the element|
+|`Rectangle.size(w: double, h: double): Rectangle`|Set the width and height of the element|
+|`Rectangle.color(color: int): Rectangle`|Set the rectangle color, in RGB format.|
+|`Rectangle.naturalLight(): Rectangle`|Set the brightness of the rectangle to be the in-game world light.|
+|`Rectangle.matrices(matrices: Matrices): Rectangle`|Apply a [matrices](../../math.md#matrices) to the current rectangle.|
+|`Rectangle.draw(ctx: PIDSScriptContext): void`|Mark the rectangle as something that should be rendered to the PIDS.|
+|`Rectangle.zOrder(order: int): Rectangle`|Specify the z-order manually.|
 
 #### PIDS Object Related
 
