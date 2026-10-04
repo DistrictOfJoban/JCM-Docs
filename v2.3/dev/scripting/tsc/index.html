@@ -1,0 +1,7746 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://jcm.joban.org/v2.3/dev/scripting/tsc/">
+      
+      
+        <link rel="prev" href="../mtrclientdata/">
+      
+      
+        <link rel="next" href="../builtin/display_helper/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/favicon.png">
+      <meta name="generator" content="zensical-0.0.67">
+    
+    
+      
+        <title>Transport Simulation Core Related - Joban Client Mod</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../assets/stylesheets/classic/main.cfc7948b.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/classic/palette.bf1c5cd6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/custom-color.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/custom-layout.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#transport-simulation-core-api" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  This version of JCM is not the latest stable release.
+  <a href="../../../.."> 
+    <strong>Click here to go to latest stable release.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Joban Client Mod" class="md-header__button md-logo" aria-label="Joban Client Mod" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="Joban Client Mod">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Joban Client Mod
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Transport Simulation Core Related
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.598 1.591a.75.75 0 0 1 .785-.175 7.001 7.001 0 1 1-8.967 8.967.75.75 0 0 1 .961-.96 5.5 5.5 0 0 0 7.046-7.046.75.75 0 0 1 .175-.786m1.616 1.945a7 7 0 0 1-7.678 7.678 5.499 5.499 0 1 0 7.678-7.678"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8m0-1.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5m5.657-8.157a.75.75 0 0 1 0 1.061l-1.061 1.06a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.06-1.06a.75.75 0 0 1 1.06 0Zm-9.193 9.193a.75.75 0 0 1 0 1.06l-1.06 1.061a.75.75 0 1 1-1.061-1.06l1.06-1.061a.75.75 0 0 1 1.061 0M8 0a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 8 0M3 8a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h1.5A.75.75 0 0 1 3 8m13 0a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5A.75.75 0 0 1 16 8m-8 5a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 8 13m3.536-1.464a.75.75 0 0 1 1.06 0l1.061 1.06a.75.75 0 0 1-1.06 1.061l-1.061-1.06a.75.75 0 0 1 0-1.061M2.343 2.343a.75.75 0 0 1 1.061 0l1.06 1.061a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.06-1.06a.75.75 0 0 1 0-1.06Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/DistrictOfJoban/Joban-Client-Mod" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Joban-Client-Mod
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+  
+  
+  
+  
+    
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../players/" class="md-tabs__link">
+          
+  
+  For Players
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+      
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  For Content Authors
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../contributing/introduction/" class="md-tabs__link">
+          
+  
+  Contributing
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Joban Client Mod" class="md-nav__button md-logo" aria-label="Joban Client Mod" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="Joban Client Mod">
+
+    </a>
+    Joban Client Mod
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/DistrictOfJoban/Joban-Client-Mod" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Joban-Client-Mod
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Home
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  For Players
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  For Players
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../players/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introduction
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_1">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Introduction
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/download/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Download & Install
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/jcmv2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  JCM v2 Changes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Features
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Features
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../players/blocks/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Decoration Blocks
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_2_1">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Decoration Blocks
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/auto_iron_door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Automatic Iron Door
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/buffer_stop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Buffer Stop
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/butterfly_light/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Butterfly Light
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/ceiling_45/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Ceiling (45°)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/circle_walls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Circle Walls
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/departure_pole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Departure Pole
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/departure_timer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Departure Timer
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/drl_apgs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Disneyland Resorts Line APG
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/tcl_emg_stop_button/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Emergency stop button (TCL)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/tml_emg_stop_button/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Emergency stop button (TML)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/sil_emg_stop_button/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Emergency stop button (SIL)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/mtr_enquiry_machine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Enquiry Machine
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/rv_enquiry_machine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Railway Vision Enquiry Machine
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/mtr_enquiry_machine_wall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Enquiry Machine (Wall-mounted)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/kcr_enquiry_machine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  KCR Enquiry Machine (Wall-mounted)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/exit_signs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Exit Signs
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/fare_saver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fare Saver
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/fire_alarm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fire Alarm
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/helpline_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Help Line (With Sticker)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/helpline_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Help Line
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/helpline_hkwk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Help Line (West Kowloon Station Type)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/helpline_standing_eal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Help Line (East Rail Line Type)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/helpline_standing_tkl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Help Line (Tseung Kwan O Line Type)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/helpline_standing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Help Line (Standing)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/lrt_inter_car_barriers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  LRT Inter-Car Barriers
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/kcr_station_name_signs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  KCR Station Name Signs
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/kcr_emg_stop_sign/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  KCR Emergency Stop Sign
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/light_lantern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Light Lantern
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/spot_lamp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Spot Lamp
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/light_source_block/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Light Source Block
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/mtr_stairs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  MTR Stairs
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/operator_button/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Operator Button
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/pids_1a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  PIDS 1A
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/lcd_pids/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Old Tsueng Kwan O PIDS
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/rv_pids/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Railway Vision PIDS
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/rv_pids_sil_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Railway Vision PIDS (SIL, Ocean Park/Wong Chuk Hang Station Variant)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/rv_pids_sil_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Railway Vision PIDS (SIL, Admiralty/South Horizons Station Variant)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/rv_pids_pole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Railway Vision PIDS Pole
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/pids_projector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  PIDS Projector
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/station_ceilings_wrl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Station Ceilings (2009)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/station_ceiling_wrl_poles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Station Ceiling Poles
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/station_name_standing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Standing Station Name Sign
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/static_signal_lights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Static Signal Lights
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/inverted_signal_lights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Inverted Signal Lights
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/sound_looper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Sound Looper
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/subsidy_machine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Subsidy Machine
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/train_model_e44/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  E44 Train Model
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/thales_ticket_barriers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Thales Ticket Barriers
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/mtr_trespass_sign/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Trespass Signage
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/kcr_trespass_sign/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Trespass Signage (KCR)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/lrt_trespass_sign/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  LRT Trespass Signage
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/blocks/water_machine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Water Machine
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/features/mtr-patch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  MTR Enhancements
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/features/jcm-pids/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  JCM PIDS
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/features/tunnel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Tunnel Walls
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/features/mod-integrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Mod Integrations
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../players/versions/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1 Version Archive
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  v1 Version Archive
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.2.2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.2.2
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.2.1-hotfix-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.2.1-hotfix-1
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.2.1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.2.1
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.2.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.2.0
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.1.9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.9
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.1.8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.8
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.1.7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.7
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.1.6-hotfix-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.6-hotfix-1
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.1.6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.6
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.1.5-hotfix-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.5-hotfix-1
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.1.5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.5
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.1.4-hotfix-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.4-hotfix-1
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.1.4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.4
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.1.3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.3
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.1.2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.2
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.1.1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.1
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.1.0a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.0a
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.0
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.0.9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.0.9
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.0.8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.0.8
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.0.7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.0.7
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.0.6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.0.6
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.0.5a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.0.5a
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.0.5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.0.5
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.0.4a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.0.4a
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.0.4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.0.4
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.0.3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.0.3
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.0.2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.0.2
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.0.1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.0.1
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../players/versions/v1.0.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.0.0
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  For Content Authors
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  For Content Authors
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Scripting
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_3_1">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Scripting
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_2" id="__nav_3_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Script Types
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Script Types
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../type/vehicle/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Vehicle Scripting
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../type/eyecandy/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Eyecandy Scripting
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1_2_2" id="__nav_3_1_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_2_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_2_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Eyecandy Scripting
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../type/eyecandy/example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Example
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../type/pids/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  JCM PIDS Scripting
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1_2_3" id="__nav_3_1_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_2_3_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_2_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  JCM PIDS Scripting
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../type/pids/tut/pids_tut/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Scripted PIDS Preset Tutorial
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_3" id="__nav_3_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Common APIs
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_3_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_3_1_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Common APIs
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../console/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Console Logging
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Math (Geometry)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Resource Loading
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Model Loading
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rendering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Model Rendering
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dynamic_textures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Graphics Drawing
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sounds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Sound Playing
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mtrwrapper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  MTR Access API
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_3_9" id="__nav_3_1_3_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Utilities
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_3_9_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_3_9">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Utilities
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utils/version/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Version Querying
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utils/textutil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  TextUtil
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utils/timing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Timing
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utils/ratelimit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  RateLimit
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utils/statetracker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  StateTracker
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utils/cycletracker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  CycleTracker
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utils/datareader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  DataReader
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_3_10" id="__nav_3_1_3_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Advanced APIs
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_3_10_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_3_10">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Advanced APIs
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Minecraft APIs
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  File APIs
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Networking API
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bgworker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Background Worker API
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3_11" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_3_11" id="__nav_3_1_3_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  MTR Native APIs
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_3_11_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_3_1_3_11">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  MTR Native APIs
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mtrclientdata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  MTRClientData
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+        <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Transport Simulation Core Related
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Transport Simulation Core Related
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#type" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Type
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Type">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#siding" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Siding
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Platform
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#station" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Station
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stationexit" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        StationExit
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transportmode" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        TransportMode
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#depot" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Depot
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simplifiedroute" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SimplifiedRoute
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simplifiedrouteplatform" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SimplifiedRoutePlatform
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routecircularstate" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Route.CircularState
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vehicle" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Vehicle
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vehicleextradata" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        VehicleExtraData
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lift" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Lift
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        RouteType
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathdata" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        PathData
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rail" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Rail
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrivalresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ArrivalResponse
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cardetails" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        CarDetails
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#angle" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Angle
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Vector
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Position
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4" id="__nav_3_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Built-in JS Script
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Built-in JS Script
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../builtin/display_helper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Display Helper
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_5" id="__nav_3_1_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Articles
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Articles
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/script_guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Scripting Guidelines
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/nte_migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Migration from NTE
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/mtr34scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Dual-versioned Scripts (MTR 3 & MTR 4)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/scripting_restrictions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Scripting Restrictions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/tips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Tips & Notes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_6" id="__nav_3_1_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Features
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Features
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/threaded_execution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Multithreaded Runtime Execution
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/script_include/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Including other scripts
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/vehicle_display_cube/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Replacing MTR Display Cube
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/script_crossreferencing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Vehicle Script Cross-referencing
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_7" id="__nav_3_1_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Development Aids
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Development Aids
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aids/script_quick_reload/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Quick Reload
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aids/script_debug_overlay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Script Debug Overlay
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aids/ide_aids/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  VSCode Intellisense
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../pids/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  PIDS Preset
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  PIDS Preset
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pids/json_preset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  JSON PIDS Preset
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pids/scripted/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Scripted PIDS Preset
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Contributing
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Contributing
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introduction
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/translation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Translation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Documentation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../contributing/project/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Making changes
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Making changes
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/project/project_structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Project Structure
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/project/code_guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Code Guidelines
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/project/multiversion_development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introduction to Multiversion
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#type" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Type
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Type">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#siding" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Siding
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Platform
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#station" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Station
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stationexit" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        StationExit
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transportmode" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        TransportMode
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#depot" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Depot
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simplifiedroute" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SimplifiedRoute
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simplifiedrouteplatform" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SimplifiedRoutePlatform
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routecircularstate" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Route.CircularState
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vehicle" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Vehicle
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vehicleextradata" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        VehicleExtraData
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lift" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Lift
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        RouteType
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathdata" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        PathData
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rail" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Rail
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrivalresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ArrivalResponse
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cardetails" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        CarDetails
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#angle" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Angle
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Vector
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Position
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    For Content Authors
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Scripting
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../console/" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Common APIs
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../mtrclientdata/" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    MTR Native APIs
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="transport-simulation-core-api">Transport Simulation Core API<a class="headerlink" href="#transport-simulation-core-api" title="Anchor link to this section for reference">#</a></h1>
+<p>Transport Simulation Core (TSC) is the backend serving <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>, it is responsible for holding all simulation data such as Stations / Depots / Rails, as well as performing the simulation itself.</p>
+<p>When developing scripts, you may encounter several types which are related to TSC. The following provides some commonly used fields/functions for those types.</p>
+<h2 id="type">Type<a class="headerlink" href="#type" title="Anchor link to this section for reference">#</a></h2>
+<h3 id="siding">Siding<a class="headerlink" href="#siding" title="Anchor link to this section for reference">#</a></h3>
+<p>Represents a siding rail.</p>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/Siding.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/siding.json">Schema Reference</a></li>
+</ul>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Siding.getName(): String</code></td>
+<td style="text-align: left;">Returns the siding name / siding number.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Siding.getHexId(): String</code></td>
+<td style="text-align: left;">Get the id of the siding, formatted in hexadecimal and returned as a String.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Siding.getId(): long</code></td>
+<td style="text-align: left;">Returns the id of the siding.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Siding.getRailLength(): double</code></td>
+<td style="text-align: left;">Returns the length of the siding in meters.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Siding.getDepotName(): String</code></td>
+<td style="text-align: left;">Returns the name of the depot containing this siding.<br>Returns empty string if there's no data reference to the depot.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Siding.getEarlyVehicleIncreaseDwellTime(): boolean</code></td>
+<td style="text-align: left;">Returns whether vehicle will extend it's dwell time if early.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Siding.getMaxVehicles(): int</code></td>
+<td style="text-align: left;">Returns the maximum number of vehicles for this siding.<br>Returns 0 if unlimited vehicles.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Siding.getIsUnlimited(): boolean</code></td>
+<td style="text-align: left;">Returns whether the siding allows unlimited vehicles.<br>Same as checking <code>Siding.getMaxVehicles() == 0</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Siding.getDelayedVehicleSpeedIncreasePercentage(): int</code></td>
+<td style="text-align: left;">Returns the percentage in which train will increase it's speedif running late.<br>Unit is percentage in integer form.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Siding.getDelayedVehicleReduceDwellTimePercentage(): int</code></td>
+<td style="text-align: left;">Returns the percentage in which train will reduce it's dwell time if running late.<br>Unit is percentage in integer form.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Siding.getMidPosition(): Position</code></td>
+<td style="text-align: left;">Returns the <a href="#position">Position</a> in the middle of the siding rail.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Siding.containsPos(pos: Position): boolean</code></td>
+<td style="text-align: left;">Whether <code>pos</code> is equal to the start or end of the rail position.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Anchor link to this section for reference">#</a></h3>
+<p>Represents a platform rail.</p>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/Platform.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/platform.json">Schema Reference</a></li>
+</ul>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Platform.routes: ObjectAVLTreeSet&lt;Route&gt;</code></td>
+<td style="text-align: left;">A list of routes that goes through this platform.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Platform.routeColors: IntAVLTreeSet</code></td>
+<td style="text-align: left;">All colors of route that goes through this platform.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Platform.getName(): String</code></td>
+<td style="text-align: left;">Returns the platform name / platform number.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Platform.getHexId(): String</code></td>
+<td style="text-align: left;">Get the id of the platform, formatted in hexidecimal and returned as a String.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Platform.getId(): long</code></td>
+<td style="text-align: left;">Returns the id of the platform.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Platform.getDwellTime(): long</code></td>
+<td style="text-align: left;">The dwell time duration of the platform in millisecond.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Platform.getMidPosition(): Position</code></td>
+<td style="text-align: left;">Returns the <a href="#position">Position</a> in the middle of the platform rail.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Platform.containsPos(pos: Position): boolean</code></td>
+<td style="text-align: left;">Whether <code>pos</code> is equal to the start or end of the rail position.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="station">Station<a class="headerlink" href="#station" title="Anchor link to this section for reference">#</a></h3>
+<p>Represents a Station area.</p>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/Station.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/station.json">Schema Reference</a></li>
+</ul>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Station.getHexId(): String</code></td>
+<td style="text-align: left;">Get the id of the station, formatted in hexidecimal and returned as a String.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getId(): long</code></td>
+<td style="text-align: left;">Returns the id of the station.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getName(): String</code></td>
+<td style="text-align: left;">Returns the station name.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getColor(): int</code></td>
+<td style="text-align: left;">Returns the RGB color of the station.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getColorHex(): String</code></td>
+<td style="text-align: left;">Returns the RGB color of the station, formatted in hexidecimal and returned as a String.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getZone1(): long</code></td>
+<td style="text-align: left;">Returns Fare Zone 1 of the station.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getZone2(): long</code></td>
+<td style="text-align: left;">Returns Fare Zone 2 of the station.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getZone3(): long</code></td>
+<td style="text-align: left;">Returns Fare Zone 3 of the station.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getMinX(): long</code></td>
+<td style="text-align: left;">Returns the minimum X position of the station area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getMinY(): long</code></td>
+<td style="text-align: left;">Returns the minimum Y position of the station area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getMinZ(): long</code></td>
+<td style="text-align: left;">Returns the minimum Z position of the station area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getMaxX(): long</code></td>
+<td style="text-align: left;">Returns the maximum X position of the station area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getMaxY(): long</code></td>
+<td style="text-align: left;">Returns the maximum Y position of the station area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getMaxZ(): long</code></td>
+<td style="text-align: left;">Returns the maximum Z position of the station area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.inArea(pos: Position): boolean</code></td>
+<td style="text-align: left;">Whether a <a href="#position">Position</a> is inside the station area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.isTransportMode(mode: TransportMode): boolean</code></td>
+<td style="text-align: left;">Whether the given <a href="#transportmode">TransportMode</a> is the same as the station's assigned transport mode.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getCenter(): Position</code></td>
+<td style="text-align: left;">Returns the <a href="#position">Position</a> of the station area's center point.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Station.getExits(): List&lt;StationExit&gt;</code></td>
+<td style="text-align: left;">Returns a list of station exits. (<a href="#stationexit">StationExit</a>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="stationexit">StationExit<a class="headerlink" href="#stationexit" title="Anchor link to this section for reference">#</a></h3>
+<p>Represents a Station Exit entry.</p>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/StationExit.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/stationExit.json">Schema Reference</a></li>
+</ul>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>StationExit.getName(): String</code></td>
+<td style="text-align: left;">Returns the name of the exit. (i.e. Exit letter)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>StationExit.getDestinations(): List&lt;String&gt;</code></td>
+<td style="text-align: left;">Returns a list of destinations configured for the exit.<br>The 1st entry in the list is the chosen destination to be displayed by MTR Railway Signs.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="transportmode">TransportMode<a class="headerlink" href="#transportmode" title="Anchor link to this section for reference">#</a></h3>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/TransportMode.java">Class Reference</a></li>
+</ul>
+</div>
+<p>Represents a type of transport.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>static TransportMode.TRAIN: TransportMode</code></td>
+<td style="text-align: left;">Returns an instance of TransportMode, representing rail transport.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static TransportMode.BOAT: TransportMode</code></td>
+<td style="text-align: left;">Returns an instance of TransportMode, representing boat transport.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static TransportMode.CABLE_CAR: TransportMode</code></td>
+<td style="text-align: left;">Returns an instance of TransportMode, representing cable car transport.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static TransportMode.AIRPLANE: TransportMode</code></td>
+<td style="text-align: left;">Returns an instance of TransportMode, representing air transport.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>TransportMode.maxLength: int</code></td>
+<td style="text-align: left;">Returns the maximum vehicle length allowed for the transport.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="depot">Depot<a class="headerlink" href="#depot" title="Anchor link to this section for reference">#</a></h3>
+<p>Represents a Depot area.</p>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/Depot.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/depot.json">Schema Reference</a></li>
+</ul>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Depot.getHexId(): String</code></td>
+<td style="text-align: left;">Get the id of the depot, formatted in hexidecimal and returned as a String.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Depot.getId(): long</code></td>
+<td style="text-align: left;">Returns the id of the depot.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Depot.getName(): String</code></td>
+<td style="text-align: left;">Returns the depot name.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Depot.getColor(): int</code></td>
+<td style="text-align: left;">Returns the RGB color of the depot.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Depot.getColorHex(): String</code></td>
+<td style="text-align: left;">Returns the RGB color of the depot, formatted in hexadecimal and returned as a String.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Depot.getRouteIds(): List&lt;Long&gt;</code></td>
+<td style="text-align: left;">Returns a list of route ids assigned to this depot.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Depot.getLastGeneratedMillis(): long</code></td>
+<td style="text-align: left;">Returns the timestamp (In millisecond) of the last successful path generation.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Depot.getRepeatInfinitely(): boolean</code></td>
+<td style="text-align: left;">Whether the depot is configured to repeat route instructions.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Depot.getUseRealTime(): boolean</code></td>
+<td style="text-align: left;">Whether the depot uses real-time schedule, or Minecraft time.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Depot.getRealTimeDepartures(): List&lt;Long&gt;</code></td>
+<td style="text-align: left;">A list of assigned departure time, if using real-time schedule.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Depot.getMinX(): long</code></td>
+<td style="text-align: left;">Returns the minimum X position of the depot area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Depot.getMinY(): long</code></td>
+<td style="text-align: left;">Returns the minimum Y position of the depot area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Depot.getMinZ(): long</code></td>
+<td style="text-align: left;">Returns the minimum Z position of the depot area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Depot.getMaxX(): long</code></td>
+<td style="text-align: left;">Returns the maximum X position of the depot area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Depot.getMaxY(): long</code></td>
+<td style="text-align: left;">Returns the maximum Y position of the depot area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Depot.getMaxZ(): long</code></td>
+<td style="text-align: left;">Returns the maximum Z position of the depot area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Depot.inArea(pos: Position): boolean</code></td>
+<td style="text-align: left;">Whether a <a href="#position">Position</a> is inside the depot area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Depot.isTransportMode(mode: TransportMode): boolean</code></td>
+<td style="text-align: left;">Whether the given <a href="#transportmode">TransportMode</a> is the same as the depot's assigned transport mode.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Depot.getCenter(): Position</code></td>
+<td style="text-align: left;">Returns the <a href="#position">Position</a> of the depot area's center point.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="simplifiedroute">SimplifiedRoute<a class="headerlink" href="#simplifiedroute" title="Anchor link to this section for reference">#</a></h3>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/SimplifiedRoute.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/simplifiedRoute.json">Schema Reference</a></li>
+</ul>
+</div>
+<p>A Route object designed for consumption by the client-side, with several fields stripped out to save bandwidth.</p>
+<p><em>Note: Hidden routes are never transmitted to the client, therefore it is guarenteed that all SimplifiedRoute must not be hidden.</em></p>
+<details class="note">
+<summary>Access of Route Number</summary>
+<p>Route Number (a.k.a. Light Rail Route Number) is not transferred as part of SimplifiedRoute.<br />
+It may be obtained via <a href="#vehicleextradata-stops-related">VehicleExtraData</a></p>
+</details>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>SimplifiedRoute.getName(): String</code></td>
+<td style="text-align: left;">Returns the route name.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SimplifiedRoute.getId(): long</code></td>
+<td style="text-align: left;">Returns the id of the route.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SimplifiedRoute.getColor(): int</code></td>
+<td style="text-align: left;">Returns the RGB color of the route.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SimplifiedRoute.getCircularState(): Route.CircularState</code></td>
+<td style="text-align: left;">Returns the <a href="#routecircularstate">Circular State</a> of the route</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SimplifiedRoute.getPlatforms(): List&lt;SimplifiedRoutePlatform&gt;</code></td>
+<td style="text-align: left;">Returns a list of <a href="#simplifiedrouteplatform">SimplifiedRoutePlatform</a> object, representing the list of stop of the route.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SimplifiedRoute.getPlatformIndex(platformId: long): int</code></td>
+<td style="text-align: left;">Given a platform id, returns the index of the first instance of the platform appearing in the route.<br>Returns <strong>-1</strong> if the platformId is not found in SimplifiedRoute's platform list.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="simplifiedrouteplatform">SimplifiedRoutePlatform<a class="headerlink" href="#simplifiedrouteplatform" title="Anchor link to this section for reference">#</a></h3>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/SimplifiedRoutePlatform.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/simplifiedRoutePlatform.json">Schema Reference</a></li>
+</ul>
+</div>
+<p>Equivalent to a stop the train will make.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>SimplifiedRoutePlatform.getPlatformId(): long</code></td>
+<td style="text-align: left;">Returns the id of the platform.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SimplifiedRoutePlatform.getStationId(): long</code></td>
+<td style="text-align: left;">Returns the id of the belonging station area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SimplifiedRoutePlatform.getStationName(): String</code></td>
+<td style="text-align: left;">Returns the name of the belonging station area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SimplifiedRoutePlatform.getDestination(): String</code></td>
+<td style="text-align: left;">Returns the destination string of this platform in the route</td>
+</tr>
+</tbody>
+</table>
+<h3 id="routecircularstate">Route.CircularState<a class="headerlink" href="#routecircularstate" title="Anchor link to this section for reference">#</a></h3>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/Route.java#L124">Class Reference</a></li>
+</ul>
+</div>
+<p>Represents a circular state of a route.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>static CircularState.NONE: CircularState</code></td>
+<td style="text-align: left;">The route is not circular.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static CircularState.CLOCKWISE: CircularState</code></td>
+<td style="text-align: left;">The route is clockwise circular.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static CircularState.ANTICLOCKWISE: CircularState</code></td>
+<td style="text-align: left;">The route is anti-clockwise circular.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="vehicle">Vehicle<a class="headerlink" href="#vehicle" title="Anchor link to this section for reference">#</a></h3>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/Vehicle.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/vehicle.json">Schema Reference</a></li>
+</ul>
+</div>
+<p>A vehicle formation / consists.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Vehicle.vehicleExtraData: VehicleExtraData</code></td>
+<td style="text-align: left;">The real-time data of the vehicle, related to operations. (Such as speed target, stop index etc.)<br>See <a href="#vehicleextradata">VehicleExtraData</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="vehicleextradata">VehicleExtraData<a class="headerlink" href="#vehicleextradata" title="Anchor link to this section for reference">#</a></h3>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/VehicleExtraData.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/vehicleExtraData.json">Schema Reference</a></li>
+</ul>
+</div>
+<p>Represents real-time data of a vehicle.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getDepotId(): long</code></td>
+<td style="text-align: left;">Returns the id of the depot this vehicle's siding belongs to.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getSidingId(): long</code></td>
+<td style="text-align: left;">Returns the id of the siding this vehicle belongs to.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getStopIndex(): int</code></td>
+<td style="text-align: left;">Returns the next stop index along the PathData.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getIsTerminating(): boolean</code></td>
+<td style="text-align: left;">Returns whether the train has reached the last stop or beyond.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getStoppingPoint(): double</code></td>
+<td style="text-align: left;">Returns the absolute railProgress distance in which the train is expected stop.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getSpeedTarget(): double</code></td>
+<td style="text-align: left;">Returns the target speed the train should accelerate and follow against.<br>Unit is in <code>m/millisecond</code>, multiply by 1000 to get m/s.<br><strong>-1</strong> when vehicle is approaching to a stop.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.iterateRidingEntities(callback: Consumer&lt;VehicleRidingEntity&gt;): void</code></td>
+<td style="text-align: left;">Executes a callback, providing all <a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/VehicleRidingEntity.java">VehicleRidingEntity</a> of the current vehicle.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="vehicleextradata-stops-related">VehicleExtraData (Stops-related)<a class="headerlink" href="#vehicleextradata-stops-related" title="Anchor link to this section for reference">#</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getPreviousRouteId(): long</code></td>
+<td style="text-align: left;">Returns the id of the route in previous stops.<br>Returns 0 if there's no previous stop.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getPreviousRouteColor(): int</code></td>
+<td style="text-align: left;">Returns the id of the route's color in previous stops, in RGB format.<br>Returns 0 if there's no previous stop.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getPreviousRouteName(): String</code></td>
+<td style="text-align: left;">Returns the route name in previous stops.<br>Returns an empty string if there's no previous stop.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getPreviousRouteNumber(): String</code></td>
+<td style="text-align: left;">Returns the route number (In <abbr title="Minecraft Transit Railway 3.x">MTR 3</abbr>, a lightRailRouteNumber) in previous stops.<br>Returns an empty string if there's no previous stop.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getPreviousRouteCircularState(): Route.CircularState</code></td>
+<td style="text-align: left;">Returns the route's <a href="#routecircularstate">CircularState</a> in previous stops.<br>Returns Route.CircularState.NONE if there's no previous route.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getPreviousRouteType(): RouteType</code></td>
+<td style="text-align: left;">Returns the route's <a href="#routetype">RouteType</a> in previous stops.<br>Returns RouteType.NORMAL if there's no previous stop.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getPreviousRouteDestination(): long</code></td>
+<td style="text-align: left;">Returns the route's destination of the last stop.<br>Returns an empty string f there's no previous stop / station area in previous stop.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getPreviousPlatformId(): long</code></td>
+<td style="text-align: left;">Returns the platform id of the last stop.<br>Returns 0 if there's no previous stop.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getPreviousStationId(): long</code></td>
+<td style="text-align: left;">Returns the station id of the last stop.<br>Returns 0 if there's no previous stop / station area in previous stop.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleExtraData.getPreviousStationName(): long</code></td>
+<td style="text-align: left;">Returns the station name of the last stop.<br>Returns an empty string if there's no previous stop / station area in previous stop.</td>
+</tr>
+</tbody>
+</table>
+<p>Equivalent function exists for:</p>
+<ul>
+<li>Current Stop (When docked) / Previous Stop (When moving)<ul>
+<li>Function prefix: <code>getThis</code> (e.g. <code>VehicleExtraData.getThisRouteId()</code>)</li>
+</ul>
+</li>
+<li>Next Stop<ul>
+<li>Function prefix: <code>getNext</code> (e.g. <code>VehicleExtraData.getNextRouteId()</code>)</li>
+</ul>
+</li>
+</ul>
+<h3 id="lift">Lift<a class="headerlink" href="#lift" title="Anchor link to this section for reference">#</a></h3>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/Lift.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/lift.json">Schema Reference</a></li>
+</ul>
+</div>
+<p>A lift.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Lift.getHeight(): double</code></td>
+<td style="text-align: left;">Returns the configured height of the lift, in meters.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Lift.getWidth(): double</code></td>
+<td style="text-align: left;">Returns the configured width of the lift, in meters.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Lift.getDepth(): double</code></td>
+<td style="text-align: left;">Returns the configured depth of the lift, in meters.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Lift.getOffsetX(): double</code></td>
+<td style="text-align: left;">Returns the configured offset X of the lift, in meters.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Lift.getOffsetY(): double</code></td>
+<td style="text-align: left;">Returns the configured offset Y of the lift, in meters.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Lift.getOffsetZ(): double</code></td>
+<td style="text-align: left;">Returns the configured offset Z of the lift, in meters.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Lift.getIsDoubleSided(): boolean</code></td>
+<td style="text-align: left;">Whether the lift is configured to have doors on both sides.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Lift.getStyles(): String</code></td>
+<td style="text-align: left;">Returns the style id (Texture) of the lift.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Lift.getAngle(): Angle</code></td>
+<td style="text-align: left;">Returns the <a href="#angle">Angle</a> rotation of the lift.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Lift.getDoorValue(): float</code></td>
+<td style="text-align: left;">Returns the door open value of the lift, from 0 (Closed) to 1 (Opened).</td>
+</tr>
+</tbody>
+</table>
+<p>(More to be documented)</p>
+<h3 id="routetype">RouteType<a class="headerlink" href="#routetype" title="Anchor link to this section for reference">#</a></h3>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/RouteType.java">Class Reference</a></li>
+</ul>
+</div>
+<p>Represents the type of route.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>static RouteType.NORMAL: RouteType</code></td>
+<td style="text-align: left;">Normal Heavy Rail route.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static RouteType.LIGHT_RAIL: RouteType</code></td>
+<td style="text-align: left;">A light rail route.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static RouteType.HIGH_SPEED: RouteType</code></td>
+<td style="text-align: left;">A high speed rail route.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pathdata">PathData<a class="headerlink" href="#pathdata" title="Anchor link to this section for reference">#</a></h3>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/PathData.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/pathData.json">Schema Reference</a></li>
+</ul>
+</div>
+<p>Represents 1 section (i.e. 1 rail) of a generated path.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>PathData.getStartDistance(): double</code></td>
+<td style="text-align: left;">Returns the starting distance of the path. You can compare that with vehicle's railProgress.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PathData.getEndDistance(): double</code></td>
+<td style="text-align: left;">Returns the ending distance of the path. You can compare that with vehicle's railProgress.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PathData.getRail(): Rail</code></td>
+<td style="text-align: left;">Returns the <a href="#rail">Rail</a> this path is for.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PathData.getOrderedPosition1(): Position</code></td>
+<td style="text-align: left;">Returns a <a href="#position">Position</a> representing the starting position in the world.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PathData.getOrderedPosition2(): Position</code></td>
+<td style="text-align: left;">Returns a <a href="#position">Position</a> representing the ending position in the world.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PathData.isSameRail(other: PathData): boolean</code></td>
+<td style="text-align: left;">Returns if a <code>PathData</code> is equivalent. (In terms of starting &amp; ending position)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PathData.isOppositeRail(other: PathData): boolean</code></td>
+<td style="text-align: left;">Returns true if another <code>PathData</code> is a reversed version of the current path data. (e.g. For vehicle reversal/turnback, there may be 1 path representing the forward direction, and 1 path going in reverse, but they share the same piece of rail.)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PathData.getSpeedLimitKilometersPerHour(): long</code></td>
+<td style="text-align: left;">Returns the speed limit of this rail in km/h.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PathData.getRailLength(): double</code></td>
+<td style="text-align: left;">Returns the length of the path in meters.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PathData.isDescending(): boolean</code></td>
+<td style="text-align: left;">Returns true if the ending Y position is lower than the starting Y position.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PathData.getDwellTime(): long</code></td>
+<td style="text-align: left;">Returns the dwell time for this path in millisecond.<br>Values higher than 0 indcates the vehicle should stop and open the door.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rail">Rail<a class="headerlink" href="#rail" title="Anchor link to this section for reference">#</a></h3>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/Rail.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/rail.json">Schema Reference</a></li>
+</ul>
+</div>
+<p>Represents a single rail section. (Node to Node)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Rail.getTransportMode(): TransportMode</code></td>
+<td style="text-align: left;">Returns the type of <a href="#transportmode">TransportMode</a> this rail is for.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Rail.getStyles(): List&lt;String&gt;</code></td>
+<td style="text-align: left;">Returns a list of rail model ids (a.k.a. styles) applied to this rail.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Rail.canAccelerate(): boolean</code></td>
+<td style="text-align: left;">Returns whether the train can accelerate to the rail's speed limit, or should it hold the current speed.<br>False if it's a platform or a turnback rail.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="arrivalresponse">ArrivalResponse<a class="headerlink" href="#arrivalresponse" title="Anchor link to this section for reference">#</a></h3>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/operation/ArrivalResponse.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/operation/arrivalResponse.json">Schema Reference</a></li>
+</ul>
+</div>
+<p>Represents a single estimated time of arrival (ETA) entry. (Same as one used for PIDS reference time)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ArrivalResponse.getDestination(): String</code></td>
+<td style="text-align: left;">Returns the destination name of the arrival entry.<br>(Usually the destination's station, or a custom destination string)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ArrivalResponse.getArrival(): long</code></td>
+<td style="text-align: left;">Returns the epoch time (in Millisecond) the vehicle will arrive at.<br>Use <code>new Date(value: number)</code>to obtain a <abbr title="JavaScript">JS</abbr> Date object of the arrival time.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ArrivalResponse.getDeparture(): long</code></td>
+<td style="text-align: left;">Returns the epoch time (in Millisecond) the vehicle will depart at.<br>Use <code>new Date(value: number)</code>to obtain a <abbr title="JavaScript">JS</abbr> Date object of the departure time.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ArrivalResponse.getDeviation(): long</code></td>
+<td style="text-align: left;">Returns the deviation from the scheduled timetable.<br>Positive value indicate the train is late.<br>Negative value indicates the train is early.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ArrivalResponse.getRealtime(): boolean</code></td>
+<td style="text-align: left;">Returns whether the arrival entry is scheduled (i.e. Vehicle not departed), or a real-time estimation (i.e. Vehicle running)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ArrivalResponse.getDepartureIndex(): long</code></td>
+<td style="text-align: left;">Returns the departure index of the vehicle.<br>The departure index is incremented for every scheduled departure of each individual sidings.<br>It is wrapped back to <code>0</code> at 00:00 UTC (For real-time scheduling).<br>A departure index of <code>-1</code> indicates the vehicle has either not yet departed, or it is a manually departed train.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ArrivalResponse.getIsTerminating(): boolean</code></td>
+<td style="text-align: left;">Returns whether the arrival entry will terminate its service at the current platform.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ArrivalResponse.getRouteId(): long</code></td>
+<td style="text-align: left;">Returns the id of the route that the vehicle is running on when arrived.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ArrivalResponse.getRouteName(): String</code></td>
+<td style="text-align: left;">Returns the name of the route that the vehicle is running on when arrived.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ArrivalResponse.getRouteNumber(): String</code></td>
+<td style="text-align: left;">Returns the route number string (Previously called LRT Route Number), empty string if route number is not set.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ArrivalResponse.getRouteColor(): int</code></td>
+<td style="text-align: left;">Returns the color of the route that the vehicle is running on when arrived.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ArrivalResponse.getCircularState(): Route.CircularState</code></td>
+<td style="text-align: left;">Returns the <a href="#routecircularstate">circular state</a> of the route that the vehicle is running on.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ArrivalResponse.getPlatformId(): long</code></td>
+<td style="text-align: left;">Returns the id of the platform that the vehicle will approach at.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ArrivalResponse.getPlatformName(): String</code></td>
+<td style="text-align: left;">Returns the name of the platform that the vehicle will approach at.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ArrivalResponse.getCarCount(): int</code></td>
+<td style="text-align: left;">Returns the number of cars the vehicle has.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ArrivalResponse.iterateCarDetails(consumer: Consumer&lt;CarDetails&gt;): void</code></td>
+<td style="text-align: left;">Allow passing a callback to loop through the <a href="#cardetails">CarDetails</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="cardetails">CarDetails<a class="headerlink" href="#cardetails" title="Anchor link to this section for reference">#</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>CarDetails.getVehicleId(): String</code></td>
+<td style="text-align: left;">Returns the id of the vehicle car (As defined in Resource Packs)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>CarDetails.getOccupancy(): double</code></td>
+<td style="text-align: left;">Dummy value, always returns 0.<br><strong>Removed in <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>.1, do not use.</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="angle">Angle<a class="headerlink" href="#angle" title="Anchor link to this section for reference">#</a></h3>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/tool/Angle.java">Class Reference</a></li>
+</ul>
+</div>
+<p>A class containing the 16 compass direction, at 22.5 degree increment each.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>static Angle.E</code></td>
+<td style="text-align: left;">East (0)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Angle.SEE</code></td>
+<td style="text-align: left;">South-east-east (22.5)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Angle.SE</code></td>
+<td style="text-align: left;">South-east (45)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Angle.SSE</code></td>
+<td style="text-align: left;">South-east (67.5)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Angle.S</code></td>
+<td style="text-align: left;">South (90)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Angle.SSW</code></td>
+<td style="text-align: left;">South-south-west (112.5)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Angle.SW</code></td>
+<td style="text-align: left;">South-west (135)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Angle.SW</code></td>
+<td style="text-align: left;">South-west-west (157.5)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Angle.W</code></td>
+<td style="text-align: left;">West (180)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Angle.NWW</code></td>
+<td style="text-align: left;">North-west-west (202.5)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Angle.NW</code></td>
+<td style="text-align: left;">North-west (225)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Angle.NNW</code></td>
+<td style="text-align: left;">North-north-west (247.5)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Angle.N</code></td>
+<td style="text-align: left;">North (270)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Angle.NNE</code></td>
+<td style="text-align: left;">North-north-east (292.5)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Angle.NE</code></td>
+<td style="text-align: left;">North-east (315)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Angle.NEE</code></td>
+<td style="text-align: left;">North-east-east (337.5)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Angle.angleDegrees</code></td>
+<td style="text-align: left;">The bearing in degrees, normalised to the half-open range -180 to 180.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Angle.angleRadians</code></td>
+<td style="text-align: left;"><code>angleDegrees</code> in radian.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="vector">Vector<a class="headerlink" href="#vector" title="Anchor link to this section for reference">#</a></h3>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/tool/Vector.java">Class Reference</a></li>
+</ul>
+</div>
+<p>A three-dimensional vector, that is, the coordinates (x, y, z).</p>
+<p>One may convert this to a <a href=".././math/#vector3f">Vector3f</a> by passing this to the Vector3f constructor.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Vector.x(): double</code></td>
+<td style="text-align: left;">Return the x-axis component of the vector.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Vector.y(): double</code></td>
+<td style="text-align: left;">Return the y-axis component of the vector.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Vector.z(): double</code></td>
+<td style="text-align: left;">Return the z-axis component of the vector.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Vector.multiply(x: double, y: double, z: double): Vector</code></td>
+<td style="text-align: left;">Multiply the vector, and return a new multiplied Vector.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Vector.multiply(vec: Vector): Vector</code></td>
+<td style="text-align: left;">Multiply the vector, and return a new multiplied Vector.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Vector.rotateX(angle: double): Vector</code></td>
+<td style="text-align: left;">Rotate the vector in the x-axis by angle. Returns a new rotated Vector.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Vector.rotateY(angle: double): Vector</code></td>
+<td style="text-align: left;">Rotate the vector in the y-axis by angle. Returns a new rotated Vector.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Vector.rotateZ(angle: double): Vector</code></td>
+<td style="text-align: left;">Rotate the vector in the z-axis by angle. Returns a new rotated Vector.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Vector.distanceTo(vec: Vector): double</code></td>
+<td style="text-align: left;">Returns the distance in meter in comparison to <code>vec</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Vector.normalize(): Vector</code></td>
+<td style="text-align: left;">Normalize the vector. Returns a new normalized Vector.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Vector.getAverage(vec1: Vector, vec2: Vector): Vector</code></td>
+<td style="text-align: left;">Returns a new Vector representing the average position between vec1 and vec2.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="position">Position<a class="headerlink" href="#position" title="Anchor link to this section for reference">#</a></h3>
+<div class="admonition info inline end">
+<p class="admonition-title">References</p>
+<ul>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/Position.java">Class Reference</a></li>
+<li><a href="https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/position.json">Schema Reference</a></li>
+</ul>
+</div>
+<p>Represents a block position (x, y, z).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>new Position(x: long, y: long, z: long): Position</code></td>
+<td style="text-align: left;">Constructor, create a Position from the specified x y z coordinates.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>new Position(railPosition: Vector): Position</code></td>
+<td style="text-align: left;">Constructor, converting a <a href="#vector">Vector</a> to a <a href="#position">Position</a> by rounding down.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Position.getX(): long</code></td>
+<td style="text-align: left;">Return the x position.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Position.getY(): long</code></td>
+<td style="text-align: left;">Return the y position.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Position.getZ(): long</code></td>
+<td style="text-align: left;">Return the z position.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Position.offset(offsetX: long, offsetY: long, offsetZ: long): Position</code></td>
+<td style="text-align: left;">Returns a copy of the position, with the specified offset being added.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Position.offset(pos: Position): Position</code></td>
+<td style="text-align: left;">Returns a copy of the position, with the xyz of the <code>pos</code> being added.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Position.manhattanDistance(pos: Position): long</code></td>
+<td style="text-align: left;">Returns the manhattan distance of the current position and <code>pos</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Position.getMin(pos1: Position?, pos2: Position?): Position</code></td>
+<td style="text-align: left;">Returns a new Position, with the minimum value for each individual axis (x y z), given 2 position value.<br>If <code>pos1</code> is null, it will return <code>pos2</code>.<br>If <code>pos2</code> is null, it will return <code>pos1</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Position.getMax(pos1: Position?, pos2: Position?): Position</code></td>
+<td style="text-align: left;">Returns a new Position, with the maximum value for each individual axis (x y z), given 2 position value.<br>If <code>pos1</code> is null, it will return <code>pos2</code>.<br>If <code>pos2</code> is null, it will return <code>pos1</code>.</td>
+</tr>
+</tbody>
+</table>
+<!-- *[JCM]: Joban Client Mod -->
+<!-- *[PIDS]: Passenger Information Display System -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <!-- Original Material theme copyright start -->
+<div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Built with ♥️ by Amber
+    </div>
+  
+  
+    Powered by
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+<!-- Original Material theme copyright end -->
+
+<style>
+    .promo-msg {
+        opacity: 0.5;
+        margin-left:-5rem;
+        font-size: 0.7rem
+    }
+    @media only screen and (max-width: 720px) {
+        .promo-msg {
+            margin-left: 0.7rem;
+        }
+    }
+</style>
+
+
+<div class="promo-msg">
+  <p>Brought to you by <a href="https://joban.org">The District of Joban</a></p>
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://joban.org/dc" target="_blank" rel="noopener" title="Join The District of Joban&#x27;s Discord Server" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1.1s-.6.4-.8.8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2C162.5 39 122.2 51.5 84.1 69c-.3.1-.6.4-.8.7C7.1 183.5-13.8 294.6-3.6 404.2c0 .3.1.5.2.8s.3.4.5.6c44.4 32.9 94 58 146.8 74.2.4.1.8.1 1.1 0s.7-.4.9-.7c11.3-15.4 21.4-31.8 30-48.8.1-.2.2-.5.2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6.2-.9.3-.5.6-.7c3.1-2.3 6.2-4.7 9.1-7.1.3-.2.6-.4.9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1.7-.2 1-.2s.7.2.9.4c2.9 2.4 6 4.9 9.1 7.2.2.2.4.4.6.7s.2.6.2.9-.1.6-.3.9-.4.5-.6.6c-14.7 8.6-30 15.9-45.9 21.8-.2.1-.5.2-.7.4s-.3.4-.4.7-.1.5-.1.8.1.5.2.8c8.8 17 18.8 33.3 30 48.8.2.3.6.6.9.7s.8.1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2.2-.2.4-.4.5-.6s.2-.5.2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2m195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.2 59.2-52.8 59.2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/DistrictOfJoban" target="_blank" rel="noopener" title="The District of Joban GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../..","features":["navigation.path","navigation.top","navigation.tabs","navigation.indexes","content.code.select","content.code.copy","content.code.annotate","content.tooltips"],"redirect":null,"search":"../../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"alias":true,"provider":"mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.67a597eb.min.js"></script>
+      
+    
+  </body>
+</html>

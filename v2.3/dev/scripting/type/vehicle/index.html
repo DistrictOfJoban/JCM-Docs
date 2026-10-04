@@ -1,0 +1,6882 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://jcm.joban.org/v2.3/dev/scripting/type/vehicle/">
+      
+      
+        <link rel="prev" href="../../">
+      
+      
+        <link rel="next" href="../eyecandy/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.png">
+      <meta name="generator" content="zensical-0.0.67">
+    
+    
+      
+        <title>Vehicle Scripting - Joban Client Mod</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../../assets/stylesheets/classic/main.cfc7948b.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/classic/palette.bf1c5cd6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/custom-color.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/custom-layout.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vehicle-scripting" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  This version of JCM is not the latest stable release.
+  <a href="../../../../.."> 
+    <strong>Click here to go to latest stable release.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../../../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Joban Client Mod" class="md-header__button md-logo" aria-label="Joban Client Mod" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="Joban Client Mod">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Joban Client Mod
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Vehicle Scripting
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.598 1.591a.75.75 0 0 1 .785-.175 7.001 7.001 0 1 1-8.967 8.967.75.75 0 0 1 .961-.96 5.5 5.5 0 0 0 7.046-7.046.75.75 0 0 1 .175-.786m1.616 1.945a7 7 0 0 1-7.678 7.678 5.499 5.499 0 1 0 7.678-7.678"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8m0-1.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5m5.657-8.157a.75.75 0 0 1 0 1.061l-1.061 1.06a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.06-1.06a.75.75 0 0 1 1.06 0Zm-9.193 9.193a.75.75 0 0 1 0 1.06l-1.06 1.061a.75.75 0 1 1-1.061-1.06l1.06-1.061a.75.75 0 0 1 1.061 0M8 0a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 8 0M3 8a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h1.5A.75.75 0 0 1 3 8m13 0a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5A.75.75 0 0 1 16 8m-8 5a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 8 13m3.536-1.464a.75.75 0 0 1 1.06 0l1.061 1.06a.75.75 0 0 1-1.06 1.061l-1.061-1.06a.75.75 0 0 1 0-1.061M2.343 2.343a.75.75 0 0 1 1.061 0l1.06 1.061a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.06-1.06a.75.75 0 0 1 0-1.06Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/DistrictOfJoban/Joban-Client-Mod" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Joban-Client-Mod
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+  
+  
+  
+  
+    
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../players/" class="md-tabs__link">
+          
+  
+  For Players
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+      
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  For Content Authors
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../contributing/introduction/" class="md-tabs__link">
+          
+  
+  Contributing
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Joban Client Mod" class="md-nav__button md-logo" aria-label="Joban Client Mod" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="Joban Client Mod">
+
+    </a>
+    Joban Client Mod
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/DistrictOfJoban/Joban-Client-Mod" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Joban-Client-Mod
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Home
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  For Players
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  For Players
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../players/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introduction
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_1">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Introduction
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/download/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Download & Install
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/jcmv2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  JCM v2 Changes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Features
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Features
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../players/blocks/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Decoration Blocks
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_2_1">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Decoration Blocks
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/auto_iron_door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Automatic Iron Door
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/buffer_stop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Buffer Stop
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/butterfly_light/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Butterfly Light
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/ceiling_45/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Ceiling (45°)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/circle_walls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Circle Walls
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/departure_pole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Departure Pole
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/departure_timer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Departure Timer
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/drl_apgs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Disneyland Resorts Line APG
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/tcl_emg_stop_button/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Emergency stop button (TCL)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/tml_emg_stop_button/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Emergency stop button (TML)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/sil_emg_stop_button/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Emergency stop button (SIL)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/mtr_enquiry_machine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Enquiry Machine
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/rv_enquiry_machine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Railway Vision Enquiry Machine
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/mtr_enquiry_machine_wall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Enquiry Machine (Wall-mounted)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/kcr_enquiry_machine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  KCR Enquiry Machine (Wall-mounted)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/exit_signs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Exit Signs
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/fare_saver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fare Saver
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/fire_alarm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fire Alarm
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/helpline_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Help Line (With Sticker)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/helpline_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Help Line
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/helpline_hkwk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Help Line (West Kowloon Station Type)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/helpline_standing_eal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Help Line (East Rail Line Type)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/helpline_standing_tkl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Help Line (Tseung Kwan O Line Type)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/helpline_standing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Help Line (Standing)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/lrt_inter_car_barriers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  LRT Inter-Car Barriers
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/kcr_station_name_signs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  KCR Station Name Signs
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/kcr_emg_stop_sign/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  KCR Emergency Stop Sign
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/light_lantern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Light Lantern
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/spot_lamp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Spot Lamp
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/light_source_block/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Light Source Block
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/mtr_stairs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  MTR Stairs
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/operator_button/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Operator Button
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/pids_1a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  PIDS 1A
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/lcd_pids/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Old Tsueng Kwan O PIDS
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/rv_pids/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Railway Vision PIDS
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/rv_pids_sil_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Railway Vision PIDS (SIL, Ocean Park/Wong Chuk Hang Station Variant)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/rv_pids_sil_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Railway Vision PIDS (SIL, Admiralty/South Horizons Station Variant)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/rv_pids_pole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Railway Vision PIDS Pole
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/pids_projector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  PIDS Projector
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/station_ceilings_wrl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Station Ceilings (2009)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/station_ceiling_wrl_poles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Station Ceiling Poles
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/station_name_standing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Standing Station Name Sign
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/static_signal_lights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Static Signal Lights
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/inverted_signal_lights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Inverted Signal Lights
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/sound_looper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Sound Looper
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/subsidy_machine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Subsidy Machine
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/train_model_e44/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  E44 Train Model
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/thales_ticket_barriers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Thales Ticket Barriers
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/mtr_trespass_sign/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Trespass Signage
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/kcr_trespass_sign/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Trespass Signage (KCR)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/lrt_trespass_sign/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  LRT Trespass Signage
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/blocks/water_machine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Water Machine
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/features/mtr-patch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  MTR Enhancements
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/features/jcm-pids/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  JCM PIDS
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/features/tunnel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Tunnel Walls
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/features/mod-integrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Mod Integrations
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../players/versions/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1 Version Archive
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  v1 Version Archive
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.2.2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.2.2
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.2.1-hotfix-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.2.1-hotfix-1
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.2.1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.2.1
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.2.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.2.0
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.1.9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.9
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.1.8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.8
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.1.7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.7
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.1.6-hotfix-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.6-hotfix-1
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.1.6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.6
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.1.5-hotfix-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.5-hotfix-1
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.1.5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.5
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.1.4-hotfix-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.4-hotfix-1
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.1.4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.4
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.1.3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.3
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.1.2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.2
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.1.1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.1
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.1.0a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.0a
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.1.0
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.0.9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.0.9
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.0.8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.0.8
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.0.7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.0.7
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.0.6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.0.6
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.0.5a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.0.5a
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.0.5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.0.5
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.0.4a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.0.4a
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.0.4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.0.4
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.0.3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.0.3
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.0.2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.0.2
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.0.1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.0.1
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../players/versions/v1.0.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v1.0.0
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  For Content Authors
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  For Content Authors
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Scripting
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_3_1">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Scripting
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_2" id="__nav_3_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Script Types
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_2_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_3_1_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Script Types
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2_1" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="././" class="md-nav__link md-nav__link--active">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Vehicle Scripting
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../eyecandy/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Eyecandy Scripting
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1_2_2" id="__nav_3_1_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_2_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_2_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Eyecandy Scripting
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eyecandy/example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Example
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../pids/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  JCM PIDS Scripting
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1_2_3" id="__nav_3_1_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_2_3_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_2_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  JCM PIDS Scripting
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pids/tut/pids_tut/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Scripted PIDS Preset Tutorial
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_3" id="__nav_3_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Common APIs
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_3_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Common APIs
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../console/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Console Logging
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Math (Geometry)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Resource Loading
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Model Loading
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rendering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Model Rendering
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dynamic_textures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Graphics Drawing
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sounds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Sound Playing
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mtrwrapper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  MTR Access API
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_3_9" id="__nav_3_1_3_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Utilities
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_3_9_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_3_9">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Utilities
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utils/version/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Version Querying
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utils/textutil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  TextUtil
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utils/timing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Timing
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utils/ratelimit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  RateLimit
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utils/statetracker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  StateTracker
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utils/cycletracker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  CycleTracker
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utils/datareader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  DataReader
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_3_10" id="__nav_3_1_3_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Advanced APIs
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_3_10_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_3_10">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Advanced APIs
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Minecraft APIs
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  File APIs
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Networking API
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bgworker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Background Worker API
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_3_11" id="__nav_3_1_3_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  MTR Native APIs
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_3_11_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_3_11">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  MTR Native APIs
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mtrclientdata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  MTRClientData
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tsc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Transport Simulation Core Related
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4" id="__nav_3_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Built-in JS Script
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Built-in JS Script
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../builtin/display_helper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Display Helper
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_5" id="__nav_3_1_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Articles
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Articles
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/script_guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Scripting Guidelines
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/nte_migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Migration from NTE
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/mtr34scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Dual-versioned Scripts (MTR 3 & MTR 4)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/scripting_restrictions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Scripting Restrictions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/tips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Tips & Notes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_6" id="__nav_3_1_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Features
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Features
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/threaded_execution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Multithreaded Runtime Execution
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/script_include/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Including other scripts
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/vehicle_display_cube/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Replacing MTR Display Cube
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/script_crossreferencing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Vehicle Script Cross-referencing
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_7" id="__nav_3_1_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Development Aids
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Development Aids
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aids/script_quick_reload/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Quick Reload
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aids/script_debug_overlay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Script Debug Overlay
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aids/ide_aids/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  VSCode Intellisense
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../pids/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  PIDS Preset
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  PIDS Preset
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pids/json_preset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  JSON PIDS Preset
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pids/scripted/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Scripted PIDS Preset
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Contributing
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Contributing
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contributing/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introduction
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contributing/translation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Translation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contributing/documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Documentation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../contributing/project/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Making changes
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Making changes
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contributing/project/project_structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Project Structure
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contributing/project/code_guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Code Guidelines
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contributing/project/multiversion_development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introduction to Multiversion
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Concept
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concept">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-question-what-should-a-vehicle-script-be-bound-to" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        The question: What should a vehicle script be bound to?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-obtaining-fetching" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.65 6.35A7.96 7.96 0 0 0 12 4a8 8 0 0 0-8 8 8 8 0 0 0 8 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18a6 6 0 0 1-6-6 6 6 0 0 1 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4z"/></svg></span> Data Obtaining &amp; Fetching
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Implementation
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#script-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Script Registration
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#called-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Called Functions
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementing-data-fetching" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Implementing Data Fetching
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        API Reference
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../../.." class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    For Content Authors
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Scripting
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="././" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Script Types
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="././" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Vehicle Scripting
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="vehicle-scripting">Vehicle Scripting<a class="headerlink" href="#vehicle-scripting" title="Anchor link to this section for reference">#</a></h1>
+<p>Vehicle Scripting allows you to use <a href="../../">JavaScript</a> to control vehicle rendering and playing sounds (Such as playing on-board announcements).</p>
+<h2 id="concept">Concept<a class="headerlink" href="#concept" title="Anchor link to this section for reference">#</a></h2>
+<p>In <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>, Resource Pack is able to define a custom vehicle (In the context of railway &amp; trains, it is the equivalent of a single <strong>carriage</strong>). These vehicles/carriages can be freely arranged in-game via the Siding options, which would make up a <strong>Vehicle Consists</strong>.</p>
+<p>(For <abbr title="Minecraft Transit Railway 3.x">MTR 3</abbr> resource packs, a train entry is broken up into Forward Cab, Trailer, Backward Cab and Double Cab variant.)</p>
+<h3 id="the-question-what-should-a-vehicle-script-be-bound-to">The question: What should a vehicle script be bound to?<a class="headerlink" href="#the-question-what-should-a-vehicle-script-be-bound-to" title="Anchor link to this section for reference">#</a></h3>
+<p>Per-carriage, per-consist? Or how about just a <strong>Script Entry</strong>:</p>
+<p><img alt="Illustration of the Script Entry concept" src="./img/script_entry.png" /></p>
+<p>A <strong>Script Entry</strong> is a separate object that exists just like vehicle, and vehicle entries in resource packs can reference a Script Entry by it's id. (In which, a Script Entry can be re-used by multiple vehicles.)</p>
+<p>This effectively allows mixed carriage operation, while minimizing the number of script instances (Which could hinder performance), as well as providing backward compatibility with <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> scripts, which previously expected a script to be tied to an entire train consist.</p>
+<h3 id="data-obtaining-fetching"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.65 6.35A7.96 7.96 0 0 0 12 4a8 8 0 0 0-8 8 8 8 0 0 0 8 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18a6 6 0 0 1-6-6 6 6 0 0 1 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4z"/></svg></span> Data Obtaining &amp; Fetching<a class="headerlink" href="#data-obtaining-fetching" title="Anchor link to this section for reference">#</a></h3>
+<p><strong>Under <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr></strong>, only nearby stations/routes are sent to the client in order to conserve data usage. This means that if, let's say you join in the middle between 2 stations (And you are nowhere close to either of them), the client would not be aware of any existence of routes nor stations.<br />
+<sub><em>Side note: This is also part of the reason why the route filter in sensor blocks may not show any routes.</em></sub></p>
+<p>This presents a problem for script developers:<br />
+To compose something moderately complex such as an on-board LCD route map, they need the route and station reference, as well as the full list of stops the vehicle is going to make. This "nearby-data fetching" concept would pose marginal limitations to these scripts.</p>
+<p>To solve this, JCM introduced it's own data fetching mechanism that is separate from MTR.<br />
+Under this mechanism, scripts can:</p>
+<ol>
+<li>Request for all the stops the vehicle is going to make (Stopping point distance, and all the station/route ids).</li>
+<li>After that, request the Station/Route object that appears in the stops data (Based on the ID) from the server.</li>
+<li>Finally, scripts can enjoy a full reference to the stops, routes &amp; stations the vehicle is running.</li>
+</ol>
+<p>Note that this is not a perfect solution for complex scripts which may need a full copy of the Station/Route reference, but it does solve the common "lack of data" issue for most scripts.</p>
+<p>JCM divides the data fetching into 3 different mode, which are described more in detail in the <strong>Implementation</strong> section.</p>
+<h2 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Anchor link to this section for reference">#</a></h2>
+<h3 id="script-registration">Script Registration<a class="headerlink" href="#script-registration" title="Anchor link to this section for reference">#</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="mtr-4-custom-resources" name="__tabbed_1" type="radio" /><input id="mtr-3--nte-format" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="mtr-4-custom-resources"><abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr> Custom Resources</label><label for="mtr-3--nte-format"><abbr title="Minecraft Transit Railway 3.x">MTR 3</abbr> / <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> Format</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>You can define your script entry in the <code>vehicleScripts</code> array, and reference it with <code>scriptId</code> within your vehicle object:</p>
+<div class="language-json highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">mtr_custom_resources.json</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="nt">"vehicles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cst_sp1900_cab_1"</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Modified SP1900 (Cab, Forward)"</span><span class="p">,</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">            </span><span class="c1">// ...</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="hll"><span class="w">            </span><span class="nt">"scriptId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cst_sp1900_lcd"</span>
+</span></span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="p">],</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="hll"><span class="w">    </span><span class="nt">"vehicleScripts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span></span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="hll"><span class="w">        </span><span class="p">{</span>
+</span></span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="hll"><span class="w">            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cst_sp1900_lcd"</span><span class="p">,</span>
+</span></span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="hll"><span class="w">            </span><span class="nt">"prependExpressions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"print('Hello world')"</span><span class="p">],</span>
+</span></span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="hll"><span class="w">            </span><span class="nt">"scriptLocations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"mtr:my_pack/js/sp1900_lcd/main.js"</span><span class="p">],</span>
+</span></span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="hll"><span class="w">            </span><span class="nt">"input"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span></span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="hll"><span class="w">                </span><span class="nt">"yearEra"</span><span class="p">:</span><span class="w"> </span><span class="mi">2004</span>
+</span></span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="hll"><span class="w">            </span><span class="p">},</span>
+</span></span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="hll"><span class="w">            </span><span class="nt">"dataFetchMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span>
+</span></span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="hll"><span class="w">        </span><span class="p">}</span>
+</span></span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="hll"><span class="w">    </span><span class="p">]</span>
+</span></span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Field description within the script entry (entries within <code>vehicleScripts</code>) block are listed as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Field name</th>
+<th>Description</th>
+<th>Equivalence in <abbr title="Minecraft Transit Railway 3.x">MTR 3</abbr>/<abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>scriptLocations</td>
+<td>An array containing the locations of .js scripts, multiple scripts can be specified.</td>
+<td>scriptFiles</td>
+</tr>
+<tr>
+<td>prependExpressions</td>
+<td>Allows you to directly write <abbr title="JavaScript">JS</abbr> inside, which will be executed before the scripts in <strong>scriptLocations</strong></td>
+<td>scriptTexts</td>
+</tr>
+<tr>
+<td>input</td>
+<td>Allows you to specify arbitary JSON object. which is then made accessible to the <strong>.js</strong> scripts via the variable <code>SCRIPT_INPUT</code></td>
+<td>scriptInput</td>
+</tr>
+<tr>
+<td>dataFetchMode</td>
+<td>Specify the data fetch mode, see <a href="#implementing-data-fetching">Implementing Data Fetching</a> section for details.</td>
+<td>scriptInput</td>
+</tr>
+</tbody>
+</table>
+<p>All fields are optional and could be omitted. However in order for script to load, either the <code>scriptLocation</code> or <code>prependExpressions</code> should be filled.</p>
+</div>
+<div class="tabbed-block">
+<p>The registration is same as <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr>.</p>
+<div class="language-json highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">mtr_custom_resources.json</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="nt">"custom_trains"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">        </span><span class="nt">"cst_sp1900"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Modified SP1900"</span><span class="p">,</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">            </span><span class="c1">// ...</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="hll"><span class="w">            </span><span class="nt">"script_texts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"print('Hello World!')"</span><span class="p">],</span>
+</span></span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="hll"><span class="w">            </span><span class="nt">"script_files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"mtr:my_pack/js/sp1900_lcd/main.js"</span><span class="p">],</span>
+</span></span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="hll"><span class="w">            </span><span class="nt">"script_input"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span></span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="hll"><span class="w">                </span><span class="nt">"yearEra"</span><span class="p">:</span><span class="w"> </span><span class="mi">2004</span>
+</span></span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="hll"><span class="w">            </span><span class="p">}</span>
+</span></span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">    </span><span class="nt">"custom_signs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">        </span><span class="c1">// ...</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li><code>script_files</code> is an array containing the locations of .js scripts. Multiple scripts can be specified.</li>
+<li><code>script_texts</code> allows you to directly write <abbr title="JavaScript">JS</abbr> inside, and are executed before the scripts in <strong>script_files</strong>.</li>
+<li><code>script_input</code> allows you to specify arbitary JSON object. This is then made accessible to the <strong>.js</strong> scripts via the variable <code>SCRIPT_INPUT</code>.</li>
+</ul>
+<p>All script fields are optional and could be omitted. However in order for script to load, either the <code>script_files</code> or <code>script_texts</code> should be filled.</p>
+</div>
+</div>
+</div>
+<h3 id="called-functions">Called Functions<a class="headerlink" href="#called-functions" title="Anchor link to this section for reference">#</a></h3>
+<p>Your script can include the following functions that JCM will call as needed:
+<div class="language-js highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">create</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">vehicle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">render</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">vehicle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kd">function</span><span class="w"> </span><span class="nx">dispose</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">vehicle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>create</code></td>
+<td style="text-align: left;">It is called when a Decoration Object block is rendered for the first time and can be used to perform some initialization operations, for example, to create dynamic textures. (via the <a href="../../dynamic_textures/">Graphics API</a>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>render</code></td>
+<td style="text-align: left;">This function is called at-most once per frame. It is used to render contents. In practice however, the code is executed in a separate thread so as not to slow down FPS. If it takes too long to execute the code, it may be called once every few frames instead of every frame.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dispose</code></td>
+<td style="text-align: left;">Called when the vehicle goes out of sight. Can be used for things like releasing the dynamic textures to free up memory.</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: Any of the above functions are optional and may be omitted if you don't find it useful for your script.</em></p>
+<p>The parameters (<code>ctx, state, vehicle</code>) are described below:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">First (<code>ctx</code>)</td>
+<td style="text-align: left;">Used to pass rendering actions to JCM. Type — <a href="#vehiclescriptcontext">VehicleScriptContext</a>.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Second (<code>state</code>)</td>
+<td style="text-align: left;">A JavaScript object associated with a vehicle.<br>The initial value is {}, and its content can be set arbitrarily to store what should be different for each block.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Third (<code>vehicle</code>)</td>
+<td style="text-align: left;">This returns the vehicle object representing the current vehicle consist. Type — <a href="#vehiclewrapper">VehicleWrapper</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="implementing-data-fetching">Implementing Data Fetching<a class="headerlink" href="#implementing-data-fetching" title="Anchor link to this section for reference">#</a></h3>
+<p>For the most part, JCM tries to handle data obtaining / fetching as transparently as possible.<br />
+For developers, you only need to know the following 3 different data fetching mode that are employed:</p>
+<ul>
+<li><strong>SKIP</strong> - Default for <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr> scripts, it skips the data fetching process. Stops data are compiled locally in a best-effort attempt, but there's no guarentee any data would be complete or exists. Suitable for simple scripts that does not require stops reference. (e.g. Sounding a chime when the vehicle starts moving, you only need to compare the vehicle's speed.)</li>
+<li><strong>ALL</strong> - This requests JCM to a) fetch the stops data, and b) fetch the MTR data (Station/Route etc.) based on the stops data. Before the stops data is retrieved (which takes time over the network), it performs identically to <strong>SKIP</strong>.<br>Note that even after the stop data is retrieved, <code>Stop.station</code> and <code>Stop.route</code> may still return null, since the MTR data may not be fetched yet. You should add appropriate null checks to avoid error.</li>
+<li><strong>MANDATORY</strong> - Under this mode, stops data are requested just like <strong>ALL</strong>. However JCM will not execute the script until both the stop data and MTR data are retrieved.<br>This is the default for scripts in the <abbr title="Minecraft Transit Railway 3.x">MTR 3</abbr> registration format, since these scripts previously expects data to be immediately available and therefore may not tolerate any null value.</li>
+</ul>
+<p>Note that it is not possible for scripts registered in the <abbr title="Minecraft Transit Railway 3.x">MTR 3</abbr> format to configure this, since it defaults to the <strong>MANDATORY</strong> mode, and thus the <code>create()</code> function is not executed before the data fetching has already been done.</p>
+<h3 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Anchor link to this section for reference">#</a></h3>
+<h4 id="vehiclescriptcontext">VehicleScriptContext<a class="headerlink" href="#vehiclescriptcontext" title="Anchor link to this section for reference">#</a></h4>
+<p>This is the <code>ctx</code> parameter passed to the create/render/dispose functions.</p>
+<p>Script may invoke one of the following methods to check the script's status (Such as which car index it is associated with), control rendering and sounds, change the data fetch mode, set debug info overlay.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>VehicleScriptContext.getCarRenderManager(carIndex: int): RenderManager?</code></td>
+<td style="text-align: left;">Obtain a <a href="../../rendering/#rendermanager">RenderManager</a> for rendering onto the Minecraft World.<br>Base transformation is set to the center of the car <code>carIndex</code>, with the Y-position being set to <strong>1m</strong> above the bottom of the vehicle.<br>Returns null if the <code>carIndex</code> is not associated with the current script entry.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleScriptContext.getCarBogieRenderManager(carIndex: int, bogieIndex: int): RenderManager?</code></td>
+<td style="text-align: left;">Obtain a <a href="../../rendering/#rendermanager">RenderManager</a> for rendering onto the Minecraft World.<br>Transformation is relative to the bogie <code>bogieIndex</code> for car <code>carIndex</code>.<br><code>bogieIndex</code> is either <strong>0</strong> or <strong>1</strong> for the forward and backward bogie. (<strong>0</strong> if the car only contains a single bogie)<br>Returns null if the <code>carIndex</code> is not associated with the current script entry, or there's no bogie for <code>bogieIndex</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleScriptContext.getCarSoundManager(carIndex: int): SoundManager?</code></td>
+<td style="text-align: left;">Obtain a <a href="../../sounds/">SoundManager</a> instance, which can be used to play sound onto the Minecraft World.<br>The base position are set to the center position of the car <code>carIndex</code>.<br>Returns null if the <code>carIndex</code> is not associated with the current script entry.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleScriptContext.playAnnSound(sound: Identifier, volume: float, pitch: float): void</code></td>
+<td style="text-align: left;">Requests a sound specified by the <a href="../../resources/#identifier-aka-resourcelocation">Identifier</a> to be played in the game. (Non-positional, <strong>only if player is boarded</strong>.)<br>This is useful for playing on-board announcements.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleScriptContext.getScriptEntryId(): String</code></td>
+<td style="text-align: left;">Obtain the script entry id.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleScriptContext.getMyCars(): int[]</code></td>
+<td style="text-align: left;">Obtain an array of car indexes which is associated with this script entry.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleScriptContext.setDebugInfo(key: String, value: object): void</code></td>
+<td style="text-align: left;">Output debugging information in the upper left corner of the screen. You need to enable <strong><a href="../../aids/script_debug_overlay/">Script Debug Overlay</a></strong> in JCM Settings to display it.<br><code>key</code> is the name of the value<br><code>value</code> is the content (<code>value</code> will be converted to string for display, except for GraphicsTexture which will display the entire texture image on the screen).</td>
+</tr>
+</tbody>
+</table>
+<details class="info">
+<summary>Show deprecated fields/functions</summary>
+<p>These are the functions implemented in JCM for backward compatibility with scripts made for MTR-<abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr>.<br />
+Newer scripts should not utilize these functions anymore.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>VehicleScriptContext.setDataFetchMode(mode: String): void</code></td>
+<td style="text-align: left;">Set the <a href="#implementing-data-fetching">Data Fetch Mode</a> for the current script entry.<br>Deprecated, specify the <code>dataFetchMode</code> field in the vehicle registration entry (mtr_custom_resources.json) instead.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleScriptContext.drawCarModel(model: Model, carIndex: int, matrices: Matrices?): void</code></td>
+<td style="text-align: left;">Requests a <a href="../../model/#model-aka-modelcluster">Model</a> loaded via <a href="../../model/#modelmanager">ModelManager</a> to be drawn.<br><code>carIndex</code> is the car number which the model should be rendered in. If the script does not belong to the car in <code>carIndex</code>, this function will do nothing.<br><code>matrices</code> is the transformation of model placement. If null, the model will be placed in the center of the car without transformation.<br>Replaced by <a href="../../rendering/#rendermanager">RenderManager</a>'s <code>drawModel()</code> via <code>getCarRenderManager()</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleScriptContext.playCarSound(sound: Identifier, carIndex: int, x: float, y: float, z: float, volume: float, pitch: float): void</code></td>
+<td style="text-align: left;">Requests a sound specified by the <a href="../../resources/#identifier-aka-resourcelocation">Identifier</a> to be played in the world.<br><code>carIndex</code> is the car number which the sound should play in. If the script does not belong to the car in <code>carIndex</code>, this function will do nothing.<br><code>x</code>, <code>y</code> and <code>z</code> is the offset of the sound position, relative to the car's center.<br><code>volume</code> and <code>pitch</code> represents the volume and pitch of the sound, <code>1.0</code> is the base value.<br><br>Replaced by <a href="../../sounds/#soundmanager">SoundManager</a>'s <code>playSound()</code> via <code>getCarSoundManager()</code></td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="warning">
+<summary>Show unimplemented functions</summary>
+<p>The following functions are not yet carried over from <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr>. However it is expected these functions have relatively low usage and provides limited impact for compatibility.<br />
+To prove otherwise, submit a new GitHub issue in regard to this, or talk with us in our Discord!</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>VehicleScriptContext.drawConnModel(model: Model, carIndex: int, matrices: Matrices?): void</code></td>
+<td style="text-align: left;">Requests a <a href="../../model/#model-aka-modelcluster">Model</a> loaded via <a href="../../model/#modelmanager">ModelManager</a> to be drawn as a connector between 2 cars.<br><code>carIndex</code> is the car number which the model should be rendered in. If the script does not belong to the car in <code>carIndex</code>, this function will do nothing.<br><code>matrices</code> is the transformation of model placement. If null, the model will be placed in the middle of the 2 car without transformation, and 1m of elevation.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleScriptContext.drawConnStretchTexture(texture: Identifier, carIndex: int): void</code></td>
+<td style="text-align: left;">Draw the same stretching car connection model as MTR, with a custom texture specified by <a href="../../resources/#identifier-aka-resourcelocation">Identifier</a>.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h4 id="vehiclewrapper">VehicleWrapper<a class="headerlink" href="#vehiclewrapper" title="Anchor link to this section for reference">#</a></h4>
+<p>This is a representation of MTR vehicle / trainset / train consist for use by scripts.</p>
+<div class="admonition note">
+<p class="admonition-title">VehicleWrapper vs MTR's Vehicle</p>
+<p>The <code>VehicleWrapper</code> type is a wrapper object specifically for convenient access by scripts.<br />
+MTR (TSC) also has a <a href="../../tsc/#vehicle">Vehicle</a> type, which is the underlying vehicle representation by MTR.</p>
+<p>If you want to access types like <a href="../../tsc/#vehicleextradata">VehicleExtraData</a>, you need to obtain MTR's Vehicle, which can be done with <code>VehicleWrapper.getMtrVehicle()</code>, or in the <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> fashion, <code>VehicleWrapper.mtrTrain()</code>.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getStops(): List&lt;Stop&gt;</code></td>
+<td style="text-align: left;">Get a list of <a href="#stop">Stop</a> the vehicle will make, across all routes.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getThisRouteStops(): List&lt;Stop&gt;</code></td>
+<td style="text-align: left;">Get a list of <a href="#stop">Stop</a> the vehicle will make for the current running route.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getNextRouteStops(): List&lt;Stop&gt;</code></td>
+<td style="text-align: left;">Get a list of <a href="#stop">Stop</a> the vehicle will make for the upcoming route.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getNextStopIndex(stopList: List&lt;Stop&gt;, overrunTolerance: double = 0.5): int</code></td>
+<td style="text-align: left;">Get the index of the next stop within a <code>stopList</code>. (Can be obtained above).<br><code>overrunTolerance</code> is the tolerance in meters in which the next stop will still be counted as the previous stop, even after overruning the stop mark.<br>Returns <code>stopList.size()</code> if vehicle already passed all stops in the given <code>stopList</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.isStopsDataFetched(): boolean</code></td>
+<td style="text-align: left;">Whether the stop data is fetched from the server (Instead of being compiled locally).<br>i.e. Always false if data fetch mode is set to <code>SKIP</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.isRendered(): boolean</code></td>
+<td style="text-align: left;">Returns whether any car is being rendered. (i.e. Not being culled by MTR)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.isCarRendered(cars: int...): boolean</code></td>
+<td style="text-align: left;">Returns whether any of the given car index is being rendered.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.isClientPlayerRiding(): boolean</code></td>
+<td style="text-align: left;">Returns whether the client player is riding (onboard) the current vehicle.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getMtrVehicle(): VehicleExtension</code></td>
+<td style="text-align: left;">Returns the underlying MTR VehicleExtension, which is a client representation of <a href="../../tsc/#vehicle">MTR/TSC's Vehicle</a>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getId(): long</code></td>
+<td style="text-align: left;">Returns a unique id representing this vehicle.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getSiding(): Siding?</code></td>
+<td style="text-align: left;">Returns the <a href="../../tsc/#siding">Siding</a> that this vehicle belongs to.<br>Returns null if client does not have reference to the Siding, or data fetching is in progress.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getVehicleId(carIndex: int): String?</code></td>
+<td style="text-align: left;">Returns the Vehicle Resource ID as defined in the resource pack for the given <code>carIndex</code>.<br>Null if <code>carIndex</code> is beyond the car-length of this vehicle.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getLength(carIndex: int): double</code></td>
+<td style="text-align: left;">Returns the length (in meters) of the car <code>carIndex</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getWidth(carIndex: int): double</code></td>
+<td style="text-align: left;">Returns the width (in meters) of the car <code>carIndex</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getTransportMode(): TransportMode</code></td>
+<td style="text-align: left;">Returns the <a href="../../tsc/#transportmode">TransportMode</a> of the current vehicle.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getCarCount(): int</code></td>
+<td style="text-align: left;">Returns the number of cars this vehicle has.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getServiceAcceleration(): double</code></td>
+<td style="text-align: left;">Returns the acceleration value configured in the siding, and used when the vehicle is in 100% acceleration rate.<br>Unit is <code>m/millis^2</code> (Multiply by 1000^2 for m/s^2)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getServiceDeceleration(): double</code></td>
+<td style="text-align: left;">Returns the deceleration value configured in the siding, and used when the vehicle is in 100% deceleration rate.<br>Unit is <code>m/millis^2</code> (Multiply by 1000^2 for m/s^2)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getMaxManualSpeed(): double</code></td>
+<td style="text-align: left;">Returns the maximum allowed manual speed for this vehicle.<br>Unit is <code>m/millis</code>. (Multiply by 1000 for m/s)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.isManualAllowed(): boolean</code></td>
+<td style="text-align: left;">Returns whether manual driving is enabled for this vehicle.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getDepartureIndex(): long</code></td>
+<td style="text-align: left;">Returns the departure index of the vehicle.<br>The departure index is incremented for every scheduled departure of each individual sidings.<br>It is wrapped back to <code>0</code> at 00:00 UTC (For real-time scheduling).<br>A departure index of <code>-1</code> indicates the vehicle has either not yet departed, or it is a manually departed train.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getManualToAutomaticTime(): int</code></td>
+<td style="text-align: left;">Returns the time required for the vehicle to automatically switch to automatic operation (ATO), when no one is driving.<br>Unit is in <code>millisecond</code>. (Multiply by 1000 for second)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getPathData(): List&lt;PathData&gt;</code></td>
+<td style="text-align: left;">Returns the <a href="../../tsc/#pathdata">PathData</a> for this vehicle.<br>Note: Due to <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>'s data syncing mechanism, only a portion of the full PathData will be returned, instead of the full route.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getRailProgress(carIndex: int = 0): int</code></td>
+<td style="text-align: left;">Returns the distance in meters the vehicle has travelled since departing from the siding.<br>Supplying a <code>carIndex</code> would offset the progress by the car length.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getRailIndex(railProgress: double, roundDown: boolean): int</code></td>
+<td style="text-align: left;">Returns the index of PathData given a <code>railProgress</code>.<br><code>roundDown</code> will return the previous path index if vehicle is stopped exactly on a node.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getRailSpeed(pathIndex: int): double</code></td>
+<td style="text-align: left;">Returns the speed of a section given a <code>pathIndex</code> (via <code>getRailIndex</code>).<br>Unit is in <code>km/h</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getNotchLevel(): int</code></td>
+<td style="text-align: left;">Returns the manual driving notch for the current vehicle.<br>Positive number indicates acceleration, negative number indicates deceleration.<br>In <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>, the range is between <strong>-5</strong> and <strong>5</strong> for normal operation.<br>Values up to <strong>-7</strong> and <strong>7</strong> is possible, representing 140% of the service acceleration/deceleration.<br>Values up to <strong>-8</strong> is possible, representing emergency brake (EM).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getNotchPosition(): double</code></td>
+<td style="text-align: left;">Returns the manual driving notch in the form of a relative percentage, irrespective of the number of notch available.<br>Positive number indicates acceleration, negative number indicates deceleration.<br>Normal operation would return between <strong>-1</strong> and <strong>1</strong>.<br>Values higher than 1 is possible as <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr> allows up to 140% of acceleration/deceleration rate, as well as emergency brake.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getSpeedMs(): double</code></td>
+<td style="text-align: left;">Returns the current vehicle speed in m/s.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getSpeedKmh(): double</code></td>
+<td style="text-align: left;">Returns the current vehicle speed in km/h.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getDoorValue(): double</code></td>
+<td style="text-align: left;">Returns a value between 0.0 (Closed) and 1.0 (Opened) representing the door value.<br>This does not account for the actual door opening position, which may be affected by e.g. whether nearby platform blocks are installed.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.isCurrentlyManual(): boolean</code></td>
+<td style="text-align: left;">Returns whether the vehicle is currently manually driven.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.isReversed(): boolean</code></td>
+<td style="text-align: left;">Whether the vehicle is running in reverse.<br>Changed after a turnback rail.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.isOnRoute(): boolean</code></td>
+<td style="text-align: left;">Whether the vehicle has started up and no longer idle in the siding.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getTotalDwellTime(): long</code></td>
+<td style="text-align: left;">Returns the total dwell time for the current platform.<br>Unit is in <code>millisecond</code>.<br>Returns <strong>-1</strong> if vehicle is not on a platform.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getElapsedDwellTime(): long</code></td>
+<td style="text-align: left;">Returns the elapsed dwell time synced from the server.<br>Unit is in <code>millisecond</code>.<br><strong>Note: The values are outputted as-is from the periodic syncing of the server, which is not real-time. The client does not count elapsed dwell time by itself.</strong></td>
+</tr>
+</tbody>
+</table>
+<details class="info">
+<summary>Show deprecated fields/functions</summary>
+<p>These are the functions implemented in JCM for backward compatibility with scripts made for MTR-<abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr>.<br />
+Newer scripts should not utilize these functions anymore.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getAllPlatforms(): List&lt;Stop&gt;</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getStops()</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getThisRoutePlatforms(): List&lt;Stop&gt;</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getThisRouteStops()</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getNextRoutePlatforms(): List&lt;Stop&gt;</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getNextRouteStops()</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getAllPlatformsNextIndex(): int</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getNextStopIndex(getStops(), 0)</code>.<br>(0m overrun tolerance)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.getThisRoutePlatformsNextIndex(): int</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getNextStopIndex(getThisRouteStops(), 0)</code>.<br>(0m overrun tolerance)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.id(): long</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getId()</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.siding(): Siding</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getSiding()</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.transportMode(): TransportMode</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getTransportMode()</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.trainCars(): int</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getCarCount()</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.shouldRender(): boolean</code></td>
+<td style="text-align: left;">Always returns true.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.shouldRenderDetail(): boolean</code></td>
+<td style="text-align: left;">Always returns true.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.trainTypeId(): String</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getVehicleId(0)</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.mtrTrain(): VehicleExtension</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getMtrVehicle()</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.speed(): double</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getSpeedMs() * (1/20d)</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.spacing(): double</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getLength(0)</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.width(): double</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getWidth(0)</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.accelerationConstant(): double</code></td>
+<td style="text-align: left;">Equivalent to <code>(VehicleWrapper.getServiceAcceleration() * 1000 * 1000) / (1/400d)</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.railProgress(): double</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getRailProgress()</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.path(): List&lt;PathData&gt;</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getPathData()</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.manualAllowed(): boolean</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.isManualAllowed()</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.doorValue(): double</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getDoorValue()</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VehicleWrapper.manualToAutomaticTime(): int</code></td>
+<td style="text-align: left;">Equivalent to <code>VehicleWrapper.getManualToAutomaticTime()</code>.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h4 id="stop">Stop<a class="headerlink" href="#stop" title="Anchor link to this section for reference">#</a></h4>
+<p>This represents a platform which the vehicle will stop at.<br />
+Also known as <code>RoutePlatform</code> in <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Stop.route: SimplifiedRoute?</code></td>
+<td style="text-align: left;">The <a href="../../tsc/#simplifiedroute">SimplifiedRoute</a> this stop belongs to.<br>Note: By default if multiple routes are assigned to the same stop, this will return the previous one.<br>Use <code>Stop.roundUpRoute</code> to get a copy where this variable would return the info of the next route.<br>Null if the data has not been fetched yet.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Stop.station: Station?</code></td>
+<td style="text-align: left;">The <a href="../../tsc/#station">Station</a> this stop belongs to.<br>Null if the data has not been fetched yet.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Stop.platform: Platform?</code></td>
+<td style="text-align: left;">The <a href="../../tsc/#platform">Platform</a> of this stop.<br>Null if the data has not been fetched yet.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Stop.destinationName: String</code></td>
+<td style="text-align: left;">The destination string. Either the station name of the current route's final stop, or a custom destination defined in the route.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Stop.customDestination: String?</code></td>
+<td style="text-align: left;">The raw custom destination set for the stop.<br>Any preceding custom destination set is not accounted for.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Stop.routeInterchanges: List&lt;RouteInterchange&gt;</code></td>
+<td style="text-align: left;">Interchanging routes in this stop (i.e. All routes at Station, excluding current route). In a list of <a href="#routeinterchange">RouteInterchange</a>.<br>Hidden routes are excluded from the list.<br>List would be empty if there's no interchange / data hasn't been fetched yet.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Stop.connectingInterchanges: Map&lt;String, List&lt;RouteInterchange&gt;</code></td>
+<td style="text-align: left;">A map corresponding to a list of interchanging routes, grouped by the name of all connecting stations.<br>Note: Multiple stations with the same name will be grouped together.<br>The current station is excluded, as it is already provided by <code>Stop.routeInterchanges</code>.<br>Hidden routes are excluded from the list.<br>List would be empty if there's no interchange / data hasn't been fetched yet.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Stop.dwellTimeMillis: long</code></td>
+<td style="text-align: left;">The dwell time of the stop in millisecond.<br><strong>-1</strong> if <code>Stop.platform</code> is null (Unknown).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Stop.distance: double</code></td>
+<td style="text-align: left;">The railProgress representing the docking (stopping) position of this stop.<br><strong>-1</strong> if data fetching is disabled (Unknown).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Stop.isRouteSwitchoverStop: boolean</code></td>
+<td style="text-align: left;">Whether the current stop is the last stop of one route, and the first stop of the next route. (i.e. Route Switchover)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Stop.roundUpRoute: Stop</code></td>
+<td style="text-align: left;">If <code>Stop.isRouteSwitchoverStop</code> is true, accessing this object will return a copy of this stop, with infos of the next route. (Affecting <code>Stop.route</code>, <code>Stop.destinationName</code>, <code>Stop.routeInterchanges</code> etc.).<br>Otherwise, this will return the current stop (Unchanged).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Stop.turnbackPlatform: boolean</code></td>
+<td style="text-align: left;">Returns whether the train will reverse to the other side after this stop.</td>
+</tr>
+</tbody>
+</table>
+<details class="info">
+<summary>Show deprecated fields/functions</summary>
+<p>These fields/functions are kept for backward compatibility with <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr>. You are advised to avoid using these fields/functions for newly created scripts.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Stop.dwellTime: long</code></td>
+<td style="text-align: left;">The dwell time for current stop, in unit (seconds * 2).<br>Use <code>dwellTimeMillis</code> instead.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Stop.destinationStation: Station</code></td>
+<td style="text-align: left;">The <a href="../../tsc/#station">Station</a> belonging to the last stop of the current route.<br>Use <code>VehicleWrapper.getThisRouteStops()</code> to obtain the last stop, and get the station from there instead.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Stop.reverseAtPlatform: boolean</code></td>
+<td style="text-align: left;">Equivalent to <code>Stop.isRouteSwitchoverStop</code> (Yes it's true!)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h4 id="routeinterchange">RouteInterchange<a class="headerlink" href="#routeinterchange" title="Anchor link to this section for reference">#</a></h4>
+<p>Represent an interchanging route.</p>
+<p><sub>Note: Information are exposed as-is from MTR. Other than the fields below, there are no more information obtainable for the intechanging route.</sub></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions And Objects</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>RouteInterchange.color: int</code></td>
+<td style="text-align: left;">The RGB color of the route.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>RouteInterchange.name: String</code></td>
+<td style="text-align: left;">The name of the route.</td>
+</tr>
+</tbody>
+</table>
+<!-- *[JCM]: Joban Client Mod -->
+<!-- *[PIDS]: Passenger Information Display System -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <!-- Original Material theme copyright start -->
+<div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Built with ♥️ by Amber
+    </div>
+  
+  
+    Powered by
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+<!-- Original Material theme copyright end -->
+
+<style>
+    .promo-msg {
+        opacity: 0.5;
+        margin-left:-5rem;
+        font-size: 0.7rem
+    }
+    @media only screen and (max-width: 720px) {
+        .promo-msg {
+            margin-left: 0.7rem;
+        }
+    }
+</style>
+
+
+<div class="promo-msg">
+  <p>Brought to you by <a href="https://joban.org">The District of Joban</a></p>
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://joban.org/dc" target="_blank" rel="noopener" title="Join The District of Joban&#x27;s Discord Server" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1.1s-.6.4-.8.8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2C162.5 39 122.2 51.5 84.1 69c-.3.1-.6.4-.8.7C7.1 183.5-13.8 294.6-3.6 404.2c0 .3.1.5.2.8s.3.4.5.6c44.4 32.9 94 58 146.8 74.2.4.1.8.1 1.1 0s.7-.4.9-.7c11.3-15.4 21.4-31.8 30-48.8.1-.2.2-.5.2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6.2-.9.3-.5.6-.7c3.1-2.3 6.2-4.7 9.1-7.1.3-.2.6-.4.9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1.7-.2 1-.2s.7.2.9.4c2.9 2.4 6 4.9 9.1 7.2.2.2.4.4.6.7s.2.6.2.9-.1.6-.3.9-.4.5-.6.6c-14.7 8.6-30 15.9-45.9 21.8-.2.1-.5.2-.7.4s-.3.4-.4.7-.1.5-.1.8.1.5.2.8c8.8 17 18.8 33.3 30 48.8.2.3.6.6.9.7s.8.1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2.2-.2.4-.4.5-.6s.2-.5.2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2m195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.2 59.2-52.8 59.2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/DistrictOfJoban" target="_blank" rel="noopener" title="The District of Joban GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../../..","features":["navigation.path","navigation.top","navigation.tabs","navigation.indexes","content.code.select","content.code.copy","content.code.annotate","content.tooltips"],"redirect":null,"search":"../../../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"alias":true,"provider":"mike"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.67a597eb.min.js"></script>
+      
+    
+  </body>
+</html>

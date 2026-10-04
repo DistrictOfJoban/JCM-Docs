@@ -1,0 +1,48 @@
+@media (prefers-reduced-motion: no-preference) {
+    .scroll {
+        opacity: calc(var(--scrollprg-blocks));
+    }
+    
+    .scroll-inner {
+        background-position: calc(600px + (var(--scroll) * 1.5px));
+    }
+    
+    .scroll-inner.reverse {
+        background-position: calc((var(--scroll) * -1.5px));
+    }
+    
+    .pids-model {
+        transform: translateY(
+            calc(-200% + (var(--scrollprg-customizable) * 200%))
+        );
+    }
+
+    .anim-popout-container {
+        height: 2.25rem;
+        overflow: hidden;
+    }
+
+    .anim-popout {
+        animation: popout .5s;
+    }
+
+    @keyframes popout {
+        0% {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    
+    img.bg {
+        transform: scale(
+            calc((1.75 - (var(--scrollprg-customizable) * 0.75)))
+        );
+        filter: blur(
+            calc(4px - (var(--scrollprg-customizable) * 3.5px))
+        );
+    }
+}
