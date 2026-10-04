@@ -4,11 +4,11 @@ The **Networking API** allows scripts to send HTTP requests to fetch data over t
 ## Networking
 |Functions|Description|
 |:--------|:----------|
-|`static Networking.fetch(url: String): NetworkResponse<DataReader>`|Fetch data from the corresponding URL. Returns a [NetworkResponse](#networkresponse) wrapping a [DataReader](./data_reading.md#datareader).|
-|`static Networking.fetch(url: String, requestOption: RequestOption): NetworkResponse<DataReader>`|Fetch data from the corresponding URL, with custom [Request Options](#requestoption) applied.<br>Returns a [NetworkResponse](#networkresponse) wrapping a [DataReader](./data_reading.md#datareader).|
+|`static Networking.fetch(url: String): NetworkResponse<DataReader>`|Fetch data from the corresponding URL. Returns a [NetworkResponse](#networkresponse) wrapping a [DataReader](./utils/datareader.md#datareader).|
+|`static Networking.fetch(url: String, requestOption: RequestOption): NetworkResponse<DataReader>`|Fetch data from the corresponding URL, with custom [Request Options](#requestoption) applied.<br>Returns a [NetworkResponse](#networkresponse) wrapping a [DataReader](./utils/datareader.md#datareader).|
 
 ??? info "Show deprecated fields/functions"
-    These functions are kept for backward compatibility, before the introduction of a unified [Data Reading](./data_reading.md) API.    
+    These functions are kept for backward compatibility, before the introduction of a unified [Data Reading](./utils/datareader.md) API.    
     You are advised to avoid using these functions for newly created scripts.
 
     |Functions|Description|

@@ -1,6 +1,6 @@
 # DataReader
 
-The [Resource](./resources.md), [Files](./files.md) and [Networking API](./networking.md) allows reading of data from various sources.  
+The [Resource](../resources.md), [Files](../files.md) and [Networking API](../networking.md) allows reading of data from various sources.  
 (From Resource Packs, on-disk file, and data transmitted via HTTP respectively).
 
 One thing they have in common is that these data are nothing but a sequence of bytes. (A file is just a sequence of bytes, a Resource Pack file is just a sequence of bytes, Data transmitted from the network is also just a sequence of bytes).

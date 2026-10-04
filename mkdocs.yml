@@ -198,24 +198,30 @@ nav:
             - dev/scripting/type/pids/index.md 
             - Scripted PIDS Preset Tutorial: dev/scripting/type/pids/tut/pids_tut.md
         - Common APIs:
-          - Console API: dev/scripting/console.md
-          - Resource Loading API: dev/scripting/resources.md
-          - Model Loading API: dev/scripting/model.md
-          - Math APIs (Geometry): dev/scripting/math.md
-          - Graphics API: dev/scripting/dynamic_textures.md
-          - Rendering APIs: dev/scripting/rendering.md
-          - Sounds APIs: dev/scripting/sounds.md
+          - Console Logging: dev/scripting/console.md
+          - Math (Geometry): dev/scripting/math.md
+          - Resource Loading: dev/scripting/resources.md
+          - Model Loading: dev/scripting/model.md
+          - Model Rendering: dev/scripting/rendering.md
+          - Graphics Drawing: dev/scripting/dynamic_textures.md
+          - Sound Playing: dev/scripting/sounds.md
+          - MTR Access API: dev/scripting/mtrwrapper.md
+          - Utilities:
+            - Version Querying: dev/scripting/utils/version.md
+            - TextUtil: dev/scripting/utils/textutil.md
+            - Timing: dev/scripting/utils/timing.md
+            - RateLimit: dev/scripting/utils/ratelimit.md
+            - StateTracker: dev/scripting/utils/statetracker.md
+            - CycleTracker: dev/scripting/utils/cycletracker.md
+            - DataReader: dev/scripting/utils/datareader.md
           - Advanced APIs:
             - Minecraft APIs: dev/scripting/mc.md
             - File APIs: dev/scripting/files.md
             - Networking API: dev/scripting/networking.md
             - Background Worker API: dev/scripting/bgworker.md
-          - Miscellaneous APIs:
-            - dev/scripting/utilities.md
-            - DataReader: dev/scripting/data_reading.md
-          - MTR APIs:
-            - Client Data: dev/scripting/mtrclientdata.md
-            - Transport Simulation Core API: dev/scripting/tsc.md
+          - MTR Native APIs:
+            - MTRClientData: dev/scripting/mtrclientdata.md
+            - Transport Simulation Core Related: dev/scripting/tsc.md
         - Built-in JS Script:
           - Display Helper: dev/scripting/builtin/display_helper.md
         - Articles:

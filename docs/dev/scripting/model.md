@@ -1,6 +1,6 @@
-# 3D Model API
+# Model Loading API
 
-This API allows the loading of model files from resource packs, as well as performing basic processing of the model data, and uploading them to the GPU for rendering purpose.
+This API allows the loading of 3D model files from resource packs, as well as performing basic processing of the model data, and uploading them to the GPU for rendering purpose.
 
 The API consists of the following 5 primary types:
 

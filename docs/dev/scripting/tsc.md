@@ -16,7 +16,7 @@ Represents a siding rail.
 |Functions And Objects|Description|
 |:--------------------|:----------|
 |`Siding.getName(): String`|Returns the siding name / siding number.|
-|`Siding.getHexId(): String`|Get the id of the siding, formatted in hexidecimal and returned as a String.|
+|`Siding.getHexId(): String`|Get the id of the siding, formatted in hexadecimal and returned as a String.|
 |`Siding.getId(): long`|Returns the id of the siding.|
 |`Siding.getRailLength(): double`|Returns the length of the siding in meters.|
 |`Siding.getDepotName(): String`|Returns the name of the depot containing this siding.<br>Returns empty string if there's no data reference to the depot.|
@@ -100,6 +100,35 @@ Represents a type of transport.
 |`static TransportMode.CABLE_CAR: TransportMode`|Returns an instance of TransportMode, representing cable car transport.|
 |`static TransportMode.AIRPLANE: TransportMode`|Returns an instance of TransportMode, representing air transport.|
 |`TransportMode.maxLength: int`|Returns the maximum vehicle length allowed for the transport.|
+
+### Depot
+Represents a Depot area.
+
+!!! info inline end "References"
+    - [Class Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/Depot.java)
+    - [Schema Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/depot.json)
+
+|Functions And Objects|Description|
+|:--------------------|:----------|
+|`Depot.getHexId(): String`|Get the id of the depot, formatted in hexidecimal and returned as a String.|
+|`Depot.getId(): long`|Returns the id of the depot.|
+|`Depot.getName(): String`|Returns the depot name.|
+|`Depot.getColor(): int`|Returns the RGB color of the depot.|
+|`Depot.getColorHex(): String`|Returns the RGB color of the depot, formatted in hexadecimal and returned as a String.|
+|`Depot.getRouteIds(): List<Long>`|Returns a list of route ids assigned to this depot.|
+|`Depot.getLastGeneratedMillis(): long`|Returns the timestamp (In millisecond) of the last successful path generation.|
+|`Depot.getRepeatInfinitely(): boolean`|Whether the depot is configured to repeat route instructions.|
+|`Depot.getUseRealTime(): boolean`|Whether the depot uses real-time schedule, or Minecraft time.|
+|`Depot.getRealTimeDepartures(): List<Long>`|A list of assigned departure time, if using real-time schedule.|
+|`Depot.getMinX(): long`|Returns the minimum X position of the depot area.|
+|`Depot.getMinY(): long`|Returns the minimum Y position of the depot area.|
+|`Depot.getMinZ(): long`|Returns the minimum Z position of the depot area.|
+|`Depot.getMaxX(): long`|Returns the maximum X position of the depot area.|
+|`Depot.getMaxY(): long`|Returns the maximum Y position of the depot area.|
+|`Depot.getMaxZ(): long`|Returns the maximum Z position of the depot area.|
+|`Depot.inArea(pos: Position): boolean`|Whether a [Position](#position) is inside the depot area.|
+|`Depot.isTransportMode(mode: TransportMode): boolean`|Whether the given [TransportMode](#transportmode) is the same as the depot's assigned transport mode.|
+|`Depot.getCenter(): Position`|Returns the [Position](#position) of the depot area's center point.|
 
 
 ### SimplifiedRoute
@@ -202,6 +231,28 @@ Equivalent function exists for:
 - Next Stop
     - Function prefix: `getNext` (e.g. `VehicleExtraData.getNextRouteId()`)
 
+### Lift
+!!! info inline end "References"
+    - [Class Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/Lift.java)
+    - [Schema Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/data/lift.json)
+
+A lift.
+
+|Functions And Objects|Description|
+|:--------------------|:----------|
+|`Lift.getHeight(): double`|Returns the configured height of the lift, in meters.|
+|`Lift.getWidth(): double`|Returns the configured width of the lift, in meters.|
+|`Lift.getDepth(): double`|Returns the configured depth of the lift, in meters.|
+|`Lift.getOffsetX(): double`|Returns the configured offset X of the lift, in meters.|
+|`Lift.getOffsetY(): double`|Returns the configured offset Y of the lift, in meters.|
+|`Lift.getOffsetZ(): double`|Returns the configured offset Z of the lift, in meters.|
+|`Lift.getIsDoubleSided(): boolean`|Whether the lift is configured to have doors on both sides.|
+|`Lift.getStyles(): String`|Returns the style id (Texture) of the lift.|
+|`Lift.getAngle(): Angle`|Returns the [Angle](#angle) rotation of the lift.|
+|`Lift.getDoorValue(): float`|Returns the door open value of the lift, from 0 (Closed) to 1 (Opened).|
+
+(More to be documented)
+
 ### RouteType
 !!! info inline end "References"
     - [Class Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/data/RouteType.java)
@@ -247,6 +298,63 @@ Represents a single rail section. (Node to Node)
 |`Rail.getStyles(): List<String>`|Returns a list of rail model ids (a.k.a. styles) applied to this rail.|
 |`Rail.canAccelerate(): boolean`|Returns whether the train can accelerate to the rail's speed limit, or should it hold the current speed.<br>False if it's a platform or a turnback rail.|
 
+### ArrivalResponse
+!!! info inline end "References"
+    - [Class Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/operation/ArrivalResponse.java)
+    - [Schema Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/buildSrc/src/main/resources/schema/operation/arrivalResponse.json)
+Represents a single estimated time of arrival (ETA) entry. (Same as one used for PIDS reference time)
+
+|Functions And Objects|Description|
+|:--------------------|:----------|
+|`ArrivalResponse.getDestination(): String`|Returns the destination name of the arrival entry.<br>(Usually the destination's station, or a custom destination string)|
+|`ArrivalResponse.getArrival(): long`|Returns the epoch time (in Millisecond) the vehicle will arrive at.<br>Use `new Date(value: number)`to obtain a JS Date object of the arrival time.|
+|`ArrivalResponse.getDeparture(): long`|Returns the epoch time (in Millisecond) the vehicle will depart at.<br>Use `new Date(value: number)`to obtain a JS Date object of the departure time.|
+|`ArrivalResponse.getDeviation(): long`|Returns the deviation from the scheduled timetable.<br>Positive value indicate the train is late.<br>Negative value indicates the train is early.|
+|`ArrivalResponse.getRealtime(): boolean`|Returns whether the arrival entry is scheduled (i.e. Vehicle not departed), or a real-time estimation (i.e. Vehicle running)|
+|`ArrivalResponse.getDepartureIndex(): long`|Returns the departure index of the vehicle.<br>The departure index is incremented for every scheduled departure of each individual sidings.<br>It is wrapped back to `0` at 00:00 UTC (For real-time scheduling).<br>A departure index of `-1` indicates the vehicle has either not yet departed, or it is a manually departed train.|
+|`ArrivalResponse.getIsTerminating(): boolean`|Returns whether the arrival entry will terminate its service at the current platform.|
+|`ArrivalResponse.getRouteId(): long`|Returns the id of the route that the vehicle is running on when arrived.|
+|`ArrivalResponse.getRouteName(): String`|Returns the name of the route that the vehicle is running on when arrived.|
+|`ArrivalResponse.getRouteNumber(): String`|Returns the route number string (Previously called LRT Route Number), empty string if route number is not set.|
+|`ArrivalResponse.getRouteColor(): int`|Returns the color of the route that the vehicle is running on when arrived.|
+|`ArrivalResponse.getCircularState(): Route.CircularState`|Returns the [circular state](#routecircularstate) of the route that the vehicle is running on.|
+|`ArrivalResponse.getPlatformId(): long`|Returns the id of the platform that the vehicle will approach at.|
+|`ArrivalResponse.getPlatformName(): String`|Returns the name of the platform that the vehicle will approach at.|
+|`ArrivalResponse.getCarCount(): int`|Returns the number of cars the vehicle has.|
+|`ArrivalResponse.iterateCarDetails(consumer: Consumer<CarDetails>): void`|Allow passing a callback to loop through the [CarDetails](#cardetails)|
+
+### CarDetails
+|Functions And Objects|Description|
+|:--------------------|:----------|
+|`CarDetails.getVehicleId(): String`|Returns the id of the vehicle car (As defined in Resource Packs)|
+|`CarDetails.getOccupancy(): double`|Dummy value, always returns 0.<br>**Removed in MTR 4.1, do not use.**|
+
+### Angle
+!!! info inline end "References"
+    - [Class Reference](https://github.com/Minecraft-Transit-Railway/Transport-Simulation-Core/blob/master/src/main/java/org/mtr/core/tool/Angle.java)
+
+A class containing the 16 compass direction, at 22.5 degree increment each.
+
+|Functions And Objects|Description|
+|:--------------------|:----------|
+|`static Angle.E`|East (0)|
+|`static Angle.SEE`|South-east-east (22.5)|
+|`static Angle.SE`|South-east (45)|
+|`static Angle.SSE`|South-east (67.5)|
+|`static Angle.S`|South (90)|
+|`static Angle.SSW`|South-south-west (112.5)|
+|`static Angle.SW`|South-west (135)|
+|`static Angle.SW`|South-west-west (157.5)|
+|`static Angle.W`|West (180)|
+|`static Angle.NWW`|North-west-west (202.5)|
+|`static Angle.NW`|North-west (225)|
+|`static Angle.NNW`|North-north-west (247.5)|
+|`static Angle.N`|North (270)|
+|`static Angle.NNE`|North-north-east (292.5)|
+|`static Angle.NE`|North-east (315)|
+|`static Angle.NEE`|North-east-east (337.5)|
+|`Angle.angleDegrees`|The bearing in degrees, normalised to the half-open range -180 to 180.|
+|`Angle.angleRadians`|`angleDegrees` in radian.|
 
 ### Vector
 !!! info inline end "References"

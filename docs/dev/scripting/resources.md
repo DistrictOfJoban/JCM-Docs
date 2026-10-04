@@ -23,11 +23,11 @@ This class allows developers to access file contents within resource packs, as w
 ### Resource Reading
 |Functions|Description|
 |:--------|:----------|
-|`static Resources.read(id: Identifier): DataReader?`|Read an asset/file in the resource pack based on the [Identifier](./resources.md#identifier-aka-resourcelocation) location.<br>Returns a [DataReader](./data_reading.md#datareader) to read the file's content.<br>Null if the file does not exist.|
+|`static Resources.read(id: Identifier): DataReader?`|Read an asset/file in the resource pack based on the [Identifier](./resources.md#identifier-aka-resourcelocation) location.<br>Returns a [DataReader](./utils/datareader.md#datareader) to read the file's content.<br>Null if the file does not exist.|
 |`static Resources.exist(id: Identifier): boolean`|Returns whether the specified file exist in the resource pack, via an [Identifier](./resources.md#identifier-aka-resourcelocation)|
 
 ??? info "Show deprecated fields/functions"
-    These functions are kept for backward compatibility, before the introduction of a unified [Data Reading](./data_reading.md) API.    
+    These functions are kept for backward compatibility, before the introduction of a unified [Data Reading](./utils/datareader.md) API.    
     You are advised to avoid using these functions for newly created scripts.
 
     |Functions|Description|

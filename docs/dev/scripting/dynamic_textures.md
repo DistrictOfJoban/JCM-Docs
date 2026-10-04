@@ -1,4 +1,4 @@
-# Graphics API
+# Graphics Drawing API
 
 A commonly-seen feature among scripted vehicles is the inclusion of a passenger LCD screen, or some form of destination LED signs. But they aren't just any other texture slapped onto it, they have to be dynamically drawn in order to make it show the correct information in the player's world. How do they do it then?
 

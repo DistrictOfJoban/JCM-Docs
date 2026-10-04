@@ -204,15 +204,7 @@ Represent a single arrival entry.
 |`ArrivalEntry.platformId(): long`|Returns the id of the platform that the vehicle will approach at.|
 |`ArrivalEntry.platformName(): String`|Returns the name of the platform that the vehicle will approach at.|
 |`ArrivalEntry.carCount(): int`|Returns the number of cars the vehicle has.|
-|`ArrivalEntry.cars(): List<CarDetails>`|Returns a List containing [CarDetails](#cardetails) for each car.|
-
-#### Transport Simulation Core Related
-Transport Simulation Core (TSC) is the backend serving MTR 4. Below are some of the classes in TSC, which may be returned by JCM above.
-
-##### CarDetails
-|Functions And Objects|Description|
-|:--------------------|:----------|
-|`CarDetails.getVehicleId(): String`|Returns the id of the vehicle car (As defined in Resource Packs)|
+|`ArrivalEntry.cars(): List<CarDetails>`|Returns a List containing [CarDetails](../../tsc.md#cardetails) for each car.|
 
 ### Using AWT Graphics/Dynamic Textures
 While not a regular tested use case for PIDS, you can create a [Dynamic Textures](../../dynamic_textures.md) and draw it onto a PIDS:

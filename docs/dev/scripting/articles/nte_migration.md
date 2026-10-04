@@ -46,7 +46,7 @@ If you managed to get pass all questions, it likely means that your script have 
 ??? note "My script makes use of external Java classes (Anything outside of AWT/MTR)."
     JCM introduced a [Scripting Restriction feature](./scripting_restrictions.md) for security reasons.
 
-    If the packages you use is not listed above, please check whether the newly introduced API like [**Networking**](../networking.md), [**Files**](../files.md), [**DataReader**](../data_reading.md#datareader) and [**BackgroundWorker**](../bgworker.md) replace your need?
+    If the packages you use is not listed above, please check whether the newly introduced API like [**Networking**](../networking.md), [**Files**](../files.md), [**DataReader**](../utils/datareader.md#datareader) and [**BackgroundWorker**](../bgworker.md) replace your need?
 
     - **If yes:** You should migrate to use these new API. (*-Continue to next situation-*)
     - **If no:**
