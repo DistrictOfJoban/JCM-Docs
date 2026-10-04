@@ -16,16 +16,18 @@ This has several utilities method related to the Minecraft Client.
 |`static MinecraftClient.blockLightAt(pos: Vector3f): int`|Return the block light at the specified position.|
 |`static MinecraftClient.skyLightAt(pos: Vector3f): int`|Return the sky light at the specified position.|
 |`static MinecraftClient.lightLevelAt(pos: Vector3f): int`|Return the light level at the specified position.<br>Sourced from both sky light and block light, prefers the one which is lower.|
-|`static MinecraftClient.narrate(message: String): void`|This calls the Minecraft narrator to narrate the message.|
-|`static MinecraftClient.localPlayer(): PlayerEntity`|Obtain the [PlayerEntity](#playerentity) of the current player.|
-|`static MinecraftClient.getScoreboardScore(objectiveName: String, playerName: String): int`|This obtain the player's scoreboard value on the specified scoreboard objective.<br>**Note: Only works on scoreboard visible in the client's GUI. (e.g. Sidebar/Player Tab)**|
-|`static MinecraftClient.getRedstoneLevel(pos: Vector3f): int`|Returns the received redstone level of the block in `pos`.|
-|`static MinecraftClient.displayMessage(message: String, actionBar: boolean): void`|This displays the message as an in-game chat message. If action bar is true, it will display on the action bar instead. (Above inventory hotbar)|
-|`static MinecraftClient.displayMessage(message: VanillaText, actionBar: boolean): void`|Same as above, but use [VanillaText](#vanillatext) as the chat message to display.|
-|`static MinecraftClient.spawnParticleInWorld(particleId: Identifier, pos: Vector3f, initialVelocity: Vector3f, alwaysSpawn: boolean = false): void`|Spawn a particle in `pos` of the current world, with an initial velocity of `initialVelocity`.<br>Only built-in vanilla particles are supported, see the [Minecraft Wiki page](https://minecraft.fandom.com/wiki/Particles) for particle ids.<br>Set `alwaysSpawn` to true to bypass Minecraft's particle option preference. (Only use this for critical particle effect that must be displayed)|
 |`static MinecraftClient.renderDistance(): int`|Obtain the render distance (In Chunk) that is configured in the Minecraft Option.|
-|`static MinecraftClient.getWorldPlayers(): List<PlayerEntity>`|Obtain a list of [PlayerEntity](#playerentity) that is currently in view of the render distance in the current world.|
+|`static MinecraftClient.localPlayer(): PlayerEntity`|Obtain the [PlayerEntity](#playerentity) of the current player.|
 |`static MinecraftClient.gamePaused(): boolean`|Returns whether the game is paused.<br>This may be used to pause rendering/texture update to reduce CPU usage when  paused.<br>**Note: MTR 4/TSC does not pause its simulation even when the game is paused!**|
+|`static MinecraftClient.narrate(message: String): void`|This calls the Minecraft narrator to narrate the message.|
+|`static MinecraftClient.displayMessage(message: String, actionBar: boolean): void`|This displays the message as an in-game chat message. If action bar is true, it will display on the action bar instead. (Above inventory hotbar)|
+|`static MinecraftClient.displayMessage(message: VanillaText, actionBar: boolean): void`|Same as above, but use [VanillaText](#vanillatext) as the chat message to display, allowing for more stylistic choice.|
+|`static MinecraftClient.spawnParticleInWorld(particleId: Identifier, pos: Vector3f, initialVelocity: Vector3f, alwaysSpawn: boolean = false): void`|Spawn a particle in `pos` of the current world, with an initial velocity of `initialVelocity`.<br>Only built-in vanilla particles are supported, see the [Minecraft Wiki page](https://minecraft.fandom.com/wiki/Particles) for particle ids.<br>Set `alwaysSpawn` to true to bypass Minecraft's particle option preference. (Only use this for critical particle effect that must be displayed)|
+|`static MinecraftClient.getScoreboardScore(objectiveName: String, playerName: String): int`|This obtain the player's scoreboard value on the specified scoreboard objective.<br>**Note: Only works on scoreboard visible in the client's GUI. (e.g. Sidebar/Player Tab)**|
+|`static MinecraftClient.getWorldPlayers(): List<PlayerEntity>`|Obtain a list of [PlayerEntity](#playerentity) that is currently in view of the render distance in the current world.|
+|`static MinecraftClient.getCurrentWorldId(): String`|Obtain the id of the current dimension.|
+|`static MinecraftClient.getRedstoneLevel(pos: Vector3f): int`|Returns the received redstone level of the block in `pos`.|
+|`static MinecraftClient.getWorldBlockState(pos: Vector3f, stateName: String): String?`|Obtain the value of a particular block state (`stateName`) of a block in `pos`.<br>Returns **null** if such blockstate property does not exist in the block at all.<br>Otherwise, return a *string* representation of the value. (Regardless of the underlying state type)|
 
 ## VanillaText
 Minecraft employs it's own text format called the [Text Component Format](https://minecraft.wiki/w/Text_component_format). This provides access to create these components, which may then be used in `MinecraftClient#displayMessage` to produce formatted texts.
