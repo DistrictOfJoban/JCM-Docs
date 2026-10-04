@@ -28,4 +28,4 @@ jobs:
             zensical-
       - run: pip install zensical
       - run: pip install git+https://github.com/squidfunk/mike.git
-      - run: mike deploy --push v2.2
+      - run: mike deploy --push v2.3
