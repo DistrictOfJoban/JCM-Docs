@@ -22,7 +22,7 @@ During the execution, you may request for one or more model to be drawn onto the
                 "id": "nte_lcd",
                 "name": "NTE LCD Test",
                 "scriptId": "my_script_entry_1",
-                "isScriptRendered": false
+                "isScriptControlled": false
             }
         ],
         "objectScripts": [
@@ -45,7 +45,7 @@ During the execution, you may request for one or more model to be drawn onto the
     |scriptLocations|An array containing the locations of .js scripts, multiple scripts can be specified.|scriptFiles|
     |prependExpressions|Allows you to directly write JS inside, which will be executed before the scripts in **scriptLocations**|scriptTexts|
     |input|Allows you to specify arbitary JSON object. which is then made accessible to the **.js** scripts via the variable `SCRIPT_INPUT`|scriptInput|
-    |isScriptRendered|If `true`, this will hide the original eyecandy object model, so that JS can take over rendering. (Useful for fallback without JCM)|
+    |isScriptControlled|If `true`, this will hide the original eyecandy object model, so that JS can take over rendering. (Useful for fallback without JCM)|
 
     All fields are optional and could be omitted. However in order for script to load, either the `scriptLocation` or `prependExpressions` should be filled.
 
@@ -62,7 +62,7 @@ During the execution, you may request for one or more model to be drawn onto the
             "scriptInput": {
                 "ksDay": "514"
             },
-            "isScriptRendered": false,
+            "isScriptControlled": false,
             "mirror": [ false, false, false ]
         }
     }
@@ -71,7 +71,7 @@ During the execution, you may request for one or more model to be drawn onto the
     - `scriptFiles` is an array containing the locations of .js scripts. Multiple scripts can be specified.
     - `scriptTexts` allows you to directly write JS inside, and are executed before the scripts in **scriptFiles**.
     - `scriptInput` allows you to specify arbitary JSON object. This is then made accessible to the **.js** scripts via the variable `SCRIPT_INPUT`.
-    - `isScriptRendered` is a boolean. If `true`, this will hide the original eyecandy object model, so that JS can take over rendering. (Useful for fallback without JCM)
+    - `isScriptControlled` is a boolean. If `true`, this will hide the original eyecandy object model, so that JS can take over rendering. (Useful for fallback without JCM)
 
     All script fields are optional and could be emitted. However in order for script to load, either the `scriptFiles` or `scriptTexts` should be filled.
 
@@ -134,6 +134,7 @@ This is a representation of a Decoration Block (a.k.a Eyecandy Block) placed in 
 |`EyecandyWrapper.pos(): Vector3f`|Returns the position of the block + any translation added to the eyecandy model.|
 |`EyecandyWrapper.blockPos(): Vector3f`|Returns the position of the eyecandy block.|
 |`EyecandyWrapper.facing(): Direction`|Returns a Minecraft direction for which way the block is facing.<br>Used for constructing direction-dependent [VoxelShape](../../mc.md#voxelshape).|
+|`EyecandyWrapper.facingAngle(): double`|Returns the degree angle in which the eyecandy *block* is facing towards.|
 |`EyecandyWrapper.isCrosshairTarget(): boolean`|Returns whether the current block is player's crosshair target. (i.e. Selected block).<br>Can be used to show tooltips.|
 |`EyecandyWrapper.getFullBrightness(): boolean`|Return whether the Decoration Object is marked as "Full Light", configured via GUI.|
 |`EyecandyWrapper.redstoneLevel(): int`|Returns the level of redstone power received by the eyecandy block (0-15).|

@@ -221,6 +221,8 @@ This is a representation of MTR vehicle / trainset / train consist for use by sc
 |`VehicleWrapper.isCurrentlyManual(): boolean`|Returns whether the vehicle is currently manually driven.|
 |`VehicleWrapper.isReversed(): boolean`|Whether the vehicle is running in reverse.<br>Changed after a turnback rail.|
 |`VehicleWrapper.isOnRoute(): boolean`|Whether the vehicle has started up and no longer idle in the siding.|
+|`VehicleWrapper.isDoorOpenable(pos: Vector3f): boolean`|Whether the doorways near `pos` are openable. (Relative to the center of the car)|
+|`VehicleWrapper.isDoorOpen(pos: Vector3f): boolean`|Whether the doorways near `pos` has been opened. (Relative to the center of the car)|
 |`VehicleWrapper.getTotalDwellTime(): long`|Returns the total dwell time for the current platform.<br>Unit is in `millisecond`.<br>Returns **-1** if vehicle is not on a platform.|
 |`VehicleWrapper.getElapsedDwellTime(): long`|Returns the elapsed dwell time synced from the server.<br>Unit is in `millisecond`.<br>**Note: The values are outputted as-is from the periodic syncing of the server, which is not real-time. The client does not count elapsed dwell time by itself.**|
 

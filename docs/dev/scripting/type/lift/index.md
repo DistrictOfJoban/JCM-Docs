@@ -21,7 +21,7 @@ You can define your script entry in the `lifts` array, and reference it with `sc
             "name": "Custom Scripted Lift",
             "textureResource": "mtr:textures/vehicle/lift_1.png",
             "scriptId": "my_lift_entry",
-            "isScriptRendered": false
+            "isScriptControlled": false
         }
     ],
     "liftScripts": [
@@ -44,7 +44,7 @@ Field description within the script entry (entries within `liftScripts`) are lis
 |scriptLocations|An array containing the locations of .js scripts, multiple scripts can be specified.|scriptFiles|
 |prependExpressions|Allows you to directly write JS inside, which will be executed before the scripts in **scriptLocations**|scriptTexts|
 |input|Allows you to specify arbitary JSON object. which is then made accessible to the **.js** scripts via the variable `SCRIPT_INPUT`|scriptInput|
-|isScriptRendered|If `true`, this will hide the original lift model, so that JS can take over rendering. (Useful for fallback without JCM)|
+|isScriptControlled|If `true`, this will hide the original lift model, so that JS can take over rendering. (Useful for fallback without JCM)|
 
 All fields are optional and could be omitted. However in order for script to load, either the `scriptLocation` or `prependExpressions` should be filled.
 
@@ -105,6 +105,10 @@ This is a helper object for easy obtaining of the Lift's information by scripts.
 |`LiftWrapper.getDirection(): int`|The direction the lift.<br>**-1** is going down<br>**0** is stale/no direction<br>**1** is going up.|
 |`LiftWrapper.getPos(): Vector3f`|The base lift position + configured offset.|
 |`LiftWrapper.getRawPos(): Vector3f`|The base lift position.|
+|`LiftWrapper.isDoorway1Openable(): boolean`|Whether the front door is openable. (i.e. With Lift Doors)|
+|`LiftWrapper.isDoorway1Open(): boolean`|Whether the front door has been opened.|
+|`LiftWrapper.isDoorway2Openable(): boolean`|Whether the back door (double-sided) is openable. (i.e. With Lift Doors)|
+|`LiftWrapper.isDoorway2Open(): boolean`|Whether the back door (double-sided) has been opened.|
 |`LiftWrapper.isClientPlayerRiding(): boolean`|Whether the client player is mounted onto the lift.|
 |`LiftWrapper.getFloors(): List<Floor>`|All floors the lift stops at.<br>Returns a list of [Floor](#floor).|
 

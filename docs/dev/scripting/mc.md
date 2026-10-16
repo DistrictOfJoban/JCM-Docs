@@ -14,6 +14,7 @@ This has several utilities method related to the Minecraft Client.
 |`static MinecraftClient.worldIsRainingAt(pos: Vector3f): boolean`|Is it raining and getting wet in a given chunk?|
 |`static MinecraftClient.worldDayTime(): int`|Returns the in-game world time in ticks.|
 |`static MinecraftClient.blockLightAt(pos: Vector3f): int`|Return the block light at the specified position.|
+|`static MinecraftClient.lightAt(pos: Vector3f): int`|Return an integer with both sky light & block light packed.<br>Used to specify light in rendering.|
 |`static MinecraftClient.skyLightAt(pos: Vector3f): int`|Return the sky light at the specified position.|
 |`static MinecraftClient.lightLevelAt(pos: Vector3f): int`|Return the light level at the specified position.<br>Sourced from both sky light and block light, prefers the one which is lower.|
 |`static MinecraftClient.renderDistance(): int`|Obtain the render distance (In Chunk) that is configured in the Minecraft Option.|
@@ -26,6 +27,7 @@ This has several utilities method related to the Minecraft Client.
 |`static MinecraftClient.getScoreboardScore(objectiveName: String, playerName: String): int`|This obtain the player's scoreboard value on the specified scoreboard objective.<br>**Note: Only works on scoreboard visible in the client's GUI. (e.g. Sidebar/Player Tab)**|
 |`static MinecraftClient.getWorldPlayers(): List<PlayerEntity>`|Obtain a list of [PlayerEntity](#playerentity) that is currently in view of the render distance in the current world.|
 |`static MinecraftClient.getCurrentWorldId(): String`|Obtain the id of the current dimension.|
+|`static MinecraftClient.getCameraMode(): int`|Retursn the current camera mode.<br>1 = First-person, 2 = Third-person (Back), 3 = Third-person (Front)|
 |`static MinecraftClient.getRedstoneLevel(pos: Vector3f): int`|Returns the received redstone level of the block in `pos`.|
 |`static MinecraftClient.getWorldBlockState(pos: Vector3f, stateName: String): String?`|Obtain the value of a particular block state (`stateName`) of a block in `pos`.<br>Returns **null** if such blockstate property does not exist in the block at all.<br>Otherwise, return a *string* representation of the value. (Regardless of the underlying state type)|
 

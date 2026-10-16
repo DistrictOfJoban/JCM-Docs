@@ -13,17 +13,33 @@ The following outlines the changes made to the MTR mod.
     - This allows specifying a custom color (Other than white text) to be used on the sign.
 
 ## Optimization-Related
-- Reduce lag spikes and memory consumption when loading 3D vehicle/object models
-- Attempt to improve frame-rate slightly through means of caching and lazy-evaluation
+- Reduce lag spikes and memory consumption when loading 3D vehicle/object models.
+- Add Frustum Culling, in addition to MTR's built-in occulusion culling.
+- Attempt to improve frame-rate slightly through means of caching and lazy-evaluation.
 
 ## Bug fixes / Migration issues
 - Fix MTR 4 not recognizing path traversal (e.g. `../`, `..\`) for OBJ textures, which was previously supported in NTE. (Fabric-only)
 - Fix MTR 4 not recognizing legacy NTE object's `translation`, `rotation`, `scale` and `mirror` fields in resource packs.
+- Fix MTR 4 rail preview for long-rail disappearing.
 
 ## Feature-parity related
 - The **lift ding sound** feature from MTR 3 has been re-enabled.
 
+### Camera-lowering/Sitting feature
+The Camera-lowering/Sitting feature in MTR 3 has been re-implemented in JCM. Pressing shift while onboard a vehicle would toggle the sitting state.
+
+### Hide rail rendering
+For debugging purposes and easier discovery of blocks beneath rails, you can now turn off rail rendering completely in JCM's settings.  
+This feature is carried over from NTE.
+
+### Hide currently-riding vehicle
+This hides the vehicle the player is currently riding, which is useful especially for cab-view video without the obstruction of the train model.  
+This feature is carried over from NTE.
+
 ## User Interface / UX
+### Exclusive Select
+For MTR's multi-select list screen, holding the `SHIFT` key allows you to exclusively select 1 element instead of adding it onto the list.
+
 ### Car auto-fill
 For vehicles sets/families formatted appropriately, you may now hold the `SHIFT` key when adding vehicles in Siding to automatically fill out the entire siding length.  
 (Formation: Cab Front - N number of car trailers - Cab End)
@@ -42,11 +58,3 @@ When hovering your mouse over a Platform/Siding, it will now show some propertie
 !!! tip "Tooltip overflow"
     Note that the tooltip may overflow the screen in some cases due to the route name being too long.  
     It is recommended to pair this with mods like [ToolTipFix](https://modrinth.com/mod/tooltipfix) to ensure the content is wrapped in a comfortable way for viewing.
-
-### Hide rail rendering
-For debugging purposes and easier discovery of blocks beneath rails, you can now turn off rail rendering completely in JCM's settings.  
-This feature is carried over from NTE.
-
-### Hide currently-riding vehicle
-This hides the vehicle the player is currently riding, which is useful especially for cab-view video without the obstruction of the train model.  
-This feature is carried over from NTE.

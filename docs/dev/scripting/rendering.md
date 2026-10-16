@@ -16,6 +16,7 @@ This is different for each script types, and may vary depending on where and how
 |Functions|Description|
 |:--------|:----------|
 |`RenderManager.drawModel(model: Model, matrices: Matrices?): void`|Submit a [Model](./model.md#model-aka-modelcluster) to render manager, with an optional [Matrices](./math.md#matrices).|
+|`RenderManager.drawModel(model: Model, matrices: Matrices?, light: int): void`|Same as above, with a custom supplied light.<br>Obtained via [MinecraftClient.lightAt](./mc.md).|
 |`RenderManager.drawModel(modelHolder: DynamicModelHolder, matrices: Matrices?): void`|Submit a [DynamicModelHolder](./model.md#dynamicmodelholder) to render manager, with an optional [Matrices](./math.md#matrices).|
 |`RenderManager.draw(call: DrawCall): void`|Submit a raw draw call to RenderManager.|
 
