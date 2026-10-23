@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../assets/favicon.png">
-      <meta name="generator" content="zensical-0.0.70">
+      <meta name="generator" content="zensical-0.0.71">
     
     
       
@@ -6197,7 +6197,7 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><code>new GraphicsTexture(width: int, height: int): GraphicsTexture</code></td>
-<td style="text-align: left;">Create a GraphicsTexture with <code>width</code> and <code>height</code> pixels.<br>If you plan to draw contents related to per-block/per-train, you should use this in the  <code>create</code> function and store in <code>state</code>.</td>
+<td style="text-align: left;">Create a GraphicsTexture with <code>width</code> and <code>height</code> pixels.<br>If you plan to draw contents related to per-block/per-train, you should use this in the  <code>create</code> function and store in <code>state</code>.<br>Note: Only text-antialiasing is explicitly enabled by default, see the <code>noAA()</code> and <code>fullAA</code> function for more options.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>GraphicsTexture.identifier: Identifier</code></td>
@@ -6210,6 +6210,14 @@
 <tr>
 <td style="text-align: left;"><code>GraphicsTexture.graphics: Graphics2D</code></td>
 <td style="text-align: left;">This is the Java AWT's Graphics for this texture. You can call different functions to draw on the bufferedImage.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GraphicsTexture.noAA(): GraphicsTexture</code></td>
+<td style="text-align: left;">Disable all forms of anti-aliasing.<br>May be useful for dot-matrix displays.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GraphicsTexture.fullAA(): GraphicsTexture</code></td>
+<td style="text-align: left;">Enables all forms of anti-aliasing (Including shape drawing).</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>GraphicsTexture.upload(): void</code></td>
