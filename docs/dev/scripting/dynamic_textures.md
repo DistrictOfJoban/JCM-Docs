@@ -7,10 +7,12 @@ The **GraphicsTexture** class allows you to create a texture of a fixed resoluti
 ## GraphicsTexture
 |             Functions And Objects              | Description |
 | :--------------------------------------------- | :---------- |
-| `new GraphicsTexture(width: int, height: int): GraphicsTexture` | Create a GraphicsTexture with `width` and `height` pixels.<br>If you plan to draw contents related to per-block/per-train, you should use this in the  `create` function and store in `state`.|
+| `new GraphicsTexture(width: int, height: int): GraphicsTexture` | Create a GraphicsTexture with `width` and `height` pixels.<br>If you plan to draw contents related to per-block/per-train, you should use this in the  `create` function and store in `state`.<br>Note: Only text-antialiasing is explicitly enabled by default, see the `noAA()` and `fullAA` function for more options.|
 |`GraphicsTexture.identifier: Identifier`|The [Identifier](./resources.md#identifier-aka-resourcelocation) of the virtual resource of this dynamic texture. You can use this to replace the model texture/draw a texture with this id.|
 |`GraphicsTexture.bufferedImage: BufferedImage`|Java AWT's BufferedImage for use as a temporary canvas.|
 |`GraphicsTexture.graphics: Graphics2D`|This is the Java AWT's Graphics for this texture. You can call different functions to draw on the bufferedImage.|
+|`GraphicsTexture.noAA(): GraphicsTexture`|Disable all forms of anti-aliasing.<br>May be useful for dot-matrix displays.|
+|`GraphicsTexture.fullAA(): GraphicsTexture`|Enables all forms of anti-aliasing (Including shape drawing).|
 |`GraphicsTexture.upload(): void`|Loads the contents of bufferedImage into video memory and immediately displays it on the model.<br>This operation can significantly reduce FPS. It is recommended to use it in combination with `RateLimit` to reduce the frequency of texture updates.<br><br>For example, the screen can be updated only 10 times per second, and it may not be updated at far distances, in some cases the information may not be updated at all.|
 |`GraphicsTexture.upload(x: int, y: int, width: int, height: int): void`|Same as `upload()` but limited to a sub-region. See [Sub-region texture uploading](#sub-region-texture-uploading) for detail.|
 | `GraphicsTexture.close(): void` | Releases the memory used by this texture. It cannot be used after that.<br>If it was created in the `create` train function, it must be deleted in the `dispose` function, otherwise it will continue to occupy memory, thus creating a memory leak.|

@@ -29,6 +29,7 @@ You can define your script entry in the `lifts` array, and reference it with `sc
             "id": "my_lift_entry",
             "prependExpressions": ["print('Hello world')"],
             "scriptLocations": ["mtr:js/lift_display_test/main.js"],
+            "rateLimit": 0.75,
             "input": {
                 "ksDay": "514"
             }
@@ -44,7 +45,8 @@ Field description within the script entry (entries within `liftScripts`) are lis
 |scriptLocations|An array containing the locations of .js scripts, multiple scripts can be specified.|scriptFiles|
 |prependExpressions|Allows you to directly write JS inside, which will be executed before the scripts in **scriptLocations**|scriptTexts|
 |input|Allows you to specify arbitary JSON object. which is then made accessible to the **.js** scripts via the variable `SCRIPT_INPUT`|scriptInput|
-|isScriptControlled|If `true`, this will hide the original lift model, so that JS can take over rendering. (Useful for fallback without JCM)|
+|rateLimit|This applies a rate limit to how often your script is invoked, in seconds.<br>Useful if your script only needs updating every few seconds to save performance.|
+|isScriptControlled|If `true`, this will hide the original lift model, so that JS can take over rendering. (Useful for fallback without JCM)<br>**Note: This should be located outside the script block**|
 
 All fields are optional and could be omitted. However in order for script to load, either the `scriptLocation` or `prependExpressions` should be filled.
 

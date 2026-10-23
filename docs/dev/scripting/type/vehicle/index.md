@@ -60,6 +60,7 @@ JCM divides the data fetching into 3 different mode, which are described more in
                 "input": {
                     "yearEra": 2004
                 },
+                "rateLimit": 0.75,
                 "dataFetchMode": "ALL"
             }
         ]
@@ -73,6 +74,7 @@ JCM divides the data fetching into 3 different mode, which are described more in
     |scriptLocations|An array containing the locations of .js scripts, multiple scripts can be specified.|scriptFiles|
     |prependExpressions|Allows you to directly write JS inside, which will be executed before the scripts in **scriptLocations**|scriptTexts|
     |input|Allows you to specify arbitary JSON object. which is then made accessible to the **.js** scripts via the variable `SCRIPT_INPUT`|scriptInput|
+    |rateLimit|This applies a rate limit to how often your script is invoked, in seconds.<br>Useful if your script only needs updating every few seconds to save performance.|
     |dataFetchMode|Specify the data fetch mode, see [Implementing Data Fetching](#implementing-data-fetching) section for details.|scriptInput|
 
     All fields are optional and could be omitted. However in order for script to load, either the `scriptLocation` or `prependExpressions` should be filled.
@@ -90,7 +92,8 @@ JCM divides the data fetching into 3 different mode, which are described more in
                 "script_files": ["mtr:my_pack/js/sp1900_lcd/main.js"],
                 "script_input": {
                     "yearEra": 2004
-                }
+                },
+                "script_rate_limit": 0.75
             }
         },
         "custom_signs": {
@@ -102,6 +105,7 @@ JCM divides the data fetching into 3 different mode, which are described more in
     - `script_files` is an array containing the locations of .js scripts. Multiple scripts can be specified.
     - `script_texts` allows you to directly write JS inside, and are executed before the scripts in **script_files**.
     - `script_input` allows you to specify arbitary JSON object. This is then made accessible to the **.js** scripts via the variable `SCRIPT_INPUT`.
+    - `script_rate_limit` applies a rate limit to how often your script is invoked, in seconds. Useful if your script only needs updating every few seconds to save performance.
 
     All script fields are optional and could be omitted. However in order for script to load, either the `script_files` or `script_texts` should be filled.
 

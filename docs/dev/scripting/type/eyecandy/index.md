@@ -30,6 +30,7 @@ During the execution, you may request for one or more model to be drawn onto the
                 "id": "my_script_entry_1",
                 "prependExpressions": ["print('Hello world')"],
                 "scriptLocations": ["mtrsteamloco:eyecandies/js/nte_lcd_test/main.js"],
+                "rateLimit": 0.75,
                 "input": {
                     "ksDay": "514"
                 }
@@ -45,6 +46,7 @@ During the execution, you may request for one or more model to be drawn onto the
     |scriptLocations|An array containing the locations of .js scripts, multiple scripts can be specified.|scriptFiles|
     |prependExpressions|Allows you to directly write JS inside, which will be executed before the scripts in **scriptLocations**|scriptTexts|
     |input|Allows you to specify arbitary JSON object. which is then made accessible to the **.js** scripts via the variable `SCRIPT_INPUT`|scriptInput|
+    |rateLimit|This applies a rate limit to how often your script is invoked, in seconds.<br>Useful if your script only needs updating every few seconds to save performance.|
     |isScriptControlled|If `true`, this will hide the original eyecandy object model, so that JS can take over rendering. (Useful for fallback without JCM)|
 
     All fields are optional and could be omitted. However in order for script to load, either the `scriptLocation` or `prependExpressions` should be filled.
@@ -62,6 +64,7 @@ During the execution, you may request for one or more model to be drawn onto the
             "scriptInput": {
                 "ksDay": "514"
             },
+            "scriptRateLimit": 0.75,
             "isScriptControlled": false,
             "mirror": [ false, false, false ]
         }
@@ -71,6 +74,7 @@ During the execution, you may request for one or more model to be drawn onto the
     - `scriptFiles` is an array containing the locations of .js scripts. Multiple scripts can be specified.
     - `scriptTexts` allows you to directly write JS inside, and are executed before the scripts in **scriptFiles**.
     - `scriptInput` allows you to specify arbitary JSON object. This is then made accessible to the **.js** scripts via the variable `SCRIPT_INPUT`.
+    - `scriptRateLimit` applies a rate limit to how often your script is invoked, in seconds. Useful if your script only needs updating every few seconds to save performance.
     - `isScriptControlled` is a boolean. If `true`, this will hide the original eyecandy object model, so that JS can take over rendering. (Useful for fallback without JCM)
 
     All script fields are optional and could be emitted. However in order for script to load, either the `scriptFiles` or `scriptTexts` should be filled.

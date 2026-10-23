@@ -24,7 +24,7 @@ This is a **JavaScript Object** that specifies connection-related details.
 |Field Name|Type|Description|
 |:---------|:---|:----------|
 |`method`|string|The [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods) used. Default to `GET`|
-|`connectionTimeout`|number|Specify the max timeout in millisecond when sending the HTTP request.|
+|`connectTimeout`|number|Specify the max timeout in millisecond when sending the HTTP request.|
 |`readTimeout`|number|Specify the max timeout in millisecond when retrieving data from an HTTP request.|
 |`headers`|object|A JavaScript object which contains the HTTP header to apply when sending the request.|
 |`body`|string|The request body to send. This is typically used for HTTP `POST` request.<br>**Note:** The <u>Content-Length</u> header will be automatically set if this field is supplied.|
