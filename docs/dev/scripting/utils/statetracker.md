@@ -8,7 +8,7 @@ Since each object should have its own tracker, you would probably want to store 
 |Functions|Description|
 |:--------|:----------|
 |`new StateTracker(): StateTracker`|Create an instance of StateTracker.|
-|`StateTracker.setState(value: object?): void`|Sets the new state.|
+|`StateTracker.setState(value: object?): boolean`|Sets the new state.<br>Returns **true** if the latest state is different from the existing state.|
 |`StateTracker.stateNow(): object?`|Returns the current state.|
 |`StateTracker.stateLast(): object?`|Returns the previous state.<br>Null if the previous state doesn't exist.|
 |`StateTracker.stateNowDuration(): double`|Returns the amount of time the current state lasts.|

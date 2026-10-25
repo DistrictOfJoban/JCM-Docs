@@ -88,12 +88,54 @@ Got through all of them? Great, below are some resources/tips to get started:
 
 Note that the additional features within ANTE is not considered (at least for now) within the scope of JCM scripting, and therefore there is no guarentee in regards to backward compatibility for ANTE, and some features were delibrately not implemented as they aren't deemed fit in JCM. *That said* some features from ANTE were also recognized and adapted to JCM, which may be proven useful to script developers.
 
-### Scripting Engine
+### Backward Compatible
+
+#### Eyecandy Custom Config (Read-only)
+Since JCM v2.3, `BlockEntityEyecandy.registerCustomConfig`, `BlockEntityEyecandy.getCustomConfig` and `ConfigResponder` is added.  
+However it will *not* manipulate the eyecandy config data stored on the server.
+
+An `Edit Custom Config` button will be shown in the Eyecandy Screen once `registerCustomConfig` has been executed.
+
+##### Note on ConfigResponder
+- A custom implementation of `ConfigResponder` *will break*, since we don't use Cloth Config for the GUI.  
+- Validation logic (errorSupplier) will continue to work.
+- `saveSupplier`, `tooltipSupplier` is dummy and will not be executed.
+- For `ConfigResponder.DoubleSlider`, it will appear as a numberic field for now rather than a slider.
+
+
+#### GlobalRegister
+The `GlobalRegister` class is added in JCM v2.3, which is backward compatible with ANTE.
+
+#### asJavaArray()
+The `asJavaArray()` global method is made available to JCM v2.3 for converting a list to Java Array, with identical method signature to ANTE.  
+For more types of native Java Array creation/conversion, please see [Java Util](../utils/javautil.md) for more details.
+
+#### ComponentUtil
+The `ComponentUtil` class is made available to JCM v2.3, with identical method signature to ANTE.
+
+This allows creating Raw Minecraft Text Component.  
+
+Note that it returns a [VanillaText](../mc.md#vanillatext), which is JCM's Wrapper Object for Text Components, and allows you to do more text manipulation.
+
+##### Migration Example (Optional)
+```diff title="example.js" linenums="1"
+function render(ctx, state, eyecandy) {
+    ...
+-   let component = ComponentUtil.translatable("text.aph.is", "A", "B");
+-   let str = ComponentUtil.getString(component);
++   let component = VanillaText.translatable("text.aph.is", "A", "B");
++   let str = component.getString();
+}
+```
+
+### Requires Migration
+
+#### Scripting Engine
 ANTE currently uses [GraalJS](https://www.graalvm.org/latest/reference-manual/js/) in place of the [Rhino](https://github.com/mozilla/rhino) JavaScript Engine, which provides support for more modern JS syntax, at the cost of some incompatibilities introduced. For compatibility reasons JCM will currently stay on the **Rhino** engine. If you make heavy use of modern JS syntax, unfortunately you may have to try your luck.
 
 Rhino 1.9 (The current version used by JCM) makes a more marginal leap to modern JS features, though still arguably outdated in the rapidly changing environment of the web. See the [Rhino compatibility table](https://mozilla.github.io/rhino/compat/engines.html) for details.
 
-### Registry Access (CONFIG_INFO)
+#### Registry Access (CONFIG_INFO)
 ANTE exposes the corresponding registry entry (i.e. The JSON object within a Train/Eyecandy entry) to scripts via the `CONFIG_INFO` variable.
 
 JCM on the other hand exposes only the (`scriptInput` for NTE/`scripting`.`input` for MTR 4) field to scripts via the `SCRIPT_INPUT` variable.
@@ -101,7 +143,7 @@ JCM on the other hand exposes only the (`scriptInput` for NTE/`scripting`.`input
 ??? question "Why not just expose the entire registry object?"
     While it may seem counterintuitive that you have to repeatedly specify a value at times, it's done this way to ensure that all the dependencies (fields) the script needs are in one place, anyone reading the json can immediately tell apart which variables may alter the script execution and which doesn't. You are also not imposed by any upstream format change or restrictions in your field's name.
 
-#### Migration Example
+##### Migration Example
 
 === "NTE Eyecandy Format"
     When using the NTE Eyecandy format (Individualized json file), put the necessary variables within `scriptInput`.
@@ -164,7 +206,7 @@ Then rename `CONFIG_INFO` to `SCRIPT_INPUT` within the script.
 + print(SCRIPT_INPUT.parameters.ksDay) // 514
 ```
 
-### Custom shapes for eyecandy
+#### Custom shapes for eyecandy
 In ANTE, you would invoke `EyecandyWrapper.setShape(shape: String)` and `EyecandyWrapper.setCollisionShape(shape: String)` to set the outline and collision shape of the eyecandy, and then invoke `EyecandyWrapper.sendUpdateC2S` to sync it to the server.
 
 In JCM, the key differences are:
@@ -174,7 +216,7 @@ In JCM, the key differences are:
 - `EyecandyWrapper.setShape` has now moved to `EyeCandyScriptContext.setOutlineShape`
 - When a player is holding a brush, it would always reset to the default outline block shape to ensure operators/admin can't be 'locked out' due to a block shape that is infeasible to right click on.
 
-#### Migration example
+##### Migration example
 ```diff title="example.js" linenums="1"
 function render(ctx, state, eyecandy) {
 -   eyecandy.setShape("0,0,0,8,8,8/7,0,7,12,16,10");
@@ -185,12 +227,12 @@ function render(ctx, state, eyecandy) {
 }
 ```
 
-### Block Use Event
+#### Block Use Event
 In ANTE, the `use` function would be invoked with 4 parameters: `ctx, state, eyecandy, player` when a player right click on it with anything other than an MTR Brush.
 
 In JCM, you would have to check the event by yourself within the `render` function.
 
-#### Migration Example
+##### Migration Example
 ```diff title="example.js" linenums="1"
 function render(ctx, state, eyecandy) {
 +   if(ctx.events().onBlockUse.occurred()) {
@@ -205,25 +247,11 @@ function render(ctx, state, eyecandy) {
 -   }
 ```
 
-### ComponentUtil
-ANTE allows creating Raw Minecraft Text Component with the use of `ComponentUtil`. JCM instead creates a wrapper for the Component via [VanillaText](../mc.md#vanillatext).
-
-#### Migration Example
-```diff title="example.js" linenums="1"
-function render(ctx, state, eyecandy) {
-    ...
--   let component = ComponentUtil.translatable("text.aph.is", "A", "B");
--   let str = ComponentUtil.getString(component);
-+   let component = VanillaText.translatable("text.aph.is", "A", "B");
-+   let str = component.getString();
-}
-```
-
-### WrappedEntity
+#### WrappedEntity
 ANTE uses WrappedEntity to represent a Minecraft entity, which is obtainable via the `use` event and `MinecraftClient.getPlayer()`.  
 JCM provides [PlayerEntity](../mc.md#playerentity) as the wrapper to represent a Minecraft entity, which contains a couple more methods to obtain information. The client player can be obtained with `MinecraftClient.localPlayer()` instead of `MinecraftClient.getPlayer()`
 
-#### Migration Example
+##### Migration Example
 ```diff title="example.js" linenums="1"
 function render(ctx, state, eyecandy) {
     ...
@@ -234,12 +262,12 @@ function render(ctx, state, eyecandy) {
 }
 ```
 
-### TickableSound
+#### TickableSound
 In ANTE, `TickableSound` is a sound instance where it's parameter (Such as volume/pitch) can be updated midway during playback.
 
 The equivalent in JCM is [TickableSoundInstance](../sounds.md#tickablesoundinstance), which can be used together with [SoundManager](../sounds.md#soundmanager)
 
-### UtilitiesClient
+#### UtilitiesClient
 
 MTR 3 contains a `UtilitiesClient` class that is exposed by ANTE, which is no longer the case in MTR 4. Known equivalent methods can be found as follows:
 

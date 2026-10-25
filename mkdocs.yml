@@ -216,6 +216,7 @@ nav:
             - StateTracker: dev/scripting/utils/statetracker.md
             - CycleTracker: dev/scripting/utils/cycletracker.md
             - DataReader: dev/scripting/utils/datareader.md
+            - Java Util: dev/scripting/utils/javautil.md
           - Advanced APIs:
             - Minecraft APIs: dev/scripting/mc.md
             - File APIs: dev/scripting/files.md

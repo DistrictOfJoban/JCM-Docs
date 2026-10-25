@@ -15,7 +15,8 @@ Instead, what you likely want is to "do a thing later on", in such case you will
 
 If you are trying to execute a long-running operation (e.g. Fetching data over the internet), you should submit it to another thread/executor.
 
-If blocks or infinite loops did occur, then the entire script execution will stall as scripts are executed one at a time \[*in the same thread*\]. In such situation, you can reset it by pressing ++f3+t++ on your keyboard, which reloads the resource pack and resets the scripting thread.
+If blocks or infinite loops did occur, then it can also affect other scripts, since some scripts will share the same thread as your script.  
+In the case of an infinite loop, the script execution will be aborted by JCM after ~10s of execution, and a regular runtime error will be thrown.
 
 ## Avoid using internal APIs
 Any methods/fields that is not documented in this docs, as well as items within MTRClientData and `VehicleWrapper.getMtrVehicle()` is considered internal API.

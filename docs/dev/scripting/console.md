@@ -55,8 +55,3 @@ console.time("timer1"); // Output: Timer "timer1" already exists.
 console.timeLog("timer1") // Output: timer1: [millisecond elapsed]ms
 console.timeEnd("timer1") // Output: timer1: [millisecond elapsed]ms - timer ended
 ```
-
-## Printing an object
-When printing a JavaScript object, you may find that it would only output `[object Object]`.
-
-To also print all the fields within the object, you can use `JSON.stringify()` to convert it into a string first, before printing to the console.

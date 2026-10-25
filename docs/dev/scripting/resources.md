@@ -4,6 +4,13 @@ The Resource Loading API allows you to read assets within resource packs, such a
 
 
 ## Identifier (a.k.a. ResourceLocation)
+!!! note inline end "String Shorthand"
+    Since JCM v2.3, most methods now also accepts a regular string as an Identifier. (Deprecated method excluded)
+
+    Thus you can simply call the method with a regular string (e.g. `"mtr:asd.png"`) in place of wrapping it with `id()` / `idr()`.  
+
+    To reference a relative path (`idr()` equivalent), prepend `./` in front of your string, e.g. `"./asd.png"`.
+
 Minecraft uses an **Identifier** to identify files in a resource pack, thus many functions only accept `Identifier` rather than strings.  
 To create an `Identifier`, you can use the following functions:
 

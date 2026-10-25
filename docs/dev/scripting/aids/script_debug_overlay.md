@@ -20,6 +20,11 @@ After that, make sure the **Script debug mode** checkbox is checked, then click 
     - There are 3 colors for each instances: **Blue (Normal)**, **Yellow (Slightly slow execution)** and **Red (Relatively slow execution)**.
     - Script developers should generally aim for the Blue color if possible.
 
+### "Frozen" scripts
+If a script is *being* executed for more than 5s (e.g. Infinite Loop Bug), the debug overlay would label the script as **(Not Responding)**.
+
+If it is still unresponsive after another 5s, the script would be aborted.
+
 ### Navigate between sources
 Since mixing all script instances into 1 view would clutter up the overlay, the overlay are separated by different "source". For instance, it will only show scripts coming from **\[MTR\]** (Vehicle/Eyecandy Scripting), and **\[JCM\]** (PIDS Scripting).
 
