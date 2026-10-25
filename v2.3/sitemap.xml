@@ -145,6 +145,9 @@
         <loc>https://jcm.joban.org/v2.3/dev/scripting/utils/datareader/</loc>
       </url>
       <url>
+        <loc>https://jcm.joban.org/v2.3/dev/scripting/utils/javautil/</loc>
+      </url>
+      <url>
         <loc>https://jcm.joban.org/v2.3/dev/scripting/utils/ratelimit/</loc>
       </url>
       <url>

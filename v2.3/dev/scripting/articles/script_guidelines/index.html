@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../../assets/favicon.png">
-      <meta name="generator" content="zensical-0.0.71">
+      <meta name="generator" content="zensical-0.0.72">
     
     
       
@@ -33,7 +33,7 @@
       
         
       
-      <link rel="stylesheet" href="../../../../assets/stylesheets/classic/main.68ef4dbf.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/classic/main.94dd801d.min.css">
       
         
           
@@ -51,8 +51,8 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        
+        <link href="../../../../assets/external/fonts.googleapis.com/css.311234c6.css" rel="stylesheet">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -118,9 +118,10 @@
   <img src="../../../../assets/logo.png" alt="Joban Client Mod">
 
     </a>
-    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+    <label class="md-header__button md-icon" for="__drawer">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <span class="md-visually-hidden">Navigation</span>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -172,9 +173,10 @@
     
       
       
-        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+        <label class="md-header__button md-icon" for="__search">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <span class="md-visually-hidden">Search</span>
         </label>
         <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
   <button type="button" class="md-search__button">
@@ -4172,6 +4174,8 @@
       
         
       
+        
+      
     
     
     
@@ -4391,6 +4395,33 @@
     
   
   DataReader
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utils/javautil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Java Util
 
     
   </span>
@@ -6142,9 +6173,8 @@
 <p>JCM scripting allows the use of standard JavaScript API, as well as interoperability between Java and <abbr title="JavaScript">JS</abbr> code via <strong>LiveConnect</strong>, greatly improving the possibilities achievable by scripting. However there are a few things that you should be aware of before you go completely ham with it.</p>
 <p>Note that this guideline only serves as a form of guidance. It is not possible to enforce the community to create scripts which behaves in a certain way. If you disagree or you do not wish to abide by these guidelines for any reason, you are free to do whatever you want. <em>You should however</em> be fully aware of the intention behind these guidelines and the consequence of doing so, as well as bearing the responsibilties that comes with it.</p>
 <h2 id="1-recognize-the-scope-of-scripting">1. Recognize the scope of scripting<a class="headerlink" href="#1-recognize-the-scope-of-scripting" title="Anchor link to this section for reference">#</a></h2>
-<p>With the current scripting implementation, scripting may only be used on the client-side, which means scripts should not attempt to mutate anything on the server-side (e.g. Sending packet to update block entity data).</p>
-<p>In addition to that, scripts should avoid doing anything that intentionally de-syncs the state shared between the server and the client. These manipulations may produce unpredictable or unreliable results which are not intended by mod developers, and they may break after a mod update (and are likely timing-sensitive as well).</p>
-<p>Finally, scripting is a way to <em>enhance</em> the appearance, visual videlity and immersiveness of the MTR Mod. It should not be used as a platform to develop irrelevant tools &amp; software. (For example, (ab)using eyecandy scripting to automatically download and update resource pack locally, serving as a Resource Pack Downloader). While these makes creative use of the scripting feature, it is out of scope and not considered a supported use case. You should always find substitute that are more fit for your purpose (e.g. A dedicated resource pack management mod/more generic scripting mod)</p>
+<p>With the current scripting implementation, scripts should avoid doing anything that intentionally de-syncs the state shared between the server and the client. These manipulations may produce unpredictable or unreliable results which are not intended by mod developers, and they may break after a mod update (and are likely timing-sensitive as well).</p>
+<p>In addition, scripting is a way to <em>enhance</em> the appearance, visual videlity and immersiveness of the MTR Mod. It should not be used as a platform to develop irrelevant tools &amp; software. (For example, (ab)using eyecandy scripting to automatically download and update resource pack locally, serving as a Resource Pack Downloader). While these makes creative use of the scripting feature, it is out of scope and not considered a supported use case. You should always find substitute that are more fit for your purpose (e.g. A dedicated resource pack management mod/more generic scripting mod)</p>
 <h2 id="2-do-not-use-scripts-as-a-security-measure">2. Do not use scripts as a security measure<a class="headerlink" href="#2-do-not-use-scripts-as-a-security-measure" title="Anchor link to this section for reference">#</a></h2>
 <p>Scripts are completely client-side (And they are intended to be client-only, at least for now), which means they can be changed by anyone locally to produce any results as they like.<br />
 If access to a feature or information should be restricted to anyone in any shape or form, do not put the permission-checking responsibilities within the script. (e.g. Use of <code>PlayerEntity#hasPermissionLevel()</code> to check if a player have a certain OP level).</p>
@@ -6282,7 +6312,7 @@ If access to a feature or information should be restricted to anyone in any shap
       <script id="__config" type="application/json">{"annotate":null,"base":"../../../..","features":["navigation.path","navigation.top","navigation.tabs","navigation.indexes","content.code.select","content.code.copy","content.code.annotate","content.tooltips"],"redirect":null,"search":"../../../../assets/javascripts/workers/search.c47bb847.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"alias":true,"provider":"mike"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.a2388154.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.10ee5ab6.min.js"></script>
       
     
   </body>
