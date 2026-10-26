@@ -12,10 +12,10 @@
       
       
       
-        <link rel="prev" href="../scripting_restrictions/">
+        <link rel="prev" href="../../builtin/display_helper/">
       
       
-        <link rel="next" href="../../features/threaded_execution/">
+        <link rel="next" href="../script_guidelines/">
       
       
         
@@ -4902,114 +4902,6 @@
                   
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../script_guidelines/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Scripting Guidelines
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../nte_migration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Migration from NTE
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../mtr34scripts/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Dual-versioned Scripts (MTR 3 & MTR 4)
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../scripting_restrictions/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Scripting Restrictions
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
     
   
   
@@ -5070,10 +4962,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#declaring-variables-using-let-or-var" class="md-nav__link">
+  <a href="#strict-mode" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Declaring variables using let or var
+        Strict Mode
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-standard-const-variable-behaviour" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Non-standard <code>const</code> variable behaviour
       </span>
     </span>
   </a>
@@ -5099,6 +5002,67 @@
       </span>
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#js-operators-null-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        JS Operators &amp; Null Handling
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JS Operators &amp; Null Handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#traditional-null-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Traditional Null Check
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conditional-ternary-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Conditional (ternary) operator
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-chaining" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Optional chaining (?.)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nullish-coalescing-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Nullish coalescing operator (??)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5178,6 +5142,114 @@
   
 </nav>
       
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../script_guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Scripting Guidelines
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nte_migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Migration from NTE/ANTE
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mtr34scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Dual-versioned Scripts (MTR 3 & MTR 4)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scripting_restrictions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Scripting Restrictions
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -5998,10 +6070,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#declaring-variables-using-let-or-var" class="md-nav__link">
+  <a href="#strict-mode" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Declaring variables using let or var
+        Strict Mode
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-standard-const-variable-behaviour" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Non-standard <code>const</code> variable behaviour
       </span>
     </span>
   </a>
@@ -6027,6 +6110,67 @@
       </span>
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#js-operators-null-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        JS Operators &amp; Null Handling
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JS Operators &amp; Null Handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#traditional-null-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Traditional Null Check
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conditional-ternary-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Conditional (ternary) operator
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-chaining" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Optional chaining (?.)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nullish-coalescing-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Nullish coalescing operator (??)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -6258,7 +6402,7 @@
     
     
       <li class="md-path__item">
-        <a href="../script_guidelines/" class="md-path__link">
+        <a href="././" class="md-path__link">
           
   
   <span class="md-ellipsis">
@@ -6286,14 +6430,25 @@
 
   <h1>Tips & Notes</h1>
 
-<h2 id="declaring-variables-using-let-or-var">Declaring variables using let or var<a class="headerlink" href="#declaring-variables-using-let-or-var" title="Anchor link to this section for reference">#</a></h2>
-<p>Both JCM/<abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> uses JavaScript's <strong>strict mode</strong>, which does not allow variables to be assigned without first declaring them.</p>
+<h2 id="strict-mode">Strict Mode<a class="headerlink" href="#strict-mode" title="Anchor link to this section for reference">#</a></h2>
+<p>JCM Scripting uses JavaScript's <strong>strict mode</strong>, which does not allow variables to be assigned without first declaring them.</p>
 <p>This means you can't do <code>local = 1</code> and expect <code>local</code> to be automatically defined.</p>
 <p>Instead, you have use syntax like <code>var glb;</code> or outside a function <code>var glb = 1;</code>. For local variables inside a function, use <code>let local;</code> or <code>let local = 1;</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Translator Note</p>
 <p>In general, it is better to always try to use <code>let</code> and resort to using <code>var</code> as a last resort.</p>
 </div>
+<h2 id="non-standard-const-variable-behaviour">Non-standard <code>const</code> variable behaviour<a class="headerlink" href="#non-standard-const-variable-behaviour" title="Anchor link to this section for reference">#</a></h2>
+<p>A variable declared using the <code>const</code> keyword cannot be changed throughout the execution, which improves readability and safe-guarding.</p>
+<p>In modern <abbr title="JavaScript">JS</abbr> context, it can be used like following:
+<div class="language-js highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">for</span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">item</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">itemList</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">itemName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">item</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">itemName</span><span class="p">);</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p><strong>Notably this will NOT work under JCM Scripting</strong>, since the <code>const</code> behaviour in the Rhino <abbr title="JavaScript">JS</abbr> Engine is <em>function-scoped</em>.<br />
+This means that each function can have a <code>const</code> variable of the same name, but <em>it is not block-scoped</em>. A for-loop like above would result in re-declaration of the const variable, and an error being thrown.</p>
+<p>Use <code>let</code> as an alternative if you need block-scoped variable.</p>
 <h2 id="dont-block-or-infinitely-loop">Don't Block Or Infinitely Loop<a class="headerlink" href="#dont-block-or-infinitely-loop" title="Anchor link to this section for reference">#</a></h2>
 <p>The function you wrote are called once per frame by JCM, where  your function is expected to finish processing and return a value <em>as soon/fast as possible</em>. As such, there's no such concept as “<em>wait for a while before continue executing</em>”.</p>
 <p>Instead, what you likely want is to "do a thing later on", in such case you will need to time it and then execute the appropriate action on a call made at the right time.</p>
@@ -6304,14 +6459,96 @@ In the case of an infinite loop, the script execution will be aborted by JCM aft
 <p>Any methods/fields that is not documented in this docs, as well as items within MTRClientData and <code>VehicleWrapper.getMtrVehicle()</code> is considered internal API.</p>
 <p>While you can use these methods/fields, there is no guarentee these items will continue to work in future versions, which makes it less ideal for publicly-distributed pack.</p>
 <p>If you think there's a use case which isn't covered by the API, feel free to raise an issue and see whether the use case is sensible enough and can be implemented in a backward compatible way.</p>
+<h2 id="js-operators-null-handling"><abbr title="JavaScript">JS</abbr> Operators &amp; Null Handling<a class="headerlink" href="#js-operators-null-handling" title="Anchor link to this section for reference">#</a></h2>
+<p>Various methods in the JCM API would return a <strong>null</strong> value (Denoted by a <code>?</code> at the end of the return type), which means such value does not exist. (For various reasons, maybe the data is not fetched, or the data cannot be located)</p>
+<p>You <strong>cannot</strong> access a property or call a method of a null value, doing so would result in an error of your script.</p>
+<p>To cope with it, there are a couple of ways.</p>
+<h3 id="traditional-null-check">Traditional Null Check<a class="headerlink" href="#traditional-null-check" title="Anchor link to this section for reference">#</a></h3>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">route</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getRouteOrNull</span><span class="p">();</span><span class="w"> </span><span class="c1">// Dummy function, assume it returns null</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">if</span><span class="p">(</span><span class="nx">route</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">routeName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">route</span><span class="p">.</span><span class="nx">getName</span><span class="p">();</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="c1">// Do the rest of operation</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Optionally you can chain an <code>else</code> statement so you can perform a fallback operation.</p>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">route</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getRouteOrNull</span><span class="p">();</span><span class="w"> </span><span class="c1">// Dummy function, assume it returns null</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">if</span><span class="p">(</span><span class="nx">route</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">routeName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">route</span><span class="p">.</span><span class="nx">getName</span><span class="p">();</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="c1">// Do the rest of operation</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="c1">// Do fallback operation</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="conditional-ternary-operator">Conditional (ternary) operator<a class="headerlink" href="#conditional-ternary-operator" title="Anchor link to this section for reference">#</a></h3>
+<p>Let's say <code>routeName</code> is only a minor part of our code. Even route is null, we still want our code to be executed and displayed.<br />
+In this case, we want to default <code>routeName</code> to a default/dummy value, so our code can move on.<br />
+Let's say we use <code>Default Route</code> as the default value if <code>route</code> is null. Then we can do the check like:
+<div class="language-js highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">route</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getRouteOrNull</span><span class="p">();</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">routeName</span><span class="p">;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">if</span><span class="p">(</span><span class="nx">route</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nx">routeName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Default Route"</span><span class="p">;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nx">routeName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">route</span><span class="p">.</span><span class="nx">getName</span><span class="p">();</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p>However this is cumbersome to write. As such, the conditional (ternary) operator in <abbr title="JavaScript">JS</abbr> allows us to condense <code>if else</code> into 1 line:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>&lt;boolean expression&gt; ? &lt;true value&gt; : &lt;false value&gt;
+</span></code></pre></div>
+<p>Thus the above code can be represented as:
+<div class="language-js highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">route</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getRouteOrNull</span><span class="p">();</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">routeName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">route</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s2">"Default Route"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">route</span><span class="p">.</span><span class="nx">getName</span><span class="p">();</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1">// Or an inverted condition</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="kd">let</span><span class="w"> </span><span class="nx">routeName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">route</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">route</span><span class="p">.</span><span class="nx">getName</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"Default Route"</span><span class="p">;</span>
+</span></code></pre></div></p>
+<p>Of course for complex conditions, it may still be better to separate it for better readability.</p>
+<h3 id="optional-chaining">Optional chaining (?.)<a class="headerlink" href="#optional-chaining" title="Anchor link to this section for reference">#</a></h3>
+<p>In the above example, <code>route</code> is said to return null.<br />
+Let's say we only desire the <code>routeName</code> like above, but at the same time we don't care about a default value, such that:</p>
+<ul>
+<li>If <code>route</code> is null, then <code>routeName</code> is null</li>
+<li>Otherwise, <code>routeName</code> is <code>route.getName()</code></li>
+</ul>
+<p>This can be expressed using the above conditional (ternary) operator:
+<div class="language-js highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">route</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getRouteOrNull</span><span class="p">();</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">routeName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">route</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">route</span><span class="p">.</span><span class="nx">getName</span><span class="p">();</span>
+</span></code></pre></div></p>
+<p>But this starts to get redundant (<code>If route is null then it is null</code>).</p>
+<p>Thus the optional chaining operator is introduced to make us write even less code!</p>
+<p>The above code can be represented using the optional chaining operator:</p>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">route</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getRouteOrNull</span><span class="p">();</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">routeName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">route</span><span class="o">?</span><span class="p">.</span><span class="nx">getName</span><span class="p">();</span><span class="w"> </span><span class="c1">// If route exist, then continue executing after "?.". Otherwise, return null.</span>
+</span></code></pre></div>
+<p>Or if you only care about <code>routeName</code>, then it can be further condensed down:
+<div class="language-js highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">routeName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getRouteOrNull</span><span class="p">()</span><span class="o">?</span><span class="p">.</span><span class="nx">getName</span><span class="p">();</span>
+</span></code></pre></div></p>
+<p>This operator can be chained further down on nested element as well, making it a very useful operator:
+<div class="language-js highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">routeNameLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getRouteOrNull</span><span class="p">()</span><span class="o">?</span><span class="p">.</span><span class="nx">getName</span><span class="p">()</span><span class="o">?</span><span class="p">.</span><span class="nx">length</span><span class="p">();</span><span class="w"> </span><span class="c1">// Remark: We assume the returned string is a Java String, thus length() is used</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">if</span><span class="p">(</span><span class="nx">routeNameLength</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// ...</span>
+</span></code></pre></div></p>
+<h3 id="nullish-coalescing-operator">Nullish coalescing operator (??)<a class="headerlink" href="#nullish-coalescing-operator" title="Anchor link to this section for reference">#</a></h3>
+<p>Finally we have the Nullish coalescing operator.<br />
+Notice how with the Optional chaining operator, the value returned would still be null?</p>
+<p>If we want a default value (i.e. Default <code>routeNameLength</code> to 0), we would need to do another check:</p>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">routeNameLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getRouteOrNull</span><span class="p">()</span><span class="o">?</span><span class="p">.</span><span class="nx">getName</span><span class="p">()</span><span class="o">?</span><span class="p">.</span><span class="nx">length</span><span class="p">();</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">if</span><span class="p">(</span><span class="nx">routeNameLength</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="nx">routeNameLength</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1">// ...</span>
+</span></code></pre></div>
+<p>The nullish coalescing operator solves this issue with the following syntax:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>&lt;Value&gt; ?? &lt;Value if null (Default)&gt;
+</span></code></pre></div></p>
+<p>Thus to default <code>routeNameLength</code> to 0, we can use the following js code:
+<div class="language-js highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">routeNameLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getRouteOrNull</span><span class="p">()</span><span class="o">?</span><span class="p">.</span><span class="nx">getName</span><span class="p">()</span><span class="o">?</span><span class="p">.</span><span class="nx">length</span><span class="p">()</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+</span></code></pre></div></p>
 <h2 id="interoperability-between-java-classesmethods">Interoperability between Java Classes/Methods<a class="headerlink" href="#interoperability-between-java-classesmethods" title="Anchor link to this section for reference">#</a></h2>
 <p>For common function types such as strings, Java and JavaScript have different class implementations, which causes there to be JavaScript strings as well as Java strings.</p>
 <p><abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr>/MTR functions and fields return Java string classes rather than JavaScript strings, but Rhino does some conversions automatically, so in most cases you can mix and match, but sometimes this can cause problems.</p>
 <p>For example, here's an example of a problem caused by using <code>str.length()</code> from a Java string class and <code>str.length</code> from a JavaScript string class to get the length of a string:</p>
-<p><div class="language-js highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">var</span><span class="w"> </span><span class="nx">stationName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">train</span><span class="p">.</span><span class="nx">getThisRoutePlatforms</span><span class="p">().</span><span class="nx">get</span><span class="p">(</span><span class="mf">0</span><span class="p">).</span><span class="nx">station</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nx">print</span><span class="p">(</span><span class="nx">stationName</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span><span class="w"> </span><span class="c1">// Error: stationName is a Java string, not a JavaScript string</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nx">print</span><span class="p">(</span><span class="nx">stationName</span><span class="p">.</span><span class="nx">length</span><span class="p">());</span><span class="w"> </span><span class="c1">// Java strings get their length from the length() function, not the JavaScript length field</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nx">print</span><span class="p">((</span><span class="s2">""</span><span class="o">+</span><span class="nx">stationName</span><span class="p">).</span><span class="nx">length</span><span class="p">)</span><span class="w"> </span><span class="c1">// Use ""+ to turn it into a JavaScript string.</span>
+<p><div class="language-js highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kd">var</span><span class="w"> </span><span class="nx">stationName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">train</span><span class="p">.</span><span class="nx">getThisRoutePlatforms</span><span class="p">().</span><span class="nx">get</span><span class="p">(</span><span class="mf">0</span><span class="p">).</span><span class="nx">station</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nx">print</span><span class="p">(</span><span class="nx">stationName</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span><span class="w"> </span><span class="c1">// Error: stationName is a Java string, not a JavaScript string</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nx">print</span><span class="p">(</span><span class="nx">stationName</span><span class="p">.</span><span class="nx">length</span><span class="p">());</span><span class="w"> </span><span class="c1">// Java strings get their length from the length() function, not the JavaScript length field</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="nx">print</span><span class="p">((</span><span class="s2">""</span><span class="o">+</span><span class="nx">stationName</span><span class="p">).</span><span class="nx">length</span><span class="p">)</span><span class="w"> </span><span class="c1">// Use ""+ to turn it into a JavaScript string.</span>
 </span></code></pre></div>
 Similarly, there is a <code>List&lt;T&gt;</code> type in Java. It does the same thing as arrays in JavaScript, but has a different type. Trying to call JavaScript array functions on it won't work, but Rhino adapts it so that you can take values with <code>list[0]</code> or loop through them with <code>for (a of list)</code>.</p>
 <h2 id="calling-java-class-methods">Calling Java Class Methods<a class="headerlink" href="#calling-java-class-methods" title="Anchor link to this section for reference">#</a></h2>
@@ -6327,10 +6564,10 @@ Similarly, there is a <code>List&lt;T&gt;</code> type in Java. It does the same 
 <details class="warning">
 <summary>Order of preference may become ambiguous</summary>
 <p>The order of preference of two or more methods may level out. For example, 
-<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/*1.*/</span><span class="w"> </span><span class="n">g</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cm">/*2.*/</span><span class="w"> </span><span class="n">g</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="cm">/*1.*/</span><span class="w"> </span><span class="n">g</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="cm">/*2.*/</span><span class="w"> </span><span class="n">g</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
 </span></code></pre></div>
-<div class="language-js highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nx">g</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span><span class="w">  </span><span class="c1">// Type signature (number, number)</span>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nx">g</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span><span class="w">  </span><span class="c1">// Type signature (number, number)</span>
 </span></code></pre></div>
 Since neither method is closer to the argument types than the other, Rhino will throw an error.</p>
 </details>
@@ -6358,22 +6595,22 @@ Since neither method is closer to the argument types than the other, Rhino will 
 </ul>
 <h3 id="example">Example<a class="headerlink" href="#example" title="Anchor link to this section for reference">#</a></h3>
 <p>The Java AWT class <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/Color.html"><code>Color</code></a> has the following constructors.</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/*1.*/</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="n">ColorSpace</span><span class="w"> </span><span class="n">cspace</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="o">[]</span><span class="w"> </span><span class="n">components</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">alpha</span><span class="p">)</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="cm">/*2.*/</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="cm">/*3.*/</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">a</span><span class="p">)</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="cm">/*4.*/</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">rgb</span><span class="p">)</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="cm">/*5.*/</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">rgba</span><span class="p">,</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">hasalpha</span><span class="p">)</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="cm">/*6.*/</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="cm">/*7.*/</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">)</span>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="cm">/*1.*/</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="n">ColorSpace</span><span class="w"> </span><span class="n">cspace</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="o">[]</span><span class="w"> </span><span class="n">components</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">alpha</span><span class="p">)</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="cm">/*2.*/</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="cm">/*3.*/</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">a</span><span class="p">)</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="cm">/*4.*/</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">rgb</span><span class="p">)</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="cm">/*5.*/</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">rgba</span><span class="p">,</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">hasalpha</span><span class="p">)</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="cm">/*6.*/</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="cm">/*7.*/</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">)</span>
 </span></code></pre></div>
 <p>Calling Java constructors in JavaScript:</p>
-<div class="language-js highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">colorFromConstructor4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Color</span><span class="p">(</span><span class="mf">2638978</span><span class="p">);</span><span class="w"> </span><span class="c1">// Type signature (number) pairs with 4. (int)</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">colorFromConstructor5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Color</span><span class="p">(</span><span class="mh">0x7FFFFFFF</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span><span class="w"> </span><span class="c1">// Type signature (number, boolean) pairs with 5. (int, boolean)</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kd">let</span><span class="w"> </span><span class="nx">colorAutoConverted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Color</span><span class="p">(</span><span class="s2">"0x80B846"</span><span class="p">);</span><span class="w"> </span><span class="c1">// String is converted to integer for constructor 4, as it has 1 parameter, matched the no. of arguments given</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kd">let</span><span class="w"> </span><span class="nx">colorFromConstructor2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Color</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// Number is converted to float, as float has higher order of perference than intger, regardless of whether a decimal place is not provided.</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="kd">let</span><span class="w"> </span><span class="nx">colorFromNoConstructor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Color</span><span class="p">();</span><span class="w"> </span><span class="c1">// It does not pair with any constructor</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1">// Error! com.lx862.mtrscripting.lib.org.mozilla.javascript.EvaluatorException: Java constructor for "java.awt.Color" with arguments "" not found.</span>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">colorFromConstructor4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Color</span><span class="p">(</span><span class="mf">2638978</span><span class="p">);</span><span class="w"> </span><span class="c1">// Type signature (number) pairs with 4. (int)</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">colorFromConstructor5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Color</span><span class="p">(</span><span class="mh">0x7FFFFFFF</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span><span class="w"> </span><span class="c1">// Type signature (number, boolean) pairs with 5. (int, boolean)</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="kd">let</span><span class="w"> </span><span class="nx">colorAutoConverted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Color</span><span class="p">(</span><span class="s2">"0x80B846"</span><span class="p">);</span><span class="w"> </span><span class="c1">// String is converted to integer for constructor 4, as it has 1 parameter, matched the no. of arguments given</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="kd">let</span><span class="w"> </span><span class="nx">colorFromConstructor2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Color</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// Number is converted to float, as float has higher order of perference than intger, regardless of whether a decimal place is not provided.</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="kd">let</span><span class="w"> </span><span class="nx">colorFromNoConstructor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Color</span><span class="p">();</span><span class="w"> </span><span class="c1">// It does not pair with any constructor</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="c1">// Error! com.lx862.mtrscripting.lib.org.mozilla.javascript.EvaluatorException: Java constructor for "java.awt.Color" with arguments "" not found.</span>
 </span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Possible misunderstanding while reading error messages</p>
@@ -6382,8 +6619,8 @@ Since neither method is closer to the argument types than the other, Rhino will 
 <h3 id="explicit-method-specification">Explicit Method Specification<a class="headerlink" href="#explicit-method-specification" title="Anchor link to this section for reference">#</a></h3>
 <p>From the example of calling the constructor 2 above, you may already see that, JavaScript number may not be converted to a Java type as expected. So, alternatively, Rhino/LiveConnect3 provided a way to specific the method to use, bypassing the resolution process.</p>
 <p>To specify the method, call it as a key of an object, with the type signature suffixed.</p>
-<div class="language-js highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">colorFromConstructor6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Color</span><span class="p">[</span><span class="s2">"(int,int,int)"</span><span class="p">](</span><span class="mf">40</span><span class="p">,</span><span class="w"> </span><span class="mf">68</span><span class="p">,</span><span class="w"> </span><span class="mf">130</span><span class="p">);</span><span class="w"> </span><span class="c1">// No identifer for constructors</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nx">graphics</span><span class="p">[</span><span class="s2">"drawString(java.lang.String,int,int)"</span><span class="p">](</span><span class="s2">"Overload resolution"</span><span class="p">,</span><span class="w"> </span><span class="mf">15</span><span class="p">,</span><span class="w"> </span><span class="mf">60</span><span class="p">);</span>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">colorFromConstructor6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Color</span><span class="p">[</span><span class="s2">"(int,int,int)"</span><span class="p">](</span><span class="mf">40</span><span class="p">,</span><span class="w"> </span><span class="mf">68</span><span class="p">,</span><span class="w"> </span><span class="mf">130</span><span class="p">);</span><span class="w"> </span><span class="c1">// No identifer for constructors</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="nx">graphics</span><span class="p">[</span><span class="s2">"drawString(java.lang.String,int,int)"</span><span class="p">](</span><span class="s2">"Overload resolution"</span><span class="p">,</span><span class="w"> </span><span class="mf">15</span><span class="p">,</span><span class="w"> </span><span class="mf">60</span><span class="p">);</span>
 </span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

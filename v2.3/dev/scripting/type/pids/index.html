@@ -4907,6 +4907,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../articles/tips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Tips & Notes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../articles/script_guidelines/" class="md-nav__link">
         
   
@@ -4941,7 +4968,7 @@
   <span class="md-ellipsis">
     
   
-  Migration from NTE
+  Migration from NTE/ANTE
 
     
   </span>
@@ -4996,33 +5023,6 @@
     
   
   Scripting Restrictions
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../articles/tips/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Tips & Notes
 
     
   </span>
@@ -6475,7 +6475,7 @@ This would return a string formatted like: <code>2.0.0-beta.5</code></p>
 </tr>
 </tbody>
 </table>
-<h5 id="rectangle">Rectangle<a class="headerlink" href="#rectangle" title="Anchor link to this section for reference">#</a></h5>
+<h5 id="rect">Rect<a class="headerlink" href="#rect" title="Anchor link to this section for reference">#</a></h5>
 <p>Same as <code>Texture</code>, but the texture is hardcoded to a white PNG file.<br />
 Useful for rendering a solid-colored rectangle.</p>
 <table>
@@ -6487,35 +6487,35 @@ Useful for rendering a solid-colored rectangle.</p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>Rectangle.create(): Rectangle</code><br><code>Rectangle.create(comment: String): Rectangle</code></td>
+<td style="text-align: left;"><code>Rect.create(): Rect</code><br><code>Rect.create(comment: String): Rect</code></td>
 <td style="text-align: left;">Create a new rectangle to be drawn in the world.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Rectangle.pos(x: double, y: double): Rectangle</code></td>
+<td style="text-align: left;"><code>Rect.pos(x: double, y: double): Rect</code></td>
 <td style="text-align: left;">Set the X and Y position of the element</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Rectangle.size(w: double, h: double): Rectangle</code></td>
+<td style="text-align: left;"><code>Rect.size(w: double, h: double): Rect</code></td>
 <td style="text-align: left;">Set the width and height of the element</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Rectangle.color(color: int): Rectangle</code></td>
+<td style="text-align: left;"><code>Rect.color(color: int): Rect</code></td>
 <td style="text-align: left;">Set the rectangle color, in RGB format.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Rectangle.naturalLight(): Rectangle</code></td>
+<td style="text-align: left;"><code>Rect.naturalLight(): Rect</code></td>
 <td style="text-align: left;">Set the brightness of the rectangle to be the in-game world light.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Rectangle.matrices(matrices: Matrices): Rectangle</code></td>
+<td style="text-align: left;"><code>Rect.matrices(matrices: Matrices): Rect</code></td>
 <td style="text-align: left;">Apply a <a href="../../math/#matrices">matrices</a> to the current rectangle.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Rectangle.draw(ctx: PIDSScriptContext): void</code></td>
+<td style="text-align: left;"><code>Rect.draw(ctx: PIDSScriptContext): void</code></td>
 <td style="text-align: left;">Mark the rectangle as something that should be rendered to the PIDS.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Rectangle.zOrder(order: int): Rectangle</code></td>
+<td style="text-align: left;"><code>Rect.zOrder(order: int): Rect</code></td>
 <td style="text-align: left;">Specify the z-order manually.</td>
 </tr>
 </tbody>

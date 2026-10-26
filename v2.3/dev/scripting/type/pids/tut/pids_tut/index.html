@@ -5280,6 +5280,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../articles/tips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Tips & Notes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../articles/script_guidelines/" class="md-nav__link">
         
   
@@ -5314,7 +5341,7 @@
   <span class="md-ellipsis">
     
   
-  Migration from NTE
+  Migration from NTE/ANTE
 
     
   </span>
@@ -5369,33 +5396,6 @@
     
   
   Scripting Restrictions
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../articles/tips/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Tips & Notes
 
     
   </span>
@@ -7643,7 +7643,7 @@ An easier way to think of it is "<em>how white the color is = how bright the col
 <p><img alt="Visualization of a white rectangle placed behind the pill-shaped symbol" src=".././img/JCM_JS_PIDS_Tutorial_v2.4.png" /><br />
 <small>Imagine the green border as the border the white rectangle, which is placed behind our symbol</small></p>
 <div class="language-js highlight"><span class="filename">pids_tut.js</span><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="c1">// ... code before</span>
-</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="hll"><span class="nx">Rectangle</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s2">"LRT Circle White"</span><span class="p">)</span><span class="w"> </span><span class="c1">// You can use "Rectangle" to draw a solid-colored quad onto the world.</span>
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="hll"><span class="nx">Rect</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s2">"LRT Circle White"</span><span class="p">)</span><span class="w"> </span><span class="c1">// You can use "Rect" to draw a solid-colored quad onto the world.</span>
 </span></span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="hll"><span class="p">.</span><span class="nx">color</span><span class="p">(</span><span class="mh">0xFFFFFF</span><span class="p">)</span>
 </span></span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="hll"><span class="p">.</span><span class="nx">pos</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span><span class="w"> </span><span class="nx">rowY</span><span class="o">+</span><span class="mf">1.5</span><span class="p">)</span>
 </span></span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a><span class="hll"><span class="p">.</span><span class="nx">size</span><span class="p">(</span><span class="mf">18</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">)</span>
@@ -8096,7 +8096,7 @@ Once again, we can wrap it in an <code>if</code> statement, and let's put it tog
 </span><span id="__span-53-51"><a id="__codelineno-53-51" name="__codelineno-53-51"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-53-52"><a id="__codelineno-53-52" name="__codelineno-53-52"></a><span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">arrival</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">pids</span><span class="p">.</span><span class="nx">arrivals</span><span class="p">().</span><span class="nx">get</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
 </span><span id="__span-53-53"><a id="__codelineno-53-53" name="__codelineno-53-53"></a><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="nx">arrival</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">pids</span><span class="p">.</span><span class="nx">isRowHidden</span><span class="p">(</span><span class="nx">i</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-53-54"><a id="__codelineno-53-54" name="__codelineno-53-54"></a><span class="w">                </span><span class="nx">Rectangle</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s2">"LRT Circle White"</span><span class="p">)</span>
+</span><span id="__span-53-54"><a id="__codelineno-53-54" name="__codelineno-53-54"></a><span class="w">                </span><span class="nx">Rect</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s2">"LRT Circle White"</span><span class="p">)</span>
 </span><span id="__span-53-55"><a id="__codelineno-53-55" name="__codelineno-53-55"></a><span class="w">                </span><span class="p">.</span><span class="nx">color</span><span class="p">(</span><span class="mh">0xFFFFFF</span><span class="p">)</span>
 </span><span id="__span-53-56"><a id="__codelineno-53-56" name="__codelineno-53-56"></a><span class="w">                </span><span class="p">.</span><span class="nx">pos</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span><span class="w"> </span><span class="nx">rowY</span><span class="o">+</span><span class="mf">1.5</span><span class="p">)</span>
 </span><span id="__span-53-57"><a id="__codelineno-53-57" name="__codelineno-53-57"></a><span class="w">                </span><span class="p">.</span><span class="nx">size</span><span class="p">(</span><span class="mf">18</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">)</span>

@@ -5096,6 +5096,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../dev/scripting/articles/tips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Tips & Notes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../dev/scripting/articles/script_guidelines/" class="md-nav__link">
         
   
@@ -5130,7 +5157,7 @@
   <span class="md-ellipsis">
     
   
-  Migration from NTE
+  Migration from NTE/ANTE
 
     
   </span>
@@ -5185,33 +5212,6 @@
     
   
   Scripting Restrictions
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../dev/scripting/articles/tips/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Tips & Notes
 
     
   </span>
@@ -6464,6 +6464,7 @@ It is hoped that eventually these patch will be upstreamed to the main MTR Mod, 
 </ul>
 <h2 id="bug-fixes-migration-issues">Bug fixes / Migration issues<a class="headerlink" href="#bug-fixes-migration-issues" title="Anchor link to this section for reference">#</a></h2>
 <ul>
+<li>Fix <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr> vehicle sound not getting updated when not rendered, resulting in motor sounds getting stuck.</li>
 <li>Fix <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr> not recognizing path traversal (e.g. <code>../</code>, <code>..\</code>) for OBJ textures, which was previously supported in <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr>. (Fabric-only)</li>
 <li>Fix <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr> not recognizing legacy <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr> object's <code>translation</code>, <code>rotation</code>, <code>scale</code> and <code>mirror</code> fields in resource packs.</li>
 <li>Fix <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr> rail preview for long-rail disappearing.</li>
@@ -6473,7 +6474,7 @@ It is hoped that eventually these patch will be upstreamed to the main MTR Mod, 
 <li>The <strong>lift ding sound</strong> feature from <abbr title="Minecraft Transit Railway 3.x">MTR 3</abbr> has been re-enabled.</li>
 </ul>
 <h3 id="camera-loweringsitting-feature">Camera-lowering/Sitting feature<a class="headerlink" href="#camera-loweringsitting-feature" title="Anchor link to this section for reference">#</a></h3>
-<p>The Camera-lowering/Sitting feature in <abbr title="Minecraft Transit Railway 3.x">MTR 3</abbr> has been re-implemented in JCM. Pressing shift while onboard a vehicle would toggle the sitting state.</p>
+<p>The Camera-lowering/Sitting feature in <abbr title="Minecraft Transit Railway 3.x">MTR 3</abbr> has been re-implemented in JCM. Pressing <span class="keys"><kbd class="key-shift">Shift</kbd></span> while onboard a vehicle would toggle the sitting state.</p>
 <h3 id="hide-rail-rendering">Hide rail rendering<a class="headerlink" href="#hide-rail-rendering" title="Anchor link to this section for reference">#</a></h3>
 <p>For debugging purposes and easier discovery of blocks beneath rails, you can now turn off rail rendering completely in JCM's settings.<br />
 This feature is carried over from <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr>.</p>
@@ -6482,13 +6483,13 @@ This feature is carried over from <abbr title="Nemo Transit Expansion (MTR 3 Add
 This feature is carried over from <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr>.</p>
 <h2 id="user-interface-ux">User Interface / UX<a class="headerlink" href="#user-interface-ux" title="Anchor link to this section for reference">#</a></h2>
 <h3 id="exclusive-select">Exclusive Select<a class="headerlink" href="#exclusive-select" title="Anchor link to this section for reference">#</a></h3>
-<p>For MTR's multi-select list screen, holding the <code>SHIFT</code> key allows you to exclusively select 1 element instead of adding it onto the list.</p>
+<p>For MTR's multi-select list screen, holding the <span class="keys"><kbd class="key-shift">Shift</kbd></span> key allows you to exclusively select 1 element instead of adding it onto the list.</p>
 <h3 id="car-auto-fill">Car auto-fill<a class="headerlink" href="#car-auto-fill" title="Anchor link to this section for reference">#</a></h3>
-<p>For vehicles sets/families formatted appropriately, you may now hold the <code>SHIFT</code> key when adding vehicles in Siding to automatically fill out the entire siding length.<br />
+<p>For vehicles sets/families formatted appropriately, you may now hold the <span class="keys"><kbd class="key-shift">Shift</kbd></span> key when adding vehicles in Siding to automatically fill out the entire siding length.<br />
 (Formation: Cab Front - N number of car trailers - Cab End)</p>
 <p><img alt="Siding Vehicle Screen" src=".././img/sdg_autofill.png" /></p>
 <p>The vehicle id must end in <code>_cab_1</code> (Front), <code>_cab_2</code> (Back) and <code>_trailer</code> (Car trailer) for this feature to be used. Most MTR built-in vehicles follow this rule.</p>
-<p>You may also clear all carriages within the Siding by holding <code>SHIFT</code> and deleting any one of the selected carriage.</p>
+<p>You may also clear all carriages within the Siding by holding <span class="keys"><kbd class="key-shift">Shift</kbd></span> and deleting any one of the selected carriage.</p>
 <h3 id="dashboard-tooltips">Dashboard Tooltips<a class="headerlink" href="#dashboard-tooltips" title="Anchor link to this section for reference">#</a></h3>
 <p>When hovering your mouse over a Platform/Siding, it will now show some properties of the platform/siding.</p>
 <p><img alt="Dashboard Screen" src=".././img/dashboard_tooltips.png" /></p>

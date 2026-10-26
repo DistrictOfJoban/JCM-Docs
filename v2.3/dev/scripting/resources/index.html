@@ -5004,6 +5004,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../articles/tips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Tips & Notes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../articles/script_guidelines/" class="md-nav__link">
         
   
@@ -5038,7 +5065,7 @@
   <span class="md-ellipsis">
     
   
-  Migration from NTE
+  Migration from NTE/ANTE
 
     
   </span>
@@ -5093,33 +5120,6 @@
     
   
   Scripting Restrictions
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../articles/tips/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Tips & Notes
 
     
   </span>
@@ -6219,6 +6219,10 @@ To create an <code>Identifier</code>, you can use the following functions:</p>
 <td style="text-align: left;"><code>static Resources.idr(relPath: String): Identifier</code></td>
 <td style="text-align: left;">Create an Identifier based on the relative directory the currently executed script are located in<br>e.g. <code>Resources.idr(“relative.js”)</code>.<br><strong>Note: This function must be used during the script parsing stage. It cannot be used in runtime as by then there's no reference to the current script location anymore.</strong></td>
 </tr>
+<tr>
+<td style="text-align: left;"><code>static Resources.id(id: Identifier, suffix: String): Identifier</code></td>
+<td style="text-align: left;">Creates an Identifier, where the <code>suffix</code> string is being appended to the identifier.<br>Useful for capturing the current location via <code>idr()</code> in parsing stage, then resolving the path during runtime stage.</td>
+</tr>
 </tbody>
 </table>
 <h2 id="resources">Resources<a class="headerlink" href="#resources" title="Anchor link to this section for reference">#</a></h2>
@@ -6262,6 +6266,10 @@ You are advised to avoid using these functions for newly created scripts.</p>
 <tr>
 <td style="text-align: left;"><code>static Resources.manager(): null</code></td>
 <td style="text-align: left;">Returns Minecraft's native resource manager in <abbr title="Nemo Transit Expansion (MTR 3 Addon Mod)">NTE</abbr>.<br>Since it is not exposed in Minecraft-Mappings (<abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>'s cross-version framework), this now returns null. Other functions that require <code>Resources.manager()</code> can accept null without any issues.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static Resources.mgr(): null</code></td>
+<td style="text-align: left;">Alias; Same as above.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>static Resources.readString(id: Identifier): String?</code></td>

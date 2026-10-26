@@ -26,7 +26,7 @@
     
     
       
-        <title>Migration from NTE - Joban Client Mod</title>
+        <title>Migration from NTE/ANTE - Joban Client Mod</title>
       
     
     
@@ -133,7 +133,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Migration from NTE
+              Migration from NTE/ANTE
             
           </span>
         </div>
@@ -4905,6 +4905,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../tips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Tips & Notes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../script_guidelines/" class="md-nav__link">
         
   
@@ -4948,7 +4975,7 @@
   <span class="md-ellipsis">
     
   
-  Migration from NTE
+  Migration from NTE/ANTE
 
     
   </span>
@@ -4965,7 +4992,7 @@
   <span class="md-ellipsis">
     
   
-  Migration from NTE
+  Migration from NTE/ANTE
 
     
   </span>
@@ -5161,33 +5188,6 @@
     
   
   Scripting Restrictions
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tips/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Tips & Notes
 
     
   </span>
@@ -6292,7 +6292,7 @@
     
     
       <li class="md-path__item">
-        <a href="../script_guidelines/" class="md-path__link">
+        <a href="../tips/" class="md-path__link">
           
   
   <span class="md-ellipsis">
@@ -6318,7 +6318,7 @@
   
 
 
-  <h1>Migration from NTE</h1>
+  <h1>Migration from NTE/ANTE</h1>
 
 <h2 id="background">Background<a class="headerlink" href="#background" title="Anchor link to this section for reference">#</a></h2>
 <p>The <strong><a href="https://modrinth.com/mod/mtr-nte">Nemo Transit Expansion</a></strong> is an addon mod for the Minecraft Transit Railway 3.x version, which adds high performance OBJ rendering as well as <abbr title="JavaScript">JS</abbr> scripting for trains and decoration object. While the former feature is merged into <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>.x, the scripting feature remained a gap in <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>.</p>
@@ -6443,6 +6443,8 @@ If you think any of the below suits the situation for your script, you should <s
 <p><strong><a href="https://modrinth.com/mod/mtr-ante">Aphrodite's Nemo's Transit Expansion</a></strong> (<abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)">ANTE</abbr>) is a fork of the Nemo Transit Expansion, which brings several new features such as rail tilting and some new scripting abilities.</p>
 <p>Note that the additional features within <abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)">ANTE</abbr> is not considered (at least for now) within the scope of JCM scripting, and therefore there is no guarentee in regards to backward compatibility for <abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)">ANTE</abbr>, and some features were delibrately not implemented as they aren't deemed fit in JCM. <em>That said</em> some features from <abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)">ANTE</abbr> were also recognized and adapted to JCM, which may be proven useful to script developers.</p>
 <h3 id="backward-compatible">Backward Compatible<a class="headerlink" href="#backward-compatible" title="Anchor link to this section for reference">#</a></h3>
+<h4 id="resourcesante_flag">Resources.ANTE_FLAG<a class="headerlink" href="#resourcesante_flag" title="Anchor link to this section for reference">#</a></h4>
+<p>The <code>Resources.ANTE_FLAG</code> exists to ensure scripts do not error out. However the value is set to <code>false</code>.</p>
 <h4 id="eyecandy-custom-config-read-only">Eyecandy Custom Config (Read-only)<a class="headerlink" href="#eyecandy-custom-config-read-only" title="Anchor link to this section for reference">#</a></h4>
 <p>Since <abbr title="Joban Client Mod v2">JCM v2</abbr>.3, <code>BlockEntityEyecandy.registerCustomConfig</code>, <code>BlockEntityEyecandy.getCustomConfig</code> and <code>ConfigResponder</code> is added.<br />
 However it will <em>not</em> manipulate the eyecandy config data stored on the server.</p>
@@ -6478,6 +6480,10 @@ For more types of native Java Array creation/conversion, please see <a href="../
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="gi">+   let str = component.getString();</span>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a>}
 </span></code></pre></div></td></tr></table></div>
+<h4 id="sound-playing">Sound Playing<a class="headerlink" href="#sound-playing" title="Anchor link to this section for reference">#</a></h4>
+<p>Basic <abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)">ANTE</abbr>-style sound playing compatibility is added since v2.3, including <code>TickableSound</code> and <code>SoundHelper</code>.<br />
+Note that selected method parameters and getter is not available, however basic usage should suffice.</p>
+<p>The modern JCM API usage is <a href="../../sounds/#tickablesoundinstance">TickableSoundInstance</a>, which can be used together with <a href="../../sounds/#soundmanager">SoundManager</a>.</p>
 <h3 id="requires-migration">Requires Migration<a class="headerlink" href="#requires-migration" title="Anchor link to this section for reference">#</a></h3>
 <h4 id="scripting-engine">Scripting Engine<a class="headerlink" href="#scripting-engine" title="Anchor link to this section for reference">#</a></h4>
 <p><abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)">ANTE</abbr> currently uses <a href="https://www.graalvm.org/latest/reference-manual/js/">GraalJS</a> in place of the <a href="https://github.com/mozilla/rhino">Rhino</a> JavaScript Engine, which provides support for more modern <abbr title="JavaScript">JS</abbr> syntax, at the cost of some incompatibilities introduced. For compatibility reasons JCM will currently stay on the <strong>Rhino</strong> engine. If you make heavy use of modern <abbr title="JavaScript">JS</abbr> syntax, unfortunately you may have to try your luck.</p>
@@ -6617,9 +6623,6 @@ JCM provides <a href="../../mc/#playerentity">PlayerEntity</a> as the wrapper to
 </span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="gi">+   let playerPos = clientPlayer.pos();</span>
 </span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7"></a>}
 </span></code></pre></div></td></tr></table></div>
-<h4 id="tickablesound">TickableSound<a class="headerlink" href="#tickablesound" title="Anchor link to this section for reference">#</a></h4>
-<p>In <abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)">ANTE</abbr>, <code>TickableSound</code> is a sound instance where it's parameter (Such as volume/pitch) can be updated midway during playback.</p>
-<p>The equivalent in JCM is <a href="../../sounds/#tickablesoundinstance">TickableSoundInstance</a>, which can be used together with <a href="../../sounds/#soundmanager">SoundManager</a></p>
 <h4 id="utilitiesclient">UtilitiesClient<a class="headerlink" href="#utilitiesclient" title="Anchor link to this section for reference">#</a></h4>
 <p><abbr title="Minecraft Transit Railway 3.x">MTR 3</abbr> contains a <code>UtilitiesClient</code> class that is exposed by <abbr title="Aphrodite's Nemo's Transit Expansion (MTR 3 Addon, fork of NTE)">ANTE</abbr>, which is no longer the case in <abbr title="Minecraft Transit Railway 4.x">MTR 4</abbr>. Known equivalent methods can be found as follows:</p>
 <table>
