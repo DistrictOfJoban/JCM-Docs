@@ -13,15 +13,15 @@ After that, make sure the **Script debug mode** checkbox is checked, then click 
 ### Using quick reload
 After enabling debug mode, you can press the following key combination:
 
-- `Shift+R` to reload JCM scripts. (i.e. Scripted PIDS Preset)
-- `Ctrl+R` to reload MTR scripts. (i.e. Eyecandy Scripts)
+- ++ctrl+r++ to reload MTR scripts. (i.e. Eyecandy Scripts)
+- ++shift+r++ to reload JCM scripts. (i.e. Scripted PIDS Preset)
 
 !!! note "Note on keybinding"
     The above assumes a default unmodified key binding, see below for the corresponding keybinds:
     
-    - `Shift` refers to your binded Sneak key
-    - `Ctrl` refers to your binded Sprint key
-    - `R` refers to your binded JCM reload key, configurable in key binding settings.
+    - ++ctrl++ refers to your binded Sprint key
+    - ++shift++ refers to your binded Sneak key
+    - ++r++ refers to your binded JCM reload key, configurable in key binding settings.
 
 ![](./img/quick_reload.png)
 

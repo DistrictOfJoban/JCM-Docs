@@ -228,11 +228,11 @@ nav:
         - Built-in JS Script:
           - Display Helper: dev/scripting/builtin/display_helper.md
         - Articles:
+          - Tips & Notes: dev/scripting/articles/tips.md
           - Scripting Guidelines: dev/scripting/articles/script_guidelines.md
-          - Migration from NTE: dev/scripting/articles/nte_migration.md
+          - Migration from NTE/ANTE: dev/scripting/articles/nte_migration.md
           - Dual-versioned Scripts (MTR 3 & MTR 4): dev/scripting/articles/mtr34scripts.md
           - Scripting Restrictions: dev/scripting/articles/scripting_restrictions.md
-          - Tips & Notes: dev/scripting/articles/tips.md
         - Features:
           - Multithreaded Runtime Execution: dev/scripting/features/threaded_execution.md
           - Including other scripts: dev/scripting/features/script_include.md

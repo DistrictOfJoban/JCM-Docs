@@ -3,11 +3,15 @@
 
 ![Preview of blocks in Joban Client Mod](./intro-preview.png)
 
+
 ## :octicons-download-24: Download and install
 See [:octicons-download-24: Download & Install](./download.md)
 
 ## :octicons-package-24: Blocks
 See [:octicons-package-24: Blocks](./blocks/index.md) for details of all the blocks in JCM.
+
+## :material-auto-fix: MTR Enhancements
+See [MTR Enhancements](./features/mtr-patch.md) for the list of changes JCM makes to improve the usability of MTR Mod!
 
 ## :octicons-archive-24: Historic Releases
 See [:octicons-archive-24: Version Archive](./versions/index.md) to check the changelog & download historic releases of Joban Client Mod.

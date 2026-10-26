@@ -1,5 +1,5 @@
-## Declaring variables using let or var
-Both JCM/NTE uses JavaScript's **strict mode**, which does not allow variables to be assigned without first declaring them.
+## Strict Mode
+JCM Scripting uses JavaScript's **strict mode**, which does not allow variables to be assigned without first declaring them.
 
 This means you can't do `local = 1` and expect `local` to be automatically defined.
 
@@ -7,6 +7,22 @@ Instead, you have use syntax like `var glb;` or outside a function `var glb = 1;
 
 !!! note "Translator Note"
      In general, it is better to always try to use `let` and resort to using `var` as a last resort.
+
+## Non-standard `const` variable behaviour
+A variable declared using the `const` keyword cannot be changed throughout the execution, which improves readability and safe-guarding.
+
+In modern JS context, it can be used like following:
+```js
+for(let item of itemList) {
+    const itemName = item.name;
+    console.log(itemName);
+}
+```
+
+**Notably this will NOT work under JCM Scripting**, since the `const` behaviour in the Rhino JS Engine is *function-scoped*.  
+This means that each function can have a `const` variable of the same name, but *it is not block-scoped*. A for-loop like above would result in re-declaration of the const variable, and an error being thrown.
+
+Use `let` as an alternative if you need block-scoped variable.
 
 ## Don't Block Or Infinitely Loop
 The function you wrote are called once per frame by JCM, where  your function is expected to finish processing and return a value *as soon/fast as possible*. As such, there's no such concept as “*wait for a while before continue executing*”.
@@ -24,6 +40,124 @@ Any methods/fields that is not documented in this docs, as well as items within 
 While you can use these methods/fields, there is no guarentee these items will continue to work in future versions, which makes it less ideal for publicly-distributed pack.
 
 If you think there's a use case which isn't covered by the API, feel free to raise an issue and see whether the use case is sensible enough and can be implemented in a backward compatible way.
+
+## JS Operators & Null Handling
+Various methods in the JCM API would return a **null** value (Denoted by a `?` at the end of the return type), which means such value does not exist. (For various reasons, maybe the data is not fetched, or the data cannot be located)
+
+You **cannot** access a property or call a method of a null value, doing so would result in an error of your script.
+
+To cope with it, there are a couple of ways.
+
+### Traditional Null Check
+```js
+let route = getRouteOrNull(); // Dummy function, assume it returns null
+
+if(route != null) {
+    let routeName = route.getName();
+    // Do the rest of operation
+}
+```
+
+Optionally you can chain an `else` statement so you can perform a fallback operation.
+
+```js
+let route = getRouteOrNull(); // Dummy function, assume it returns null
+
+if(route != null) {
+    let routeName = route.getName();
+    // Do the rest of operation
+} else {
+    // Do fallback operation
+}
+```
+
+### Conditional (ternary) operator
+Let's say `routeName` is only a minor part of our code. Even route is null, we still want our code to be executed and displayed.  
+In this case, we want to default `routeName` to a default/dummy value, so our code can move on.  
+Let's say we use `Default Route` as the default value if `route` is null. Then we can do the check like:
+```js
+let route = getRouteOrNull();
+let routeName;
+if(route == null) {
+    routeName = "Default Route";
+} else {
+    routeName = route.getName();
+}
+```
+
+However this is cumbersome to write. As such, the conditional (ternary) operator in JS allows us to condense `if else` into 1 line:
+
+```
+<boolean expression> ? <true value> : <false value>
+```
+
+Thus the above code can be represented as:
+```js
+let route = getRouteOrNull();
+let routeName = route == null ? "Default Route" : route.getName();
+// Or an inverted condition
+let routeName = route != null ? route.getName() : "Default Route";
+```
+
+Of course for complex conditions, it may still be better to separate it for better readability.
+
+### Optional chaining (?.)
+In the above example, `route` is said to return null.  
+Let's say we only desire the `routeName` like above, but at the same time we don't care about a default value, such that:
+
+- If `route` is null, then `routeName` is null
+- Otherwise, `routeName` is `route.getName()`
+
+This can be expressed using the above conditional (ternary) operator:
+```js
+let route = getRouteOrNull();
+let routeName = route == null ? null : route.getName();
+```
+
+But this starts to get redundant (`If route is null then it is null`).
+
+Thus the optional chaining operator is introduced to make us write even less code!
+
+The above code can be represented using the optional chaining operator:
+
+```js
+let route = getRouteOrNull();
+let routeName = route?.getName(); // If route exist, then continue executing after "?.". Otherwise, return null.
+```
+
+Or if you only care about `routeName`, then it can be further condensed down:
+```js
+let routeName = getRouteOrNull()?.getName();
+```
+
+This operator can be chained further down on nested element as well, making it a very useful operator:
+```js
+let routeNameLength = getRouteOrNull()?.getName()?.length(); // Remark: We assume the returned string is a Java String, thus length() is used
+if(routeNameLength != null) { // ...
+```
+
+### Nullish coalescing operator (??)
+
+Finally we have the Nullish coalescing operator.  
+Notice how with the Optional chaining operator, the value returned would still be null?
+
+If we want a default value (i.e. Default `routeNameLength` to 0), we would need to do another check:
+
+```js
+let routeNameLength = getRouteOrNull()?.getName()?.length();
+if(routeNameLength == null) routeNameLength == 0;
+// ...
+```
+
+The nullish coalescing operator solves this issue with the following syntax:
+```
+<Value> ?? <Value if null (Default)>
+```
+
+Thus to default `routeNameLength` to 0, we can use the following js code:
+```js
+let routeNameLength = getRouteOrNull()?.getName()?.length() ?? 0;
+```
 
 ## Interoperability between Java Classes/Methods
 For common function types such as strings, Java and JavaScript have different class implementations, which causes there to be JavaScript strings as well as Java strings.

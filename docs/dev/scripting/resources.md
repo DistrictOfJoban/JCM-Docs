@@ -18,6 +18,7 @@ To create an `Identifier`, you can use the following functions:
 |:--------|:----------|
 |`static Resources.id(idStr: String): Identifier`|Create an Identifier based on the string<br>e.g. `Resources.id(“mtr:path/absolute.js”)`.|
 |`static Resources.idr(relPath: String): Identifier`|Create an Identifier based on the relative directory the currently executed script are located in<br>e.g. `Resources.idr(“relative.js”)`.<br>**Note: This function must be used during the script parsing stage. It cannot be used in runtime as by then there's no reference to the current script location anymore.**|
+|`static Resources.id(id: Identifier, suffix: String): Identifier`|Creates an Identifier, where the `suffix` string is being appended to the identifier.<br>Useful for capturing the current location via `idr()` in parsing stage, then resolving the path during runtime stage.|
 
 ## Resources
 This class allows developers to access file contents within resource packs, as well as some utilities functions for obtaining AWT resources such as Font.
@@ -40,6 +41,7 @@ This class allows developers to access file contents within resource packs, as w
     |Functions|Description|
     |:--------|:----------|
     |`static Resources.manager(): null`|Returns Minecraft's native resource manager in NTE.<br>Since it is not exposed in Minecraft-Mappings (MTR 4's cross-version framework), this now returns null. Other functions that require `Resources.manager()` can accept null without any issues.|
+    |`static Resources.mgr(): null`|Alias; Same as above.|
     |`static Resources.readString(id: Identifier): String?`|Reads the contents of a resource file as a string.<br>Null if the file reading failed.|
     |`static Resources.readBufferedImage(id: Identifier): BufferedImage?`|Loads an image file as an AWT BufferedImage.<br>Null if the file reading failed.|
     |`static Resources.readFont(id: Identifier): Font?`|Load a custom TTF or OTF font file as an AWT Font.<br>Null if the file reading failed.<br> *Note: Due to the way Java and Minecraft Resource Pack works, new temporary font files are generated on your disk every time you call this function.<br>If you find yourself running out of disk space during the development, you can free up disk space by deleting files starting with `+~JF` on your system temp directory, or restart your Minecraft/Computer.*|

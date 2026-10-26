@@ -90,6 +90,9 @@ Note that the additional features within ANTE is not considered (at least for no
 
 ### Backward Compatible
 
+#### Resources.ANTE_FLAG
+The `Resources.ANTE_FLAG` exists to ensure scripts do not error out. However the value is set to `false`.
+
 #### Eyecandy Custom Config (Read-only)
 Since JCM v2.3, `BlockEntityEyecandy.registerCustomConfig`, `BlockEntityEyecandy.getCustomConfig` and `ConfigResponder` is added.  
 However it will *not* manipulate the eyecandy config data stored on the server.
@@ -127,6 +130,12 @@ function render(ctx, state, eyecandy) {
 +   let str = component.getString();
 }
 ```
+
+#### Sound Playing
+Basic ANTE-style sound playing compatibility is added since v2.3, including `TickableSound` and `SoundHelper`.  
+Note that selected method parameters and getter is not available, however basic usage should suffice.
+
+The modern JCM API usage is [TickableSoundInstance](../sounds.md#tickablesoundinstance), which can be used together with [SoundManager](../sounds.md#soundmanager).
 
 ### Requires Migration
 
@@ -261,11 +270,6 @@ function render(ctx, state, eyecandy) {
 +   let playerPos = clientPlayer.pos();
 }
 ```
-
-#### TickableSound
-In ANTE, `TickableSound` is a sound instance where it's parameter (Such as volume/pitch) can be updated midway during playback.
-
-The equivalent in JCM is [TickableSoundInstance](../sounds.md#tickablesoundinstance), which can be used together with [SoundManager](../sounds.md#soundmanager)
 
 #### UtilitiesClient
 

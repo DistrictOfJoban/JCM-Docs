@@ -18,6 +18,7 @@ The following outlines the changes made to the MTR mod.
 - Attempt to improve frame-rate slightly through means of caching and lazy-evaluation.
 
 ## Bug fixes / Migration issues
+- Fix MTR 4 vehicle sound not getting updated when not rendered, resulting in motor sounds getting stuck.
 - Fix MTR 4 not recognizing path traversal (e.g. `../`, `..\`) for OBJ textures, which was previously supported in NTE. (Fabric-only)
 - Fix MTR 4 not recognizing legacy NTE object's `translation`, `rotation`, `scale` and `mirror` fields in resource packs.
 - Fix MTR 4 rail preview for long-rail disappearing.
@@ -26,7 +27,7 @@ The following outlines the changes made to the MTR mod.
 - The **lift ding sound** feature from MTR 3 has been re-enabled.
 
 ### Camera-lowering/Sitting feature
-The Camera-lowering/Sitting feature in MTR 3 has been re-implemented in JCM. Pressing shift while onboard a vehicle would toggle the sitting state.
+The Camera-lowering/Sitting feature in MTR 3 has been re-implemented in JCM. Pressing ++shift++ while onboard a vehicle would toggle the sitting state.
 
 ### Hide rail rendering
 For debugging purposes and easier discovery of blocks beneath rails, you can now turn off rail rendering completely in JCM's settings.  
@@ -38,17 +39,17 @@ This feature is carried over from NTE.
 
 ## User Interface / UX
 ### Exclusive Select
-For MTR's multi-select list screen, holding the `SHIFT` key allows you to exclusively select 1 element instead of adding it onto the list.
+For MTR's multi-select list screen, holding the ++shift++ key allows you to exclusively select 1 element instead of adding it onto the list.
 
 ### Car auto-fill
-For vehicles sets/families formatted appropriately, you may now hold the `SHIFT` key when adding vehicles in Siding to automatically fill out the entire siding length.  
+For vehicles sets/families formatted appropriately, you may now hold the ++shift++ key when adding vehicles in Siding to automatically fill out the entire siding length.  
 (Formation: Cab Front - N number of car trailers - Cab End)
 
 ![Siding Vehicle Screen](./img/sdg_autofill.png)
 
 The vehicle id must end in `_cab_1` (Front), `_cab_2` (Back) and `_trailer` (Car trailer) for this feature to be used. Most MTR built-in vehicles follow this rule.
 
-You may also clear all carriages within the Siding by holding `SHIFT` and deleting any one of the selected carriage.
+You may also clear all carriages within the Siding by holding ++shift++ and deleting any one of the selected carriage.
 
 ### Dashboard Tooltips
 When hovering your mouse over a Platform/Siding, it will now show some properties of the platform/siding.

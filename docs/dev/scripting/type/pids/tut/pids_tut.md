@@ -826,7 +826,7 @@ There are multiple ways to achieve that, but the one we are going to use in the 
 
 ``` js title="pids_tut.js" hl_lines="2-6"
 // ... code before
-Rectangle.create("LRT Circle White") // You can use "Rectangle" to draw a solid-colored quad onto the world.
+Rect.create("LRT Circle White") // You can use "Rect" to draw a solid-colored quad onto the world.
 .color(0xFFFFFF)
 .pos(7.5, rowY+1.5)
 .size(18, 6)
@@ -1189,7 +1189,7 @@ function render(ctx, state, pids) {
         } else {
             let arrival = pids.arrivals().get(i);
             if(arrival != null && !pids.isRowHidden(i)) {
-                Rectangle.create("LRT Circle White")
+                Rect.create("LRT Circle White")
                 .color(0xFFFFFF)
                 .pos(7.5, rowY+1.5)
                 .size(18, 6)

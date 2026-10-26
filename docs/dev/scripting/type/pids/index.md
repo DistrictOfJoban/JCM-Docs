@@ -143,21 +143,21 @@ This would return a string formatted like: `2.0.0-beta.5`
 |`Texture.draw(ctx: PIDSScriptContext): void`|Mark the texture as something that should be rendered to the PIDS.|
 |`Texture.zOrder(order: int): Texture`|Specify the z-order manually.|
 
-##### Rectangle
+##### Rect
 Same as `Texture`, but the texture is hardcoded to a white PNG file.  
 Useful for rendering a solid-colored rectangle.
 
 
 |Functions And Objects|Description|
 |:--------------------|:----------|
-|`Rectangle.create(): Rectangle`<br>`Rectangle.create(comment: String): Rectangle`|Create a new rectangle to be drawn in the world.|
-|`Rectangle.pos(x: double, y: double): Rectangle`|Set the X and Y position of the element|
-|`Rectangle.size(w: double, h: double): Rectangle`|Set the width and height of the element|
-|`Rectangle.color(color: int): Rectangle`|Set the rectangle color, in RGB format.|
-|`Rectangle.naturalLight(): Rectangle`|Set the brightness of the rectangle to be the in-game world light.|
-|`Rectangle.matrices(matrices: Matrices): Rectangle`|Apply a [matrices](../../math.md#matrices) to the current rectangle.|
-|`Rectangle.draw(ctx: PIDSScriptContext): void`|Mark the rectangle as something that should be rendered to the PIDS.|
-|`Rectangle.zOrder(order: int): Rectangle`|Specify the z-order manually.|
+|`Rect.create(): Rect`<br>`Rect.create(comment: String): Rect`|Create a new rectangle to be drawn in the world.|
+|`Rect.pos(x: double, y: double): Rect`|Set the X and Y position of the element|
+|`Rect.size(w: double, h: double): Rect`|Set the width and height of the element|
+|`Rect.color(color: int): Rect`|Set the rectangle color, in RGB format.|
+|`Rect.naturalLight(): Rect`|Set the brightness of the rectangle to be the in-game world light.|
+|`Rect.matrices(matrices: Matrices): Rect`|Apply a [matrices](../../math.md#matrices) to the current rectangle.|
+|`Rect.draw(ctx: PIDSScriptContext): void`|Mark the rectangle as something that should be rendered to the PIDS.|
+|`Rect.zOrder(order: int): Rect`|Specify the z-order manually.|
 
 #### PIDS Object Related
 

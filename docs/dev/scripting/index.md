@@ -33,14 +33,14 @@ It can describe conditional logic, such as:
 
     See [Calling Java Class Methods](./articles/tips.md#calling-java-class-methods) for details.
 
-### JavaScript Execution Environment
-While JS is commonly associated with web development or even server applications (e.g. Node.js), JCM's implementation usage of JS only utilize the base language itself.
+### Execution Environment & Available APIs
+While JS is commonly associated with web development or server applications (e.g. Node.js), JCM's implementation usage of JS only utilize the base language itself.
 
 As such, this means that you only really need to care about the syntax (e.g. Variable & Function Declaration, conditional logic) as well as some [Built-in Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects) such as [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date), [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) etc.
 
 Other stuff such as HTML/CSS/DOM manipulation <u>is not applicable</u> to JCM Scripting.
 
-Keep that in mind, as IDE (Such as Visual Studio Code) may assume you are developing for a webpage and provides suggestions that are not applicable to JCM/NTE scripting!
+Keep that in mind, as IDE (Such as Visual Studio Code) may assume you are developing for a webpage and provides suggestions that are not applicable to JCM scripting!
 
 ### Script Type
 
@@ -113,19 +113,19 @@ JCM currently provides 4 script types out of the box, each type providing a doma
 
 Below describes the general lifecycle and flow of a regular script execution.
 
-### Script Flow
+### Execution Flow
 
 #### Parsing/Loading Stage
-When Minecraft reloads it's resource pack (When the game is starting, or an F3+T instantiation/change of resource pack), JCM will parse (executes) your JS script once. This is known as the **Parsing Stage**, in which scripts are evaluated for the first time.
+When Minecraft reloads it's resource pack (i.e. When the game is starting, or an F3+T instantiation/change of resource pack), JCM will parse (executes) your JS script once. This is known as the **Parsing Stage**, in which scripts are evaluated for the first time.
 
-Your script are expected to have functions with specific name (i.e. `create()`, `render()`, `dispose()`).
+After execution, JCM will try to locate functions in your script with specific names (i.e. `create()`, `render()`, `dispose()`), such that it can execute them later in-game.
 
-After your script has been executed once, JCM will capture the above functions internally (if found) to save them for later invocation in the Runtime Stage.
+*Note: Scripts are executed in the main game thread at this stage to facilitate model loading. Thus try to not perform very heavy operations, since it will extend the resource reloading time.*
 
 #### Runtime Stage
 ![](./img/runtime_fsm.png){ align=right }
 
-In the Runtime Stage, JCM will try to invoke the above 3 functions (create, render, dispose) as deemed appropriate. (Usually every frame for `render`, `create` on first render, and `dispose` when script should no longer be executed)
+In the Runtime Stage, JCM will try to invoke the functions (create, render, dispose) as deemed appropriate. (Usually every frame for `render`, `create` on first render, and `dispose` when script should no longer be executed)
 
 When calling the 3 functions above, 3 parameters will be provided: `ctx, state, wrapper`.
 
@@ -181,9 +181,8 @@ An example flow is available below. This chart assumes the player is running Min
 Immediately you may have noticed the following thing:
 
 #### Scripts are executed asynchronously
-This means that the script runs in the background and does not prevent the game from continue rendering (Therefore, less fps lag).
-
-In the runtime stage, scripts are executed with a total of 4 threads, see [Multithreaded Runtime Execution](./features/threaded_execution.md) for detals.
+For performance reason, the execution of these functions are always put to a background thread in order to reduce frame-rate lag.  
+Scripts are executed with a total of 4 threads, see [Multithreaded Runtime Execution](./features/threaded_execution.md) for detals.
 
 !!! warning
      This does not mean you can freely block script execution or run some `Thread.Sleep`, as you would then be blocking the script execution thread, making others (and your) script run slower!
