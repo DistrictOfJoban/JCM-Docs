@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../assets/favicon.png">
-      <meta name="generator" content="zensical-0.0.72">
+      <meta name="generator" content="zensical-0.0.74">
     
     
       
@@ -6206,19 +6206,21 @@
 <td style="text-align: left;"><code>SoundManager.playSound(id: Identifier, pos: Vector3f, volume: float, pitch: float, soundCategory: string = "MASTER"): void</code></td>
 <td style="text-align: left;">This plays a sound by its Sound <a href=".././resources/#identifier-aka-resourcelocation">Identifier</a> in the current Minecraft world under the specified <a href="#available-sound-categories">Sound Category</a> at a <a href=".././math/#vector3f">Vector3f</a> position relative to the current base position.</td>
 </tr>
-<tr>
-<td style="text-align: left;"><code>SoundManager.play(soundInstance: TickableSoundInstance): void</code></td>
-<td style="text-align: left;">This begins playing a <a href="#tickablesoundinstance">TickableSoundInstance</a> in the game.<br>Note that an instance can only be played once, it must be stopped via <code>SoundManager.stop()</code> before being able to be played again.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>SoundManager.stop(soundInstance: TickableSoundInstance): void</code></td>
-<td style="text-align: left;">This stops a playing <a href="#tickablesoundinstance">TickableSoundInstance</a> in the game.</td>
-</tr>
 </tbody>
 </table>
+<details class="info">
+<summary>Show deprecated fields/functions</summary>
+<p>These functions are kept for backward compatibility only.<br />
+You are advised to avoid using these functions for newly created scripts.
+|Functions|Description|
+|:--------|:----------|
+|<code>SoundManager.play(soundInstance: TickableSoundInstance): void</code>|This begins playing a <a href="#tickablesoundinstance">TickableSoundInstance</a> in the game.<br>Note that an instance can only be played once, it must be stopped via <code>SoundManager.stop()</code> before being able to be played again.|
+|<code>SoundManager.stop(soundInstance: TickableSoundInstance): void</code>|This stops a playing <a href="#tickablesoundinstance">TickableSoundInstance</a> in the game.|</p>
+</details>
 <h2 id="tickablesoundinstance">TickableSoundInstance<a class="headerlink" href="#tickablesoundinstance" title="Anchor link to this section for reference">#</a></h2>
 <p>For sound played with <code>SoundManager.playLocalSound()</code> and <code>SoundManager.playSound()</code>, they are considered "one-shot" sounds, meaning once you invoked the function, it is impossible to change or control anything related to the sound afterwards.</p>
-<p>Sometimes you may want interim control of the sound (Such as changing it's volume/pitch midway), or to interrupt and stop the sound, a <code>TickableSoundInstance</code> represents a live instance of the sound, where it's parameters are continously updated, allowing for adjustments during the playback.</p>
+<p>Sometimes you may want interim control of the sound (Such as changing it's volume/pitch midway), or to interrupt and stop the sound.</p>
+<p>A <code>TickableSoundInstance</code> represents a live instance of the sound, where it's parameters are continously updated, allowing for adjustments during the playback.</p>
 <p>Some example use-cases:</p>
 <ul>
 <li>Complex on-board vehicle announcements (Dynamic volume / interruptable), on-board TV background audio</li>
@@ -6246,12 +6248,12 @@
 <td style="text-align: left;">This sets the pitch of the sound instance.<br>A value of <code>1.0</code> represents the default sound pitch.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>TickableSoundInstance.setLoopable(loopable: boolean): TickableSoundInstance</code></td>
+<td style="text-align: left;"><code>TickableSoundInstance.setRepeatable(repeatable: boolean): TickableSoundInstance</code></td>
 <td style="text-align: left;">Sets whether the sound will play again after the playback has finished.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>TickableSoundInstance.setLoopDelay(delayTick: int): TickableSoundInstance</code></td>
-<td style="text-align: left;">Set the delay (In Minecraft Tick) before the sound gets looped again (If sound is loopable)</td>
+<td style="text-align: left;">Set the delay (In Minecraft Tick) before the sound gets looped again (If sound is repeatable)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>TickableSoundInstance.setRelative(relative: boolean): TickableSoundInstance</code></td>
@@ -6265,12 +6267,50 @@
 <td style="text-align: left;"><code>TickableSoundInstance.isPlaying(): boolean</code></td>
 <td style="text-align: left;">Whether the sound is currently playing.</td>
 </tr>
+<tr>
+<td style="text-align: left;"><code>TickableSoundInstance.play(): TickableSoundInstance</code></td>
+<td style="text-align: left;">Begin playing the sound.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>TickableSoundInstance.play(ctx: ScriptContext): TickableSoundInstance</code></td>
+<td style="text-align: left;">Begin playing the sound. Auto-disposing the sound as the script context is destroyed.<br>Recommended for use to avoid manual <code>abort()</code> invocation, or accidentally leaking the sound.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>TickableSoundInstance.play(delayTick: int): TickableSoundInstance</code></td>
+<td style="text-align: left;">Begin playing the sound, with a tick delay.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>TickableSoundInstance.play(delayTick: int, ctx: ScriptContext): TickableSoundInstance</code></td>
+<td style="text-align: left;">Begin playing the sound, with a tick delay. Auto-disposing the sound as the script context is destroyed.<br>Recommended for use to avoid manual <code>abort()</code> invocation, or accidentally leaking the sound.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>TickableSoundInstance.abort(): void</code></td>
+<td style="text-align: left;">Stop playing the sound.</td>
+</tr>
 </tbody>
 </table>
+<details class="info">
+<summary>Show deprecated fields/functions</summary>
+<p>These functions are kept for backward compatibility only.<br />
+You are advised to avoid using these functions for newly created scripts.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>TickableSoundInstance.setLoopable(loopable: boolean): TickableSoundInstance</code></td>
+<td style="text-align: left;">Sets whether the sound will play again after the playback has finished.<br>Note: Invoking <code>abort()</code> will set loopable to false again. For version that preserves this state, use <code>setRepeatable</code> instead.</td>
+</tr>
+</tbody>
+</table>
+</details>
 <div class="admonition tips">
 <p class="admonition-title">Tips when using TickableSoundInstance</p>
 <ul>
-<li>If sound is loopable, always stop it via <code>SoundManager.stop</code> in <code>dispose()</code>.</li>
 <li>If in a moving environment (e.g. Vehicle), always call <code>setPos</code> to update the position, since the instance is fully under the script control and will not be automatically updated by JCM.</li>
 </ul>
 </div>
@@ -6318,37 +6358,39 @@
 <span class="normal"><a href="#__codelineno-0-28">28</a></span>
 <span class="normal"><a href="#__codelineno-0-29">29</a></span>
 <span class="normal"><a href="#__codelineno-0-30">30</a></span>
-<span class="normal"><a href="#__codelineno-0-31">31</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cm">/* Eyecandy code to play a looping music. If anyone right-clicked the block, lower the volume for 5s before raising back up again. */</span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cm">/* Eyecandy code to play a looping music. If anyone right-clicked the block, lower the volume for 5s before raising back up again. */</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kd">function</span><span class="w"> </span><span class="nx">create</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">eyecandy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="nx">state</span><span class="p">.</span><span class="nx">lower_vol_timer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="nx">state</span><span class="p">.</span><span class="nx">sound</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">TickableSoundInstance</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Resources</span><span class="p">.</span><span class="nx">id</span><span class="p">(</span><span class="s2">"minecraft:my.music_id"</span><span class="p">),</span><span class="w"> </span><span class="s2">"MASTER"</span><span class="p">)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="nx">state</span><span class="p">.</span><span class="nx">sound</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">TickableSoundInstance</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s2">"minecraft:my.music_id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"MASTER"</span><span class="p">)</span>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">        </span><span class="p">.</span><span class="nx">setPos</span><span class="p">(</span><span class="nx">eyecandy</span><span class="p">.</span><span class="nx">pos</span><span class="p">())</span><span class="w"> </span><span class="c1">// Initialize position</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">        </span><span class="p">.</span><span class="nx">setLoopable</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="c1">// Repeat the music</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">        </span><span class="p">.</span><span class="nx">setRepeatable</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="c1">// Repeat the music</span>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">        </span><span class="p">.</span><span class="nx">setLoopDelay</span><span class="p">(</span><span class="mf">80</span><span class="p">);</span><span class="w"> </span><span class="c1">// Have a 4 seconds (80 ticks) break before looping again</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">    </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">getSoundManager</span><span class="p">().</span><span class="nx">play</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="nx">sound</span><span class="p">);</span><span class="w"> </span><span class="c1">// Play it</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="p">}</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="kd">function</span><span class="w"> </span><span class="nx">render</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">eyecandy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">    </span><span class="c1">// Check if eyecandy is right-clicked</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">events</span><span class="p">().</span><span class="nx">onBlockUse</span><span class="p">.</span><span class="nx">occurred</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">        </span><span class="nx">state</span><span class="p">.</span><span class="nx">lower_vol_timer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5</span><span class="p">;</span><span class="w"> </span><span class="c1">// Set lower volume timer to 5s</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">        </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">events</span><span class="p">().</span><span class="nx">handled</span><span class="p">();</span><span class="w"> </span><span class="c1">// Acknowledge right-click event</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19"></a>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="nx">lower_vol_timer</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Timer is not up</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">        </span><span class="nx">state</span><span class="p">.</span><span class="nx">lower_vol_timer</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="nx">Timing</span><span class="p">.</span><span class="nx">delta</span><span class="p">();</span><span class="w"> </span><span class="c1">// Countdown timer</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">        </span><span class="nx">state</span><span class="p">.</span><span class="nx">sound</span><span class="p">.</span><span class="nx">setSoundVolume</span><span class="p">(</span><span class="mf">0.25</span><span class="p">);</span><span class="w"> </span><span class="c1">// Lower our volume to 25%.</span>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">        </span><span class="nx">state</span><span class="p">.</span><span class="nx">sound</span><span class="p">.</span><span class="nx">setSoundVolume</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// Time is up, set our volume back to 100%.</span>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">        </span><span class="nx">state</span><span class="p">.</span><span class="nx">lower_vol_timer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="p">}</span>
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28"></a>
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="kd">function</span><span class="w"> </span><span class="nx">dispose</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">eyecandy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="w">    </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">getSoundManager</span><span class="p">().</span><span class="nx">stop</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="nx">sound</span><span class="p">);</span><span class="w"> </span><span class="c1">// IMPORTANT: Stop the sound! Since after this we won't have reference to `state.sound` anymore!</span>
-</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="p">}</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span><span class="nx">state</span><span class="p">.</span><span class="nx">sound</span><span class="p">.</span><span class="nx">play</span><span class="p">(</span><span class="nx">ctx</span><span class="p">);</span><span class="w"> </span><span class="c1">// Play it</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="p">}</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="kd">function</span><span class="w"> </span><span class="nx">render</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">eyecandy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">    </span><span class="c1">// Check if eyecandy is right-clicked</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">events</span><span class="p">().</span><span class="nx">onBlockUse</span><span class="p">.</span><span class="nx">occurred</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">        </span><span class="nx">state</span><span class="p">.</span><span class="nx">lower_vol_timer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5</span><span class="p">;</span><span class="w"> </span><span class="c1">// Set lower volume timer to 5s</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">        </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">events</span><span class="p">().</span><span class="nx">handled</span><span class="p">();</span><span class="w"> </span><span class="c1">// Acknowledge right-click event</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20"></a>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="nx">lower_vol_timer</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Timer is not up</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">        </span><span class="nx">state</span><span class="p">.</span><span class="nx">lower_vol_timer</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="nx">Timing</span><span class="p">.</span><span class="nx">delta</span><span class="p">();</span><span class="w"> </span><span class="c1">// Countdown timer</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">        </span><span class="nx">state</span><span class="p">.</span><span class="nx">sound</span><span class="p">.</span><span class="nx">setSoundVolume</span><span class="p">(</span><span class="mf">0.25</span><span class="p">);</span><span class="w"> </span><span class="c1">// Lower our volume to 25%.</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">        </span><span class="nx">state</span><span class="p">.</span><span class="nx">sound</span><span class="p">.</span><span class="nx">setSoundVolume</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// Time is up, set our volume back to 100%.</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">        </span><span class="nx">state</span><span class="p">.</span><span class="nx">lower_vol_timer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="p">}</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29"></a>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="kd">function</span><span class="w"> </span><span class="nx">dispose</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">eyecandy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="w">    </span><span class="c1">//state.sound.abort(); // If not played with a context "play(ctx)", you must dispose the script by yourself. Otherwise it's optional.</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 <!-- *[JCM]: Joban Client Mod -->
 <!-- *[PIDS]: Passenger Information Display System -->
@@ -6458,10 +6500,10 @@
       
         
         
-      <script id="__config" type="application/json">{"annotate":null,"base":"../../..","features":["navigation.path","navigation.top","navigation.tabs","navigation.indexes","content.code.select","content.code.copy","content.code.annotate","content.tooltips"],"redirect":null,"search":"../../../assets/javascripts/workers/search.c47bb847.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"alias":true,"provider":"mike"}}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../..","features":["navigation.path","navigation.top","navigation.tabs","navigation.indexes","content.code.select","content.code.copy","content.code.annotate","content.tooltips"],"redirect":null,"search":"../../../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"alias":true,"provider":"mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.10ee5ab6.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d31f0ffa.min.js"></script>
       
     
   </body>

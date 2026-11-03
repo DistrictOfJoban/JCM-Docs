@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../assets/favicon.png">
-      <meta name="generator" content="zensical-0.0.72">
+      <meta name="generator" content="zensical-0.0.74">
     
     
       
@@ -6322,6 +6322,31 @@
 <td style="text-align: left;"><code>static</code><br><code>MTR.Data.isPlayerMounted(vehicleId: long): boolean</code></td>
 <td style="text-align: left;">Whether a player is currently onboard a Vehicle/Lift.</td>
 </tr>
+<tr>
+<td style="text-align: left;"><code>static</code><br><code>MTR.Data.getVehicleMountDetail(): MountDetail</code></td>
+<td style="text-align: left;">Returns the mount status of the local player.<br>See below for details.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="mountdetail">MountDetail<a class="headerlink" href="#mountdetail" title="Anchor link to this section for reference">#</a></h5>
+<p>A collection of info regarding to the mount status of the player's vehicle.<br />
+Note: All values are according to the initial departure configuration. Train turnback does not flip the values reported.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functions</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>MountDetail.ridingCarIndex(): int</code></td>
+<td style="text-align: left;">Returns the carriage index the player is riding on.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>MountDetail.pos(): Vector3f</code></td>
+<td style="text-align: left;">Returns the position of the player within the car they are riding on, <strong>relative to the centre of the car</strong>, in meters.</td>
+</tr>
 </tbody>
 </table>
 <h4 id="lift-related">Lift Related<a class="headerlink" href="#lift-related" title="Anchor link to this section for reference">#</a></h4>
@@ -6344,6 +6369,10 @@
 <tr>
 <td style="text-align: left;"><code>static</code><br><code>MTR.Data.getKnownLifts(): List&lt;Lift&gt;</code></td>
 <td style="text-align: left;">Returns a list of <a href=".././tsc/#lift">Lift</a> object that the client is aware of.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static</code><br><code>MTR.Data.getLiftFloors(tscLift: Lift): List&lt;Floor&gt;</code></td>
+<td style="text-align: left;">Returns a list of stopping <a href=".././type/lift/#floor">Floor</a> associated with a TSC Lift.</td>
 </tr>
 </tbody>
 </table>
@@ -6375,6 +6404,14 @@
 <tr>
 <td style="text-align: left;"><code>static</code><br><code>MTR.Data.getBlockedSignalColors(railHexId: String): List&lt;Long&gt;</code></td>
 <td style="text-align: left;">Returns a list of signal color values (RGB) which is blocked within a rail segment.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static</code><br><code>MTR.Data.getConnectedRails(pathData: PathData, front: boolean, back: boolean, excludeSelf: boolean = false): List&lt;Rail&gt;</code></td>
+<td style="text-align: left;">Returns a list of TSC <a href=".././tsc/#rail">Rail</a> that is connected to this path.<br>If <code>front</code> is true, rails connected to the front of the path (<code>getEndDistance()</code>) will be included.<br>If <code>back</code> is true, rails connected to the back of the path (<code>getStartDistance()</code>) will be included.<br>If <code>excludeSelf</code> is true, it would exclude the rail of the given <code>pathData</code>. (i.e. Only search for other interconnected rails)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>static</code><br><code>MTR.Data.getConnectedRails(pos: Vector3f): List&lt;Rail&gt;</code></td>
+<td style="text-align: left;">Returns a list of TSC <a href=".././tsc/#rail">Rail</a> that is connected to the rail node in <code>pos</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -6551,10 +6588,10 @@
       
         
         
-      <script id="__config" type="application/json">{"annotate":null,"base":"../../..","features":["navigation.path","navigation.top","navigation.tabs","navigation.indexes","content.code.select","content.code.copy","content.code.annotate","content.tooltips"],"redirect":null,"search":"../../../assets/javascripts/workers/search.c47bb847.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"alias":true,"provider":"mike"}}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../..","features":["navigation.path","navigation.top","navigation.tabs","navigation.indexes","content.code.select","content.code.copy","content.code.annotate","content.tooltips"],"redirect":null,"search":"../../../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"alias":true,"provider":"mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.10ee5ab6.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d31f0ffa.min.js"></script>
       
     
   </body>
