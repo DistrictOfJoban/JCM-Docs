@@ -44,6 +44,7 @@ A preset is automatically considered as a Scripted PIDS Preset by specifying eit
       "scriptFiles": ["jsblock:scripts/pids_tut.js"],
       "scriptInput": {"announcement_text": "何意味是什麼意思"},
       "scriptRateLimit": 0.75,
+      "outOfBound": true
     }
   ]
 }
@@ -53,6 +54,7 @@ A preset is automatically considered as a Scripted PIDS Preset by specifying eit
 - `scriptTexts` allows you to directly write JS inside, and are executed before the scripts in **scriptFiles**.
 - `scriptInput` allows you to specify arbitary JSON object. This is then made accessible to the **.js** scripts via the variable `SCRIPT_INPUT`.
 - `scriptRateLimit` applies a rate limit to how often your script is invoked, in seconds. Useful if your script only needs updating every few seconds to save performance.
+- `outOfBound` allows you to specify whether a preset would render outside the intended PIDS size. This needs to be true so Minecraft do not cull and skip rendering the PIDS.
 
 *Note: At the moment, mixing Scripted PIDS Preset and JSON PIDS Preset is not possible.*
 
@@ -183,6 +185,7 @@ Useful for rendering a solid-colored rectangle.
 |:--------------------|:----------|
 |`ArrivalEntries.get(i: int): ArrivalEntry?`|Returns the i<sup>th</sup> arrival entry.<br>Null if there's no i<sup>th</sup> arrival entry or no arrival information.<br>**Note that only up to 10 arrivals is fetched per platform, see this [issue](https://github.com/DistrictOfJoban/Joban-Client-Mod/issues/40) for details.**|
 |`ArrivalEntries.mixedCarLength(): boolean`|Returns whether the list of arrivals have arrival entry with different cars.|
+|`ArrivalEntries.length(): boolean`|Returns the total amount of arrivals retrieved.|
 |`ArrivalEntries.platforms(): List<Platform>`|Returns the platforms that all arrival entry is stopping at.|
 
 ##### ArrivalEntry

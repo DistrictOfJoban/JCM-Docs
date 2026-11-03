@@ -6,7 +6,7 @@ This is the same as MTR/NTE's built-in "Utah Teapot" decoration object, except n
 const SPIN_SPEED = 12;
 
 // Load the MTR's built-in utah teapot model
-const teapotRawModel = ModelManager.loadModel(Resources.id("mtr:models/object/teapot.obj"));
+const teapotRawModel = ModelManager.loadModel("mtr:models/object/teapot.obj");
 
 // The Utah teapot model is quite large by default, we can scale down the model first with code.
 // Of course if you are the modeller yourself, you can always make the model itself more appropriately sized.

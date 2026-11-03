@@ -52,7 +52,7 @@ function render(ctx, state, eyecandy) {
         .corner2(new Vector3f(-1, 2, 0))
         .corner3(new Vector3f(1, 2, 0))
         .corner4(new Vector3f(1, 3, 0))
-        .texture(Resources.id("mtr:your_texture_path_here.png"));
+        .texture("mtr:your_texture_path_here.png");
 
     ctx.getRenderManager().draw(screenDrawCall);
 }

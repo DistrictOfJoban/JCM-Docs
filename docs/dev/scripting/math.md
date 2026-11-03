@@ -30,6 +30,8 @@ A three-dimensional vector, that is, the coordinates (x, y, z).
 |`Vector3f.distance(other: Vector3f): float`|Returns the distance to the coordinates represented by the other vector. |
 |`Vector3f.distanceSq(other: Vector3f): float`| Returns the square of the distance to the coordinates represented by the other vector. The calculation is somewhat faster than in the previous case. |
 |`Vector3f.rawBlockPos(): BlockPos`| Returns BlockPos from Minecraft with rounded vector values. |
+|`Vector3f.rawTscVector(): Vector`| Returns TSC's representation of [Vector](./tsc.md#vector). |
+|`Vector3f.rawTscPosition(): Position`| Returns TSC's representation of [Position](./tsc.md#position). |
 |`static Vector3f.ZERO: Vector3f`|Zero vector. **Do not operate/manipulate this object.** |
 |`static Vector3f.XP: Vector3f`|Vector with value (1, 0, 0). **Do not operate/manipulate this object.**|
 |`static Vector3f.YP: Vector3f`|Vector with value (0, 1, 0). **Do not operate/manipulate this object.**|

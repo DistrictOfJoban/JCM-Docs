@@ -73,7 +73,7 @@ function render(ctx, state, eyecandy) {
                 VanillaText.literal("world!")
                 .withItalic()
                 .withColor(0x00FF00)
-                .withFont(Resources.id("mtr:mtr"))
+                .withFont("mtr:mtr")
             );
 
         let textToSend = textHelloWorld.append(textILoveJs);

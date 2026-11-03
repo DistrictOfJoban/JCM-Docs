@@ -14,6 +14,7 @@ The following outlines the changes made to the MTR mod.
 
 ## Optimization-Related
 - Reduce lag spikes and memory consumption when loading 3D vehicle/object models.
+- Fix an instance of model memory leak in MTR 4, particularly noticable in RP creator.
 - Add Frustum Culling, in addition to MTR's built-in occulusion culling.
 - Attempt to improve frame-rate slightly through means of caching and lazy-evaluation.
 

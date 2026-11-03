@@ -71,7 +71,7 @@ Here, let's look at a snippet of 2 form of script type: **Eyecandy Scripting** a
 
 === "Eyecandy Scripting"
     ```js
-    const poleModelData = ModelManager.loadModel(Resources.id("mtr:example/pole.obj"));
+    const poleModelData = ModelManager.loadModel("mtr:example/pole.obj");
     const poleModel = ModelManager.upload(poleModelData);
 
     function render(ctx, state, eyecandy) {

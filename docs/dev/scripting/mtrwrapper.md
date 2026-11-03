@@ -68,6 +68,17 @@ This allows you to retrieve various client data of MTR.
 |`static`<br>`MTR.Data.getPlayerMountedVehicle(): VehicleExtension?`|Obtain the [VehicleExtension](./tsc.md#vehicle) object that the client is onboard.<br>Returns **null** if player is not onboard a vehicle.|
 |`static`<br>`MTR.Data.getKnownVehicles(): List<VehicleExtension>`|Returns a list of [VehicleExtension](./tsc.md#vehicle) object that the client is aware of.|
 |`static`<br>`MTR.Data.isPlayerMounted(vehicleId: long): boolean`|Whether a player is currently onboard a Vehicle/Lift.|
+|`static`<br>`MTR.Data.getVehicleMountDetail(): MountDetail`|Returns the mount status of the local player.<br>See below for details.|
+
+##### MountDetail
+
+A collection of info regarding to the mount status of the player's vehicle.  
+Note: All values are according to the initial departure configuration. Train turnback does not flip the values reported.
+
+|Functions|Description|
+|:--------|:----------|
+|`MountDetail.ridingCarIndex(): int`|Returns the carriage index the player is riding on.|
+|`MountDetail.pos(): Vector3f`|Returns the position of the player within the car they are riding on, **relative to the centre of the car**, in meters.|
 
 #### Lift Related
 
@@ -76,6 +87,7 @@ This allows you to retrieve various client data of MTR.
 |`static`<br>`MTR.Data.getLift(liftId: long): Lift?`|Obtain the [Lift](./tsc.md#lift) object from a lift ID.<br>Returns **null** if there's no lift with the given id that the client is aware of.|
 |`static`<br>`MTR.Data.getPlayerMountedLift(): Lift?`|Obtain the [Lift](./tsc.md#lift) object that the client is onboard.<br>Returns **null** if player is not onboard a lift.|
 |`static`<br>`MTR.Data.getKnownLifts(): List<Lift>`|Returns a list of [Lift](./tsc.md#lift) object that the client is aware of.|
+|`static`<br>`MTR.Data.getLiftFloors(tscLift: Lift): List<Floor>`|Returns a list of stopping [Floor](./type/lift/index.md#floor) associated with a TSC Lift.|
 
 #### Rail Related
 
@@ -86,6 +98,8 @@ This allows you to retrieve various client data of MTR.
 |`static`<br>`MTR.Data.isRailBlocked(railHexId: String): boolean`|Whether a rail segment is occupied. (Due to signal)|
 |`static`<br>`MTR.Data.getKnownBlockedRails(): List<String>`|Returns a list of Rail Hex IDs whose rail is blocked. (Due to signal)|
 |`static`<br>`MTR.Data.getBlockedSignalColors(railHexId: String): List<Long>`|Returns a list of signal color values (RGB) which is blocked within a rail segment.|
+|`static`<br>`MTR.Data.getConnectedRails(pathData: PathData, front: boolean, back: boolean, excludeSelf: boolean = false): List<Rail>`|Returns a list of TSC [Rail](./tsc.md#rail) that is connected to this path.<br>If `front` is true, rails connected to the front of the path (`getEndDistance()`) will be included.<br>If `back` is true, rails connected to the back of the path (`getStartDistance()`) will be included.<br>If `excludeSelf` is true, it would exclude the rail of the given `pathData`. (i.e. Only search for other interconnected rails)|
+|`static`<br>`MTR.Data.getConnectedRails(pos: Vector3f): List<Rail>`|Returns a list of TSC [Rail](./tsc.md#rail) that is connected to the rail node in `pos`.|
 
 #### Platform Rail Related
 

@@ -266,4 +266,4 @@ At least, good luck on avoiding "method not found" error! ^_^
 ## What JavaScript features are supported?
 The Rhino JavaScript Engine **does not support** all of the latest JavaScript features. See [Mozilla's documentation](https://mozilla.github.io/rhino/compat/engines.html) for details on what is supported.
 
-JCM uses Rhino version **1.9.0**. (NTE uses Rhino **1.7.15** with the `VERSION_ES6` flag enabled.)
+JCM uses Rhino version **1.9.2**. (NTE uses Rhino **1.7.15** with the `VERSION_ES6` flag enabled.)

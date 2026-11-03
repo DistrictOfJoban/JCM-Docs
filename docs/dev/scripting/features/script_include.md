@@ -9,6 +9,7 @@ By calling the function below in your scripts during the **Parsing/Loading stage
 ## Example
 ```js title="script.js" linenums="1"
 include(Resources.id("mtrsteamloco:scripts/display_helper.js"));
+include("mtrsteamloco:scripts/display_helper.js"); // Also ok
 
 function create(ctx, state, eyecandy) {
 // ...

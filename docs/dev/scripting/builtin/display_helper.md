@@ -3,7 +3,7 @@
 This is a built-in script which makes it easier to add digital display screens onto trains/eyecandy.
 
 ## DisplayHelper
-To import this script, insert `include(Resources.id("mtrsteamloco:scripts/display_helper.js"));` at the top of your script.
+To import this script, insert `include("mtrsteamloco:scripts/display_helper.js");` at the top of your script.
 
 |Functions|Description|
 |:--------|:----------|
@@ -19,7 +19,7 @@ To import this script, insert `include(Resources.id("mtrsteamloco:scripts/displa
 ### Example Script
 
 ```js linenums="1"
-include(Resources.id("mtrsteamloco:scripts/display_helper.js"));
+include("mtrsteamloco:scripts/display_helper.js");
 
 let slotCfg = {
   "version": 1,
