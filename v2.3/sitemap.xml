@@ -73,9 +73,6 @@
         <loc>https://jcm.joban.org/v2.3/dev/scripting/console/</loc>
       </url>
       <url>
-        <loc>https://jcm.joban.org/v2.3/dev/scripting/data_reading/</loc>
-      </url>
-      <url>
         <loc>https://jcm.joban.org/v2.3/dev/scripting/dynamic_textures/</loc>
       </url>
       <url>
@@ -106,6 +103,9 @@
         <loc>https://jcm.joban.org/v2.3/dev/scripting/mtrclientdata/</loc>
       </url>
       <url>
+        <loc>https://jcm.joban.org/v2.3/dev/scripting/mtrwrapper/</loc>
+      </url>
+      <url>
         <loc>https://jcm.joban.org/v2.3/dev/scripting/networking/</loc>
       </url>
       <url>
@@ -127,6 +127,9 @@
         <loc>https://jcm.joban.org/v2.3/dev/scripting/type/eyecandy/example/</loc>
       </url>
       <url>
+        <loc>https://jcm.joban.org/v2.3/dev/scripting/type/lift/</loc>
+      </url>
+      <url>
         <loc>https://jcm.joban.org/v2.3/dev/scripting/type/pids/</loc>
       </url>
       <url>
@@ -136,7 +139,28 @@
         <loc>https://jcm.joban.org/v2.3/dev/scripting/type/vehicle/</loc>
       </url>
       <url>
-        <loc>https://jcm.joban.org/v2.3/dev/scripting/utilities/</loc>
+        <loc>https://jcm.joban.org/v2.3/dev/scripting/utils/cycletracker/</loc>
+      </url>
+      <url>
+        <loc>https://jcm.joban.org/v2.3/dev/scripting/utils/datareader/</loc>
+      </url>
+      <url>
+        <loc>https://jcm.joban.org/v2.3/dev/scripting/utils/javautil/</loc>
+      </url>
+      <url>
+        <loc>https://jcm.joban.org/v2.3/dev/scripting/utils/ratelimit/</loc>
+      </url>
+      <url>
+        <loc>https://jcm.joban.org/v2.3/dev/scripting/utils/statetracker/</loc>
+      </url>
+      <url>
+        <loc>https://jcm.joban.org/v2.3/dev/scripting/utils/textutil/</loc>
+      </url>
+      <url>
+        <loc>https://jcm.joban.org/v2.3/dev/scripting/utils/timing/</loc>
+      </url>
+      <url>
+        <loc>https://jcm.joban.org/v2.3/dev/scripting/utils/version/</loc>
       </url>
       <url>
         <loc>https://jcm.joban.org/v2.3/players/</loc>
